@@ -3,23 +3,24 @@
 
 #include "lsim.h"
 
+template <class UsedType>
 class EqdifSim
 {
 private:
     float SampleTime, TimeSimulation;
-    Matrix A, B, C, D, Num, Den, Ad, Bd, Cd, Dd, Numd, Dend;
+    Matrix<UsedType> A, B, C, D, Num, Den, Ad, Bd, Cd, Dd, Numd, Dend;
     string typeModel;
     void tf2ssc();
     void tf2ssd();
     void ss2tfc();
     void ss2tfd();
-    Matrix sumPoly();
+    Matrix<UsedType> sumPoly();
 public:
     EqdifSim();
-    EqdifSim(Matrix AIn, Matrix BIn, Matrix CIn, Matrix DIn);
-    EqdifSim(Matrix AdIn, Matrix BdIn, Matrix CdIn, Matrix DdIn, float Time);
-    EqdifSim(Matrix NumIn, Matrix DenIn);
-    EqdifSim(Matrix NumdIn, Matrix DendIn, float Time);
+    EqdifSim(Matrix<UsedType> AIn, Matrix<UsedType> BIn, Matrix<UsedType> CIn, Matrix<UsedType> DIn);
+    EqdifSim(Matrix<UsedType> AdIn, Matrix<UsedType> BdIn, Matrix<UsedType> CdIn, Matrix<UsedType> DdIn, float Time);
+    EqdifSim(Matrix<UsedType> NumIn, Matrix<UsedType> DenIn);
+    EqdifSim(Matrix<UsedType> NumdIn, Matrix<UsedType> DendIn, float Time);
 
 //    void ss2tf();
 

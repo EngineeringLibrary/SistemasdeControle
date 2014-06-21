@@ -2,7 +2,8 @@
 //#include <cassert>
 #include <ctime>
 
-PSO::PSO()
+template <class UsedType>
+PSO<UsedType>::PSO()
 {
     this->varNum = 1;
     this->PopSize = 80;
@@ -13,7 +14,8 @@ PSO::PSO()
     this->MinMax = false;
 }
 
-PSO::PSO(int varNum, int PopSize, int GenSize)
+template <class UsedType>
+PSO<UsedType>::PSO(int varNum, int PopSize, int GenSize)
 {
 
     this->varNum = varNum;
@@ -26,7 +28,8 @@ PSO::PSO(int varNum, int PopSize, int GenSize)
 
 }
 
-PSO::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2)
+template <class UsedType>
+PSO<UsedType>::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2)
 {
     this->varNum = varNum;
     this->PopSize = PopSize;
@@ -37,7 +40,8 @@ PSO::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2)
     this->MinMax = false;
 }
 
-PSO::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax)
+template <class UsedType>
+PSO<UsedType>::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax)
 {
     this->varNum = varNum;
     this->PopSize = PopSize;
@@ -48,12 +52,14 @@ PSO::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2, double 
     this->MinMax = MinMax;
 }
 
-PSO::~PSO()
+template <class UsedType>
+PSO<UsedType>::~PSO()
 {
 
 }
 
-void PSO::initAlgorithm()
+template <class UsedType>
+void PSO<UsedType>::initAlgorithm()
 {
     this->X.randU(this->PopSize, this->varNum);
 //    X.print();
@@ -69,9 +75,10 @@ void PSO::initAlgorithm()
 
 }
 
-Matrix PSO::Evaluation(Matrix Matrix2Evaluate)
+template <class UsedType>
+Matrix<UsedType> PSO<UsedType>::Evaluation(Matrix<UsedType> Matrix2Evaluate)
 {
-    Matrix ret(Matrix2Evaluate.getRows(), 1);
+    Matrix<UsedType> ret(Matrix2Evaluate.getRows(), 1);
 
     //TODO -> Tornar a função mais fléxivel.
 
@@ -83,12 +90,14 @@ Matrix PSO::Evaluation(Matrix Matrix2Evaluate)
     return ret;
 }
 
-void PSO::ParticleUpdate()
+template <class UsedType>
+void PSO<UsedType>::ParticleUpdate()
 {
     this->X = this->X + this->V;
 }
 
-void PSO::VelocityUpdate()
+template <class UsedType>
+void PSO<UsedType>::VelocityUpdate()
 {
     srand((time(NULL)));
     double Rand1, Rand2;
@@ -103,12 +112,14 @@ void PSO::VelocityUpdate()
         }
 }
 
-void PSO::ParticleEvaluation()
+template <class UsedType>
+void PSO<UsedType>::ParticleEvaluation()
 {
     this->Xfitness = Evaluation(this->X);
 }
 
-void PSO::FitnessUpdate()
+template <class UsedType>
+void PSO<UsedType>::FitnessUpdate()
 {
     if(this->MinMax == true)
         FitnessUpdateMax();
@@ -116,7 +127,8 @@ void PSO::FitnessUpdate()
         FitnessUpdateMin();
 }
 
-void PSO::FitnessUpdateMin()
+template <class UsedType>
+void PSO<UsedType>::FitnessUpdateMin()
 {
   for (int i = 1; i <= this->PopSize; i++)
   {
@@ -136,7 +148,8 @@ void PSO::FitnessUpdateMin()
   }
 }
 
-void PSO::FitnessUpdateMax()
+template <class UsedType>
+void PSO<UsedType>::FitnessUpdateMax()
 {
     for (int i = 1; i <= this->PopSize; i++)
     {
@@ -156,9 +169,10 @@ void PSO::FitnessUpdateMax()
     }
 }
 
-void PSO::Run()
+template <class UsedType>
+void PSO<UsedType>::Run()
 {
-    clock_t start, stop;
+//    clock_t start, stop;
 
 
     initAlgorithm();
@@ -182,7 +196,8 @@ void PSO::Run()
 
 }
 
-void PSO::Run(int nTimes)
+template <class UsedType>
+void PSO<UsedType>::Run(int nTimes)
 {
     this->GnTimes.init(nTimes, this->G.getCols());
     this->GfitnessnTime.init(nTimes, 1);
@@ -199,12 +214,18 @@ void PSO::Run(int nTimes)
 //    this->GfitnessnTime.print();
 }
 
-void PSO::setData(Matrix dataIn, Matrix dataOut)
+template <class UsedType>
+void PSO<UsedType>::setData(Matrix<UsedType> dataIn, Matrix<UsedType> dataOut)
 {
     this->Model.addIO(dataIn, dataOut);
 }
 
-double PSO::getTime()
+template <class UsedType>
+double PSO<UsedType>::getTime()
 {
     return this->Stime;
 }
+
+//template class PSO<int>;
+template class PSO<float>;
+//template class PSO<double>;

@@ -1,24 +1,26 @@
 #include "lsim.h"
 
-Lsim::Lsim()
+template  <class UsedType>
+Lsim<UsedType>::Lsim()
 {
 
 }
 
-void Lsim::addIO(Matrix in, Matrix out)
+template  <class UsedType>
+void Lsim<UsedType>::addIO(Matrix<UsedType> in, Matrix<UsedType> out)
 {
     this->input = in;
     this->output = out;
 }
 
-
-
-
-void Lsim::modelCoef(Matrix coef)
+template  <class UsedType>
+void Lsim<UsedType>::modelCoef(Matrix<UsedType> coef)
 {
     this->X = coef;
 }
-void Lsim::polyModel(int grau)
+
+template  <class UsedType>
+void Lsim<UsedType>::polyModel(int grau)
 {
     this->Model = "polinomial";
     this->input.print();
@@ -27,13 +29,15 @@ void Lsim::polyModel(int grau)
         this->A = this->A|(this->input>i);
 }
 
-void Lsim::simPoly(int grau)
+template  <class UsedType>
+void Lsim<UsedType>::simPoly(int grau)
 {
     this->polyModel(grau);
     this->b = this->A*this->X;
 }
 
-void Lsim::polyCoef(int grau)
+template  <class UsedType>
+void Lsim<UsedType>::polyCoef(int grau)
 {
     this->polyModel(grau);
     this->X = ((~this->A*this->A)^-1)*(~this->A)*this->output;
@@ -41,7 +45,8 @@ void Lsim::polyCoef(int grau)
 
 //Modelos ARX (Auto Recursive with eXogenous output)
 
-void Lsim::arxModel(int ny, int nu)
+template  <class UsedType>
+void Lsim<UsedType>::arxModel(int ny, int nu)
 {
     int maxNuNy,minRowInOut;
     this->Model = "ARX";
@@ -70,7 +75,8 @@ void Lsim::arxModel(int ny, int nu)
 
 }
 
-void Lsim::arxModelOneStep(int ny, int nu, int line)
+template  <class UsedType>
+void Lsim<UsedType>::arxModelOneStep(int ny, int nu, int line)
 {
 
     this->Model = "ARX";
@@ -85,7 +91,8 @@ void Lsim::arxModelOneStep(int ny, int nu, int line)
 
 }
 
-Matrix Lsim::simArxOneStep(int ny, int nu, Matrix ArxPar)
+template  <class UsedType>
+Matrix<UsedType> Lsim<UsedType>::simArxOneStep(int ny, int nu, Matrix<UsedType> ArxPar)
 {
 //    double TempOutput;
     int maxNuNy,minRowInOut;
@@ -112,21 +119,24 @@ Matrix Lsim::simArxOneStep(int ny, int nu, Matrix ArxPar)
 
 }
 
-void Lsim::simArx(int ny, int nu)
+template  <class UsedType>
+void Lsim<UsedType>::simArx(int ny, int nu)
 {
     this->arxModel(ny,nu);
     this->b = this->A*this->X;
 }
 
-void Lsim::arxCoef(int ny, int nu)
+template  <class UsedType>
+void Lsim<UsedType>::arxCoef(int ny, int nu)
 {
     this->arxModel(ny,nu);
     this->X = ((~this->A*this->A)^-1)*(~this->A)*this->b;
 }
 
-void Lsim::eqdifModel(float h)
+template  <class UsedType>
+void Lsim<UsedType>::eqdifModel(UsedType h)
 {
-    Matrix dy, d2y;
+    Matrix<UsedType> dy, d2y;
     dy = diff(this->output,h);
     d2y = diff(dy,h);
 
@@ -139,23 +149,27 @@ void Lsim::eqdifModel(float h)
     this->b = d2y;
 }
 
-void Lsim::eqdifCoef(float h)
+template  <class UsedType>
+void Lsim<UsedType>::eqdifCoef(UsedType h)
 {
     this->eqdifModel(h);
     this->X = ((~this->A*this->A)^-1)*(~this->A)*this->b;
 }
 
-Matrix Lsim::getInput()
+template  <class UsedType>
+Matrix<UsedType> Lsim<UsedType>::getInput()
 {
     return this->input;
 }
 
-Matrix Lsim::getOutput()
+template  <class UsedType>
+Matrix<UsedType> Lsim<UsedType>::getOutput()
 {
     return this->output;
 }
 
-void addIO(const char *namefile, Lsim Sis)
+template  <class UsedType>
+void addIO(const char *namefile, Lsim<UsedType> Sis)
 {
     ifstream myfile(namefile);
     string data;
@@ -194,3 +208,7 @@ void addIO(const char *namefile, Lsim Sis)
             cerr<<msg<<endl;
         }
 }
+
+//template class Lsim<int>;
+template class Lsim<float>;
+//template class Lsim<double>;

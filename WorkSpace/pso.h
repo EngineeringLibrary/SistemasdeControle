@@ -3,17 +3,18 @@
 
 #include "lsim.h"
 
+template <class UsedType>
 class PSO
 {
 private:
     bool MinMax;
     int varNum, PopSize, GenSize;
     double phi1, phi2, omega, Stime;
-    Matrix V, X, P, G, GGen, GnTimes, Xfitness, Pfitness, Gfitness, GfitnessGen, GfitnessnTime, RunTime;
-    Lsim Model;
+    Matrix<UsedType> V, X, P, G, GGen, GnTimes, Xfitness, Pfitness, Gfitness, GfitnessGen, GfitnessnTime, RunTime;
+    Lsim<UsedType> Model;
 
 
-    Matrix Evaluation(Matrix Matrix2Evaluate);
+    Matrix<UsedType> Evaluation(Matrix<UsedType> Matrix2Evaluate);
     void ParticleUpdate();
     void ParticleEvaluation();
     void VelocityUpdate();
@@ -31,7 +32,7 @@ public:
 
     void Run();
     void Run(int nTimes);
-    void setData(Matrix dataIn, Matrix dataOut);
+    void setData(Matrix<UsedType> dataIn, Matrix<UsedType> dataOut);
 
     double getTime();
 };

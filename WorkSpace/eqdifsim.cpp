@@ -1,11 +1,13 @@
 #include "eqdifsim.h"
 
-EqdifSim::EqdifSim()
+template <class UsedType>
+EqdifSim<UsedType>::EqdifSim()
 {
 
 }
 
-EqdifSim::EqdifSim(Matrix AdIn, Matrix BdIn, Matrix CdIn, Matrix DdIn, float Time)
+template <class UsedType>
+EqdifSim<UsedType>::EqdifSim(Matrix<UsedType> AdIn, Matrix<UsedType> BdIn, Matrix<UsedType> CdIn, Matrix<UsedType> DdIn, float Time)
 {
     this->Ad = AdIn;
     this->Bd = BdIn;
@@ -18,7 +20,8 @@ EqdifSim::EqdifSim(Matrix AdIn, Matrix BdIn, Matrix CdIn, Matrix DdIn, float Tim
     this->typeModel = "SSDiscrete";
 }
 
-EqdifSim::EqdifSim(Matrix AIn, Matrix BIn, Matrix CIn, Matrix DIn)
+template <class UsedType>
+EqdifSim<UsedType>::EqdifSim(Matrix<UsedType> AIn, Matrix<UsedType> BIn, Matrix<UsedType> CIn, Matrix<UsedType> DIn)
 {
     this->A = AIn;
     this->B = BIn;
@@ -29,11 +32,10 @@ EqdifSim::EqdifSim(Matrix AIn, Matrix BIn, Matrix CIn, Matrix DIn)
     c2d(0.1);
     ss2tfd();
     this->typeModel = "SSContinuous";
-
-
 }
 
-EqdifSim::EqdifSim(Matrix NumdIn, Matrix DendIn, float Time)
+template <class UsedType>
+EqdifSim<UsedType>::EqdifSim(Matrix<UsedType> NumdIn, Matrix<UsedType> DendIn, float Time)
 {
     this->Numd = NumdIn;
     this->Dend = DendIn;
@@ -44,7 +46,8 @@ EqdifSim::EqdifSim(Matrix NumdIn, Matrix DendIn, float Time)
     this->typeModel = "TFDiscrete";
 }
 
-EqdifSim::EqdifSim(Matrix NumIn, Matrix DenIn)
+template <class UsedType>
+EqdifSim<UsedType>::EqdifSim(Matrix<UsedType> NumIn, Matrix<UsedType> DenIn)
 {
     this->Num = NumIn;
     this->Den = DenIn;
@@ -53,10 +56,10 @@ EqdifSim::EqdifSim(Matrix NumIn, Matrix DenIn)
     c2d(0.1);
     ss2tfd();
     this->typeModel = "TFContinuous";
-
 }
 
-void EqdifSim::c2d(float Time)
+template <class UsedType>
+void EqdifSim<UsedType>::c2d(float Time)
 {
     this->SampleTime = Time;
     this->Ad.zeros(this->A.getRows(), this->A.getCols());
@@ -66,12 +69,12 @@ void EqdifSim::c2d(float Time)
     this->Cd = this->C;
     this->Dd = this->D;
 //    this->typeModel = "SSDiscrete";
-
 }
 
-void EqdifSim::d2c()
+template <class UsedType>
+void EqdifSim<UsedType>::d2c()
 {
-    Matrix Mat, E, Temp, Root, I, ZeroVector, IAd;
+    Matrix<UsedType> Mat, E, Temp, Root, I, ZeroVector, IAd;
 
     Mat = this->Ad.eigenvalues();
     IAd.eye(this->Ad.getRows());
@@ -94,9 +97,8 @@ void EqdifSim::d2c()
     this->D = this->Dd;
 }
 
-
-
-void EqdifSim::printSS()
+template <class UsedType>
+void EqdifSim<UsedType>::printSS()
 {
 
     if (this->typeModel == "SSDiscrete")
@@ -126,11 +128,12 @@ void EqdifSim::printSS()
 
 }
 
-void EqdifSim::printTF()
+template <class UsedType>
+void EqdifSim<UsedType>::printTF()
 {
     int maxSize;
     char x;
-    Matrix num, den;
+    Matrix<UsedType> num, den;
 
     if(this->typeModel == "TFContinous")
     {
@@ -229,7 +232,8 @@ void EqdifSim::printTF()
     std::cout << '\n';
 }
 
-void EqdifSim::print()
+template <class UsedType>
+void EqdifSim<UsedType>::print()
 {
     int a  = this->typeModel.find("SS");
     if (a != -1)
@@ -238,9 +242,10 @@ void EqdifSim::print()
         this->printTF();
 }
 
-void EqdifSim::tf2ssc()
+template <class UsedType>
+void EqdifSim<UsedType>::tf2ssc()
 {
-    Matrix I, ZeroVector, tempDen( 1, this->Den.getCols()-1);
+    Matrix<UsedType> I, ZeroVector, tempDen( 1, this->Den.getCols()-1);
 
     I.eye(this->Den.getCols()-2);
     ZeroVector.zeros( this->Den.getCols()-2, 1);
@@ -275,9 +280,10 @@ void EqdifSim::tf2ssc()
     }
 }
 
-void EqdifSim::tf2ssd()
+template <class UsedType>
+void EqdifSim<UsedType>::tf2ssd()
 {
-    Matrix I, ZeroVector, tempDen( 1, this->Dend.getCols()-1);
+    Matrix<UsedType> I, ZeroVector, tempDen( 1, this->Dend.getCols()-1);
 
     I.eye(this->Dend.getCols()-2);
     ZeroVector.zeros( this->Dend.getCols()-2, 1);
@@ -312,9 +318,10 @@ void EqdifSim::tf2ssd()
     }
 }
 
-void EqdifSim::ss2tfc()
+template <class UsedType>
+void EqdifSim<UsedType>::ss2tfc()
 {
-    Matrix Temp;
+    Matrix<UsedType> Temp;
 
     Temp = this->A - (this->B*this->C);
     this->Num = Temp.pol();
@@ -323,9 +330,10 @@ void EqdifSim::ss2tfc()
     Den.print();
 }
 
-void EqdifSim::ss2tfd()
+template <class UsedType>
+void EqdifSim<UsedType>::ss2tfd()
 {
-    Matrix Temp, I;
+    Matrix<UsedType> Temp, I;
 
     I.eye(this->Ad.getRows());
 
@@ -338,9 +346,9 @@ void EqdifSim::ss2tfd()
 }
 
 
-//Matrix EqdifSim::sumPoly()
+//Matrix<UsedType> EqdifSim<UsedType>::sumPoly()
 //{
-//        Matrix ret;
+//        Matrix<UsedType> ret;
 //        unsigned int maxNum, difNum;
 
 //        if(vNumSize1 > vNumSize2) {
@@ -370,8 +378,8 @@ void EqdifSim::ss2tfd()
 //        }
 //        return ret;
 //}
-
-float EqdifSim::factorial(float n)
+template <class UsedType>
+float EqdifSim<UsedType>::factorial(float n)
 {
     float retval = 1;
 
@@ -380,3 +388,7 @@ float EqdifSim::factorial(float n)
 
     return retval;
 }
+
+//class template EqdifSim<int>;
+class template EqdifSim<float>;
+//class template EqdifSim<double>;
