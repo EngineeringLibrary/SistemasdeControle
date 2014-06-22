@@ -228,4 +228,4 @@ double PSO<UsedType>::getTime()
 
 //template class PSO<int>;
 template class PSO<float>;
-//template class PSO<double>;
+template class PSO<double>;

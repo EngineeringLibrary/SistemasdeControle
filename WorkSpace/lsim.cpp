@@ -211,4 +211,4 @@ void addIO(const char *namefile, Lsim<UsedType> Sis)
 
 //template class Lsim<int>;
 template class Lsim<float>;
-//template class Lsim<double>;
+template class Lsim<double>;

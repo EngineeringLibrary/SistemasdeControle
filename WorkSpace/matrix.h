@@ -71,14 +71,22 @@ public:
 
     //-----Operadores de Soma-----//
     Matrix operator+(Matrix Mat1);//Soma Matriz Matriz
+<<<<<<< HEAD
     Matrix operator+(float a);//Soma Escalar Matriz
     friend Matrix operator+(float a, Matrix Mat1);//Soma Matriz Escalar
+=======
+    Matrix operator+(UsedType a);//Soma Escalar Matriz
+>>>>>>> a62321e55a576844fc9c283cd774bc003e402cf4
     //--------------------------//
 
     //-----Operadores de Subtração-----//
     Matrix operator-(Matrix Mat1);//Subtração Matriz Matriz
+<<<<<<< HEAD
     Matrix operator-(float a);//Subtração Escalar Matriz
     friend Matrix operator-(float a, Matrix Mat1);//Subtração Matriz Escalar
+=======
+    Matrix operator-(UsedType a);//Subtração Escalar Matriz
+>>>>>>> a62321e55a576844fc9c283cd774bc003e402cf4
     //--------------------------------//
 
     //-----Operadores de Atribuição-----//
@@ -89,8 +97,12 @@ public:
 
     //-----Operadores de Multiplicação-----//
     Matrix operator*(Matrix Mat1);//Multiplicação Matriz Matriz
+<<<<<<< HEAD
     Matrix operator*(float a);//Multiplicação Escalar Matriz
     friend Matrix operator*(float a, Matrix Mat1);//Multiplicação Matriz Escalar
+=======
+    Matrix operator*(UsedType a);//Multiplicação Escalar Matriz
+>>>>>>> a62321e55a576844fc9c283cd774bc003e402cf4
     //------------------------------------//
 
     Matrix operator/(Matrix Mat1);
@@ -125,8 +137,12 @@ public:
     Matrix inv();//Cálculo da matriz inversa da matriz.
     Matrix pol();//Cálculo dos índices do polinômio característico da matriz.
     Matrix eigenvalues();//Cálculo dos auto valores de uma matriz.
+<<<<<<< HEAD
     float det();//Cálculo do determinante de uma matriz.
     friend Matrix diff(Matrix M, float h);//Cálcula a derivada de uma matriz.
+=======
+    UsedType det();//Cálculo do determinante de uma matriz.
+>>>>>>> a62321e55a576844fc9c283cd774bc003e402cf4
     //##############################//
 
 
@@ -138,6 +154,12 @@ public:
     float getMat(int row, int col);//Retorna o elemento no índice ij da matriz.
     void setMat(int row, int col, float num);
     //#######################################################//
+//Friend functions
+    template<class FriendType> friend Matrix<FriendType> operator+ (FriendType a, Matrix<FriendType> Mat1);//Soma Matriz Escalar
+    template<class FriendType> friend Matrix<FriendType> operator- (FriendType a, Matrix<FriendType> Mat1);//Subtração Matriz Escalar
+    template<class FriendType> friend Matrix<FriendType> operator* (FriendType a, Matrix<FriendType> Mat1);//Multiplicação Matriz Escalar
+
+    template<class FriendType> friend Matrix<FriendType> diff(Matrix<FriendType> M, FriendType h);//Cálcula a derivada de uma matriz.
 
     friend float max(Matrix M);//Retorna o maior valor de uma matriz
     friend float min(Matrix M);//Retorna o menor valor de uma matriz
