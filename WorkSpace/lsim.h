@@ -32,6 +32,7 @@ class Lsim
     //Retornando a entrada e a saída
         Matrix<UsedType> getInput();
         Matrix<UsedType> getOutput();
+//        Matrix<UsedType> getPhi(int ny, int nu, int line);
 };
 
 #endif // LSIM_H

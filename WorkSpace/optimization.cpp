@@ -1,10 +1,12 @@
 #include "optimization.h"
 
-Optimization::Optimization()
+template <class UsedType>
+Optimization<UsedType>::Optimization()
 {
 }
 
-void Optimization::initRLS(int nu, int ny, unsigned long int p0)
+template <class UsedType>
+void Optimization<UsedType>::initRLS(int nu, int ny, unsigned long int p0)
 {
     this->nu = nu;
     this->ny = ny;
@@ -15,12 +17,13 @@ void Optimization::initRLS(int nu, int ny, unsigned long int p0)
     this->lambda = 1;
     this->size = min(this->Model.getInput().getCols(), this->Model.getOutput().getCols());
     this->P = this->P*(this->p0);
-    this->Theta = this->Theta/(float)this->p0;
+    this->Theta = this->Theta/(UsedType)this->p0;
 }
 
-void Optimization::RLS(int nu, int ny, unsigned long int p0, Matrix in, Matrix out)
+template <class UsedType>
+void Optimization<UsedType>::RLS(int nu, int ny, unsigned long int p0, Matrix<UsedType> in, Matrix<UsedType> out)
 {
-    Matrix K;
+    Matrix<UsedType> K;
     double e;
 
 
@@ -30,7 +33,7 @@ void Optimization::RLS(int nu, int ny, unsigned long int p0, Matrix in, Matrix o
     for(int i = (this->nu + this->ny + 1); i < this->size; i++)
     {
         this->A = Model.getPhi(ny, nu, i);
-        K = this->P*this->A/(this->lambda + ((~this->A * this->P)*this->A));
+        K = this->P*this->A/((UsedType)this->lambda + ((~this->A * this->P)*this->A));
         this->P = (this->P - (K*(~this->A)*this->P))/this->lambda;
         //this->Error.add(i,1, Model.getOutput()(i,1) - this->A*this->Theta);
         e = (Model.getOutput()(i,1) - this->A*this->Theta)(1,1);
@@ -38,3 +41,6 @@ void Optimization::RLS(int nu, int ny, unsigned long int p0, Matrix in, Matrix o
     }
     this->Theta.print();
 }
+
+template class Optimization<float>;
+template class Optimization<double>;

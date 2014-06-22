@@ -442,6 +442,36 @@ Matrix<FriendType> operator*(FriendType a, Matrix<FriendType> Mat1)//Operador de
 }
 //-----Fim Operadores de Multiplicação-----//
 
+template <class UsedType>
+Matrix<UsedType> Matrix<UsedType>::operator *(Matrix<UsedType> Mat1)//Operador de Multiplicação Matriz Matriz
+{
+    if(Mat1.rows == 1 && Mat1.cols == 1)
+        return *this/(Mat(1,1));
+    else if(this->rows == 1 && this->cols == 1)
+        return (*this)(1,1)*Mat1.inv();
+    else
+        return *this*Mat1.inv();
+}
+
+template <class UsedType>
+Matrix<UsedType> Matrix<UsedType>::operator/ (UsedType a)//Operador de multiplicação Escalar Matriz
+{
+    Matrix<UsedType> Ret(this->rows, this->cols);
+
+    for(int i = 0; i < this->rows; i++)
+        for (int j = 0; j < this->cols; j++)
+            Ret.Mat[i][j] = a/this->Mat[i][j];
+
+    return Ret;
+}
+
+template <class FriendType>
+Matrix<FriendType> operator/ (FriendType a, Matrix<FriendType> Mat1)//Operador de multiplicação Matriz Escalar
+{
+    return Mat1/a;
+}
+
+
 //-----Início Operadores de Concatenação Matrizes-----//
 template <class UsedType>
 Matrix<UsedType> Matrix<UsedType>::operator|(Matrix<UsedType> Mat1)//Concatenção de Matrizes a Esquerda

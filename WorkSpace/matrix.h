@@ -84,6 +84,11 @@ public:
     Matrix operator*(UsedType a);//Multiplicação Escalar Matriz
     //------------------------------------//
 
+    //-----Operadores de Multiplicação-----//
+    Matrix operator/(Matrix Mat1);//Multiplicação Matriz Matriz
+    Matrix operator/(UsedType a);//Multiplicação Escalar Matriz
+    //------------------------------------//
+
     //-----Operadores de Concatenação Matrizes-----//
     Matrix operator| (Matrix Mat1);//Concatena Matrizes a Esquerda
     Matrix operator|| (Matrix Mat1);//Concatena Matrizes Abaixo
