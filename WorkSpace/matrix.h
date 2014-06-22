@@ -105,9 +105,16 @@ public:
 >>>>>>> a62321e55a576844fc9c283cd774bc003e402cf4
     //------------------------------------//
 
+<<<<<<< HEAD
     Matrix operator/(Matrix Mat1);
     Matrix operator/(float a);
     friend Matrix operator/(float a, Matrix Mat1);
+=======
+    //-----Operadores de Multiplicação-----//
+    Matrix operator/(Matrix Mat1);//Multiplicação Matriz Matriz
+    Matrix operator/(UsedType a);//Multiplicação Escalar Matriz
+    //------------------------------------//
+>>>>>>> 97dd5b5a1eacfd116a8098ae60313c6d8f359727
 
     //-----Operadores de Concatenação Matrizes-----//
     Matrix operator| (Matrix Mat1);//Concatena Matrizes a Esquerda
@@ -155,9 +162,10 @@ public:
     void setMat(int row, int col, float num);
     //#######################################################//
 //Friend functions
-    template<class FriendType> friend Matrix<FriendType> operator+ (FriendType a, Matrix<FriendType> Mat1);//Soma Matriz Escalar
+    template<class FriendType> friend Matrix<FriendType> operator- (FriendType a, Matrix<FriendType> Mat1);//Soma Matriz Escalar
     template<class FriendType> friend Matrix<FriendType> operator- (FriendType a, Matrix<FriendType> Mat1);//Subtração Matriz Escalar
     template<class FriendType> friend Matrix<FriendType> operator* (FriendType a, Matrix<FriendType> Mat1);//Multiplicação Matriz Escalar
+    template<class FriendType> friend Matrix<FriendType> operator/ (FriendType a, Matrix<FriendType> Mat1);//divisão Matriz Escalar
 
     template<class FriendType> friend Matrix<FriendType> diff(Matrix<FriendType> M, FriendType h);//Cálcula a derivada de uma matriz.
 

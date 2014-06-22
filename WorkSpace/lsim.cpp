@@ -92,6 +92,29 @@ void Lsim<UsedType>::arxModelOneStep(int ny, int nu, int line)
 }
 
 template  <class UsedType>
+void Lsim<UsedType>::arxModelOneStepReal(int ny, int nu, int line)
+{
+
+    this->Model = "ARX";
+
+    for(int j = 0; j < nu+ny; j++)
+    {
+        if(j<ny)
+            this->Phi.add(1,j+1,-this->output(line-j-1, 1));
+        else
+            this->Phi.add(1,j+1,this->input(line+ny-j-1, 1));
+    }
+
+}
+
+template  <class UsedType>
+Matrix<UsedType> Lsim<UsedType>::getArxPhi(int ny, int nu, int line)
+{
+    this->arxModelOneStepReal(ny, nu, line);
+    return this->Phi;
+}
+
+template  <class UsedType>
 Matrix<UsedType> Lsim<UsedType>::simArxOneStep(int ny, int nu, Matrix<UsedType> ArxPar)
 {
 //    double TempOutput;
