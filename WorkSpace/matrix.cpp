@@ -443,7 +443,7 @@ Matrix<FriendType> operator*(FriendType a, Matrix<FriendType> Mat1)//Operador de
 //-----Fim Operadores de Multiplicação-----//
 
 template <class UsedType>
-Matrix<UsedType> Matrix<UsedType>::operator *(Matrix<UsedType> Mat1)//Operador de Multiplicação Matriz Matriz
+Matrix<UsedType> Matrix<UsedType>::operator /(Matrix<UsedType> Mat1)//Operador de Multiplicação Matriz Matriz
 {
     if(Mat1.rows == 1 && Mat1.cols == 1)
         return *this/(Mat(1,1));
