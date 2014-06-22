@@ -391,4 +391,4 @@ float EqdifSim<UsedType>::factorial(float n)
 
 //class template EqdifSim<int>;
 class template EqdifSim<float>;
-//class template EqdifSim<double>;
+class template EqdifSim<double>;
