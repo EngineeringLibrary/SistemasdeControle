@@ -290,7 +290,7 @@ void Matrix<UsedType>::print()//Imprime a Matriz na Tela
     {
         for (int j = 0; j< this->cols; j++)
         {
-            printf("%6.3f", this->Mat[i][j]);
+            printf("%6.3f", (float)this->Mat[i][j]);
             cout<<" ";
         }
         cout<<endl;
@@ -1095,15 +1095,96 @@ UsedType norm(Matrix<UsedType> M1)
 //    return pow(num1,num2);
 //}
 //template Matrix<double>::Matrix<double>();
-
-//template class Matrix<int>;
+//--------------------------------------------------------------------------------//
+//-----------------------------Int Template---------------------------------------//
+template class Matrix<int>;
+//template Matrix<int> operator+<int> (int, Matrix<int>);
+//template Matrix<int> operator-<int> (int, Matrix<int>);
+template Matrix<int> operator*<int> (int, Matrix<int>);
+template Matrix<int> diff<int> (Matrix<int>, int);
+template int max<int> (Matrix<int>);
+template int min<int> (Matrix<int>);
+//template int norm<int> (Matrix<int>);
+//template Matrix<int> abs<int> (Matrix<int>);
+//template Matrix<int> cos<int> (Matrix<int>);
+//template Matrix<int> sin<int> (Matrix<int>);
+//template Matrix<int> tan<int> (Matrix<int>);
+//template Matrix<int> acos<int> (Matrix<int>);
+//template Matrix<int> asin<int> (Matrix<int>);
+//template Matrix<int> atan<int> (Matrix<int>);
+//template Matrix<int> cosh<int> (Matrix<int>);
+//template Matrix<int> sinh<int> (Matrix<int>);
+//template Matrix<int> tanh<int> (Matrix<int>);
+//template Matrix<int> acosh<int> (Matrix<int>);
+//template Matrix<int> asinh<int> (Matrix<int>);
+//template Matrix<int> atanh<int> (Matrix<int>);
+//template Matrix<int> exp<int> (Matrix<int>);
+//template Matrix<int> log<int> (Matrix<int>);
+//template Matrix<int> log10<int> (Matrix<int>);
+template Matrix<int> ceil<int> (Matrix<int>);
+template Matrix<int> round<int> (Matrix<int>);
+template Matrix<int> floor<int> (Matrix<int>);
+//-------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------//
+//-----------------------------Int Template---------------------------------------//
+template class Matrix<double>;
+//template Matrix<double> operator+<double> (double, Matrix<double>);
+//template Matrix<double> operator-<double> (double, Matrix<double>);
+template Matrix<double> operator*<double> (double, Matrix<double>);
+template Matrix<double> diff<double> (Matrix<double>, double);
+template double max<double> (Matrix<double>);
+template double min<double> (Matrix<double>);
+template double norm<double> (Matrix<double>);
+template Matrix<double> abs<double> (Matrix<double>);
+template Matrix<double> cos<double> (Matrix<double>);
+template Matrix<double> sin<double> (Matrix<double>);
+template Matrix<double> tan<double> (Matrix<double>);
+template Matrix<double> acos<double> (Matrix<double>);
+template Matrix<double> asin<double> (Matrix<double>);
+template Matrix<double> atan<double> (Matrix<double>);
+template Matrix<double> cosh<double> (Matrix<double>);
+template Matrix<double> sinh<double> (Matrix<double>);
+template Matrix<double> tanh<double> (Matrix<double>);
+template Matrix<double> acosh<double> (Matrix<double>);
+template Matrix<double> asinh<double> (Matrix<double>);
+template Matrix<double> atanh<double> (Matrix<double>);
+template Matrix<double> exp<double> (Matrix<double>);
+template Matrix<double> log<double> (Matrix<double>);
+template Matrix<double> log10<double> (Matrix<double>);
+template Matrix<double> ceil<double> (Matrix<double>);
+template Matrix<double> round<double> (Matrix<double>);
+template Matrix<double> floor<double> (Matrix<double>);
+//-------------------------------------------------------------------------------//
+//--------------------------------------------------------------------------------//
+//-----------------------------Int Template---------------------------------------//
 template class Matrix<float>;
-//template class Matrix<double>;
-template float norm<float>(Matrix<float>);
-template Matrix<float>diff<float>(Matrix<float>,float);
-template Matrix<float> operator*<float>(float,Matrix<float>);
-//template Matrix<float> operator*<float>(float, Matrix<float>);
-//template float diff<float>(Matrix<float>);
+//template Matrix<float> operator+<float> (float, Matrix<float>);
+//template Matrix<float> operator-<float> (float, Matrix<float>);
+template Matrix<float> operator*<float> (float, Matrix<float>);
+template Matrix<float> diff<float> (Matrix<float>, float);
+template float max<float> (Matrix<float>);
+template float min<float> (Matrix<float>);
+template float norm<float> (Matrix<float>);
+template Matrix<float> abs<float> (Matrix<float>);
+template Matrix<float> cos<float> (Matrix<float>);
+template Matrix<float> sin<float> (Matrix<float>);
+template Matrix<float> tan<float> (Matrix<float>);
+template Matrix<float> acos<float> (Matrix<float>);
+template Matrix<float> asin<float> (Matrix<float>);
+template Matrix<float> atan<float> (Matrix<float>);
+template Matrix<float> cosh<float> (Matrix<float>);
+template Matrix<float> sinh<float> (Matrix<float>);
+template Matrix<float> tanh<float> (Matrix<float>);
+template Matrix<float> acosh<float> (Matrix<float>);
+template Matrix<float> asinh<float> (Matrix<float>);
+template Matrix<float> atanh<float> (Matrix<float>);
+template Matrix<float> exp<float> (Matrix<float>);
+template Matrix<float> log<float> (Matrix<float>);
+template Matrix<float> log10<float> (Matrix<float>);
+template Matrix<float> ceil<float> (Matrix<float>);
+template Matrix<float> round<float> (Matrix<float>);
+template Matrix<float> floor<float> (Matrix<float>);
+//-------------------------------------------------------------------------------//
 
 
 

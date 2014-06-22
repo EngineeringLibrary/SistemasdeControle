@@ -66,14 +66,11 @@ public:
     //-----Operadores de Soma-----//
     Matrix operator+(Matrix Mat1);//Soma Matriz Matriz
     Matrix operator+(UsedType a);//Soma Escalar Matriz
-
-    template<class FriendType> friend Matrix operator+(FriendType a, Matrix Mat1);//Soma Matriz Escalar
     //--------------------------//
 
     //-----Operadores de Subtração-----//
     Matrix operator-(Matrix Mat1);//Subtração Matriz Matriz
     Matrix operator-(UsedType a);//Subtração Escalar Matriz
-    template<class FriendType> friend Matrix operator-(FriendType a, Matrix Mat1);//Subtração Matriz Escalar
     //--------------------------------//
 
     //-----Operadores de Atribuição-----//
@@ -85,7 +82,6 @@ public:
     //-----Operadores de Multiplicação-----//
     Matrix operator*(Matrix Mat1);//Multiplicação Matriz Matriz
     Matrix operator*(UsedType a);//Multiplicação Escalar Matriz
-    template<class FriendType> friend Matrix<FriendType> operator*(FriendType a, Matrix<FriendType> Mat1);//Multiplicação Matriz Escalar
     //------------------------------------//
 
     //-----Operadores de Concatenação Matrizes-----//
@@ -114,7 +110,6 @@ public:
     Matrix pol();//Cálculo dos índices do polinômio característico da matriz.
     Matrix eigenvalues();//Cálculo dos auto valores de uma matriz.
     UsedType det();//Cálculo do determinante de uma matriz.
-    template<class FriendType> friend Matrix<FriendType> diff(Matrix<FriendType> M, FriendType h);//Cálcula a derivada de uma matriz.
     //##############################//
 
 
@@ -126,6 +121,12 @@ public:
     UsedType getMat(int row, int col);//Retorna o elemento no índice ij da matriz.
     void setMat(int row, int col, UsedType num);
     //#######################################################//
+//Friend functions
+    template<class FriendType> friend Matrix<FriendType> operator+ (FriendType a, Matrix<FriendType> Mat1);//Soma Matriz Escalar
+    template<class FriendType> friend Matrix<FriendType> operator- (FriendType a, Matrix<FriendType> Mat1);//Subtração Matriz Escalar
+    template<class FriendType> friend Matrix<FriendType> operator* (FriendType a, Matrix<FriendType> Mat1);//Multiplicação Matriz Escalar
+
+    template<class FriendType> friend Matrix<FriendType> diff(Matrix<FriendType> M, FriendType h);//Cálcula a derivada de uma matriz.
 
     template<class FriendType> friend FriendType max(Matrix<FriendType> M);//Retorna o maior valor de uma matriz
     template<class FriendType> friend FriendType min(Matrix<FriendType> M);//Retorna o menor valor de uma matriz
