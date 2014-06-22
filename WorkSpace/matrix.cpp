@@ -199,6 +199,7 @@ void Matrix<UsedType>::eye(int num)//Gera uma Matriz Identidade, entrando como p
 template <class UsedType>
 void Matrix<UsedType>::ones(int row, int col)//Cria uma matriz preenchida com 1s.
 {
+    this->init(row, col);
     for (int i = 0; i < row; i++)
         for (int j = 0; j < col; j++)
             this->Mat[i][j] = 1;
@@ -395,12 +396,7 @@ Matrix<UsedType> Matrix<UsedType>::operator *(Matrix<UsedType> Mat1)//Operador d
 
     try
     {
-        if (this->cols != Mat1.rows)
-        {
-            throw "As dimensoes das matrizes nao batem, a multiplicacao nao e possivel";
-            Ret.zeros(this->rows, Mat1.cols);
-        }
-        else
+        if(this->cols == Mat1.rows)
         {
             for(int i = 0; i < this->rows; i++)
             {
@@ -413,8 +409,15 @@ Matrix<UsedType> Matrix<UsedType>::operator *(Matrix<UsedType> Mat1)//Operador d
                 }
 
             }
+
             return Ret;
        }
+
+        else
+        {
+            throw "As dimensoes das matrizes nao batem, a multiplicacao nao e possivel";
+            Ret.zeros(this->rows, Mat1.cols);
+        }
     }
     catch(const char* msg)
     {
@@ -446,11 +449,11 @@ template <class UsedType>
 Matrix<UsedType> Matrix<UsedType>::operator /(Matrix<UsedType> Mat1)//Operador de Multiplicação Matriz Matriz
 {
     if(Mat1.rows == 1 && Mat1.cols == 1)
-        return *this/(Mat(1,1));
+        return (*this)/(Mat1(1,1));
     else if(this->rows == 1 && this->cols == 1)
-        return (*this)(1,1)*Mat1.inv();
+        return ((*this)(1,1))*Mat1.inv();
     else
-        return *this*Mat1.inv();
+        return (*this)*Mat1.inv();
 }
 
 template <class UsedType>
@@ -460,7 +463,7 @@ Matrix<UsedType> Matrix<UsedType>::operator/ (UsedType a)//Operador de multiplic
 
     for(int i = 0; i < this->rows; i++)
         for (int j = 0; j < this->cols; j++)
-            Ret.Mat[i][j] = a/this->Mat[i][j];
+            Ret.Mat[i][j] = this->Mat[i][j]/a;
 
     return Ret;
 }
@@ -468,7 +471,7 @@ Matrix<UsedType> Matrix<UsedType>::operator/ (UsedType a)//Operador de multiplic
 template <class FriendType>
 Matrix<FriendType> operator/ (FriendType a, Matrix<FriendType> Mat1)//Operador de multiplicação Matriz Escalar
 {
-    return Mat1/a;
+    return a*Mat1.inv();
 }
 
 
@@ -1131,6 +1134,7 @@ template class Matrix<int>;
 //template Matrix<int> operator+<int> (int, Matrix<int>);
 //template Matrix<int> operator-<int> (int, Matrix<int>);
 template Matrix<int> operator*<int> (int, Matrix<int>);
+template Matrix<int> operator/<int> (int, Matrix<int>);
 template Matrix<int> diff<int> (Matrix<int>, int);
 template int max<int> (Matrix<int>);
 template int min<int> (Matrix<int>);
@@ -1161,6 +1165,7 @@ template class Matrix<double>;
 //template Matrix<double> operator+<double> (double, Matrix<double>);
 //template Matrix<double> operator-<double> (double, Matrix<double>);
 template Matrix<double> operator*<double> (double, Matrix<double>);
+template Matrix<double> operator/<double> (double, Matrix<double>);
 template Matrix<double> diff<double> (Matrix<double>, double);
 template double max<double> (Matrix<double>);
 template double min<double> (Matrix<double>);
@@ -1191,6 +1196,7 @@ template class Matrix<float>;
 //template Matrix<float> operator+<float> (float, Matrix<float>);
 //template Matrix<float> operator-<float> (float, Matrix<float>);
 template Matrix<float> operator*<float> (float, Matrix<float>);
+template Matrix<float> operator/<float> (float, Matrix<float>);
 template Matrix<float> diff<float> (Matrix<float>, float);
 template float max<float> (Matrix<float>);
 template float min<float> (Matrix<float>);

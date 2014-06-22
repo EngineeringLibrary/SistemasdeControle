@@ -127,9 +127,10 @@ public:
     void setMat(int row, int col, UsedType num);
     //#######################################################//
 //Friend functions
-    template<class FriendType> friend Matrix<FriendType> operator+ (FriendType a, Matrix<FriendType> Mat1);//Soma Matriz Escalar
+    template<class FriendType> friend Matrix<FriendType> operator- (FriendType a, Matrix<FriendType> Mat1);//Soma Matriz Escalar
     template<class FriendType> friend Matrix<FriendType> operator- (FriendType a, Matrix<FriendType> Mat1);//Subtração Matriz Escalar
     template<class FriendType> friend Matrix<FriendType> operator* (FriendType a, Matrix<FriendType> Mat1);//Multiplicação Matriz Escalar
+    template<class FriendType> friend Matrix<FriendType> operator/ (FriendType a, Matrix<FriendType> Mat1);//divisão Matriz Escalar
 
     template<class FriendType> friend Matrix<FriendType> diff(Matrix<FriendType> M, FriendType h);//Cálcula a derivada de uma matriz.
 

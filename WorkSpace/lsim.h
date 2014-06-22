@@ -23,6 +23,8 @@ class Lsim
     //Modelos ARX (Auto Recursive with eXogenous output)
         void arxModel(int ny, int nu);
         void arxModelOneStep(int ny, int nu, int line);
+        void arxModelOneStepReal(int ny, int nu, int line);
+        Matrix<UsedType> getArxPhi(int ny, int nu, int line);
         Matrix<UsedType> simArxOneStep(int ny, int nu, Matrix<UsedType> ArxPar);
         void simArx(int ny, int nu);
         void arxCoef(int ny, int nu);
