@@ -3,6 +3,10 @@
 template <class UsedType>
 Sim<UsedType>::Sim(Matrix<UsedType> InPut, Matrix<UsedType> OutPut, string Model, int var1, int var2, int var3, int var4, int var5)
 {
+    this->InPut = InPut;
+    this->OutPut = OutPut;
+    DataChange = 0;
+
     if(Model == "POLINOMIAL")
     {
         this->TypeModel = Model;
@@ -63,6 +67,7 @@ Sim<UsedType>::Sim(Matrix<UsedType> InPut, Matrix<UsedType> OutPut, string Model
 //        this->TypeModel = Model;
 //        this->nInPut    = var1;
 //        this->nSample   = var2;
+        this->NonLinDegree = var5;
 //    }
 //    else if(Model == "NARMAX")
 //    {
@@ -72,9 +77,9 @@ Sim<UsedType>::Sim(Matrix<UsedType> InPut, Matrix<UsedType> OutPut, string Model
 //    }
 }
 
-//----------------------------------------------------------------------------------------//
-//------------------------------One Step Model Construction-------------------------------//
-//----------------------------------------------------------------------------------------//
+//-----------------------------------------------------------------------//
+//--------------------One Step Model Construction------------------------//
+//-----------------------------------------------------------------------//
 
 template <class UsedType>
 void Sim<UsedType>::SetPolyOneStep()
@@ -86,102 +91,51 @@ void Sim<UsedType>::SetPolyOneStep()
             this->LinSysOneStep.add(1, j + ((this->Degree + 1)*i), pow((double) this->InPut(this->nSample, i + 1), j - 1));
 }
 
-//template <class UsedType>
-//void Sim<UsedType>::SetMaOneStep()
-//{
-//    this->LinSysOneStep.zeros(1, this->nOutPut*this->OutPut.getCols());
-//    for(int i = 1; i <= this->OutPut.getCols(); i++)
-//        for(int j = 1; j <= this->nOutPut; j++)
-//            this->LinSysOneStep.add(1, j + ((this->nOutPut)*i), -this->EstOutPut(this->nSample - j, 1));
-//}
-
-//template <class UsedType>
-//void Sim<UsedType>::SetFirOneStep()
-//{
-//    this->LinSysOneStep.zeros(1, this->nInPut*this->InPut.getCols());
-//    for(int i = 1; i <= this->InPut.getCols(); i++)
-//        for(int j = 1; j <= this->nInput; j++)
-//            this->LinSysOneStep.add(1, j + ((this->nInPut)*i), this->InPut(this->nSample - j, 1));
-//}
-
-//template <class UsedType>
-//void Sim<UsedType>::SetArxOneStep()
-//{
-//    this->LinSysOneStep.zeros(1, this->nInPut*this->InPut.getCols() + this->nOutPut*this->OutPut.getCols());
-//    for(int i = 1; i <= this->InPut.getCols() + this->OutPut.getCols(); i++)
-//    {
-//        if(i <= this->OutPut + ((this->nInPut + this->nOutPut)*i))
-//        {
-//            for(int j = 1; j <= this->nOutPut; j++)
-//                this->LinSysOneStep.add(1, j + ((this->nInPut + this->nOutPut)*i), -this->EstOutPut(this->nSample - j, 1));
-//        }
-//        else
-//        {
-//            for(int j = 1; j <= this->nInput; j++)
-//                this->LinSysOneStep.add(1, j + ((this->nInPut + this->nOutPut)*i), this->InPut(this->nSample - j, 1));
-//        }
-//    }
-//}
-
 template <class UsedType>
 void Sim<UsedType>::SetArmaxOneStep()
 {
     this->LinSysOneStep.zeros(1, this->nInPut*this->InPut.getCols() + this->nOutPut*this->OutPut.getCols() + this->nError);
-    for(int i = 1; i <= this->InPut.getCols() + this->OutPut.getCols(); i++)
+
+    int cont = 1;
+    for(int i = 1; i <= this->OutPut.getCols(); i++)
     {
-        if(i <= this->nOutPut + ((this->nInPut + this->nOutPut)*i))
+        for(int j = 1; j <= this->nOutPut; j++)
         {
-            for(int j = 1; j <= this->nOutPut; j++)
-                this->LinSysOneStep.add(1, j + ((this->nInPut + this->nOutPut)*i), -this->EstOutPut(this->nSample - j, 1));
+            this->LinSysOneStep.add(1, cont, -this->EstOutPut(this->nSample - j, i));
+            cont++;
         }
-        else
+    }
+    for(int i = 1; i <= this->InPut.getCols(); i++)
+    {
+        for(int j = 1; j <= this->nInPut; j++)
         {
-            for(int j = 1; j <= this->nInPut; j++)
-                this->LinSysOneStep.add(1, j + ((this->nInPut + this->nOutPut)*i), this->InPut(this->nSample - j, 1));
+            this->LinSysOneStep.add(1, cont, this->InPut(this->nSample - j, i));
+            cont++;
         }
     }
 
-    for(int i = this->InPut.getCols() + this->OutPut.getCols() + 1; i <= this->nInPut*this->InPut.getCols() + this->nOutPut*this->OutPut.getCols() + this->nError; i++)
-    this->LinSysOneStep.add(1, i, this->Error(this->nSample - i + this->nOutPut + this->nError, 1));
-
+    for(int j = 1; j <= this->nError; j++)
+    {
+        this->LinSysOneStep.add(1, cont, this->Error(this->nSample - j, 1));
+        cont++;
+    }
 }
 
-//----------------------------------------------------------------------------------------//
-//------------------------Mult Step Model Construction------------------------------------//
-//----------------------------------------------------------------------------------------//
+//-----------------------------------------------------------------------//
+//---------------------Mult Step Model Construction----------------------//
+//-----------------------------------------------------------------------//
 
 template <class UsedType>
 void Sim<UsedType>::SetPolyMultStep()
 {
-    this->LinSysOneStep.ones(1, (this->Degree + 1)*this->InPut.getCols());
+    this->LinSysOutPut = this->OutPut;
+    this->LinSysMultStep.ones(this->LinSysOutPut.getRows(), (this->Degree + 1)*this->InPut.getCols());
 
-    for(int i = 0; i < this->InPut.getCols(); i++)
-        for(int j = 2; j <= this->Degree + 1; j++)
-            this->LinSysOneStep.add(1, j + ((this->Degree + 1)*i), pow((double) this->InPut(this->nSample, i + 1), j - 1));
+    for(int k = 1; k <= this->LinSysOutPut.getRows(); k++)
+        for(int i = 0; i < this->InPut.getCols(); i++)
+            for(int j = 2; j <= this->Degree + 1; j++)
+                this->LinSysOneStep.add(k, j + ((this->Degree + 1)*i), pow((double) this->InPut(this->nSample, i + 1), j - 1));
 }
-
-//template <class UsedType>
-//void Sim<UsedType>::SetArmaxOneStepReal()
-//{
-//    this->LinSysOneStep.zeros(1, this->nInPut*this->InPut.getCols() + this->nOutPut*this->OutPut.getCols() + this->nError);
-//    for(int i = 1; i <= this->InPut.getCols() + this->OutPut.getCols(); i++)
-//    {
-//        if(i <= this->nOutPut + ((this->nInPut + this->nOutPut)*i))
-//        {
-//            for(int j = 1; j <= this->nOutPut; j++)
-//                this->LinSysOneStep.add(1, j + ((this->nInPut + this->nOutPut)*i), -this->OutPut(this->nSample - j, 1));
-//        }
-//        else
-//        {
-//            for(int j = 1; j <= this->nInPut; j++)
-//                this->LinSysOneStep.add(1, j + ((this->nInPut + this->nOutPut)*i), this->InPut(this->nSample - j, 1));
-//        }
-//    }
-
-//    for(int i = this->InPut.getCols() + this->OutPut.getCols() + 1; i <= this->nInPut*this->InPut.getCols() + this->nOutPut*this->OutPut.getCols() + this->nError; i++)
-//    this->LinSysOneStep.add(1, i, this->Error(this->nSample - i + this->nOutPut + this->nError, 1));
-
-//}
 
 template  <class UsedType>
 void Sim<UsedType>::SetArmaxOMultStep()
@@ -202,31 +156,41 @@ void Sim<UsedType>::SetArmaxOMultStep()
 
     for(int k = maxNuNy + 1; k <= minRowInOut; k++)
     {
-        for(int i = 1; i <= this->InPut.getCols() + this->OutPut.getCols(); i++)
+        int cont = 1;
+        for(int i = 1; i <= this->OutPut.getCols(); i++)
         {
-            if(i <= this->nOutPut + ((this->nInPut + this->nOutPut)*i))
+            for(int j = 1; j <= this->nOutPut; j++)
             {
-                for(int j = 1; j <= this->nOutPut; j++)
-                    this->LinSysOneStep.add(k - maxNuNy, j + ((this->nInPut + this->nOutPut)*i), -this->OutPut(this->nSample - j, 1));
+                this->LinSysMultStep.add(k - maxNuNy , cont, -this->OutPut(k - j, i));
+                cont++;
             }
-            else
+            this->LinSysOutPut.add(k - maxNuNy, i, this->OutPut(k,i));
+        }
+
+        for(int i = 1; i <= this->InPut.getCols(); i++)
+        {
+            for(int j = 1; j <= this->nInPut; j++)
             {
-                for(int j = 1; j <= this->nInPut; j++)
-                    this->LinSysOneStep.add(k - maxNuNy, j + ((this->nInPut + this->nOutPut)*i), this->InPut(this->nSample - j, 1));
+                this->LinSysMultStep.add(k - maxNuNy, cont, this->InPut(k - j, i));
+                cont++;
             }
         }
 
-        for(int i = this->InPut.getCols() + this->OutPut.getCols() + 1; i <= this->nInPut*this->InPut.getCols() + this->nOutPut*this->OutPut.getCols() + this->nError; i++)
-        this->LinSysOneStep.add(k - maxNuNy, i, this->Error(this->nSample - i + this->nOutPut + this->nError, 1));
+        for(int j = 1; j <= this->nError; j++)
+        {
+            this->LinSysMultStep.add(k - maxNuNy, cont, this->Error(k - j, 1));
+            cont++;
+        }
+
     }
 
 }
 
 
 
-//----------------------------------------------------------------------------------------//
-//------------------------------One Step Model Simulation---------------------------------//
-//----------------------------------------------------------------------------------------//
+//-----------------------------------------------------------------------//
+//------------------------One Step Model Simulation----------------------//
+//-----------------------------------------------------------------------//
 
 template <class UsedType>
 UsedType Sim<UsedType>::SimOneStep()
@@ -234,43 +198,48 @@ UsedType Sim<UsedType>::SimOneStep()
     this->LinSysParameters = LinSysParameters;
     if(this->TypeModel == "POLINOMIAL")
     {
-        this->SetPolyOneStep();
+        if(this->DataChange == 1)
+            this->SetPolyMultStep();
+        if(nSample != 0)
+            this->SetPolyOneStep();
     }
 
     else if(this->TypeModel == "MA" || this->TypeModel == "FIR" || this->TypeModel == "ARX" || this->TypeModel == "ARMAX")
     {
-        this->SetArmaxOMultStep();
-        this->SetArmaxOneStep();
+        if(this->DataChange == 1)
+            this->SetArmaxOMultStep();
+        if(nSample != 0)
+            this->SetArmaxOneStep();
     }
 
-//    else if(this->TypeModel == "MA")
-//        this->SetMaOneStep();
-
-//    else if(this->TypeModel == "FIR")
-//        this->SetFirOneStep();
-
-//    else if(this->TypeModel == "ARX")
-//        this->SetArxOneStep();
-
-//    else if(this->TypeModel == "ARMAX")
-//        this->SetArmaxOneStep();
-
-    return ((this->LinSysOneStep*this->LinSysParameters)(1,1));
+    this->DataChange = 0;
+    if(nSample != 0)
+        return ((this->LinSysOneStep*this->LinSysParameters)(1,1));
+    else
+        return ((this->LinSysMultStep*this->LinSysParameters)(1,1));
 }
 
-//----------------------------------------------------------------------------------------//
-//------------------------Gathering all the Simulation------------------------------------//
-//----------------------------------------------------------------------------------------//
+//-----------------------------------------------------------------------//
+//---------------------Gathering all the Simulation----------------------//
+//-----------------------------------------------------------------------//
 template <class UsedType>
 Matrix<UsedType> Sim<UsedType>::RunSimulation(Matrix<UsedType> LinSysParameters, int nSteps)
 {
+    this->nSample = nSteps;
     this->LinSysParameters = LinSysParameters;
+    this->LinSysParameters.print();
     this->EstOutPut.zeros(nSteps, 1);
+    this->SimOneStep();
+    this->LinSysMultStep.print();
+    this->LinSysOutPut.print();
+    this->LinSysOneStep.print();
+
+    return this->EstOutPut;
 }
 
-//----------------------------------------------------------------------------------------//
-//------------------------------Getting OutPut Data---------------------------------------//
-//----------------------------------------------------------------------------------------//
+//-----------------------------------------------------------------------//
+//------------------------Getting OutPut Data----------------------------//
+//-----------------------------------------------------------------------//
 
 template  <class UsedType>
 Matrix<UsedType> Sim<UsedType>::GetInput()
@@ -288,6 +257,12 @@ template  <class UsedType>
 Matrix<UsedType> Sim<UsedType>::GetEstimatedOutPut()
 {
     return this->EstOutPut;
+}
+
+template  <class UsedType>
+Matrix<UsedType> Sim<UsedType>::GetLinSysOutPut()
+{
+    return this->LinSysOutPut;
 }
 
 template  <class UsedType>

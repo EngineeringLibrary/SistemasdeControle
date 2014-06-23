@@ -9,6 +9,7 @@ class Sim
 private:
     Matrix<UsedType> OutPut, InPut, Error, LinSysMultStep, LinSysOneStep, EstOutPut, LinSysParameters, LinSysOutPut;
     int Degree, nSample, nOutPut, nInPut, nError, NonLinDegree;
+    bool DataChange;
     string TypeModel;
 
     void SetPolyOneStep();
@@ -33,11 +34,12 @@ public:
     Sim(Matrix<UsedType> InPut, Matrix<UsedType> OutPut, string Model, int var1 = 0, int var2 = 0, int var3 = 0, int var4 = 0, int var5 = 0);
 
 //    void SetParametersModel();
-    Matrix<UsedType> RunSimulation(Matrix<UsedType> LinSysParameters, int nSteps);
+    Matrix<UsedType> RunSimulation(Matrix<UsedType> LinSysParameters, int nSteps = 0);
     Matrix<UsedType> GetInput();
     Matrix<UsedType> GetRealOutPut();
     Matrix<UsedType> GetEstimatedOutPut();
     Matrix<UsedType> GetError();
+    Matrix<UsedType> GetLinSysOutPut();
 
 };
 
