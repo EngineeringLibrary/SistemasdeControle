@@ -7,8 +7,8 @@ template <class UsedType>
 class Sim
 {
 private:
-    Matrix<UsedType> OutPut, InPut, Error, LinSysMultStep, LinSysOneStep, EstOutPut, LinSysParameters;
-    int Degree, nSample, nOutPut, nInput, nError, NonLinDegree;
+    Matrix<UsedType> OutPut, InPut, Error, LinSysMultStep, LinSysOneStep, EstOutPut, LinSysParameters, LinSysOutPut;
+    int Degree, nSample, nOutPut, nInPut, nError, NonLinDegree;
     string TypeModel;
 
     void SetPolyOneStep();
@@ -19,6 +19,10 @@ private:
 //    void SetBillinearOneStep();
 //    void SetNaxrOneStep  (int nInPut,  int OutPut, int NonLinDegree, int nSample);
 //    void SetNarmaxOneStep(int nInPut,  int OutPut, int nError, int NonLinDegree, int nSample);
+
+//    void SetArmaxOneStepReal();
+    void SetArmaxOMultStep();
+    void SetPolyMultStep();
 
     UsedType SimOneStep();
 //    Matrix<UsedType> SimOneStep (int var1, int var2, int var3, string Model);
