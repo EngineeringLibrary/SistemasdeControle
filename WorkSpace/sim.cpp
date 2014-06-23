@@ -5,7 +5,7 @@ Sim<UsedType>::Sim(Matrix<UsedType> InPut, Matrix<UsedType> OutPut, string Model
 {
     this->InPut = InPut;
     this->OutPut = OutPut;
-    DataChange = 0;
+    DataChange = 1;
 
     if(Model == "POLINOMIAL")
     {
@@ -227,13 +227,8 @@ Matrix<UsedType> Sim<UsedType>::RunSimulation(Matrix<UsedType> LinSysParameters,
 {
     this->nSample = nSteps;
     this->LinSysParameters = LinSysParameters;
-    this->LinSysParameters.print();
     this->EstOutPut.zeros(nSteps, 1);
     this->SimOneStep();
-    this->LinSysMultStep.print();
-    this->LinSysOutPut.print();
-    this->LinSysOneStep.print();
-
     return this->EstOutPut;
 }
 
@@ -263,6 +258,12 @@ template  <class UsedType>
 Matrix<UsedType> Sim<UsedType>::GetLinSysOutPut()
 {
     return this->LinSysOutPut;
+}
+
+template  <class UsedType>
+Matrix<UsedType> Sim<UsedType>::GetLinMatrix()
+{
+    return this->LinSysMultStep;
 }
 
 template  <class UsedType>

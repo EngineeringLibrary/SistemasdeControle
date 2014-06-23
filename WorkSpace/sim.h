@@ -40,6 +40,7 @@ public:
     Matrix<UsedType> GetEstimatedOutPut();
     Matrix<UsedType> GetError();
     Matrix<UsedType> GetLinSysOutPut();
+    Matrix<UsedType> GetLinMatrix();
 
 };
 
