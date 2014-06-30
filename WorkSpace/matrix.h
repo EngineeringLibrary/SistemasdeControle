@@ -1,5 +1,5 @@
-#ifndef MATRIX_H
-#define MATRIX_H
+#ifndef __MATRIX_H_INCLUDED
+#define __MATRIX_H_INCLUDED
 #include <string>
 #include <sstream>
 #include <cmath>
@@ -157,10 +157,5 @@ public:
     template<class FriendType> friend Matrix<FriendType> round(Matrix<FriendType> M1);//arredonda os elementos de uma matriz
     template<class FriendType> friend Matrix<FriendType> floor(Matrix<FriendType> M1);//arredonda para baixo os elementos de uma matriz
 };
-//class template Matrix<int>;
-//class template Matrix<float>;
-//class template Matrix<double>;
-#endif // MATRIX_H
-//class template Matrix<int>;
-//class template Matrix<float>;
-//class template Matrix<double>;
+
+#endif // __MATRIX_H_INCLUDED

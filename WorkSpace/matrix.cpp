@@ -1,6 +1,5 @@
 #include "matrix.h"
-#include <cstdlib>
-#include <iostream>
+
 
 //#####Início Verificação de tipos de Matrizes#####//
 template <class UsedType>
