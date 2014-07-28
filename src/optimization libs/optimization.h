@@ -1,5 +1,5 @@
-#ifndef OPTIMIZATION_H
-#define OPTIMIZATION_H
+#ifndef __OPTIMIZATION_H_INCLUDED
+#define __OPTIMIZATION_H_INCLUDED
 
 #include "..\simulation libs\lsim.h"
 

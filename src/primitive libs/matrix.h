@@ -7,7 +7,7 @@
 #include <fstream>
 #include <ctime>
 #include <cstdlib>
-//#include "externalfunctions.h"
+
 #define pi 3.14
 
 using namespace std;

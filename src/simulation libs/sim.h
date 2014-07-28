@@ -1,5 +1,5 @@
-#ifndef SIM_H
-#define SIM_H
+#ifndef __SIM_H_INCLUDED
+#define __SIM_H_INCLUDED
 #include "..\primitive libs\matrix.h"
 #include "fstream"
 

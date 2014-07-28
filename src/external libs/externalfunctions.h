@@ -1,5 +1,5 @@
-#ifndef EXTERNALFUNCTIONS_H
-#define EXTERNALFUNCTIONS_H
+#ifndef __EXTERNALFUNCTIONS_H_INCLUDED
+#define __EXTERNALFUNCTIONS_H_INCLUDED
 
 #include <time.h>
 #include <cstdlib>

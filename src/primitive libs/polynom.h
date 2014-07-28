@@ -1,5 +1,5 @@
-#ifndef POLYNOM_H
-#define POLYNOM_H
+#ifndef __POLYNOM_H_INCLUDED
+#define __POLYNOM_H_INCLUDED
 #include <cstdlib>
 #include <iostream>
 #include <string>

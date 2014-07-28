@@ -1,5 +1,5 @@
-#ifndef PSO_H
-#define PSO_H
+#ifndef __PSO_H_INCLUDED
+#define __PSO_H_INCLUDED
 
 #include "..\simulation libs\lsim.h"
 

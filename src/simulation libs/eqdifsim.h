@@ -1,5 +1,5 @@
-#ifndef EQDIFSIM_H
-#define EQDIFSIM_H
+#ifndef __EQDIFSIM_H_INCLUDED
+#define __EQDIFSIM_H_INCLUDED
 
 #include "..\primitive libs\polynom.h"
 
