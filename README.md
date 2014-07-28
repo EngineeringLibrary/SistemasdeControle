@@ -1,4 +1,4 @@
-WorkSpace
+Sistemas de Controle - Branch Documentation
 =========
 
-Repositório com o intuito de trabalho de biblioteca de simulações de sistemas utilizando C++.
+Repositório que armazena os arquivos preparados para gerar uma documentação com Doxygen.
