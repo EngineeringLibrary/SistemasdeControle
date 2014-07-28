@@ -1,6 +1,5 @@
-#include "optimization.h"
-//#include "matrix.h"
-#include "sim.h"
+#include "src\optimization libs\optimization.h"
+#include "src\simulation libs\sim.h"
 
 int main()
 {
