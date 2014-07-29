@@ -12,38 +12,110 @@
 
 using namespace std;
 
+//! Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções.
+
+/*!
+    Biblioteca que gerencia matrizes, tais como as suas operações e propriedades.
+*/
+
+
 template <class UsedType>
 class Matrix
 {
 private:
 
-    int rows, cols;
-    UsedType **Mat;
+    int rows; //! Membro que armazena o número de linhas da Matriz.
+    int cols; //! Membro que armazena o número de colunas da Matriz.
+    UsedType **Mat; //! Ponteiro duplo aonde serão armazenados os dados da Matriz.
 
-    //#####Verificação de Matriz Quadrada#####//
+    //! Função de verificação a interna das dimensões da matriz.
+
+    /*!
+        A função verifica se a matriz é quadrada ou não.
+        \param Mat1 Matriz de entrada a se verificar as dimensões.
+    */
     bool sqr(Matrix<UsedType> Mat1);
-    //#######################################//
 
-    //#####Verficação se é uma Matriz Idenditade#####//
+    //! Função de verificação interna da matriz.
+
+    /*!
+        A função verifica se a matriz é identidade.
+        \param Mat1 Matriz de entrada a se verificar se é identidade.
+    */
     bool ind(Matrix<UsedType> Mat1);
-    //##############################################//
+
 
 public:
 
-    //#####Construtores e Destrutores da Classe#####//
-    Matrix(); //Construtor
-    Matrix(int row, int col);//Constroi a matriz de acordo com o número de linhas e colunas informados, respectivamente.
-    Matrix(const Matrix & otherMatrix);//Faz uma cópia da Matriz
+    //! Construtor padrão da classe.
+
+    /*!
+        Inicia o objeto da classe com os elementos em 0.
+    */
+    Matrix();
+
+    //! Construtor que toma como parâmetros o número de linhas e colunas
+
+    /*!
+        Inicializa a matriz com o número corresponde de linhas e colunas.
+        \param row Número de linhas da matriz.
+        \param col Número de colunas da matriz.
+    */
+    Matrix(int row, int col);
+
+    //! Construtor de cópia da classe.
+
+    /*!
+        Construtor de cópia da classe, gerencia as aplicações de memória da classe
+        \param otherMatrix Recebe como parâmetro uma cópia da matriz.
+    */
+    Matrix(const Matrix & otherMatrix);
+
+    //! Destrutor padrão da classe.
+
+    /*!
+        Libera todas as memórias alocadas durante a execução de objetos da classe.
+    */
     ~Matrix();//Destrutor
-    //#############################################//
+
+    //! Método de inicialização da matriz.
+
+    /*!
+        Inicializa a matriz com o respectivo número de linhas e colunas.
+        \param row Número de linhas da matriz.
+        \param col Número de colunas da matriz.
+    */
+    void init(int row, int col);
+
+    //! Método de inicialização da matriz tomando um valor de string como entrada.
+
+    /*!
+        Inicializa a matriz com uma determinada cadeia de caracteres dada como entrada.
+        \param value Cadeia de caracteres que definem a matriz, separasse os elementos por vírgula
+                     e as colunas por ponto e vírgula.
+    */
+    void init(string value);
+
+    //! Método para se colocar valores em uma determinada posição da matriz.
+
+    /*!
+        Toma como entrada a posição da matriz e insere um determinado elemento.
+        \param rol Linha a ser inserido o valor.
+        \param col Linha a ser inserido o valor.
+        \param number Valor a ser inseriodo.
+    */
+    void add(int rol, int col, UsedType number);
+
+    //! Método para criar uma matriz identidade.
+
+    /*!
+        Cria uma matriz quadrada identidade.
+        \param num Número corresponde a dimensão da matriz, a matriz criada é quadrada.
+    */
+    void eye(int num);
 
 
-    //#####Métodos de Inicialização da Matriz#####//
-    void init(int row, int col); //Inicializador da Matriz de acordo com o número de linhas e colunas informados, respectivamente.
-    void init(string value);//Adiciona os valores de uma string a matriz, serparando os elementos por "," e as linhas por ";".
-    void add(int rol, int col, UsedType number);//Adiciona elementos a matriz pelos índices i e j respectivamente. Obs.: i e j iniciam de 1 para este método.
-    void eye(int num);//Cria uma matriz identidade de ordem num.
-    void ones(int row, int col);//Inicia uma matriz com todos os índices iguais a 1, de acordo com o número de linhas e colunas respectivamente.
+    void ones(int row, int col);
     void zeros(int row, int col);//Inicia uma matriz com todos os índices iguais a 0, de acordo com o número de linhas e colunas, respectivamente.
     void randU(int row, int col);//Gera uma matriz contendo numeros aleatórios com distribuição uniforme
     int length();//Retorna o maior tamanho entre as linhas e colunas
