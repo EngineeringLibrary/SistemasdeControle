@@ -1,4 +1,4 @@
-#ifndef __MATRIX_H_INCLUDED
+Escalar a ser subtraÌdo.#ifndef __MATRIX_H_INCLUDED
 #define __MATRIX_H_INCLUDED
 #include <string>
 #include <sstream>
@@ -12,10 +12,10 @@
 
 using namespace std;
 
-//! Classe Matriz, com o intuito de realizar opera√ß√µes entre matrizes entre outras fun√ß√µes.
+//! Classe Matriz, com o intuito de realizar operaÁıes entre matrizes entre outras funÁıes.
 
 /*!
-    Biblioteca que gerencia matrizes, tais como as suas opera√ß√µes e propriedades.
+    Biblioteca que gerencia matrizes, tais como as suas operaÁıes e propriedades.
 */
 
 
@@ -24,144 +24,214 @@ class Matrix
 {
 private:
 
-    int rows; //! Membro que armazena o n√∫mero de linhas da Matriz.
-    int cols; //! Membro que armazena o n√∫mero de colunas da Matriz.
-    UsedType **Mat; //! Ponteiro duplo aonde ser√£o armazenados os dados da Matriz.
+    int rows; //! Membro que armazena o n˙mero de linhas da Matriz.
+    int cols; //! Membro que armazena o n˙mero de colunas da Matriz.
+    UsedType **Mat; //! Ponteiro duplo aonde ser„o armazenados os dados da Matriz.
 
-    //! Fun√ß√£o de verifica√ß√£o a interna das dimens√µes da matriz.
+    //! FunÁ„o de verificaÁ„o a interna das dimensıes da matriz.
 
     /*!
-        A fun√ß√£o verifica se a matriz √© quadrada ou n√£o.
-        \param Mat1 Matriz de entrada a se verificar as dimens√µes.
+        A funÁ„o verifica se a matriz È quadrada ou n„o.
+        \param Mat1 Matriz de entrada a se verificar as dimensıes.
     */
     bool sqr(Matrix<UsedType> Mat1);
 
-    //! Fun√ß√£o de verifica√ß√£o interna da matriz.
+    //! FunÁ„o de verificaÁ„o interna da matriz.
 
     /*!
-        A fun√ß√£o verifica se a matriz √© identidade.
-        \param Mat1 Matriz de entrada a se verificar se √© identidade.
+        A funÁ„o verifica se a matriz È identidade.
+        \param Mat1 Matriz de entrada a se verificar se È identidade.
     */
     bool ind(Matrix<UsedType> Mat1);
 
 
 public:
 
-    //! Construtor padr√£o da classe.
+    //! Construtor padr„o da classe.
 
     /*!
         Inicia o objeto da classe com os elementos em 0.
     */
     Matrix();
 
-    //! Construtor que toma como par√¢metros o n√∫mero de linhas e colunas
+    //! Construtor que toma como par‚metros o n˙mero de linhas e colunas
 
     /*!
-        Inicializa a matriz com o n√∫mero corresponde de linhas e colunas.
-        \param row N√∫mero de linhas da matriz.
-        \param col N√∫mero de colunas da matriz.
+        Inicializa a matriz com o n˙mero corresponde de linhas e colunas, e inicia todos os elementos em 0.
+        \param row N˙mero de linhas da matriz.
+        \param col N˙mero de colunas da matriz.
     */
     Matrix(int row, int col);
 
-    //! Construtor de c√≥pia da classe.
+    //! Construtor de cÛpia da classe.
 
     /*!
-        Construtor de c√≥pia da classe, gerencia as aplica√ß√µes de mem√≥ria da classe
-        \param otherMatrix Recebe como par√¢metro uma c√≥pia da matriz.
+        Construtor de cÛpia da classe, gerencia as aplicaÁıes de memÛria da classe
+        \param otherMatrix Recebe como par‚metro uma cÛpia da matriz.
     */
     Matrix(const Matrix & otherMatrix);
 
-    //! Destrutor padr√£o da classe.
+    //! Destrutor padr„o da classe.
 
     /*!
-        Libera todas as mem√≥rias alocadas durante a execu√ß√£o de objetos da classe.
+        Libera todas as memÛrias alocadas durante a execuÁ„o de objetos da classe.
     */
     ~Matrix();//Destrutor
 
-    //! M√©todo de inicializa√ß√£o da matriz.
+    //! MÈtodo de inicializaÁ„o da matriz.
 
     /*!
-        Inicializa a matriz com o respectivo n√∫mero de linhas e colunas.
-        \param row N√∫mero de linhas da matriz.
-        \param col N√∫mero de colunas da matriz.
+        Inicializa a matriz com o respectivo n˙mero de linhas e colunas.
+        \param row N˙mero de linhas da matriz.
+        \param col N˙mero de colunas da matriz.
     */
     void init(int row, int col);
 
-    //! M√©todo de inicializa√ß√£o da matriz tomando um valor de string como entrada.
+    //! MÈtodo de inicializaÁ„o da matriz tomando um valor de string como entrada.
 
     /*!
         Inicializa a matriz com uma determinada cadeia de caracteres dada como entrada.
-        \param value Cadeia de caracteres que definem a matriz, separasse os elementos por v√≠rgula
-                     e as colunas por ponto e v√≠rgula.
+        \param value Cadeia de caracteres que definem a matriz, separasse os elementos por vÌrgula
+                     e as colunas por ponto e vÌrgula.
     */
     void init(string value);
 
-    //! M√©todo para se colocar valores em uma determinada posi√ß√£o da matriz.
+    //! MÈtodo para se colocar valores em uma determinada posiÁ„o da matriz.
 
     /*!
-        Toma como entrada a posi√ß√£o da matriz e insere um determinado elemento.
+        Toma como entrada a posiÁ„o da matriz e insere um determinado elemento.
         \param rol Linha a ser inserido o valor.
         \param col Linha a ser inserido o valor.
         \param number Valor a ser inseriodo.
     */
     void add(int rol, int col, UsedType number);
 
-    //! M√©todo para criar uma matriz identidade.
+    //! MÈtodo para criar uma matriz identidade.
 
     /*!
         Cria uma matriz quadrada identidade.
-        \param num N√∫mero corresponde a dimens√£o da matriz, a matriz criada √© quadrada.
+        \param num N˙mero corresponde a dimens„o da matriz, a matriz criada È quadrada.
     */
     void eye(int num);
 
+    //! Cria uma matriz de uns.
 
+    /*!
+        Toma como par‚metros a dimens„o da matriz, e cria uma matriz totalmente preenchida com o n˙mero 1.
+        \param row N˙mero de linhas da matriz.
+        \param col N˙mero de colunas da matriz.
+    */
     void ones(int row, int col);
-    void zeros(int row, int col);//Inicia uma matriz com todos os √≠ndices iguais a 0, de acordo com o n√∫mero de linhas e colunas, respectivamente.
-    void randU(int row, int col);//Gera uma matriz contendo numeros aleat√≥rios com distribui√ß√£o uniforme
-    int length();//Retorna o maior tamanho entre as linhas e colunas
 
+    //! Cria uma matriz de zeros.
+
+    /*!
+        Toma como par‚metros a dimens„o da matriz, e cria uma matriz totalmente preeenchida com o n˙mero 0.
+        \param row N˙mero de linhas da matriz.
+        \param col N˙mero de colunas da matriz.
+    */
+    void zeros(int row, int col);
+
+    //! Cria uma matriz com valores aleatÛrios.
+
+    /*!
+        Toma como par‚metros a dimens„o da matriz, e cria uma matriz preeenchida com n˙meros aleatÛrios.
+        \param row N˙mero de linhas da matriz.
+        \param col N˙mero de colunas da matriz.
+    */
+    void randU(int row, int col);
+
+    //! Retorna o maior tamanho entre as linhas e colunas
+    int length();
+
+    //! C·lcula a mÈdia dos elementos da matriz.
+
+    /*!
+        Considera uma matriz como uma amostra, retirando a mÈdia aritmÈtica das linhas da matriz.
+    */
     Matrix Avarage();
+
+    //! C·lcula a vari‚ncia dos elemensto de uma matriz.
+
+    /*
+        C·lcula a mÈdia da matriz e retorna a vari‚ncia dos elementos.
+    */
     Matrix Variance();
+
+    //! C·lcula o desvio padr„o da matriz.
+
+    /*!
+        Retorna o desvio padr„o de uma matriz.
+    */
     Matrix Std();
 
-    //###########################################//
-
-    //#####M√©todo de Impress√£o da Matriz#####//
+    //! Exibe a matriz.
     void print();
 
-//    void printMatOr();
+    //! Operador de soma de matrizes.
 
-    //######################################//
+    /*!
+        Soma matriz matriz.
+        \param Mat1 Matriz a ser somada.
+    */
+    Matrix operator+(Matrix Mat1);
 
-    //#####Operadores da Matriz#####//
+    //! Soma matriz escalar.
 
-    //-----Operadores de Soma-----//
-    Matrix operator+(Matrix Mat1);//Soma Matriz Matriz
-    Matrix operator+(UsedType a);//Soma Escalar Matriz
-    //--------------------------//
+    /*!
+        Soma a matriz a um determinado escalar.
+        \param a Escalar a ser somado.
+    */
+    Matrix operator+(UsedType a);
 
-    //-----Operadores de Subtra√ß√£o-----//
-    Matrix operator-(Matrix Mat1);//Subtra√ß√£o Matriz Matriz
-    Matrix operator-(UsedType a);//Subtra√ß√£o Escalar Matriz
-    //--------------------------------//
+    //! SubtraÁ„o matriz matriz.
 
-    //-----Operadores de Atribui√ß√£o-----//
-    void operator=(Matrix Mat1);//Igualando Matriz Matriz
-    void operator=(string value);//Atribuindo String a Entrada da Matriz
+    /*!
+        Subtrai de uma matriz outra matriz.
+        \param Mat1 Matriz que ser· subtraida.
+    */
+    Matrix operator-(Matrix Mat1);
+
+    //! SubtraÁ„o matriz escalar.
+
+    /*!
+        Subtrai um escalar de uma matriz.
+        \param a Escalar a ser subtraÌdo.
+    */
+    Matrix operator-(UsedType a);
+
+    //! Operador de igualdade de uma matriz.
+
+    /*!
+        Iguala uma matriz a outra matriz.
+        \param Mat1 Matriz a ser igualada.
+    */
+    void operator=(Matrix Mat1);
+
+    //! Operador de igualdade para uma string.
+
+    /*!
+        Iguala a matriz a uma string de entrada.
+        \param value String a qual a matriz deve ser igualada.
+        \sa void init(string value)
+    */
+    void operator=(string value);
+
+
     void operator=(UsedType B(int row, int col));
     //---------------------------------//
 
-    //-----Operadores de Multiplica√ß√£o-----//
-    Matrix operator*(Matrix Mat1);//Multiplica√ß√£o Matriz Matriz
-    Matrix operator*(UsedType a);//Multiplica√ß√£o Escalar Matriz
+    //-----Operadores de MultiplicaÁ„o-----//
+    Matrix operator*(Matrix Mat1);//MultiplicaÁ„o Matriz Matriz
+    Matrix operator*(UsedType a);//MultiplicaÁ„o Escalar Matriz
     //------------------------------------//
 
-    //-----Operadores de Multiplica√ß√£o-----//
-    Matrix operator/(Matrix Mat1);//Multiplica√ß√£o Matriz Matriz
-    Matrix operator/(UsedType a);//Multiplica√ß√£o Escalar Matriz
+    //-----Operadores de MultiplicaÁ„o-----//
+    Matrix operator/(Matrix Mat1);//MultiplicaÁ„o Matriz Matriz
+    Matrix operator/(UsedType a);//MultiplicaÁ„o Escalar Matriz
     //------------------------------------//
 
-    //-----Operadores de Concatena√ß√£o Matrizes-----//
+    //-----Operadores de ConcatenaÁ„o Matrizes-----//
     Matrix operator| (Matrix Mat1);//Concatena Matrizes a Esquerda
     Matrix operator|| (Matrix Mat1);//Concatena Matrizes Abaixo
     //--------------------------------------------//
@@ -170,44 +240,44 @@ public:
     Matrix operator~();
     //-------------------------------------//
 
-    //-----Operador de Pot√™ncia de Matrizes-----//
+    //-----Operador de PotÍncia de Matrizes-----//
     Matrix operator^(UsedType exp);//Eleva a matriz a um determinado expoente.
     Matrix operator> (UsedType num);//Eleva os elementos de uma matriz a um determinado
     UsedType operator() (int row,int col);//Acessa os elementos de uma matriz
     void operator() (int row, int col, UsedType value);
 
-    void lineVector(int left, int rigth);//Cria uma matriz elementos crescentes ou decrescentes de um em um de left at√© rigth
+    void lineVector(int left, int rigth);//Cria uma matriz elementos crescentes ou decrescentes de um em um de left atÈ rigth
     //-----------------------------------------//
 
     //##########################################//
 
-    //#####√Ålgebra Linear#####//
-    UsedType trace();//C√°lculo do tra√ßo de uma matriz.
-    Matrix inv();//C√°lculo da matriz inversa da matriz.
-    Matrix pol();//C√°lculo dos √≠ndices do polin√¥mio caracter√≠stico da matriz.
-    Matrix eigenvalues();//C√°lculo dos auto valores de uma matriz.
-    UsedType det();//C√°lculo do determinante de uma matriz.
+    //#####¡lgebra Linear#####//
+    UsedType trace();//C·lculo do traÁo de uma matriz.
+    Matrix inv();//C·lculo da matriz inversa da matriz.
+    Matrix pol();//C·lculo dos Ìndices do polinÙmio caracterÌstico da matriz.
+    Matrix eigenvalues();//C·lculo dos auto valores de uma matriz.
+    UsedType det();//C·lculo do determinante de uma matriz.
     //##############################//
 
 
 
-    //#####Retornando Informa√ß√µes da Matriz#####//
-    int getRows();//Retorna o n√∫mero de linhas da matriz.
-    int getCols();//Retorna o n√∫mero de colunas da matriz.
+    //#####Retornando InformaÁıes da Matriz#####//
+    int getRows();//Retorna o n˙mero de linhas da matriz.
+    int getCols();//Retorna o n˙mero de colunas da matriz.
     void setLine(int num, Matrix<UsedType> Line);
     void setColumn(int num, Matrix<UsedType> Colummn);
     Matrix<UsedType> getLine(int num);
     Matrix<UsedType> getColumn(int num);
-    UsedType getMat(int row, int col);//Retorna o elemento no √≠ndice ij da matriz.
+    UsedType getMat(int row, int col);//Retorna o elemento no Ìndice ij da matriz.
     void setMat(int row, int col, UsedType num);
     //#######################################################//
 //Friend functions
     template<class FriendType> friend Matrix<FriendType> operator- (FriendType a, Matrix<FriendType> Mat1);//Soma Matriz Escalar
-    template<class FriendType> friend Matrix<FriendType> operator- (FriendType a, Matrix<FriendType> Mat1);//Subtra√ß√£o Matriz Escalar
-    template<class FriendType> friend Matrix<FriendType> operator* (FriendType a, Matrix<FriendType> Mat1);//Multiplica√ß√£o Matriz Escalar
-    template<class FriendType> friend Matrix<FriendType> operator/ (FriendType a, Matrix<FriendType> Mat1);//divis√£o Matriz Escalar
+    template<class FriendType> friend Matrix<FriendType> operator- (FriendType a, Matrix<FriendType> Mat1);//SubtraÁ„o Matriz Escalar
+    template<class FriendType> friend Matrix<FriendType> operator* (FriendType a, Matrix<FriendType> Mat1);//MultiplicaÁ„o Matriz Escalar
+    template<class FriendType> friend Matrix<FriendType> operator/ (FriendType a, Matrix<FriendType> Mat1);//divis„o Matriz Escalar
 
-    template<class FriendType> friend Matrix<FriendType> diff(Matrix<FriendType> M, FriendType h);//C√°lcula a derivada de uma matriz.
+    template<class FriendType> friend Matrix<FriendType> diff(Matrix<FriendType> M, FriendType h);//C·lcula a derivada de uma matriz.
 
     template<class FriendType> friend FriendType max(Matrix<FriendType> M);//Retorna o maior valor de uma matriz
     template<class FriendType> friend FriendType min(Matrix<FriendType> M);//Retorna o menor valor de uma matriz
@@ -219,12 +289,12 @@ public:
     template<class FriendType> friend Matrix<FriendType> acos(Matrix<FriendType> M1);//Retorna o arco cosseno dos elementos de uma matriz
     template<class FriendType> friend Matrix<FriendType> asin(Matrix<FriendType> M1);//Retorna o arco seno dos elementos de uma matriz
     template<class FriendType> friend Matrix<FriendType> atan(Matrix<FriendType> M1);//Retorna o arco tangente dos elementos de uma matriz
-    template<class FriendType> friend Matrix<FriendType> cosh(Matrix<FriendType> M1);//Retorna o cosseno hiperb√≥lico dos elementos de uma matriz
-    template<class FriendType> friend Matrix<FriendType> sinh(Matrix<FriendType> M1);//Retorna o seno hiperb√≥lico dos elementos de uma matriz
-    template<class FriendType> friend Matrix<FriendType> tanh(Matrix<FriendType> M1);//Retorna a tangente hiperb√≥lica dos elementos de uma matriz
-    template<class FriendType> friend Matrix<FriendType> acosh(Matrix<FriendType> M1);//Retorna o arco cosseno hiperb√≥lico dos elementos de uma matriz
-    template<class FriendType> friend Matrix<FriendType> asinh(Matrix<FriendType> M1);//Retorna o arco seno hiperb√≥lico dos elementos de uma matriz
-    template<class FriendType> friend Matrix<FriendType> atanh(Matrix<FriendType> M1);//Retorna o arco tangente hiperb√≥lica dos elementos de uma matriz
+    template<class FriendType> friend Matrix<FriendType> cosh(Matrix<FriendType> M1);//Retorna o cosseno hiperbÛlico dos elementos de uma matriz
+    template<class FriendType> friend Matrix<FriendType> sinh(Matrix<FriendType> M1);//Retorna o seno hiperbÛlico dos elementos de uma matriz
+    template<class FriendType> friend Matrix<FriendType> tanh(Matrix<FriendType> M1);//Retorna a tangente hiperbÛlica dos elementos de uma matriz
+    template<class FriendType> friend Matrix<FriendType> acosh(Matrix<FriendType> M1);//Retorna o arco cosseno hiperbÛlico dos elementos de uma matriz
+    template<class FriendType> friend Matrix<FriendType> asinh(Matrix<FriendType> M1);//Retorna o arco seno hiperbÛlico dos elementos de uma matriz
+    template<class FriendType> friend Matrix<FriendType> atanh(Matrix<FriendType> M1);//Retorna o arco tangente hiperbÛlica dos elementos de uma matriz
     template<class FriendType> friend Matrix<FriendType> exp(Matrix<FriendType> M1);//Retorna a exponencial dos elementos de uma matriz
     template<class FriendType> friend Matrix<FriendType> log(Matrix<FriendType> M1);//Retorna o logaritmo neperiano dos elementos de uma matriz
     template<class FriendType> friend Matrix<FriendType> log10(Matrix<FriendType> M1);//Retorna o logaritmo na base 10 dos elementos de uma matriz
