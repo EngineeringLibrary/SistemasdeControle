@@ -1,4 +1,4 @@
-Escalar a ser subtraído.#ifndef __MATRIX_H_INCLUDED
+#ifndef __MATRIX_H_INCLUDED
 #define __MATRIX_H_INCLUDED
 #include <string>
 #include <sstream>
