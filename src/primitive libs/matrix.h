@@ -254,45 +254,102 @@ public:
     */
     Matrix operator/(UsedType a);
 
-    //! Operador de concatenação de matrizes.
+    //! Operador de concatenação de matrizes a direita.
 
     /*!
         Concatena duas matrizes, esse operador coloca a matriz mais a direita
         a esquerda da outra matriz.
         \param Mat1 Matriz a ser concatenada.
     */
-    Matrix operator| (Matrix Mat1);//Concatena Matrizes a Esquerda
-    Matrix operator|| (Matrix Mat1);//Concatena Matrizes Abaixo
-    //--------------------------------------------//
+    Matrix operator| (Matrix Mat1);
 
-    //----Operador de Matriz Transposta-----//
+    //! Operador de concatenação de matrizes abaixo.
+
+    /*!
+        Concatena duas matrizes, esse operador coloca a matriz mais a direita
+        abaixo da outra matriz.
+        \param Mat1 Matriz a ser concatenada.
+    */
+    Matrix operator|| (Matrix Mat1);
+
+    //! Operador de transposição de matrizes
+
+    /*!
+        Transpõe a matriz referida.
+    */
+
     Matrix operator~();
-    //-------------------------------------//
 
-    //-----Operador de Potência de Matrizes-----//
-    Matrix operator^(UsedType exp);//Eleva a matriz a um determinado expoente.
-    Matrix operator> (UsedType num);//Eleva os elementos de uma matriz a um determinado
-    UsedType operator() (int row,int col);//Acessa os elementos de uma matriz
+    //! Operador de potenciação de matrizes
+
+    /*!
+        Eleva a matriz ao expoente especificado.
+        \param exp Expoente o qual irá elevar a matriz.
+    */
+    Matrix operator^(UsedType exp);
+
+    //! Operador de potenciação interna da matriz.
+
+    /*!
+        Eleva todos os elementos da matriz ao expoente especificado.
+        \param num Expoente que irá elevar os elementos da matriz.
+    */
+    Matrix operator> (UsedType num);
+
+    //! Operador de acesso a matriz.
+
+    /*!
+        Toma como parâmetro a linha e a coluna de um determinado elemento da matriz e o retorna.
+        \param row Linha do elemento.
+        \param col Coluna do elemento.
+    */
+    UsedType operator() (int row,int col);
+
+    //! Sobrecarga do operador de acesso da matriz.
+
+    /*!
+        Recebe a linha e a coluna de uma posição da matriz e altera o elemento especificado.
+        \param row Linha do elemento.
+        \param col Coluna do elemento.
+        \param value Valor a ser colocado na posição.
+    */
     void operator() (int row, int col, UsedType value);
 
-    void lineVector(int left, int rigth);//Cria uma matriz elementos crescentes ou decrescentes de um em um de left até rigth
-    //-----------------------------------------//
+    //! Cria um vetor linha de elementos crescentes.
 
-    //##########################################//
+    /*!
+        Recebe um intervalo e cria um vetor contando do intervalo menor até o maior de um em um.
+        \param left Menor intervalo.
+        \param rigth Maior intervalo.
+    */
+    void lineVector(int left, int rigth);
 
-    //#####Álgebra Linear#####//
-    UsedType trace();//Cálculo do traço de uma matriz.
-    Matrix inv();//Cálculo da matriz inversa da matriz.
-    Matrix pol();//Cálculo dos índices do polinômio característico da matriz.
-    Matrix eigenvalues();//Cálculo dos auto valores de uma matriz.
-    UsedType det();//Cálculo do determinante de uma matriz.
-    //##############################//
+    //! Calcula o traço da matriz.
+
+    /*!
+        Calcula o traço da matriz. O traço corresponde a soma de todos os elementos da diagonal principal.
+    */
+    UsedType trace();
+
+    //! Calcula a matriz inversa.
+    Matrix inv();
+
+    //! Encontra o polinômio característico da matriz.
+    Matrix pol();
+
+    //! Calcula os autovalores da matriz.
+    Matrix eigenvalues();
+
+    //! Calcula o determinante da matriz.
+    UsedType det();
+
+    //! Retorna o número de linhas da matriz.
+    int getRows();
+
+    //! Retorna o número de colunas da matriz.
+    int getCols();
 
 
-
-    //#####Retornando Informações da Matriz#####//
-    int getRows();//Retorna o número de linhas da matriz.
-    int getCols();//Retorna o número de colunas da matriz.
     void setLine(int num, Matrix<UsedType> Line);
     void setColumn(int num, Matrix<UsedType> Colummn);
     Matrix<UsedType> getLine(int num);
