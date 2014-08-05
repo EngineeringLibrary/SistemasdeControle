@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>controllib: Código-Fonte de matrix.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">controllib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;ficheiros</span></a></li>
+      <li><a href="globals.html"><span>Ficheiros&#160;membro</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('matrix_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Amigos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">matrix.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="matrix_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __MATRIX_H_INCLUDED</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __MATRIX_H_INCLUDED</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="matrix_8h.html#a1daf785e3f68d293c7caa1c756d5cb74">   11</a></span>&#160;<span class="preprocessor">#define pi 3.14</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using namespace </span>std;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_matrix.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_matrix.html">Matrix</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">int</span> rows; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> cols; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    UsedType **Mat; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> sqr(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> Mat1);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> ind(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> Mat1);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a>(<span class="keyword">const</span> <a class="code" href="class_matrix.html">Matrix</a> &amp; otherMatrix);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    ~<a class="code" href="class_matrix.html">Matrix</a>();<span class="comment">//Destrutor</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> init(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> init(<span class="keywordtype">string</span> value);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">void</span> add(<span class="keywordtype">int</span> rol, <span class="keywordtype">int</span> col, UsedType number);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">void</span> eye(<span class="keywordtype">int</span> num);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">void</span> ones(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">void</span> zeros(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordtype">void</span> randU(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">int</span> length();</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> Avarage();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment">        Calcula a média da matriz e retorna a variância dos elementos.</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">    */</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> Variance();</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> Std();</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordtype">void</span> print();</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> <a class="code" href="matrix_8cpp.html#a55c6da4278e104d8ea9b8425b0b58471">operator+</a>(<a class="code" href="class_matrix.html">Matrix</a> Mat1);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> <a class="code" href="matrix_8cpp.html#a55c6da4278e104d8ea9b8425b0b58471">operator+</a>(UsedType a);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> <a class="code" href="matrix_8cpp.html#a0d77e4c2de6392aa88721e6a3c7b71aa">operator-</a>(<a class="code" href="class_matrix.html">Matrix</a> Mat1);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> <a class="code" href="matrix_8cpp.html#a0d77e4c2de6392aa88721e6a3c7b71aa">operator-</a>(UsedType a);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordtype">void</span> operator=(<a class="code" href="class_matrix.html">Matrix</a> Mat1);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordtype">void</span> operator=(<span class="keywordtype">string</span> value);</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="comment">/*void operator=(UsedType B(int row, int col));*/</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> <a class="code" href="matrix_8cpp.html#aaa08ec8e157404d0d60dd539d18728f8">operator*</a>(<a class="code" href="class_matrix.html">Matrix</a> Mat1);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> <a class="code" href="matrix_8cpp.html#aaa08ec8e157404d0d60dd539d18728f8">operator*</a>(UsedType a);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> <a class="code" href="matrix_8cpp.html#aa29037f304d5bbae7b01252da57ff66c">operator/</a>(<a class="code" href="class_matrix.html">Matrix</a> Mat1);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> <a class="code" href="matrix_8cpp.html#aa29037f304d5bbae7b01252da57ff66c">operator/</a>(UsedType a);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> operator| (<a class="code" href="class_matrix.html">Matrix</a> Mat1);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> operator|| (<a class="code" href="class_matrix.html">Matrix</a> Mat1);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> operator~();</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> operator^(UsedType <a class="code" href="matrix_8cpp.html#a7b67209d43fd2f9cde910f9eb099d882">exp</a>);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> operator&gt; (UsedType num);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    UsedType operator() (<span class="keywordtype">int</span> row,<span class="keywordtype">int</span> col);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keywordtype">void</span> operator() (<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col, UsedType value);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordtype">void</span> lineVector(<span class="keywordtype">int</span> left, <span class="keywordtype">int</span> rigth);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    UsedType trace();</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> inv();</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> pol();</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <a class="code" href="class_matrix.html">Matrix</a> eigenvalues();</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    UsedType det();</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keywordtype">int</span> getRows();</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordtype">int</span> getCols();</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordtype">void</span> setLine(<span class="keywordtype">int</span> num, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> Line);</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keywordtype">void</span> setColumn(<span class="keywordtype">int</span> num, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> Colummn);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> getLine(<span class="keywordtype">int</span> num);</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> getColumn(<span class="keywordtype">int</span> num);</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    UsedType getMat(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col);<span class="comment">//Retorna o elemento no índice ij da matriz.</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keywordtype">void</span> setMat(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col, UsedType num);</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="comment">//#######################################################//</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;<span class="comment">//Friend functions</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a0d77e4c2de6392aa88721e6a3c7b71aa">operator- </a>(FriendType a, <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> Mat1);<span class="comment">//Soma Matriz Escalar</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a0d77e4c2de6392aa88721e6a3c7b71aa">operator- </a>(FriendType a, <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> Mat1);<span class="comment">//Subtração Matriz Escalar</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#aaa08ec8e157404d0d60dd539d18728f8">operator* </a>(FriendType a, <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> Mat1);<span class="comment">//Multiplicação Matriz Escalar</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#aa29037f304d5bbae7b01252da57ff66c">operator/ </a>(FriendType a, <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> Mat1);<span class="comment">//divisão Matriz Escalar</span></div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#ad44e24444d2fcb1286f2fac55c4da8a2">diff</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M, FriendType h);<span class="comment">//Cálcula a derivada de uma matriz.</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> FriendType <a class="code" href="matrix_8cpp.html#adfe3600f358b2928305ba6175f32076f">max</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M);<span class="comment">//Retorna o maior valor de uma matriz</span></div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> FriendType <a class="code" href="matrix_8cpp.html#a43bd7cfaaa219105983b3e8cca0e3f82">min</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M);<span class="comment">//Retorna o menor valor de uma matriz</span></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> FriendType <a class="code" href="matrix_8cpp.html#ac9a25cb248c4f7f9dc85a63e197446cb">norm</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M);<span class="comment">//Retorna o maior valor de uma matriz</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#aa6503e0f8152c6f2973fd36aa4f5613f">abs</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M);<span class="comment">//Retorna o modulo dos valores de uma matriz</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#aa80a6b44b3f27ba572a143b28003b711">cos</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o cosseno dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1">sin</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o seno dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a4ff6b599fc836d62da3ae0b66c9eb862">tan</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna a tangente dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#ae78f5d31ff2a7eda57bbc217bc3c3955">acos</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o arco cosseno dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a6570b4830d66250144b1eebc90aabce5">asin</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o arco seno dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a5858686c5a01d4fd2953c71ebd360afe">atan</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o arco tangente dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a6c6713f193c137b6aca7e790c32724c3">cosh</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o cosseno hiperbólico dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#ad67c016ce209abd82cabac978e20a453">sinh</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o seno hiperbólico dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a5d7bf1b96a4df8778dd4344faa54fec2">tanh</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna a tangente hiperbólica dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#adf5b5fd01f57a6e4db18a9464ee9c5cc">acosh</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o arco cosseno hiperbólico dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a5b169ee06ca77e432dd41a8b4733b037">asinh</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o arco seno hiperbólico dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#aa1f88270c5cec4809f776739a7ef9ea6">atanh</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o arco tangente hiperbólica dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a7b67209d43fd2f9cde910f9eb099d882">exp</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna a exponencial dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#ad54685c5e792fa8b6fe5380c77235f5d">log</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o logaritmo neperiano dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a266d3bef33cce29be7bd41cd40c8228a">log10</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//Retorna o logaritmo na base 10 dos elementos de uma matriz</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#a36ed6c54463c9543f639c7f7764325ba">ceil</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//arredonda para cima os elementos de uma matriz</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#abd9b93a59cb3348affe3db93fbaf03dc">round</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//arredonda os elementos de uma matriz</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> <a class="code" href="matrix_8cpp.html#abac5bf92a2ea6423e75d16b22ca1fe2e">floor</a>(<a class="code" href="class_matrix.html">Matrix&lt;FriendType&gt;</a> M1);<span class="comment">//arredonda para baixo os elementos de uma matriz</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;};</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;<span class="preprocessor">#endif // __MATRIX_H_INCLUDED</span></div>
+<div class="ttc" id="matrix_8cpp_html_a5d7bf1b96a4df8778dd4344faa54fec2"><div class="ttname"><a href="matrix_8cpp.html#a5d7bf1b96a4df8778dd4344faa54fec2">tanh</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; tanh(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1039</div></div>
+<div class="ttc" id="matrix_8cpp_html_a0d77e4c2de6392aa88721e6a3c7b71aa"><div class="ttname"><a href="matrix_8cpp.html#a0d77e4c2de6392aa88721e6a3c7b71aa">operator-</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; operator-(UsedType a, Matrix&lt; UsedType &gt; Mat1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:362</div></div>
+<div class="ttc" id="matrix_8cpp_html_a43bd7cfaaa219105983b3e8cca0e3f82"><div class="ttname"><a href="matrix_8cpp.html#a43bd7cfaaa219105983b3e8cca0e3f82">min</a></div><div class="ttdeci">UsedType min(Matrix&lt; UsedType &gt; M)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:895</div></div>
+<div class="ttc" id="matrix_8cpp_html_aa80a6b44b3f27ba572a143b28003b711"><div class="ttname"><a href="matrix_8cpp.html#aa80a6b44b3f27ba572a143b28003b711">cos</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; cos(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:941</div></div>
+<div class="ttc" id="matrix_8cpp_html_ae78f5d31ff2a7eda57bbc217bc3c3955"><div class="ttname"><a href="matrix_8cpp.html#ae78f5d31ff2a7eda57bbc217bc3c3955">acos</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; acos(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:976</div></div>
+<div class="ttc" id="matrix_8cpp_html_a2e8cc44381885dc6f1c7d98de376e1a1"><div class="ttname"><a href="matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1">sin</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; sin(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:953</div></div>
+<div class="ttc" id="matrix_8cpp_html_a6570b4830d66250144b1eebc90aabce5"><div class="ttname"><a href="matrix_8cpp.html#a6570b4830d66250144b1eebc90aabce5">asin</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; asin(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:989</div></div>
+<div class="ttc" id="matrix_8cpp_html_a36ed6c54463c9543f639c7f7764325ba"><div class="ttname"><a href="matrix_8cpp.html#a36ed6c54463c9543f639c7f7764325ba">ceil</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; ceil(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1129</div></div>
+<div class="ttc" id="matrix_8cpp_html_a5b169ee06ca77e432dd41a8b4733b037"><div class="ttname"><a href="matrix_8cpp.html#a5b169ee06ca77e432dd41a8b4733b037">asinh</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; asinh(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1065</div></div>
+<div class="ttc" id="matrix_8cpp_html_adfe3600f358b2928305ba6175f32076f"><div class="ttname"><a href="matrix_8cpp.html#adfe3600f358b2928305ba6175f32076f">max</a></div><div class="ttdeci">UsedType max(Matrix&lt; UsedType &gt; M)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:870</div></div>
+<div class="ttc" id="matrix_8cpp_html_aa1f88270c5cec4809f776739a7ef9ea6"><div class="ttname"><a href="matrix_8cpp.html#aa1f88270c5cec4809f776739a7ef9ea6">atanh</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; atanh(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1078</div></div>
+<div class="ttc" id="matrix_8cpp_html_a4ff6b599fc836d62da3ae0b66c9eb862"><div class="ttname"><a href="matrix_8cpp.html#a4ff6b599fc836d62da3ae0b66c9eb862">tan</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; tan(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:964</div></div>
+<div class="ttc" id="matrix_8cpp_html_aa29037f304d5bbae7b01252da57ff66c"><div class="ttname"><a href="matrix_8cpp.html#aa29037f304d5bbae7b01252da57ff66c">operator/</a></div><div class="ttdeci">Matrix&lt; FriendType &gt; operator/(FriendType a, Matrix&lt; FriendType &gt; Mat1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:471</div></div>
+<div class="ttc" id="matrix_8cpp_html_a5858686c5a01d4fd2953c71ebd360afe"><div class="ttname"><a href="matrix_8cpp.html#a5858686c5a01d4fd2953c71ebd360afe">atan</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; atan(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1002</div></div>
+<div class="ttc" id="matrix_8cpp_html_a7b67209d43fd2f9cde910f9eb099d882"><div class="ttname"><a href="matrix_8cpp.html#a7b67209d43fd2f9cde910f9eb099d882">exp</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; exp(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1090</div></div>
+<div class="ttc" id="matrix_8cpp_html_a266d3bef33cce29be7bd41cd40c8228a"><div class="ttname"><a href="matrix_8cpp.html#a266d3bef33cce29be7bd41cd40c8228a">log10</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; log10(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1116</div></div>
+<div class="ttc" id="matrix_8cpp_html_ad54685c5e792fa8b6fe5380c77235f5d"><div class="ttname"><a href="matrix_8cpp.html#ad54685c5e792fa8b6fe5380c77235f5d">log</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; log(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1103</div></div>
+<div class="ttc" id="matrix_8cpp_html_abac5bf92a2ea6423e75d16b22ca1fe2e"><div class="ttname"><a href="matrix_8cpp.html#abac5bf92a2ea6423e75d16b22ca1fe2e">floor</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; floor(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1142</div></div>
+<div class="ttc" id="matrix_8cpp_html_a6c6713f193c137b6aca7e790c32724c3"><div class="ttname"><a href="matrix_8cpp.html#a6c6713f193c137b6aca7e790c32724c3">cosh</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; cosh(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1014</div></div>
+<div class="ttc" id="matrix_8cpp_html_abd9b93a59cb3348affe3db93fbaf03dc"><div class="ttname"><a href="matrix_8cpp.html#abd9b93a59cb3348affe3db93fbaf03dc">round</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; round(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1153</div></div>
+<div class="ttc" id="matrix_8cpp_html_aaa08ec8e157404d0d60dd539d18728f8"><div class="ttname"><a href="matrix_8cpp.html#aaa08ec8e157404d0d60dd539d18728f8">operator*</a></div><div class="ttdeci">Matrix&lt; FriendType &gt; operator*(FriendType a, Matrix&lt; FriendType &gt; Mat1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:441</div></div>
+<div class="ttc" id="matrix_8cpp_html_a55c6da4278e104d8ea9b8425b0b58471"><div class="ttname"><a href="matrix_8cpp.html#a55c6da4278e104d8ea9b8425b0b58471">operator+</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; operator+(UsedType a, Matrix&lt; UsedType &gt; Mat1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:330</div></div>
+<div class="ttc" id="matrix_8cpp_html_ad67c016ce209abd82cabac978e20a453"><div class="ttname"><a href="matrix_8cpp.html#ad67c016ce209abd82cabac978e20a453">sinh</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; sinh(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1026</div></div>
+<div class="ttc" id="class_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdoc">Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. </div><div class="ttdef"><b>Definition:</b> matrix.h:23</div></div>
+<div class="ttc" id="matrix_8cpp_html_adf5b5fd01f57a6e4db18a9464ee9c5cc"><div class="ttname"><a href="matrix_8cpp.html#adf5b5fd01f57a6e4db18a9464ee9c5cc">acosh</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; acosh(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1052</div></div>
+<div class="ttc" id="matrix_8cpp_html_ad44e24444d2fcb1286f2fac55c4da8a2"><div class="ttname"><a href="matrix_8cpp.html#ad44e24444d2fcb1286f2fac55c4da8a2">diff</a></div><div class="ttdeci">Matrix&lt; FriendType &gt; diff(Matrix&lt; FriendType &gt; M, FriendType h)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:777</div></div>
+<div class="ttc" id="matrix_8cpp_html_ac9a25cb248c4f7f9dc85a63e197446cb"><div class="ttname"><a href="matrix_8cpp.html#ac9a25cb248c4f7f9dc85a63e197446cb">norm</a></div><div class="ttdeci">UsedType norm(Matrix&lt; UsedType &gt; M1)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:1164</div></div>
+<div class="ttc" id="matrix_8cpp_html_aa6503e0f8152c6f2973fd36aa4f5613f"><div class="ttname"><a href="matrix_8cpp.html#aa6503e0f8152c6f2973fd36aa4f5613f">abs</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; abs(Matrix&lt; UsedType &gt; M)</div><div class="ttdef"><b>Definition:</b> matrix.cpp:927</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_e1cb7c2f66fdbc3c77c48d8e1e7774bb.html">primitive libs</a></li><li class="navelem"><a class="el" href="matrix_8h.html">matrix.h</a></li>
+    <li class="footer">Gerado em Terça, 5 de Agosto de 2014 13:03:13 para controllib por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>

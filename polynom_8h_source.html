@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.7"/>
+<title>controllib: Código-Fonte de polynom.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">controllib
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.7 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Ficheiros</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;ficheiros</span></a></li>
+      <li><a href="globals.html"><span>Ficheiros&#160;membro</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('polynom_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Amigos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">polynom.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="polynom_8h.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __POLYNOM_H_INCLUDED</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __POLYNOM_H_INCLUDED</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="matrix_8h.html">matrix.h</a>&quot;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> TypeOfClass&gt;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_polynom.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_polynom.html">Polynom</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">int</span> sizeNum, sizeDen;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    TypeOfClass *num, *den;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">char</span> x;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> init(<span class="keywordtype">int</span> NumSize);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> init(<span class="keywordtype">int</span> NumSize, <span class="keywordtype">int</span> DenSize);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> init(std::string Num);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> init(std::string Num, <span class="keywordtype">string</span> Den);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> init(<a class="code" href="class_matrix.html">Matrix&lt;TypeOfClass&gt;</a> Num, <a class="code" href="class_matrix.html">Matrix&lt;TypeOfClass&gt;</a> Den);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">bool</span> VefDen(TypeOfClass *den1, TypeOfClass *den2, <span class="keywordtype">int</span> sizeden1, <span class="keywordtype">int</span> sizeden2);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    TypeOfClass *initPointer(<span class="keywordtype">int</span> Size);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    TypeOfClass *SumPoly(TypeOfClass *value1, TypeOfClass *value2, <span class="keywordtype">int</span> SizeValue1, <span class="keywordtype">int</span> SizeValue2);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    TypeOfClass *SubPoly(TypeOfClass *value1, TypeOfClass *value2, <span class="keywordtype">int</span> SizeValue1, <span class="keywordtype">int</span> SizeValue2);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    TypeOfClass *MultPoly(TypeOfClass *value1, TypeOfClass *value2, <span class="keywordtype">int</span> SizeValue1, <span class="keywordtype">int</span> SizeValue2);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714">Polynom</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714">Polynom</a>(<span class="keywordtype">int</span> Num);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714">Polynom</a>(<span class="keywordtype">int</span> Num, <span class="keywordtype">int</span> Den);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714">Polynom</a>(std::string Num);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714">Polynom</a>(std::string Num, std::string Den);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714">Polynom</a>(<a class="code" href="class_matrix.html">Matrix&lt;TypeOfClass&gt;</a> Num, <a class="code" href="class_matrix.html">Matrix&lt;TypeOfClass&gt;</a> Den);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714">Polynom</a>(<span class="keyword">const</span> <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> &amp;CopyPolynom);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_polynom.html#ac63320040c062bee44970e1079dff03d">~Polynom</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#ac46cf0626b3b4d6ba2216f1e4c8ad991">operator+</a>(<a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> P);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#ac46cf0626b3b4d6ba2216f1e4c8ad991">operator+</a>(TypeOfClass scalar);</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_polynom.html#aeba51d0a91379442deae8bb169eb6f1b">   47</a></span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#aeba51d0a91379442deae8bb169eb6f1b">operator+</a>(TypeOfClass scalar, <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> P){<span class="keywordflow">return</span> P+scalar;}</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#ad98eb6a5a83752f26874725554ad04e4">operator-</a>(<a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> P);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#ad98eb6a5a83752f26874725554ad04e4">operator-</a>(TypeOfClass scalar);</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_polynom.html#a789f4f5de4a98f0aedd2aeb386e21009">   51</a></span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#a789f4f5de4a98f0aedd2aeb386e21009">operator-</a>(TypeOfClass scalar, <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> P){<span class="keywordflow">return</span> (-1)*P+scalar;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#a5a26fb1c5f840cd422b42de1cf3810b6">operator*</a>(TypeOfClass scalar);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#a5a26fb1c5f840cd422b42de1cf3810b6">operator*</a>(<a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> P);</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_polynom.html#adbe2906590ebb11e8d868078c1a0a3f6">   55</a></span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#adbe2906590ebb11e8d868078c1a0a3f6">operator*</a>(TypeOfClass scalar, <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> P){<span class="keywordflow">return</span> P*scalar;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#ada104d4f530e5efb33e25d0199b38c47">operator/</a>(<a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> P);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#ada104d4f530e5efb33e25d0199b38c47">operator/</a>(TypeOfClass scalar);</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="class_polynom.html#a1626c7da399106ef01636d21698dc2a9">   59</a></span>&#160;    <span class="keyword">friend</span> <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#a1626c7da399106ef01636d21698dc2a9">operator/</a>(TypeOfClass scalar, <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> P){<span class="keywordflow">return</span> (P^-1)*scalar;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_polynom.html#a1a4f41e1aabc14cd7e7e92135abbe21e">operator=</a>(<a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> P);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#a4378bcceec215656ced7a3dfe62ac49d">operator^</a>(<span class="keywordtype">int</span> scalar);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_polynom.html#a15e2d194fabe8d6a9e0fcda9fd6237cb">setNum</a>(TypeOfClass *Num, <span class="keywordtype">int</span> sizenum);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_polynom.html#a279fd09569799e6940a9454c96641027">setDen</a>(TypeOfClass *Den, <span class="keywordtype">int</span> sizeden);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_polynom.html#a314d977344ac66806d49f28e6d27a525">setVar</a>(<span class="keywordtype">char</span> var);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#a0ee3d646e0f9a7e76e674ca022ec4340">getNum</a>();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;TypeOfClass&gt;</a> <a class="code" href="class_polynom.html#a12d191fd2c3f0a3bef0d5d70f93f5257">getDen</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_polynom.html#ad6c7ef73abea2d67e8919cf538e92217">print</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#endif // POLYNOM_H</span></div>
+<div class="ttc" id="class_polynom_html_ada104d4f530e5efb33e25d0199b38c47"><div class="ttname"><a href="class_polynom.html#ada104d4f530e5efb33e25d0199b38c47">Polynom::operator/</a></div><div class="ttdeci">Polynom&lt; TypeOfClass &gt; operator/(Polynom&lt; TypeOfClass &gt; P)</div><div class="ttdef"><b>Definition:</b> polynom.cpp:225</div></div>
+<div class="ttc" id="class_polynom_html_a0ee3d646e0f9a7e76e674ca022ec4340"><div class="ttname"><a href="class_polynom.html#a0ee3d646e0f9a7e76e674ca022ec4340">Polynom::getNum</a></div><div class="ttdeci">Matrix&lt; TypeOfClass &gt; getNum()</div><div class="ttdef"><b>Definition:</b> polynom.cpp:417</div></div>
+<div class="ttc" id="class_polynom_html_a9385d1cd152f3edda6c3d9fabd5ee714"><div class="ttname"><a href="class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714">Polynom::Polynom</a></div><div class="ttdeci">Polynom()</div><div class="ttdef"><b>Definition:</b> polynom.cpp:4</div></div>
+<div class="ttc" id="class_polynom_html_a789f4f5de4a98f0aedd2aeb386e21009"><div class="ttname"><a href="class_polynom.html#a789f4f5de4a98f0aedd2aeb386e21009">Polynom::operator-</a></div><div class="ttdeci">friend Polynom&lt; TypeOfClass &gt; operator-(TypeOfClass scalar, Polynom&lt; TypeOfClass &gt; P)</div><div class="ttdef"><b>Definition:</b> polynom.h:51</div></div>
+<div class="ttc" id="class_polynom_html_adbe2906590ebb11e8d868078c1a0a3f6"><div class="ttname"><a href="class_polynom.html#adbe2906590ebb11e8d868078c1a0a3f6">Polynom::operator*</a></div><div class="ttdeci">friend Polynom&lt; TypeOfClass &gt; operator*(TypeOfClass scalar, Polynom&lt; TypeOfClass &gt; P)</div><div class="ttdef"><b>Definition:</b> polynom.h:55</div></div>
+<div class="ttc" id="class_polynom_html_a5a26fb1c5f840cd422b42de1cf3810b6"><div class="ttname"><a href="class_polynom.html#a5a26fb1c5f840cd422b42de1cf3810b6">Polynom::operator*</a></div><div class="ttdeci">Polynom&lt; TypeOfClass &gt; operator*(TypeOfClass scalar)</div><div class="ttdef"><b>Definition:</b> polynom.cpp:212</div></div>
+<div class="ttc" id="class_polynom_html_a1a4f41e1aabc14cd7e7e92135abbe21e"><div class="ttname"><a href="class_polynom.html#a1a4f41e1aabc14cd7e7e92135abbe21e">Polynom::operator=</a></div><div class="ttdeci">void operator=(Polynom&lt; TypeOfClass &gt; P)</div><div class="ttdef"><b>Definition:</b> polynom.cpp:237</div></div>
+<div class="ttc" id="class_polynom_html_aeba51d0a91379442deae8bb169eb6f1b"><div class="ttname"><a href="class_polynom.html#aeba51d0a91379442deae8bb169eb6f1b">Polynom::operator+</a></div><div class="ttdeci">friend Polynom&lt; TypeOfClass &gt; operator+(TypeOfClass scalar, Polynom&lt; TypeOfClass &gt; P)</div><div class="ttdef"><b>Definition:</b> polynom.h:47</div></div>
+<div class="ttc" id="class_polynom_html_a4378bcceec215656ced7a3dfe62ac49d"><div class="ttname"><a href="class_polynom.html#a4378bcceec215656ced7a3dfe62ac49d">Polynom::operator^</a></div><div class="ttdeci">Polynom&lt; TypeOfClass &gt; operator^(int scalar)</div><div class="ttdef"><b>Definition:</b> polynom.cpp:259</div></div>
+<div class="ttc" id="class_polynom_html_ac46cf0626b3b4d6ba2216f1e4c8ad991"><div class="ttname"><a href="class_polynom.html#ac46cf0626b3b4d6ba2216f1e4c8ad991">Polynom::operator+</a></div><div class="ttdeci">Polynom&lt; TypeOfClass &gt; operator+(Polynom&lt; TypeOfClass &gt; P)</div><div class="ttdef"><b>Definition:</b> polynom.cpp:164</div></div>
+<div class="ttc" id="class_polynom_html_a1626c7da399106ef01636d21698dc2a9"><div class="ttname"><a href="class_polynom.html#a1626c7da399106ef01636d21698dc2a9">Polynom::operator/</a></div><div class="ttdeci">friend Polynom&lt; TypeOfClass &gt; operator/(TypeOfClass scalar, Polynom&lt; TypeOfClass &gt; P)</div><div class="ttdef"><b>Definition:</b> polynom.h:59</div></div>
+<div class="ttc" id="class_polynom_html_ad6c7ef73abea2d67e8919cf538e92217"><div class="ttname"><a href="class_polynom.html#ad6c7ef73abea2d67e8919cf538e92217">Polynom::print</a></div><div class="ttdeci">void print()</div><div class="ttdef"><b>Definition:</b> polynom.cpp:439</div></div>
+<div class="ttc" id="matrix_8h_html"><div class="ttname"><a href="matrix_8h.html">matrix.h</a></div></div>
+<div class="ttc" id="class_polynom_html_a15e2d194fabe8d6a9e0fcda9fd6237cb"><div class="ttname"><a href="class_polynom.html#a15e2d194fabe8d6a9e0fcda9fd6237cb">Polynom::setNum</a></div><div class="ttdeci">void setNum(TypeOfClass *Num, int sizenum)</div><div class="ttdef"><b>Definition:</b> polynom.cpp:338</div></div>
+<div class="ttc" id="class_polynom_html_a279fd09569799e6940a9454c96641027"><div class="ttname"><a href="class_polynom.html#a279fd09569799e6940a9454c96641027">Polynom::setDen</a></div><div class="ttdeci">void setDen(TypeOfClass *Den, int sizeden)</div><div class="ttdef"><b>Definition:</b> polynom.cpp:348</div></div>
+<div class="ttc" id="class_polynom_html_ac63320040c062bee44970e1079dff03d"><div class="ttname"><a href="class_polynom.html#ac63320040c062bee44970e1079dff03d">Polynom::~Polynom</a></div><div class="ttdeci">~Polynom()</div><div class="ttdef"><b>Definition:</b> polynom.cpp:56</div></div>
+<div class="ttc" id="class_polynom_html_a12d191fd2c3f0a3bef0d5d70f93f5257"><div class="ttname"><a href="class_polynom.html#a12d191fd2c3f0a3bef0d5d70f93f5257">Polynom::getDen</a></div><div class="ttdeci">Matrix&lt; TypeOfClass &gt; getDen()</div><div class="ttdef"><b>Definition:</b> polynom.cpp:428</div></div>
+<div class="ttc" id="class_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdoc">Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. </div><div class="ttdef"><b>Definition:</b> matrix.h:23</div></div>
+<div class="ttc" id="class_polynom_html_a314d977344ac66806d49f28e6d27a525"><div class="ttname"><a href="class_polynom.html#a314d977344ac66806d49f28e6d27a525">Polynom::setVar</a></div><div class="ttdeci">void setVar(char var)</div><div class="ttdef"><b>Definition:</b> polynom.cpp:358</div></div>
+<div class="ttc" id="class_polynom_html"><div class="ttname"><a href="class_polynom.html">Polynom</a></div><div class="ttdef"><b>Definition:</b> polynom.h:10</div></div>
+<div class="ttc" id="class_polynom_html_ad98eb6a5a83752f26874725554ad04e4"><div class="ttname"><a href="class_polynom.html#ad98eb6a5a83752f26874725554ad04e4">Polynom::operator-</a></div><div class="ttdeci">Polynom&lt; TypeOfClass &gt; operator-(Polynom&lt; TypeOfClass &gt; P)</div><div class="ttdef"><b>Definition:</b> polynom.cpp:200</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_e1cb7c2f66fdbc3c77c48d8e1e7774bb.html">primitive libs</a></li><li class="navelem"><a class="el" href="polynom_8h.html">polynom.h</a></li>
+    <li class="footer">Gerado em Terça, 5 de Agosto de 2014 13:03:13 para controllib por
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
+  </ul>
+</div>
+</body>
+</html>
