@@ -160,7 +160,7 @@ void Matrix<UsedType>::add(int row, int col, UsedType number)//Adiciona valores 
         if(this->rows == 0 || this->cols == 0)
             this->init(1,1);
 
-        if (this->rows < row)
+        if (this->rows < row && row > 0)
            Temp.init(row, this->cols);
         else
            Temp.init(this->rows, col);
@@ -870,13 +870,41 @@ template <class UsedType>
 UsedType max(Matrix<UsedType> M)
 {
      UsedType  maximum = M.Mat[0][0];
-
-     for(int i = 0; i < M.rows; i++)
-       for(int j = 0; j < M.cols; j++)
-         if(maximum < M.Mat[i][j])
-           maximum = M.Mat[i][j];
+     if(M.rows != 0 && M.cols != 0)
+         for(int i = 0; i < M.rows; i++)
+            for(int j = 0; j < M.cols; j++)
+                if(maximum < M.Mat[i][j])
+                    maximum = M.Mat[i][j];
 
      return maximum;
+}
+
+template <class UsedType>
+UsedType min(Matrix<UsedType> M)
+{
+    UsedType  minimun;
+    minimun = M.Mat[0][0];
+    if(M.rows != 0 && M.cols != 0)
+        for(int i = 0; i < M.rows; i++)
+            for(int j = 0; j < M.cols; j++)
+                if(minimun > M.Mat[i][j])
+                    minimun = M.Mat[i][j];
+
+    return minimun;
+}
+
+template <class UsedType>
+Matrix<UsedType> Matrix<UsedType>::normalize(UsedType yUp, UsedType yDown)
+{
+  Matrix<UsedType>  ret;
+  ret.init(this->getRows(),this->getCols());
+  UsedType xDown = min(*this), xUp = max(*this);
+
+  for(int i = 0; i < this->rows; i++)
+    for(int j = 0; j < this->cols; j++)
+        ret(i+1,j+1,((this->Mat[i][j] - xDown)/(xUp - xDown))*(yUp - yDown) + yDown);
+
+  return ret;
 }
 
 template <class UsedType>
@@ -889,20 +917,6 @@ template <class UsedType>
 void Matrix<UsedType>::operator ()(int row, int col, UsedType value)
 {
     this->add(row, col, value);
-}
-
-template <class UsedType>
-UsedType min(Matrix<UsedType> M)
-{
-  UsedType  minimun;
-  minimun = M.Mat[0][0];
-
-  for(int i = 0; i < M.rows; i++)
-    for(int j = 0; j < M.cols; j++)
-      if(minimun > M.Mat[i][j])
-        minimun = M.Mat[i][j];
-
-  return minimun;
 }
 
 template <class UsedType>

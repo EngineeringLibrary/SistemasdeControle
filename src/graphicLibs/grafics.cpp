@@ -8,7 +8,12 @@ grafics::grafics()
     this->NumberOfClicks = 0;
     this->LastMotionXPosition = 0;
     this->LastMotionYPosition = 0;
-    MotionOcurrency = false;
+    this->GraphicXLimit_Left = -40;
+    this->GraphicXLimit_Rigth = 40;
+    this->GraphicYLimit_Down = -40;
+    this->GraphicYLimit_Up = 40;
+    this->MotionOcurrency = false;
+    this->FunctionToCall = NULL;
 }
 
 grafics::grafics(double (*FunctionToCall)(double), double lMin, double lMax, double step)
@@ -23,13 +28,43 @@ grafics::grafics(double (*FunctionToCall)(double), double lMin, double lMax, dou
     this->NumberOfClicks = 0;
     this->LastMotionXPosition = 0;
     this->LastMotionYPosition = 0;
-    MotionOcurrency = false;
+    this->GraphicXLimit_Left = 0;
+    this->GraphicXLimit_Rigth = 40;
+    this->GraphicYLimit_Down = 0;
+    this->GraphicYLimit_Up = 40;
+    this->MotionOcurrency = false;
 }
 
 double grafics::FunctionCalculation(double input)
 {
     input = ((*this->FunctionToCall)(input));
     return (input);
+}
+
+double grafics::normalize(double input, double xUp, double xDown, double yUp, double yDown)
+{
+    return ((input - xDown)/(xUp - xDown))*(yUp - yDown) + yDown;
+}
+
+bool grafics::isInGraphicRegion(double in, double out)
+{
+    return (in > this->GraphicXLimit_Left  &&
+            in < this->GraphicXLimit_Rigth &&
+            out > this->GraphicYLimit_Down &&
+            out < this->GraphicYLimit_Up);
+
+}
+
+bool grafics::isInXLimit(double in)
+{
+    return (in > this->GraphicXLimit_Left  &&
+            in < this->GraphicXLimit_Rigth);
+}
+
+bool grafics::isInYLimit(double out)
+{
+    return (out > this->GraphicYLimit_Down &&
+            out < this->GraphicYLimit_Up);
 }
 
 void grafics::clearDraw()
@@ -42,17 +77,22 @@ void grafics::clearDraw()
     glColor3f(0.0,0.0,0.0);
 }
 
-void grafics::DrawAxis(int ZeroXPosition, int ZeroYPosition)
+void grafics::DrawAxis(double ZeroXPosition, double ZeroYPosition)
 {
-    glBegin(GL_LINES);
-        glVertex2d(ZeroXPosition, -40);
-        glVertex2d(ZeroXPosition, 40);
-    glEnd();
-
-    glBegin(GL_LINES);
-        glVertex2d(-40, ZeroYPosition);
-        glVertex2d(40, ZeroYPosition);
-    glEnd();
+    if(isInXLimit(ZeroXPosition))
+    {
+        glBegin(GL_LINES);
+            glVertex2f(ZeroXPosition, this->GraphicYLimit_Down);
+            glVertex2f(ZeroXPosition, this->GraphicYLimit_Up);
+        glEnd();
+    }
+    if(isInYLimit(ZeroYPosition))
+    {
+        glBegin(GL_LINES);
+            glVertex2f(this->GraphicXLimit_Left, ZeroYPosition);
+            glVertex2f(this->GraphicXLimit_Rigth, ZeroYPosition);
+        glEnd();
+    }
 
 
 }
@@ -65,75 +105,65 @@ void grafics::GenerateDataFunction()
 
     for (double i = this->lMin; i < this->lMax; i += this->step)
     {
-
         this->input(1,cont,i);
         this->output(1,cont,this->FunctionCalculation(i));
-
-        if(i == this->lMin)
-        {
-            this->MaxOutputValue = this->output(1,cont);
-            this->MinOutputValue = this->output(1,cont);
-        }
-        else
-        {
-            if(this->MaxOutputValue < this->output(1,cont))
-                this->MaxOutputValue = this->output(1,cont);
-
-            if(this->MinOutputValue > this->output(1,cont))
-                this->MinOutputValue = this->output(1,cont);
-        }
         cont++;
     }
 }
 
-void grafics::DrawFunction()
+void grafics::DrawGraphic()
 {
-    int tam = (int)((this->lMax - this->lMin)/this->step),
-              ZeroXFunction = -40, ZeroYFunction = 0;
-    GenerateDataFunction();
+    double ZeroXFunction = this->GraphicXLimit_Left,
+           ZeroYFunction = ((this->GraphicXLimit_Rigth + this->GraphicXLimit_Left)/2);
+    Matrix<double> NormInput, NormOutput;
 
-    glBegin(GL_POINTS);
-        glVertex2f(this->GraphicDataSize*(80*(input(1,1)  - this->lMin)    /(this->lMax     - this->lMin)     - 40) - this->GraphicXposition,
-                   this->GraphicDataSize*(80*(output(1,2) - MinOutputValue)/(MaxOutputValue - MinOutputValue) - 40) + this->GraphicYposition);
-    glEnd();
+    NormInput  = this->GraphicDataSize*input.normalize(this->GraphicXLimit_Rigth, this->GraphicXLimit_Left) - this->GraphicXposition;
+    NormOutput = this->GraphicDataSize*output.normalize(this->GraphicYLimit_Up, this->GraphicYLimit_Down) + this->GraphicYposition;
 
     glBegin(GL_LINE_STRIP);
-        for (int i = 1; i <= tam; i++)
-        {
-            if((input(1,i) > 0 && input(1,i) < this->step) || (input(1,i) < 0 && input(1,i) > -this->step))
-                ZeroXFunction = this->GraphicDataSize*(80*(input(1,i)  - this->lMin)    /(this->lMax     - this->lMin)     - 40) - this->GraphicXposition;
-            if((output(1,i) > 0 && output(1,i) < this->step) || (output(1,i) < 0 && output(1,i) > -this->step))
-                ZeroYFunction = this->GraphicDataSize*(80*(output(1,i) - MinOutputValue)/(MaxOutputValue - MinOutputValue) - 40) + this->GraphicYposition;
-
-            glVertex2f(this->GraphicDataSize*(80*(input(1,i)  - this->lMin)    /(this->lMax     - this->lMin)     - 40) - this->GraphicXposition,
-                       this->GraphicDataSize*(80*(output(1,i) - MinOutputValue)/(MaxOutputValue - MinOutputValue) - 40) + this->GraphicYposition);
-        }
-
+        for (int i = 1; i <= input.getRows(); i++)
+            for(int j = 1; j <= input.getCols(); j++)
+            {
+                if((input(i,j) > 0 && input(i,j) < this->step) || (input(i,j) < 0 && input(i,j) > -this->step))
+                    ZeroXFunction = NormInput(i,j);
+                if((output(i,j) > 0 && output(i,j) < this->step) || (output(i,j) < 0 && output(i,j) > -this->step))
+                    ZeroYFunction = NormOutput(i,j);
+                if(isInGraphicRegion(NormInput(i,j), NormOutput(i,j)))
+                    glVertex2f(NormInput(i,j), NormOutput(i,j));
+            }
     glEnd();
 
     this->DrawAxis(ZeroXFunction, ZeroYFunction);
 }
 
+void grafics::DrawFunction()
+{
+    GenerateDataFunction();
+    DrawGraphic();
+}
+
 void grafics::DrawGrid()
 {
-    glBegin(GL_POINTS);
-        for (int i = -40; i <= 40; i += 2)
-            for (int j = -40; j <= 40; j += 2)
-            {
-                glVertex2f(i, j);
-            }
+    double GridXDistance = (abs(this->GraphicXLimit_Rigth - this->GraphicXLimit_Left)/abs(this->GraphicXLimit_Rigth));
+    double GridYDistance = (abs(this->GraphicYLimit_Up    - this->GraphicYLimit_Down)/abs(this->GraphicYLimit_Up));
 
+    glPointSize(1.0);
+    glBegin(GL_POINTS);
+        for (double i = this->GraphicXLimit_Left; i <= this->GraphicXLimit_Rigth; i += GridXDistance)
+            for (double j = this->GraphicYLimit_Down; j <= this->GraphicYLimit_Up ; j += GridYDistance)
+                glVertex2f(i, j);
     glEnd();
+    glPointSize(3.0);
 }
 
 void grafics::display()
 {
     this->clearDraw();
+    if((this->FunctionToCall == NULL))
+        this->DrawGraphic();
+    else
+        this->DrawFunction();
 
-    glPointSize(1.0);
-
-//    this->DrawAxis();
-    this->DrawFunction();
     this->DrawGrid();
 
     glPopMatrix();          //retrieves our saved matrix from the top of the matrix stack
@@ -142,8 +172,10 @@ void grafics::display()
 
 void grafics::MouseClickProcess(int button, int state, int x, int y)
 {
-    double a = (double(x)/(glutGet(GLUT_WINDOW_WIDTH)/2) -1)*40;
-    double b = (double(y)/(glutGet(GLUT_WINDOW_HEIGHT)/2) -1)*40;
+    double XDistance = (this->GraphicXLimit_Rigth - this->GraphicXLimit_Left)/2;
+    double YDistance = (this->GraphicYLimit_Up    - this->GraphicYLimit_Down)/2;
+    double a = (double(x)/(glutGet(GLUT_WINDOW_WIDTH)/2) -1)*XDistance;
+    double b = (double(y)/(glutGet(GLUT_WINDOW_HEIGHT)/2) -1)*YDistance;
 
     if(this->MotionOcurrency == false)
     {
@@ -177,18 +209,22 @@ void grafics::MouseClickProcess(int button, int state, int x, int y)
 
 void grafics::MotionFunc(int x, int y)
 {
-    double a = (double(x)/(glutGet(GLUT_WINDOW_WIDTH)/2) -1)*40;
-    double b = (double(y)/(glutGet(GLUT_WINDOW_HEIGHT)/2) -1)*40;
+    double XDistance = (this->GraphicXLimit_Rigth - this->GraphicXLimit_Left)/2;
+    double YDistance = (this->GraphicYLimit_Up    - this->GraphicYLimit_Down)/2;
+    double a = (double(x)/(glutGet(GLUT_WINDOW_WIDTH)/2) -1)*XDistance;
+    double b = (double(y)/(glutGet(GLUT_WINDOW_HEIGHT)/2) -1)*YDistance;
 
-    this->GraphicXposition += (this->LastMotionXPosition - a)/40;
-    this->GraphicYposition += (this->LastMotionYPosition - b)/40;
+    this->GraphicXposition += (this->LastMotionXPosition - a)/XDistance;
+    this->GraphicYposition += (this->LastMotionYPosition - b)/YDistance;
     this->MotionOcurrency = true;
 }
 
 void grafics::PassiveMotionFunc(int x, int y)
 {
-    double a = (double(x)/(glutGet(GLUT_WINDOW_WIDTH)/2) -1)*40;
-    double b = (double(y)/(glutGet(GLUT_WINDOW_HEIGHT)/2) -1)*40;
+    double XDistance = (this->GraphicXLimit_Rigth - this->GraphicXLimit_Left)/2;
+    double YDistance = (this->GraphicYLimit_Up    - this->GraphicYLimit_Down)/2;
+    double a = (double(x)/(glutGet(GLUT_WINDOW_WIDTH)/2) -1)*XDistance;
+    double b = (double(y)/(glutGet(GLUT_WINDOW_HEIGHT)/2) -1)*YDistance;
 
     this->LastMotionXPosition = a;
     this->LastMotionYPosition = b;

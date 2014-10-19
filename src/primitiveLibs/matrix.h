@@ -128,6 +128,7 @@ public:
     Matrix<UsedType> getColumn(int num);
     UsedType getMat(int row, int col);//Retorna o elemento no índice ij da matriz.
     void setMat(int row, int col, UsedType num);
+    Matrix<UsedType> normalize(UsedType yUp, UsedType yDown);//Retorna uma matriz Normalizada
     //#######################################################//
 //Friend functions
     template<class FriendType> friend Matrix<FriendType> operator- (FriendType a, Matrix<FriendType> Mat1);//Soma Matriz Escalar
@@ -139,7 +140,7 @@ public:
 
     template<class FriendType> friend FriendType max(Matrix<FriendType> M);//Retorna o maior valor de uma matriz
     template<class FriendType> friend FriendType min(Matrix<FriendType> M);//Retorna o menor valor de uma matriz
-    template<class FriendType> friend FriendType norm(Matrix<FriendType> M);//Retorna o maior valor de uma matriz
+    template<class FriendType> friend FriendType norm(Matrix<FriendType> M);//Retorna o maior valor de uma matriz   
     template<class FriendType> friend Matrix<FriendType> abs(Matrix<FriendType> M);//Retorna o modulo dos valores de uma matriz
     template<class FriendType> friend Matrix<FriendType> cos(Matrix<FriendType> M1);//Retorna o cosseno dos elementos de uma matriz
     template<class FriendType> friend Matrix<FriendType> sin(Matrix<FriendType> M1);//Retorna o seno dos elementos de uma matriz
