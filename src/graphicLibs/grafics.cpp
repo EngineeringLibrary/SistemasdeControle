@@ -2,70 +2,61 @@
 
 grafics::grafics()
 {
-    this->GraphicDataSize = 1;
-    this->GraphicXposition = 0;
-    this->GraphicYposition = 0;
-    this->NumberOfClicks = 0;
-    this->LastMotionXPosition = 0;
-    this->LastMotionYPosition = 0;
-    this->GraphicXLimit_Left = -40;
-    this->GraphicXLimit_Rigth = 40;
-    this->GraphicYLimit_Down = -40;
-    this->GraphicYLimit_Up = 40;
-    this->MotionOcurrency = false;
-    this->FunctionToCall = NULL;
+
 }
 
-grafics::grafics(double (*FunctionToCall)(double), double lMin, double lMax, double step)
+//grafics::grafics(simFunction func)
+//{
+
+//}
+
+//grafics::grafics(graphicProperties prop)
+//{
+
+//}
+
+grafics::grafics(graphicProperties prop, simFunction func)
 {
-    this->FunctionToCall = FunctionToCall;
-    this->lMax = lMax;
-    this->lMin = lMin;
-    this->step = step;
-    this->GraphicDataSize = 1;
-    this->GraphicXposition = 0;
-    this->GraphicYposition = 0;
-    this->NumberOfClicks = 0;
-    this->LastMotionXPosition = 0;
-    this->LastMotionYPosition = 0;
-    this->GraphicXLimit_Left = 0;
-    this->GraphicXLimit_Rigth = 40;
-    this->GraphicYLimit_Down = 0;
-    this->GraphicYLimit_Up = 40;
-    this->MotionOcurrency = false;
-}
+    this->prop.setGridStatus          (prop.getGridStatus());
+    this->prop.setGraphicDataSize     (prop.getGraphicDataSize());
+    this->prop.setGraphicXposition    (prop.getGraphicXposition());
+    this->prop.setGraphicYposition    (prop.getGraphicYposition());
+    this->prop.setNumberOfClicks      (prop.getNumberOfClicks());
+    this->prop.setLastMotionPosition  (prop.getLastXMotionPosition(),
+                                       prop.getLastYMotionPosition());
+    this->prop.setLimits              (prop.getXLimitLeft(), prop.getXLimitRight(),
+                                       prop.getYLimitDown(), prop.getYLimitUp());
+    this->prop.setMotionOcurrency     (prop.getMotionOcurrency());
 
-double grafics::FunctionCalculation(double input)
-{
-    input = ((*this->FunctionToCall)(input));
-    return (input);
-}
+    this->func.SetInputData           (func.GetInputData());
+    this->func.SetOutputData          (func.GetOutputData());
+    this->func.SetDataLimits          (func.GetDataMinLimit(),
+                                       func.GetDataMaxLimit());
+    this->func.SetDataStep            (func.GetDataStep());
 
-double grafics::normalize(double input, double xUp, double xDown, double yUp, double yDown)
-{
-    return ((input - xDown)/(xUp - xDown))*(yUp - yDown) + yDown;
-}
+    this->func.SetFunctionCall        (func.GetFunctionCall());
 
-bool grafics::isInGraphicRegion(double in, double out)
-{
-    return (in > this->GraphicXLimit_Left  &&
-            in < this->GraphicXLimit_Rigth &&
-            out > this->GraphicYLimit_Down &&
-            out < this->GraphicYLimit_Up);
 
 }
 
-bool grafics::isInXLimit(double in)
-{
-    return (in > this->GraphicXLimit_Left  &&
-            in < this->GraphicXLimit_Rigth);
-}
-
-bool grafics::isInYLimit(double out)
-{
-    return (out > this->GraphicYLimit_Down &&
-            out < this->GraphicYLimit_Up);
-}
+//grafics::grafics(double (*FunctionToCall)(double), double lMin, double lMax, double step)
+//{
+//    this->FunctionToCall = FunctionToCall;
+//    this->lMax = lMax;
+//    this->lMin = lMin;
+//    this->step = step;
+//    this->GraphicDataSize = 1;
+//    this->GraphicXposition = 0;
+//    this->GraphicYposition = 0;
+//    this->NumberOfClicks = 0;
+//    this->LastMotionXPosition = 0;
+//    this->LastMotionYPosition = 0;
+//    this->GraphicXLimit_Left = 0;
+//    this->GraphicXLimit_Rigth = 40;
+//    this->GraphicYLimit_Down = 0;
+//    this->GraphicYLimit_Up = 40;
+//    this->MotionOcurrency = false;
+//}
 
 void grafics::clearDraw()
 {
@@ -77,80 +68,87 @@ void grafics::clearDraw()
     glColor3f(0.0,0.0,0.0);
 }
 
-void grafics::DrawAxis(double ZeroXPosition, double ZeroYPosition)
+void grafics::DrawTitle()
 {
-    if(isInXLimit(ZeroXPosition))
-    {
-        glBegin(GL_LINES);
-            glVertex2f(ZeroXPosition, this->GraphicYLimit_Down);
-            glVertex2f(ZeroXPosition, this->GraphicYLimit_Up);
-        glEnd();
-    }
-    if(isInYLimit(ZeroYPosition))
-    {
-        glBegin(GL_LINES);
-            glVertex2f(this->GraphicXLimit_Left, ZeroYPosition);
-            glVertex2f(this->GraphicXLimit_Rigth, ZeroYPosition);
-        glEnd();
-    }
-
-
+    glRasterPos2f(prop.getXLimitRight()- 35, prop.getYLimitUp()+2);
+    glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+    glutBitmapString(GLUT_BITMAP_HELVETICA_18,(const unsigned char*)prop.getTitle().c_str());
 }
 
-void grafics::GenerateDataFunction()
+void grafics::DrawAxis(double ZeroXPosition, double ZeroYPosition)
 {
-    int tam = (int)((this->lMax - this->lMin)/this->step);
-    int cont = 1;
-    this->input.init(1,tam);
-
-    for (double i = this->lMin; i < this->lMax; i += this->step)
+    if(prop.isInXLimit(ZeroXPosition))
     {
-        this->input(1,cont,i);
-        this->output(1,cont,this->FunctionCalculation(i));
-        cont++;
+        glBegin(GL_LINES);
+            glVertex2f(ZeroXPosition, prop.getYLimitDown());
+            glVertex2f(ZeroXPosition, prop.getYLimitUp());
+        glEnd();
     }
+    if(prop.isInYLimit(ZeroYPosition))
+    {
+        glBegin(GL_LINES);
+            glVertex2f(prop.getXLimitLeft(),  ZeroYPosition);
+            glVertex2f(prop.getXLimitRight(), ZeroYPosition);
+        glEnd();
+    }
+
+
 }
 
 void grafics::DrawGraphic()
 {
-    double ZeroXFunction = this->GraphicXLimit_Left,
-           ZeroYFunction = ((this->GraphicXLimit_Rigth + this->GraphicXLimit_Left)/2);
+    double ZeroXFunction = prop.getXLimitLeft(),
+           ZeroYFunction = ((prop.getYLimitUp() + prop.getYLimitDown())/2);
     Matrix<double> NormInput, NormOutput;
 
-    NormInput  = this->GraphicDataSize*input.normalize(this->GraphicXLimit_Rigth, this->GraphicXLimit_Left) - this->GraphicXposition;
-    NormOutput = this->GraphicDataSize*output.normalize(this->GraphicYLimit_Up, this->GraphicYLimit_Down) + this->GraphicYposition;
+    NormInput  = prop.getGraphicDataSize()*func.GetInputData().normalize(prop.getXLimitRight(), prop.getXLimitLeft()) - prop.getGraphicXposition();
+    NormOutput = prop.getGraphicDataSize()*func.GetOutputData().normalize(prop.getYLimitUp(),   prop.getYLimitDown()) + prop.getGraphicYposition();
 
-    glBegin(GL_LINE_STRIP);
-        for (int i = 1; i <= input.getRows(); i++)
-            for(int j = 1; j <= input.getCols(); j++)
+
+        for (int i = 1; i <= NormInput.getRows(); i++)
+        {
+            glColor3f(double(i-1),double(i-1)/4,double(i-1)/2);
+            glBegin(GL_LINE_STRIP);
+            for(int j = 1; j <= NormInput.getCols(); j++)
             {
-                if((input(i,j) > 0 && input(i,j) < this->step) || (input(i,j) < 0 && input(i,j) > -this->step))
-                    ZeroXFunction = NormInput(i,j);
-                if((output(i,j) > 0 && output(i,j) < this->step) || (output(i,j) < 0 && output(i,j) > -this->step))
-                    ZeroYFunction = NormOutput(i,j);
-                if(isInGraphicRegion(NormInput(i,j), NormOutput(i,j)))
+                if(j < NormInput.getCols())
+                {
+                    if((func.GetInputData()(i,j)  > 0.0 && func.GetInputData()(i,j+1)  < 0.0) || (func.GetInputData()(i,j)  < 0.0 && func.GetInputData()(i,j+1)  > 0.0))
+                        ZeroYFunction = (NormInput(i,j) + NormInput(i,j+1))/2;
+                    else if(func.GetInputData()(i,j)  == 0.0)
+                        ZeroYFunction = NormInput(i,j);
+                    if((func.GetOutputData()(i,j)  > 0.0 && func.GetOutputData()(i,j+1)  < 0.0) || (func.GetOutputData()(i,j)  < 0.0 && func.GetOutputData()(i,j+1)  > 0.0))
+                        ZeroXFunction = (NormOutput(i,j)+NormOutput(i,j+1))/2;
+                    else if(func.GetOutputData()(i,j)  == 0.0)
+                        ZeroXFunction = NormOutput(i,j);
+                }
+
+                if(prop.isInGraphicRegion(NormInput(i,j), NormOutput(i,j)))
                     glVertex2f(NormInput(i,j), NormOutput(i,j));
             }
-    glEnd();
+            glEnd();
+        }
 
+    glColor3f(0.0,0.0,0.0);
     this->DrawAxis(ZeroXFunction, ZeroYFunction);
 }
 
 void grafics::DrawFunction()
 {
-    GenerateDataFunction();
+    if(func.GetFunctionCall() != NULL)
+        func.GenerateDataFunction();
     DrawGraphic();
 }
 
 void grafics::DrawGrid()
 {
-    double GridXDistance = (abs(this->GraphicXLimit_Rigth - this->GraphicXLimit_Left)/abs(this->GraphicXLimit_Rigth));
-    double GridYDistance = (abs(this->GraphicYLimit_Up    - this->GraphicYLimit_Down)/abs(this->GraphicYLimit_Up));
+    double GridXDistance = (abs(prop.getXLimitRight() - prop.getXLimitLeft())/abs(prop.getXLimitRight()));
+    double GridYDistance = (abs(prop.getYLimitUp() - prop.getYLimitDown())/abs(prop.getYLimitUp()));
 
     glPointSize(1.0);
     glBegin(GL_POINTS);
-        for (double i = this->GraphicXLimit_Left; i <= this->GraphicXLimit_Rigth; i += GridXDistance)
-            for (double j = this->GraphicYLimit_Down; j <= this->GraphicYLimit_Up ; j += GridYDistance)
+        for (double i = prop.getXLimitLeft(); i <= prop.getXLimitRight(); i += GridXDistance)
+            for (double j = prop.getYLimitDown(); j <= prop.getYLimitUp() ; j += GridYDistance)
                 glVertex2f(i, j);
     glEnd();
     glPointSize(3.0);
@@ -159,12 +157,10 @@ void grafics::DrawGrid()
 void grafics::display()
 {
     this->clearDraw();
-    if((this->FunctionToCall == NULL))
-        this->DrawGraphic();
-    else
-        this->DrawFunction();
-
-    this->DrawGrid();
+    this->DrawTitle();
+    this->DrawFunction();
+    if(prop.getGridStatus() == true)
+        this->DrawGrid();
 
     glPopMatrix();          //retrieves our saved matrix from the top of the matrix stack
     glutSwapBuffers();      //swaps the front and back buffers
@@ -172,65 +168,59 @@ void grafics::display()
 
 void grafics::MouseClickProcess(int button, int state, int x, int y)
 {
-    double XDistance = (this->GraphicXLimit_Rigth - this->GraphicXLimit_Left)/2;
-    double YDistance = (this->GraphicYLimit_Up    - this->GraphicYLimit_Down)/2;
+    double XDistance = (prop.getXLimitRight() - prop.getXLimitLeft())/2;
+    double YDistance = (prop.getYLimitUp() - prop.getYLimitDown())/2;
     double a = (double(x)/(glutGet(GLUT_WINDOW_WIDTH)/2) -1)*XDistance;
     double b = (double(y)/(glutGet(GLUT_WINDOW_HEIGHT)/2) -1)*YDistance;
 
-    if(this->MotionOcurrency == false)
+    if(prop.getMotionOcurrency() == false)
     {
         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP)
         {
-            this->XClicks(1, this->NumberOfClicks + 1, a);
-            this->YClicks(1, this->NumberOfClicks + 1, b);
+            prop.setXClicks(1, prop.getNumberOfClicks() + 1, a);
+            prop.setYClicks(1, prop.getNumberOfClicks() + 1, b);
 
-            this->GraphicDataSize  += 0.2;
-            this->GraphicXposition += this->XClicks(1, this->NumberOfClicks + 1);
-            this->GraphicYposition += this->YClicks(1, this->NumberOfClicks + 1);
-            this->NumberOfClicks++;
+            prop.setGraphicDataSize ( prop.getGraphicDataSize()  + 0.2);
+            prop.setGraphicXposition( prop.getGraphicXposition() + prop.getXClicks()(1, prop.getNumberOfClicks() + 1));
+            prop.setGraphicYposition( prop.getGraphicYposition() + prop.getYClicks()(1, prop.getNumberOfClicks() + 1));
+            prop.setNumberOfClicks  (prop.getNumberOfClicks()    + 1);
         }
-        else if (button == GLUT_RIGHT_BUTTON && this->NumberOfClicks > 0 && state == GLUT_UP)
+        else if (button == GLUT_RIGHT_BUTTON && prop.getNumberOfClicks() > 0 && state == GLUT_UP)
         {
-            this->GraphicDataSize  -= 0.2;
-            this->NumberOfClicks--;
-            this->GraphicXposition -= this->XClicks(1, this->NumberOfClicks + 1);
-            this->GraphicYposition -= this->YClicks(1, this->NumberOfClicks + 1);
+            prop.setGraphicDataSize ( prop.getGraphicDataSize()  - 0.2);
+            prop.setNumberOfClicks  ( prop.getNumberOfClicks()   - 1);
+            prop.setGraphicXposition( prop.getGraphicXposition() - prop.getXClicks()(1, prop.getNumberOfClicks() + 1));
+            prop.setGraphicYposition( prop.getGraphicYposition() - prop.getYClicks()(1, prop.getNumberOfClicks() + 1));
         }
-        else if(button == GLUT_RIGHT_BUTTON && this->NumberOfClicks == 0)
+        else if(button == GLUT_RIGHT_BUTTON && prop.getNumberOfClicks() == 0)
         {
-            this->GraphicXposition = 0;
-            this->GraphicYposition = 0;
+            prop.setGraphicXposition(0);
+            prop.setGraphicYposition(0);
         }
     }
 
     else
-        this->MotionOcurrency = false;
+        prop.setMotionOcurrency(false);
 }
 
 void grafics::MotionFunc(int x, int y)
 {
-    double XDistance = (this->GraphicXLimit_Rigth - this->GraphicXLimit_Left)/2;
-    double YDistance = (this->GraphicYLimit_Up    - this->GraphicYLimit_Down)/2;
-    double a = (double(x)/(glutGet(GLUT_WINDOW_WIDTH)/2) -1)*XDistance;
+    double XDistance = double(prop.getXLimitRight() - prop.getXLimitLeft())/2;
+    double YDistance = double(prop.getYLimitUp()    - prop.getYLimitDown())/2;
+    double a = (double(x)/(glutGet(GLUT_WINDOW_WIDTH)/2)  -1)*XDistance;
     double b = (double(y)/(glutGet(GLUT_WINDOW_HEIGHT)/2) -1)*YDistance;
 
-    this->GraphicXposition += (this->LastMotionXPosition - a)/XDistance;
-    this->GraphicYposition += (this->LastMotionYPosition - b)/YDistance;
-    this->MotionOcurrency = true;
+    prop.setGraphicXposition( prop.getGraphicXposition() + (prop.getLastXMotionPosition() - a)/XDistance);
+    prop.setGraphicYposition( prop.getGraphicYposition() + (prop.getLastYMotionPosition() - b)/YDistance);
+    prop.setMotionOcurrency(true);
 }
 
 void grafics::PassiveMotionFunc(int x, int y)
 {
-    double XDistance = (this->GraphicXLimit_Rigth - this->GraphicXLimit_Left)/2;
-    double YDistance = (this->GraphicYLimit_Up    - this->GraphicYLimit_Down)/2;
-    double a = (double(x)/(glutGet(GLUT_WINDOW_WIDTH)/2) -1)*XDistance;
+    double XDistance = double(prop.getXLimitRight() - prop.getXLimitLeft())/2;
+    double YDistance = double(prop.getYLimitUp()    - prop.getYLimitDown())/2;
+    double a = (double(x)/(glutGet(GLUT_WINDOW_WIDTH)/2)  -1) *XDistance;
     double b = (double(y)/(glutGet(GLUT_WINDOW_HEIGHT)/2) -1)*YDistance;
 
-    this->LastMotionXPosition = a;
-    this->LastMotionYPosition = b;
-
-//    double a = (x/(glutGet(GLUT_WINDOW_WIDTH)/2) -1)*40;
-//    double b = (y/(glutGet(GLUT_WINDOW_HEIGHT)/2) -1)*40;
-//    this->LastMotionXPosition = a;
-//    this->LastMotionYPosition = b;
+    prop.setLastMotionPosition(a, b);
 }

@@ -867,28 +867,27 @@ Matrix<UsedType> Matrix<UsedType>::getColumn(int num)
 //-----Funções Auxiliares para biblioteca de matrizes------//
 
 template <class UsedType>
-UsedType max(Matrix<UsedType> M)
+UsedType Matrix<UsedType>::max()
 {
-     UsedType  maximum = M.Mat[0][0];
-     if(M.rows != 0 && M.cols != 0)
-         for(int i = 0; i < M.rows; i++)
-            for(int j = 0; j < M.cols; j++)
-                if(maximum < M.Mat[i][j])
-                    maximum = M.Mat[i][j];
+    UsedType  maximum = this->Mat[0][0];
+     if(this->rows != 0 && this->cols != 0)
+         for(int i = 0; i < this->rows; i++)
+            for(int j = 0; j < this->cols; j++)
+                if(maximum < this->Mat[i][j])
+                    maximum = this->Mat[i][j];
 
      return maximum;
 }
-
 template <class UsedType>
-UsedType min(Matrix<UsedType> M)
+UsedType Matrix<UsedType>::min()
 {
     UsedType  minimun;
-    minimun = M.Mat[0][0];
-    if(M.rows != 0 && M.cols != 0)
-        for(int i = 0; i < M.rows; i++)
-            for(int j = 0; j < M.cols; j++)
-                if(minimun > M.Mat[i][j])
-                    minimun = M.Mat[i][j];
+    minimun = this->Mat[0][0];
+    if(this->rows != 0 && this->cols != 0)
+        for(int i = 0; i < this->rows; i++)
+            for(int j = 0; j < this->cols; j++)
+                if(minimun > this->Mat[i][j])
+                    minimun = this->Mat[i][j];
 
     return minimun;
 }
@@ -898,7 +897,7 @@ Matrix<UsedType> Matrix<UsedType>::normalize(UsedType yUp, UsedType yDown)
 {
   Matrix<UsedType>  ret;
   ret.init(this->getRows(),this->getCols());
-  UsedType xDown = min(*this), xUp = max(*this);
+  UsedType xDown = this->min(), xUp = this->max();
 
   for(int i = 0; i < this->rows; i++)
     for(int j = 0; j < this->cols; j++)
@@ -1198,8 +1197,8 @@ template class Matrix<int>;
 template Matrix<int> operator*<int> (int, Matrix<int>);
 template Matrix<int> operator/<int> (int, Matrix<int>);
 template Matrix<int> diff<int> (Matrix<int>, int);
-template int max<int> (Matrix<int>);
-template int min<int> (Matrix<int>);
+//template int max<int> (Matrix<int>);
+//template int min<int> (Matrix<int>);
 //template int norm<int> (Matrix<int>);
 //template Matrix<int> abs<int> (Matrix<int>);
 //template Matrix<int> cos<int> (Matrix<int>);
@@ -1229,8 +1228,8 @@ template class Matrix<double>;
 template Matrix<double> operator*<double> (double, Matrix<double>);
 template Matrix<double> operator/<double> (double, Matrix<double>);
 template Matrix<double> diff<double> (Matrix<double>, double);
-template double max<double> (Matrix<double>);
-template double min<double> (Matrix<double>);
+//template double max<double> (Matrix<double>);
+//template double min<double> (Matrix<double>);
 template double norm<double> (Matrix<double>);
 template Matrix<double> abs<double> (Matrix<double>);
 template Matrix<double> cos<double> (Matrix<double>);
@@ -1260,8 +1259,8 @@ template class Matrix<float>;
 template Matrix<float> operator*<float> (float, Matrix<float>);
 template Matrix<float> operator/<float> (float, Matrix<float>);
 template Matrix<float> diff<float> (Matrix<float>, float);
-template float max<float> (Matrix<float>);
-template float min<float> (Matrix<float>);
+//template float max<float> (Matrix<float>);
+//template float min<float> (Matrix<float>);
 template float norm<float> (Matrix<float>);
 template Matrix<float> abs<float> (Matrix<float>);
 template Matrix<float> cos<float> (Matrix<float>);
