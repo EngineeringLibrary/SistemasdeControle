@@ -1,7 +1,7 @@
 #ifndef __OPTIMIZATION_H_INCLUDED
 #define __OPTIMIZATION_H_INCLUDED
 
-#include "..\simulation libs\lsim.h"
+#include "..\simulationLibs\lsim.h"
 
 //Biblioteca incompleta, ainda não funcional.
 

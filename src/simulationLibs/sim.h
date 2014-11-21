@@ -1,6 +1,6 @@
 #ifndef __SIM_H_INCLUDED
 #define __SIM_H_INCLUDED
-#include "..\primitive libs\matrix.h"
+#include "..\primitiveLibs\matrix.h"
 #include "fstream"
 
 template <class UsedType>

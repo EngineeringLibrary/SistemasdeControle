@@ -1,7 +1,7 @@
 #ifndef __EQDIFSIM_H_INCLUDED
 #define __EQDIFSIM_H_INCLUDED
 
-#include "..\primitive libs\polynom.h"
+#include "..\primitiveLibs\polynom.h"
 
 template <class UsedType>
 class EqdifSim

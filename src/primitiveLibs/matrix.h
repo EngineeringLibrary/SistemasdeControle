@@ -8,8 +8,6 @@
 #include <ctime>
 #include <cstdlib>
 
-#define pi 3.14
-
 using namespace std;
 
 template <class UsedType>
@@ -32,6 +30,7 @@ public:
 
     //#####Construtores e Destrutores da Classe#####//
     Matrix(); //Construtor
+    Matrix(string value); //Construtor
     Matrix(int row, int col);//Constroi a matriz de acordo com o número de linhas e colunas informados, respectivamente.
     Matrix(const Matrix & otherMatrix);//Faz uma cópia da Matriz
     ~Matrix();//Destrutor
@@ -160,5 +159,17 @@ public:
     template<class FriendType> friend Matrix<FriendType> round(Matrix<FriendType> M1);//arredonda os elementos de uma matriz
     template<class FriendType> friend Matrix<FriendType> floor(Matrix<FriendType> M1);//arredonda para baixo os elementos de uma matriz
 };
+template<class UsedType>
+UsedType max(Matrix<UsedType> M)
+{
+    UsedType  maximum = M(1,1);
+     if(M.getRows() != 0 && M.getCols() != 0)
+         for(int i = 1; i <= M.getRows(); i++)
+            for(int j = 1; j <= M.getCols(); j++)
+                if(maximum < M(i,j))
+                    maximum = M(i,j);
+
+     return maximum;
+}
 
 #endif // __MATRIX_H_INCLUDED

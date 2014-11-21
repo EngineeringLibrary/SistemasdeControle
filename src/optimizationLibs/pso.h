@@ -1,7 +1,7 @@
 #ifndef __PSO_H_INCLUDED
 #define __PSO_H_INCLUDED
 
-#include "..\simulation libs\lsim.h"
+#include "..\simulationLibs\lsim.h"
 
 template <class UsedType>
 class PSO
