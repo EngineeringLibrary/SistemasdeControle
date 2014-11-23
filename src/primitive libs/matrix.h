@@ -815,93 +815,445 @@ public:
 
     Matrix operator/(UsedType a);
 
-    //! Operador de concatenação de matrizes a direita.
+    //! Sobrecarga do operador | para realizar a concatenação de matrizes (adicionando às colunas).
 
     /*!
-        Concatena duas matrizes, esse operador coloca a matriz mais a direita
-        a esquerda da outra matriz.
-        \param Mat1 Matriz a ser concatenada.
+        O operador | foi sobrecarregado de tal forma que concatena duas matrizes (a direita e a esquerda do operador | ) retornando como resultado uma matriz (formada pela junção das duas matrizas, colocando uma ao lado da outra).
+        \param Mat1 Matriz a ser concatenada juntamente com a matriz à direita do operador || para formar uma nova matriz.
+
+        Ex:
+\code
+
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A("1,2,3;4,5,6;7,8,9");
+            Matrix<double> B("4;7;10");
+            A.print();
+            B.print();
+            (A|B).print();
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
+         4.000\n
+         7.000\n
+        10.000\n
+
+         1.000  2.000  3.000  4.000\n
+         4.000  5.000  6.000  7.000\n
+         7.000  8.000  9.000 10.000\n
+
+        Ver também: \sa Matrix operator|| (Matrix Mat1)
     */
+
     Matrix operator| (Matrix Mat1);
 
-    //! Operador de concatenação de matrizes abaixo.
+    //! Sobrecarga do operador || para realizar a concatenação de matrizes (adicionando às linhas).
 
     /*!
-        Concatena duas matrizes, esse operador coloca a matriz mais a direita
-        abaixo da outra matriz.
-        \param Mat1 Matriz a ser concatenada.
+        O operador || foi sobrecarregado de tal forma que concatena duas matrizes (a direita e a esquerda do operador || ) retornando como resultado uma matriz (formada pela junção das duas matrizas, colocando uma abaixo da outra).
+        \param Mat1 Matriz a ser concatenada juntamente com a matriz à direita do operador || para formar uma nova matriz.
+
+        Ex:
+\code
+
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A("1,2,3;4,5,6;7,8,9");
+            Matrix<double> B("10,11,12");
+            A.print();
+            B.print();
+            (A||B).print();
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
+        10.000 11.000 12.000\n
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+        10.000 11.000 12.000\n
+
+        Ver também: \sa Matrix operator| (Matrix Mat1)
     */
+
     Matrix operator|| (Matrix Mat1);
 
-    //! Operador de transposição de matrizes
+    //! Sobrecarga do operador ~ para obter a transposta da matriz.
 
     /*!
-        Transpõe a matriz referida.
+        O operador ~ foi sobrecarregado de tal forma que retorna a transposta da matriz em que ele está a esquerda.
+
+        Obs: O método não requer parâmetro de entrada (exceto a matriz que estará localizada à direita do operador ~)
+
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A("4;7;10");
+            A.print();
+            (~A).print();
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         4.000\n
+         7.000\n
+        10.000\n
+
+        10.000 11.000 12.000\n
+
+        Ver também: \sa Matrix operator* (Matrix Mat1)
     */
 
     Matrix operator~();
 
-    //! Operador de potenciação de matrizes
+    //! Sobrecarga do operador ^ para obter a potenciação de matrizes.
 
     /*!
-        Eleva a matriz ao expoente especificado.
-        \param exp Expoente o qual irá elevar a matriz.
+        O operador ^ foi sobrecarregado de tal forma a simplificar a operação de potenciação de matrizes, dada uma matriz e um escalar (à esquerda e à direita do operador ^ respectivamente).
+        \param exp Expoente cujo módulo significa a quantidade de vezes que a multiplicação entre a matriz com ela mesma será repetida. Caso o expoente seja negativo o programa primeiramente invertará a matriz para depois realizar a potenciação.
+
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A;
+            A.eye(3);
+            A = A*3;
+            A.print();
+            (A^3).print();
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         3.000  0.000  0.000\n
+         0.000  3.000  0.000\n
+         0.000  0.000  3.000\n
+
+        27.000  0.000  0.000\n
+         0.000 27.000  0.000\n
+         0.000  0.000 27.000\n
+
+        Ver também: \sa Matrix operator* (Matrix Mat1)
     */
+
     Matrix operator^(UsedType exp);
 
-    //! Operador de potenciação interna da matriz.
+    //! Sobrecarga do operador > para obter a potenciação dos elementos da matriz.
 
     /*!
-        Eleva todos os elementos da matriz ao expoente especificado.
-        \param num Expoente que irá elevar os elementos da matriz.
+        O operador > foi sobrecarregado de tal forma a simplificar a operação de potenciação dos elementos internos de uma matriz.
+        \param exp Expoente que indica a potência de cada elemento interno da matriz.
+
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A;
+            A.ones(3,3);
+            A = A*3;
+            A.print();
+            (A>2).print();
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         3.000  3.000  3.000\n
+         3.000  3.000  3.000\n
+         3.000  3.000  3.000\n
+
+         9.000  9.000  9.000\n
+         9.000  9.000  9.000\n
+         9.000  9.000  9.000\n
+
+        Ver também: \sa Matrix operator* (Matrix Mat1), \sa Matrix operator> (Matrix Mat1)
     */
+
     Matrix operator> (UsedType num);
 
-    //! Operador de acesso a matriz.
+    //! Sobrecarga do operador () para acessar os elementos da matriz.
 
     /*!
-        Toma como parâmetro a linha e a coluna de um determinado elemento da matriz e o retorna.
+        O operador () foi sobrecarregado de tal forma a simplificar o acesso aos elementos internos de uma matriz. A partir da indicação da linha e coluna (parâmetros que são recebidos) o resultado da operação será o elemento da matriz que se encontra naquela posição.
         \param row Linha do elemento.
         \param col Coluna do elemento.
+
+        Obs: Lembrando que o elemento da primeira posição é o que tem linha 1 e coluna 1, também.
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A("1,2,3;4,5,6;7,8,9");
+            A.print();
+            std::cout <<  A(1,1) << std::endl;
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
+         1\n
+
+        Ver também: \sa Matrix operator* (Matrix Mat1) \sa Matrix operator^ (Matrix Mat1)
     */
+
     UsedType operator() (int row,int col);
 
-    //! Sobrecarga do operador de acesso da matriz.
+    //! Sobrecarga do operador () para inserir elementos em uma matriz.
 
     /*!
-        Recebe a linha e a coluna de uma posição da matriz e altera o elemento especificado.
-        \param row Linha do elemento.
+        O operador () foi sobrecarregado de tal forma a simplificar a inserção de elementos em uma matriz. A partir da indicação da linha e coluna (parâmetros que são recebidos) um novo elemento pode ser inserido (na posição determinada).
+        \param rol Linha do elemento.
         \param col Coluna do elemento.
-        \param value Valor a ser colocado na posição.
+        \param value Valor a ser inserido na linha e coluna especificada
+
+        Obs: Lembrando que o elemento da primeira posição é o que tem linha 1 e coluna 1, também.
+
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A;
+            A(1,1,1);
+            A(1,2,2);
+            A(1,3,3);
+            A(2,1,4);
+            A(2,2,5);
+            A(2,3,6);
+            A(3,1,7);
+            A(3,2,8);
+            A(3,3,9);
+            A.print();
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
+        Ver também: \sa void add(int rol, int col, UsedType number)
     */
+
     void operator() (int row, int col, UsedType value);
 
     //! Cria um vetor linha de elementos crescentes.
 
     /*!
         Recebe um intervalo e cria um vetor contando do intervalo menor até o maior de um em um.
-        \param left Menor intervalo.
-        \param rigth Maior intervalo.
+        \param left limite inferior do vetor.
+        \param rigth limite superior do vetor.
+
+        Obs: Lembrando que o elemento da primeira posição é o que tem linha 1 e coluna 1, também.
+
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A;
+            A.lineVector(10,15);
+            A.print();
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         10.000  11.000  12.000  13.000  14.000  15.000\n
+
+        Ver também:
     */
     void lineVector(int left, int rigth);
 
     //! Calcula o traço da matriz.
 
     /*!
-        Calcula o traço da matriz. O traço corresponde a soma de todos os elementos da diagonal principal.
+        Calcula o traço da matriz, ou seja, a soma de todos os elementos da diagonal principal.
+
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A("1,2,3;4,5,6;7,8,9");
+            A.print();
+            std::cout << A.trace() << std::endl;
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
+         15\n
+
+        Ver também:
+
     */
+
     UsedType trace();
 
     //! Calcula a matriz inversa.
+
+    /*!
+        Calcula a inversa da matriz dada.
+
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A("1,2,3;0,5,6;7,1,9");
+            A.print();
+            (A.inv()).print();
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         0.000  5.000  6.000\n
+         7.000  1.000  9.000\n
+
+         2.167 -0.833  -0.167\n
+         2.333 -0.667  -0.333\n
+        -1.944  0.722   0.278\n
+
+        Ver também:
+
+    */
+
     Matrix inv();
 
     //! Encontra o polinômio característico da matriz.
+
+    /*!
+        Calcula o polinômio característico da matriz dada e devolve os índices do polinômio. O vetor resultante representa o polinômio característico onde o último elemtento é a constante e o primeiro multiplica \f$ x^{n-1} \f$.
+
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A("1,2,3;0,5,6;7,1,9");
+            A.print();
+            (A.pol()).print();
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         0.000  5.000  6.000\n
+         7.000  1.000  9.000\n
+
+        -1.000  15.000 -32.000 18.000\n
+
+        Ver também:
+
+    */
+
     Matrix pol();
 
     //! Calcula os autovalores da matriz.
+
+    /*!
+        Calcula os autovalores da matriz dada e devolve um vetor (matriz) que representam os autovalores (desordenados).
+
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A("1,2,3;0,5,6;7,1,9");
+            A.print();
+            (A.eigenvalues()).print();
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         0.000  5.000  6.000\n
+         7.000  1.000  9.000\n
+
+        12.714  1.000 1.286\n
+
+        Ver também:
+
+    */
+
     Matrix eigenvalues();
 
     //! Calcula o determinante da matriz.
+
+    /*!
+        Calcula o determinante da matriz dada e devolve um escalar que simboliza esse determinante.
+
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A("1,2,3;0,5,6;7,1,9");
+            A.print();
+            std::cout << A.det() << std::endl;
+            return 0;
+        }
+\endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         0.000  5.000  6.000\n
+         7.000  1.000  9.000\n
+
+         -0.000175765\n
+
+        Ver também:
+
+    */
+
     UsedType det();
 
     //! Retorna o número de linhas da matriz.
