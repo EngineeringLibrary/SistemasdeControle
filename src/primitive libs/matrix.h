@@ -54,17 +54,19 @@ public:
 
         Ex:
 
+        \code
         #include <src/primitiveLibs/matrix.h>
         int main(int argc, char *argv)
         {
-            Matrix<double> A; //Instancia com linhas e colunas iguais a zero
-            A.print();
-            return 0;
+           Matrix<double> A; //Instancia com linhas e colunas iguais a zero
+           A.print();
+           return 0;
         }
+        \endcode
 
-        Resultado:
+         Resultado:
 
-        Obs: Não mostra nada na tela
+         Obs: Não mostra nada na tela
     */
     Matrix();
 
@@ -74,25 +76,25 @@ public:
         Instancia o objeto da classe Matrix convertendo uma string de valores numéricos em elementos para a matriz.
         \param value Cadeia de caracteres que define a matriz.
 
-        Os elementos devem obedecer o seguinte critério:
-        A vírgula "," é utilizada para separar os elementos de uma linha em colunas
-        O ponto e vírgula ";" é utilizado para quebrar a linha da matriz
+        Os elementos devem obedecer o seguinte critério:\n
+         A vírgula "," é utilizada para separar os elementos de uma linha em colunas\n
+         O ponto e vírgula ";" é utilizado para quebrar a linha da matriz\n
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A("1,2,3;4,5,6;7,8,9");
-            A.print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+           Matrix<double> A("1,2,3;4,5,6;7,8,9");
+           A.print();
+           return 0;
+         }
+\endcode
         Resultado:
 
-        1.000  2.000  3.000
-        4.000  5.000  6.000
-        7.000  8.000  9.000
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
 
     */
 
@@ -106,20 +108,20 @@ public:
         \param col Número de colunas da matriz.
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A(3,3); //Instancia com linhas e colunas iguais a zero
-            A.print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A(3,3); //Instancia com linhas e colunas iguais a zero
+          A.print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        0.000  0.000  0.000
-        0.000  0.000  0.000
-        0.000  0.000  0.000
+         0.000  0.000  0.000\n
+         0.000  0.000  0.000\n
+         0.000  0.000  0.000\n
     */
     Matrix(int row, int col);
 
@@ -129,15 +131,15 @@ public:
         Construtor de cópia da classe, gerencia as aplicações de memória da classe
         \param otherMatrix Recebe como parâmetro uma cópia da matriz.
 
-        OBS: Este construtor não tem exemplo associado. Funciona implícitamente.
+         OBS: Este construtor não tem exemplo associado. Funciona implícitamente.\n
     */
     Matrix(const Matrix & otherMatrix);
 
     //! Destrutor padrão da classe.
 
     /*!
-        Libera todas as memórias alocadas durante a execução de objetos da classe.
-        OBS: Este Destrutor não tem exemplo associado. Funciona implícitamente.
+        Libera todas as memórias alocadas durante a execução de objetos da classe.\n
+         OBS: Este Destrutor não tem exemplo associado. Funciona implícitamente.\n
     */
     ~Matrix();//Destrutor
 
@@ -149,21 +151,21 @@ public:
         \param col Número de colunas da matriz.
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A;
-            A.init(3,3);
-            A.print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A;
+          A.init(3,3);
+          A.print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        0.000  0.000  0.000
-        0.000  0.000  0.000
-        0.000  0.000  0.000
+         0.000  0.000  0.000\n
+         0.000  0.000  0.000\n
+         0.000  0.000  0.000\n
     */
     void init(int row, int col);
 
@@ -173,26 +175,26 @@ public:
         Inicializa a matriz com uma determinada cadeia de caracteres dada como entrada.
         \param value Cadeia de caracteres que define a matriz.
 
-        Os elementos devem obedecer o seguinte critério:
-        A vírgula "," é utilizada para separar os elementos de uma linha em colunas
-        O ponto e vírgula ";" é utilizado para quebrar a linha da matriz
+        Os elementos devem obedecer o seguinte critério:\n
+         A vírgula "," é utilizada para separar os elementos de uma linha em colunas\n
+         O ponto e vírgula ";" é utilizado para quebrar a linha da matriz\n
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A;
-            A.init("1,2,3;4,5,6;7,8,9");
-            A.print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A;
+          A.init("1,2,3;4,5,6;7,8,9");
+          A.print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        1.000  2.000  3.000
-        4.000  5.000  6.000
-        7.000  8.000  9.000
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
 
     */
     void init(string value);
@@ -206,29 +208,29 @@ public:
         \param number Valor a ser inserido.
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A;
-            A.add(1,1,1);
-            A.add(1,2,2);
-            A.add(1,2,3);
-            A.add(2,1,4);
-            A.add(2,2,5);
-            A.add(2,3,6);
-            A.add(3,1,7);
-            A.add(3,2,8);
-            A.add(3,3,9);
-            A.print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A;
+          A.add(1,1,1);
+          A.add(1,2,2);
+          A.add(1,2,3);
+          A.add(2,1,4);
+          A.add(2,2,5);
+          A.add(2,3,6);
+          A.add(3,1,7);
+          A.add(3,2,8);
+          A.add(3,3,9);
+          A.print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        1.000  2.000  3.000
-        4.000  5.000  6.000
-        7.000  8.000  9.000
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
 
     */
     void add(int rol, int col, UsedType number);
@@ -240,21 +242,21 @@ public:
         \param num Número corresponde a dimensão da matriz identidade (Matriz quadrada).
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A;
-            A.eye(3);
-            A.print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A;
+          A.eye(3);
+          A.print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        1.000  0.000  0.000
-        0.000  1.000  0.000
-        0.000  0.000  1.000
+         1.000  0.000  0.000\n
+         0.000  1.000  0.000\n
+         0.000  0.000  1.000\n
 
     */
     void eye(int num);
@@ -267,21 +269,21 @@ public:
         \param col Número de colunas da matriz.
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A;
-            A.ones(3,3);
-            A.print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A;
+          A.ones(3,3);
+          A.print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        1.000  1.000  1.000
-        1.000  1.000  1.000
-        1.000  1.000  1.000
+         1.000  1.000  1.000\n
+         1.000  1.000  1.000\n
+         1.000  1.000  1.000\n
     */
     void ones(int row, int col);
 
@@ -293,21 +295,21 @@ public:
         \param col Número de colunas da matriz.
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A;
-            A.zeros(3,3);
-            A.print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A;
+          A.zeros(3,3);
+          A.print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        0.000  0.000  0.000
-        0.000  0.000  0.000
-        0.000  0.000  0.000
+         0.000  0.000  0.000\n
+         0.000  0.000  0.000\n
+         0.000  0.000  0.000\n
     */
     void zeros(int row, int col);
 
@@ -318,24 +320,24 @@ public:
         \param row Número de linhas da matriz.
         \param col Número de colunas da matriz.
 
-        Obs: Os números gerados na matriz estarão em uma faixa entre 0 e 1
+         Obs: Os números gerados na matriz estarão em uma faixa entre 0 e 1\n
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A;
-            A.randU(3,3);
-            A.print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A;
+          A.randU(3,3);
+          A.print();
+          return 0;
+         }
+\endcode
         Possível resultado:
 
-        0.485  0.189  0.195
-        0.350  0.284  0.023
-        0.463  0.848  0.048
+         0.485  0.189  0.195\n
+         0.350  0.284  0.023\n
+         0.463  0.848  0.048\n
     */
     void randU(int row, int col);
 
@@ -344,21 +346,21 @@ public:
     /*!
         Este método verifica os valores de rows e cols da matriz e retorna o maior valor entre os dois.
 
-        Obs: A função não recebe parâmetros de entrada
+         Obs: A função não recebe parâmetros de entrada
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A(5,9);
-            std::cout << A.length() << std::endl;
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A(5,9);
+          std::cout << A.length() << std::endl;
+          return 0;
+         }
+\endcode
         Resultado:
 
-        9
+         9\n
     */
 
     int length();
@@ -368,19 +370,22 @@ public:
     /*!
         Este método realiza uma busca interna na matriz pelo maior valor existente nela.
 
-        Obs: A função não recebe parâmetros de entrada
+         Obs: A função não recebe parâmetros de entrada
 
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A("1,2,3;4,5,6;7,8,9");
-            std::cout << A.max() << std::endl;
-            return 0;
-        }
-
+        Ex:
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A("1,2,3;4,5,6;7,8,9");
+          std::cout << A.max() << std::endl;
+          return 0;
+         }
+\endcode
         Resultado:
 
-        9
+         9\n
+
     */
     UsedType max();//Retorna o maior valor de uma matriz
 
@@ -389,19 +394,21 @@ public:
     /*!
         Este método realiza uma busca interna na matriz pelo menor valor existente nela.
 
-        Obs: A função não recebe parâmetros de entrada
+         Obs: A função não recebe parâmetros de entrada
 
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A("1,2,3;4,5,6;7,8,9");
-            std::cout << A.min() << std::endl;
-            return 0;
-        }
-
+        Ex:
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A("1,2,3;4,5,6;7,8,9");
+          std::cout << A.min() << std::endl;
+          return 0;
+         }
+\endcode
         Resultado:
 
-        1
+         1\n
     */
 
     UsedType min();//Retorna o menor valor de uma matriz
@@ -433,21 +440,23 @@ public:
     /*!
         Este método apresenta na tela todos os valores da matriz de maneira ordenada.
 
-        Obs: Para que seja apresentado algum valor o usuário deverá utilizar algum dos métodos de preenchimento de matrizes
+         Obs: Para que seja apresentado algum valor o usuário deverá utilizar algum dos métodos de preenchimento de matrizes\n
 
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A("1,2,3;4,5,6;7,8,9");
-            A.print();
-            return 0;
-        }
-
+        Ex:
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A("1,2,3;4,5,6;7,8,9");
+          A.print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        1.000  2.000  3.000
-        4.000  5.000  6.000
-        7.000  8.000  9.000
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
     */
 
     void print();
@@ -458,34 +467,34 @@ public:
         O método é uma sobrecarga do operador +. Ele permite que a operação de soma entre matrizes seja simplificada. O método realiza a soma de uma matriz que está à esquerda (this) e uma à direita (Mat1) do operador +.
         \param Mat1 Matriz a ser somada com a matriz this.
 
-        Obs: Para que a soma entre as matrizes seja realizada de maneira adequada, ambas as matrizes devem possuir a mesma quantidade de linhas e colunas.
+         Obs: Para que a soma entre as matrizes seja realizada de maneira adequada, ambas as matrizes devem possuir a mesma quantidade de linhas e colunas.\n
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A("1,2,3;4,5,6;7,8,9");
-            Matrix<double> B("3,2,1;6,5,4;9,8,7");
-            A.print();
-            B.print();
-            (A+B).print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A("1,2,3;4,5,6;7,8,9");
+          Matrix<double> B("3,2,1;6,5,4;9,8,7");
+          A.print();
+          B.print();
+          (A+B).print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        1.000  2.000  3.000
-        4.000  5.000  6.000
-        7.000  8.000  9.000
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
 
-        3.000  2.000  1.000
-        6.000  5.000  4.000
-        9.000  8.000  7.000
+         3.000  2.000  1.000\n
+         6.000  5.000  4.000\n
+         9.000  8.000  7.000\n
 
-        4.000  4.000  4.000
-       10.000 10.000 10.000
-       16.000 16.000 16.000
+         4.000  4.000  4.000\n
+        10.000 10.000 10.000\n
+        16.000 16.000 16.000\n
 
     */
     Matrix operator+(Matrix Mat1);
@@ -497,25 +506,25 @@ public:
         \param a escalar (número) a ser somado com a matriz this.
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A("1,2,3;4,5,6;7,8,9");
-            A.print();
-            (A+3).print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A("1,2,3;4,5,6;7,8,9");
+          A.print();
+          (A+3).print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        1.000  2.000  3.000
-        4.000  5.000  6.000
-        7.000  8.000  9.000
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
 
-        4.000  5.000  6.000
-        7.000  8.000  9.000
-       10.000 11.000 12.000
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+        10.000 11.000 12.000\n
 
     */
 
@@ -527,34 +536,34 @@ public:
         O método é uma sobrecarga do operador -. Ele permite que a operação de subtração entre matrizes seja simplificada. O método realiza a subtração de uma matriz que está à esquerda (this) e uma à direita (Mat1) do operador +.
         \param Mat1 Matriz a ser subtraída com a matriz this.
 
-        Obs: Para que a subtração entre as matrizes seja realizada de maneira adequada, ambas as matrizes devem possuir a mesma quantidade de linhas e colunas.
+         Obs: Para que a subtração entre as matrizes seja realizada de maneira adequada, ambas as matrizes devem possuir a mesma quantidade de linhas e colunas.\n
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A("1,2,3;4,5,6;7,8,9");
-            Matrix<double> B("3,2,1;6,5,4;9,8,7");
-            A.print();
-            B.print();
-            (A-B).print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A("1,2,3;4,5,6;7,8,9");
+          Matrix<double> B("3,2,1;6,5,4;9,8,7");
+          A.print();
+          B.print();
+          (A-B).print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        1.000  2.000  3.000
-        4.000  5.000  6.000
-        7.000  8.000  9.000
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
 
-        3.000  2.000  1.000
-        6.000  5.000  4.000
-        9.000  8.000  7.000
+         3.000  2.000  1.000\n
+         6.000  5.000  4.000\n
+         9.000  8.000  7.000\n
 
-        -2.000  0.000  2.000
-        -2.000  0.000  2.000
-        -2.000  0.000  2.000
+         -2.000  0.000  2.000\n
+         -2.000  0.000  2.000\n
+         -2.000  0.000  2.000\n
 
     */
 
@@ -567,82 +576,243 @@ public:
         \param a escalar (número) a ser subtraído com a matriz this.
 
         Ex:
-
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A("1,2,3;4,5,6;7,8,9");
-            A.print();
-            (A-3).print();
-            return 0;
-        }
-
+\code
+         #include <src/primitiveLibs/matrix.h>
+         int main(int argc, char *argv)
+         {
+          Matrix<double> A("1,2,3;4,5,6;7,8,9");
+          A.print();
+          (A-3).print();
+          return 0;
+         }
+\endcode
         Resultado:
 
-        1.000  2.000  3.000
-        4.000  5.000  6.000
-        7.000  8.000  9.000
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
 
-       -2.000 -1.000  0.000
-        1.000  2.000  3.000
-        4.000  5.000  6.000
+        -2.000 -1.000  0.000\n
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
 
     */
 
     Matrix operator-(UsedType a);
 
-    //! Operador de igualdade de uma matriz.
+    //! Operador de atribuição entre matrizes.
 
     /*!
-        Iguala uma matriz a outra matriz.
-        \param Mat1 Matriz a ser igualada.
+        O método é uma sobrecarga do operador =. Ele permite que a operação de atribuição entre matrizes seja realizada sem que haja a cópia do ponteiro da matriz à direita. O método cria um espaço de memória na matriz à esquerda da igualdade do mesmo tamanho da do lado direito e, após, cópia os valores para a matriz à esquerda.
+        \param Mat1 é uma matriz qualquer que está do lado direito da igualdade.
+
+        Ex:
+            \code
+            #include <src/primitiveLibs/matrix.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A("1,2,3;4,5,6;7,8,9");
+                Matrix<double> B;
+                B = A;
+                A.print();
+                B.print();
+                return 0;
+            }
+            \endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
     */
+
     void operator=(Matrix Mat1);
 
-    //! Operador de igualdade para uma string.
+    //! Operador de atribuição entre matriz e string.
 
     /*!
-        Iguala a matriz a uma string de entrada.
-        \param value String a qual a matriz deve ser igualada.
-        \sa void init(string value)
+        O método é uma sobrecarga do operador =. Ele permite que a operação de atribuição entre matriz e string seja simplificada. O método cria um espaço de memória na matriz à esquerda da igualdade, converte a string à direita da igualdade, converte-a em uma matriz e coloca os seus valores na matriz à esquerda da igualdade.
+        \param value é uma string qualquer que está do lado direito da igualdade.
+
+        Ex:
+            \code
+            #include <src/primitiveLibs/matrix.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A("1,2,3;4,5,6;7,8,9");
+                Matrix<double> B;
+                B = A;
+                A.print();
+                B.print();
+                return 0;
+            }
+            \endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
+         Ver também: \sa void init(string value), \sa Matrix(string value)
     */
+
     void operator=(string value);
 
 
     /*void operator=(UsedType B(int row, int col));*/
 
 
-    //! Operador de multiplicação matriz matriz.
+    //! Operador de multiplicação entre matrizes.
 
     /*!
-        Realiza a operação de multiplicação matricial.
-        \param Mat1 Matriz que irá multiplicar a matriz a esquerda.
+        O método é uma sobrecarga do operador *. Ele permite que a operação de multiplicação entre matrizes seja simplificada. O método realiza a multiplicação entre duas matrizes que estão a esquerda e a direita do operador *.
+        \param Mat1 É uma matriz qualquer a direita do operador *.
+
+        Ex:
+            \code
+            #include <src/primitiveLibs/matrix.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A("1,2,3;4,5,6;7,8,9");
+                Matrix<double> B;
+                B.eye(A.length());
+                A.print();
+                B.print();
+                (A*B).print();
+                return 0;
+            }
+            \endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
+         1.000  0.000  0.000\n
+         0.000  1.000  0.000\n
+         0.000  0.000  1.000\n
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
+         Ver também: \sa Matrix(string value), \sa Matrix()
     */
+
     Matrix operator*(Matrix Mat1);
 
-    //! Sobrecarga operador de multiplicação matriz.
+    //! Operador de multiplicação entre matriz e escalar.
 
     /*!
-        Realiza a multiplicação de todos os elementos de uma matriz por um escalar.
-        \param a Escalar que irá multiplicar a matriz.
+        O método é uma sobrecarga do operador *. Ele permite que a operação de multiplicação entre matriz e escalar seja simplificada. O método realiza a multiplicação entre uma matriz que está a esquerda e um escalar a direita do operador *.
+        \param a É um escalar qualquer a direita do operador *.
+
+        Ex:
+            \code
+            #include <src/primitiveLibs/matrix.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A("1,2,3;4,5,6;7,8,9");
+                Matrix<double> B;
+                B = A*2;
+                A.print();
+                B.print();
+                return 0;
+            }
+            \endcode
+
+        Resultado:
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
+         2.000  4.000  6.000\n
+         8.000 10.000 12.000\n
+        14.000 16.000 18.000\n
+
+         Ver também: \sa Matrix(string value), \sa Matrix()
     */
+
     Matrix operator*(UsedType a);
 
-    //! Operador de divisão matriz matriz.
+    //! Sobrecarga do operador / para "divisão" entre matrizes.
 
     /*!
-        A divisão matricial equivale a multiplicação da matriz a esquerda pela inversa da matriz a direita.
-        \param Mat1 Matriz que irá dividir a matriz a esquerda.
-        \sa Matrix inv()
+        A "divisão" matricial equivale a multiplicação com uma das matrizes (a direita do operador /) invertida (matriz^-1).
+        \param Mat1 É a matriz que será invertida (à direita do oprador /) para depois ser multiplicada pela matriz que está a esquerda do operador /.
+
+        Obs: Uma matriz vezes a sua inversa resulta na matriz identidade.
+
+        Ex:
+\code
+        #include <src/primitiveLibs/matrix.h>
+        int main(int argc, char *argv)
+        {
+            Matrix<double> A("1,0,3;4,5,6;1,8,9");
+            A.print();
+            (A/A).print();
+            return 0;
+
+        }
+\endcode
+        Resultado:
+
+         1.000  0.000  3.000\n
+         4.000  5.000  6.000\n
+         1.000  8.000  9.000\n
+
+         1.000  0.000  0.000\n
+         0.000  1.000  0.000\n
+         0.000  0.000  1.000\n
+
+        Ver também: \sa Matrix inv()
     */
+
     Matrix operator/(Matrix Mat1);
 
-    //! Sobrecarga operador divisão matriz.
+    //! Operador de divisão entre matriz e escalar.
 
     /*!
-        Realiza a divisão de todos os elementos da matriz por um escalar.
-        \param a Escalar que irá dividir os elementos da matriz.
+        O método é uma sobrecarga do operador /. Ele permite que a operação de divisão entre matriz e escalar seja simplificada. O método realiza a divisão entre uma matriz que está a esquerda e um escalar a direita do operador /.
+        \param a É um escalar qualquer a direita do operador /.
+
+        Ex:
+            \code
+            #include <src/primitiveLibs/matrix.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A("2,4,6;8,10,12;14,16,18");
+                Matrix<double> B;
+                B = A/2;
+                A.print();
+                B.print();
+                return 0;
+            }
+            \endcode
+
+        Resultado:
+
+         2.000  4.000  6.000\n
+         8.000 10.000 12.000\n
+        14.000 16.000 18.000\n
+
+         1.000  2.000  3.000\n
+         4.000  5.000  6.000\n
+         7.000  8.000  9.000\n
+
+
+         Ver também: \sa Matrix(string value), \sa Matrix()
     */
+
     Matrix operator/(UsedType a);
 
     //! Operador de concatenação de matrizes a direita.
