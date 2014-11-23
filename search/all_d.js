@@ -1,30 +1,4 @@
 var searchData=
 [
-  ['setcolumn',['setColumn',['../class_matrix.html#a532f6ef6c73a89cb65ad587ab94d7abe',1,'Matrix']]],
-  ['setdata',['setData',['../class_p_s_o.html#ac2a4ece07ddce8f47d218e65dc30d5b1',1,'PSO']]],
-  ['setden',['setDen',['../class_polynom.html#a279fd09569799e6940a9454c96641027',1,'Polynom']]],
-  ['setlimits',['setLimits',['../class_p_i_d.html#a3ed27364d4dfbc00359befd1023c6841',1,'PID']]],
-  ['setline',['setLine',['../class_matrix.html#a4d1bd93673b400e5282dfdc2eaeac2af',1,'Matrix']]],
-  ['setmat',['setMat',['../class_matrix.html#afac2cb70c9ba8c0a415f7d13de2c69dc',1,'Matrix']]],
-  ['setmodel',['setModel',['../class_eqdif_sim.html#a85365414095a04fc51ef387068f83ddd',1,'EqdifSim']]],
-  ['setnum',['setNum',['../class_polynom.html#a15e2d194fabe8d6a9e0fcda9fd6237cb',1,'Polynom']]],
-  ['setparams',['setParams',['../class_p_i_d.html#a984d1f5b551ea2477ee07818ed32acf2',1,'PID']]],
-  ['setreference',['setReference',['../class_relay.html#a73438c79054048e31c69ccea069ae765',1,'Relay']]],
-  ['setsampletime',['setSampleTime',['../class_p_i_d.html#adf714d63b7d5d16125898b97b1cac602',1,'PID']]],
-  ['settoleranceerror',['setToleranceError',['../class_relay.html#af71446fcffa52e609ca8165383023955',1,'Relay']]],
-  ['setvar',['setVar',['../class_polynom.html#a314d977344ac66806d49f28e6d27a525',1,'Polynom']]],
-  ['sim',['Sim',['../class_sim.html',1,'Sim&lt; UsedType &gt;'],['../class_sim.html#ae8a8d9a294f1d79d414f787384744060',1,'Sim::Sim()']]],
-  ['sim_2ecpp',['sim.cpp',['../sim_8cpp.html',1,'']]],
-  ['sim_2eh',['sim.h',['../sim_8h.html',1,'']]],
-  ['simarx',['simArx',['../class_lsim.html#a230647e92000e5140446dbb4aa0b7391',1,'Lsim']]],
-  ['simarxonestep',['simArxOneStep',['../class_lsim.html#a76f7073386216ae4a61d06d5f0c8eb1c',1,'Lsim']]],
-  ['simpoly',['simPoly',['../class_lsim.html#a59ad0599ed51d653f04714a188432991',1,'Lsim']]],
-  ['simulation',['Simulation',['../class_eqdif_sim.html#abd5415b0f67ebf451287003c0d0d40c5',1,'EqdifSim']]],
-  ['sin',['sin',['../class_matrix.html#a2e339bd0cc0c2404d0ec090188ba7744',1,'Matrix::sin()'],['../matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1',1,'sin():&#160;matrix.cpp']]],
-  ['sin_3c_20double_20_3e',['sin&lt; double &gt;',['../matrix_8cpp.html#ab2b528d805810601e63dcf6accc5f054',1,'matrix.cpp']]],
-  ['sin_3c_20float_20_3e',['sin&lt; float &gt;',['../matrix_8cpp.html#afa7961f004d6a70a41e9c1879ba9dffd',1,'matrix.cpp']]],
-  ['sinh',['sinh',['../class_matrix.html#af99b1ddd7dac8086b4530c6faf4119fe',1,'Matrix::sinh()'],['../matrix_8cpp.html#ad67c016ce209abd82cabac978e20a453',1,'sinh():&#160;matrix.cpp']]],
-  ['sinh_3c_20double_20_3e',['sinh&lt; double &gt;',['../matrix_8cpp.html#ab473434dbea5ad4f472e70d26a4d38b7',1,'matrix.cpp']]],
-  ['sinh_3c_20float_20_3e',['sinh&lt; float &gt;',['../matrix_8cpp.html#a9c6285f1a698f5dc3d3a5540d479914d',1,'matrix.cpp']]],
-  ['std',['Std',['../class_matrix.html#a91716fc574a954f4ea481aad1500af39',1,'Matrix']]]
+  ['zeros',['zeros',['../class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd',1,'Matrix']]]
 ];

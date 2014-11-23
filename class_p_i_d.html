@@ -3,18 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.7"/>
-<title>controllib: Referência à classe Template PID&lt; UsedType &gt;</title>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Referência da Template de Classe PID&lt; UsedType &gt;</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -29,23 +22,25 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">controllib
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
    </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
   </td>
  </tr>
  </tbody>
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.8.7 -->
+<!-- Gerado por Doxygen 1.8.8 -->
 <script type="text/javascript">
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Ficheiros</span></a></li>
+      <li><a href="files.html"><span>Arquivos</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -53,7 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
                onmouseover="return searchBox.OnSearchSelectShow()"
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
-          <input type="text" id="MSearchField" value="Localizar" accesskey="S"
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
                onfocus="searchBox.OnSearchFieldFocus(true)" 
                onblur="searchBox.OnSearchFieldFocus(false)" 
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
@@ -66,31 +61,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Lista&#160;de&#160;componentes</span></a></li>
-      <li><a href="functions.html"><span>Componentes&#160;membro</span></a></li>
+      <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
+      <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
+      <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_p_i_d.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Amigos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,12 +80,13 @@ $(document).ready(function(){initNavTree('class_p_i_d.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Membros públicos</a> &#124;
-<a href="class_p_i_d-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="class_p_i_d-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência à classe Template PID&lt; UsedType &gt;</div>  </div>
+<div class="title">Referência da Template de Classe PID&lt; UsedType &gt;</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -114,30 +96,30 @@ $(document).ready(function(){initNavTree('class_p_i_d.html','');});
 <p><code>#include &lt;<a class="el" href="pid_8h_source.html">pid.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Membros públicos</h2></td></tr>
+Métodos Públicos</h2></td></tr>
 <tr class="memitem:aac97dfe35f8d3c980ccb1863f0331f53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#aac97dfe35f8d3c980ccb1863f0331f53">PID</a> ()</td></tr>
-<tr class="memdesc:aac97dfe35f8d3c980ccb1863f0331f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão da classe.  <a href="#aac97dfe35f8d3c980ccb1863f0331f53">Mais...</a><br /></td></tr>
+<tr class="memdesc:aac97dfe35f8d3c980ccb1863f0331f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padr&amp;atildeo da classe.  <a href="#aac97dfe35f8d3c980ccb1863f0331f53">Mais...</a><br /></td></tr>
 <tr class="separator:aac97dfe35f8d3c980ccb1863f0331f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf714d63b7d5d16125898b97b1cac602"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#adf714d63b7d5d16125898b97b1cac602">setSampleTime</a> (UsedType Time)</td></tr>
-<tr class="memdesc:adf714d63b7d5d16125898b97b1cac602"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método o qual define o passo.  <a href="#adf714d63b7d5d16125898b97b1cac602">Mais...</a><br /></td></tr>
+<tr class="memdesc:adf714d63b7d5d16125898b97b1cac602"><td class="mdescLeft">&#160;</td><td class="mdescRight">M&amp;ecutetodo o qual define o passo.  <a href="#adf714d63b7d5d16125898b97b1cac602">Mais...</a><br /></td></tr>
 <tr class="separator:adf714d63b7d5d16125898b97b1cac602"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ed27364d4dfbc00359befd1023c6841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a3ed27364d4dfbc00359befd1023c6841">setLimits</a> (UsedType upperLimit, UsedType lowerLimit)</td></tr>
-<tr class="memdesc:a3ed27364d4dfbc00359befd1023c6841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método o qual define os limites.  <a href="#a3ed27364d4dfbc00359befd1023c6841">Mais...</a><br /></td></tr>
+<tr class="memdesc:a3ed27364d4dfbc00359befd1023c6841"><td class="mdescLeft">&#160;</td><td class="mdescRight">M&amp;ecutetodo o qual define os limites.  <a href="#a3ed27364d4dfbc00359befd1023c6841">Mais...</a><br /></td></tr>
 <tr class="separator:a3ed27364d4dfbc00359befd1023c6841"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a984d1f5b551ea2477ee07818ed32acf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a984d1f5b551ea2477ee07818ed32acf2">setParams</a> (UsedType kp, UsedType ki, UsedType kd)</td></tr>
-<tr class="memdesc:a984d1f5b551ea2477ee07818ed32acf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método o qual define os parâmetros kp, ki, e kd respectivamente do sistema a ser controlado.  <a href="#a984d1f5b551ea2477ee07818ed32acf2">Mais...</a><br /></td></tr>
+<tr class="memdesc:a984d1f5b551ea2477ee07818ed32acf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">M&amp;ecute o qual define os param&amp;ecirctos kp, ki, e kd respectivamente do sistema a ser controlado.  <a href="#a984d1f5b551ea2477ee07818ed32acf2">Mais...</a><br /></td></tr>
 <tr class="separator:a984d1f5b551ea2477ee07818ed32acf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3041bd11fcb81058ad0a72c9fa7031f8"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a3041bd11fcb81058ad0a72c9fa7031f8">OutputControl</a> (UsedType Reference, UsedType SignalInput)</td></tr>
-<tr class="memdesc:a3041bd11fcb81058ad0a72c9fa7031f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método o qual cá a saída do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>.  <a href="#a3041bd11fcb81058ad0a72c9fa7031f8">Mais...</a><br /></td></tr>
+<tr class="memdesc:a3041bd11fcb81058ad0a72c9fa7031f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">M&amp;ecutetodo o qual c&amp;acute a sa&amp;icuteda do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>.  <a href="#a3041bd11fcb81058ad0a72c9fa7031f8">Mais...</a><br /></td></tr>
 <tr class="separator:a3041bd11fcb81058ad0a72c9fa7031f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
 <div class="textblock"><h3>template&lt;typename UsedType&gt;<br />
 class PID&lt; UsedType &gt;</h3>
 
 <p>Classe <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
 <p>Classe <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> criada com o objetivo de simular um controle <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
-</div><h2 class="groupheader">Documentação dos Construtores &amp; Destrutor</h2>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="aac97dfe35f8d3c980ccb1863f0331f53"></a>
 <div class="memitem">
 <div class="memproto">
@@ -153,12 +135,12 @@ template&lt;typename UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Construtor padrão da classe. </p>
-<p>Inicia todos os membros em 0 para evitar o uso indevido de lixo da memória. </p>
+<p>Construtor padr&amp;atildeo da classe. </p>
+<p>Inicia todos os membros em 0 para evitar o uso indevido de lixo da mem&amp;ocuteria. </p>
 
 </div>
 </div>
-<h2 class="groupheader">Documentação dos métodos</h2>
+<h2 class="groupheader">Métodos</h2>
 <a class="anchor" id="a3041bd11fcb81058ad0a72c9fa7031f8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -185,11 +167,11 @@ template&lt;typename UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Método o qual cá a saída do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
-<p>Recebe a referência e o sinal de entrada, para então calcular o erro e gerar o sinal de saída do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>M&amp;ecutetodo o qual c&amp;acute a sa&amp;icuteda do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
+<p>Recebe a refer&amp;ecircncia e o sinal de entrada, para ent&amp;atildeo calcular o erro e gerar o sinal de sa&amp;icuteda do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Reference</td><td>é o setpoint do sistema, ou seja, o valor que o <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> irá guiar o sistema. </td></tr>
-    <tr><td class="paramname">SignalInput</td><td>é o sinal de entrada do sistema. </td></tr>
+    <tr><td class="paramname">Reference</td><td>&amp;Ecute o setpoint do sistema, ou seja, o valor que o <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> ir&amp;acute guiar o sistema. </td></tr>
+    <tr><td class="paramname">SignalInput</td><td>&amp;Ecute o sinal de entrada do sistema. </td></tr>
   </table>
   </dd>
 </dl>
@@ -222,11 +204,11 @@ template&lt;typename UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Método o qual define os limites. </p>
-<p>Toma como parâmetros o limite superior e o limite inferior no qual a faixa do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> deve trabalhar. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>M&amp;ecutetodo o qual define os limites. </p>
+<p>Toma como param&amp;ecirctos o limite superior e o limite inferior no qual a faixa do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> deve trabalhar. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">upperLimit</td><td>é o limite superior do sistema a ser definido. </td></tr>
-    <tr><td class="paramname">lowerLimit</td><td>é o limite inferior do sistema a ser definido. </td></tr>
+    <tr><td class="paramname">upperLimit</td><td>&amp;Ecute o limite superior do sistema a ser definido. </td></tr>
+    <tr><td class="paramname">lowerLimit</td><td>&amp;Ecute o limite inferior do sistema a ser definido. </td></tr>
   </table>
   </dd>
 </dl>
@@ -265,12 +247,12 @@ template&lt;typename UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Método o qual define os parâmetros kp, ki, e kd respectivamente do sistema a ser controlado. </p>
-<p>Recebe os parâmetros kp, ki e kd do sistema. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>M&amp;ecute o qual define os param&amp;ecirctos kp, ki, e kd respectivamente do sistema a ser controlado. </p>
+<p>Recebe os param&amp;ecirctos kp, ki e kd do sistema. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">kp</td><td>é o ganho proporcional, este ganho resultada em grandes mudança na saída dado um determinado erro. Altos valores pode tornar o sistema instável. </td></tr>
-    <tr><td class="paramname">ki</td><td>é o ganho integral, ele é proporcional ao erro e a duração do mesmo. O ganho integral acelera a saí do sistema até o setpoint. </td></tr>
-    <tr><td class="paramname">kd</td><td>é o ganho derivado, este ganho prevê o comportamento do sistema, sendo assim, ele melhora a estabilidade do sistema. </td></tr>
+    <tr><td class="paramname">kp</td><td>&amp;Ecute o ganho proporcional, este ganho resultada em grandes mudan&amp;ccedila na sa&amp;icuteda dado um determinado erro. Altos valores pode tornar o sistema inst&amp;acutevel. </td></tr>
+    <tr><td class="paramname">ki</td><td>&amp;Ecute o ganho integral, ele &amp;ecute proporcional ao erro e a dura&amp;ccedil&amp;acute do mesmo. O ganho integral acelera a sa&amp;icute do sistema at&amp;ecute o setpoint. </td></tr>
+    <tr><td class="paramname">kd</td><td>&amp;Ecute o ganho derivado, este ganho prev&amp;ecirc o comportamento do sistema, sendo assim, ele melhora a estabilidade do sistema. </td></tr>
   </table>
   </dd>
 </dl>
@@ -293,30 +275,26 @@ template&lt;typename UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Método o qual define o passo. </p>
-<p>Toma como parâmetros o tempo de amostragem e armazena em Step. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>M&amp;ecutetodo o qual define o passo. </p>
+<p>Toma como param&amp;ecircto o tempo de amostrogram e armazena em Step. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Time</td><td>Variação de tempo do sistema. </td></tr>
+    <tr><td class="paramname">Time</td><td>Varia&amp;ccedil&amp;atildeo de tempo do sistema. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<hr/>A documentação para esta classe foi gerada a partir dos seguintes ficheiros:<ul>
-<li><a class="el" href="pid_8h_source.html">pid.h</a></li>
-<li><a class="el" href="pid_8cpp.html">pid.cpp</a></li>
+<hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>SistemasdeControle/src/optimization libs/<a class="el" href="pid_8h_source.html">pid.h</a></li>
+<li>SistemasdeControle/src/optimization libs/pid.cpp</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="class_p_i_d.html">PID</a></li>
-    <li class="footer">Gerado em Terça, 5 de Agosto de 2014 13:03:14 para controllib por
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Gerado em Domingo, 23 de Novembro de 2014 19:45:56 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
 </body>
 </html>

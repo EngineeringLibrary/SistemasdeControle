@@ -3,18 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.7"/>
-<title>controllib: Referência à classe Template Matrix&lt; UsedType &gt;</title>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Referência da Template de Classe Matrix&lt; UsedType &gt;</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -29,23 +22,25 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">controllib
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
    </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
   </td>
  </tr>
  </tbody>
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.8.7 -->
+<!-- Gerado por Doxygen 1.8.8 -->
 <script type="text/javascript">
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Ficheiros</span></a></li>
+      <li><a href="files.html"><span>Arquivos</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -53,7 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
                onmouseover="return searchBox.OnSearchSelectShow()"
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
-          <input type="text" id="MSearchField" value="Localizar" accesskey="S"
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
                onfocus="searchBox.OnSearchFieldFocus(true)" 
                onblur="searchBox.OnSearchFieldFocus(false)" 
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
@@ -66,31 +61,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Lista&#160;de&#160;componentes</span></a></li>
-      <li><a href="functions.html"><span>Componentes&#160;membro</span></a></li>
+      <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
+      <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
+      <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_matrix.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Amigos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,13 +80,14 @@ $(document).ready(function(){initNavTree('class_matrix.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Membros públicos</a> &#124;
-<a href="#friends">Amigos</a> &#124;
-<a href="class_matrix-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#friends">Amigas</a> &#124;
+<a href="class_matrix-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência à classe Template Matrix&lt; UsedType &gt;</div>  </div>
+<div class="title">Referência da Template de Classe Matrix&lt; UsedType &gt;</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -115,12 +97,15 @@ $(document).ready(function(){initNavTree('class_matrix.html','');});
 <p><code>#include &lt;<a class="el" href="matrix_8h_source.html">matrix.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Membros públicos</h2></td></tr>
+Métodos Públicos</h2></td></tr>
 <tr class="memitem:a236d155e70b267c6af960f7f21c897dc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a236d155e70b267c6af960f7f21c897dc">Matrix</a> ()</td></tr>
 <tr class="memdesc:a236d155e70b267c6af960f7f21c897dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão da classe.  <a href="#a236d155e70b267c6af960f7f21c897dc">Mais...</a><br /></td></tr>
 <tr class="separator:a236d155e70b267c6af960f7f21c897dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad31049e0f9e9d6ace03e3fd54a207ac7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ad31049e0f9e9d6ace03e3fd54a207ac7">Matrix</a> (string value)</td></tr>
+<tr class="memdesc:ad31049e0f9e9d6ace03e3fd54a207ac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que recebe como parâmetro uma string.  <a href="#ad31049e0f9e9d6ace03e3fd54a207ac7">Mais...</a><br /></td></tr>
+<tr class="separator:ad31049e0f9e9d6ace03e3fd54a207ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b0514c49b9033f22f89e72f43552f4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a1b0514c49b9033f22f89e72f43552f4e">Matrix</a> (int row, int col)</td></tr>
-<tr class="memdesc:a1b0514c49b9033f22f89e72f43552f4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que toma como parâmetros o número de linhas e colunas.  <a href="#a1b0514c49b9033f22f89e72f43552f4e">Mais...</a><br /></td></tr>
+<tr class="memdesc:a1b0514c49b9033f22f89e72f43552f4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que recebe como parâmetros o número de linhas e colunas.  <a href="#a1b0514c49b9033f22f89e72f43552f4e">Mais...</a><br /></td></tr>
 <tr class="separator:a1b0514c49b9033f22f89e72f43552f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c6486e73a5e67140542e08b53127b1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a5c6486e73a5e67140542e08b53127b1f">Matrix</a> (const <a class="el" href="class_matrix.html">Matrix</a> &amp;otherMatrix)</td></tr>
 <tr class="memdesc:a5c6486e73a5e67140542e08b53127b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor de cópia da classe.  <a href="#a5c6486e73a5e67140542e08b53127b1f">Mais...</a><br /></td></tr>
@@ -135,28 +120,35 @@ Membros públicos</h2></td></tr>
 <tr class="memdesc:a8807a3fa883609fc9b012f34be12d14e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método de inicialização da matriz tomando um valor de string como entrada.  <a href="#a8807a3fa883609fc9b012f34be12d14e">Mais...</a><br /></td></tr>
 <tr class="separator:a8807a3fa883609fc9b012f34be12d14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace0929e1bfa81bcbd359ee3f96c0f4d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8">add</a> (int rol, int col, UsedType number)</td></tr>
-<tr class="memdesc:ace0929e1bfa81bcbd359ee3f96c0f4d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para se colocar valores em uma determinada posição da matriz.  <a href="#ace0929e1bfa81bcbd359ee3f96c0f4d8">Mais...</a><br /></td></tr>
+<tr class="memdesc:ace0929e1bfa81bcbd359ee3f96c0f4d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método inserir valores em uma determinada posição da matriz.  <a href="#ace0929e1bfa81bcbd359ee3f96c0f4d8">Mais...</a><br /></td></tr>
 <tr class="separator:ace0929e1bfa81bcbd359ee3f96c0f4d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab14a5f8484a9603109e01655cef1841d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab14a5f8484a9603109e01655cef1841d">eye</a> (int num)</td></tr>
-<tr class="memdesc:ab14a5f8484a9603109e01655cef1841d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para criar uma matriz identidade.  <a href="#ab14a5f8484a9603109e01655cef1841d">Mais...</a><br /></td></tr>
+<tr class="memdesc:ab14a5f8484a9603109e01655cef1841d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para criar uma matriz identidade (Matriz com 1 nos elementos da diagonal principal).  <a href="#ab14a5f8484a9603109e01655cef1841d">Mais...</a><br /></td></tr>
 <tr class="separator:ab14a5f8484a9603109e01655cef1841d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4a7edc44799f031ff2a65fc3de8439b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ad4a7edc44799f031ff2a65fc3de8439b">ones</a> (int row, int col)</td></tr>
-<tr class="memdesc:ad4a7edc44799f031ff2a65fc3de8439b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria uma matriz de uns.  <a href="#ad4a7edc44799f031ff2a65fc3de8439b">Mais...</a><br /></td></tr>
+<tr class="memdesc:ad4a7edc44799f031ff2a65fc3de8439b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria uma matriz preenchida com o valor 1 em todos os seus elementos.  <a href="#ad4a7edc44799f031ff2a65fc3de8439b">Mais...</a><br /></td></tr>
 <tr class="separator:ad4a7edc44799f031ff2a65fc3de8439b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a75a810eb076ca76d9418db55a9ffbd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd">zeros</a> (int row, int col)</td></tr>
 <tr class="memdesc:a8a75a810eb076ca76d9418db55a9ffbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria uma matriz de zeros.  <a href="#a8a75a810eb076ca76d9418db55a9ffbd">Mais...</a><br /></td></tr>
 <tr class="separator:a8a75a810eb076ca76d9418db55a9ffbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e0fb9ec11443abd6862163823d69b4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a1e0fb9ec11443abd6862163823d69b4a">randU</a> (int row, int col)</td></tr>
-<tr class="memdesc:a1e0fb9ec11443abd6862163823d69b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria uma matriz com valores aleatórios.  <a href="#a1e0fb9ec11443abd6862163823d69b4a">Mais...</a><br /></td></tr>
+<tr class="memdesc:a1e0fb9ec11443abd6862163823d69b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria uma matriz preenchida com valores aleatórios do tamanho desejado.  <a href="#a1e0fb9ec11443abd6862163823d69b4a">Mais...</a><br /></td></tr>
 <tr class="separator:a1e0fb9ec11443abd6862163823d69b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47339f7998ee8273b68f5485a8ce723e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a47339f7998ee8273b68f5485a8ce723e">length</a> ()</td></tr>
 <tr class="memdesc:a47339f7998ee8273b68f5485a8ce723e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o maior tamanho entre as linhas e colunas.  <a href="#a47339f7998ee8273b68f5485a8ce723e">Mais...</a><br /></td></tr>
 <tr class="separator:a47339f7998ee8273b68f5485a8ce723e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0eee828d8255c8b384421495f4f102d5"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a0eee828d8255c8b384421495f4f102d5">max</a> ()</td></tr>
+<tr class="memdesc:a0eee828d8255c8b384421495f4f102d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o elemento da matriz de maior valor numérico.  <a href="#a0eee828d8255c8b384421495f4f102d5">Mais...</a><br /></td></tr>
+<tr class="separator:a0eee828d8255c8b384421495f4f102d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a204d648e2f6c9d4ea29fa38d39e84617"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a204d648e2f6c9d4ea29fa38d39e84617">min</a> ()</td></tr>
+<tr class="memdesc:a204d648e2f6c9d4ea29fa38d39e84617"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o elemento da matriz de menor valor numérico.  <a href="#a204d648e2f6c9d4ea29fa38d39e84617">Mais...</a><br /></td></tr>
+<tr class="separator:a204d648e2f6c9d4ea29fa38d39e84617"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb9ae198fd5508ce2b0445a14d6ab356"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#abb9ae198fd5508ce2b0445a14d6ab356">Avarage</a> ()</td></tr>
 <tr class="memdesc:abb9ae198fd5508ce2b0445a14d6ab356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a média dos elementos da matriz.  <a href="#abb9ae198fd5508ce2b0445a14d6ab356">Mais...</a><br /></td></tr>
 <tr class="separator:abb9ae198fd5508ce2b0445a14d6ab356"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0684559eb9be7dddd45afbe57aa74a83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a0684559eb9be7dddd45afbe57aa74a83">Variance</a> ()</td></tr>
-<tr class="memdesc:a0684559eb9be7dddd45afbe57aa74a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a variância dos elementos de uma matriz.  <a href="#a0684559eb9be7dddd45afbe57aa74a83">Mais...</a><br /></td></tr>
+<tr class="memitem:a0684559eb9be7dddd45afbe57aa74a83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0684559eb9be7dddd45afbe57aa74a83"></a>
+<a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a0684559eb9be7dddd45afbe57aa74a83">Variance</a> ()</td></tr>
+<tr class="memdesc:a0684559eb9be7dddd45afbe57aa74a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a variância dos elementos de uma matriz. <br /></td></tr>
 <tr class="separator:a0684559eb9be7dddd45afbe57aa74a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91716fc574a954f4ea481aad1500af39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a91716fc574a954f4ea481aad1500af39">Std</a> ()</td></tr>
 <tr class="memdesc:a91716fc574a954f4ea481aad1500af39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o desvio padrão da matriz.  <a href="#a91716fc574a954f4ea481aad1500af39">Mais...</a><br /></td></tr>
@@ -165,55 +157,55 @@ Membros públicos</h2></td></tr>
 <tr class="memdesc:a8be0b3971f4de1190a687ce5f096f99a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exibe a matriz.  <a href="#a8be0b3971f4de1190a687ce5f096f99a">Mais...</a><br /></td></tr>
 <tr class="separator:a8be0b3971f4de1190a687ce5f096f99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9a324ad16d35f85b214f75bcf90112e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa9a324ad16d35f85b214f75bcf90112e">operator+</a> (<a class="el" href="class_matrix.html">Matrix</a> Mat1)</td></tr>
-<tr class="memdesc:aa9a324ad16d35f85b214f75bcf90112e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de soma de matrizes.  <a href="#aa9a324ad16d35f85b214f75bcf90112e">Mais...</a><br /></td></tr>
+<tr class="memdesc:aa9a324ad16d35f85b214f75bcf90112e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador + para a soma entre matrizes.  <a href="#aa9a324ad16d35f85b214f75bcf90112e">Mais...</a><br /></td></tr>
 <tr class="separator:aa9a324ad16d35f85b214f75bcf90112e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e5720c49a443e4ee3091dd8b2e37fa1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a5e5720c49a443e4ee3091dd8b2e37fa1">operator+</a> (UsedType a)</td></tr>
-<tr class="memdesc:a5e5720c49a443e4ee3091dd8b2e37fa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soma matriz escalar.  <a href="#a5e5720c49a443e4ee3091dd8b2e37fa1">Mais...</a><br /></td></tr>
+<tr class="memdesc:a5e5720c49a443e4ee3091dd8b2e37fa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador + para a soma entre matriz e escalar.  <a href="#a5e5720c49a443e4ee3091dd8b2e37fa1">Mais...</a><br /></td></tr>
 <tr class="separator:a5e5720c49a443e4ee3091dd8b2e37fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8e05f809ac1e6127f7e6ff32ac249c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa8e05f809ac1e6127f7e6ff32ac249c9">operator-</a> (<a class="el" href="class_matrix.html">Matrix</a> Mat1)</td></tr>
-<tr class="memdesc:aa8e05f809ac1e6127f7e6ff32ac249c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtração matriz matriz.  <a href="#aa8e05f809ac1e6127f7e6ff32ac249c9">Mais...</a><br /></td></tr>
+<tr class="memdesc:aa8e05f809ac1e6127f7e6ff32ac249c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador - para a subtração entre matrizes.  <a href="#aa8e05f809ac1e6127f7e6ff32ac249c9">Mais...</a><br /></td></tr>
 <tr class="separator:aa8e05f809ac1e6127f7e6ff32ac249c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb7ed4df274c656e582382cc2fbc9b70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#afb7ed4df274c656e582382cc2fbc9b70">operator-</a> (UsedType a)</td></tr>
-<tr class="memdesc:afb7ed4df274c656e582382cc2fbc9b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtração matriz escalar.  <a href="#afb7ed4df274c656e582382cc2fbc9b70">Mais...</a><br /></td></tr>
+<tr class="memdesc:afb7ed4df274c656e582382cc2fbc9b70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador - para a subtração entre matriz e escalar.  <a href="#afb7ed4df274c656e582382cc2fbc9b70">Mais...</a><br /></td></tr>
 <tr class="separator:afb7ed4df274c656e582382cc2fbc9b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f7a323c09e8a5abedec9c45a8451243"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a6f7a323c09e8a5abedec9c45a8451243">operator=</a> (<a class="el" href="class_matrix.html">Matrix</a> Mat1)</td></tr>
-<tr class="memdesc:a6f7a323c09e8a5abedec9c45a8451243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de igualdade de uma matriz.  <a href="#a6f7a323c09e8a5abedec9c45a8451243">Mais...</a><br /></td></tr>
+<tr class="memdesc:a6f7a323c09e8a5abedec9c45a8451243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de atribuição entre matrizes.  <a href="#a6f7a323c09e8a5abedec9c45a8451243">Mais...</a><br /></td></tr>
 <tr class="separator:a6f7a323c09e8a5abedec9c45a8451243"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f5d4635f398819188829557fe30f8c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a3f5d4635f398819188829557fe30f8c8">operator=</a> (string value)</td></tr>
-<tr class="memdesc:a3f5d4635f398819188829557fe30f8c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de igualdade para uma string.  <a href="#a3f5d4635f398819188829557fe30f8c8">Mais...</a><br /></td></tr>
+<tr class="memdesc:a3f5d4635f398819188829557fe30f8c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de atribuição entre matriz e string.  <a href="#a3f5d4635f398819188829557fe30f8c8">Mais...</a><br /></td></tr>
 <tr class="separator:a3f5d4635f398819188829557fe30f8c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0496868d56e4938088e0bc3b160c3d71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a0496868d56e4938088e0bc3b160c3d71">operator*</a> (<a class="el" href="class_matrix.html">Matrix</a> Mat1)</td></tr>
-<tr class="memdesc:a0496868d56e4938088e0bc3b160c3d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de multiplicação matriz matriz.  <a href="#a0496868d56e4938088e0bc3b160c3d71">Mais...</a><br /></td></tr>
+<tr class="memdesc:a0496868d56e4938088e0bc3b160c3d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de multiplicação entre matrizes.  <a href="#a0496868d56e4938088e0bc3b160c3d71">Mais...</a><br /></td></tr>
 <tr class="separator:a0496868d56e4938088e0bc3b160c3d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2cd4ad5fcc0a1752d6a1aecf48e9af8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab2cd4ad5fcc0a1752d6a1aecf48e9af8">operator*</a> (UsedType a)</td></tr>
-<tr class="memdesc:ab2cd4ad5fcc0a1752d6a1aecf48e9af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga operador de multiplicação matriz.  <a href="#ab2cd4ad5fcc0a1752d6a1aecf48e9af8">Mais...</a><br /></td></tr>
+<tr class="memdesc:ab2cd4ad5fcc0a1752d6a1aecf48e9af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de multiplicação entre matriz e escalar.  <a href="#ab2cd4ad5fcc0a1752d6a1aecf48e9af8">Mais...</a><br /></td></tr>
 <tr class="separator:ab2cd4ad5fcc0a1752d6a1aecf48e9af8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab70422878ad0ccf3ff4067306ac9c1e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab70422878ad0ccf3ff4067306ac9c1e0">operator/</a> (<a class="el" href="class_matrix.html">Matrix</a> Mat1)</td></tr>
-<tr class="memdesc:ab70422878ad0ccf3ff4067306ac9c1e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de divisão matriz matriz.  <a href="#ab70422878ad0ccf3ff4067306ac9c1e0">Mais...</a><br /></td></tr>
+<tr class="memdesc:ab70422878ad0ccf3ff4067306ac9c1e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador / para "divisão" entre matrizes.  <a href="#ab70422878ad0ccf3ff4067306ac9c1e0">Mais...</a><br /></td></tr>
 <tr class="separator:ab70422878ad0ccf3ff4067306ac9c1e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d01b4f73d2ed7be7cde5d3df37bb527"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a3d01b4f73d2ed7be7cde5d3df37bb527">operator/</a> (UsedType a)</td></tr>
-<tr class="memdesc:a3d01b4f73d2ed7be7cde5d3df37bb527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga operador divisão matriz.  <a href="#a3d01b4f73d2ed7be7cde5d3df37bb527">Mais...</a><br /></td></tr>
+<tr class="memdesc:a3d01b4f73d2ed7be7cde5d3df37bb527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de divisão entre matriz e escalar.  <a href="#a3d01b4f73d2ed7be7cde5d3df37bb527">Mais...</a><br /></td></tr>
 <tr class="separator:a3d01b4f73d2ed7be7cde5d3df37bb527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85b3c16adbdbb302e5a46c5d471248ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a85b3c16adbdbb302e5a46c5d471248ea">operator|</a> (<a class="el" href="class_matrix.html">Matrix</a> Mat1)</td></tr>
-<tr class="memdesc:a85b3c16adbdbb302e5a46c5d471248ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de concatenação de matrizes a direita.  <a href="#a85b3c16adbdbb302e5a46c5d471248ea">Mais...</a><br /></td></tr>
+<tr class="memdesc:a85b3c16adbdbb302e5a46c5d471248ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador | para realizar a concatenação de matrizes (adicionando às colunas).  <a href="#a85b3c16adbdbb302e5a46c5d471248ea">Mais...</a><br /></td></tr>
 <tr class="separator:a85b3c16adbdbb302e5a46c5d471248ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a473569bdc7909276ec1fa33653b28844"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a473569bdc7909276ec1fa33653b28844">operator||</a> (<a class="el" href="class_matrix.html">Matrix</a> Mat1)</td></tr>
-<tr class="memdesc:a473569bdc7909276ec1fa33653b28844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de concatenação de matrizes abaixo.  <a href="#a473569bdc7909276ec1fa33653b28844">Mais...</a><br /></td></tr>
+<tr class="memdesc:a473569bdc7909276ec1fa33653b28844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador || para realizar a concatenação de matrizes (adicionando às linhas).  <a href="#a473569bdc7909276ec1fa33653b28844">Mais...</a><br /></td></tr>
 <tr class="separator:a473569bdc7909276ec1fa33653b28844"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d19e9e62d8332a7aa05e1b58e1d5b97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a5d19e9e62d8332a7aa05e1b58e1d5b97">operator~</a> ()</td></tr>
-<tr class="memdesc:a5d19e9e62d8332a7aa05e1b58e1d5b97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de transposição de matrizes.  <a href="#a5d19e9e62d8332a7aa05e1b58e1d5b97">Mais...</a><br /></td></tr>
+<tr class="memdesc:a5d19e9e62d8332a7aa05e1b58e1d5b97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador ~ para obter a transposta da matriz.  <a href="#a5d19e9e62d8332a7aa05e1b58e1d5b97">Mais...</a><br /></td></tr>
 <tr class="separator:a5d19e9e62d8332a7aa05e1b58e1d5b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc5f9ab9fb8db320ce572ff96e8d94fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#adc5f9ab9fb8db320ce572ff96e8d94fb">operator^</a> (UsedType <a class="el" href="class_matrix.html#a490bfe8498fc7e33f5f4d08e6083b1b4">exp</a>)</td></tr>
-<tr class="memdesc:adc5f9ab9fb8db320ce572ff96e8d94fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de potenciação de matrizes.  <a href="#adc5f9ab9fb8db320ce572ff96e8d94fb">Mais...</a><br /></td></tr>
+<tr class="memitem:adc5f9ab9fb8db320ce572ff96e8d94fb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#adc5f9ab9fb8db320ce572ff96e8d94fb">operator^</a> (UsedType exp)</td></tr>
+<tr class="memdesc:adc5f9ab9fb8db320ce572ff96e8d94fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador ^ para obter a potenciação de matrizes.  <a href="#adc5f9ab9fb8db320ce572ff96e8d94fb">Mais...</a><br /></td></tr>
 <tr class="separator:adc5f9ab9fb8db320ce572ff96e8d94fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea1e9fca5fd32462e471b1a0110e1539"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aea1e9fca5fd32462e471b1a0110e1539">operator&gt;</a> (UsedType num)</td></tr>
-<tr class="memdesc:aea1e9fca5fd32462e471b1a0110e1539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de potenciação interna da matriz.  <a href="#aea1e9fca5fd32462e471b1a0110e1539">Mais...</a><br /></td></tr>
+<tr class="memdesc:aea1e9fca5fd32462e471b1a0110e1539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador &gt; para obter a potenciação dos elementos da matriz.  <a href="#aea1e9fca5fd32462e471b1a0110e1539">Mais...</a><br /></td></tr>
 <tr class="separator:aea1e9fca5fd32462e471b1a0110e1539"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa73d79e0b72c4a97aac31f474240ebd0"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa73d79e0b72c4a97aac31f474240ebd0">operator()</a> (int row, int col)</td></tr>
-<tr class="memdesc:aa73d79e0b72c4a97aac31f474240ebd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de acesso a matriz.  <a href="#aa73d79e0b72c4a97aac31f474240ebd0">Mais...</a><br /></td></tr>
+<tr class="memdesc:aa73d79e0b72c4a97aac31f474240ebd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador () para acessar os elementos da matriz.  <a href="#aa73d79e0b72c4a97aac31f474240ebd0">Mais...</a><br /></td></tr>
 <tr class="separator:aa73d79e0b72c4a97aac31f474240ebd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad4198e65fe06c4940df2198657b2d1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#aad4198e65fe06c4940df2198657b2d1d">operator()</a> (int row, int col, UsedType value)</td></tr>
-<tr class="memdesc:aad4198e65fe06c4940df2198657b2d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador de acesso da matriz.  <a href="#aad4198e65fe06c4940df2198657b2d1d">Mais...</a><br /></td></tr>
+<tr class="memdesc:aad4198e65fe06c4940df2198657b2d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador () para inserir elementos em uma matriz.  <a href="#aad4198e65fe06c4940df2198657b2d1d">Mais...</a><br /></td></tr>
 <tr class="separator:aad4198e65fe06c4940df2198657b2d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bd4cdb3f7f32b7cc273b003e179606c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a8bd4cdb3f7f32b7cc273b003e179606c">lineVector</a> (int left, int rigth)</td></tr>
 <tr class="memdesc:a8bd4cdb3f7f32b7cc273b003e179606c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um vetor linha de elementos crescentes.  <a href="#a8bd4cdb3f7f32b7cc273b003e179606c">Mais...</a><br /></td></tr>
@@ -233,122 +225,151 @@ Membros públicos</h2></td></tr>
 <tr class="memitem:a5f933c53833ab2079407882b8718c826"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a5f933c53833ab2079407882b8718c826">det</a> ()</td></tr>
 <tr class="memdesc:a5f933c53833ab2079407882b8718c826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula o determinante da matriz.  <a href="#a5f933c53833ab2079407882b8718c826">Mais...</a><br /></td></tr>
 <tr class="separator:a5f933c53833ab2079407882b8718c826"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a544492885c8925f6da46e44a896fe3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a1a544492885c8925f6da46e44a896fe3">getRows</a> ()</td></tr>
-<tr class="memdesc:a1a544492885c8925f6da46e44a896fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o número de linhas da matriz.  <a href="#a1a544492885c8925f6da46e44a896fe3">Mais...</a><br /></td></tr>
+<tr class="memitem:a1a544492885c8925f6da46e44a896fe3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a544492885c8925f6da46e44a896fe3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a1a544492885c8925f6da46e44a896fe3">getRows</a> ()</td></tr>
+<tr class="memdesc:a1a544492885c8925f6da46e44a896fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o número de linhas da matriz. <br /></td></tr>
 <tr class="separator:a1a544492885c8925f6da46e44a896fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab37ac29b603443da84f18129a8b1aca5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab37ac29b603443da84f18129a8b1aca5">getCols</a> ()</td></tr>
-<tr class="memdesc:ab37ac29b603443da84f18129a8b1aca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o número de colunas da matriz.  <a href="#ab37ac29b603443da84f18129a8b1aca5">Mais...</a><br /></td></tr>
+<tr class="memitem:ab37ac29b603443da84f18129a8b1aca5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab37ac29b603443da84f18129a8b1aca5"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab37ac29b603443da84f18129a8b1aca5">getCols</a> ()</td></tr>
+<tr class="memdesc:ab37ac29b603443da84f18129a8b1aca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o número de colunas da matriz. <br /></td></tr>
 <tr class="separator:ab37ac29b603443da84f18129a8b1aca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d1bd93673b400e5282dfdc2eaeac2af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a4d1bd93673b400e5282dfdc2eaeac2af">setLine</a> (int num, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; Line)</td></tr>
-<tr class="memdesc:a4d1bd93673b400e5282dfdc2eaeac2af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define uma linha.  <a href="#a4d1bd93673b400e5282dfdc2eaeac2af">Mais...</a><br /></td></tr>
+<tr class="memitem:a4d1bd93673b400e5282dfdc2eaeac2af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d1bd93673b400e5282dfdc2eaeac2af"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setLine</b> (int num, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; Line)</td></tr>
 <tr class="separator:a4d1bd93673b400e5282dfdc2eaeac2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a532f6ef6c73a89cb65ad587ab94d7abe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a532f6ef6c73a89cb65ad587ab94d7abe">setColumn</a> (int num, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; Colummn)</td></tr>
-<tr class="memdesc:a532f6ef6c73a89cb65ad587ab94d7abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define uma coluna.  <a href="#a532f6ef6c73a89cb65ad587ab94d7abe">Mais...</a><br /></td></tr>
+<tr class="memitem:a532f6ef6c73a89cb65ad587ab94d7abe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a532f6ef6c73a89cb65ad587ab94d7abe"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setColumn</b> (int num, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; Colummn)</td></tr>
 <tr class="separator:a532f6ef6c73a89cb65ad587ab94d7abe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95c22817d23b8b30b25115478e15694a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#a95c22817d23b8b30b25115478e15694a">getLine</a> (int num)</td></tr>
-<tr class="memdesc:a95c22817d23b8b30b25115478e15694a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna uma determinada linha da matriz.  <a href="#a95c22817d23b8b30b25115478e15694a">Mais...</a><br /></td></tr>
+<tr class="memitem:a95c22817d23b8b30b25115478e15694a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95c22817d23b8b30b25115478e15694a"></a>
+<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getLine</b> (int num)</td></tr>
 <tr class="separator:a95c22817d23b8b30b25115478e15694a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2e2de4a736bb752af047e33cc600acc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab2e2de4a736bb752af047e33cc600acc">getColumn</a> (int num)</td></tr>
-<tr class="memdesc:ab2e2de4a736bb752af047e33cc600acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna uma determinada coluna da matriz.  <a href="#ab2e2de4a736bb752af047e33cc600acc">Mais...</a><br /></td></tr>
+<tr class="memitem:ab2e2de4a736bb752af047e33cc600acc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2e2de4a736bb752af047e33cc600acc"></a>
+<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getColumn</b> (int num)</td></tr>
 <tr class="separator:ab2e2de4a736bb752af047e33cc600acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8d2e9c37af3a5532e9d99a019ab0fc5"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#ac8d2e9c37af3a5532e9d99a019ab0fc5">getMat</a> (int row, int col)</td></tr>
-<tr class="memdesc:ac8d2e9c37af3a5532e9d99a019ab0fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna um determinado elemento da matriz.  <a href="#ac8d2e9c37af3a5532e9d99a019ab0fc5">Mais...</a><br /></td></tr>
+<tr class="memitem:ac8d2e9c37af3a5532e9d99a019ab0fc5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8d2e9c37af3a5532e9d99a019ab0fc5"></a>
+UsedType&#160;</td><td class="memItemRight" valign="bottom"><b>getMat</b> (int row, int col)</td></tr>
 <tr class="separator:ac8d2e9c37af3a5532e9d99a019ab0fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afac2cb70c9ba8c0a415f7d13de2c69dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix.html#afac2cb70c9ba8c0a415f7d13de2c69dc">setMat</a> (int row, int col, UsedType num)</td></tr>
-<tr class="memdesc:afac2cb70c9ba8c0a415f7d13de2c69dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera o elemento na posição especificada.  <a href="#afac2cb70c9ba8c0a415f7d13de2c69dc">Mais...</a><br /></td></tr>
+<tr class="memitem:afac2cb70c9ba8c0a415f7d13de2c69dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afac2cb70c9ba8c0a415f7d13de2c69dc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setMat</b> (int row, int col, UsedType num)</td></tr>
 <tr class="separator:afac2cb70c9ba8c0a415f7d13de2c69dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Amigos</h2></td></tr>
-<tr class="memitem:a505d0aaa5b313253411a300953c974f0"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a505d0aaa5b313253411a300953c974f0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a505d0aaa5b313253411a300953c974f0">operator-</a> (FriendType a, <a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; Mat1)</td></tr>
+Amigas</h2></td></tr>
+<tr class="memitem:a505d0aaa5b313253411a300953c974f0"><td class="memTemplParams" colspan="2"><a class="anchor" id="a505d0aaa5b313253411a300953c974f0"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a505d0aaa5b313253411a300953c974f0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator-</b> (FriendType a, <a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; Mat1)</td></tr>
 <tr class="separator:a505d0aaa5b313253411a300953c974f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a505d0aaa5b313253411a300953c974f0"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a505d0aaa5b313253411a300953c974f0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a505d0aaa5b313253411a300953c974f0">operator-</a> (FriendType a, <a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; Mat1)</td></tr>
+<tr class="memitem:a505d0aaa5b313253411a300953c974f0"><td class="memTemplParams" colspan="2"><a class="anchor" id="a505d0aaa5b313253411a300953c974f0"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a505d0aaa5b313253411a300953c974f0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator-</b> (FriendType a, <a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; Mat1)</td></tr>
 <tr class="separator:a505d0aaa5b313253411a300953c974f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa08ec8e157404d0d60dd539d18728f8"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:aaa08ec8e157404d0d60dd539d18728f8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#aaa08ec8e157404d0d60dd539d18728f8">operator*</a> (FriendType a, <a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; Mat1)</td></tr>
+<tr class="memitem:aaa08ec8e157404d0d60dd539d18728f8"><td class="memTemplParams" colspan="2"><a class="anchor" id="aaa08ec8e157404d0d60dd539d18728f8"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:aaa08ec8e157404d0d60dd539d18728f8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator*</b> (FriendType a, <a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; Mat1)</td></tr>
 <tr class="separator:aaa08ec8e157404d0d60dd539d18728f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa29037f304d5bbae7b01252da57ff66c"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:aa29037f304d5bbae7b01252da57ff66c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#aa29037f304d5bbae7b01252da57ff66c">operator/</a> (FriendType a, <a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; Mat1)</td></tr>
+<tr class="memitem:aa29037f304d5bbae7b01252da57ff66c"><td class="memTemplParams" colspan="2"><a class="anchor" id="aa29037f304d5bbae7b01252da57ff66c"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:aa29037f304d5bbae7b01252da57ff66c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator/</b> (FriendType a, <a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; Mat1)</td></tr>
 <tr class="separator:aa29037f304d5bbae7b01252da57ff66c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad44e24444d2fcb1286f2fac55c4da8a2"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:ad44e24444d2fcb1286f2fac55c4da8a2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#ad44e24444d2fcb1286f2fac55c4da8a2">diff</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M, FriendType h)</td></tr>
+<tr class="memitem:ad44e24444d2fcb1286f2fac55c4da8a2"><td class="memTemplParams" colspan="2"><a class="anchor" id="ad44e24444d2fcb1286f2fac55c4da8a2"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:ad44e24444d2fcb1286f2fac55c4da8a2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>diff</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M, FriendType h)</td></tr>
 <tr class="separator:ad44e24444d2fcb1286f2fac55c4da8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6c7fcf9ec3d58e7283825d8eda7e449"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:ac6c7fcf9ec3d58e7283825d8eda7e449"><td class="memTemplItemLeft" align="right" valign="top">FriendType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#ac6c7fcf9ec3d58e7283825d8eda7e449">max</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M)</td></tr>
+<tr class="memitem:ac6c7fcf9ec3d58e7283825d8eda7e449"><td class="memTemplParams" colspan="2"><a class="anchor" id="ac6c7fcf9ec3d58e7283825d8eda7e449"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:ac6c7fcf9ec3d58e7283825d8eda7e449"><td class="memTemplItemLeft" align="right" valign="top">FriendType&#160;</td><td class="memTemplItemRight" valign="bottom"><b>max</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M)</td></tr>
 <tr class="separator:ac6c7fcf9ec3d58e7283825d8eda7e449"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e41e4222a7f0e05cffa8ad0101ecd06"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a6e41e4222a7f0e05cffa8ad0101ecd06"><td class="memTemplItemLeft" align="right" valign="top">FriendType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a6e41e4222a7f0e05cffa8ad0101ecd06">min</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M)</td></tr>
+<tr class="memitem:a6e41e4222a7f0e05cffa8ad0101ecd06"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6e41e4222a7f0e05cffa8ad0101ecd06"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a6e41e4222a7f0e05cffa8ad0101ecd06"><td class="memTemplItemLeft" align="right" valign="top">FriendType&#160;</td><td class="memTemplItemRight" valign="bottom"><b>min</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M)</td></tr>
 <tr class="separator:a6e41e4222a7f0e05cffa8ad0101ecd06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bbff62e1e8fb4bdf68ff1c5bc53f5d7"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a6bbff62e1e8fb4bdf68ff1c5bc53f5d7"><td class="memTemplItemLeft" align="right" valign="top">FriendType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a6bbff62e1e8fb4bdf68ff1c5bc53f5d7">norm</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M)</td></tr>
+<tr class="memitem:a6bbff62e1e8fb4bdf68ff1c5bc53f5d7"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6bbff62e1e8fb4bdf68ff1c5bc53f5d7"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a6bbff62e1e8fb4bdf68ff1c5bc53f5d7"><td class="memTemplItemLeft" align="right" valign="top">FriendType&#160;</td><td class="memTemplItemRight" valign="bottom"><b>norm</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M)</td></tr>
 <tr class="separator:a6bbff62e1e8fb4bdf68ff1c5bc53f5d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d0a3ff3f36139c1fa8e61c5cf382b89"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a4d0a3ff3f36139c1fa8e61c5cf382b89"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a4d0a3ff3f36139c1fa8e61c5cf382b89">abs</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M)</td></tr>
+<tr class="memitem:a4d0a3ff3f36139c1fa8e61c5cf382b89"><td class="memTemplParams" colspan="2"><a class="anchor" id="a4d0a3ff3f36139c1fa8e61c5cf382b89"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a4d0a3ff3f36139c1fa8e61c5cf382b89"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>abs</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M)</td></tr>
 <tr class="separator:a4d0a3ff3f36139c1fa8e61c5cf382b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb9e57b539107785226ed4362dc2d712"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:acb9e57b539107785226ed4362dc2d712"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#acb9e57b539107785226ed4362dc2d712">cos</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:acb9e57b539107785226ed4362dc2d712"><td class="memTemplParams" colspan="2"><a class="anchor" id="acb9e57b539107785226ed4362dc2d712"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:acb9e57b539107785226ed4362dc2d712"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>cos</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:acb9e57b539107785226ed4362dc2d712"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e339bd0cc0c2404d0ec090188ba7744"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a2e339bd0cc0c2404d0ec090188ba7744"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a2e339bd0cc0c2404d0ec090188ba7744">sin</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a2e339bd0cc0c2404d0ec090188ba7744"><td class="memTemplParams" colspan="2"><a class="anchor" id="a2e339bd0cc0c2404d0ec090188ba7744"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a2e339bd0cc0c2404d0ec090188ba7744"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sin</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a2e339bd0cc0c2404d0ec090188ba7744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a052dcbac0b863edce47ec257755dd2b9"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a052dcbac0b863edce47ec257755dd2b9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a052dcbac0b863edce47ec257755dd2b9">tan</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a052dcbac0b863edce47ec257755dd2b9"><td class="memTemplParams" colspan="2"><a class="anchor" id="a052dcbac0b863edce47ec257755dd2b9"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a052dcbac0b863edce47ec257755dd2b9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tan</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a052dcbac0b863edce47ec257755dd2b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af36221548b749a3e91ac01cb5d3807ee"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:af36221548b749a3e91ac01cb5d3807ee"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#af36221548b749a3e91ac01cb5d3807ee">acos</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:af36221548b749a3e91ac01cb5d3807ee"><td class="memTemplParams" colspan="2"><a class="anchor" id="af36221548b749a3e91ac01cb5d3807ee"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:af36221548b749a3e91ac01cb5d3807ee"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>acos</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:af36221548b749a3e91ac01cb5d3807ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a169b085346e6703f67392ff49f6931a4"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a169b085346e6703f67392ff49f6931a4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a169b085346e6703f67392ff49f6931a4">asin</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a169b085346e6703f67392ff49f6931a4"><td class="memTemplParams" colspan="2"><a class="anchor" id="a169b085346e6703f67392ff49f6931a4"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a169b085346e6703f67392ff49f6931a4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>asin</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a169b085346e6703f67392ff49f6931a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abce9c73ea3825b8ca3a51196684371b5"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:abce9c73ea3825b8ca3a51196684371b5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#abce9c73ea3825b8ca3a51196684371b5">atan</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:abce9c73ea3825b8ca3a51196684371b5"><td class="memTemplParams" colspan="2"><a class="anchor" id="abce9c73ea3825b8ca3a51196684371b5"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:abce9c73ea3825b8ca3a51196684371b5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>atan</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:abce9c73ea3825b8ca3a51196684371b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e651a9e3ea107410680003102044349"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a6e651a9e3ea107410680003102044349"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a6e651a9e3ea107410680003102044349">cosh</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a6e651a9e3ea107410680003102044349"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6e651a9e3ea107410680003102044349"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a6e651a9e3ea107410680003102044349"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>cosh</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a6e651a9e3ea107410680003102044349"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af99b1ddd7dac8086b4530c6faf4119fe"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:af99b1ddd7dac8086b4530c6faf4119fe"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#af99b1ddd7dac8086b4530c6faf4119fe">sinh</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:af99b1ddd7dac8086b4530c6faf4119fe"><td class="memTemplParams" colspan="2"><a class="anchor" id="af99b1ddd7dac8086b4530c6faf4119fe"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:af99b1ddd7dac8086b4530c6faf4119fe"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>sinh</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:af99b1ddd7dac8086b4530c6faf4119fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6642dc09a28ef8c54c73333545881a5"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:ab6642dc09a28ef8c54c73333545881a5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#ab6642dc09a28ef8c54c73333545881a5">tanh</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:ab6642dc09a28ef8c54c73333545881a5"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab6642dc09a28ef8c54c73333545881a5"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:ab6642dc09a28ef8c54c73333545881a5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>tanh</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:ab6642dc09a28ef8c54c73333545881a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a7eba8985cfbe0c586b9be768151ad3"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a4a7eba8985cfbe0c586b9be768151ad3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a4a7eba8985cfbe0c586b9be768151ad3">acosh</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a4a7eba8985cfbe0c586b9be768151ad3"><td class="memTemplParams" colspan="2"><a class="anchor" id="a4a7eba8985cfbe0c586b9be768151ad3"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a4a7eba8985cfbe0c586b9be768151ad3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>acosh</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a4a7eba8985cfbe0c586b9be768151ad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9d073addd4bd9972d8beaed582e473d"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:af9d073addd4bd9972d8beaed582e473d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#af9d073addd4bd9972d8beaed582e473d">asinh</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:af9d073addd4bd9972d8beaed582e473d"><td class="memTemplParams" colspan="2"><a class="anchor" id="af9d073addd4bd9972d8beaed582e473d"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:af9d073addd4bd9972d8beaed582e473d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>asinh</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:af9d073addd4bd9972d8beaed582e473d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bcc2ec7385632b2ea73af1b1ea44b7a"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a5bcc2ec7385632b2ea73af1b1ea44b7a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a5bcc2ec7385632b2ea73af1b1ea44b7a">atanh</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a5bcc2ec7385632b2ea73af1b1ea44b7a"><td class="memTemplParams" colspan="2"><a class="anchor" id="a5bcc2ec7385632b2ea73af1b1ea44b7a"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a5bcc2ec7385632b2ea73af1b1ea44b7a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>atanh</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a5bcc2ec7385632b2ea73af1b1ea44b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a490bfe8498fc7e33f5f4d08e6083b1b4"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a490bfe8498fc7e33f5f4d08e6083b1b4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a490bfe8498fc7e33f5f4d08e6083b1b4">exp</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a490bfe8498fc7e33f5f4d08e6083b1b4"><td class="memTemplParams" colspan="2"><a class="anchor" id="a490bfe8498fc7e33f5f4d08e6083b1b4"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a490bfe8498fc7e33f5f4d08e6083b1b4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>exp</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a490bfe8498fc7e33f5f4d08e6083b1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a818eac51e902968b0f79a458d3cd0798"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a818eac51e902968b0f79a458d3cd0798"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a818eac51e902968b0f79a458d3cd0798">log</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a818eac51e902968b0f79a458d3cd0798"><td class="memTemplParams" colspan="2"><a class="anchor" id="a818eac51e902968b0f79a458d3cd0798"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a818eac51e902968b0f79a458d3cd0798"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>log</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a818eac51e902968b0f79a458d3cd0798"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c35dfb4d5aa239ccce7112ba1109c7a"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a1c35dfb4d5aa239ccce7112ba1109c7a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a1c35dfb4d5aa239ccce7112ba1109c7a">log10</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a1c35dfb4d5aa239ccce7112ba1109c7a"><td class="memTemplParams" colspan="2"><a class="anchor" id="a1c35dfb4d5aa239ccce7112ba1109c7a"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a1c35dfb4d5aa239ccce7112ba1109c7a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>log10</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a1c35dfb4d5aa239ccce7112ba1109c7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e7d537241288dd37ded7dc59c6bca18"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a3e7d537241288dd37ded7dc59c6bca18"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a3e7d537241288dd37ded7dc59c6bca18">ceil</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a3e7d537241288dd37ded7dc59c6bca18"><td class="memTemplParams" colspan="2"><a class="anchor" id="a3e7d537241288dd37ded7dc59c6bca18"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a3e7d537241288dd37ded7dc59c6bca18"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>ceil</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a3e7d537241288dd37ded7dc59c6bca18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42e9d9e30d3347641ddcee7fdf7f6cbb"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a42e9d9e30d3347641ddcee7fdf7f6cbb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a42e9d9e30d3347641ddcee7fdf7f6cbb">round</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a42e9d9e30d3347641ddcee7fdf7f6cbb"><td class="memTemplParams" colspan="2"><a class="anchor" id="a42e9d9e30d3347641ddcee7fdf7f6cbb"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a42e9d9e30d3347641ddcee7fdf7f6cbb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>round</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a42e9d9e30d3347641ddcee7fdf7f6cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b5268bf51e2c213ea03c29aab55e199"><td class="memTemplParams" colspan="2">template&lt;class FriendType &gt; </td></tr>
-<tr class="memitem:a4b5268bf51e2c213ea03c29aab55e199"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_matrix.html#a4b5268bf51e2c213ea03c29aab55e199">floor</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
+<tr class="memitem:a4b5268bf51e2c213ea03c29aab55e199"><td class="memTemplParams" colspan="2"><a class="anchor" id="a4b5268bf51e2c213ea03c29aab55e199"></a>
+template&lt;class FriendType &gt; </td></tr>
+<tr class="memitem:a4b5268bf51e2c213ea03c29aab55e199"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>floor</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt; M1)</td></tr>
 <tr class="separator:a4b5268bf51e2c213ea03c29aab55e199"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
 <div class="textblock"><h3>template&lt;class UsedType&gt;<br />
 class Matrix&lt; UsedType &gt;</h3>
 
 <p>Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. </p>
 <p>Biblioteca que gerencia matrizes, tais como as suas operações e propriedades. </p>
-</div><h2 class="groupheader">Documentação dos Construtores &amp; Destrutor</h2>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="a236d155e70b267c6af960f7f21c897dc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -365,7 +386,58 @@ template&lt;class UsedType &gt; </div>
 </div><div class="memdoc">
 
 <p>Construtor padrão da classe. </p>
-<p>Inicia o objeto da classe com os elementos em 0. </p>
+<p>Instancia o objeto da classe <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> com os elementos em 0.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">   <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A; <span class="comment">//Instancia com linhas e colunas iguais a zero</span></div>
+<div class="line">   A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">   <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<p>Obs: Não mostra nada na tela </p>
+
+</div>
+</div>
+<a class="anchor" id="ad31049e0f9e9d6ace03e3fd54a207ac7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::<a class="el" href="class_matrix.html">Matrix</a> </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor que recebe como parâmetro uma string. </p>
+<p>Instancia o objeto da classe <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> convertendo uma string de valores numéricos em elementos para a matriz. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Cadeia de caracteres que define a matriz.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Os elementos devem obedecer o seguinte critério:<br />
+ A vírgula "," é utilizada para separar os elementos de uma linha em colunas<br />
+ O ponto e vírgula ";" é utilizado para quebrar a linha da matriz<br />
+ Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line">  A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+</p>
 
 </div>
 </div>
@@ -395,14 +467,26 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Construtor que toma como parâmetros o número de linhas e colunas. </p>
-<p>Inicializa a matriz com o número corresponde de linhas e colunas, e inicia todos os elementos em 0. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Construtor que recebe como parâmetros o número de linhas e colunas. </p>
+<p>Inicializa a matriz com o número corresponde de linhas e colunas, e com todos os elementos em 0. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">row</td><td>Número de linhas da matriz. </td></tr>
-    <tr><td class="paramname">col</td><td>Número de colunas da matriz. </td></tr>
+    <tr><td class="paramname">col</td><td>Número de colunas da matriz.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(3,3); <span class="comment">//Instancia com linhas e colunas iguais a zero</span></div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>0.000 0.000 0.000<br />
+ 0.000 0.000 0.000<br />
+ 0.000 0.000 0.000<br />
+</p>
 
 </div>
 </div>
@@ -425,10 +509,12 @@ template&lt;class UsedType &gt; </div>
 <p>Construtor de cópia da classe. </p>
 <p>Construtor de cópia da classe, gerencia as aplicações de memória da classe </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">otherMatrix</td><td>Recebe como parâmetro uma cópia da matriz. </td></tr>
+    <tr><td class="paramname">otherMatrix</td><td>Recebe como parâmetro uma cópia da matriz.</td></tr>
   </table>
   </dd>
 </dl>
+<p>OBS: Este construtor não tem exemplo associado. Funciona implícitamente.<br />
+</p>
 
 </div>
 </div>
@@ -448,11 +534,13 @@ template&lt;class UsedType &gt; </div>
 </div><div class="memdoc">
 
 <p>Destrutor padrão da classe. </p>
-<p>Libera todas as memórias alocadas durante a execução de objetos da classe. </p>
+<p>Libera todas as memórias alocadas durante a execução de objetos da classe.<br />
+ OBS: Este Destrutor não tem exemplo associado. Funciona implícitamente.<br />
+</p>
 
 </div>
 </div>
-<h2 class="groupheader">Documentação dos métodos</h2>
+<h2 class="groupheader">Métodos</h2>
 <a class="anchor" id="ace0929e1bfa81bcbd359ee3f96c0f4d8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -485,15 +573,36 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Método para se colocar valores em uma determinada posição da matriz. </p>
-<p>Toma como entrada a posição da matriz e insere um determinado elemento. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Método inserir valores em uma determinada posição da matriz. </p>
+<p>Recebe como parâmetro de entrada a posição da matriz e insere um determinado elemento. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">rol</td><td>Linha a ser inserido o valor. </td></tr>
     <tr><td class="paramname">col</td><td>Linha a ser inserido o valor. </td></tr>
-    <tr><td class="paramname">number</td><td>Valor a ser inseriodo. </td></tr>
+    <tr><td class="paramname">number</td><td>Valor a ser inserido.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A;</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8">add</a>(1,1,1);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8">add</a>(1,2,2);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8">add</a>(1,2,3);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8">add</a>(2,1,4);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8">add</a>(2,2,5);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8">add</a>(2,3,6);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8">add</a>(3,1,7);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8">add</a>(3,2,8);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8">add</a>(3,3,9);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+</p>
 
 </div>
 </div>
@@ -533,7 +642,24 @@ template&lt;class UsedType &gt; </div>
 </div><div class="memdoc">
 
 <p>Calcula o determinante da matriz. </p>
+<p>Calcula o determinante da matriz dada e devolve um escalar que simboliza esse determinante.</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;0,5,6;7,1,9&quot;</span>);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    std::cout &lt;&lt; A.<a class="code" href="class_matrix.html#a5f933c53833ab2079407882b8718c826">det</a>() &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
+     1.000  2.000  3.000\n
+     0.000  5.000  6.000\n
+     7.000  1.000  9.000\n
+
+     -0.000175765\n
+
+    Ver também:</pre> 
 </div>
 </div>
 <a class="anchor" id="a2cc1e0be0c535a46dbebddc7636a63f8"></a>
@@ -552,7 +678,24 @@ template&lt;class UsedType &gt; </div>
 </div><div class="memdoc">
 
 <p>Calcula os autovalores da matriz. </p>
+<p>Calcula os autovalores da matriz dada e devolve um vetor (matriz) que representam os autovalores (desordenados).</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;0,5,6;7,1,9&quot;</span>);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    (A.<a class="code" href="class_matrix.html#a2cc1e0be0c535a46dbebddc7636a63f8">eigenvalues</a>()).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
+     1.000  2.000  3.000\n
+     0.000  5.000  6.000\n
+     7.000  1.000  9.000\n
+
+    12.714  1.000 1.286\n
+
+    Ver também:</pre> 
 </div>
 </div>
 <a class="anchor" id="ab14a5f8484a9603109e01655cef1841d"></a>
@@ -571,141 +714,26 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Método para criar uma matriz identidade. </p>
-<p>Cria uma matriz quadrada identidade. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Método para criar uma matriz identidade (Matriz com 1 nos elementos da diagonal principal). </p>
+<p>Cria uma matriz identidade quadrada. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">num</td><td>Número corresponde a dimensão da matriz, a matriz criada é quadrada. </td></tr>
+    <tr><td class="paramname">num</td><td>Número corresponde a dimensão da matriz identidade (Matriz quadrada).</td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a class="anchor" id="ab37ac29b603443da84f18129a8b1aca5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::getCols </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retorna o número de colunas da matriz. </p>
-
-</div>
-</div>
-<a class="anchor" id="ab2e2de4a736bb752af047e33cc600acc"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::getColumn </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retorna uma determinada coluna da matriz. </p>
-<p>Recebe o índice da coluna e a retorna. </p><dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">num</td><td>Índice da coluna a ser retornada. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a95c22817d23b8b30b25115478e15694a"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::getLine </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retorna uma determinada linha da matriz. </p>
-<p>Recebe o índice da linha e a retorna. </p><dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">num</td><td>Índice da linha a ser retornada. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ac8d2e9c37af3a5532e9d99a019ab0fc5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">UsedType <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::getMat </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>row</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>col</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retorna um determinado elemento da matriz. </p>
-<p>Recebe os índices da matriz e retorna o elemento nessa posição. </p><dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">row</td><td>Linha do elemento. </td></tr>
-    <tr><td class="paramname">col</td><td>Coluna do elemento. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>Veja também</dt><dd>UsedType operator() </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a1a544492885c8925f6da46e44a896fe3"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::getRows </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retorna o número de linhas da matriz. </p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A;</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#ab14a5f8484a9603109e01655cef1841d">eye</a>(3);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1.000 0.000 0.000<br />
+ 0.000 1.000 0.000<br />
+ 0.000 0.000 1.000<br />
+</p>
 
 </div>
 </div>
@@ -739,10 +767,23 @@ template&lt;class UsedType &gt; </div>
 <p>Inicializa a matriz com o respectivo número de linhas e colunas. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">row</td><td>Número de linhas da matriz. </td></tr>
-    <tr><td class="paramname">col</td><td>Número de colunas da matriz. </td></tr>
+    <tr><td class="paramname">col</td><td>Número de colunas da matriz.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A;</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a">init</a>(3,3);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>0.000 0.000 0.000<br />
+ 0.000 0.000 0.000<br />
+ 0.000 0.000 0.000<br />
+</p>
 
 </div>
 </div>
@@ -765,10 +806,26 @@ template&lt;class UsedType &gt; </div>
 <p>Método de inicialização da matriz tomando um valor de string como entrada. </p>
 <p>Inicializa a matriz com uma determinada cadeia de caracteres dada como entrada. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Cadeia de caracteres que definem a matriz, separasse os elementos por vírgula e as colunas por ponto e vírgula. </td></tr>
+    <tr><td class="paramname">value</td><td>Cadeia de caracteres que define a matriz.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Os elementos devem obedecer o seguinte critério:<br />
+ A vírgula "," é utilizada para separar os elementos de uma linha em colunas<br />
+ O ponto e vírgula ";" é utilizado para quebrar a linha da matriz<br />
+ Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A;</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a">init</a>(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+</p>
 
 </div>
 </div>
@@ -788,7 +845,26 @@ template&lt;class UsedType &gt; </div>
 </div><div class="memdoc">
 
 <p>Calcula a matriz inversa. </p>
+<p>Calcula a inversa da matriz dada.</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;0,5,6;7,1,9&quot;</span>);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    (A.<a class="code" href="class_matrix.html#a34571e2bd304203ade32d490a0376f1a">inv</a>()).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
+     1.000  2.000  3.000\n
+     0.000  5.000  6.000\n
+     7.000  1.000  9.000\n
+
+     2.167 -0.833  -0.167\n
+     2.333 -0.667  -0.333\n
+    -1.944  0.722   0.278\n
+
+    Ver também:</pre> 
 </div>
 </div>
 <a class="anchor" id="a47339f7998ee8273b68f5485a8ce723e"></a>
@@ -807,6 +883,18 @@ template&lt;class UsedType &gt; </div>
 </div><div class="memdoc">
 
 <p>Retorna o maior tamanho entre as linhas e colunas. </p>
+<p>Este método verifica os valores de rows e cols da matriz e retorna o maior valor entre os dois.</p>
+<p>Obs: A função não recebe parâmetros de entrada</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(5,9);</div>
+<div class="line"> std::cout &lt;&lt; A.<a class="code" href="class_matrix.html#a47339f7998ee8273b68f5485a8ce723e">length</a>() &lt;&lt; std::endl;</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>9<br />
+</p>
 
 </div>
 </div>
@@ -839,11 +927,86 @@ template&lt;class UsedType &gt; </div>
 <p>Cria um vetor linha de elementos crescentes. </p>
 <p>Recebe um intervalo e cria um vetor contando do intervalo menor até o maior de um em um. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">left</td><td>Menor intervalo. </td></tr>
-    <tr><td class="paramname">rigth</td><td>Maior intervalo. </td></tr>
+    <tr><td class="paramname">left</td><td>limite inferior do vetor. </td></tr>
+    <tr><td class="paramname">rigth</td><td>limite superior do vetor.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Obs: Lembrando que o elemento da primeira posição é o que tem linha 1 e coluna 1, também.</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A;</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8bd4cdb3f7f32b7cc273b003e179606c">lineVector</a>(10,15);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+     10.000  11.000  12.000  13.000  14.000  15.000\n
+
+    Ver também:</pre> 
+</div>
+</div>
+<a class="anchor" id="a0eee828d8255c8b384421495f4f102d5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::max </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o elemento da matriz de maior valor numérico. </p>
+<p>Este método realiza uma busca interna na matriz pelo maior valor existente nela.</p>
+<p>Obs: A função não recebe parâmetros de entrada</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line"> std::cout &lt;&lt; A.<a class="code" href="class_matrix.html#a0eee828d8255c8b384421495f4f102d5">max</a>() &lt;&lt; std::endl;</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>9<br />
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a204d648e2f6c9d4ea29fa38d39e84617"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::min </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retorna o elemento da matriz de menor valor numérico. </p>
+<p>Este método realiza uma busca interna na matriz pelo menor valor existente nela.</p>
+<p>Obs: A função não recebe parâmetros de entrada</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line"> std::cout &lt;&lt; A.<a class="code" href="class_matrix.html#a204d648e2f6c9d4ea29fa38d39e84617">min</a>() &lt;&lt; std::endl;</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1<br />
+</p>
 
 </div>
 </div>
@@ -873,14 +1036,27 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Cria uma matriz de uns. </p>
-<p>Toma como parâmetros a dimensão da matriz, e cria uma matriz totalmente preenchida com o número 1. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Cria uma matriz preenchida com o valor 1 em todos os seus elementos. </p>
+<p>Recebe como parâmetros a dimensão da matriz, e cria uma matriz totalmente preenchida com o número 1. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">row</td><td>Número de linhas da matriz. </td></tr>
-    <tr><td class="paramname">col</td><td>Número de colunas da matriz. </td></tr>
+    <tr><td class="paramname">col</td><td>Número de colunas da matriz.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A;</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#ad4a7edc44799f031ff2a65fc3de8439b">ones</a>(3,3);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1.000 1.000 1.000<br />
+ 1.000 1.000 1.000<br />
+ 1.000 1.000 1.000<br />
+</p>
 
 </div>
 </div>
@@ -910,15 +1086,31 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operador de acesso a matriz. </p>
-<p>Toma como parâmetro a linha e a coluna de um determinado elemento da matriz e o retorna. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Sobrecarga do operador () para acessar os elementos da matriz. </p>
+<p>O operador () foi sobrecarregado de tal forma a simplificar o acesso aos elementos internos de uma matriz. A partir da indicação da linha e coluna (parâmetros que são recebidos) o resultado da operação será o elemento da matriz que se encontra naquela posição. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">row</td><td>Linha do elemento. </td></tr>
-    <tr><td class="paramname">col</td><td>Coluna do elemento. </td></tr>
+    <tr><td class="paramname">col</td><td>Coluna do elemento.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Obs: Lembrando que o elemento da primeira posição é o que tem linha 1 e coluna 1, também. Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    std::cout &lt;&lt;  A(1,1) &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
+     1.000  2.000  3.000\n
+     4.000  5.000  6.000\n
+     7.000  8.000  9.000\n
+
+     1\n
+
+    Ver também: \sa Matrix operator* (Matrix Mat1) \sa Matrix operator^ (Matrix Mat1)</pre> 
 </div>
 </div>
 <a class="anchor" id="aad4198e65fe06c4940df2198657b2d1d"></a>
@@ -953,16 +1145,39 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Sobrecarga do operador de acesso da matriz. </p>
-<p>Recebe a linha e a coluna de uma posição da matriz e altera o elemento especificado. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Sobrecarga do operador () para inserir elementos em uma matriz. </p>
+<p>O operador () foi sobrecarregado de tal forma a simplificar a inserção de elementos em uma matriz. A partir da indicação da linha e coluna (parâmetros que são recebidos) um novo elemento pode ser inserido (na posição determinada). </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>Linha do elemento. </td></tr>
+    <tr><td class="paramname">rol</td><td>Linha do elemento. </td></tr>
     <tr><td class="paramname">col</td><td>Coluna do elemento. </td></tr>
-    <tr><td class="paramname">value</td><td>Valor a ser colocado na posição. </td></tr>
+    <tr><td class="paramname">value</td><td>Valor a ser inserido na linha e coluna especificada</td></tr>
   </table>
   </dd>
 </dl>
+<p>Obs: Lembrando que o elemento da primeira posição é o que tem linha 1 e coluna 1, também.</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A;</div>
+<div class="line">    A(1,1,1);</div>
+<div class="line">    A(1,2,2);</div>
+<div class="line">    A(1,3,3);</div>
+<div class="line">    A(2,1,4);</div>
+<div class="line">    A(2,2,5);</div>
+<div class="line">    A(2,3,6);</div>
+<div class="line">    A(3,1,7);</div>
+<div class="line">    A(3,2,8);</div>
+<div class="line">    A(3,3,9);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
+     1.000  2.000  3.000\n
+     4.000  5.000  6.000\n
+     7.000  8.000  9.000\n
+
+    Ver também: \sa void add(int rol, int col, UsedType number)</pre> 
 </div>
 </div>
 <a class="anchor" id="a0496868d56e4938088e0bc3b160c3d71"></a>
@@ -981,13 +1196,37 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operador de multiplicação matriz matriz. </p>
-<p>Realiza a operação de multiplicação matricial. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Operador de multiplicação entre matrizes. </p>
+<p>O método é uma sobrecarga do operador *. Ele permite que a operação de multiplicação entre matrizes seja simplificada. O método realiza a multiplicação entre duas matrizes que estão a esquerda e a direita do operador *. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Mat1</td><td>Matriz que irá multiplicar a matriz a esquerda. </td></tr>
+    <tr><td class="paramname">Mat1</td><td>É uma matriz qualquer a direita do operador *.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> B;</div>
+<div class="line">    B.<a class="code" href="class_matrix.html#ab14a5f8484a9603109e01655cef1841d">eye</a>(A.<a class="code" href="class_matrix.html#a47339f7998ee8273b68f5485a8ce723e">length</a>());</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    B.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    (A*B).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+ 1.000 0.000 0.000<br />
+ 0.000 1.000 0.000<br />
+ 0.000 0.000 1.000<br />
+ 1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+ Ver também: </p><dl class="section see"><dt>Veja também</dt><dd><a class="el" href="class_matrix.html#ad31049e0f9e9d6ace03e3fd54a207ac7" title="Construtor que recebe como parâmetro uma string. ">Matrix(string value)</a>, </dd>
+<dd>
+<a class="el" href="class_matrix.html#a236d155e70b267c6af960f7f21c897dc" title="Construtor padrão da classe. ">Matrix()</a> </dd></dl>
 
 </div>
 </div>
@@ -1007,13 +1246,33 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Sobrecarga operador de multiplicação matriz. </p>
-<p>Realiza a multiplicação de todos os elementos de uma matriz por um escalar. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Operador de multiplicação entre matriz e escalar. </p>
+<p>O método é uma sobrecarga do operador *. Ele permite que a operação de multiplicação entre matriz e escalar seja simplificada. O método realiza a multiplicação entre uma matriz que está a esquerda e um escalar a direita do operador *. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>Escalar que irá multiplicar a matriz. </td></tr>
+    <tr><td class="paramname">a</td><td>É um escalar qualquer a direita do operador *.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> B;</div>
+<div class="line">    B = A*2;</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    B.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+ 2.000 4.000 6.000<br />
+ 8.000 10.000 12.000<br />
+14.000 16.000 18.000<br />
+ Ver também: </p><dl class="section see"><dt>Veja também</dt><dd><a class="el" href="class_matrix.html#ad31049e0f9e9d6ace03e3fd54a207ac7" title="Construtor que recebe como parâmetro uma string. ">Matrix(string value)</a>, </dd>
+<dd>
+<a class="el" href="class_matrix.html#a236d155e70b267c6af960f7f21c897dc" title="Construtor padrão da classe. ">Matrix()</a> </dd></dl>
 
 </div>
 </div>
@@ -1033,13 +1292,35 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operador de soma de matrizes. </p>
-<p>Soma matriz matriz. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Sobrecarga do operador + para a soma entre matrizes. </p>
+<p>O método é uma sobrecarga do operador +. Ele permite que a operação de soma entre matrizes seja simplificada. O método realiza a soma de uma matriz que está à esquerda (this) e uma à direita (Mat1) do operador +. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Mat1</td><td>Matriz a ser somada. </td></tr>
+    <tr><td class="paramname">Mat1</td><td>Matriz a ser somada com a matriz this.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Obs: Para que a soma entre as matrizes seja realizada de maneira adequada, ambas as matrizes devem possuir a mesma quantidade de linhas e colunas.<br />
+ Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> B(<span class="stringliteral">&quot;3,2,1;6,5,4;9,8,7&quot;</span>);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> B.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> (A+B).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+ 3.000 2.000 1.000<br />
+ 6.000 5.000 4.000<br />
+ 9.000 8.000 7.000<br />
+ 4.000 4.000 4.000<br />
+ 10.000 10.000 10.000<br />
+ 16.000 16.000 16.000<br />
+</p>
 
 </div>
 </div>
@@ -1059,13 +1340,29 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Soma matriz escalar. </p>
-<p>Soma a matriz a um determinado escalar. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Sobrecarga do operador + para a soma entre matriz e escalar. </p>
+<p>O método é uma sobrecarga do operador +. Ele permite que a operação de soma entre matriz e escalar seja simplificada. O método realiza a soma de uma matriz que está à esquerda (this) e um escalar à direita (a) do operador +. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>Escalar a ser somado. </td></tr>
+    <tr><td class="paramname">a</td><td>escalar (número) a ser somado com a matriz this.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> (A+3).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+ 10.000 11.000 12.000<br />
+</p>
 
 </div>
 </div>
@@ -1085,13 +1382,35 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Subtração matriz matriz. </p>
-<p>Subtrai de uma matriz outra matriz. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Sobrecarga do operador - para a subtração entre matrizes. </p>
+<p>O método é uma sobrecarga do operador -. Ele permite que a operação de subtração entre matrizes seja simplificada. O método realiza a subtração de uma matriz que está à esquerda (this) e uma à direita (Mat1) do operador +. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Mat1</td><td>Matriz que será subtraida. </td></tr>
+    <tr><td class="paramname">Mat1</td><td>Matriz a ser subtraída com a matriz this.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Obs: Para que a subtração entre as matrizes seja realizada de maneira adequada, ambas as matrizes devem possuir a mesma quantidade de linhas e colunas.<br />
+ Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> B(<span class="stringliteral">&quot;3,2,1;6,5,4;9,8,7&quot;</span>);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> B.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> (A-B).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+ 3.000 2.000 1.000<br />
+ 6.000 5.000 4.000<br />
+ 9.000 8.000 7.000<br />
+ -2.000 0.000 2.000<br />
+ -2.000 0.000 2.000<br />
+ -2.000 0.000 2.000<br />
+</p>
 
 </div>
 </div>
@@ -1111,13 +1430,29 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Subtração matriz escalar. </p>
-<p>Subtrai um escalar de uma matriz. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Sobrecarga do operador - para a subtração entre matriz e escalar. </p>
+<p>O método é uma sobrecarga do operador -. Ele permite que a operação de subtração entre matriz e escalar seja simplificada. O método realiza a subtração de uma matriz que está à esquerda (this) e um escalar à direita (a) do operador -. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>Escalar a ser subtraído. </td></tr>
+    <tr><td class="paramname">a</td><td>escalar (número) a ser subtraído com a matriz this.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> (A-3).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+ -2.000 -1.000 0.000<br />
+ 1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+</p>
 
 </div>
 </div>
@@ -1137,14 +1472,31 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operador de divisão matriz matriz. </p>
-<p>A divisão matricial equivale a multiplicação da matriz a esquerda pela inversa da matriz a direita. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Sobrecarga do operador / para "divisão" entre matrizes. </p>
+<p>A "divisão" matricial equivale a multiplicação com uma das matrizes (a direita do operador /) invertida (matriz^-1). </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Mat1</td><td>Matriz que irá dividir a matriz a esquerda. </td></tr>
+    <tr><td class="paramname">Mat1</td><td>É a matriz que será invertida (à direita do oprador /) para depois ser multiplicada pela matriz que está a esquerda do operador /.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>Veja também</dt><dd><a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> <a class="el" href="class_matrix.html#a34571e2bd304203ade32d490a0376f1a" title="Calcula a matriz inversa. ">inv()</a> </dd></dl>
+<p>Obs: Uma matriz vezes a sua inversa resulta na matriz identidade.</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,0,3;4,5,6;1,8,9&quot;</span>);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    (A/A).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1.000 0.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 1.000 8.000 9.000<br />
+ 1.000 0.000 0.000<br />
+ 0.000 1.000 0.000<br />
+ 0.000 0.000 1.000<br />
+ Ver também: </p><dl class="section see"><dt>Veja também</dt><dd><a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> <a class="el" href="class_matrix.html#a34571e2bd304203ade32d490a0376f1a" title="Calcula a matriz inversa. ">inv()</a> </dd></dl>
 
 </div>
 </div>
@@ -1164,13 +1516,34 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Sobrecarga operador divisão matriz. </p>
-<p>Realiza a divisão de todos os elementos da matriz por um escalar. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Operador de divisão entre matriz e escalar. </p>
+<p>O método é uma sobrecarga do operador /. Ele permite que a operação de divisão entre matriz e escalar seja simplificada. O método realiza a divisão entre uma matriz que está a esquerda e um escalar a direita do operador /. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>Escalar que irá dividir os elementos da matriz. </td></tr>
+    <tr><td class="paramname">a</td><td>É um escalar qualquer a direita do operador /.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;2,4,6;8,10,12;14,16,18&quot;</span>);</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> B;</div>
+<div class="line">    B = A/2;</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    B.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<p>2.000 4.000 6.000<br />
+ 8.000 10.000 12.000<br />
+14.000 16.000 18.000<br />
+ 1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+</p>
+<p>Ver também: </p><dl class="section see"><dt>Veja também</dt><dd><a class="el" href="class_matrix.html#ad31049e0f9e9d6ace03e3fd54a207ac7" title="Construtor que recebe como parâmetro uma string. ">Matrix(string value)</a>, </dd>
+<dd>
+<a class="el" href="class_matrix.html#a236d155e70b267c6af960f7f21c897dc" title="Construtor padrão da classe. ">Matrix()</a> </dd></dl>
 
 </div>
 </div>
@@ -1190,13 +1563,31 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operador de igualdade de uma matriz. </p>
-<p>Iguala uma matriz a outra matriz. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Operador de atribuição entre matrizes. </p>
+<p>O método é uma sobrecarga do operador =. Ele permite que a operação de atribuição entre matrizes seja realizada sem que haja a cópia do ponteiro da matriz à direita. O método cria um espaço de memória na matriz à esquerda da igualdade do mesmo tamanho da do lado direito e, após, cópia os valores para a matriz à esquerda. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Mat1</td><td>Matriz a ser igualada. </td></tr>
+    <tr><td class="paramname">Mat1</td><td>é uma matriz qualquer que está do lado direito da igualdade.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> B;</div>
+<div class="line">    B = A;</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    B.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+ 1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+</p>
 
 </div>
 </div>
@@ -1216,14 +1607,30 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operador de igualdade para uma string. </p>
-<p>Iguala a matriz a uma string de entrada. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Operador de atribuição entre matriz e string. </p>
+<p>O método é uma sobrecarga do operador =. Ele permite que a operação de atribuição entre matriz e string seja simplificada. O método cria um espaço de memória na matriz à esquerda da igualdade, converte a string à direita da igualdade, converte-a em uma matriz e coloca os seus valores na matriz à esquerda da igualdade. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>String a qual a matriz deve ser igualada. </td></tr>
+    <tr><td class="paramname">value</td><td>é uma string qualquer que está do lado direito da igualdade.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>Veja também</dt><dd>void <a class="el" href="class_matrix.html#a8807a3fa883609fc9b012f34be12d14e" title="Método de inicialização da matriz tomando um valor de string como entrada. ">init(string value)</a> </dd></dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> B;</div>
+<div class="line">    B = A;</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    B.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+ Ver também: </p><dl class="section see"><dt>Veja também</dt><dd>void <a class="el" href="class_matrix.html#a8807a3fa883609fc9b012f34be12d14e" title="Método de inicialização da matriz tomando um valor de string como entrada. ">init(string value)</a>, </dd>
+<dd>
+<a class="el" href="class_matrix.html#ad31049e0f9e9d6ace03e3fd54a207ac7" title="Construtor que recebe como parâmetro uma string. ">Matrix(string value)</a> </dd></dl>
 
 </div>
 </div>
@@ -1243,14 +1650,34 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operador de potenciação interna da matriz. </p>
-<p>Eleva todos os elementos da matriz ao expoente especificado. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Sobrecarga do operador &gt; para obter a potenciação dos elementos da matriz. </p>
+<p>O operador &gt; foi sobrecarregado de tal forma a simplificar a operação de potenciação dos elementos internos de uma matriz. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">num</td><td>Expoente que irá elevar os elementos da matriz. </td></tr>
+    <tr><td class="paramname">exp</td><td>Expoente que indica a potência de cada elemento interno da matriz.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A;</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#ad4a7edc44799f031ff2a65fc3de8439b">ones</a>(3,3);</div>
+<div class="line">    A = A*3;</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    (A&gt;2).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
+     3.000  3.000  3.000\n
+     3.000  3.000  3.000\n
+     3.000  3.000  3.000\n
+
+     9.000  9.000  9.000\n
+     9.000  9.000  9.000\n
+     9.000  9.000  9.000\n
+
+    Ver também: \sa Matrix operator* (Matrix Mat1), \sa Matrix operator&gt; (Matrix Mat1)</pre> 
 </div>
 </div>
 <a class="anchor" id="adc5f9ab9fb8db320ce572ff96e8d94fb"></a>
@@ -1269,14 +1696,34 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operador de potenciação de matrizes. </p>
-<p>Eleva a matriz ao expoente especificado. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Sobrecarga do operador ^ para obter a potenciação de matrizes. </p>
+<p>O operador ^ foi sobrecarregado de tal forma a simplificar a operação de potenciação de matrizes, dada uma matriz e um escalar (à esquerda e à direita do operador ^ respectivamente). </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">exp</td><td>Expoente o qual irá elevar a matriz. </td></tr>
+    <tr><td class="paramname">exp</td><td>Expoente cujo módulo significa a quantidade de vezes que a multiplicação entre a matriz com ela mesma será repetida. Caso o expoente seja negativo o programa primeiramente invertará a matriz para depois realizar a potenciação.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A;</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#ab14a5f8484a9603109e01655cef1841d">eye</a>(3);</div>
+<div class="line">    A = A*3;</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    (A^3).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
+     3.000  0.000  0.000\n
+     0.000  3.000  0.000\n
+     0.000  0.000  3.000\n
+
+    27.000  0.000  0.000\n
+     0.000 27.000  0.000\n
+     0.000  0.000 27.000\n
+
+    Ver também: \sa Matrix operator* (Matrix Mat1)</pre> 
 </div>
 </div>
 <a class="anchor" id="a85b3c16adbdbb302e5a46c5d471248ea"></a>
@@ -1295,14 +1742,38 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operador de concatenação de matrizes a direita. </p>
-<p>Concatena duas matrizes, esse operador coloca a matriz mais a direita a esquerda da outra matriz. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Sobrecarga do operador | para realizar a concatenação de matrizes (adicionando às colunas). </p>
+<p>O operador | foi sobrecarregado de tal forma que concatena duas matrizes (a direita e a esquerda do operador | ) retornando como resultado uma matriz (formada pela junção das duas matrizas, colocando uma ao lado da outra). </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Mat1</td><td>Matriz a ser concatenada. </td></tr>
+    <tr><td class="paramname">Mat1</td><td>Matriz a ser concatenada juntamente com a matriz à direita do operador || para formar uma nova matriz.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> B(<span class="stringliteral">&quot;4;7;10&quot;</span>);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    B.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    (A|B).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
+     1.000  2.000  3.000\n
+     4.000  5.000  6.000\n
+     7.000  8.000  9.000\n
+
+     4.000\n
+     7.000\n
+    10.000\n
+
+     1.000  2.000  3.000  4.000\n
+     4.000  5.000  6.000  7.000\n
+     7.000  8.000  9.000 10.000\n
+
+    Ver também: \sa Matrix operator|| (Matrix Mat1)</pre> 
 </div>
 </div>
 <a class="anchor" id="a473569bdc7909276ec1fa33653b28844"></a>
@@ -1321,14 +1792,37 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operador de concatenação de matrizes abaixo. </p>
-<p>Concatena duas matrizes, esse operador coloca a matriz mais a direita abaixo da outra matriz. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Sobrecarga do operador || para realizar a concatenação de matrizes (adicionando às linhas). </p>
+<p>O operador || foi sobrecarregado de tal forma que concatena duas matrizes (a direita e a esquerda do operador || ) retornando como resultado uma matriz (formada pela junção das duas matrizas, colocando uma abaixo da outra). </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">Mat1</td><td>Matriz a ser concatenada. </td></tr>
+    <tr><td class="paramname">Mat1</td><td>Matriz a ser concatenada juntamente com a matriz à direita do operador || para formar uma nova matriz.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> B(<span class="stringliteral">&quot;10,11,12&quot;</span>);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    B.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    (A||B).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
+     1.000  2.000  3.000\n
+     4.000  5.000  6.000\n
+     7.000  8.000  9.000\n
+
+    10.000 11.000 12.000\n
+
+     1.000  2.000  3.000\n
+     4.000  5.000  6.000\n
+     7.000  8.000  9.000\n
+    10.000 11.000 12.000\n
+
+    Ver também: \sa Matrix operator| (Matrix Mat1)</pre> 
 </div>
 </div>
 <a class="anchor" id="a5d19e9e62d8332a7aa05e1b58e1d5b97"></a>
@@ -1346,9 +1840,26 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Operador de transposição de matrizes. </p>
-<p>Transpõe a matriz referida. </p>
+<p>Sobrecarga do operador ~ para obter a transposta da matriz. </p>
+<p>O operador ~ foi sobrecarregado de tal forma que retorna a transposta da matriz em que ele está a esquerda.</p>
+<p>Obs: O método não requer parâmetro de entrada (exceto a matriz que estará localizada à direita do operador ~)</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;4;7;10&quot;</span>);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    (~A).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
+     4.000\n
+     7.000\n
+    10.000\n
+
+    10.000 11.000 12.000\n
+
+    Ver também: \sa Matrix operator* (Matrix Mat1)</pre> 
 </div>
 </div>
 <a class="anchor" id="a29ede755f978702c18c7e4bca5da36c7"></a>
@@ -1367,7 +1878,24 @@ template&lt;class UsedType &gt; </div>
 </div><div class="memdoc">
 
 <p>Encontra o polinômio característico da matriz. </p>
+<p>Calcula o polinômio característico da matriz dada e devolve os índices do polinômio. O vetor resultante representa o polinômio característico onde o último elemtento é a constante e o primeiro multiplica <img class="formulaInl" alt="$ x^{n-1} $" src="form_0.png"/>.</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;0,5,6;7,1,9&quot;</span>);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    (A.<a class="code" href="class_matrix.html#a29ede755f978702c18c7e4bca5da36c7">pol</a>()).<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
+     1.000  2.000  3.000\n
+     0.000  5.000  6.000\n
+     7.000  1.000  9.000\n
+
+    -1.000  15.000 -32.000 18.000\n
+
+    Ver também:</pre> 
 </div>
 </div>
 <a class="anchor" id="a8be0b3971f4de1190a687ce5f096f99a"></a>
@@ -1386,6 +1914,20 @@ template&lt;class UsedType &gt; </div>
 </div><div class="memdoc">
 
 <p>Exibe a matriz. </p>
+<p>Este método apresenta na tela todos os valores da matriz de maneira ordenada.</p>
+<p>Obs: Para que seja apresentado algum valor o usuário deverá utilizar algum dos métodos de preenchimento de matrizes<br />
+ Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>1.000 2.000 3.000<br />
+ 4.000 5.000 6.000<br />
+ 7.000 8.000 9.000<br />
+</p>
 
 </div>
 </div>
@@ -1415,131 +1957,28 @@ template&lt;class UsedType &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Cria uma matriz com valores aleatórios. </p>
-<p>Toma como parâmetros a dimensão da matriz, e cria uma matriz preeenchida com números aleatórios. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Cria uma matriz preenchida com valores aleatórios do tamanho desejado. </p>
+<p>Recebe como parâmetros a dimensão da matriz, e cria uma matriz preeenchida com números aleatórios com distribuição uniforme (utiliza a função rand do próprio c). </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">row</td><td>Número de linhas da matriz. </td></tr>
-    <tr><td class="paramname">col</td><td>Número de colunas da matriz. </td></tr>
+    <tr><td class="paramname">col</td><td>Número de colunas da matriz.</td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a class="anchor" id="a532f6ef6c73a89cb65ad587ab94d7abe"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::setColumn </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
-          <td class="paramname"><em>Colummn</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Define uma coluna. </p>
-<p>Recebe o índice da coluna e um matriz coluna, a inserindo no índice da matriz original. </p><dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">num</td><td>Número da coluna a ser alterada. </td></tr>
-    <tr><td class="paramname">Colummn</td><td>Matriz coluna que será inserida. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a4d1bd93673b400e5282dfdc2eaeac2af"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::setLine </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
-          <td class="paramname"><em>Line</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Define uma linha. </p>
-<p>Recebe o índice da linha e um matriz linha, a inserindo no índice da matriz original. </p><dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">num</td><td>Número da linha a ser alterada. </td></tr>
-    <tr><td class="paramname">Line</td><td>Matriz linha que será inserida na matriz original. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="afac2cb70c9ba8c0a415f7d13de2c69dc"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::setMat </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>row</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>col</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">UsedType&#160;</td>
-          <td class="paramname"><em>num</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Altera o elemento na posição especificada. </p>
-<p>Recebe os índices da matriz e um elemento a ser inserido nessa posição. </p><dl class="params"><dt>Parâmetros</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">row</td><td>Linha do elemento a ser inserido. </td></tr>
-    <tr><td class="paramname">col</td><td>Coluna do elemento a ser inserido. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Obs: Os números gerados na matriz estarão em uma faixa entre 0 e 1<br />
+ Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A;</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a1e0fb9ec11443abd6862163823d69b4a">randU</a>(3,3);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Possível resultado:</p>
+<p>0.485 0.189 0.195<br />
+ 0.350 0.284 0.023<br />
+ 0.463 0.848 0.048<br />
+</p>
 
 </div>
 </div>
@@ -1579,27 +2018,24 @@ template&lt;class UsedType &gt; </div>
 </div><div class="memdoc">
 
 <p>Calcula o traço da matriz. </p>
-<p>Calcula o traço da matriz. O traço corresponde a soma de todos os elementos da diagonal principal. </p>
+<p>Calcula o traço da matriz, ou seja, a soma de todos os elementos da diagonal principal.</p>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A(<span class="stringliteral">&quot;1,2,3;4,5,6;7,8,9&quot;</span>);</div>
+<div class="line">    A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    std::cout &lt;&lt; A.<a class="code" href="class_matrix.html#a4638d7ac370d22685cc1b485a1c1149b">trace</a>() &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
 
-</div>
-</div>
-<a class="anchor" id="a0684559eb9be7dddd45afbe57aa74a83"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;::Variance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+     1.000  2.000  3.000\n
+     4.000  5.000  6.000\n
+     7.000  8.000  9.000\n
 
-<p>Calcula a variância dos elementos de uma matriz. </p>
+     15\n
 
+    Ver também:</pre> 
 </div>
 </div>
 <a class="anchor" id="a8a75a810eb076ca76d9418db55a9ffbd"></a>
@@ -1629,837 +2065,39 @@ template&lt;class UsedType &gt; </div>
 </div><div class="memdoc">
 
 <p>Cria uma matriz de zeros. </p>
-<p>Toma como parâmetros a dimensão da matriz, e cria uma matriz totalmente preeenchida com o número 0. </p><dl class="params"><dt>Parâmetros</dt><dd>
+<p>Recebe como parâmetros a dimensão da matriz, e cria uma matriz totalmente preeenchida com o número 0. </p><dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">row</td><td>Número de linhas da matriz. </td></tr>
-    <tr><td class="paramname">col</td><td>Número de colunas da matriz. </td></tr>
+    <tr><td class="paramname">col</td><td>Número de colunas da matriz.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Ex: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"> <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A;</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd">zeros</a>(3,3);</div>
+<div class="line"> A.<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p> Resultado:</p>
+<p>0.000 0.000 0.000<br />
+ 0.000 0.000 0.000<br />
+ 0.000 0.000 0.000<br />
+</p>
 
 </div>
 </div>
-<h2 class="groupheader">Documentação das classes amigas e funções relacionadas</h2>
-<a class="anchor" id="a4d0a3ff3f36139c1fa8e61c5cf382b89"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; abs </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af36221548b749a3e91ac01cb5d3807ee"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; acos </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4a7eba8985cfbe0c586b9be768151ad3"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; acosh </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a169b085346e6703f67392ff49f6931a4"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; asin </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af9d073addd4bd9972d8beaed582e473d"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; asinh </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abce9c73ea3825b8ca3a51196684371b5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; atan </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5bcc2ec7385632b2ea73af1b1ea44b7a"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; atanh </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3e7d537241288dd37ded7dc59c6bca18"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; ceil </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="acb9e57b539107785226ed4362dc2d712"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; cos </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6e651a9e3ea107410680003102044349"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; cosh </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad44e24444d2fcb1286f2fac55c4da8a2"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; diff </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">FriendType&#160;</td>
-          <td class="paramname"><em>h</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a490bfe8498fc7e33f5f4d08e6083b1b4"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; exp </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4b5268bf51e2c213ea03c29aab55e199"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; floor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a818eac51e902968b0f79a458d3cd0798"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; log </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1c35dfb4d5aa239ccce7112ba1109c7a"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; log10 </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac6c7fcf9ec3d58e7283825d8eda7e449"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">FriendType max </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6e41e4222a7f0e05cffa8ad0101ecd06"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">FriendType min </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6bbff62e1e8fb4bdf68ff1c5bc53f5d7"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">FriendType norm </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aaa08ec8e157404d0d60dd539d18728f8"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; operator* </td>
-          <td>(</td>
-          <td class="paramtype">FriendType&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>Mat1</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a505d0aaa5b313253411a300953c974f0"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; operator- </td>
-          <td>(</td>
-          <td class="paramtype">FriendType&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>Mat1</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a505d0aaa5b313253411a300953c974f0"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; operator- </td>
-          <td>(</td>
-          <td class="paramtype">FriendType&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>Mat1</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa29037f304d5bbae7b01252da57ff66c"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; operator/ </td>
-          <td>(</td>
-          <td class="paramtype">FriendType&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>Mat1</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a42e9d9e30d3347641ddcee7fdf7f6cbb"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; round </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2e339bd0cc0c2404d0ec090188ba7744"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; sin </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af99b1ddd7dac8086b4530c6faf4119fe"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; sinh </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a052dcbac0b863edce47ec257755dd2b9"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; tan </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab6642dc09a28ef8c54c73333545881a5"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class UsedType&gt; </div>
-<div class="memtemplate">
-template&lt;class FriendType &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;FriendType&gt; tanh </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; FriendType &gt;&#160;</td>
-          <td class="paramname"><em>M1</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>A documentação para esta classe foi gerada a partir dos seguintes ficheiros:<ul>
-<li><a class="el" href="matrix_8h_source.html">matrix.h</a></li>
-<li><a class="el" href="matrix_8cpp.html">matrix.cpp</a></li>
+<hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>SistemasdeControle/src/primitive libs/<a class="el" href="matrix_8h_source.html">matrix.h</a></li>
+<li>SistemasdeControle/src/primitive libs/matrix.cpp</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="class_matrix.html">Matrix</a></li>
-    <li class="footer">Gerado em Terça, 5 de Agosto de 2014 13:03:14 para controllib por
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Gerado em Domingo, 23 de Novembro de 2014 19:45:56 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
 </body>
 </html>

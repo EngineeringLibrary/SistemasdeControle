@@ -3,18 +3,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.7"/>
-<title>controllib: Referência à classe Relay</title>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Referência da Classe Relay</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-  $(window).load(resizeHeight);
-</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -29,23 +22,25 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">controllib
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
    </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
   </td>
  </tr>
  </tbody>
 </table>
 </div>
 <!-- end header part -->
-<!-- Gerado por Doxygen 1.8.7 -->
+<!-- Gerado por Doxygen 1.8.8 -->
 <script type="text/javascript">
-var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </script>
   <div id="navrow1" class="tabs">
     <ul class="tablist">
-      <li><a href="index.html"><span>Página&#160;principal</span></a></li>
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Ficheiros</span></a></li>
+      <li><a href="files.html"><span>Arquivos</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -53,7 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
                onmouseover="return searchBox.OnSearchSelectShow()"
                onmouseout="return searchBox.OnSearchSelectHide()"
                alt=""/>
-          <input type="text" id="MSearchField" value="Localizar" accesskey="S"
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
                onfocus="searchBox.OnSearchFieldFocus(true)" 
                onblur="searchBox.OnSearchFieldFocus(false)" 
                onkeyup="searchBox.OnSearchFieldChange(event)"/>
@@ -66,31 +61,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Localizar');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="annotated.html"><span>Lista&#160;de&#160;componentes</span></a></li>
-      <li><a href="functions.html"><span>Componentes&#160;membro</span></a></li>
+      <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
+      <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
+      <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-$(document).ready(function(){initNavTree('class_relay.html','');});
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tudo</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Ficheiros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Amigos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,107 +80,38 @@ $(document).ready(function(){initNavTree('class_relay.html','');});
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Membros públicos</a> &#124;
-<a href="class_relay-members.html">Mostrar lista completa dos membros</a>  </div>
+<a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="class_relay-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
-<div class="title">Referência à classe Relay</div>  </div>
+<div class="title">Referência da Classe Relay</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p><code>#include &lt;<a class="el" href="relay_8h_source.html">relay.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Membros públicos</h2></td></tr>
-<tr class="memitem:a8c3f19e1e845315418003cd41d2a6a87"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_relay.html#a8c3f19e1e845315418003cd41d2a6a87">Relay</a> ()</td></tr>
-<tr class="separator:a8c3f19e1e845315418003cd41d2a6a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73438c79054048e31c69ccea069ae765"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_relay.html#a73438c79054048e31c69ccea069ae765">setReference</a> (double ref)</td></tr>
+Métodos Públicos</h2></td></tr>
+<tr class="memitem:a73438c79054048e31c69ccea069ae765"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a73438c79054048e31c69ccea069ae765"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setReference</b> (double ref)</td></tr>
 <tr class="separator:a73438c79054048e31c69ccea069ae765"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af71446fcffa52e609ca8165383023955"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_relay.html#af71446fcffa52e609ca8165383023955">setToleranceError</a> (double tolerance)</td></tr>
+<tr class="memitem:af71446fcffa52e609ca8165383023955"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af71446fcffa52e609ca8165383023955"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setToleranceError</b> (double tolerance)</td></tr>
 <tr class="separator:af71446fcffa52e609ca8165383023955"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2c6218a5aaa393066a17e8666bc6448"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_relay.html#ad2c6218a5aaa393066a17e8666bc6448">relayLoop</a> (double output)</td></tr>
+<tr class="memitem:ad2c6218a5aaa393066a17e8666bc6448"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad2c6218a5aaa393066a17e8666bc6448"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>relayLoop</b> (double output)</td></tr>
 <tr class="separator:ad2c6218a5aaa393066a17e8666bc6448"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Documentação dos Construtores &amp; Destrutor</h2>
-<a class="anchor" id="a8c3f19e1e845315418003cd41d2a6a87"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Relay::Relay </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Documentação dos métodos</h2>
-<a class="anchor" id="ad2c6218a5aaa393066a17e8666bc6448"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Relay::relayLoop </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>output</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a73438c79054048e31c69ccea069ae765"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Relay::setReference </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>ref</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af71446fcffa52e609ca8165383023955"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Relay::setToleranceError </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>tolerance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>A documentação para esta classe foi gerada a partir dos seguintes ficheiros:<ul>
-<li><a class="el" href="relay_8h_source.html">relay.h</a></li>
-<li><a class="el" href="relay_8cpp.html">relay.cpp</a></li>
+<hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>SistemasdeControle/src/optimization libs/<a class="el" href="relay_8h_source.html">relay.h</a></li>
+<li>SistemasdeControle/src/optimization libs/relay.cpp</li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="class_relay.html">Relay</a></li>
-    <li class="footer">Gerado em Terça, 5 de Agosto de 2014 13:03:14 para controllib por
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.7 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Gerado em Domingo, 23 de Novembro de 2014 19:45:56 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
 </body>
 </html>
