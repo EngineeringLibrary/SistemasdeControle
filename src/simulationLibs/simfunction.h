@@ -60,7 +60,7 @@ public:
 
 \code
             #include <src/graphicLibs/grafics.h>
-            int main(int argc, char *argv)
+            int main(int argv, char *argc[])
             {
                 Matrix<double> In, Out;
                 In  = "0,1,2,3,4,5,6,7,8,9,10;0,1,2,3,4,5,6,7,8,9,10;0,1,2,3,4,5,6,7,8,9,10";
@@ -100,6 +100,7 @@ public:
 \code
 
             #include <src/graphicLibs/grafics.h>
+            #define PI 3.14
 
             double funcaoExemplo(double f){
                 double a = 90, b = 0, g = 0;// f = 15;//graus
@@ -114,7 +115,7 @@ public:
                 return (x);
             }
 
-            int main(int argc, char *argv)
+            int main(int argv, char *argc[])
             {
 
                 simFunction S(funcaoExemplo, 0,2*3.14,3.14/100);
@@ -138,22 +139,136 @@ public:
     simFunction(double (*FunctionToCall)(double), double lMin,
                 double lMax, double step);
 
+    //! Calcula a saida de dados a partir de uma função
+
+    /*!
+        A responsabilidade desse método é receber uma entrada, chamar a função passada como ponteiro, e retornar um valor de saída real.
+        \param input Entrada do dado que será utilizado no cálculo da função
+
+        Ex:
+
+\code
+    #include <src/graphicLibs/grafics.h>
+
+    int main(int argv, char *argc[])
+    {
+
+        simFunction S(sin, 0,2*3.14,3.14/100);
+
+        std::cout << S.FunctionCalculation(M_PI) << std::endl;
+
+        return 0;
+    }
+
+\endcode
+
+        Resultado:
+
+        1.22461e-16
+
+        Ver também: \sa GenerateDataFunction()
+    */
+
     double FunctionCalculation(double input);
+
+    //! Calcula os dados de saída a partir dos parâmetros lMin, lMax, step
+
+    /*!
+        A responsabilidade desse método é calcular todas as saídas da função na faixa determinada entre lMin e lMax com espaçamento de step.
+
+        Ex:
+
+\code
+
+\endcode
+
+        Resultado:
+
+        Ver também: \sa FunctionCalculation()
+    */
+
+
     void   GenerateDataFunction();
+
+    //! Calcula a saida de dados a partir de uma função e normaliza-os em uma faixa de interesse em x e em y
+
+    /*!
+        A responsabilidade desse método é receber uma entrada, chamar a função passada como ponteiro, retornar um valor de saída real e normalizar na faixa determinada.
+        \param input entrada de dados para obter o resultado da função
+        \param xUp maior valor de x da escala atual dos dados
+        \param xDown menor valor de x para a escala atual dos dados
+        \param yUp maior valor de y para a escala de destino (normalizada)
+        \param yDown menor valor de y para a escala de destino (normalizada)
+
+        Ex:
+
+\code
+#include <src/graphicLibs/grafics.h>
+
+        int main(int argv, char *argc[])
+        {
+
+            simFunction S(sin, 0,2*3.14,3.14/100);
+
+            std::cout << S.normalize(M_PI,0,2*M_PI,1,0) << std::endl;
+
+            return 0;
+        }
+
+\endcode
+
+        Resultado:
+
+        0.5
+
+        Ver também: \sa FunctionCalculation()
+    */
+
     double normalize(double input, double xUp, double xDown,
                      double yUp, double yDown);
 
+    //! Insere um valor para a variável step
+
     void   SetDataStep    (double step);
+
+    //! Insere um valor para as variáveis lMin e lMax
+
     void   SetDataLimits  (double lMin, double lMax);
+
+    //! Insere um valor para a variável input
+
     void   SetInputData   (Matrix<double> input);
+
+    //! Insere um valor para a variável Output
+
     void   SetOutputData  (Matrix<double> Output);
+
+    //! Insere um valor para o ponteiro da função que chamará a função criada pelo usuário
+
     void   SetFunctionCall(double (*FunctionToCall)(double));
 
+    //! Acessa os dados de entrada da função retornando-os na forma de uma matriz
+
     Matrix<double> GetInputData ();
+
+    //! Acessa os dados de saída da função retornando-os na forma de uma matriz
+
     Matrix<double> GetOutputData();
+
+    //! Acessa a variável step retornando-a na forma de um escalar
+
     double   GetDataStep  ();
+
+    //! Acessa a variável lMin retornando-a na forma de um escalar
+
     double   GetDataMinLimit();
+
+    //! Acessa a variável lMax retornando-a na forma de um escalar
+
     double   GetDataMaxLimit();
+
+    //! Acessa o ponteiro da função retornando-o para ser utilizado por outra função
+
     typedef double(*FunctionCall)(double);
     FunctionCall   GetFunctionCall();
 
