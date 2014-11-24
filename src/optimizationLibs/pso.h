@@ -227,13 +227,180 @@ private:
     void FitnessUpdateMax();
 
 public:
+
+    //! Construtor padrão da biblioteca
+
+    /*!
+        Inicializa o PSO com os seguintes parâmetros iniciais para o objeto instanciado.
+        \param varNum = 1;
+        \param PopSize = 80;
+        \param GenSize = 2000;
+        \param phi1 = 1;
+        \param phi2 = 1;
+        \param omega = 1;
+        \param MinMax = false;
+
+        Ex:
+
+\code
+        #include <src/primitiveLibs/pso.h>
+        int main(int argc, char *argv)
+        {
+
+        }
+\endcode
+
+        Resultado:
+
+        Ver também: \sa void Run()
+    */
+
     PSO();
+
+    //! Sobrecarga do construtor do PSO
+
+    /*!
+        Inicializa o PSO com os seguintes parâmetros iniciais para o objeto instanciado.
+        \param this->varNum = varNum; // 1º parâmetro de entrada do construtor
+        \param this->PopSize = PopSize; //2º parâmetro de entrada do construtor
+        \param this->GenSize = GenSize; //3º parâmetro de entrada do construtor
+        \param phi1 = 1;
+        \param phi2 = 1;
+        \param omega = 1;
+        \param MinMax = false;
+
+        Ex:
+
+\code
+        #include <src/primitiveLibs/pso.h>
+        int main(int argc, char *argv)
+        {
+
+        }
+\endcode
+
+        Resultado:
+
+        Ver também: \sa void Run()
+    */
+
     PSO(int varNum, int PopSize, int GenSize);
+
+    //! Sobrecarga do construtor do PSO
+
+    /*!
+        Inicializa o PSO com os seguintes parâmetros iniciais para o objeto instanciado.
+        \param this->varNum = varNum; // 1º parâmetro de entrada do construtor
+        \param this->PopSize = PopSize; //2º parâmetro de entrada do construtor
+        \param this->GenSize = GenSize; //3º parâmetro de entrada do construtor
+        \param this->phi1 = phi1; //4º parâmetro de entrada do construtor
+        \param this->phi2 = phi2; //5º parâmetro de entrada do construtor
+        \param omega = 1;
+        \param MinMax = false;
+
+        Ex:
+
+\code
+        #include <src/primitiveLibs/pso.h>
+        int main(int argc, char *argv)
+        {
+
+        }
+\endcode
+
+        Resultado:
+
+        Ver também: \sa void Run()
+    */
+
     PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2);
+
+    //! Sobrecarga do construtor do PSO
+
+    /*!
+        Inicializa o PSO com os seguintes parâmetros iniciais para o objeto instanciado.
+        \param this->varNum = varNum; // 1º parâmetro de entrada do construtor
+        \param this->PopSize = PopSize; //2º parâmetro de entrada do construtor
+        \param this->GenSize = GenSize; //3º parâmetro de entrada do construtor
+        \param this->phi1 = phi1; //4º parâmetro de entrada do construtor
+        \param this->phi2 = phi2; //5º parâmetro de entrada do construtor
+        \param this->omega = omega; //6º parâmetro de entrada do construtor
+        \param this->MinMax = MinMax; //7º parâmetro de entrada do construtor
+
+        Ex:
+
+\code
+        #include <src/primitiveLibs/pso.h>
+        int main(int argc, char *argv)
+        {
+
+        }
+\endcode
+
+        Resultado:
+
+        Ver também: \sa void Run()
+    */
+
     PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax);
+
+    //! Destrutor padrão do PSO
+
+    /*!
+        Método que é executado no momento em que o PSO é deletado.
+
+        OBS: O método não tem exempo associado.
+
+        Ver também: \sa void Run()
+    */
+
+
     ~PSO();
 
+    //! Função que inicializa a otimização do problema
+
+    /*!
+        Neste método são executadas todas as partes necessárias para realizar GenSize iterações do PSO (GenSize gerações);
+
+        Ex:
+
+\code
+        #include <src/primitiveLibs/pso.h>
+        int main(int argc, char *argv)
+        {
+
+        }
+\endcode
+
+        Resultado:
+
+        Ver também: \sa void Run()
+    */
+
     void Run();
+
+    //! Função que inicializa a otimização do problema
+
+    /*!
+        Neste método são executadas todas as partes necessárias para realizar GenSize iterações do PSO (GenSize gerações) nTime vezes;
+        \param nTimes Quantidade de vezes que o PSO é executado GenSize vezes
+
+        Ex:
+
+\code
+        #include <src/primitiveLibs/pso.h>
+        int main(int argc, char *argv)
+        {
+
+        }
+\endcode
+
+        Resultado:
+
+        Ver também: \sa void Run()
+    */
+
+
     void Run(int nTimes);
     void setData(Matrix<UsedType> dataIn, Matrix<UsedType> dataOut);
 
