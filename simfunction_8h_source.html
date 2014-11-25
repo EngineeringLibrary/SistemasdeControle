@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Código-Fonte de SistemasdeControle/src/simulationLibs/simfunction.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ac84d4b158a08a9898e25c99d7a17639.html">SistemasdeControle</a></li><li class="navelem"><a class="el" href="dir_2fab4fe404714932936eb34a72b6b633.html">src</a></li><li class="navelem"><a class="el" href="dir_116122ab50e882228fa30f7e72edbc14.html">simulationLibs</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">simfunction.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SIMFUNCTION_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SIMFUNCTION_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;src/primitiveLibs/matrix.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classsim_function.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classsim_function.html">simFunction</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> input, output;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    double         (*FunctionToCall)(double), lMin, lMax, step;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="classsim_function.html#ad04a344e74ed3e4245d27319c8ebb0c2">simFunction</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="classsim_function.html#ad04a344e74ed3e4245d27319c8ebb0c2">simFunction</a>(<a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> in, <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> out);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <a class="code" href="classsim_function.html#ad04a344e74ed3e4245d27319c8ebb0c2">simFunction</a>(<span class="keywordtype">double</span> (*FunctionToCall)(<span class="keywordtype">double</span>), <span class="keywordtype">double</span> lMin,</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                <span class="keywordtype">double</span> lMax, <span class="keywordtype">double</span> step);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classsim_function.html#a89198672492b73f6c5511b976103f51f">FunctionCalculation</a>(<span class="keywordtype">double</span> input);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordtype">void</span>   <a class="code" href="classsim_function.html#a4983e03e4220cfdb8f6904eb3b1d1b3f">GenerateDataFunction</a>();</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classsim_function.html#ac895daea9f1545a548464b399dcede6f">normalize</a>(<span class="keywordtype">double</span> input, <span class="keywordtype">double</span> xUp, <span class="keywordtype">double</span> xDown,</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                     <span class="keywordtype">double</span> yUp, <span class="keywordtype">double</span> yDown);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keywordtype">void</span>   <a class="code" href="classsim_function.html#ab21a7cc8a7f5f6121ec0edbb5105ab41">SetDataStep</a>    (<span class="keywordtype">double</span> step);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordtype">void</span>   <a class="code" href="classsim_function.html#ae1f9bd5751cb26a6b2f2327ec2ba743d">SetDataLimits</a>  (<span class="keywordtype">double</span> lMin, <span class="keywordtype">double</span> lMax);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordtype">void</span>   <a class="code" href="classsim_function.html#a1c9b1d37601d12b9f6c87ac94bf9a986">SetInputData</a>   (<a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> input);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordtype">void</span>   <a class="code" href="classsim_function.html#a8270dccc26698e35586a00d8f8817827">SetOutputData</a>  (<a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> Output);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordtype">void</span>   <a class="code" href="classsim_function.html#ae50ca6ec20432c87a0b32ba51fe0e1dd">SetFunctionCall</a>(<span class="keywordtype">double</span> (*FunctionToCall)(<span class="keywordtype">double</span>));</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> <a class="code" href="classsim_function.html#a244fb456f945bffbf71e47005df9b892">GetInputData</a> ();</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> <a class="code" href="classsim_function.html#a8ff006ad0aabb8b43fe15b6e6220bd44">GetOutputData</a>();</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    <span class="keywordtype">double</span>   <a class="code" href="classsim_function.html#a837c5ce910341bdea0da4310ef2979fd">GetDataStep</a>  ();</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keywordtype">double</span>   <a class="code" href="classsim_function.html#a683b75964b55ee2bd149b847450cb773">GetDataMinLimit</a>();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keywordtype">double</span>   <a class="code" href="classsim_function.html#a8927977e8b817b1588dd125805956f4c">GetDataMaxLimit</a>();</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="classsim_function.html#a56d434f6d0ebeaab998bba32d0ed2515">  272</a></span>&#160;    <span class="keyword">typedef</span> double(*<a class="code" href="classsim_function.html#a56d434f6d0ebeaab998bba32d0ed2515">FunctionCall</a>)(double);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <a class="code" href="classsim_function.html#a56d434f6d0ebeaab998bba32d0ed2515">FunctionCall</a>   GetFunctionCall();</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordtype">void</span> simulate();</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;};</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;<span class="preprocessor">#endif // SIMFUNCTION_H</span></div>
+<div class="ttc" id="classsim_function_html_a8270dccc26698e35586a00d8f8817827"><div class="ttname"><a href="classsim_function.html#a8270dccc26698e35586a00d8f8817827">simFunction::SetOutputData</a></div><div class="ttdeci">void SetOutputData(Matrix&lt; double &gt; Output)</div><div class="ttdoc">Insere um valor para a variável Output. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:68</div></div>
+<div class="ttc" id="classsim_function_html"><div class="ttname"><a href="classsim_function.html">simFunction</a></div><div class="ttdoc">Classe cuja responsabilidade é simular funções criadas externamente. </div><div class="ttdef"><b>Definition:</b> simfunction.h:17</div></div>
+<div class="ttc" id="classsim_function_html_ab21a7cc8a7f5f6121ec0edbb5105ab41"><div class="ttname"><a href="classsim_function.html#ab21a7cc8a7f5f6121ec0edbb5105ab41">simFunction::SetDataStep</a></div><div class="ttdeci">void SetDataStep(double step)</div><div class="ttdoc">Insere um valor para a variável step. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:52</div></div>
+<div class="ttc" id="classsim_function_html_a837c5ce910341bdea0da4310ef2979fd"><div class="ttname"><a href="classsim_function.html#a837c5ce910341bdea0da4310ef2979fd">simFunction::GetDataStep</a></div><div class="ttdeci">double GetDataStep()</div><div class="ttdoc">Acessa a variável step retornando-a na forma de um escalar. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:88</div></div>
+<div class="ttc" id="classsim_function_html_a4983e03e4220cfdb8f6904eb3b1d1b3f"><div class="ttname"><a href="classsim_function.html#a4983e03e4220cfdb8f6904eb3b1d1b3f">simFunction::GenerateDataFunction</a></div><div class="ttdeci">void GenerateDataFunction()</div><div class="ttdoc">Calcula os dados de saída a partir dos parâmetros lMin, lMax, step. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:32</div></div>
+<div class="ttc" id="classsim_function_html_a56d434f6d0ebeaab998bba32d0ed2515"><div class="ttname"><a href="classsim_function.html#a56d434f6d0ebeaab998bba32d0ed2515">simFunction::FunctionCall</a></div><div class="ttdeci">double(* FunctionCall)(double)</div><div class="ttdoc">Acessa o ponteiro da função retornando-o para ser utilizado por outra função. </div><div class="ttdef"><b>Definition:</b> simfunction.h:272</div></div>
+<div class="ttc" id="classsim_function_html_ad04a344e74ed3e4245d27319c8ebb0c2"><div class="ttname"><a href="classsim_function.html#ad04a344e74ed3e4245d27319c8ebb0c2">simFunction::simFunction</a></div><div class="ttdeci">simFunction()</div><div class="ttdoc">Construtor padrão da biblioteca de simulação. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:2</div></div>
+<div class="ttc" id="classsim_function_html_a683b75964b55ee2bd149b847450cb773"><div class="ttname"><a href="classsim_function.html#a683b75964b55ee2bd149b847450cb773">simFunction::GetDataMinLimit</a></div><div class="ttdeci">double GetDataMinLimit()</div><div class="ttdoc">Acessa a variável lMin retornando-a na forma de um escalar. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:93</div></div>
+<div class="ttc" id="classsim_function_html_ac895daea9f1545a548464b399dcede6f"><div class="ttname"><a href="classsim_function.html#ac895daea9f1545a548464b399dcede6f">simFunction::normalize</a></div><div class="ttdeci">double normalize(double input, double xUp, double xDown, double yUp, double yDown)</div><div class="ttdoc">Calcula a saida de dados a partir de uma função e normaliza-os em uma faixa de interesse em x e em y...</div><div class="ttdef"><b>Definition:</b> simfunction.cpp:46</div></div>
+<div class="ttc" id="classsim_function_html_a8927977e8b817b1588dd125805956f4c"><div class="ttname"><a href="classsim_function.html#a8927977e8b817b1588dd125805956f4c">simFunction::GetDataMaxLimit</a></div><div class="ttdeci">double GetDataMaxLimit()</div><div class="ttdoc">Acessa a variável lMax retornando-a na forma de um escalar. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:98</div></div>
+<div class="ttc" id="classsim_function_html_a1c9b1d37601d12b9f6c87ac94bf9a986"><div class="ttname"><a href="classsim_function.html#a1c9b1d37601d12b9f6c87ac94bf9a986">simFunction::SetInputData</a></div><div class="ttdeci">void SetInputData(Matrix&lt; double &gt; input)</div><div class="ttdoc">Insere um valor para a variável input. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:63</div></div>
+<div class="ttc" id="class_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix&lt; double &gt;</a></div></div>
+<div class="ttc" id="classsim_function_html_a89198672492b73f6c5511b976103f51f"><div class="ttname"><a href="classsim_function.html#a89198672492b73f6c5511b976103f51f">simFunction::FunctionCalculation</a></div><div class="ttdeci">double FunctionCalculation(double input)</div><div class="ttdoc">Calcula a saida de dados a partir de uma função. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:26</div></div>
+<div class="ttc" id="classsim_function_html_ae50ca6ec20432c87a0b32ba51fe0e1dd"><div class="ttname"><a href="classsim_function.html#ae50ca6ec20432c87a0b32ba51fe0e1dd">simFunction::SetFunctionCall</a></div><div class="ttdeci">void SetFunctionCall(double(*FunctionToCall)(double))</div><div class="ttdoc">Insere um valor para o ponteiro da função que chamará a função criada pelo usuário. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:73</div></div>
+<div class="ttc" id="classsim_function_html_a244fb456f945bffbf71e47005df9b892"><div class="ttname"><a href="classsim_function.html#a244fb456f945bffbf71e47005df9b892">simFunction::GetInputData</a></div><div class="ttdeci">Matrix&lt; double &gt; GetInputData()</div><div class="ttdoc">Acessa os dados de entrada da função retornando-os na forma de uma matriz. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:78</div></div>
+<div class="ttc" id="classsim_function_html_ae1f9bd5751cb26a6b2f2327ec2ba743d"><div class="ttname"><a href="classsim_function.html#ae1f9bd5751cb26a6b2f2327ec2ba743d">simFunction::SetDataLimits</a></div><div class="ttdeci">void SetDataLimits(double lMin, double lMax)</div><div class="ttdoc">Insere um valor para as variáveis lMin e lMax. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:57</div></div>
+<div class="ttc" id="classsim_function_html_a8ff006ad0aabb8b43fe15b6e6220bd44"><div class="ttname"><a href="classsim_function.html#a8ff006ad0aabb8b43fe15b6e6220bd44">simFunction::GetOutputData</a></div><div class="ttdeci">Matrix&lt; double &gt; GetOutputData()</div><div class="ttdoc">Acessa os dados de saída da função retornando-os na forma de uma matriz. </div><div class="ttdef"><b>Definition:</b> simfunction.cpp:83</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

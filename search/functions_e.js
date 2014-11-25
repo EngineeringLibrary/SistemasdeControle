@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7ematrix',['~Matrix',['../class_matrix.html#af1fba4426683a80f64da50bdd0689494',1,'Matrix']]]
+  ['variance',['Variance',['../class_matrix.html#a0684559eb9be7dddd45afbe57aa74a83',1,'Matrix']]]
 ];

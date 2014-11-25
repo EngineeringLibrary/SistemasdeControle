@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['getcols',['getCols',['../class_matrix.html#ab37ac29b603443da84f18129a8b1aca5',1,'Matrix']]],
-  ['getcolumn',['getColumn',['../class_matrix.html#ab2e2de4a736bb752af047e33cc600acc',1,'Matrix']]],
-  ['getline',['getLine',['../class_matrix.html#a95c22817d23b8b30b25115478e15694a',1,'Matrix']]],
-  ['getrows',['getRows',['../class_matrix.html#a1a544492885c8925f6da46e44a896fe3',1,'Matrix']]]
+  ['det',['det',['../class_matrix.html#a5f933c53833ab2079407882b8718c826',1,'Matrix']]],
+  ['display',['display',['../class_gl_view.html#ad67ebb10fe30265fc6930d66dea1e544',1,'GlView::display()'],['../classgrafics.html#a671902de2db8480ff2cabfea82fdf19c',1,'grafics::display()']]],
+  ['displaywrapper',['displayWrapper',['../class_gl_view.html#af527a092e0168cdf1a69f6bdcc58cbcf',1,'GlView']]]
 ];

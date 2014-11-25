@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['relay',['Relay',['../class_relay.html',1,'']]]
+  ['lsim',['Lsim',['../class_lsim.html',1,'']]]
 ];

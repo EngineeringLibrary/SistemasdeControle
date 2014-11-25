@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zeros',['zeros',['../class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd',1,'Matrix']]]
+  ['trace',['trace',['../class_matrix.html#a4638d7ac370d22685cc1b485a1c1149b',1,'Matrix']]]
 ];

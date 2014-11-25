@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['length',['length',['../class_matrix.html#a47339f7998ee8273b68f5485a8ce723e',1,'Matrix']]],
-  ['linevector',['lineVector',['../class_matrix.html#a8bd4cdb3f7f32b7cc273b003e179606c',1,'Matrix']]]
+  ['init',['init',['../class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a',1,'Matrix::init(int row, int col)'],['../class_matrix.html#a8807a3fa883609fc9b012f34be12d14e',1,'Matrix::init(string value)']]],
+  ['inv',['inv',['../class_matrix.html#a34571e2bd304203ade32d490a0376f1a',1,'Matrix']]]
 ];

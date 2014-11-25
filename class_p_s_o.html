@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -89,23 +90,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="title">Referência da Template de Classe PSO&lt; UsedType &gt;</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe de otimização por nuvem de partículas.  
+ <a href="class_p_s_o.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="pso_8h_source.html">pso.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
-<tr class="memitem:af335ab7d474e4d0d5578fd502f9549c4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af335ab7d474e4d0d5578fd502f9549c4"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PSO</b> (int varNum, int PopSize, int GenSize)</td></tr>
+<tr class="memitem:a728b1ffd7dbcd4fb55b37cfa0d16a37b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a728b1ffd7dbcd4fb55b37cfa0d16a37b">PSO</a> ()</td></tr>
+<tr class="memdesc:a728b1ffd7dbcd4fb55b37cfa0d16a37b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão da biblioteca.  <a href="#a728b1ffd7dbcd4fb55b37cfa0d16a37b">Mais...</a><br /></td></tr>
+<tr class="separator:a728b1ffd7dbcd4fb55b37cfa0d16a37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af335ab7d474e4d0d5578fd502f9549c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#af335ab7d474e4d0d5578fd502f9549c4">PSO</a> (int varNum, int PopSize, int GenSize)</td></tr>
+<tr class="memdesc:af335ab7d474e4d0d5578fd502f9549c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do construtor do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>.  <a href="#af335ab7d474e4d0d5578fd502f9549c4">Mais...</a><br /></td></tr>
 <tr class="separator:af335ab7d474e4d0d5578fd502f9549c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6b88250fa54c27233e70f438c404650"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6b88250fa54c27233e70f438c404650"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PSO</b> (int varNum, int PopSize, int GenSize, double phi1, double phi2)</td></tr>
+<tr class="memitem:ad6b88250fa54c27233e70f438c404650"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ad6b88250fa54c27233e70f438c404650">PSO</a> (int varNum, int PopSize, int GenSize, double phi1, double phi2)</td></tr>
+<tr class="memdesc:ad6b88250fa54c27233e70f438c404650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do construtor do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>.  <a href="#ad6b88250fa54c27233e70f438c404650">Mais...</a><br /></td></tr>
 <tr class="separator:ad6b88250fa54c27233e70f438c404650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae12083c1bdd6b993c1c6d9da97660601"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae12083c1bdd6b993c1c6d9da97660601"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>PSO</b> (int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax)</td></tr>
+<tr class="memitem:ae12083c1bdd6b993c1c6d9da97660601"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ae12083c1bdd6b993c1c6d9da97660601">PSO</a> (int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax)</td></tr>
+<tr class="memdesc:ae12083c1bdd6b993c1c6d9da97660601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do construtor do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>.  <a href="#ae12083c1bdd6b993c1c6d9da97660601">Mais...</a><br /></td></tr>
 <tr class="separator:ae12083c1bdd6b993c1c6d9da97660601"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17efed117e404509e31c2d77ac533dcb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a17efed117e404509e31c2d77ac533dcb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Run</b> ()</td></tr>
+<tr class="memitem:a58d9be2f7063ae9361f1c71ab90bc5bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a58d9be2f7063ae9361f1c71ab90bc5bd">~PSO</a> ()</td></tr>
+<tr class="memdesc:a58d9be2f7063ae9361f1c71ab90bc5bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor padrão do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>.  <a href="#a58d9be2f7063ae9361f1c71ab90bc5bd">Mais...</a><br /></td></tr>
+<tr class="separator:a58d9be2f7063ae9361f1c71ab90bc5bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17efed117e404509e31c2d77ac533dcb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a17efed117e404509e31c2d77ac533dcb">Run</a> ()</td></tr>
+<tr class="memdesc:a17efed117e404509e31c2d77ac533dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que inicializa a otimização do problema.  <a href="#a17efed117e404509e31c2d77ac533dcb">Mais...</a><br /></td></tr>
 <tr class="separator:a17efed117e404509e31c2d77ac533dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a156a5cd6e0a3c1ab6a62b14bccf66908"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a156a5cd6e0a3c1ab6a62b14bccf66908"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Run</b> (int nTimes)</td></tr>
+<tr class="memitem:a156a5cd6e0a3c1ab6a62b14bccf66908"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a156a5cd6e0a3c1ab6a62b14bccf66908">Run</a> (int nTimes)</td></tr>
+<tr class="memdesc:a156a5cd6e0a3c1ab6a62b14bccf66908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que inicializa a otimização do problema.  <a href="#a156a5cd6e0a3c1ab6a62b14bccf66908">Mais...</a><br /></td></tr>
 <tr class="separator:a156a5cd6e0a3c1ab6a62b14bccf66908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2a4ece07ddce8f47d218e65dc30d5b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2a4ece07ddce8f47d218e65dc30d5b1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setData</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; dataIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; dataOut)</td></tr>
@@ -114,14 +126,367 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setData</b> (<a class
 double&#160;</td><td class="memItemRight" valign="bottom"><b>getTime</b> ()</td></tr>
 <tr class="separator:a8225b21696a23c7a0225282da64d9e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><h3>template&lt;class UsedType&gt;<br />
+class PSO&lt; UsedType &gt;</h3>
+
+<p>Classe de otimização por nuvem de partículas. </p>
+<p>Essa classe (<a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>) faz parte de um conjunto de classes de otimização. A sua responsabilidade é receber um problema que deve ser otimizado e devolver os parâmetros que minimizam ou maximizam a função objetivo do problema. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MinMax</td><td>Variável booleana que representa se é para maximizar ou minimizar a função objetivo. Quando essa variável é setada em (1) true o <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> funcionará como um maximizador da função objetivo, caso o parâmetro seja setado em 0 (false) o <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> funcionará como um minimizador da função objetivo. Por default a função inicializa com false. </td></tr>
+    <tr><td class="paramname">varNum</td><td>Variável inteira que representa o número de parâmetros que o <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> terá de encontrar durante o processo de otimização. </td></tr>
+    <tr><td class="paramname">PopSize</td><td>Variável inteira que representa o número de indivíduos que estarão buscando por uma solução otimizada para o problema. </td></tr>
+    <tr><td class="paramname">GenSize</td><td>Variável inteira que representa quantas iterações serão realizadas no algoritmo. OBS: Lembrando que o algoritmo realizará PopSize * GenSize vezes a função objetivo, por isso, esse é um processo de otimização relativamente demorado. </td></tr>
+    <tr><td class="paramname">phi1</td><td>Variável Real que representa o componente cognitivo do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>. </td></tr>
+    <tr><td class="paramname">phi2</td><td>Variável Real que representa o componente social do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>. </td></tr>
+    <tr><td class="paramname">omega</td><td>Variável Real que representa o coeficiente de inercia do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>. </td></tr>
+    <tr><td class="paramname">V</td><td>é uma matriz contendo a velocidade calculada de cada partícula em relação a sua melhor posição e em relação a melhor posição de todas as partículas do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>. </td></tr>
+    <tr><td class="paramname">X</td><td>é uma matriz contendo a posição de cada partícula do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>. </td></tr>
+    <tr><td class="paramname">P</td><td>é uma matriz contendo a melhor posição em que cada partícula do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> já esteve. </td></tr>
+    <tr><td class="paramname">G</td><td>é uma matriz contendo a melhor posição em que a melhor partícula do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> já esteve. </td></tr>
+    <tr><td class="paramname">Xfitness</td><td>é uma matriz contendo as avaliações de cada partícula (indicando se a partícula está em uma boa posição ou não). </td></tr>
+    <tr><td class="paramname">Pfitness</td><td>é uma matriz contendo as melhores avaliações de cada partícula (indicando a melhor avaliação já obtida pela partícula). </td></tr>
+    <tr><td class="paramname">Gfitness</td><td>é uma matriz contendo a avaliação da melhor partícula em todo o processo de otimização. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a class="anchor" id="a728b1ffd7dbcd4fb55b37cfa0d16a37b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::<a class="el" href="class_p_s_o.html">PSO</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor padrão da biblioteca. </p>
+<p>Inicializa o <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> com os seguintes parâmetros iniciais para o objeto instanciado. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">varNum</td><td>= 1; </td></tr>
+    <tr><td class="paramname">PopSize</td><td>= 80; </td></tr>
+    <tr><td class="paramname">GenSize</td><td>= 2000; </td></tr>
+    <tr><td class="paramname">phi1</td><td>= 1; </td></tr>
+    <tr><td class="paramname">phi2</td><td>= 1; </td></tr>
+    <tr><td class="paramname">omega</td><td>= 1; </td></tr>
+    <tr><td class="paramname">MinMax</td><td>= false;</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+</div>
+</div>
+<a class="anchor" id="af335ab7d474e4d0d5578fd502f9549c4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::<a class="el" href="class_p_s_o.html">PSO</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>varNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>PopSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>GenSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobrecarga do construtor do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>. </p>
+<p>Inicializa o <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> com os seguintes parâmetros iniciais para o objeto instanciado. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this-&gt;varNum</td><td>= varNum; // 1º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;PopSize</td><td>= PopSize; //2º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;GenSize</td><td>= GenSize; //3º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">phi1</td><td>= 1; </td></tr>
+    <tr><td class="paramname">phi2</td><td>= 1; </td></tr>
+    <tr><td class="paramname">omega</td><td>= 1; </td></tr>
+    <tr><td class="paramname">MinMax</td><td>= false;</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+</div>
+</div>
+<a class="anchor" id="ad6b88250fa54c27233e70f438c404650"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::<a class="el" href="class_p_s_o.html">PSO</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>varNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>PopSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>GenSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>phi1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>phi2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobrecarga do construtor do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>. </p>
+<p>Inicializa o <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> com os seguintes parâmetros iniciais para o objeto instanciado. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this-&gt;varNum</td><td>= varNum; // 1º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;PopSize</td><td>= PopSize; //2º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;GenSize</td><td>= GenSize; //3º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;phi1</td><td>= phi1; //4º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;phi2</td><td>= phi2; //5º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">omega</td><td>= 1; </td></tr>
+    <tr><td class="paramname">MinMax</td><td>= false;</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+</div>
+</div>
+<a class="anchor" id="ae12083c1bdd6b993c1c6d9da97660601"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::<a class="el" href="class_p_s_o.html">PSO</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>varNum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>PopSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>GenSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>phi1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>phi2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>omega</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>MinMax</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobrecarga do construtor do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>. </p>
+<p>Inicializa o <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> com os seguintes parâmetros iniciais para o objeto instanciado. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">this-&gt;varNum</td><td>= varNum; // 1º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;PopSize</td><td>= PopSize; //2º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;GenSize</td><td>= GenSize; //3º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;phi1</td><td>= phi1; //4º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;phi2</td><td>= phi2; //5º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;omega</td><td>= omega; //6º parâmetro de entrada do construtor </td></tr>
+    <tr><td class="paramname">this-&gt;MinMax</td><td>= MinMax; //7º parâmetro de entrada do construtor</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+</div>
+</div>
+<a class="anchor" id="a58d9be2f7063ae9361f1c71ab90bc5bd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::~<a class="el" href="class_p_s_o.html">PSO</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Destrutor padrão do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>. </p>
+<p>Método que é executado no momento em que o <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> é deletado.</p>
+<p>OBS: O método não tem exempo associado.</p>
+<p>Ver também: </p><dl class="section see"><dt>Veja também</dt><dd>void <a class="el" href="class_p_s_o.html#a17efed117e404509e31c2d77ac533dcb" title="Função que inicializa a otimização do problema. ">Run()</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="a17efed117e404509e31c2d77ac533dcb"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::Run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que inicializa a otimização do problema. </p>
+<p>Neste método são executadas todas as partes necessárias para realizar GenSize iterações do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> (GenSize gerações);</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+</div>
+</div>
+<a class="anchor" id="a156a5cd6e0a3c1ab6a62b14bccf66908"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::Run </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nTimes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que inicializa a otimização do problema. </p>
+<p>Neste método são executadas todas as partes necessárias para realizar GenSize iterações do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> (GenSize gerações) nTime vezes; </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nTimes</td><td>Quantidade de vezes que o <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> é executado GenSize vezes</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+</div>
+</div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
-<li>SistemasdeControle/src/optimization libs/<a class="el" href="pso_8h_source.html">pso.h</a></li>
-<li>SistemasdeControle/src/optimization libs/pso.cpp</li>
+<li>SistemasdeControle/src/optimizationLibs/<a class="el" href="pso_8h_source.html">pso.h</a></li>
+<li>SistemasdeControle/src/optimizationLibs/pso.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 09:34:42 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

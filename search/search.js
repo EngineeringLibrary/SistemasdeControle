@@ -7,16 +7,18 @@
 
 var indexSectionsWithContent =
 {
-  0: "adegilmoprstvz~",
-  1: "elmoprs",
-  2: "adegilmoprstvz~"
+  0: "_acdefgilmnoprstvz~",
+  1: "_cegilmoprst",
+  2: "adefgilmnoprstvz~",
+  3: "f"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "functions"
+  2: "functions",
+  3: "typedefs"
 };
 
 function convertToId(search)

@@ -63,6 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
+      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -71,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,18 +91,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <p>Esta é a lista de todos os membros de <a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a>, incluindo os membros herdados.</p>
 <table class="directory">
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getTime</b>() (definido(a) em <a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a>)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>PSO</b>() (definido(a) em <a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a>)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>PSO</b>(int varNum, int PopSize, int GenSize) (definido(a) em <a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a>)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>PSO</b>(int varNum, int PopSize, int GenSize, double phi1, double phi2) (definido(a) em <a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a>)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>PSO</b>(int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax) (definido(a) em <a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a>)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Run</b>() (definido(a) em <a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a>)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Run</b>(int nTimes) (definido(a) em <a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a>)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_p_s_o.html#a728b1ffd7dbcd4fb55b37cfa0d16a37b">PSO</a>()</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_p_s_o.html#af335ab7d474e4d0d5578fd502f9549c4">PSO</a>(int varNum, int PopSize, int GenSize)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_p_s_o.html#ad6b88250fa54c27233e70f438c404650">PSO</a>(int varNum, int PopSize, int GenSize, double phi1, double phi2)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_p_s_o.html#ae12083c1bdd6b993c1c6d9da97660601">PSO</a>(int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_p_s_o.html#a17efed117e404509e31c2d77ac533dcb">Run</a>()</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_p_s_o.html#a156a5cd6e0a3c1ab6a62b14bccf66908">Run</a>(int nTimes)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>setData</b>(Matrix&lt; UsedType &gt; dataIn, Matrix&lt; UsedType &gt; dataOut) (definido(a) em <a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a>)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~PSO</b>() (definido(a) em <a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a>)</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_p_s_o.html#a58d9be2f7063ae9361f1c71ab90bc5bd">~PSO</a>()</td><td class="entry"><a class="el" href="class_p_s_o.html">PSO&lt; UsedType &gt;</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 09:34:42 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
