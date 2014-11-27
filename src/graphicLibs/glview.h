@@ -46,16 +46,6 @@ public:
 
         Resultado:
 
-         1.000  0.000  3.000\n
-         4.000  5.000  6.000\n
-         1.000  8.000  9.000\n
-
-         1.000  0.000  0.000\n
-         0.000  1.000  0.000\n
-         0.000  0.000  1.000\n
-
-        Resultado:
-
         \image <PNG> <Exemplo2> ‘‘Exemplo da apresentação do gráfico’’
 
         Ver também: \sa startFramework(ins argv, char *argc[])
@@ -100,16 +90,6 @@ public:
 
         Resultado:
 
-         1.000  0.000  3.000\n
-         4.000  5.000  6.000\n
-         1.000  8.000  9.000\n
-
-         1.000  0.000  0.000\n
-         0.000  1.000  0.000\n
-         0.000  0.000  1.000\n
-
-        Resultado:
-
         \image <PNG> <Exemplo2> ‘‘Exemplo da apresentação do gráfico’’
 
         Ver também: \sa setInstance(GlView *Img)
@@ -122,7 +102,7 @@ public:
     virtual void MouseClickProcess(int button, int state, int x, int y)=0;
     //!  Método virtual que permite que uma classe filha implemente um Método para tratar a posição do mouse enquanto ele está em movimento e com o botão apertado
     virtual void MotionFunc(int x,int y)=0;
-     //!  Método virtual que permite que uma classe filha implemente um Método para tratar a posição do mouse enquanto ele está em movimento sem que o botão esteja apertado
+    //!  Método virtual que permite que uma classe filha implemente um Método para tratar a posição do mouse enquanto ele está em movimento sem que o botão esteja apertado
     virtual void PassiveMotionFunc(int x, int y)=0;
 };
 

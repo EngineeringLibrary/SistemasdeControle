@@ -34,7 +34,7 @@ public:
             #include <src/graphicLibs/grafics.h>
             int main(int argc, char *argv)
             {
-                simFunction S(In,Out);
+                simFunction S;
                 return 0;
             }
 \endcode
