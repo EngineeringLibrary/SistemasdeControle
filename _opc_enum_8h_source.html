@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="title">OpcEnum.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<a href="_opc_enum_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">/* this ALWAYS GENERATED file contains the definitions for the interfaces */</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
@@ -111,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/* verify that the &lt;rpcndr.h&gt; version is high enough to compile this file*/</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef __REQUIRED_RPCNDR_H_VERSION__</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define __REQUIRED_RPCNDR_H_VERSION__ 475</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="_opc_enum_8h.html#ad76a32846c87da46b8d59d882ad6b4c0">   24</a></span>&#160;<span class="preprocessor">#define __REQUIRED_RPCNDR_H_VERSION__ 475</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;rpc.h&quot;</span></div>
@@ -132,43 +133,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">/* Forward Declarations */</span> </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#ifndef __OpcServerList_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#define __OpcServerList_FWD_DEFINED__</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="_opc_enum_8h.html#ade5bfde15ee661b4a13124e7f246d4be">   45</a></span>&#160;<span class="preprocessor">#define __OpcServerList_FWD_DEFINED__</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">typedef</span> <span class="keyword">class </span>OpcServerList OpcServerList;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">typedef</span> <span class="keyword">class </span><a class="code" href="_opc_enum_8h.html#a899e52070464a4e421613a805cb5e166">OpcServerList</a> <a class="code" href="_opc_enum_8h.html#a899e52070464a4e421613a805cb5e166">OpcServerList</a>;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>OpcServerList OpcServerList;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="_opc_enum_8h.html#a899e52070464a4e421613a805cb5e166">   50</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="_opc_enum_8h.html#a899e52070464a4e421613a805cb5e166">OpcServerList</a> <a class="code" href="_opc_enum_8h.html#a899e52070464a4e421613a805cb5e166">OpcServerList</a>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __cplusplus */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* __OpcServerList_FWD_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/* header files for imported files */</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &quot;opccomn.h&quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="opccomn_8h.html">opccomn.h</a>&quot;</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span>{</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif </span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> * __RPC_USER MIDL_user_allocate(<span class="keywordtype">size_t</span>);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> __RPC_USER MIDL_user_free( <span class="keywordtype">void</span> * ); </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> * __RPC_USER <a class="code" href="_opc_enum_8h.html#a18ebe1e23390e09b2fe2e82723924153">MIDL_user_allocate</a>(<span class="keywordtype">size_t</span>);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> __RPC_USER <a class="code" href="_opc_enum_8h.html#a311841bad32933da904f30b7f16cb791">MIDL_user_free</a>( <span class="keywordtype">void</span> * ); </div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#ifndef __OpcEnumLib_LIBRARY_DEFINED__</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#define __OpcEnumLib_LIBRARY_DEFINED__</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="_opc_enum_8h.html#aca34bb8088f4e1aadbafe332fdd083f2">   68</a></span>&#160;<span class="preprocessor">#define __OpcEnumLib_LIBRARY_DEFINED__</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">/* library OpcEnumLib */</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">/* [helpstring][version][uuid] */</span> </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> LIBID_OpcEnumLib;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="_opc_enum_8h.html#a49507030a68c319d7908b627c8c0e26f">   74</a></span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> <a class="code" href="_opc_enum_8h.html#a49507030a68c319d7908b627c8c0e26f">LIBID_OpcEnumLib</a>;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">CLSID</a> CLSID_OpcServerList;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="_opc_enum_8h.html#a124e8d4ea47fecc4d1f0e55e6f8fd2b8">   76</a></span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">CLSID</a> <a class="code" href="_opc_enum_8h.html#a124e8d4ea47fecc4d1f0e55e6f8fd2b8">CLSID_OpcServerList</a>;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">class </span>DECLSPEC_UUID(&quot;13486D51-4821-11D2-A494-3CB306C10000&quot;)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;OpcServerList;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<a class="code" href="_opc_enum_8h.html#a899e52070464a4e421613a805cb5e166">OpcServerList</a>;</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OpcEnumLib_LIBRARY_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
@@ -183,11 +184,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="ttc" id="struct___i_i_d_html"><div class="ttname"><a href="struct___i_i_d.html">_IID</a></div><div class="ttdef"><b>Definition:</b> opccomn_i.c:53</div></div>
+<div class="ttc" id="opccomn_8h_html"><div class="ttname"><a href="opccomn_8h.html">opccomn.h</a></div></div>
+<div class="ttc" id="_opc_enum_8h_html_a311841bad32933da904f30b7f16cb791"><div class="ttname"><a href="_opc_enum_8h.html#a311841bad32933da904f30b7f16cb791">MIDL_user_free</a></div><div class="ttdeci">void __RPC_USER MIDL_user_free(void *)</div></div>
+<div class="ttc" id="struct___i_i_d_html"><div class="ttname"><a href="struct___i_i_d.html">_IID</a></div><div class="ttdef"><b>Definition:</b> <a href="opccomn__i_8c_source.html#l00053">opccomn_i.c:53</a></div></div>
+<div class="ttc" id="_opc_enum_8h_html_a124e8d4ea47fecc4d1f0e55e6f8fd2b8"><div class="ttname"><a href="_opc_enum_8h.html#a124e8d4ea47fecc4d1f0e55e6f8fd2b8">CLSID_OpcServerList</a></div><div class="ttdeci">EXTERN_C const CLSID CLSID_OpcServerList</div><div class="ttdef"><b>Definition:</b> <a href="_opc_enum_8h_source.html#l00076">OpcEnum.h:76</a></div></div>
+<div class="ttc" id="_opc_enum_8h_html_a49507030a68c319d7908b627c8c0e26f"><div class="ttname"><a href="_opc_enum_8h.html#a49507030a68c319d7908b627c8c0e26f">LIBID_OpcEnumLib</a></div><div class="ttdeci">EXTERN_C const IID LIBID_OpcEnumLib</div><div class="ttdef"><b>Definition:</b> <a href="_opc_enum_8h_source.html#l00074">OpcEnum.h:74</a></div></div>
+<div class="ttc" id="_opc_enum_8h_html_a899e52070464a4e421613a805cb5e166"><div class="ttname"><a href="_opc_enum_8h.html#a899e52070464a4e421613a805cb5e166">OpcServerList</a></div><div class="ttdeci">struct OpcServerList OpcServerList</div><div class="ttdef"><b>Definition:</b> <a href="_opc_enum_8h_source.html#l00050">OpcEnum.h:50</a></div></div>
+<div class="ttc" id="_opc_enum_8h_html_a18ebe1e23390e09b2fe2e82723924153"><div class="ttname"><a href="_opc_enum_8h.html#a18ebe1e23390e09b2fe2e82723924153">MIDL_user_allocate</a></div><div class="ttdeci">void *__RPC_USER MIDL_user_allocate(size_t)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:45 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

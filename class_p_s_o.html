@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,6 +85,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pri-methods">Métodos Privados</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
 <a href="class_p_s_o-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
 <div class="title">Referência da Template de Classe PSO&lt; UsedType &gt;</div>  </div>
@@ -95,19 +97,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
  <a href="class_p_s_o.html#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="pso_8h_source.html">pso.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para PSO&lt; UsedType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_s_o__coll__graph.png" border="0" usemap="#_p_s_o_3_01_used_type_01_4_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
 <tr class="memitem:a728b1ffd7dbcd4fb55b37cfa0d16a37b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a728b1ffd7dbcd4fb55b37cfa0d16a37b">PSO</a> ()</td></tr>
 <tr class="memdesc:a728b1ffd7dbcd4fb55b37cfa0d16a37b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão da biblioteca.  <a href="#a728b1ffd7dbcd4fb55b37cfa0d16a37b">Mais...</a><br /></td></tr>
 <tr class="separator:a728b1ffd7dbcd4fb55b37cfa0d16a37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af335ab7d474e4d0d5578fd502f9549c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#af335ab7d474e4d0d5578fd502f9549c4">PSO</a> (int varNum, int PopSize, int GenSize)</td></tr>
+<tr class="memitem:af335ab7d474e4d0d5578fd502f9549c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#af335ab7d474e4d0d5578fd502f9549c4">PSO</a> (int <a class="el" href="class_p_s_o.html#ac9b5de00d09d0d107230b26688fee711">varNum</a>, int <a class="el" href="class_p_s_o.html#a0dec7ad1093409eb1031e25b91e6b0b2">PopSize</a>, int <a class="el" href="class_p_s_o.html#a4a5c31a30c91c59959fadfb7027d860a">GenSize</a>)</td></tr>
 <tr class="memdesc:af335ab7d474e4d0d5578fd502f9549c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do construtor do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>.  <a href="#af335ab7d474e4d0d5578fd502f9549c4">Mais...</a><br /></td></tr>
 <tr class="separator:af335ab7d474e4d0d5578fd502f9549c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6b88250fa54c27233e70f438c404650"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ad6b88250fa54c27233e70f438c404650">PSO</a> (int varNum, int PopSize, int GenSize, double phi1, double phi2)</td></tr>
+<tr class="memitem:ad6b88250fa54c27233e70f438c404650"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ad6b88250fa54c27233e70f438c404650">PSO</a> (int <a class="el" href="class_p_s_o.html#ac9b5de00d09d0d107230b26688fee711">varNum</a>, int <a class="el" href="class_p_s_o.html#a0dec7ad1093409eb1031e25b91e6b0b2">PopSize</a>, int <a class="el" href="class_p_s_o.html#a4a5c31a30c91c59959fadfb7027d860a">GenSize</a>, double <a class="el" href="class_p_s_o.html#a73b0c85735c5653cb09da5be14dfa622">phi1</a>, double <a class="el" href="class_p_s_o.html#a36eda946c9b39782f63947848f993ab1">phi2</a>)</td></tr>
 <tr class="memdesc:ad6b88250fa54c27233e70f438c404650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do construtor do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>.  <a href="#ad6b88250fa54c27233e70f438c404650">Mais...</a><br /></td></tr>
 <tr class="separator:ad6b88250fa54c27233e70f438c404650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae12083c1bdd6b993c1c6d9da97660601"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ae12083c1bdd6b993c1c6d9da97660601">PSO</a> (int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax)</td></tr>
+<tr class="memitem:ae12083c1bdd6b993c1c6d9da97660601"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ae12083c1bdd6b993c1c6d9da97660601">PSO</a> (int <a class="el" href="class_p_s_o.html#ac9b5de00d09d0d107230b26688fee711">varNum</a>, int <a class="el" href="class_p_s_o.html#a0dec7ad1093409eb1031e25b91e6b0b2">PopSize</a>, int <a class="el" href="class_p_s_o.html#a4a5c31a30c91c59959fadfb7027d860a">GenSize</a>, double <a class="el" href="class_p_s_o.html#a73b0c85735c5653cb09da5be14dfa622">phi1</a>, double <a class="el" href="class_p_s_o.html#a36eda946c9b39782f63947848f993ab1">phi2</a>, double <a class="el" href="class_p_s_o.html#a2a3c6e567fe772dfd19395a0e6c2eed1">omega</a>, bool <a class="el" href="class_p_s_o.html#a77868e256325cb0871a0d632de735d14">MinMax</a>)</td></tr>
 <tr class="memdesc:ae12083c1bdd6b993c1c6d9da97660601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do construtor do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>.  <a href="#ae12083c1bdd6b993c1c6d9da97660601">Mais...</a><br /></td></tr>
 <tr class="separator:ae12083c1bdd6b993c1c6d9da97660601"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58d9be2f7063ae9361f1c71ab90bc5bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a58d9be2f7063ae9361f1c71ab90bc5bd">~PSO</a> ()</td></tr>
@@ -119,12 +126,82 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a156a5cd6e0a3c1ab6a62b14bccf66908"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a156a5cd6e0a3c1ab6a62b14bccf66908">Run</a> (int nTimes)</td></tr>
 <tr class="memdesc:a156a5cd6e0a3c1ab6a62b14bccf66908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que inicializa a otimização do problema.  <a href="#a156a5cd6e0a3c1ab6a62b14bccf66908">Mais...</a><br /></td></tr>
 <tr class="separator:a156a5cd6e0a3c1ab6a62b14bccf66908"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2a4ece07ddce8f47d218e65dc30d5b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac2a4ece07ddce8f47d218e65dc30d5b1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setData</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; dataIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; dataOut)</td></tr>
+<tr class="memitem:ac2a4ece07ddce8f47d218e65dc30d5b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ac2a4ece07ddce8f47d218e65dc30d5b1">setData</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; dataIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; dataOut)</td></tr>
 <tr class="separator:ac2a4ece07ddce8f47d218e65dc30d5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8225b21696a23c7a0225282da64d9e85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8225b21696a23c7a0225282da64d9e85"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getTime</b> ()</td></tr>
+<tr class="memitem:a8225b21696a23c7a0225282da64d9e85"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a8225b21696a23c7a0225282da64d9e85">getTime</a> ()</td></tr>
 <tr class="separator:a8225b21696a23c7a0225282da64d9e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos Privados</h2></td></tr>
+<tr class="memitem:a9ade88c7f4db3671174a21aebfe92db8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a9ade88c7f4db3671174a21aebfe92db8">Evaluation</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; Matrix2Evaluate)</td></tr>
+<tr class="memdesc:a9ade88c7f4db3671174a21aebfe92db8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recebe uma matriz e devolve uma matriz simbolizando a avaliação das partículas inseridas.  <a href="#a9ade88c7f4db3671174a21aebfe92db8">Mais...</a><br /></td></tr>
+<tr class="separator:a9ade88c7f4db3671174a21aebfe92db8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0699ed34ffd0ce04a341530c9be80ed6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a0699ed34ffd0ce04a341530c9be80ed6">ParticleUpdate</a> ()</td></tr>
+<tr class="memdesc:a0699ed34ffd0ce04a341530c9be80ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza as partículas X.  <a href="#a0699ed34ffd0ce04a341530c9be80ed6">Mais...</a><br /></td></tr>
+<tr class="separator:a0699ed34ffd0ce04a341530c9be80ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a42f6e83481ba852bb4a250c8d5abe5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a3a42f6e83481ba852bb4a250c8d5abe5">ParticleEvaluation</a> ()</td></tr>
+<tr class="memdesc:a3a42f6e83481ba852bb4a250c8d5abe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Avalia as partículas X.  <a href="#a3a42f6e83481ba852bb4a250c8d5abe5">Mais...</a><br /></td></tr>
+<tr class="separator:a3a42f6e83481ba852bb4a250c8d5abe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9410ef6e8276ee805c3ce785ae2843b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ad9410ef6e8276ee805c3ce785ae2843b">VelocityUpdate</a> ()</td></tr>
+<tr class="memdesc:ad9410ef6e8276ee805c3ce785ae2843b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atualiza as velocidades (V) das partículas (X).  <a href="#ad9410ef6e8276ee805c3ce785ae2843b">Mais...</a><br /></td></tr>
+<tr class="separator:ad9410ef6e8276ee805c3ce785ae2843b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af15a02c0704d142cef639949c54f1054"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#af15a02c0704d142cef639949c54f1054">initAlgorithm</a> ()</td></tr>
+<tr class="memdesc:af15a02c0704d142cef639949c54f1054"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa os parâmetros do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>.  <a href="#af15a02c0704d142cef639949c54f1054">Mais...</a><br /></td></tr>
+<tr class="separator:af15a02c0704d142cef639949c54f1054"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aead5ae94d054807efe21bf04d4f2e8b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#aead5ae94d054807efe21bf04d4f2e8b2">FitnessUpdate</a> ()</td></tr>
+<tr class="memdesc:aead5ae94d054807efe21bf04d4f2e8b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a verificação da existencia de melhores partículas locais e globais.  <a href="#aead5ae94d054807efe21bf04d4f2e8b2">Mais...</a><br /></td></tr>
+<tr class="separator:aead5ae94d054807efe21bf04d4f2e8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b06deb5228b41cc0ce83c88d03d6032"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a6b06deb5228b41cc0ce83c88d03d6032">FitnessUpdateMin</a> ()</td></tr>
+<tr class="memdesc:a6b06deb5228b41cc0ce83c88d03d6032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a verificação da existencia de melhores partículas locais e globais para uma função que deve ser minimizada.  <a href="#a6b06deb5228b41cc0ce83c88d03d6032">Mais...</a><br /></td></tr>
+<tr class="separator:a6b06deb5228b41cc0ce83c88d03d6032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6b5e5e9e99caf3b50129c8cfc878dcf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ae6b5e5e9e99caf3b50129c8cfc878dcf">FitnessUpdateMax</a> ()</td></tr>
+<tr class="memdesc:ae6b5e5e9e99caf3b50129c8cfc878dcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a verificação da existencia de melhores partículas locais e globais para uma função que deve ser maximizada.  <a href="#ae6b5e5e9e99caf3b50129c8cfc878dcf">Mais...</a><br /></td></tr>
+<tr class="separator:ae6b5e5e9e99caf3b50129c8cfc878dcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:a77868e256325cb0871a0d632de735d14"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a77868e256325cb0871a0d632de735d14">MinMax</a></td></tr>
+<tr class="separator:a77868e256325cb0871a0d632de735d14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9b5de00d09d0d107230b26688fee711"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ac9b5de00d09d0d107230b26688fee711">varNum</a></td></tr>
+<tr class="separator:ac9b5de00d09d0d107230b26688fee711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dec7ad1093409eb1031e25b91e6b0b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a0dec7ad1093409eb1031e25b91e6b0b2">PopSize</a></td></tr>
+<tr class="separator:a0dec7ad1093409eb1031e25b91e6b0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a5c31a30c91c59959fadfb7027d860a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a4a5c31a30c91c59959fadfb7027d860a">GenSize</a></td></tr>
+<tr class="separator:a4a5c31a30c91c59959fadfb7027d860a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73b0c85735c5653cb09da5be14dfa622"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a73b0c85735c5653cb09da5be14dfa622">phi1</a></td></tr>
+<tr class="separator:a73b0c85735c5653cb09da5be14dfa622"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36eda946c9b39782f63947848f993ab1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a36eda946c9b39782f63947848f993ab1">phi2</a></td></tr>
+<tr class="separator:a36eda946c9b39782f63947848f993ab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3c6e567fe772dfd19395a0e6c2eed1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a2a3c6e567fe772dfd19395a0e6c2eed1">omega</a></td></tr>
+<tr class="separator:a2a3c6e567fe772dfd19395a0e6c2eed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb18d8c652116e8064ed9680a44590eb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#abb18d8c652116e8064ed9680a44590eb">Stime</a></td></tr>
+<tr class="separator:abb18d8c652116e8064ed9680a44590eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b265016f98c422339915d7a988a4570"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a3b265016f98c422339915d7a988a4570">V</a></td></tr>
+<tr class="separator:a3b265016f98c422339915d7a988a4570"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23b2de42bc30fad192d8b73a7fab3ebe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a23b2de42bc30fad192d8b73a7fab3ebe">X</a></td></tr>
+<tr class="separator:a23b2de42bc30fad192d8b73a7fab3ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae28ee155ca3329efc68832e7f2048174"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ae28ee155ca3329efc68832e7f2048174">P</a></td></tr>
+<tr class="separator:ae28ee155ca3329efc68832e7f2048174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad390fa63ddb330542f599c0853046f13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ad390fa63ddb330542f599c0853046f13">G</a></td></tr>
+<tr class="separator:ad390fa63ddb330542f599c0853046f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e151934282a1cc1448a49d1be25a70c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a6e151934282a1cc1448a49d1be25a70c">GGen</a></td></tr>
+<tr class="separator:a6e151934282a1cc1448a49d1be25a70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e3e3892345b2f4fe0b6c693a0059004"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a1e3e3892345b2f4fe0b6c693a0059004">GnTimes</a></td></tr>
+<tr class="separator:a1e3e3892345b2f4fe0b6c693a0059004"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8ee86c091e7653301aa560f697da801"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#ae8ee86c091e7653301aa560f697da801">Xfitness</a></td></tr>
+<tr class="separator:ae8ee86c091e7653301aa560f697da801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78b9c0f0c9969173934d4aca0501ec67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a78b9c0f0c9969173934d4aca0501ec67">Pfitness</a></td></tr>
+<tr class="separator:a78b9c0f0c9969173934d4aca0501ec67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95f16dbcacd7b3a35e3fe73c0c7bfb85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a95f16dbcacd7b3a35e3fe73c0c7bfb85">Gfitness</a></td></tr>
+<tr class="separator:a95f16dbcacd7b3a35e3fe73c0c7bfb85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3928576407a53b26970c46f8d1784518"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a3928576407a53b26970c46f8d1784518">GfitnessGen</a></td></tr>
+<tr class="separator:a3928576407a53b26970c46f8d1784518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa91a6cc675cfc890158e49343855e79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#afa91a6cc675cfc890158e49343855e79">GfitnessnTime</a></td></tr>
+<tr class="separator:afa91a6cc675cfc890158e49343855e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac329aba1496805488a320724bfc3d00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#aac329aba1496805488a320724bfc3d00">RunTime</a></td></tr>
+<tr class="separator:aac329aba1496805488a320724bfc3d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a323eb998725d861c6ca2113af8deb108"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_lsim.html">Lsim</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_s_o.html#a323eb998725d861c6ca2113af8deb108">Model</a></td></tr>
+<tr class="separator:a323eb998725d861c6ca2113af8deb108"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
 <div class="textblock"><h3>template&lt;class UsedType&gt;<br />
@@ -150,6 +227,8 @@ class PSO&lt; UsedType &gt;</h3>
   </table>
   </dd>
 </dl>
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00027">27</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
 </div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="a728b1ffd7dbcd4fb55b37cfa0d16a37b"></a>
 <div class="memitem">
@@ -188,6 +267,8 @@ template&lt;class UsedType &gt; </div>
 </div><!-- fragment --> <pre class="fragment">    Resultado:
 
     Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00006">6</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af335ab7d474e4d0d5578fd502f9549c4"></a>
@@ -244,6 +325,8 @@ template&lt;class UsedType &gt; </div>
 </div><!-- fragment --> <pre class="fragment">    Resultado:
 
     Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00018">18</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad6b88250fa54c27233e70f438c404650"></a>
@@ -312,6 +395,8 @@ template&lt;class UsedType &gt; </div>
 </div><!-- fragment --> <pre class="fragment">    Resultado:
 
     Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00032">32</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae12083c1bdd6b993c1c6d9da97660601"></a>
@@ -392,6 +477,8 @@ template&lt;class UsedType &gt; </div>
 </div><!-- fragment --> <pre class="fragment">    Resultado:
 
     Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00044">44</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a58d9be2f7063ae9361f1c71ab90bc5bd"></a>
@@ -414,9 +501,317 @@ template&lt;class UsedType &gt; </div>
 <p>OBS: O método não tem exempo associado.</p>
 <p>Ver também: </p><dl class="section see"><dt>Veja também</dt><dd>void <a class="el" href="class_p_s_o.html#a17efed117e404509e31c2d77ac533dcb" title="Função que inicializa a otimização do problema. ">Run()</a> </dd></dl>
 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00056">56</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="a9ade88c7f4db3671174a21aebfe92db8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::Evaluation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>Matrix2Evaluate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Recebe uma matriz e devolve uma matriz simbolizando a avaliação das partículas inseridas. </p>
+<p>A responsabilidade desta função é permitir que o <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> disponibilize um número de referência que possa ser minimizado ou minimizado. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Matrix2Evaluate</td><td>É uma matriz de coeficientes que serão inseridos na função objetivo para obter o resultado da avaliação.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00079">79</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_s_o_a9ade88c7f4db3671174a21aebfe92db8_cgraph.png" border="0" usemap="#class_p_s_o_a9ade88c7f4db3671174a21aebfe92db8_cgraph" alt=""/></div>
+<map name="class_p_s_o_a9ade88c7f4db3671174a21aebfe92db8_cgraph" id="class_p_s_o_a9ade88c7f4db3671174a21aebfe92db8_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a1a544492885c8925f6da46e44a896fe3" title="Retorna o número de linhas da matriz. " alt="" coords="327,56,443,83"/><area shape="rect" id="node3" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8" title="Método inserir valores em uma determinada posição da matriz. " alt="" coords="181,5,268,32"/><area shape="rect" id="node5" href="matrix_8cpp.html#ac9a25cb248c4f7f9dc85a63e197446cb" title="norm" alt="" coords="199,107,250,133"/><area shape="rect" id="node7" href="class_matrix.html#a95c22817d23b8b30b25115478e15694a" title="Obter uma linha inteira de uma matriz. " alt="" coords="171,157,279,184"/><area shape="rect" id="node4" href="class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a" title="Método de inicialização da matriz. " alt="" coords="343,5,426,32"/><area shape="rect" id="node6" href="class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="329,107,440,133"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aead5ae94d054807efe21bf04d4f2e8b2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::FitnessUpdate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Realiza a verificação da existencia de melhores partículas locais e globais. </p>
+<p>Realiza a verificação da existencia de melhores partículas locais e globais e atualiza as variáveis preparando o algoritmo para uma nova iteração (geração).</p>
+<p>Obs: Os parâmetros de atualização deste método são internos, ou seja, pertencem à classe.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00122">122</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae6b5e5e9e99caf3b50129c8cfc878dcf"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::FitnessUpdateMax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Realiza a verificação da existencia de melhores partículas locais e globais para uma função que deve ser maximizada. </p>
+<p>Realiza a verificação da existencia de melhores partículas locais e globais e atualiza as variáveis preparando o algoritmo para uma nova iteração (geração).</p>
+<p>Obs: Os parâmetros de atualização deste método são internos, ou seja, pertencem à classe.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00152">152</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6b06deb5228b41cc0ce83c88d03d6032"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::FitnessUpdateMin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Realiza a verificação da existencia de melhores partículas locais e globais para uma função que deve ser minimizada. </p>
+<p>Realiza a verificação da existencia de melhores partículas locais e globais e atualiza as variáveis preparando o algoritmo para uma nova iteração (geração).</p>
+<p>Obs: Os parâmetros de atualização deste método são internos, ou seja, pertencem à classe.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00131">131</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8225b21696a23c7a0225282da64d9e85"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::getTime </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00224">224</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af15a02c0704d142cef639949c54f1054"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::initAlgorithm </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inicializa os parâmetros do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>. </p>
+<p>Inicializa os parâmetros do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a> para que ele possa começar a realizar as iterações.</p>
+<p>Obs: Os parâmetros de atualização deste método são internos, ou seja, pertencem à classe.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00062">62</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3a42f6e83481ba852bb4a250c8d5abe5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::ParticleEvaluation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Avalia as partículas X. </p>
+<p>A responsabilidade desta função é chamar o método <a class="el" href="class_p_s_o.html#a9ade88c7f4db3671174a21aebfe92db8" title="Recebe uma matriz e devolve uma matriz simbolizando a avaliação das partículas inseridas. ">Evaluation()</a> avaliando, assim, as partículas X.</p>
+<p>Obs: Os parâmetros de atualização deste método são internos, ou seja, pertencem à classe.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00116">116</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0699ed34ffd0ce04a341530c9be80ed6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::ParticleUpdate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza as partículas X. </p>
+<p>A responsabilidade desta função é calcular X = X + V, função de atualização das partículas do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>.</p>
+<p>Obs: Os parâmetros de atualização deste método são internos, ou seja, pertencem à classe.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00094">94</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a17efed117e404509e31c2d77ac533dcb"></a>
 <div class="memitem">
 <div class="memproto">
@@ -443,6 +838,8 @@ template&lt;class UsedType &gt; </div>
 </div><!-- fragment --> <pre class="fragment">    Resultado:
 
     Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00173">173</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a156a5cd6e0a3c1ab6a62b14bccf66908"></a>
@@ -477,16 +874,592 @@ template&lt;class UsedType &gt; </div>
 </div><!-- fragment --> <pre class="fragment">    Resultado:
 
     Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00200">200</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac2a4ece07ddce8f47d218e65dc30d5b1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::setData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>dataIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>dataOut</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00218">218</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad9410ef6e8276ee805c3ce785ae2843b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::VelocityUpdate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Atualiza as velocidades (V) das partículas (X). </p>
+<p>A responsabilidade desta função é calcular V = wV + phi1*r1(P-X) + phi2*r2(G-X), função de atualização das velocidades das partículas do <a class="el" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. ">PSO</a>.</p>
+<p>Obs: Os parâmetros de atualização deste método são internos, ou seja, pertencem à classe.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/primitiveLibs/pso.h&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">}</div>
+</div><!-- fragment --> <pre class="fragment">    Resultado:
+
+    Ver também: \sa void Run()</pre> 
+<p>Definição na linha <a class="el" href="pso_8cpp_source.html#l00100">100</a> do arquivo <a class="el" href="pso_8cpp_source.html">pso.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="ad390fa63ddb330542f599c0853046f13"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::G</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4a5c31a30c91c59959fadfb7027d860a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::GenSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00031">31</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a95f16dbcacd7b3a35e3fe73c0c7bfb85"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::Gfitness</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3928576407a53b26970c46f8d1784518"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::GfitnessGen</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afa91a6cc675cfc890158e49343855e79"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::GfitnessnTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e151934282a1cc1448a49d1be25a70c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::GGen</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1e3e3892345b2f4fe0b6c693a0059004"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::GnTimes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a77868e256325cb0871a0d632de735d14"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::MinMax</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00030">30</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a323eb998725d861c6ca2113af8deb108"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_lsim.html">Lsim</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::Model</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00034">34</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2a3c6e567fe772dfd19395a0e6c2eed1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::omega</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00032">32</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae28ee155ca3329efc68832e7f2048174"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::P</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a78b9c0f0c9969173934d4aca0501ec67"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::Pfitness</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a73b0c85735c5653cb09da5be14dfa622"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::phi1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00032">32</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a36eda946c9b39782f63947848f993ab1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::phi2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00032">32</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0dec7ad1093409eb1031e25b91e6b0b2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::PopSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00031">31</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aac329aba1496805488a320724bfc3d00"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::RunTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abb18d8c652116e8064ed9680a44590eb"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::Stime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00032">32</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b265016f98c422339915d7a988a4570"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::V</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac9b5de00d09d0d107230b26688fee711"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::varNum</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00031">31</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a23b2de42bc30fad192d8b73a7fab3ebe"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::X</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae8ee86c091e7653301aa560f697da801"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_p_s_o.html">PSO</a>&lt; UsedType &gt;::Xfitness</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pso_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pso_8h_source.html">pso.h</a>.</p>
+
 </div>
 </div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>SistemasdeControle/src/optimizationLibs/<a class="el" href="pso_8h_source.html">pso.h</a></li>
-<li>SistemasdeControle/src/optimizationLibs/pso.cpp</li>
+<li>SistemasdeControle/src/optimizationLibs/<a class="el" href="pso_8cpp_source.html">pso.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:48 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

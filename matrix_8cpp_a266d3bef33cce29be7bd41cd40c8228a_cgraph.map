@@ -1,0 +1,6 @@
+<map id="log10" name="log10">
+<area shape="rect" id="node2" href="$class_matrix.html#a1a544492885c8925f6da46e44a896fe3" title="Retorna o número de linhas da matriz. " alt="" coords="107,5,223,32"/>
+<area shape="rect" id="node3" href="$class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="109,56,220,83"/>
+<area shape="rect" id="node4" href="$class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8" title="Método inserir valores em uma determinada posição da matriz. " alt="" coords="121,107,208,133"/>
+<area shape="rect" id="node5" href="$class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a" title="Método de inicialização da matriz. " alt="" coords="271,107,353,133"/>
+</map>

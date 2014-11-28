@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -86,6 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
   <div class="summary">
 <a href="#pub-types">Tipos Públicos</a> &#124;
 <a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
 <a href="classsim_function-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
 <div class="title">Referência da Classe simFunction</div>  </div>
@@ -96,12 +97,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
  <a href="classsim_function.html#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="simfunction_8h_source.html">simfunction.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para simFunction:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function__coll__graph.png" border="0" usemap="#sim_function_coll__map" alt="Collaboration graph"/></div>
+<map name="sim_function_coll__map" id="sim_function_coll__map">
+<area shape="rect" id="node2" href="class_matrix.html" title="{Matrix\&lt; double \&gt;\n|&#45; rows\l&#45; cols\l&#45; Mat\l|+ Matrix()\l+ Matrix()\l+ Matrix()\l+ Matrix()\l+ ~Matrix()\l+ init()\l+ init()\l+ add()\l+ eye()\l+ ones()\land 40 more...\l&#45; sqr()\l&#45; ind()\l}" alt="" coords="31,5,151,288"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Tipos Públicos</h2></td></tr>
-<tr class="memitem:a56d434f6d0ebeaab998bba32d0ed2515"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a56d434f6d0ebeaab998bba32d0ed2515"></a>
-typedef double(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a56d434f6d0ebeaab998bba32d0ed2515">FunctionCall</a> )(double)</td></tr>
-<tr class="memdesc:a56d434f6d0ebeaab998bba32d0ed2515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa o ponteiro da função retornando-o para ser utilizado por outra função. <br /></td></tr>
+<tr class="memitem:a56d434f6d0ebeaab998bba32d0ed2515"><td class="memItemLeft" align="right" valign="top">typedef double(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a56d434f6d0ebeaab998bba32d0ed2515">FunctionCall</a> )(double)</td></tr>
+<tr class="memdesc:a56d434f6d0ebeaab998bba32d0ed2515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa o ponteiro da função retornando-o para ser utilizado por outra função.  <a href="#a56d434f6d0ebeaab998bba32d0ed2515">Mais...</a><br /></td></tr>
 <tr class="separator:a56d434f6d0ebeaab998bba32d0ed2515"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -112,64 +119,67 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:ad812700f5e922985ebba9af6a5e1dff0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#ad812700f5e922985ebba9af6a5e1dff0">simFunction</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt; in, <a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt; out)</td></tr>
 <tr class="memdesc:ad812700f5e922985ebba9af6a5e1dff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do construtor padrão da biblioteca de simulação.  <a href="#ad812700f5e922985ebba9af6a5e1dff0">Mais...</a><br /></td></tr>
 <tr class="separator:ad812700f5e922985ebba9af6a5e1dff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a3d4298e8cc24f34383fbe6a1f2d933"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a4a3d4298e8cc24f34383fbe6a1f2d933">simFunction</a> (double(*FunctionToCall)(double), double lMin, double lMax, double step)</td></tr>
+<tr class="memitem:a4a3d4298e8cc24f34383fbe6a1f2d933"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a4a3d4298e8cc24f34383fbe6a1f2d933">simFunction</a> (double(*<a class="el" href="classsim_function.html#a28878ad5a60c554cbde9bc6fff54eaac">FunctionToCall</a>)(double), double <a class="el" href="classsim_function.html#aa3638b8dd50163a205ea9d5fc45b5c27">lMin</a>, double <a class="el" href="classsim_function.html#a65370f8d4bb2a706791d8c099455818e">lMax</a>, double <a class="el" href="classsim_function.html#a1d938beab011419820e89493f7b431c9">step</a>)</td></tr>
 <tr class="memdesc:a4a3d4298e8cc24f34383fbe6a1f2d933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do construtor padrão da biblioteca de simulação.  <a href="#a4a3d4298e8cc24f34383fbe6a1f2d933">Mais...</a><br /></td></tr>
 <tr class="separator:a4a3d4298e8cc24f34383fbe6a1f2d933"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89198672492b73f6c5511b976103f51f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a89198672492b73f6c5511b976103f51f">FunctionCalculation</a> (double input)</td></tr>
+<tr class="memitem:a89198672492b73f6c5511b976103f51f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a89198672492b73f6c5511b976103f51f">FunctionCalculation</a> (double <a class="el" href="classsim_function.html#a92513b19dbf064039f0e2380cdaf647d">input</a>)</td></tr>
 <tr class="memdesc:a89198672492b73f6c5511b976103f51f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a saida de dados a partir de uma função.  <a href="#a89198672492b73f6c5511b976103f51f">Mais...</a><br /></td></tr>
 <tr class="separator:a89198672492b73f6c5511b976103f51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4983e03e4220cfdb8f6904eb3b1d1b3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a4983e03e4220cfdb8f6904eb3b1d1b3f">GenerateDataFunction</a> ()</td></tr>
 <tr class="memdesc:a4983e03e4220cfdb8f6904eb3b1d1b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula os dados de saída a partir dos parâmetros lMin, lMax, step.  <a href="#a4983e03e4220cfdb8f6904eb3b1d1b3f">Mais...</a><br /></td></tr>
 <tr class="separator:a4983e03e4220cfdb8f6904eb3b1d1b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac895daea9f1545a548464b399dcede6f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#ac895daea9f1545a548464b399dcede6f">normalize</a> (double input, double xUp, double xDown, double yUp, double yDown)</td></tr>
+<tr class="memitem:ac895daea9f1545a548464b399dcede6f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#ac895daea9f1545a548464b399dcede6f">normalize</a> (double <a class="el" href="classsim_function.html#a92513b19dbf064039f0e2380cdaf647d">input</a>, double xUp, double xDown, double yUp, double yDown)</td></tr>
 <tr class="memdesc:ac895daea9f1545a548464b399dcede6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula a saida de dados a partir de uma função e normaliza-os em uma faixa de interesse em x e em y.  <a href="#ac895daea9f1545a548464b399dcede6f">Mais...</a><br /></td></tr>
 <tr class="separator:ac895daea9f1545a548464b399dcede6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab21a7cc8a7f5f6121ec0edbb5105ab41"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab21a7cc8a7f5f6121ec0edbb5105ab41"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#ab21a7cc8a7f5f6121ec0edbb5105ab41">SetDataStep</a> (double step)</td></tr>
-<tr class="memdesc:ab21a7cc8a7f5f6121ec0edbb5105ab41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor para a variável step. <br /></td></tr>
+<tr class="memitem:ab21a7cc8a7f5f6121ec0edbb5105ab41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#ab21a7cc8a7f5f6121ec0edbb5105ab41">SetDataStep</a> (double <a class="el" href="classsim_function.html#a1d938beab011419820e89493f7b431c9">step</a>)</td></tr>
+<tr class="memdesc:ab21a7cc8a7f5f6121ec0edbb5105ab41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor para a variável step.  <a href="#ab21a7cc8a7f5f6121ec0edbb5105ab41">Mais...</a><br /></td></tr>
 <tr class="separator:ab21a7cc8a7f5f6121ec0edbb5105ab41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1f9bd5751cb26a6b2f2327ec2ba743d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae1f9bd5751cb26a6b2f2327ec2ba743d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#ae1f9bd5751cb26a6b2f2327ec2ba743d">SetDataLimits</a> (double lMin, double lMax)</td></tr>
-<tr class="memdesc:ae1f9bd5751cb26a6b2f2327ec2ba743d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor para as variáveis lMin e lMax. <br /></td></tr>
+<tr class="memitem:ae1f9bd5751cb26a6b2f2327ec2ba743d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#ae1f9bd5751cb26a6b2f2327ec2ba743d">SetDataLimits</a> (double <a class="el" href="classsim_function.html#aa3638b8dd50163a205ea9d5fc45b5c27">lMin</a>, double <a class="el" href="classsim_function.html#a65370f8d4bb2a706791d8c099455818e">lMax</a>)</td></tr>
+<tr class="memdesc:ae1f9bd5751cb26a6b2f2327ec2ba743d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor para as variáveis lMin e lMax.  <a href="#ae1f9bd5751cb26a6b2f2327ec2ba743d">Mais...</a><br /></td></tr>
 <tr class="separator:ae1f9bd5751cb26a6b2f2327ec2ba743d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c9b1d37601d12b9f6c87ac94bf9a986"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c9b1d37601d12b9f6c87ac94bf9a986"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a1c9b1d37601d12b9f6c87ac94bf9a986">SetInputData</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt; input)</td></tr>
-<tr class="memdesc:a1c9b1d37601d12b9f6c87ac94bf9a986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor para a variável input. <br /></td></tr>
+<tr class="memitem:a1c9b1d37601d12b9f6c87ac94bf9a986"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a1c9b1d37601d12b9f6c87ac94bf9a986">SetInputData</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt; <a class="el" href="classsim_function.html#a92513b19dbf064039f0e2380cdaf647d">input</a>)</td></tr>
+<tr class="memdesc:a1c9b1d37601d12b9f6c87ac94bf9a986"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor para a variável input.  <a href="#a1c9b1d37601d12b9f6c87ac94bf9a986">Mais...</a><br /></td></tr>
 <tr class="separator:a1c9b1d37601d12b9f6c87ac94bf9a986"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8270dccc26698e35586a00d8f8817827"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8270dccc26698e35586a00d8f8817827"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a8270dccc26698e35586a00d8f8817827">SetOutputData</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt; Output)</td></tr>
-<tr class="memdesc:a8270dccc26698e35586a00d8f8817827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor para a variável Output. <br /></td></tr>
+<tr class="memitem:a8270dccc26698e35586a00d8f8817827"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a8270dccc26698e35586a00d8f8817827">SetOutputData</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt; Output)</td></tr>
+<tr class="memdesc:a8270dccc26698e35586a00d8f8817827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor para a variável Output.  <a href="#a8270dccc26698e35586a00d8f8817827">Mais...</a><br /></td></tr>
 <tr class="separator:a8270dccc26698e35586a00d8f8817827"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae50ca6ec20432c87a0b32ba51fe0e1dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae50ca6ec20432c87a0b32ba51fe0e1dd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#ae50ca6ec20432c87a0b32ba51fe0e1dd">SetFunctionCall</a> (double(*FunctionToCall)(double))</td></tr>
-<tr class="memdesc:ae50ca6ec20432c87a0b32ba51fe0e1dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor para o ponteiro da função que chamará a função criada pelo usuário. <br /></td></tr>
+<tr class="memitem:ae50ca6ec20432c87a0b32ba51fe0e1dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#ae50ca6ec20432c87a0b32ba51fe0e1dd">SetFunctionCall</a> (double(*<a class="el" href="classsim_function.html#a28878ad5a60c554cbde9bc6fff54eaac">FunctionToCall</a>)(double))</td></tr>
+<tr class="memdesc:ae50ca6ec20432c87a0b32ba51fe0e1dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um valor para o ponteiro da função que chamará a função criada pelo usuário.  <a href="#ae50ca6ec20432c87a0b32ba51fe0e1dd">Mais...</a><br /></td></tr>
 <tr class="separator:ae50ca6ec20432c87a0b32ba51fe0e1dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a244fb456f945bffbf71e47005df9b892"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a244fb456f945bffbf71e47005df9b892"></a>
-<a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a244fb456f945bffbf71e47005df9b892">GetInputData</a> ()</td></tr>
-<tr class="memdesc:a244fb456f945bffbf71e47005df9b892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa os dados de entrada da função retornando-os na forma de uma matriz. <br /></td></tr>
+<tr class="memitem:a244fb456f945bffbf71e47005df9b892"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a244fb456f945bffbf71e47005df9b892">GetInputData</a> ()</td></tr>
+<tr class="memdesc:a244fb456f945bffbf71e47005df9b892"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa os dados de entrada da função retornando-os na forma de uma matriz.  <a href="#a244fb456f945bffbf71e47005df9b892">Mais...</a><br /></td></tr>
 <tr class="separator:a244fb456f945bffbf71e47005df9b892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ff006ad0aabb8b43fe15b6e6220bd44"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ff006ad0aabb8b43fe15b6e6220bd44"></a>
-<a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a8ff006ad0aabb8b43fe15b6e6220bd44">GetOutputData</a> ()</td></tr>
-<tr class="memdesc:a8ff006ad0aabb8b43fe15b6e6220bd44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa os dados de saída da função retornando-os na forma de uma matriz. <br /></td></tr>
+<tr class="memitem:a8ff006ad0aabb8b43fe15b6e6220bd44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a8ff006ad0aabb8b43fe15b6e6220bd44">GetOutputData</a> ()</td></tr>
+<tr class="memdesc:a8ff006ad0aabb8b43fe15b6e6220bd44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa os dados de saída da função retornando-os na forma de uma matriz.  <a href="#a8ff006ad0aabb8b43fe15b6e6220bd44">Mais...</a><br /></td></tr>
 <tr class="separator:a8ff006ad0aabb8b43fe15b6e6220bd44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a837c5ce910341bdea0da4310ef2979fd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a837c5ce910341bdea0da4310ef2979fd"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a837c5ce910341bdea0da4310ef2979fd">GetDataStep</a> ()</td></tr>
-<tr class="memdesc:a837c5ce910341bdea0da4310ef2979fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa a variável step retornando-a na forma de um escalar. <br /></td></tr>
+<tr class="memitem:a837c5ce910341bdea0da4310ef2979fd"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a837c5ce910341bdea0da4310ef2979fd">GetDataStep</a> ()</td></tr>
+<tr class="memdesc:a837c5ce910341bdea0da4310ef2979fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa a variável step retornando-a na forma de um escalar.  <a href="#a837c5ce910341bdea0da4310ef2979fd">Mais...</a><br /></td></tr>
 <tr class="separator:a837c5ce910341bdea0da4310ef2979fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a683b75964b55ee2bd149b847450cb773"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a683b75964b55ee2bd149b847450cb773"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a683b75964b55ee2bd149b847450cb773">GetDataMinLimit</a> ()</td></tr>
-<tr class="memdesc:a683b75964b55ee2bd149b847450cb773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa a variável lMin retornando-a na forma de um escalar. <br /></td></tr>
+<tr class="memitem:a683b75964b55ee2bd149b847450cb773"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a683b75964b55ee2bd149b847450cb773">GetDataMinLimit</a> ()</td></tr>
+<tr class="memdesc:a683b75964b55ee2bd149b847450cb773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa a variável lMin retornando-a na forma de um escalar.  <a href="#a683b75964b55ee2bd149b847450cb773">Mais...</a><br /></td></tr>
 <tr class="separator:a683b75964b55ee2bd149b847450cb773"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8927977e8b817b1588dd125805956f4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8927977e8b817b1588dd125805956f4c"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a8927977e8b817b1588dd125805956f4c">GetDataMaxLimit</a> ()</td></tr>
-<tr class="memdesc:a8927977e8b817b1588dd125805956f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa a variável lMax retornando-a na forma de um escalar. <br /></td></tr>
+<tr class="memitem:a8927977e8b817b1588dd125805956f4c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a8927977e8b817b1588dd125805956f4c">GetDataMaxLimit</a> ()</td></tr>
+<tr class="memdesc:a8927977e8b817b1588dd125805956f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acessa a variável lMax retornando-a na forma de um escalar.  <a href="#a8927977e8b817b1588dd125805956f4c">Mais...</a><br /></td></tr>
 <tr class="separator:a8927977e8b817b1588dd125805956f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3be483c665a33ba404f6aa6136be3ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa3be483c665a33ba404f6aa6136be3ba"></a>
-<a class="el" href="classsim_function.html#a56d434f6d0ebeaab998bba32d0ed2515">FunctionCall</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetFunctionCall</b> ()</td></tr>
+<tr class="memitem:aa3be483c665a33ba404f6aa6136be3ba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classsim_function.html#a56d434f6d0ebeaab998bba32d0ed2515">FunctionCall</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#aa3be483c665a33ba404f6aa6136be3ba">GetFunctionCall</a> ()</td></tr>
 <tr class="separator:aa3be483c665a33ba404f6aa6136be3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e24670d97f9f463c8afad6d4b757e7a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e24670d97f9f463c8afad6d4b757e7a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td></tr>
+<tr class="memitem:a2e24670d97f9f463c8afad6d4b757e7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a2e24670d97f9f463c8afad6d4b757e7a">simulate</a> ()</td></tr>
 <tr class="separator:a2e24670d97f9f463c8afad6d4b757e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:a92513b19dbf064039f0e2380cdaf647d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a92513b19dbf064039f0e2380cdaf647d">input</a></td></tr>
+<tr class="separator:a92513b19dbf064039f0e2380cdaf647d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50f32444a8b563679318596bc151016f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a50f32444a8b563679318596bc151016f">output</a></td></tr>
+<tr class="separator:a50f32444a8b563679318596bc151016f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28878ad5a60c554cbde9bc6fff54eaac"><td class="memItemLeft" align="right" valign="top">double(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a28878ad5a60c554cbde9bc6fff54eaac">FunctionToCall</a> )(double)</td></tr>
+<tr class="separator:a28878ad5a60c554cbde9bc6fff54eaac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3638b8dd50163a205ea9d5fc45b5c27"><td class="memItemLeft" align="right" valign="top">double(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#aa3638b8dd50163a205ea9d5fc45b5c27">lMin</a> )</td></tr>
+<tr class="separator:aa3638b8dd50163a205ea9d5fc45b5c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65370f8d4bb2a706791d8c099455818e"><td class="memItemLeft" align="right" valign="top">double(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a65370f8d4bb2a706791d8c099455818e">lMax</a> )</td></tr>
+<tr class="separator:a65370f8d4bb2a706791d8c099455818e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d938beab011419820e89493f7b431c9"><td class="memItemLeft" align="right" valign="top">double(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsim_function.html#a1d938beab011419820e89493f7b431c9">step</a> )</td></tr>
+<tr class="separator:a1d938beab011419820e89493f7b431c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
 <div class="textblock"><p>Classe cuja responsabilidade é simular funções criadas externamente. </p>
@@ -184,7 +194,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
   </table>
   </dd>
 </dl>
-</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
+
+<p>Definição na linha <a class="el" href="simfunction_8h_source.html#l00017">17</a> do arquivo <a class="el" href="simfunction_8h_source.html">simfunction.h</a>.</p>
+</div><h2 class="groupheader">Definições de Tipos</h2>
+<a class="anchor" id="a56d434f6d0ebeaab998bba32d0ed2515"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef double(* simFunction::FunctionCall)(double)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acessa o ponteiro da função retornando-o para ser utilizado por outra função. </p>
+
+<p>Definição na linha <a class="el" href="simfunction_8h_source.html#l00272">272</a> do arquivo <a class="el" href="simfunction_8h_source.html">simfunction.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="ad04a344e74ed3e4245d27319c8ebb0c2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -201,10 +230,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
 <p>Construtor padrão da biblioteca de simulação. </p>
 <p>O construtor padrão da biblioteca de simulação inicializa o objeto <a class="el" href="classsim_function.html" title="Classe cuja responsabilidade é simular funções criadas externamente. ">simFunction</a> com todos os parâmetros internos a classe nulos.</p>
 <pre class="fragment">    Ex:
-</pre><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/graphicLibs/grafics.h&gt;</span></div>
+</pre><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="grafics_8h.html">src/graphicLibs/grafics.h</a>&gt;</span></div>
 <div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
 <div class="line">{</div>
-<div class="line">    <a class="code" href="classsim_function.html">simFunction</a> S(In,Out);</div>
+<div class="line">    <a class="code" href="classsim_function.html">simFunction</a> S;</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 </div><!-- fragment --> <pre class="fragment">    Resultado:
@@ -212,6 +241,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
     Obs: O exemplo não apresenta resultados em tela
 
      Ver também: \sa simFunction(Matrix&lt;double&gt; in, Matrix&lt;double&gt; out)</pre> 
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00002">2</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad812700f5e922985ebba9af6a5e1dff0"></a>
@@ -247,7 +278,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
   </dd>
 </dl>
 <p>Ex:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/graphicLibs/grafics.h&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="grafics_8h.html">src/graphicLibs/grafics.h</a>&gt;</span></div>
 <div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argv, <span class="keywordtype">char</span> *argc[])</div>
 <div class="line">{</div>
 <div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> In, Out;</div>
@@ -267,6 +298,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
     \image &lt;PNG&gt; &lt;Exemplo&gt; ‘‘Exemplo da apresentação do gráfico’’
 
     Ver também: \sa simFunction()</pre> 
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00007">7</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_ad812700f5e922985ebba9af6a5e1dff0_cgraph.png" border="0" usemap="#classsim_function_ad812700f5e922985ebba9af6a5e1dff0_cgraph" alt=""/></div>
+<map name="classsim_function_ad812700f5e922985ebba9af6a5e1dff0_cgraph" id="classsim_function_ad812700f5e922985ebba9af6a5e1dff0_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a0eee828d8255c8b384421495f4f102d5" title="Retorna o elemento da matriz de maior valor numérico. " alt="" coords="225,5,316,32"/><area shape="rect" id="node3" href="class_matrix.html#a204d648e2f6c9d4ea29fa38d39e84617" title="Retorna o elemento da matriz de menor valor numérico. " alt="" coords="227,56,314,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a4a3d4298e8cc24f34383fbe6a1f2d933"></a>
@@ -316,7 +358,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
   </dd>
 </dl>
 <p>Ex:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/graphicLibs/grafics.h&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="grafics_8h.html">src/graphicLibs/grafics.h</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#define PI 3.14</span></div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">double</span> funcaoExemplo(<span class="keywordtype">double</span> f){</div>
@@ -328,7 +370,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
 <div class="line">    g = PI*g/180;</div>
 <div class="line">    f = PI*f/180;</div>
 <div class="line"></div>
-<div class="line">    <span class="keywordtype">double</span> x = (pow(sin(a+f),2))/((pow(sin(a),2))*sin(a-g)*pow(1-sqrt((sin(f+g)*sin(f-b))/(sin(a-g)*sin(a+b))),2)) - Kp;</div>
+<div class="line">    <span class="keywordtype">double</span> x = (pow(<a class="code" href="matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1">sin</a>(a+f),2))/((pow(<a class="code" href="matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1">sin</a>(a),2))*<a class="code" href="matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1">sin</a>(a-g)*pow(1-sqrt((<a class="code" href="matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1">sin</a>(f+g)*<a class="code" href="matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1">sin</a>(f-b))/(<a class="code" href="matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1">sin</a>(a-g)*<a class="code" href="matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1">sin</a>(a+b))),2)) - Kp;</div>
 <div class="line">    <span class="keywordflow">return</span> (x);</div>
 <div class="line">}</div>
 <div class="line"></div>
@@ -349,6 +391,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
     \image &lt;PNG&gt; &lt;Exemplo2&gt; ‘‘Exemplo da apresentação do gráfico’’
 
     Ver também: \sa simFunction()</pre> 
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00017">17</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Métodos</h2>
@@ -374,12 +418,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
   </dd>
 </dl>
 <p>Ex:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/graphicLibs/grafics.h&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="grafics_8h.html">src/graphicLibs/grafics.h</a>&gt;</span></div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argv, <span class="keywordtype">char</span> *argc[])</div>
 <div class="line">{</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="classsim_function.html">simFunction</a> S(sin, 0,2*3.14,3.14/100);</div>
+<div class="line">    <a class="code" href="classsim_function.html">simFunction</a> S(<a class="code" href="matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1">sin</a>, 0,2*3.14,3.14/100);</div>
 <div class="line"></div>
 <div class="line">    std::cout &lt;&lt; S.FunctionCalculation(M_PI) &lt;&lt; std::endl;</div>
 <div class="line"></div>
@@ -390,6 +434,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
     1.22461e-16
 
     Ver também: \sa GenerateDataFunction()</pre> 
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00026">26</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_a89198672492b73f6c5511b976103f51f_icgraph.png" border="0" usemap="#classsim_function_a89198672492b73f6c5511b976103f51f_icgraph" alt=""/></div>
+<map name="classsim_function_a89198672492b73f6c5511b976103f51f_icgraph" id="classsim_function_a89198672492b73f6c5511b976103f51f_icgraph">
+<area shape="rect" id="node2" href="classsim_function.html#a4983e03e4220cfdb8f6904eb3b1d1b3f" title="Calcula os dados de saída a partir dos parâmetros lMin, lMax, step. " alt="" coords="268,5,449,47"/><area shape="rect" id="node3" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="497,13,644,39"/><area shape="rect" id="node4" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="692,13,801,39"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a4983e03e4220cfdb8f6904eb3b1d1b3f"></a>
@@ -411,6 +466,192 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
 <div class="fragment"></div><!-- fragment --> <pre class="fragment">    Resultado:
 
     Ver também: \sa FunctionCalculation()</pre> 
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00032">32</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_a4983e03e4220cfdb8f6904eb3b1d1b3f_cgraph.png" border="0" usemap="#classsim_function_a4983e03e4220cfdb8f6904eb3b1d1b3f_cgraph" alt=""/></div>
+<map name="classsim_function_a4983e03e4220cfdb8f6904eb3b1d1b3f_cgraph" id="classsim_function_a4983e03e4220cfdb8f6904eb3b1d1b3f_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a" title="Método de inicialização da matriz. " alt="" coords="301,5,383,32"/><area shape="rect" id="node3" href="classsim_function.html#a89198672492b73f6c5511b976103f51f" title="Calcula a saida de dados a partir de uma função. " alt="" coords="235,56,449,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_a4983e03e4220cfdb8f6904eb3b1d1b3f_icgraph.png" border="0" usemap="#classsim_function_a4983e03e4220cfdb8f6904eb3b1d1b3f_icgraph" alt=""/></div>
+<map name="classsim_function_a4983e03e4220cfdb8f6904eb3b1d1b3f_icgraph" id="classsim_function_a4983e03e4220cfdb8f6904eb3b1d1b3f_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="235,13,381,39"/><area shape="rect" id="node3" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="429,13,539,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8927977e8b817b1588dd125805956f4c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double simFunction::GetDataMaxLimit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acessa a variável lMax retornando-a na forma de um escalar. </p>
+
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00098">98</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_a8927977e8b817b1588dd125805956f4c_icgraph.png" border="0" usemap="#classsim_function_a8927977e8b817b1588dd125805956f4c_icgraph" alt=""/></div>
+<map name="classsim_function_a8927977e8b817b1588dd125805956f4c_icgraph" id="classsim_function_a8927977e8b817b1588dd125805956f4c_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="256,5,363,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a683b75964b55ee2bd149b847450cb773"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double simFunction::GetDataMinLimit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acessa a variável lMin retornando-a na forma de um escalar. </p>
+
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00093">93</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_a683b75964b55ee2bd149b847450cb773_icgraph.png" border="0" usemap="#classsim_function_a683b75964b55ee2bd149b847450cb773_icgraph" alt=""/></div>
+<map name="classsim_function_a683b75964b55ee2bd149b847450cb773_icgraph" id="classsim_function_a683b75964b55ee2bd149b847450cb773_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="252,5,359,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a837c5ce910341bdea0da4310ef2979fd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double simFunction::GetDataStep </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acessa a variável step retornando-a na forma de um escalar. </p>
+
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00088">88</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_a837c5ce910341bdea0da4310ef2979fd_icgraph.png" border="0" usemap="#classsim_function_a837c5ce910341bdea0da4310ef2979fd_icgraph" alt=""/></div>
+<map name="classsim_function_a837c5ce910341bdea0da4310ef2979fd_icgraph" id="classsim_function_a837c5ce910341bdea0da4310ef2979fd_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="229,5,336,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aa3be483c665a33ba404f6aa6136be3ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classsim_function.html#a56d434f6d0ebeaab998bba32d0ed2515">FunctionCall</a> simFunction::GetFunctionCall </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00104">104</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_aa3be483c665a33ba404f6aa6136be3ba_icgraph.png" border="0" usemap="#classsim_function_aa3be483c665a33ba404f6aa6136be3ba_icgraph" alt=""/></div>
+<map name="classsim_function_aa3be483c665a33ba404f6aa6136be3ba_icgraph" id="classsim_function_aa3be483c665a33ba404f6aa6136be3ba_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="268,5,375,32"/><area shape="rect" id="node3" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="248,56,395,83"/><area shape="rect" id="node4" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="443,56,552,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a244fb456f945bffbf71e47005df9b892"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt; simFunction::GetInputData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acessa os dados de entrada da função retornando-os na forma de uma matriz. </p>
+
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00078">78</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_a244fb456f945bffbf71e47005df9b892_icgraph.png" border="0" usemap="#classsim_function_a244fb456f945bffbf71e47005df9b892_icgraph" alt=""/></div>
+<map name="classsim_function_a244fb456f945bffbf71e47005df9b892_icgraph" id="classsim_function_a244fb456f945bffbf71e47005df9b892_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="249,5,355,32"/><area shape="rect" id="node3" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="231,56,373,83"/><area shape="rect" id="node4" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="421,56,568,83"/><area shape="rect" id="node5" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="616,56,725,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8ff006ad0aabb8b43fe15b6e6220bd44"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt; simFunction::GetOutputData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Acessa os dados de saída da função retornando-os na forma de uma matriz. </p>
+
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00083">83</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_a8ff006ad0aabb8b43fe15b6e6220bd44_icgraph.png" border="0" usemap="#classsim_function_a8ff006ad0aabb8b43fe15b6e6220bd44_icgraph" alt=""/></div>
+<map name="classsim_function_a8ff006ad0aabb8b43fe15b6e6220bd44_icgraph" id="classsim_function_a8ff006ad0aabb8b43fe15b6e6220bd44_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="259,5,366,32"/><area shape="rect" id="node3" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="241,56,384,83"/><area shape="rect" id="node4" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="432,56,579,83"/><area shape="rect" id="node5" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="627,56,736,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ac895daea9f1545a548464b399dcede6f"></a>
@@ -467,12 +708,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
   </dd>
 </dl>
 <p>Ex:</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;src/graphicLibs/grafics.h&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="grafics_8h.html">src/graphicLibs/grafics.h</a>&gt;</span></div>
 <div class="line"></div>
 <div class="line">        <span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argv, <span class="keywordtype">char</span> *argc[])</div>
 <div class="line">        {</div>
 <div class="line"></div>
-<div class="line">            <a class="code" href="classsim_function.html">simFunction</a> S(sin, 0,2*3.14,3.14/100);</div>
+<div class="line">            <a class="code" href="classsim_function.html">simFunction</a> S(<a class="code" href="matrix_8cpp.html#a2e8cc44381885dc6f1c7d98de376e1a1">sin</a>, 0,2*3.14,3.14/100);</div>
 <div class="line"></div>
 <div class="line">            std::cout &lt;&lt; S.normalize(M_PI,0,2*M_PI,1,0) &lt;&lt; std::endl;</div>
 <div class="line"></div>
@@ -483,16 +724,321 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>simulate</b> ()</td><
     0.5
 
     Ver também: \sa FunctionCalculation()</pre> 
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00046">46</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1f9bd5751cb26a6b2f2327ec2ba743d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void simFunction::SetDataLimits </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lMin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>lMax</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insere um valor para as variáveis lMin e lMax. </p>
+
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00057">57</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_ae1f9bd5751cb26a6b2f2327ec2ba743d_icgraph.png" border="0" usemap="#classsim_function_ae1f9bd5751cb26a6b2f2327ec2ba743d_icgraph" alt=""/></div>
+<map name="classsim_function_ae1f9bd5751cb26a6b2f2327ec2ba743d_icgraph" id="classsim_function_ae1f9bd5751cb26a6b2f2327ec2ba743d_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="236,5,343,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab21a7cc8a7f5f6121ec0edbb5105ab41"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void simFunction::SetDataStep </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>step</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insere um valor para a variável step. </p>
+
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00052">52</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_ab21a7cc8a7f5f6121ec0edbb5105ab41_icgraph.png" border="0" usemap="#classsim_function_ab21a7cc8a7f5f6121ec0edbb5105ab41_icgraph" alt=""/></div>
+<map name="classsim_function_ab21a7cc8a7f5f6121ec0edbb5105ab41_icgraph" id="classsim_function_ab21a7cc8a7f5f6121ec0edbb5105ab41_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="228,5,335,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae50ca6ec20432c87a0b32ba51fe0e1dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void simFunction::SetFunctionCall </td>
+          <td>(</td>
+          <td class="paramtype">double(*)(double)&#160;</td>
+          <td class="paramname"><em>FunctionToCall</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insere um valor para o ponteiro da função que chamará a função criada pelo usuário. </p>
+
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00073">73</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_ae50ca6ec20432c87a0b32ba51fe0e1dd_icgraph.png" border="0" usemap="#classsim_function_ae50ca6ec20432c87a0b32ba51fe0e1dd_icgraph" alt=""/></div>
+<map name="classsim_function_ae50ca6ec20432c87a0b32ba51fe0e1dd_icgraph" id="classsim_function_ae50ca6ec20432c87a0b32ba51fe0e1dd_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="247,5,353,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c9b1d37601d12b9f6c87ac94bf9a986"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void simFunction::SetInputData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insere um valor para a variável input. </p>
+
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00063">63</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_a1c9b1d37601d12b9f6c87ac94bf9a986_icgraph.png" border="0" usemap="#classsim_function_a1c9b1d37601d12b9f6c87ac94bf9a986_icgraph" alt=""/></div>
+<map name="classsim_function_a1c9b1d37601d12b9f6c87ac94bf9a986_icgraph" id="classsim_function_a1c9b1d37601d12b9f6c87ac94bf9a986_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="229,5,336,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8270dccc26698e35586a00d8f8817827"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void simFunction::SetOutputData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>Output</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Insere um valor para a variável Output. </p>
+
+<p>Definição na linha <a class="el" href="simfunction_8cpp_source.html#l00068">68</a> do arquivo <a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classsim_function_a8270dccc26698e35586a00d8f8817827_icgraph.png" border="0" usemap="#classsim_function_a8270dccc26698e35586a00d8f8817827_icgraph" alt=""/></div>
+<map name="classsim_function_a8270dccc26698e35586a00d8f8817827_icgraph" id="classsim_function_a8270dccc26698e35586a00d8f8817827_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="240,5,347,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e24670d97f9f463c8afad6d4b757e7a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void simFunction::simulate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="a28878ad5a60c554cbde9bc6fff54eaac"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double(* simFunction::FunctionToCall)(double)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="simfunction_8h_source.html#l00021">21</a> do arquivo <a class="el" href="simfunction_8h_source.html">simfunction.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a92513b19dbf064039f0e2380cdaf647d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;double&gt; simFunction::input</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="simfunction_8h_source.html#l00020">20</a> do arquivo <a class="el" href="simfunction_8h_source.html">simfunction.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a65370f8d4bb2a706791d8c099455818e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double(* simFunction::lMax)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="simfunction_8h_source.html#l00021">21</a> do arquivo <a class="el" href="simfunction_8h_source.html">simfunction.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa3638b8dd50163a205ea9d5fc45b5c27"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double(* simFunction::lMin)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="simfunction_8h_source.html#l00021">21</a> do arquivo <a class="el" href="simfunction_8h_source.html">simfunction.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a50f32444a8b563679318596bc151016f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;double&gt; simFunction::output</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="simfunction_8h_source.html#l00020">20</a> do arquivo <a class="el" href="simfunction_8h_source.html">simfunction.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1d938beab011419820e89493f7b431c9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double(* simFunction::step)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="simfunction_8h_source.html#l00021">21</a> do arquivo <a class="el" href="simfunction_8h_source.html">simfunction.h</a>.</p>
+
 </div>
 </div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>SistemasdeControle/src/simulationLibs/<a class="el" href="simfunction_8h_source.html">simfunction.h</a></li>
-<li>SistemasdeControle/src/simulationLibs/simfunction.cpp</li>
+<li>SistemasdeControle/src/simulationLibs/<a class="el" href="simfunction_8cpp_source.html">simfunction.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:48 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

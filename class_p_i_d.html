@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,6 +85,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pri-methods">Métodos Privados</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
 <a href="class_p_i_d-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
 <div class="title">Referência da Template de Classe PID&lt; UsedType &gt;</div>  </div>
@@ -95,6 +97,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
  <a href="class_p_i_d.html#details">Mais...</a></p>
 
 <p><code>#include &lt;<a class="el" href="pid_8h_source.html">pid.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para PID&lt; UsedType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_p_i_d__coll__graph.png" border="0" usemap="#_p_i_d_3_01_used_type_01_4_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
@@ -104,15 +111,68 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:adf714d63b7d5d16125898b97b1cac602"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#adf714d63b7d5d16125898b97b1cac602">setSampleTime</a> (UsedType Time)</td></tr>
 <tr class="memdesc:adf714d63b7d5d16125898b97b1cac602"><td class="mdescLeft">&#160;</td><td class="mdescRight">M&amp;ecutetodo o qual define o passo.  <a href="#adf714d63b7d5d16125898b97b1cac602">Mais...</a><br /></td></tr>
 <tr class="separator:adf714d63b7d5d16125898b97b1cac602"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ed27364d4dfbc00359befd1023c6841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a3ed27364d4dfbc00359befd1023c6841">setLimits</a> (UsedType upperLimit, UsedType lowerLimit)</td></tr>
+<tr class="memitem:a3ed27364d4dfbc00359befd1023c6841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a3ed27364d4dfbc00359befd1023c6841">setLimits</a> (UsedType <a class="el" href="class_p_i_d.html#a254b48d8da8c7ffb07077a1baa2592f6">upperLimit</a>, UsedType <a class="el" href="class_p_i_d.html#aaaea342ae45c3617ed3b9685b16e4fa0">lowerLimit</a>)</td></tr>
 <tr class="memdesc:a3ed27364d4dfbc00359befd1023c6841"><td class="mdescLeft">&#160;</td><td class="mdescRight">M&amp;ecutetodo o qual define os limites.  <a href="#a3ed27364d4dfbc00359befd1023c6841">Mais...</a><br /></td></tr>
 <tr class="separator:a3ed27364d4dfbc00359befd1023c6841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a984d1f5b551ea2477ee07818ed32acf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a984d1f5b551ea2477ee07818ed32acf2">setParams</a> (UsedType kp, UsedType ki, UsedType kd)</td></tr>
+<tr class="memitem:a984d1f5b551ea2477ee07818ed32acf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a984d1f5b551ea2477ee07818ed32acf2">setParams</a> (UsedType <a class="el" href="class_p_i_d.html#a99287595b56cde1e29bae6322834be52">kp</a>, UsedType <a class="el" href="class_p_i_d.html#a34d8ddeddc5bfa85d76f696d5657f88b">ki</a>, UsedType <a class="el" href="class_p_i_d.html#a164ad404a158b9e1f90220f731428778">kd</a>)</td></tr>
 <tr class="memdesc:a984d1f5b551ea2477ee07818ed32acf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">M&amp;ecute o qual define os param&amp;ecirctos kp, ki, e kd respectivamente do sistema a ser controlado.  <a href="#a984d1f5b551ea2477ee07818ed32acf2">Mais...</a><br /></td></tr>
 <tr class="separator:a984d1f5b551ea2477ee07818ed32acf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3041bd11fcb81058ad0a72c9fa7031f8"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a3041bd11fcb81058ad0a72c9fa7031f8">OutputControl</a> (UsedType Reference, UsedType SignalInput)</td></tr>
 <tr class="memdesc:a3041bd11fcb81058ad0a72c9fa7031f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">M&amp;ecutetodo o qual c&amp;acute a sa&amp;icuteda do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>.  <a href="#a3041bd11fcb81058ad0a72c9fa7031f8">Mais...</a><br /></td></tr>
 <tr class="separator:a3041bd11fcb81058ad0a72c9fa7031f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos Privados</h2></td></tr>
+<tr class="memitem:a7bf4a091ca23d127c8e4167c6ac4c3b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a7bf4a091ca23d127c8e4167c6ac4c3b5">antReset</a> ()</td></tr>
+<tr class="memdesc:a7bf4a091ca23d127c8e4167c6ac4c3b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro onde &amp;ecute armazenada a sa&amp;icute do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>.  <a href="#a7bf4a091ca23d127c8e4167c6ac4c3b5">Mais...</a><br /></td></tr>
+<tr class="separator:a7bf4a091ca23d127c8e4167c6ac4c3b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21fa1af2071c96310be16315a2ab8aa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a21fa1af2071c96310be16315a2ab8aa8">intError</a> ()</td></tr>
+<tr class="memdesc:a21fa1af2071c96310be16315a2ab8aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">M&amp;ecutetodo privado <a class="el" href="class_p_i_d.html#a21fa1af2071c96310be16315a2ab8aa8" title="M&ecutetodo privado intError(). ">intError()</a>.  <a href="#a21fa1af2071c96310be16315a2ab8aa8">Mais...</a><br /></td></tr>
+<tr class="separator:a21fa1af2071c96310be16315a2ab8aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5acea538dbc8d9b260b07bc2d3ae66d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#af5acea538dbc8d9b260b07bc2d3ae66d">difError</a> ()</td></tr>
+<tr class="memdesc:af5acea538dbc8d9b260b07bc2d3ae66d"><td class="mdescLeft">&#160;</td><td class="mdescRight">M&amp;etodo privado <a class="el" href="class_p_i_d.html#af5acea538dbc8d9b260b07bc2d3ae66d" title="M&etodo privado difError(). ">difError()</a>.  <a href="#af5acea538dbc8d9b260b07bc2d3ae66d">Mais...</a><br /></td></tr>
+<tr class="separator:af5acea538dbc8d9b260b07bc2d3ae66d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:a3791489133789f8e686c3020486afc72"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a3791489133789f8e686c3020486afc72">checkUpLim</a></td></tr>
+<tr class="separator:a3791489133789f8e686c3020486afc72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaee543a6f61542c8ef0bfa75ebbf1a80"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#aaee543a6f61542c8ef0bfa75ebbf1a80">checkLowLim</a></td></tr>
+<tr class="memdesc:aaee543a6f61542c8ef0bfa75ebbf1a80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro que define se o <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> chegou ao limite superior.  <a href="#aaee543a6f61542c8ef0bfa75ebbf1a80">Mais...</a><br /></td></tr>
+<tr class="separator:aaee543a6f61542c8ef0bfa75ebbf1a80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e4e9e676a5a0313a961df43ddb9bbdd"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a1e4e9e676a5a0313a961df43ddb9bbdd">Step</a></td></tr>
+<tr class="memdesc:a1e4e9e676a5a0313a961df43ddb9bbdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro que define se o <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> chegou ao limite inferior.  <a href="#a1e4e9e676a5a0313a961df43ddb9bbdd">Mais...</a><br /></td></tr>
+<tr class="separator:a1e4e9e676a5a0313a961df43ddb9bbdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad49126776dbf59d31209eead1b9f2ea"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#aad49126776dbf59d31209eead1b9f2ea">Error</a></td></tr>
+<tr class="memdesc:aad49126776dbf59d31209eead1b9f2ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro onde &amp;ecute armazenado a varia��o do tempo, o passo da fun&amp;ccedil&amp;aatildee.  <a href="#aad49126776dbf59d31209eead1b9f2ea">Mais...</a><br /></td></tr>
+<tr class="separator:aad49126776dbf59d31209eead1b9f2ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cc84f3b3acbca7e46b81e1ad6cb9d40"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a9cc84f3b3acbca7e46b81e1ad6cb9d40">pastError</a></td></tr>
+<tr class="memdesc:a9cc84f3b3acbca7e46b81e1ad6cb9d40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro onde &amp;ecute armazenado o erro a medida que o <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> &amp;eecute executado.  <a href="#a9cc84f3b3acbca7e46b81e1ad6cb9d40">Mais...</a><br /></td></tr>
+<tr class="separator:a9cc84f3b3acbca7e46b81e1ad6cb9d40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf26051a6857019edac542298babce9f"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#abf26051a6857019edac542298babce9f">integralError</a></td></tr>
+<tr class="memdesc:abf26051a6857019edac542298babce9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro onde &amp;ecute armazenado o erro anterior para compara&amp;ccedil&amp;otildees.  <a href="#abf26051a6857019edac542298babce9f">Mais...</a><br /></td></tr>
+<tr class="separator:abf26051a6857019edac542298babce9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdf7381a34f042703e862ed78a1a23ba"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#acdf7381a34f042703e862ed78a1a23ba">derivativeError</a></td></tr>
+<tr class="memdesc:acdf7381a34f042703e862ed78a1a23ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro onde &amp;ecute armazenado o erro da integral num&amp;ecuterica.  <a href="#acdf7381a34f042703e862ed78a1a23ba">Mais...</a><br /></td></tr>
+<tr class="separator:acdf7381a34f042703e862ed78a1a23ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99287595b56cde1e29bae6322834be52"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a99287595b56cde1e29bae6322834be52">kp</a></td></tr>
+<tr class="memdesc:a99287595b56cde1e29bae6322834be52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro onde &amp;ecute armazenado o erro da derivada num&amp;ecuterica.  <a href="#a99287595b56cde1e29bae6322834be52">Mais...</a><br /></td></tr>
+<tr class="separator:a99287595b56cde1e29bae6322834be52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34d8ddeddc5bfa85d76f696d5657f88b"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a34d8ddeddc5bfa85d76f696d5657f88b">ki</a></td></tr>
+<tr class="memdesc:a34d8ddeddc5bfa85d76f696d5657f88b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro onde &amp;ecute armazenado o param&amp;ecircto KP do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>.  <a href="#a34d8ddeddc5bfa85d76f696d5657f88b">Mais...</a><br /></td></tr>
+<tr class="separator:a34d8ddeddc5bfa85d76f696d5657f88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a164ad404a158b9e1f90220f731428778"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a164ad404a158b9e1f90220f731428778">kd</a></td></tr>
+<tr class="memdesc:a164ad404a158b9e1f90220f731428778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro onde &amp;ecute armazenado o param&amp;ecircto KI do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>.  <a href="#a164ad404a158b9e1f90220f731428778">Mais...</a><br /></td></tr>
+<tr class="separator:a164ad404a158b9e1f90220f731428778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a254b48d8da8c7ffb07077a1baa2592f6"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a254b48d8da8c7ffb07077a1baa2592f6">upperLimit</a></td></tr>
+<tr class="memdesc:a254b48d8da8c7ffb07077a1baa2592f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro onde &amp;ecute armazenado o param&amp;ecircto KD do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>.  <a href="#a254b48d8da8c7ffb07077a1baa2592f6">Mais...</a><br /></td></tr>
+<tr class="separator:a254b48d8da8c7ffb07077a1baa2592f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaea342ae45c3617ed3b9685b16e4fa0"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#aaaea342ae45c3617ed3b9685b16e4fa0">lowerLimit</a></td></tr>
+<tr class="memdesc:aaaea342ae45c3617ed3b9685b16e4fa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro onde &amp;ecute definido o limite superior do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>.  <a href="#aaaea342ae45c3617ed3b9685b16e4fa0">Mais...</a><br /></td></tr>
+<tr class="separator:aaaea342ae45c3617ed3b9685b16e4fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39b2ba87551724dc547cd0f7216e29f9"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_p_i_d.html#a39b2ba87551724dc547cd0f7216e29f9">PIDout</a></td></tr>
+<tr class="memdesc:a39b2ba87551724dc547cd0f7216e29f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Membro onde &amp;ecute definido o limite superior do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>.  <a href="#a39b2ba87551724dc547cd0f7216e29f9">Mais...</a><br /></td></tr>
+<tr class="separator:a39b2ba87551724dc547cd0f7216e29f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
 <div class="textblock"><h3>template&lt;typename UsedType&gt;<br />
@@ -120,6 +180,8 @@ class PID&lt; UsedType &gt;</h3>
 
 <p>Classe <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
 <p>Classe <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> criada com o objetivo de simular um controle <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00013">13</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
 </div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="aac97dfe35f8d3c980ccb1863f0331f53"></a>
 <div class="memitem">
@@ -139,9 +201,102 @@ template&lt;typename UsedType &gt; </div>
 <p>Construtor padr&amp;atildeo da classe. </p>
 <p>Inicia todos os membros em 0 para evitar o uso indevido de lixo da mem&amp;ocuteria. </p>
 
+<p>Definição na linha <a class="el" href="pid_8cpp_source.html#l00004">4</a> do arquivo <a class="el" href="pid_8cpp_source.html">pid.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="a7bf4a091ca23d127c8e4167c6ac4c3b5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::antReset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro onde &amp;ecute armazenada a sa&amp;icute do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
+<p>M&amp;ecutetodo privado <a class="el" href="class_p_i_d.html#a7bf4a091ca23d127c8e4167c6ac4c3b5" title="Membro onde &ecute armazenada a sa&icute do PID. ">antReset()</a>.</p>
+<p>Verifica se o controle <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> chegou a um dos limites definidos. </p>
+
+<p>Definição na linha <a class="el" href="pid_8cpp_source.html#l00019">19</a> do arquivo <a class="el" href="pid_8cpp_source.html">pid.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5acea538dbc8d9b260b07bc2d3ae66d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::difError </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>M&amp;etodo privado <a class="el" href="class_p_i_d.html#af5acea538dbc8d9b260b07bc2d3ae66d" title="M&etodo privado difError(). ">difError()</a>. </p>
+<p>C&amp;acutelcula o erro da derivada usada no <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
+
+<p>Definição na linha <a class="el" href="pid_8cpp_source.html#l00048">48</a> do arquivo <a class="el" href="pid_8cpp_source.html">pid.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21fa1af2071c96310be16315a2ab8aa8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::intError </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>M&amp;ecutetodo privado <a class="el" href="class_p_i_d.html#a21fa1af2071c96310be16315a2ab8aa8" title="M&ecutetodo privado intError(). ">intError()</a>. </p>
+<p>C&amp;acutelcula o erro integral usado no <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
+
+<p>Definição na linha <a class="el" href="pid_8cpp_source.html#l00039">39</a> do arquivo <a class="el" href="pid_8cpp_source.html">pid.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a3041bd11fcb81058ad0a72c9fa7031f8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -176,6 +331,8 @@ template&lt;typename UsedType &gt; </div>
   </table>
   </dd>
 </dl>
+
+<p>Definição na linha <a class="el" href="pid_8cpp_source.html#l00075">75</a> do arquivo <a class="el" href="pid_8cpp_source.html">pid.cpp</a>.</p>
 
 </div>
 </div>
@@ -213,6 +370,8 @@ template&lt;typename UsedType &gt; </div>
   </table>
   </dd>
 </dl>
+
+<p>Definição na linha <a class="el" href="pid_8cpp_source.html#l00054">54</a> do arquivo <a class="el" href="pid_8cpp_source.html">pid.cpp</a>.</p>
 
 </div>
 </div>
@@ -258,6 +417,8 @@ template&lt;typename UsedType &gt; </div>
   </dd>
 </dl>
 
+<p>Definição na linha <a class="el" href="pid_8cpp_source.html#l00067">67</a> do arquivo <a class="el" href="pid_8cpp_source.html">pid.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="adf714d63b7d5d16125898b97b1cac602"></a>
@@ -284,16 +445,355 @@ template&lt;typename UsedType &gt; </div>
   </dd>
 </dl>
 
+<p>Definição na linha <a class="el" href="pid_8cpp_source.html#l00061">61</a> do arquivo <a class="el" href="pid_8cpp_source.html">pid.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="aaee543a6f61542c8ef0bfa75ebbf1a80"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::checkLowLim</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro que define se o <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> chegou ao limite superior. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00018">18</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3791489133789f8e686c3020486afc72"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::checkUpLim</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00017">17</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acdf7381a34f042703e862ed78a1a23ba"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::derivativeError</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro onde &amp;ecute armazenado o erro da integral num&amp;ecuterica. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00024">24</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aad49126776dbf59d31209eead1b9f2ea"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::Error</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro onde &amp;ecute armazenado a varia��o do tempo, o passo da fun&amp;ccedil&amp;aatildee. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00021">21</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf26051a6857019edac542298babce9f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::integralError</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro onde &amp;ecute armazenado o erro anterior para compara&amp;ccedil&amp;otildees. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00023">23</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a164ad404a158b9e1f90220f731428778"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::kd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro onde &amp;ecute armazenado o param&amp;ecircto KI do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00028">28</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a34d8ddeddc5bfa85d76f696d5657f88b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::ki</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro onde &amp;ecute armazenado o param&amp;ecircto KP do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00027">27</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a99287595b56cde1e29bae6322834be52"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::kp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro onde &amp;ecute armazenado o erro da derivada num&amp;ecuterica. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00026">26</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaaea342ae45c3617ed3b9685b16e4fa0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::lowerLimit</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro onde &amp;ecute definido o limite superior do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00031">31</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9cc84f3b3acbca7e46b81e1ad6cb9d40"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::pastError</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro onde &amp;ecute armazenado o erro a medida que o <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> &amp;eecute executado. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00022">22</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a39b2ba87551724dc547cd0f7216e29f9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::PIDout</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro onde &amp;ecute definido o limite superior do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00033">33</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1e4e9e676a5a0313a961df43ddb9bbdd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::Step</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro que define se o <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a> chegou ao limite inferior. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00020">20</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a254b48d8da8c7ffb07077a1baa2592f6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_p_i_d.html">PID</a>&lt; UsedType &gt;::upperLimit</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Membro onde &amp;ecute armazenado o param&amp;ecircto KD do <a class="el" href="class_p_i_d.html" title="Classe PID. ">PID</a>. </p>
+
+<p>Definição na linha <a class="el" href="pid_8h_source.html#l00030">30</a> do arquivo <a class="el" href="pid_8h_source.html">pid.h</a>.</p>
+
 </div>
 </div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>SistemasdeControle/src/optimizationLibs/<a class="el" href="pid_8h_source.html">pid.h</a></li>
-<li>SistemasdeControle/src/optimizationLibs/pid.cpp</li>
+<li>SistemasdeControle/src/optimizationLibs/<a class="el" href="pid_8cpp_source.html">pid.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:48 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

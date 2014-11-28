@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,105 +85,1430 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pri-methods">Métodos Privados</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
 <a href="#friends">Amigas</a> &#124;
 <a href="class_polynom-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
 <div class="title">Referência da Template de Classe Polynom&lt; TypeOfClass &gt;</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="polynom_8h_source.html">polynom.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para Polynom&lt; TypeOfClass &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom__coll__graph.png" border="0" usemap="#_polynom_3_01_type_of_class_01_4_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
-<tr class="memitem:a8599887a4cd1ed52be870191ef6fa703"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8599887a4cd1ed52be870191ef6fa703"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Polynom</b> (int Num)</td></tr>
+<tr class="memitem:a9385d1cd152f3edda6c3d9fabd5ee714"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714">Polynom</a> ()</td></tr>
+<tr class="separator:a9385d1cd152f3edda6c3d9fabd5ee714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8599887a4cd1ed52be870191ef6fa703"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a8599887a4cd1ed52be870191ef6fa703">Polynom</a> (int Num)</td></tr>
 <tr class="separator:a8599887a4cd1ed52be870191ef6fa703"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44c35ae93ecdd6f978784ca642507e0e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44c35ae93ecdd6f978784ca642507e0e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Polynom</b> (int Num, int Den)</td></tr>
+<tr class="memitem:a44c35ae93ecdd6f978784ca642507e0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a44c35ae93ecdd6f978784ca642507e0e">Polynom</a> (int Num, int Den)</td></tr>
 <tr class="separator:a44c35ae93ecdd6f978784ca642507e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e6323738c6ad112ed6595ec9560517c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e6323738c6ad112ed6595ec9560517c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Polynom</b> (std::string Num)</td></tr>
+<tr class="memitem:a7e6323738c6ad112ed6595ec9560517c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a7e6323738c6ad112ed6595ec9560517c">Polynom</a> (std::string Num)</td></tr>
 <tr class="separator:a7e6323738c6ad112ed6595ec9560517c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ce083fa7e44f9a44bb7480435db7f32"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9ce083fa7e44f9a44bb7480435db7f32"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Polynom</b> (std::string Num, std::string Den)</td></tr>
+<tr class="memitem:a9ce083fa7e44f9a44bb7480435db7f32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a9ce083fa7e44f9a44bb7480435db7f32">Polynom</a> (std::string Num, std::string Den)</td></tr>
 <tr class="separator:a9ce083fa7e44f9a44bb7480435db7f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9548632447296846ef6f458a375e3181"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9548632447296846ef6f458a375e3181"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Polynom</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; Num, <a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; Den)</td></tr>
+<tr class="memitem:a9548632447296846ef6f458a375e3181"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a9548632447296846ef6f458a375e3181">Polynom</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; Num, <a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; Den)</td></tr>
 <tr class="separator:a9548632447296846ef6f458a375e3181"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4024baeeed368df0608049860b6fef74"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4024baeeed368df0608049860b6fef74"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Polynom</b> (const <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; &amp;CopyPolynom)</td></tr>
+<tr class="memitem:a4024baeeed368df0608049860b6fef74"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a4024baeeed368df0608049860b6fef74">Polynom</a> (const <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; &amp;CopyPolynom)</td></tr>
 <tr class="separator:a4024baeeed368df0608049860b6fef74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac46cf0626b3b4d6ba2216f1e4c8ad991"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac46cf0626b3b4d6ba2216f1e4c8ad991"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memitem:ac63320040c062bee44970e1079dff03d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ac63320040c062bee44970e1079dff03d">~Polynom</a> ()</td></tr>
+<tr class="separator:ac63320040c062bee44970e1079dff03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac46cf0626b3b4d6ba2216f1e4c8ad991"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ac46cf0626b3b4d6ba2216f1e4c8ad991">operator+</a> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
 <tr class="separator:ac46cf0626b3b4d6ba2216f1e4c8ad991"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d4f9fd63b3d81c87c60c354cd3244c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0d4f9fd63b3d81c87c60c354cd3244c8"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (TypeOfClass scalar)</td></tr>
+<tr class="memitem:a0d4f9fd63b3d81c87c60c354cd3244c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a0d4f9fd63b3d81c87c60c354cd3244c8">operator+</a> (TypeOfClass scalar)</td></tr>
 <tr class="separator:a0d4f9fd63b3d81c87c60c354cd3244c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad98eb6a5a83752f26874725554ad04e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad98eb6a5a83752f26874725554ad04e4"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memitem:ad98eb6a5a83752f26874725554ad04e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ad98eb6a5a83752f26874725554ad04e4">operator-</a> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
 <tr class="separator:ad98eb6a5a83752f26874725554ad04e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53b554a685479a3c1156a30bfb8457b0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53b554a685479a3c1156a30bfb8457b0"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (TypeOfClass scalar)</td></tr>
+<tr class="memitem:a53b554a685479a3c1156a30bfb8457b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a53b554a685479a3c1156a30bfb8457b0">operator-</a> (TypeOfClass scalar)</td></tr>
 <tr class="separator:a53b554a685479a3c1156a30bfb8457b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a26fb1c5f840cd422b42de1cf3810b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5a26fb1c5f840cd422b42de1cf3810b6"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (TypeOfClass scalar)</td></tr>
+<tr class="memitem:a5a26fb1c5f840cd422b42de1cf3810b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a5a26fb1c5f840cd422b42de1cf3810b6">operator*</a> (TypeOfClass scalar)</td></tr>
 <tr class="separator:a5a26fb1c5f840cd422b42de1cf3810b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a708940eceab9c36a06b5871be4de3bf2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a708940eceab9c36a06b5871be4de3bf2"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memitem:a708940eceab9c36a06b5871be4de3bf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a708940eceab9c36a06b5871be4de3bf2">operator*</a> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
 <tr class="separator:a708940eceab9c36a06b5871be4de3bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada104d4f530e5efb33e25d0199b38c47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada104d4f530e5efb33e25d0199b38c47"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memitem:ada104d4f530e5efb33e25d0199b38c47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ada104d4f530e5efb33e25d0199b38c47">operator/</a> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
 <tr class="separator:ada104d4f530e5efb33e25d0199b38c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87fb850b52086a3baf41d0c4782103df"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a87fb850b52086a3baf41d0c4782103df"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (TypeOfClass scalar)</td></tr>
+<tr class="memitem:a87fb850b52086a3baf41d0c4782103df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a87fb850b52086a3baf41d0c4782103df">operator/</a> (TypeOfClass scalar)</td></tr>
 <tr class="separator:a87fb850b52086a3baf41d0c4782103df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a4f41e1aabc14cd7e7e92135abbe21e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a4f41e1aabc14cd7e7e92135abbe21e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memitem:a1a4f41e1aabc14cd7e7e92135abbe21e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a1a4f41e1aabc14cd7e7e92135abbe21e">operator=</a> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
 <tr class="separator:a1a4f41e1aabc14cd7e7e92135abbe21e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4378bcceec215656ced7a3dfe62ac49d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4378bcceec215656ced7a3dfe62ac49d"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator^</b> (int scalar)</td></tr>
+<tr class="memitem:a4378bcceec215656ced7a3dfe62ac49d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a4378bcceec215656ced7a3dfe62ac49d">operator^</a> (int scalar)</td></tr>
 <tr class="separator:a4378bcceec215656ced7a3dfe62ac49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15e2d194fabe8d6a9e0fcda9fd6237cb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a15e2d194fabe8d6a9e0fcda9fd6237cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNum</b> (TypeOfClass *Num, int sizenum)</td></tr>
+<tr class="memitem:a15e2d194fabe8d6a9e0fcda9fd6237cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a15e2d194fabe8d6a9e0fcda9fd6237cb">setNum</a> (TypeOfClass *Num, int sizenum)</td></tr>
 <tr class="separator:a15e2d194fabe8d6a9e0fcda9fd6237cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a279fd09569799e6940a9454c96641027"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a279fd09569799e6940a9454c96641027"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDen</b> (TypeOfClass *Den, int sizeden)</td></tr>
+<tr class="memitem:a279fd09569799e6940a9454c96641027"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a279fd09569799e6940a9454c96641027">setDen</a> (TypeOfClass *Den, int sizeden)</td></tr>
 <tr class="separator:a279fd09569799e6940a9454c96641027"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a314d977344ac66806d49f28e6d27a525"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a314d977344ac66806d49f28e6d27a525"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setVar</b> (char var)</td></tr>
+<tr class="memitem:a314d977344ac66806d49f28e6d27a525"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a314d977344ac66806d49f28e6d27a525">setVar</a> (char var)</td></tr>
 <tr class="separator:a314d977344ac66806d49f28e6d27a525"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ee3d646e0f9a7e76e674ca022ec4340"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ee3d646e0f9a7e76e674ca022ec4340"></a>
-<a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNum</b> ()</td></tr>
+<tr class="memitem:a0ee3d646e0f9a7e76e674ca022ec4340"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a0ee3d646e0f9a7e76e674ca022ec4340">getNum</a> ()</td></tr>
 <tr class="separator:a0ee3d646e0f9a7e76e674ca022ec4340"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12d191fd2c3f0a3bef0d5d70f93f5257"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12d191fd2c3f0a3bef0d5d70f93f5257"></a>
-<a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getDen</b> ()</td></tr>
+<tr class="memitem:a12d191fd2c3f0a3bef0d5d70f93f5257"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a12d191fd2c3f0a3bef0d5d70f93f5257">getDen</a> ()</td></tr>
 <tr class="separator:a12d191fd2c3f0a3bef0d5d70f93f5257"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6c7ef73abea2d67e8919cf538e92217"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad6c7ef73abea2d67e8919cf538e92217"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
+<tr class="memitem:ad6c7ef73abea2d67e8919cf538e92217"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ad6c7ef73abea2d67e8919cf538e92217">print</a> ()</td></tr>
 <tr class="separator:ad6c7ef73abea2d67e8919cf538e92217"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos Privados</h2></td></tr>
+<tr class="memitem:ab167990fe1e52cd84611a48f7e458235"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ab167990fe1e52cd84611a48f7e458235">init</a> (int NumSize)</td></tr>
+<tr class="separator:ab167990fe1e52cd84611a48f7e458235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4831c193ec9ac42ecd75232bcf502d49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a4831c193ec9ac42ecd75232bcf502d49">init</a> (int NumSize, int DenSize)</td></tr>
+<tr class="separator:a4831c193ec9ac42ecd75232bcf502d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52a7f7d6ed4d51673d82ab11227af2b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a52a7f7d6ed4d51673d82ab11227af2b3">init</a> (std::string Num)</td></tr>
+<tr class="separator:a52a7f7d6ed4d51673d82ab11227af2b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a386fc0566cde36536cb25448b46ae91f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a386fc0566cde36536cb25448b46ae91f">init</a> (std::string Num, string Den)</td></tr>
+<tr class="separator:a386fc0566cde36536cb25448b46ae91f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad909f355f6aa903ab79a5bc75367c90d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ad909f355f6aa903ab79a5bc75367c90d">init</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; Num, <a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; Den)</td></tr>
+<tr class="separator:ad909f355f6aa903ab79a5bc75367c90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e51895837e3a7582a559888547aac2a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a1e51895837e3a7582a559888547aac2a">VefDen</a> (TypeOfClass *den1, TypeOfClass *den2, int sizeden1, int sizeden2)</td></tr>
+<tr class="separator:a1e51895837e3a7582a559888547aac2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a123b90606607c96f8e7659ec8b0aef9b"><td class="memItemLeft" align="right" valign="top">TypeOfClass *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a123b90606607c96f8e7659ec8b0aef9b">initPointer</a> (int Size)</td></tr>
+<tr class="separator:a123b90606607c96f8e7659ec8b0aef9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a936858db267c9cf00769a09be4d99e0f"><td class="memItemLeft" align="right" valign="top">TypeOfClass *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a936858db267c9cf00769a09be4d99e0f">SumPoly</a> (TypeOfClass *value1, TypeOfClass *value2, int SizeValue1, int SizeValue2)</td></tr>
+<tr class="separator:a936858db267c9cf00769a09be4d99e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a21248c8f4fd8a44bafe37cbb605e8a"><td class="memItemLeft" align="right" valign="top">TypeOfClass *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a6a21248c8f4fd8a44bafe37cbb605e8a">SubPoly</a> (TypeOfClass *value1, TypeOfClass *value2, int SizeValue1, int SizeValue2)</td></tr>
+<tr class="separator:a6a21248c8f4fd8a44bafe37cbb605e8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86f77c7935370cacfae67deacd11e5ab"><td class="memItemLeft" align="right" valign="top">TypeOfClass *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a86f77c7935370cacfae67deacd11e5ab">MultPoly</a> (TypeOfClass *value1, TypeOfClass *value2, int SizeValue1, int SizeValue2)</td></tr>
+<tr class="separator:a86f77c7935370cacfae67deacd11e5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:af8bf879f47ffc4a8af747b002171ffe4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#af8bf879f47ffc4a8af747b002171ffe4">sizeNum</a></td></tr>
+<tr class="separator:af8bf879f47ffc4a8af747b002171ffe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46771583a9ae7f845e682baf6d2f301"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#af46771583a9ae7f845e682baf6d2f301">sizeDen</a></td></tr>
+<tr class="separator:af46771583a9ae7f845e682baf6d2f301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed4acc3e573fc7681363f5e915880a61"><td class="memItemLeft" align="right" valign="top">TypeOfClass *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#aed4acc3e573fc7681363f5e915880a61">num</a></td></tr>
+<tr class="separator:aed4acc3e573fc7681363f5e915880a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90ac0214cb5181b6abfc761622996d7f"><td class="memItemLeft" align="right" valign="top">TypeOfClass *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a90ac0214cb5181b6abfc761622996d7f">den</a></td></tr>
+<tr class="separator:a90ac0214cb5181b6abfc761622996d7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a87fb62f1629aa393cc99367e44b2d9"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a1a87fb62f1629aa393cc99367e44b2d9">x</a></td></tr>
+<tr class="separator:a1a87fb62f1629aa393cc99367e44b2d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Amigas</h2></td></tr>
-<tr class="memitem:aeba51d0a91379442deae8bb169eb6f1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeba51d0a91379442deae8bb169eb6f1b"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memitem:aeba51d0a91379442deae8bb169eb6f1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#aeba51d0a91379442deae8bb169eb6f1b">operator+</a> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
 <tr class="separator:aeba51d0a91379442deae8bb169eb6f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a789f4f5de4a98f0aedd2aeb386e21009"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a789f4f5de4a98f0aedd2aeb386e21009"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator-</b> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memitem:a789f4f5de4a98f0aedd2aeb386e21009"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a789f4f5de4a98f0aedd2aeb386e21009">operator-</a> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
 <tr class="separator:a789f4f5de4a98f0aedd2aeb386e21009"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbe2906590ebb11e8d868078c1a0a3f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adbe2906590ebb11e8d868078c1a0a3f6"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memitem:adbe2906590ebb11e8d868078c1a0a3f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#adbe2906590ebb11e8d868078c1a0a3f6">operator*</a> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
 <tr class="separator:adbe2906590ebb11e8d868078c1a0a3f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1626c7da399106ef01636d21698dc2a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1626c7da399106ef01636d21698dc2a9"></a>
-<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>operator/</b> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memitem:a1626c7da399106ef01636d21698dc2a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a1626c7da399106ef01636d21698dc2a9">operator/</a> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
 <tr class="separator:a1626c7da399106ef01636d21698dc2a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><h3>template&lt;class TypeOfClass&gt;<br />
+class Polynom&lt; TypeOfClass &gt;</h3>
+
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00010">10</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a class="anchor" id="a9385d1cd152f3edda6c3d9fabd5ee714"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::<a class="el" href="class_polynom.html">Polynom</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00004">4</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8599887a4cd1ed52be870191ef6fa703"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::<a class="el" href="class_polynom.html">Polynom</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00034">34</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a44c35ae93ecdd6f978784ca642507e0e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::<a class="el" href="class_polynom.html">Polynom</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Den</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00010">10</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7e6323738c6ad112ed6595ec9560517c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::<a class="el" href="class_polynom.html">Polynom</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>Num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00028">28</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ce083fa7e44f9a44bb7480435db7f32"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::<a class="el" href="class_polynom.html">Polynom</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>Num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>Den</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00016">16</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9548632447296846ef6f458a375e3181"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::<a class="el" href="class_polynom.html">Polynom</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>Num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>Den</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00022">22</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4024baeeed368df0608049860b6fef74"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::<a class="el" href="class_polynom.html">Polynom</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; &amp;&#160;</td>
+          <td class="paramname"><em>CopyPolynom</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00040">40</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac63320040c062bee44970e1079dff03d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::~<a class="el" href="class_polynom.html">Polynom</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00056">56</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="a12d191fd2c3f0a3bef0d5d70f93f5257"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::getDen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00428">428</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ee3d646e0f9a7e76e674ca022ec4340"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::getNum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00417">417</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab167990fe1e52cd84611a48f7e458235"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::init </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>NumSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00083">83</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4831c193ec9ac42ecd75232bcf502d49"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::init </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>NumSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>DenSize</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00094">94</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a52a7f7d6ed4d51673d82ab11227af2b3"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::init </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>Num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00104">104</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom_a52a7f7d6ed4d51673d82ab11227af2b3_cgraph.png" border="0" usemap="#class_polynom_a52a7f7d6ed4d51673d82ab11227af2b3_cgraph" alt=""/></div>
+<map name="class_polynom_a52a7f7d6ed4d51673d82ab11227af2b3_cgraph" id="class_polynom_a52a7f7d6ed4d51673d82ab11227af2b3_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="152,5,263,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a386fc0566cde36536cb25448b46ae91f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::init </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>Num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Den</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad909f355f6aa903ab79a5bc75367c90d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>Num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>Den</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00145">145</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom_ad909f355f6aa903ab79a5bc75367c90d_cgraph.png" border="0" usemap="#class_polynom_ad909f355f6aa903ab79a5bc75367c90d_cgraph" alt=""/></div>
+<map name="class_polynom_ad909f355f6aa903ab79a5bc75367c90d_cgraph" id="class_polynom_ad909f355f6aa903ab79a5bc75367c90d_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="152,5,263,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a123b90606607c96f8e7659ec8b0aef9b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TypeOfClass * <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::initPointer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>Size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00072">72</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a86f77c7935370cacfae67deacd11e5ab"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TypeOfClass * <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::MultPoly </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass *&#160;</td>
+          <td class="paramname"><em>value1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TypeOfClass *&#160;</td>
+          <td class="paramname"><em>value2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>SizeValue1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>SizeValue2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00404">404</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5a26fb1c5f840cd422b42de1cf3810b6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass&#160;</td>
+          <td class="paramname"><em>scalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00212">212</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a708940eceab9c36a06b5871be4de3bf2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>P</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00244">244</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac46cf0626b3b4d6ba2216f1e4c8ad991"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>P</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00164">164</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom_ac46cf0626b3b4d6ba2216f1e4c8ad991_cgraph.png" border="0" usemap="#class_polynom_ac46cf0626b3b4d6ba2216f1e4c8ad991_cgraph" alt=""/></div>
+<map name="class_polynom_ac46cf0626b3b4d6ba2216f1e4c8ad991_cgraph" id="class_polynom_ac46cf0626b3b4d6ba2216f1e4c8ad991_cgraph">
+<area shape="rect" id="node2" href="matrix_8cpp.html#adfe3600f358b2928305ba6175f32076f" title="max" alt="" coords="227,5,274,32"/><area shape="rect" id="node3" href="class_polynom.html#a279fd09569799e6940a9454c96641027" title="Polynom::setDen" alt="" coords="189,56,312,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d4f9fd63b3d81c87c60c354cd3244c8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass&#160;</td>
+          <td class="paramname"><em>scalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00289">289</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom_a0d4f9fd63b3d81c87c60c354cd3244c8_cgraph.png" border="0" usemap="#class_polynom_a0d4f9fd63b3d81c87c60c354cd3244c8_cgraph" alt=""/></div>
+<map name="class_polynom_a0d4f9fd63b3d81c87c60c354cd3244c8_cgraph" id="class_polynom_a0d4f9fd63b3d81c87c60c354cd3244c8_cgraph">
+<area shape="rect" id="node2" href="class_polynom.html#a15e2d194fabe8d6a9e0fcda9fd6237cb" title="Polynom::setNum" alt="" coords="189,5,316,32"/><area shape="rect" id="node3" href="class_polynom.html#a279fd09569799e6940a9454c96641027" title="Polynom::setDen" alt="" coords="191,56,314,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad98eb6a5a83752f26874725554ad04e4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>P</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00200">200</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53b554a685479a3c1156a30bfb8457b0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::operator- </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass&#160;</td>
+          <td class="paramname"><em>scalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00301">301</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom_a53b554a685479a3c1156a30bfb8457b0_cgraph.png" border="0" usemap="#class_polynom_a53b554a685479a3c1156a30bfb8457b0_cgraph" alt=""/></div>
+<map name="class_polynom_a53b554a685479a3c1156a30bfb8457b0_cgraph" id="class_polynom_a53b554a685479a3c1156a30bfb8457b0_cgraph">
+<area shape="rect" id="node2" href="class_polynom.html#a15e2d194fabe8d6a9e0fcda9fd6237cb" title="Polynom::setNum" alt="" coords="185,5,312,32"/><area shape="rect" id="node3" href="class_polynom.html#a279fd09569799e6940a9454c96641027" title="Polynom::setDen" alt="" coords="187,56,310,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ada104d4f530e5efb33e25d0199b38c47"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::operator/ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>P</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00225">225</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom_ada104d4f530e5efb33e25d0199b38c47_cgraph.png" border="0" usemap="#class_polynom_ada104d4f530e5efb33e25d0199b38c47_cgraph" alt=""/></div>
+<map name="class_polynom_ada104d4f530e5efb33e25d0199b38c47_cgraph" id="class_polynom_ada104d4f530e5efb33e25d0199b38c47_cgraph">
+<area shape="rect" id="node2" href="class_polynom.html#a279fd09569799e6940a9454c96641027" title="Polynom::setDen" alt="" coords="187,5,310,32"/><area shape="rect" id="node3" href="class_polynom.html#a15e2d194fabe8d6a9e0fcda9fd6237cb" title="Polynom::setNum" alt="" coords="185,56,312,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a87fb850b52086a3baf41d0c4782103df"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass&#160;</td>
+          <td class="paramname"><em>scalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00312">312</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a4f41e1aabc14cd7e7e92135abbe21e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>P</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00237">237</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4378bcceec215656ced7a3dfe62ac49d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::operator^ </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>scalar</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00259">259</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom_a4378bcceec215656ced7a3dfe62ac49d_cgraph.png" border="0" usemap="#class_polynom_a4378bcceec215656ced7a3dfe62ac49d_cgraph" alt=""/></div>
+<map name="class_polynom_a4378bcceec215656ced7a3dfe62ac49d_cgraph" id="class_polynom_a4378bcceec215656ced7a3dfe62ac49d_cgraph">
+<area shape="rect" id="node2" href="class_polynom.html#a15e2d194fabe8d6a9e0fcda9fd6237cb" title="Polynom::setNum" alt="" coords="187,5,313,32"/><area shape="rect" id="node3" href="class_polynom.html#a279fd09569799e6940a9454c96641027" title="Polynom::setDen" alt="" coords="189,56,311,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6c7ef73abea2d67e8919cf538e92217"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00439">439</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a279fd09569799e6940a9454c96641027"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::setDen </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass *&#160;</td>
+          <td class="paramname"><em>Den</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sizeden</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00348">348</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom_a279fd09569799e6940a9454c96641027_icgraph.png" border="0" usemap="#class_polynom_a279fd09569799e6940a9454c96641027_icgraph" alt=""/></div>
+<map name="class_polynom_a279fd09569799e6940a9454c96641027_icgraph" id="class_polynom_a279fd09569799e6940a9454c96641027_icgraph">
+<area shape="rect" id="node2" href="class_polynom.html#ac46cf0626b3b4d6ba2216f1e4c8ad991" title="Polynom::operator+" alt="" coords="176,5,312,32"/><area shape="rect" id="node3" href="class_polynom.html#ada104d4f530e5efb33e25d0199b38c47" title="Polynom::operator/" alt="" coords="178,56,310,83"/><area shape="rect" id="node4" href="class_polynom.html#a4378bcceec215656ced7a3dfe62ac49d" title="Polynom::operator^" alt="" coords="177,107,311,133"/><area shape="rect" id="node5" href="class_polynom.html#a53b554a685479a3c1156a30bfb8457b0" title="Polynom::operator&#45;" alt="" coords="178,157,310,184"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a15e2d194fabe8d6a9e0fcda9fd6237cb"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::setNum </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass *&#160;</td>
+          <td class="paramname"><em>Num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sizenum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00338">338</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom_a15e2d194fabe8d6a9e0fcda9fd6237cb_icgraph.png" border="0" usemap="#class_polynom_a15e2d194fabe8d6a9e0fcda9fd6237cb_icgraph" alt=""/></div>
+<map name="class_polynom_a15e2d194fabe8d6a9e0fcda9fd6237cb_icgraph" id="class_polynom_a15e2d194fabe8d6a9e0fcda9fd6237cb_icgraph">
+<area shape="rect" id="node2" href="class_polynom.html#ada104d4f530e5efb33e25d0199b38c47" title="Polynom::operator/" alt="" coords="182,5,314,32"/><area shape="rect" id="node3" href="class_polynom.html#a4378bcceec215656ced7a3dfe62ac49d" title="Polynom::operator^" alt="" coords="181,56,315,83"/><area shape="rect" id="node4" href="class_polynom.html#a0d4f9fd63b3d81c87c60c354cd3244c8" title="Polynom::operator+" alt="" coords="180,107,316,133"/><area shape="rect" id="node5" href="class_polynom.html#a53b554a685479a3c1156a30bfb8457b0" title="Polynom::operator&#45;" alt="" coords="182,157,314,184"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a314d977344ac66806d49f28e6d27a525"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::setVar </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>var</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00358">358</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6a21248c8f4fd8a44bafe37cbb605e8a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TypeOfClass * <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::SubPoly </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass *&#160;</td>
+          <td class="paramname"><em>value1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TypeOfClass *&#160;</td>
+          <td class="paramname"><em>value2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>SizeValue1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>SizeValue2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00384">384</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom_a6a21248c8f4fd8a44bafe37cbb605e8a_cgraph.png" border="0" usemap="#class_polynom_a6a21248c8f4fd8a44bafe37cbb605e8a_cgraph" alt=""/></div>
+<map name="class_polynom_a6a21248c8f4fd8a44bafe37cbb605e8a_cgraph" id="class_polynom_a6a21248c8f4fd8a44bafe37cbb605e8a_cgraph">
+<area shape="rect" id="node2" href="matrix_8cpp.html#a43bd7cfaaa219105983b3e8cca0e3f82" title="min" alt="" coords="186,5,229,32"/><area shape="rect" id="node3" href="matrix_8cpp.html#adfe3600f358b2928305ba6175f32076f" title="max" alt="" coords="184,56,231,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a936858db267c9cf00769a09be4d99e0f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TypeOfClass * <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::SumPoly </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass *&#160;</td>
+          <td class="paramname"><em>value1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TypeOfClass *&#160;</td>
+          <td class="paramname"><em>value2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>SizeValue1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>SizeValue2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00364">364</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_polynom_a936858db267c9cf00769a09be4d99e0f_cgraph.png" border="0" usemap="#class_polynom_a936858db267c9cf00769a09be4d99e0f_cgraph" alt=""/></div>
+<map name="class_polynom_a936858db267c9cf00769a09be4d99e0f_cgraph" id="class_polynom_a936858db267c9cf00769a09be4d99e0f_cgraph">
+<area shape="rect" id="node2" href="matrix_8cpp.html#a43bd7cfaaa219105983b3e8cca0e3f82" title="min" alt="" coords="190,5,233,32"/><area shape="rect" id="node3" href="matrix_8cpp.html#adfe3600f358b2928305ba6175f32076f" title="max" alt="" coords="188,56,235,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a1e51895837e3a7582a559888547aac2a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::VefDen </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass *&#160;</td>
+          <td class="paramname"><em>den1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TypeOfClass *&#160;</td>
+          <td class="paramname"><em>den2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sizeden1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sizeden2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8cpp_source.html#l00318">318</a> do arquivo <a class="el" href="polynom_8cpp_source.html">polynom.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Amigas e Funções Relacionadas</h2>
+<a class="anchor" id="adbe2906590ebb11e8d868078c1a0a3f6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt;TypeOfClass&gt; operator* </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>P</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00055">55</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeba51d0a91379442deae8bb169eb6f1b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt;TypeOfClass&gt; operator+ </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>P</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00047">47</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a789f4f5de4a98f0aedd2aeb386e21009"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt;TypeOfClass&gt; operator- </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>P</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00051">51</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1626c7da399106ef01636d21698dc2a9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt;TypeOfClass&gt; operator/ </td>
+          <td>(</td>
+          <td class="paramtype">TypeOfClass&#160;</td>
+          <td class="paramname"><em>scalar</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td>
+          <td class="paramname"><em>P</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00059">59</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="a90ac0214cb5181b6abfc761622996d7f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TypeOfClass * <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::den</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00014">14</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aed4acc3e573fc7681363f5e915880a61"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TypeOfClass* <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::num</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00014">14</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af46771583a9ae7f845e682baf6d2f301"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::sizeDen</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00013">13</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af8bf879f47ffc4a8af747b002171ffe4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::sizeNum</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00013">13</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a87fb62f1629aa393cc99367e44b2d9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class TypeOfClass&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;::x</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00015">15</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>SistemasdeControle/src/primitiveLibs/<a class="el" href="polynom_8h_source.html">polynom.h</a></li>
-<li>SistemasdeControle/src/primitiveLibs/polynom.cpp</li>
+<li>SistemasdeControle/src/primitiveLibs/<a class="el" href="polynom_8cpp_source.html">polynom.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:48 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

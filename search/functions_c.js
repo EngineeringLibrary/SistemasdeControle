@@ -1,17 +1,16 @@
 var searchData=
 [
-  ['setcolumn',['setColumn',['../class_matrix.html#a532f6ef6c73a89cb65ad587ab94d7abe',1,'Matrix']]],
-  ['setdatalimits',['SetDataLimits',['../classsim_function.html#ae1f9bd5751cb26a6b2f2327ec2ba743d',1,'simFunction']]],
-  ['setdatastep',['SetDataStep',['../classsim_function.html#ab21a7cc8a7f5f6121ec0edbb5105ab41',1,'simFunction']]],
-  ['setfunctioncall',['SetFunctionCall',['../classsim_function.html#ae50ca6ec20432c87a0b32ba51fe0e1dd',1,'simFunction']]],
-  ['setinputdata',['SetInputData',['../classsim_function.html#a1c9b1d37601d12b9f6c87ac94bf9a986',1,'simFunction']]],
-  ['setinstance',['setInstance',['../class_gl_view.html#a26ea52cd1f5bbafd716483ffbfc98485',1,'GlView']]],
-  ['setlimits',['setLimits',['../class_p_i_d.html#a3ed27364d4dfbc00359befd1023c6841',1,'PID']]],
-  ['setline',['setLine',['../class_matrix.html#a4d1bd93673b400e5282dfdc2eaeac2af',1,'Matrix']]],
-  ['setoutputdata',['SetOutputData',['../classsim_function.html#a8270dccc26698e35586a00d8f8817827',1,'simFunction']]],
-  ['setparams',['setParams',['../class_p_i_d.html#a984d1f5b551ea2477ee07818ed32acf2',1,'PID']]],
-  ['setsampletime',['setSampleTime',['../class_p_i_d.html#adf714d63b7d5d16125898b97b1cac602',1,'PID']]],
-  ['simfunction',['simFunction',['../classsim_function.html#ad04a344e74ed3e4245d27319c8ebb0c2',1,'simFunction::simFunction()'],['../classsim_function.html#ad812700f5e922985ebba9af6a5e1dff0',1,'simFunction::simFunction(Matrix&lt; double &gt; in, Matrix&lt; double &gt; out)'],['../classsim_function.html#a4a3d4298e8cc24f34383fbe6a1f2d933',1,'simFunction::simFunction(double(*FunctionToCall)(double), double lMin, double lMax, double step)']]],
-  ['startframework',['startFramework',['../class_gl_view.html#a451013c536ee6fb5fd286c3362522a70',1,'GlView']]],
-  ['std',['Std',['../class_matrix.html#a91716fc574a954f4ea481aad1500af39',1,'Matrix']]]
+  ['particleevaluation',['ParticleEvaluation',['../class_p_s_o.html#a3a42f6e83481ba852bb4a250c8d5abe5',1,'PSO']]],
+  ['particleupdate',['ParticleUpdate',['../class_p_s_o.html#a0699ed34ffd0ce04a341530c9be80ed6',1,'PSO']]],
+  ['passivemotionfunc',['PassiveMotionFunc',['../class_gl_view.html#a6ee474bd379cfdf8579f4eb207d6e7d5',1,'GlView::PassiveMotionFunc()'],['../classgrafics.html#a22b7ffc9ead32948b81208fb74750f5e',1,'grafics::PassiveMotionFunc()']]],
+  ['passivemotionfuncwrapper',['PassiveMotionFuncWrapper',['../class_gl_view.html#ab20d15d3194a0d5104d1bd13b55fb92c',1,'GlView']]],
+  ['pid',['PID',['../class_p_i_d.html#aac97dfe35f8d3c980ccb1863f0331f53',1,'PID']]],
+  ['pol',['pol',['../class_matrix.html#a29ede755f978702c18c7e4bca5da36c7',1,'Matrix']]],
+  ['polycoef',['polyCoef',['../class_lsim.html#a33e32ade5b8962f4bc8a71ff4d867992',1,'Lsim']]],
+  ['polymodel',['polyModel',['../class_lsim.html#a9f25475f6d4f20ffe00ff5a9e5ba8fd6',1,'Lsim']]],
+  ['polynom',['Polynom',['../class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714',1,'Polynom::Polynom()'],['../class_polynom.html#a8599887a4cd1ed52be870191ef6fa703',1,'Polynom::Polynom(int Num)'],['../class_polynom.html#a44c35ae93ecdd6f978784ca642507e0e',1,'Polynom::Polynom(int Num, int Den)'],['../class_polynom.html#a7e6323738c6ad112ed6595ec9560517c',1,'Polynom::Polynom(std::string Num)'],['../class_polynom.html#a9ce083fa7e44f9a44bb7480435db7f32',1,'Polynom::Polynom(std::string Num, std::string Den)'],['../class_polynom.html#a9548632447296846ef6f458a375e3181',1,'Polynom::Polynom(Matrix&lt; TypeOfClass &gt; Num, Matrix&lt; TypeOfClass &gt; Den)'],['../class_polynom.html#a4024baeeed368df0608049860b6fef74',1,'Polynom::Polynom(const Polynom&lt; TypeOfClass &gt; &amp;CopyPolynom)']]],
+  ['print',['print',['../class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a',1,'Matrix::print()'],['../class_polynom.html#ad6c7ef73abea2d67e8919cf538e92217',1,'Polynom::print()'],['../class_eqdif_sim.html#a30a984452e9c5cd5af7c693fb115a46b',1,'EqdifSim::print()']]],
+  ['printss',['printSS',['../class_eqdif_sim.html#a432b76a19c93b3a30ee35707922d9d13',1,'EqdifSim']]],
+  ['printtf',['printTF',['../class_eqdif_sim.html#a1bd6290398cf60eec58fca7b7739fb2f',1,'EqdifSim']]],
+  ['pso',['PSO',['../class_p_s_o.html#a728b1ffd7dbcd4fb55b37cfa0d16a37b',1,'PSO::PSO()'],['../class_p_s_o.html#af335ab7d474e4d0d5578fd502f9549c4',1,'PSO::PSO(int varNum, int PopSize, int GenSize)'],['../class_p_s_o.html#ad6b88250fa54c27233e70f438c404650',1,'PSO::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2)'],['../class_p_s_o.html#ae12083c1bdd6b993c1c6d9da97660601',1,'PSO::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax)']]]
 ];

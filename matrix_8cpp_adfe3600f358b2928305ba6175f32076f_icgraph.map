@@ -1,0 +1,7 @@
+<map id="max" name="max">
+<area shape="rect" id="node2" href="$class_matrix.html#a2cc1e0be0c535a46dbebddc7636a63f8" title="Calcula os autovalores da matriz. " alt="" coords="101,5,235,32"/>
+<area shape="rect" id="node3" href="$class_eqdif_sim.html#a8c894e67be1081677995c10aa74c8407" title="EqdifSim::d2c" alt="" coords="284,31,387,57"/>
+<area shape="rect" id="node4" href="$class_polynom.html#ac46cf0626b3b4d6ba2216f1e4c8ad991" title="Polynom::operator+" alt="" coords="100,107,236,133"/>
+<area shape="rect" id="node5" href="$class_polynom.html#a936858db267c9cf00769a09be4d99e0f" title="Polynom::SumPoly" alt="" coords="101,157,235,184"/>
+<area shape="rect" id="node6" href="$class_polynom.html#a6a21248c8f4fd8a44bafe37cbb605e8a" title="Polynom::SubPoly" alt="" coords="103,208,233,235"/>
+</map>

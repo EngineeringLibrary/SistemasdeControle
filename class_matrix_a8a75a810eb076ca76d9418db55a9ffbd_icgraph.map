@@ -1,0 +1,10 @@
+<map id="Matrix::zeros" name="Matrix::zeros">
+<area shape="rect" id="node2" href="$class_matrix.html#abb9ae198fd5508ce2b0445a14d6ab356" title="Calcula a média dos elementos da matriz. " alt="" coords="165,5,277,32"/>
+<area shape="rect" id="node3" href="$class_matrix.html#a0684559eb9be7dddd45afbe57aa74a83" title="Calcula a variância dos elementos de uma matriz. " alt="" coords="162,56,279,83"/>
+<area shape="rect" id="node4" href="$class_matrix.html#a91716fc574a954f4ea481aad1500af39" title="Calcula o desvio padrão da matriz. " alt="" coords="177,107,264,133"/>
+<area shape="rect" id="node5" href="$class_matrix.html#a0496868d56e4938088e0bc3b160c3d71" title="Operador de multiplicação entre matrizes. " alt="" coords="161,157,280,184"/>
+<area shape="rect" id="node6" href="$class_eqdif_sim.html#a8c894e67be1081677995c10aa74c8407" title="EqdifSim::d2c" alt="" coords="169,208,272,235"/>
+<area shape="rect" id="node7" href="$class_eqdif_sim.html#ae8cee0ed07264d9cf576f0e25181592f" title="EqdifSim::tf2ssc" alt="" coords="162,259,279,285"/>
+<area shape="rect" id="node8" href="$class_eqdif_sim.html#adc6e79f136bf214fc68730552c8216e3" title="EqdifSim::tf2ssd" alt="" coords="162,309,279,336"/>
+<area shape="rect" id="node9" href="$class_sim.html#ade703a1ecb8df3220ea628a984b2f0ab" title="Sim::RunSimulation" alt="" coords="152,360,289,387"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="GlView::startFramework" name="GlView::startFramework">
+<area shape="rect" id="node2" href="$class_gl_view.html#af527a092e0168cdf1a69f6bdcc58cbcf" title="Método para mostrar na janela desenhos criados com comandos no OpenGL. " alt="" coords="228,5,389,32"/>
+<area shape="rect" id="node4" href="$class_gl_view.html#a04795854e77d9015c50e114fb2db2476" title="Método para obter o click do mouse, se o mouse está clicado e sua posição x e y na tela;..." alt="" coords="215,56,403,83"/>
+<area shape="rect" id="node6" href="$class_gl_view.html#a18b463ac9db77ace80f484f0dce41b60" title="Método para obter a posição do mouse enquanto ele está em movimento e com o botão apertado..." alt="" coords="215,107,403,133"/>
+<area shape="rect" id="node8" href="$class_gl_view.html#ab20d15d3194a0d5104d1bd13b55fb92c" title="Método para obter a posição do mouse enquanto ele está em movimento sem que o botão esteja apertado..." alt="" coords="217,158,401,199"/>
+<area shape="rect" id="node3" href="$class_gl_view.html#ad67ebb10fe30265fc6930d66dea1e544" title="Método virtual que permite que uma classe filha implemente um método para mostrar na janela desenhos ..." alt="" coords="488,5,600,32"/>
+<area shape="rect" id="node5" href="$class_gl_view.html#a495e59513eb70b3fc743f5e3f231a8e6" title="Método virtual que permite que uma classe filha implemente um Método para tratar o click do mouse..." alt="" coords="451,56,637,83"/>
+<area shape="rect" id="node7" href="$class_gl_view.html#a24c8ef76a4a6d2bfbbb34dab889b046a" title="Método virtual que permite que uma classe filha implemente um Método para tratar a posição do mouse e..." alt="" coords="475,107,613,133"/>
+<area shape="rect" id="node9" href="$class_gl_view.html#a6ee474bd379cfdf8579f4eb207d6e7d5" title="Método virtual que permite que uma classe filha implemente um Método para tratar a posição do mouse e..." alt="" coords="452,165,636,192"/>
+</map>

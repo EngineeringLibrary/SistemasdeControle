@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,38 +90,140 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="title">Referência da Estrutura tagOPCITEMVQT</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_opcda_8h_source.html">Opcda.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para tagOPCITEMVQT:</div>
+<div class="dyncontent">
+<div class="center"><img src="structtag_o_p_c_i_t_e_m_v_q_t__coll__graph.png" border="0" usemap="#tag_o_p_c_i_t_e_m_v_q_t_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributos Públicos</h2></td></tr>
-<tr class="memitem:a7427dbca8e7fdfdb2b929afae26bd76b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7427dbca8e7fdfdb2b929afae26bd76b"></a>
-VARIANT&#160;</td><td class="memItemRight" valign="bottom"><b>vDataValue</b></td></tr>
+<tr class="memitem:a7427dbca8e7fdfdb2b929afae26bd76b"><td class="memItemLeft" align="right" valign="top">VARIANT&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_i_t_e_m_v_q_t.html#a7427dbca8e7fdfdb2b929afae26bd76b">vDataValue</a></td></tr>
 <tr class="separator:a7427dbca8e7fdfdb2b929afae26bd76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9c64bc4abd303c786bd04689fde3730"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9c64bc4abd303c786bd04689fde3730"></a>
-BOOL&#160;</td><td class="memItemRight" valign="bottom"><b>bQualitySpecified</b></td></tr>
+<tr class="memitem:aa9c64bc4abd303c786bd04689fde3730"><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_i_t_e_m_v_q_t.html#aa9c64bc4abd303c786bd04689fde3730">bQualitySpecified</a></td></tr>
 <tr class="separator:aa9c64bc4abd303c786bd04689fde3730"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade6221b4fd9c2234691641f2db3f5cd0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade6221b4fd9c2234691641f2db3f5cd0"></a>
-WORD&#160;</td><td class="memItemRight" valign="bottom"><b>wQuality</b></td></tr>
+<tr class="memitem:ade6221b4fd9c2234691641f2db3f5cd0"><td class="memItemLeft" align="right" valign="top">WORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_i_t_e_m_v_q_t.html#ade6221b4fd9c2234691641f2db3f5cd0">wQuality</a></td></tr>
 <tr class="separator:ade6221b4fd9c2234691641f2db3f5cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93ff258b9ded73572af11ffd0a56c4c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a93ff258b9ded73572af11ffd0a56c4c5"></a>
-WORD&#160;</td><td class="memItemRight" valign="bottom"><b>wReserved</b></td></tr>
+<tr class="memitem:a93ff258b9ded73572af11ffd0a56c4c5"><td class="memItemLeft" align="right" valign="top">WORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_i_t_e_m_v_q_t.html#a93ff258b9ded73572af11ffd0a56c4c5">wReserved</a></td></tr>
 <tr class="separator:a93ff258b9ded73572af11ffd0a56c4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3fa1da4c881d5ae7cc76fbcbf3df53d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3fa1da4c881d5ae7cc76fbcbf3df53d9"></a>
-BOOL&#160;</td><td class="memItemRight" valign="bottom"><b>bTimeStampSpecified</b></td></tr>
+<tr class="memitem:a3fa1da4c881d5ae7cc76fbcbf3df53d9"><td class="memItemLeft" align="right" valign="top">BOOL&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_i_t_e_m_v_q_t.html#a3fa1da4c881d5ae7cc76fbcbf3df53d9">bTimeStampSpecified</a></td></tr>
 <tr class="separator:a3fa1da4c881d5ae7cc76fbcbf3df53d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade4ba4d63a082cec7bf78c9e4b568979"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade4ba4d63a082cec7bf78c9e4b568979"></a>
-DWORD&#160;</td><td class="memItemRight" valign="bottom"><b>dwReserved</b></td></tr>
+<tr class="memitem:ade4ba4d63a082cec7bf78c9e4b568979"><td class="memItemLeft" align="right" valign="top">DWORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_i_t_e_m_v_q_t.html#ade4ba4d63a082cec7bf78c9e4b568979">dwReserved</a></td></tr>
 <tr class="separator:ade4ba4d63a082cec7bf78c9e4b568979"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0799b1e6c33134ae47dafcda62bb5c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0799b1e6c33134ae47dafcda62bb5c2"></a>
-FILETIME&#160;</td><td class="memItemRight" valign="bottom"><b>ftTimeStamp</b></td></tr>
+<tr class="memitem:ab0799b1e6c33134ae47dafcda62bb5c2"><td class="memItemLeft" align="right" valign="top">FILETIME&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_i_t_e_m_v_q_t.html#ab0799b1e6c33134ae47dafcda62bb5c2">ftTimeStamp</a></td></tr>
 <tr class="separator:ab0799b1e6c33134ae47dafcda62bb5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock">
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00800">800</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+</div><h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="aa9c64bc4abd303c786bd04689fde3730"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL tagOPCITEMVQT::bQualitySpecified</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00803">803</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3fa1da4c881d5ae7cc76fbcbf3df53d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL tagOPCITEMVQT::bTimeStampSpecified</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00806">806</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ade4ba4d63a082cec7bf78c9e4b568979"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD tagOPCITEMVQT::dwReserved</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00807">807</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab0799b1e6c33134ae47dafcda62bb5c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILETIME tagOPCITEMVQT::ftTimeStamp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00808">808</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7427dbca8e7fdfdb2b929afae26bd76b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">VARIANT tagOPCITEMVQT::vDataValue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00802">802</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ade6221b4fd9c2234691641f2db3f5cd0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WORD tagOPCITEMVQT::wQuality</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00804">804</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a93ff258b9ded73572af11ffd0a56c4c5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WORD tagOPCITEMVQT::wReserved</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00805">805</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
 <li>SistemasdeControle/src/communicationLibs/opc/<a class="el" href="_opcda_8h_source.html">Opcda.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:48 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

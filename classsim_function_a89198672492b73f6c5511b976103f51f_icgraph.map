@@ -1,0 +1,5 @@
+<map id="simFunction::FunctionCalculation" name="simFunction::FunctionCalculation">
+<area shape="rect" id="node2" href="$classsim_function.html#a4983e03e4220cfdb8f6904eb3b1d1b3f" title="Calcula os dados de saída a partir dos parâmetros lMin, lMax, step. " alt="" coords="268,5,449,47"/>
+<area shape="rect" id="node3" href="$classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="497,13,644,39"/>
+<area shape="rect" id="node4" href="$classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="692,13,801,39"/>
+</map>

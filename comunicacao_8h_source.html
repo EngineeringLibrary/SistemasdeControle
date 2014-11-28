@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="title">comunicacao.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<a href="comunicacao_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;windows.h&gt;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//#include &lt;cstdlib&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//#include &lt;string&gt;</span></div>
@@ -99,11 +100,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_serial.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_serial.html">Serial</a> {</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;      HANDLE PortaSerial;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;      DCB dcbPortaSerialparams;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;      COMMTIMEOUTS timeouts;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      <span class="keywordtype">char</span> bytes_pra_envio[];</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;      <span class="keywordtype">char</span> bytes_para_receber[5];</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_serial.html#a10ecf15c25e98bc7ecf65c6a2361115b">   12</a></span>&#160;      HANDLE <a class="code" href="class_serial.html#a10ecf15c25e98bc7ecf65c6a2361115b">PortaSerial</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_serial.html#a0454fc57d5912907a2e0167c02d47513">   13</a></span>&#160;      DCB <a class="code" href="class_serial.html#a0454fc57d5912907a2e0167c02d47513">dcbPortaSerialparams</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_serial.html#afa71d8cc019d2675bbe6cb8d41326166">   14</a></span>&#160;      COMMTIMEOUTS <a class="code" href="class_serial.html#afa71d8cc019d2675bbe6cb8d41326166">timeouts</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_serial.html#aedd38cb937402810dda7fffa7a1b3060">   15</a></span>&#160;      <span class="keywordtype">char</span> bytes_pra_envio[];</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_serial.html#a8a89b5f17b9450bc0f5d3007c7637323">   16</a></span>&#160;      <span class="keywordtype">char</span> bytes_para_receber[5];</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;     </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;      <a class="code" href="class_serial.html">Serial</a>(); </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
@@ -116,12 +117,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="ttc" id="class_serial_html_a10ecf15c25e98bc7ecf65c6a2361115b"><div class="ttname"><a href="class_serial.html#a10ecf15c25e98bc7ecf65c6a2361115b">Serial::PortaSerial</a></div><div class="ttdeci">HANDLE PortaSerial</div><div class="ttdef"><b>Definition:</b> <a href="comunicacao_8h_source.html#l00012">comunicacao.h:12</a></div></div>
+<div class="ttc" id="class_serial_html_a0454fc57d5912907a2e0167c02d47513"><div class="ttname"><a href="class_serial.html#a0454fc57d5912907a2e0167c02d47513">Serial::dcbPortaSerialparams</a></div><div class="ttdeci">DCB dcbPortaSerialparams</div><div class="ttdef"><b>Definition:</b> <a href="comunicacao_8h_source.html#l00013">comunicacao.h:13</a></div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
-<div class="ttc" id="class_serial_html"><div class="ttname"><a href="class_serial.html">Serial</a></div><div class="ttdef"><b>Definition:</b> comunicacao.h:10</div></div>
+<div class="ttc" id="class_serial_html"><div class="ttname"><a href="class_serial.html">Serial</a></div><div class="ttdef"><b>Definition:</b> <a href="comunicacao_8h_source.html#l00010">comunicacao.h:10</a></div></div>
+<div class="ttc" id="class_serial_html_afa71d8cc019d2675bbe6cb8d41326166"><div class="ttname"><a href="class_serial.html#afa71d8cc019d2675bbe6cb8d41326166">Serial::timeouts</a></div><div class="ttdeci">COMMTIMEOUTS timeouts</div><div class="ttdef"><b>Definition:</b> <a href="comunicacao_8h_source.html#l00014">comunicacao.h:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:45 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,59 +91,254 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="title">Referência da Estrutura IOPCEnumGUIDVtbl</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="opccomn_8h_source.html">opccomn.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para IOPCEnumGUIDVtbl:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_i_o_p_c_enum_g_u_i_d_vtbl__coll__graph.png" border="0" usemap="#_i_o_p_c_enum_g_u_i_d_vtbl_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
-<tr class="memitem:a60d808ca021eb57cb700c8fd8e77a918"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60d808ca021eb57cb700c8fd8e77a918"></a>
-BEGIN_INTERFACE&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *QueryInterface)(IOPCEnumGUID *This</td></tr>
+<tr class="memitem:a60d808ca021eb57cb700c8fd8e77a918"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> (STDMETHODCALLTYPE *QueryInterface)(<a class="el" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> *This</td></tr>
 <tr class="separator:a60d808ca021eb57cb700c8fd8e77a918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab18d61d4fb721170b2cdc0822465bc0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab18d61d4fb721170b2cdc0822465bc0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ULONG</b> (STDMETHODCALLTYPE *AddRef)(IOPCEnumGUID *This)</td></tr>
+<tr class="memitem:aab18d61d4fb721170b2cdc0822465bc0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> (STDMETHODCALLTYPE *AddRef)(<a class="el" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> *This)</td></tr>
 <tr class="separator:aab18d61d4fb721170b2cdc0822465bc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4567310e858a1d897709751b53f5394"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad4567310e858a1d897709751b53f5394"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ULONG</b> (STDMETHODCALLTYPE *Release)(IOPCEnumGUID *This)</td></tr>
+<tr class="memitem:ad4567310e858a1d897709751b53f5394"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ad4567310e858a1d897709751b53f5394">ULONG</a> (STDMETHODCALLTYPE *Release)(<a class="el" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> *This)</td></tr>
 <tr class="separator:ad4567310e858a1d897709751b53f5394"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec2f421c46bbf52f8645920c5ac0d7ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec2f421c46bbf52f8645920c5ac0d7ec"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Next)(IOPCEnumGUID *This</td></tr>
+<tr class="memitem:aec2f421c46bbf52f8645920c5ac0d7ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aec2f421c46bbf52f8645920c5ac0d7ec">HRESULT</a> (STDMETHODCALLTYPE *Next)(<a class="el" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> *This</td></tr>
 <tr class="separator:aec2f421c46bbf52f8645920c5ac0d7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31bc08b427bd38861633a9edcbb48234"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31bc08b427bd38861633a9edcbb48234"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Skip)(IOPCEnumGUID *This</td></tr>
+<tr class="memitem:a31bc08b427bd38861633a9edcbb48234"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a31bc08b427bd38861633a9edcbb48234">HRESULT</a> (STDMETHODCALLTYPE *Skip)(<a class="el" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> *This</td></tr>
 <tr class="separator:a31bc08b427bd38861633a9edcbb48234"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c7107deca3c3242baf7a897ee8b35cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c7107deca3c3242baf7a897ee8b35cd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Reset)(IOPCEnumGUID *This)</td></tr>
+<tr class="memitem:a5c7107deca3c3242baf7a897ee8b35cd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a5c7107deca3c3242baf7a897ee8b35cd">HRESULT</a> (STDMETHODCALLTYPE *Reset)(<a class="el" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> *This)</td></tr>
 <tr class="separator:a5c7107deca3c3242baf7a897ee8b35cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36a1d874daddb55777840610e9e9ca90"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a36a1d874daddb55777840610e9e9ca90"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Clone)(IOPCEnumGUID *This</td></tr>
+<tr class="memitem:a36a1d874daddb55777840610e9e9ca90"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a36a1d874daddb55777840610e9e9ca90">HRESULT</a> (STDMETHODCALLTYPE *Clone)(<a class="el" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> *This</td></tr>
 <tr class="separator:a36a1d874daddb55777840610e9e9ca90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributos Públicos</h2></td></tr>
-<tr class="memitem:ade36b4d28927dc260400b74c6342d7b5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade36b4d28927dc260400b74c6342d7b5"></a>
-BEGIN_INTERFACE REFIID&#160;</td><td class="memItemRight" valign="bottom"><b>riid</b></td></tr>
+<tr class="memitem:ade36b4d28927dc260400b74c6342d7b5"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE REFIID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ade36b4d28927dc260400b74c6342d7b5">riid</a></td></tr>
 <tr class="separator:ade36b4d28927dc260400b74c6342d7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1f22d83dc3ffdca6dd6df181260213a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1f22d83dc3ffdca6dd6df181260213a"></a>
-BEGIN_INTERFACE REFIID void **&#160;</td><td class="memItemRight" valign="bottom"><b>ppvObject</b></td></tr>
+<tr class="memitem:ab1f22d83dc3ffdca6dd6df181260213a"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE REFIID void **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ab1f22d83dc3ffdca6dd6df181260213a">ppvObject</a></td></tr>
 <tr class="separator:ab1f22d83dc3ffdca6dd6df181260213a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac86637dbadf57b4be9a6bfc5d8986e22"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac86637dbadf57b4be9a6bfc5d8986e22"></a>
-ULONG&#160;</td><td class="memItemRight" valign="bottom"><b>celt</b></td></tr>
+<tr class="memitem:ac86637dbadf57b4be9a6bfc5d8986e22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ac86637dbadf57b4be9a6bfc5d8986e22">celt</a></td></tr>
 <tr class="separator:ac86637dbadf57b4be9a6bfc5d8986e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23c4f114c3cba80f12d0bb718349fe52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a23c4f114c3cba80f12d0bb718349fe52"></a>
-ULONG GUID *&#160;</td><td class="memItemRight" valign="bottom"><b>rgelt</b></td></tr>
+<tr class="memitem:a23c4f114c3cba80f12d0bb718349fe52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> GUID *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a23c4f114c3cba80f12d0bb718349fe52">rgelt</a></td></tr>
 <tr class="separator:a23c4f114c3cba80f12d0bb718349fe52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd431fb5a31b2b50ae82de0ad9340457"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afd431fb5a31b2b50ae82de0ad9340457"></a>
-ULONG GUID ULONG *&#160;</td><td class="memItemRight" valign="bottom"><b>pceltFetched</b></td></tr>
+<tr class="memitem:afd431fb5a31b2b50ae82de0ad9340457"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> GUID <a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#afd431fb5a31b2b50ae82de0ad9340457">pceltFetched</a></td></tr>
 <tr class="separator:afd431fb5a31b2b50ae82de0ad9340457"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3022a850e1c2e9ab255ccaf529028e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3022a850e1c2e9ab255ccaf529028e0"></a>
-IOPCEnumGUID **&#160;</td><td class="memItemRight" valign="bottom"><b>ppenum</b></td></tr>
+<tr class="memitem:ae3022a850e1c2e9ab255ccaf529028e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ae3022a850e1c2e9ab255ccaf529028e0">ppenum</a></td></tr>
 <tr class="separator:ae3022a850e1c2e9ab255ccaf529028e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock">
+<p>Definição na linha <a class="el" href="opccomn_8h_source.html#l00583">583</a> do arquivo <a class="el" href="opccomn_8h_source.html">opccomn.h</a>.</p>
+</div><h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="a60d808ca021eb57cb700c8fd8e77a918"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE IOPCEnumGUIDVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>QueryInterface</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aec2f421c46bbf52f8645920c5ac0d7ec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCEnumGUIDVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Next</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a31bc08b427bd38861633a9edcbb48234"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCEnumGUIDVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Skip</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5c7107deca3c3242baf7a897ee8b35cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCEnumGUIDVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Reset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a36a1d874daddb55777840610e9e9ca90"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCEnumGUIDVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Clone</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aab18d61d4fb721170b2cdc0822465bc0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCEnumGUIDVtbl::ULONG </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>AddRef</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad4567310e858a1d897709751b53f5394"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCEnumGUIDVtbl::ULONG </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Release</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="ac86637dbadf57b4be9a6bfc5d8986e22"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> IOPCEnumGUIDVtbl::celt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="opccomn_8h_source.html#l00600">600</a> do arquivo <a class="el" href="opccomn_8h_source.html">opccomn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afd431fb5a31b2b50ae82de0ad9340457"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> GUID <a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a>* IOPCEnumGUIDVtbl::pceltFetched</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="opccomn_8h_source.html#l00600">600</a> do arquivo <a class="el" href="opccomn_8h_source.html">opccomn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae3022a850e1c2e9ab255ccaf529028e0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a>** IOPCEnumGUIDVtbl::ppenum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="opccomn_8h_source.html#l00613">613</a> do arquivo <a class="el" href="opccomn_8h_source.html">opccomn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab1f22d83dc3ffdca6dd6df181260213a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE REFIID void** IOPCEnumGUIDVtbl::ppvObject</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="opccomn_8h_source.html#l00589">589</a> do arquivo <a class="el" href="opccomn_8h_source.html">opccomn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a23c4f114c3cba80f12d0bb718349fe52"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> GUID* IOPCEnumGUIDVtbl::rgelt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="opccomn_8h_source.html#l00600">600</a> do arquivo <a class="el" href="opccomn_8h_source.html">opccomn.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ade36b4d28927dc260400b74c6342d7b5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE REFIID IOPCEnumGUIDVtbl::riid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="opccomn_8h_source.html#l00589">589</a> do arquivo <a class="el" href="opccomn_8h_source.html">opccomn.h</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
 <li>SistemasdeControle/src/communicationLibs/opc/<a class="el" href="opccomn_8h_source.html">opccomn.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:47 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

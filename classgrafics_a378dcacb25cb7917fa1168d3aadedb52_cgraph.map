@@ -1,0 +1,5 @@
+<map id="grafics::DrawTitle" name="grafics::DrawTitle">
+<area shape="rect" id="node2" href="$classgraphic_properties.html#a548447e01db25f30a49fa58b9f67d4e9" title="Método cuja responsabilidade é obter o valor da variável GraphicXLimit_Rigth. " alt="" coords="175,5,305,47"/>
+<area shape="rect" id="node3" href="$classgraphic_properties.html#a8ea0a4c975048f9dea87bfd13b2a967f" title="Método cuja responsabilidade é obter o valor da variável GraphicYLimit_Up. " alt="" coords="175,71,305,112"/>
+<area shape="rect" id="node4" href="$classgraphic_properties.html#a6fb3fddc049a89e82463142c69802fa9" title="Método cuja responsabilidade é obter o valor da variável Title. " alt="" coords="175,136,305,177"/>
+</map>

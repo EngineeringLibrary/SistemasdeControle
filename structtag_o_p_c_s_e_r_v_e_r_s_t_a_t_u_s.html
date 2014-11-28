@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,50 +90,204 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="title">Referência da Estrutura tagOPCSERVERSTATUS</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_opcda_8h_source.html">Opcda.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para tagOPCSERVERSTATUS:</div>
+<div class="dyncontent">
+<div class="center"><img src="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s__coll__graph.png" border="0" usemap="#tag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributos Públicos</h2></td></tr>
-<tr class="memitem:aa2fe145d5bfd30de82de4a94fea7e9a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2fe145d5bfd30de82de4a94fea7e9a6"></a>
-FILETIME&#160;</td><td class="memItemRight" valign="bottom"><b>ftStartTime</b></td></tr>
+<tr class="memitem:aa2fe145d5bfd30de82de4a94fea7e9a6"><td class="memItemLeft" align="right" valign="top">FILETIME&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#aa2fe145d5bfd30de82de4a94fea7e9a6">ftStartTime</a></td></tr>
 <tr class="separator:aa2fe145d5bfd30de82de4a94fea7e9a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a319ccd967ff0882023cdaa42c0ab74e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a319ccd967ff0882023cdaa42c0ab74e0"></a>
-FILETIME&#160;</td><td class="memItemRight" valign="bottom"><b>ftCurrentTime</b></td></tr>
+<tr class="memitem:a319ccd967ff0882023cdaa42c0ab74e0"><td class="memItemLeft" align="right" valign="top">FILETIME&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#a319ccd967ff0882023cdaa42c0ab74e0">ftCurrentTime</a></td></tr>
 <tr class="separator:a319ccd967ff0882023cdaa42c0ab74e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3af49ebb10b0306e89c0163fc74a0198"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3af49ebb10b0306e89c0163fc74a0198"></a>
-FILETIME&#160;</td><td class="memItemRight" valign="bottom"><b>ftLastUpdateTime</b></td></tr>
+<tr class="memitem:a3af49ebb10b0306e89c0163fc74a0198"><td class="memItemLeft" align="right" valign="top">FILETIME&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#a3af49ebb10b0306e89c0163fc74a0198">ftLastUpdateTime</a></td></tr>
 <tr class="separator:a3af49ebb10b0306e89c0163fc74a0198"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a382599396724a370f385c5c9b49309bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a382599396724a370f385c5c9b49309bb"></a>
-OPCSERVERSTATE&#160;</td><td class="memItemRight" valign="bottom"><b>dwServerState</b></td></tr>
+<tr class="memitem:a382599396724a370f385c5c9b49309bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_opcda_8h.html#a316b2e835eae187c4fef62eb88d060bb">OPCSERVERSTATE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#a382599396724a370f385c5c9b49309bb">dwServerState</a></td></tr>
 <tr class="separator:a382599396724a370f385c5c9b49309bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26b259e882e8ae6b3f4ca14c6147b78f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26b259e882e8ae6b3f4ca14c6147b78f"></a>
-DWORD&#160;</td><td class="memItemRight" valign="bottom"><b>dwGroupCount</b></td></tr>
+<tr class="memitem:a26b259e882e8ae6b3f4ca14c6147b78f"><td class="memItemLeft" align="right" valign="top">DWORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#a26b259e882e8ae6b3f4ca14c6147b78f">dwGroupCount</a></td></tr>
 <tr class="separator:a26b259e882e8ae6b3f4ca14c6147b78f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb402b904834c40c5c30a1ee172da543"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb402b904834c40c5c30a1ee172da543"></a>
-DWORD&#160;</td><td class="memItemRight" valign="bottom"><b>dwBandWidth</b></td></tr>
+<tr class="memitem:abb402b904834c40c5c30a1ee172da543"><td class="memItemLeft" align="right" valign="top">DWORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#abb402b904834c40c5c30a1ee172da543">dwBandWidth</a></td></tr>
 <tr class="separator:abb402b904834c40c5c30a1ee172da543"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c941ab9bc4d0e196bbe828318b33f35"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9c941ab9bc4d0e196bbe828318b33f35"></a>
-WORD&#160;</td><td class="memItemRight" valign="bottom"><b>wMajorVersion</b></td></tr>
+<tr class="memitem:a9c941ab9bc4d0e196bbe828318b33f35"><td class="memItemLeft" align="right" valign="top">WORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#a9c941ab9bc4d0e196bbe828318b33f35">wMajorVersion</a></td></tr>
 <tr class="separator:a9c941ab9bc4d0e196bbe828318b33f35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a119a5e184bba9f34ec8dac39b555a964"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a119a5e184bba9f34ec8dac39b555a964"></a>
-WORD&#160;</td><td class="memItemRight" valign="bottom"><b>wMinorVersion</b></td></tr>
+<tr class="memitem:a119a5e184bba9f34ec8dac39b555a964"><td class="memItemLeft" align="right" valign="top">WORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#a119a5e184bba9f34ec8dac39b555a964">wMinorVersion</a></td></tr>
 <tr class="separator:a119a5e184bba9f34ec8dac39b555a964"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac118074b8edebe0fec209e2030c6e44e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac118074b8edebe0fec209e2030c6e44e"></a>
-WORD&#160;</td><td class="memItemRight" valign="bottom"><b>wBuildNumber</b></td></tr>
+<tr class="memitem:ac118074b8edebe0fec209e2030c6e44e"><td class="memItemLeft" align="right" valign="top">WORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#ac118074b8edebe0fec209e2030c6e44e">wBuildNumber</a></td></tr>
 <tr class="separator:ac118074b8edebe0fec209e2030c6e44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fda06f10706d4b55fa7bb6241563fdd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7fda06f10706d4b55fa7bb6241563fdd"></a>
-WORD&#160;</td><td class="memItemRight" valign="bottom"><b>wReserved</b></td></tr>
+<tr class="memitem:a7fda06f10706d4b55fa7bb6241563fdd"><td class="memItemLeft" align="right" valign="top">WORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#a7fda06f10706d4b55fa7bb6241563fdd">wReserved</a></td></tr>
 <tr class="separator:a7fda06f10706d4b55fa7bb6241563fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42a8bb481ac6eb9c8d1db964498c16d0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42a8bb481ac6eb9c8d1db964498c16d0"></a>
-LPWSTR&#160;</td><td class="memItemRight" valign="bottom"><b>szVendorInfo</b></td></tr>
+<tr class="memitem:a42a8bb481ac6eb9c8d1db964498c16d0"><td class="memItemLeft" align="right" valign="top">LPWSTR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#a42a8bb481ac6eb9c8d1db964498c16d0">szVendorInfo</a></td></tr>
 <tr class="separator:a42a8bb481ac6eb9c8d1db964498c16d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock">
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00718">718</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+</div><h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="abb402b904834c40c5c30a1ee172da543"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD tagOPCSERVERSTATUS::dwBandWidth</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00725">725</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26b259e882e8ae6b3f4ca14c6147b78f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD tagOPCSERVERSTATUS::dwGroupCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00724">724</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a382599396724a370f385c5c9b49309bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_opcda_8h.html#a316b2e835eae187c4fef62eb88d060bb">OPCSERVERSTATE</a> tagOPCSERVERSTATUS::dwServerState</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00723">723</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a319ccd967ff0882023cdaa42c0ab74e0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILETIME tagOPCSERVERSTATUS::ftCurrentTime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00721">721</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3af49ebb10b0306e89c0163fc74a0198"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILETIME tagOPCSERVERSTATUS::ftLastUpdateTime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00722">722</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa2fe145d5bfd30de82de4a94fea7e9a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILETIME tagOPCSERVERSTATUS::ftStartTime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00720">720</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a42a8bb481ac6eb9c8d1db964498c16d0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LPWSTR tagOPCSERVERSTATUS::szVendorInfo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00730">730</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac118074b8edebe0fec209e2030c6e44e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WORD tagOPCSERVERSTATUS::wBuildNumber</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00728">728</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c941ab9bc4d0e196bbe828318b33f35"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WORD tagOPCSERVERSTATUS::wMajorVersion</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00726">726</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a119a5e184bba9f34ec8dac39b555a964"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WORD tagOPCSERVERSTATUS::wMinorVersion</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00727">727</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7fda06f10706d4b55fa7bb6241563fdd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">WORD tagOPCSERVERSTATUS::wReserved</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l00729">729</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
 <li>SistemasdeControle/src/communicationLibs/opc/<a class="el" href="_opcda_8h_source.html">Opcda.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:48 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

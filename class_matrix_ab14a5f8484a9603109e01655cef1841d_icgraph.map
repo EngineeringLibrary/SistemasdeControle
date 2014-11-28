@@ -1,0 +1,10 @@
+<map id="Matrix::eye" name="Matrix::eye">
+<area shape="rect" id="node2" href="$class_matrix.html#adc5f9ab9fb8db320ce572ff96e8d94fb" title="Sobrecarga do operador ^ para obter a potenciação de matrizes. " alt="" coords="147,5,266,32"/>
+<area shape="rect" id="node3" href="$class_matrix.html#a34571e2bd304203ade32d490a0376f1a" title="Calcula a matriz inversa. " alt="" coords="166,56,247,83"/>
+<area shape="rect" id="node6" href="$class_matrix.html#a2cc1e0be0c535a46dbebddc7636a63f8" title="Calcula os autovalores da matriz. " alt="" coords="140,107,273,133"/>
+<area shape="rect" id="node7" href="$class_eqdif_sim.html#a8c894e67be1081677995c10aa74c8407" title="EqdifSim::d2c" alt="" coords="329,144,431,171"/>
+<area shape="rect" id="node8" href="$class_eqdif_sim.html#ae8cee0ed07264d9cf576f0e25181592f" title="EqdifSim::tf2ssc" alt="" coords="148,208,265,235"/>
+<area shape="rect" id="node9" href="$class_eqdif_sim.html#adc6e79f136bf214fc68730552c8216e3" title="EqdifSim::tf2ssd" alt="" coords="148,259,265,285"/>
+<area shape="rect" id="node4" href="$class_matrix.html#ab70422878ad0ccf3ff4067306ac9c1e0" title="Sobrecarga do operador / para &quot;divisão&quot; entre matrizes. " alt="" coords="321,31,439,57"/>
+<area shape="rect" id="node5" href="$matrix_8cpp.html#aa29037f304d5bbae7b01252da57ff66c" title="operator/" alt="" coords="343,81,417,108"/>
+</map>

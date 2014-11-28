@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,26 +85,480 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pri-methods">Métodos Privados</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
 <a href="class_optimization-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
 <div class="title">Referência da Template de Classe Optimization&lt; UsedType &gt;</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="optimization_8h_source.html">optimization.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para Optimization&lt; UsedType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_optimization__coll__graph.png" border="0" usemap="#_optimization_3_01_used_type_01_4_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
-<tr class="memitem:a817e63e44c278ae4f776af1bcf436134"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a817e63e44c278ae4f776af1bcf436134"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>RLS</b> (int nu, int ny, unsigned long int p0, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; in, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; out)</td></tr>
+<tr class="memitem:a57f578f49b325a65d8cb20263095e780"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#a57f578f49b325a65d8cb20263095e780">Optimization</a> ()</td></tr>
+<tr class="separator:a57f578f49b325a65d8cb20263095e780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a817e63e44c278ae4f776af1bcf436134"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#a817e63e44c278ae4f776af1bcf436134">RLS</a> (int <a class="el" href="class_optimization.html#a213d8518b80f3fec3e2c8d226fc97bdd">nu</a>, int <a class="el" href="class_optimization.html#a187e63ce3c2acca63b430612e39a979c">ny</a>, unsigned long int <a class="el" href="class_optimization.html#aaa7469f1588a29f30e0abf1d02c07e56">p0</a>, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; in, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; out)</td></tr>
 <tr class="separator:a817e63e44c278ae4f776af1bcf436134"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos Privados</h2></td></tr>
+<tr class="memitem:aa856b5eca32cbd6584eaf8b453057383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#aa856b5eca32cbd6584eaf8b453057383">initRLS</a> (int <a class="el" href="class_optimization.html#a213d8518b80f3fec3e2c8d226fc97bdd">nu</a>, int <a class="el" href="class_optimization.html#a187e63ce3c2acca63b430612e39a979c">ny</a>, unsigned long int <a class="el" href="class_optimization.html#aaa7469f1588a29f30e0abf1d02c07e56">p0</a>)</td></tr>
+<tr class="separator:aa856b5eca32cbd6584eaf8b453057383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e6525d7545520e053753fd4d5471d2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#a3e6525d7545520e053753fd4d5471d2d">setData</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; in, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; out)</td></tr>
+<tr class="separator:a3e6525d7545520e053753fd4d5471d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:a258219fa08f4bc35370c8ded0727979d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#a258219fa08f4bc35370c8ded0727979d">A</a></td></tr>
+<tr class="separator:a258219fa08f4bc35370c8ded0727979d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d03e0ebfdf1266be253f35d1ca35e1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#a2d03e0ebfdf1266be253f35d1ca35e1c">B</a></td></tr>
+<tr class="separator:a2d03e0ebfdf1266be253f35d1ca35e1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dd08aa02c3102282073b7ec12efe222"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#a3dd08aa02c3102282073b7ec12efe222">P</a></td></tr>
+<tr class="separator:a3dd08aa02c3102282073b7ec12efe222"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcf2dce66cced49d30efc74100f9760b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#afcf2dce66cced49d30efc74100f9760b">Theta</a></td></tr>
+<tr class="separator:afcf2dce66cced49d30efc74100f9760b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7b470d841a8c96aba3e9e0eba3ce5c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_lsim.html">Lsim</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#ab7b470d841a8c96aba3e9e0eba3ce5c0">Model</a></td></tr>
+<tr class="separator:ab7b470d841a8c96aba3e9e0eba3ce5c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaca8da55f6119eb12f1c8a7b971871f4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#aaca8da55f6119eb12f1c8a7b971871f4">lambda</a></td></tr>
+<tr class="separator:aaca8da55f6119eb12f1c8a7b971871f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0375736714f7d7455a51664ae2224a36"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#a0375736714f7d7455a51664ae2224a36">size</a></td></tr>
+<tr class="separator:a0375736714f7d7455a51664ae2224a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a213d8518b80f3fec3e2c8d226fc97bdd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#a213d8518b80f3fec3e2c8d226fc97bdd">nu</a></td></tr>
+<tr class="separator:a213d8518b80f3fec3e2c8d226fc97bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a187e63ce3c2acca63b430612e39a979c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#a187e63ce3c2acca63b430612e39a979c">ny</a></td></tr>
+<tr class="separator:a187e63ce3c2acca63b430612e39a979c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa7469f1588a29f30e0abf1d02c07e56"><td class="memItemLeft" align="right" valign="top">long unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_optimization.html#aaa7469f1588a29f30e0abf1d02c07e56">p0</a></td></tr>
+<tr class="separator:aaa7469f1588a29f30e0abf1d02c07e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><h3>template&lt;class UsedType&gt;<br />
+class Optimization&lt; UsedType &gt;</h3>
+
+
+<p>Definição na linha <a class="el" href="optimization_8h_source.html#l00009">9</a> do arquivo <a class="el" href="optimization_8h_source.html">optimization.h</a>.</p>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a class="anchor" id="a57f578f49b325a65d8cb20263095e780"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::<a class="el" href="class_optimization.html">Optimization</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8cpp_source.html#l00004">4</a> do arquivo <a class="el" href="optimization_8cpp_source.html">optimization.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="aa856b5eca32cbd6584eaf8b453057383"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::initRLS </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ny</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long int&#160;</td>
+          <td class="paramname"><em>p0</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8cpp_source.html#l00009">9</a> do arquivo <a class="el" href="optimization_8cpp_source.html">optimization.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_optimization_aa856b5eca32cbd6584eaf8b453057383_cgraph.png" border="0" usemap="#class_optimization_aa856b5eca32cbd6584eaf8b453057383_cgraph" alt=""/></div>
+<map name="class_optimization_aa856b5eca32cbd6584eaf8b453057383_cgraph" id="class_optimization_aa856b5eca32cbd6584eaf8b453057383_cgraph">
+<area shape="rect" id="node2" href="matrix_8cpp.html#a43bd7cfaaa219105983b3e8cca0e3f82" title="min" alt="" coords="199,5,241,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a817e63e44c278ae4f776af1bcf436134"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::RLS </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ny</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned long int&#160;</td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8cpp_source.html#l00024">24</a> do arquivo <a class="el" href="optimization_8cpp_source.html">optimization.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_optimization_a817e63e44c278ae4f776af1bcf436134_cgraph.png" border="0" usemap="#class_optimization_a817e63e44c278ae4f776af1bcf436134_cgraph" alt=""/></div>
+<map name="class_optimization_a817e63e44c278ae4f776af1bcf436134_cgraph" id="class_optimization_a817e63e44c278ae4f776af1bcf436134_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a" title="Exibe a matriz. " alt="" coords="181,5,272,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a3e6525d7545520e053753fd4d5471d2d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::setData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="a258219fa08f4bc35370c8ded0727979d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::A</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8h_source.html#l00012">12</a> do arquivo <a class="el" href="optimization_8h_source.html">optimization.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2d03e0ebfdf1266be253f35d1ca35e1c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::B</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8h_source.html#l00012">12</a> do arquivo <a class="el" href="optimization_8h_source.html">optimization.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaca8da55f6119eb12f1c8a7b971871f4"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::lambda</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8h_source.html#l00014">14</a> do arquivo <a class="el" href="optimization_8h_source.html">optimization.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab7b470d841a8c96aba3e9e0eba3ce5c0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_lsim.html">Lsim</a>&lt;UsedType&gt; <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::Model</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8h_source.html#l00013">13</a> do arquivo <a class="el" href="optimization_8h_source.html">optimization.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a213d8518b80f3fec3e2c8d226fc97bdd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::nu</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8h_source.html#l00015">15</a> do arquivo <a class="el" href="optimization_8h_source.html">optimization.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a187e63ce3c2acca63b430612e39a979c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::ny</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8h_source.html#l00015">15</a> do arquivo <a class="el" href="optimization_8h_source.html">optimization.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3dd08aa02c3102282073b7ec12efe222"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::P</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8h_source.html#l00012">12</a> do arquivo <a class="el" href="optimization_8h_source.html">optimization.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa7469f1588a29f30e0abf1d02c07e56"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long unsigned int <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::p0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8h_source.html#l00016">16</a> do arquivo <a class="el" href="optimization_8h_source.html">optimization.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0375736714f7d7455a51664ae2224a36"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8h_source.html#l00015">15</a> do arquivo <a class="el" href="optimization_8h_source.html">optimization.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afcf2dce66cced49d30efc74100f9760b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_optimization.html">Optimization</a>&lt; UsedType &gt;::Theta</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="optimization_8h_source.html#l00012">12</a> do arquivo <a class="el" href="optimization_8h_source.html">optimization.h</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>SistemasdeControle/src/optimizationLibs/<a class="el" href="optimization_8h_source.html">optimization.h</a></li>
-<li>SistemasdeControle/src/optimizationLibs/optimization.cpp</li>
+<li>SistemasdeControle/src/optimizationLibs/<a class="el" href="optimization_8cpp_source.html">optimization.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:48 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

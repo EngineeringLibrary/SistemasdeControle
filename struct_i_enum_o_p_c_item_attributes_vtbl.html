@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,59 +91,256 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="title">Referência da Estrutura IEnumOPCItemAttributesVtbl</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_opcda_8h_source.html">Opcda.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para IEnumOPCItemAttributesVtbl:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_i_enum_o_p_c_item_attributes_vtbl__coll__graph.png" border="0" usemap="#_i_enum_o_p_c_item_attributes_vtbl_coll__map" alt="Collaboration graph"/></div>
+<map name="_i_enum_o_p_c_item_attributes_vtbl_coll__map" id="_i_enum_o_p_c_item_attributes_vtbl_coll__map">
+<area shape="rect" id="node2" href="structtag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s.html" title="{tagOPCITEMATTRIBUTES\n|+ szAccessPath\l+ szItemID\l+ bActive\l+ hClient\l+ hServer\l+ dwAccessRights\l+ dwBlobSize\l+ pBlob\l+ vtRequestedDataType\l+ vtCanonicalDataType\l+ dwEUType\l+ vEUInfo\l|}" alt="" coords="13,5,189,244"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
-<tr class="memitem:a6cb069fcdacdb92bb0b1ae04b4bce0e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6cb069fcdacdb92bb0b1ae04b4bce0e6"></a>
-BEGIN_INTERFACE&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *QueryInterface)(IEnumOPCItemAttributes *This</td></tr>
+<tr class="memitem:a6cb069fcdacdb92bb0b1ae04b4bce0e6"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a6cb069fcdacdb92bb0b1ae04b4bce0e6">HRESULT</a> (STDMETHODCALLTYPE *QueryInterface)(<a class="el" href="_opcda_8h.html#af666f20a776da261e66b40881e03cc9d">IEnumOPCItemAttributes</a> *This</td></tr>
 <tr class="separator:a6cb069fcdacdb92bb0b1ae04b4bce0e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e47175ef2407fc3627a0b78b57a393e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e47175ef2407fc3627a0b78b57a393e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ULONG</b> (STDMETHODCALLTYPE *AddRef)(IEnumOPCItemAttributes *This)</td></tr>
+<tr class="memitem:a7e47175ef2407fc3627a0b78b57a393e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a7e47175ef2407fc3627a0b78b57a393e">ULONG</a> (STDMETHODCALLTYPE *AddRef)(<a class="el" href="_opcda_8h.html#af666f20a776da261e66b40881e03cc9d">IEnumOPCItemAttributes</a> *This)</td></tr>
 <tr class="separator:a7e47175ef2407fc3627a0b78b57a393e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b31a5e3f35f0ede819ad9bb32b0ec10"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b31a5e3f35f0ede819ad9bb32b0ec10"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ULONG</b> (STDMETHODCALLTYPE *Release)(IEnumOPCItemAttributes *This)</td></tr>
+<tr class="memitem:a8b31a5e3f35f0ede819ad9bb32b0ec10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a8b31a5e3f35f0ede819ad9bb32b0ec10">ULONG</a> (STDMETHODCALLTYPE *Release)(<a class="el" href="_opcda_8h.html#af666f20a776da261e66b40881e03cc9d">IEnumOPCItemAttributes</a> *This)</td></tr>
 <tr class="separator:a8b31a5e3f35f0ede819ad9bb32b0ec10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e204b8e2bce1cd1b1cf5a0ec5224c76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e204b8e2bce1cd1b1cf5a0ec5224c76"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Next)(IEnumOPCItemAttributes *This</td></tr>
+<tr class="memitem:a3e204b8e2bce1cd1b1cf5a0ec5224c76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a3e204b8e2bce1cd1b1cf5a0ec5224c76">HRESULT</a> (STDMETHODCALLTYPE *Next)(<a class="el" href="_opcda_8h.html#af666f20a776da261e66b40881e03cc9d">IEnumOPCItemAttributes</a> *This</td></tr>
 <tr class="separator:a3e204b8e2bce1cd1b1cf5a0ec5224c76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28f816fbed726e18cac83e668e269d51"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28f816fbed726e18cac83e668e269d51"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Skip)(IEnumOPCItemAttributes *This</td></tr>
+<tr class="memitem:a28f816fbed726e18cac83e668e269d51"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a28f816fbed726e18cac83e668e269d51">HRESULT</a> (STDMETHODCALLTYPE *Skip)(<a class="el" href="_opcda_8h.html#af666f20a776da261e66b40881e03cc9d">IEnumOPCItemAttributes</a> *This</td></tr>
 <tr class="separator:a28f816fbed726e18cac83e668e269d51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82bb2159e4f2460576a569bcbe0a193a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82bb2159e4f2460576a569bcbe0a193a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Reset)(IEnumOPCItemAttributes *This)</td></tr>
+<tr class="memitem:a82bb2159e4f2460576a569bcbe0a193a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a82bb2159e4f2460576a569bcbe0a193a">HRESULT</a> (STDMETHODCALLTYPE *Reset)(<a class="el" href="_opcda_8h.html#af666f20a776da261e66b40881e03cc9d">IEnumOPCItemAttributes</a> *This)</td></tr>
 <tr class="separator:a82bb2159e4f2460576a569bcbe0a193a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e7da71c2339692db6f55957e2a7b145"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e7da71c2339692db6f55957e2a7b145"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Clone)(IEnumOPCItemAttributes *This</td></tr>
+<tr class="memitem:a5e7da71c2339692db6f55957e2a7b145"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a5e7da71c2339692db6f55957e2a7b145">HRESULT</a> (STDMETHODCALLTYPE *Clone)(<a class="el" href="_opcda_8h.html#af666f20a776da261e66b40881e03cc9d">IEnumOPCItemAttributes</a> *This</td></tr>
 <tr class="separator:a5e7da71c2339692db6f55957e2a7b145"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributos Públicos</h2></td></tr>
-<tr class="memitem:ad135d8415178125f8ec1e287e30ae1c8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad135d8415178125f8ec1e287e30ae1c8"></a>
-BEGIN_INTERFACE REFIID&#160;</td><td class="memItemRight" valign="bottom"><b>riid</b></td></tr>
+<tr class="memitem:ad135d8415178125f8ec1e287e30ae1c8"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE REFIID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#ad135d8415178125f8ec1e287e30ae1c8">riid</a></td></tr>
 <tr class="separator:ad135d8415178125f8ec1e287e30ae1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d72d564b8174b5bc4d51fc47349c539"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6d72d564b8174b5bc4d51fc47349c539"></a>
-BEGIN_INTERFACE REFIID void **&#160;</td><td class="memItemRight" valign="bottom"><b>ppvObject</b></td></tr>
+<tr class="memitem:a6d72d564b8174b5bc4d51fc47349c539"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE REFIID void **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a6d72d564b8174b5bc4d51fc47349c539">ppvObject</a></td></tr>
 <tr class="separator:a6d72d564b8174b5bc4d51fc47349c539"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfeae6bc3c80ea8b51989a8cfecf6a39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfeae6bc3c80ea8b51989a8cfecf6a39"></a>
-ULONG&#160;</td><td class="memItemRight" valign="bottom"><b>celt</b></td></tr>
+<tr class="memitem:adfeae6bc3c80ea8b51989a8cfecf6a39"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a7e47175ef2407fc3627a0b78b57a393e">ULONG</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#adfeae6bc3c80ea8b51989a8cfecf6a39">celt</a></td></tr>
 <tr class="separator:adfeae6bc3c80ea8b51989a8cfecf6a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a334f06ad8c9d2eeab1cfb52330f0ac21"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a334f06ad8c9d2eeab1cfb52330f0ac21"></a>
-ULONG <a class="el" href="structtag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s.html">OPCITEMATTRIBUTES</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>ppItemArray</b></td></tr>
+<tr class="memitem:a334f06ad8c9d2eeab1cfb52330f0ac21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a7e47175ef2407fc3627a0b78b57a393e">ULONG</a> <a class="el" href="_opcda_8h.html#ac57464c98b663c26445f18444dd36c40">OPCITEMATTRIBUTES</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a334f06ad8c9d2eeab1cfb52330f0ac21">ppItemArray</a></td></tr>
 <tr class="separator:a334f06ad8c9d2eeab1cfb52330f0ac21"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e58b53414a07e7844217a313e602945"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3e58b53414a07e7844217a313e602945"></a>
-ULONG <a class="el" href="structtag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s.html">OPCITEMATTRIBUTES</a> ULONG *&#160;</td><td class="memItemRight" valign="bottom"><b>pceltFetched</b></td></tr>
+<tr class="memitem:a3e58b53414a07e7844217a313e602945"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a7e47175ef2407fc3627a0b78b57a393e">ULONG</a> <a class="el" href="_opcda_8h.html#ac57464c98b663c26445f18444dd36c40">OPCITEMATTRIBUTES</a> <a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a7e47175ef2407fc3627a0b78b57a393e">ULONG</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a3e58b53414a07e7844217a313e602945">pceltFetched</a></td></tr>
 <tr class="separator:a3e58b53414a07e7844217a313e602945"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abac0a9fc2e46c5449ddf4d1b14fca217"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abac0a9fc2e46c5449ddf4d1b14fca217"></a>
-IEnumOPCItemAttributes **&#160;</td><td class="memItemRight" valign="bottom"><b>ppEnumItemAttributes</b></td></tr>
+<tr class="memitem:abac0a9fc2e46c5449ddf4d1b14fca217"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_opcda_8h.html#af666f20a776da261e66b40881e03cc9d">IEnumOPCItemAttributes</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#abac0a9fc2e46c5449ddf4d1b14fca217">ppEnumItemAttributes</a></td></tr>
 <tr class="separator:abac0a9fc2e46c5449ddf4d1b14fca217"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock">
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l02340">2340</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+</div><h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="a6cb069fcdacdb92bb0b1ae04b4bce0e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE IEnumOPCItemAttributesVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>QueryInterface</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3e204b8e2bce1cd1b1cf5a0ec5224c76"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumOPCItemAttributesVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Next</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a28f816fbed726e18cac83e668e269d51"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumOPCItemAttributesVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Skip</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a82bb2159e4f2460576a569bcbe0a193a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumOPCItemAttributesVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Reset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5e7da71c2339692db6f55957e2a7b145"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumOPCItemAttributesVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Clone</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7e47175ef2407fc3627a0b78b57a393e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumOPCItemAttributesVtbl::ULONG </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>AddRef</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8b31a5e3f35f0ede819ad9bb32b0ec10"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IEnumOPCItemAttributesVtbl::ULONG </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Release</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="adfeae6bc3c80ea8b51989a8cfecf6a39"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a7e47175ef2407fc3627a0b78b57a393e">ULONG</a> IEnumOPCItemAttributesVtbl::celt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l02357">2357</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3e58b53414a07e7844217a313e602945"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a7e47175ef2407fc3627a0b78b57a393e">ULONG</a> <a class="el" href="_opcda_8h.html#ac57464c98b663c26445f18444dd36c40">OPCITEMATTRIBUTES</a> <a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a7e47175ef2407fc3627a0b78b57a393e">ULONG</a>* IEnumOPCItemAttributesVtbl::pceltFetched</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l02357">2357</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abac0a9fc2e46c5449ddf4d1b14fca217"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_opcda_8h.html#af666f20a776da261e66b40881e03cc9d">IEnumOPCItemAttributes</a>** IEnumOPCItemAttributesVtbl::ppEnumItemAttributes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l02370">2370</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a334f06ad8c9d2eeab1cfb52330f0ac21"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_i_enum_o_p_c_item_attributes_vtbl.html#a7e47175ef2407fc3627a0b78b57a393e">ULONG</a> <a class="el" href="_opcda_8h.html#ac57464c98b663c26445f18444dd36c40">OPCITEMATTRIBUTES</a>** IEnumOPCItemAttributesVtbl::ppItemArray</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l02357">2357</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d72d564b8174b5bc4d51fc47349c539"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE REFIID void** IEnumOPCItemAttributesVtbl::ppvObject</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l02346">2346</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad135d8415178125f8ec1e287e30ae1c8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE REFIID IEnumOPCItemAttributesVtbl::riid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l02346">2346</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
 <li>SistemasdeControle/src/communicationLibs/opc/<a class="el" href="_opcda_8h_source.html">Opcda.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:47 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,91 +91,403 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="title">Referência da Estrutura IOPCAsyncIOVtbl</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_opcda_8h_source.html">Opcda.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para IOPCAsyncIOVtbl:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_i_o_p_c_async_i_o_vtbl__coll__graph.png" border="0" usemap="#_i_o_p_c_async_i_o_vtbl_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
-<tr class="memitem:a84ed0e2d86e822558ce1840e8f19b440"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84ed0e2d86e822558ce1840e8f19b440"></a>
-BEGIN_INTERFACE&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *QueryInterface)(IOPCAsyncIO *This</td></tr>
+<tr class="memitem:a84ed0e2d86e822558ce1840e8f19b440"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a84ed0e2d86e822558ce1840e8f19b440">HRESULT</a> (STDMETHODCALLTYPE *QueryInterface)(<a class="el" href="_opcda_8h.html#ae0664c99d6cb8bb94fbf1bb0ae971f76">IOPCAsyncIO</a> *This</td></tr>
 <tr class="separator:a84ed0e2d86e822558ce1840e8f19b440"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9fe330cae6554ccf4d14742396a6e10d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9fe330cae6554ccf4d14742396a6e10d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ULONG</b> (STDMETHODCALLTYPE *AddRef)(IOPCAsyncIO *This)</td></tr>
+<tr class="memitem:a9fe330cae6554ccf4d14742396a6e10d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a9fe330cae6554ccf4d14742396a6e10d">ULONG</a> (STDMETHODCALLTYPE *AddRef)(<a class="el" href="_opcda_8h.html#ae0664c99d6cb8bb94fbf1bb0ae971f76">IOPCAsyncIO</a> *This)</td></tr>
 <tr class="separator:a9fe330cae6554ccf4d14742396a6e10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c8014b8eabe84912bd3a8ea5eaf69ba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5c8014b8eabe84912bd3a8ea5eaf69ba"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>ULONG</b> (STDMETHODCALLTYPE *Release)(IOPCAsyncIO *This)</td></tr>
+<tr class="memitem:a5c8014b8eabe84912bd3a8ea5eaf69ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a5c8014b8eabe84912bd3a8ea5eaf69ba">ULONG</a> (STDMETHODCALLTYPE *Release)(<a class="el" href="_opcda_8h.html#ae0664c99d6cb8bb94fbf1bb0ae971f76">IOPCAsyncIO</a> *This)</td></tr>
 <tr class="separator:a5c8014b8eabe84912bd3a8ea5eaf69ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d1925583ff46755c2f4e34adba1b36e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d1925583ff46755c2f4e34adba1b36e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Read)(IOPCAsyncIO *This</td></tr>
+<tr class="memitem:a4d1925583ff46755c2f4e34adba1b36e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a4d1925583ff46755c2f4e34adba1b36e">HRESULT</a> (STDMETHODCALLTYPE *Read)(<a class="el" href="_opcda_8h.html#ae0664c99d6cb8bb94fbf1bb0ae971f76">IOPCAsyncIO</a> *This</td></tr>
 <tr class="separator:a4d1925583ff46755c2f4e34adba1b36e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd27749ed8ce12ba649415449394107d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd27749ed8ce12ba649415449394107d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Write)(IOPCAsyncIO *This</td></tr>
+<tr class="memitem:abd27749ed8ce12ba649415449394107d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#abd27749ed8ce12ba649415449394107d">HRESULT</a> (STDMETHODCALLTYPE *Write)(<a class="el" href="_opcda_8h.html#ae0664c99d6cb8bb94fbf1bb0ae971f76">IOPCAsyncIO</a> *This</td></tr>
 <tr class="separator:abd27749ed8ce12ba649415449394107d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c6df8bd165f0bb98ac77ddd82b586bb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c6df8bd165f0bb98ac77ddd82b586bb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Refresh)(IOPCAsyncIO *This</td></tr>
+<tr class="memitem:a4c6df8bd165f0bb98ac77ddd82b586bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a4c6df8bd165f0bb98ac77ddd82b586bb">HRESULT</a> (STDMETHODCALLTYPE *Refresh)(<a class="el" href="_opcda_8h.html#ae0664c99d6cb8bb94fbf1bb0ae971f76">IOPCAsyncIO</a> *This</td></tr>
 <tr class="separator:a4c6df8bd165f0bb98ac77ddd82b586bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad39c6b3ba5f8bc4ebd53f559357e67c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad39c6b3ba5f8bc4ebd53f559357e67c5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>HRESULT</b> (STDMETHODCALLTYPE *Cancel)(IOPCAsyncIO *This</td></tr>
+<tr class="memitem:ad39c6b3ba5f8bc4ebd53f559357e67c5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#ad39c6b3ba5f8bc4ebd53f559357e67c5">HRESULT</a> (STDMETHODCALLTYPE *Cancel)(<a class="el" href="_opcda_8h.html#ae0664c99d6cb8bb94fbf1bb0ae971f76">IOPCAsyncIO</a> *This</td></tr>
 <tr class="separator:ad39c6b3ba5f8bc4ebd53f559357e67c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Atributos Públicos</h2></td></tr>
-<tr class="memitem:aa6000ea7c9fbd078825b5d14e3b6203d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6000ea7c9fbd078825b5d14e3b6203d"></a>
-BEGIN_INTERFACE REFIID&#160;</td><td class="memItemRight" valign="bottom"><b>riid</b></td></tr>
+<tr class="memitem:aa6000ea7c9fbd078825b5d14e3b6203d"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE REFIID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#aa6000ea7c9fbd078825b5d14e3b6203d">riid</a></td></tr>
 <tr class="separator:aa6000ea7c9fbd078825b5d14e3b6203d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8710c87c6d9beec259e09007973e1b48"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8710c87c6d9beec259e09007973e1b48"></a>
-BEGIN_INTERFACE REFIID void **&#160;</td><td class="memItemRight" valign="bottom"><b>ppvObject</b></td></tr>
+<tr class="memitem:a8710c87c6d9beec259e09007973e1b48"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE REFIID void **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a8710c87c6d9beec259e09007973e1b48">ppvObject</a></td></tr>
 <tr class="separator:a8710c87c6d9beec259e09007973e1b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0663f8ac20ff911e0ec87fd339dc26a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0663f8ac20ff911e0ec87fd339dc26a7"></a>
-DWORD&#160;</td><td class="memItemRight" valign="bottom"><b>dwConnection</b></td></tr>
+<tr class="memitem:a0663f8ac20ff911e0ec87fd339dc26a7"><td class="memItemLeft" align="right" valign="top">DWORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a0663f8ac20ff911e0ec87fd339dc26a7">dwConnection</a></td></tr>
 <tr class="separator:a0663f8ac20ff911e0ec87fd339dc26a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90ea83f70b9c93e797359a73727a7372"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90ea83f70b9c93e797359a73727a7372"></a>
-DWORD OPCDATASOURCE&#160;</td><td class="memItemRight" valign="bottom"><b>dwSource</b></td></tr>
+<tr class="memitem:a90ea83f70b9c93e797359a73727a7372"><td class="memItemLeft" align="right" valign="top">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a90ea83f70b9c93e797359a73727a7372">dwSource</a></td></tr>
 <tr class="separator:a90ea83f70b9c93e797359a73727a7372"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33c73d28656b8fbcac2207ae8d42f562"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33c73d28656b8fbcac2207ae8d42f562"></a>
-DWORD OPCDATASOURCE DWORD&#160;</td><td class="memItemRight" valign="bottom"><b>dwCount</b></td></tr>
+<tr class="memitem:a33c73d28656b8fbcac2207ae8d42f562"><td class="memItemLeft" align="right" valign="top">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a> DWORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a33c73d28656b8fbcac2207ae8d42f562">dwCount</a></td></tr>
 <tr class="separator:a33c73d28656b8fbcac2207ae8d42f562"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43ee06debaad7f1de5c48ee3d0aa6c3e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43ee06debaad7f1de5c48ee3d0aa6c3e"></a>
-DWORD OPCDATASOURCE DWORD <br class="typebreak" />
-OPCHANDLE *&#160;</td><td class="memItemRight" valign="bottom"><b>phServer</b></td></tr>
+<tr class="memitem:a43ee06debaad7f1de5c48ee3d0aa6c3e"><td class="memItemLeft" align="right" valign="top">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a> DWORD <br class="typebreak" />
+<a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a43ee06debaad7f1de5c48ee3d0aa6c3e">phServer</a></td></tr>
 <tr class="separator:a43ee06debaad7f1de5c48ee3d0aa6c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf306b28e8a0bcc9eaf0e7334836d317"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abf306b28e8a0bcc9eaf0e7334836d317"></a>
-DWORD OPCDATASOURCE DWORD <br class="typebreak" />
-OPCHANDLE DWORD *&#160;</td><td class="memItemRight" valign="bottom"><b>pTransactionID</b></td></tr>
+<tr class="memitem:abf306b28e8a0bcc9eaf0e7334836d317"><td class="memItemLeft" align="right" valign="top">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a> DWORD <br class="typebreak" />
+<a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> DWORD *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#abf306b28e8a0bcc9eaf0e7334836d317">pTransactionID</a></td></tr>
 <tr class="separator:abf306b28e8a0bcc9eaf0e7334836d317"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d9f1c8e90834c1ee59545214043fdd9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d9f1c8e90834c1ee59545214043fdd9"></a>
-DWORD OPCDATASOURCE DWORD <br class="typebreak" />
-OPCHANDLE DWORD HRESULT **&#160;</td><td class="memItemRight" valign="bottom"><b>ppErrors</b></td></tr>
+<tr class="memitem:a9d9f1c8e90834c1ee59545214043fdd9"><td class="memItemLeft" align="right" valign="top">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a> DWORD <br class="typebreak" />
+<a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> DWORD <a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a84ed0e2d86e822558ce1840e8f19b440">HRESULT</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a9d9f1c8e90834c1ee59545214043fdd9">ppErrors</a></td></tr>
 <tr class="separator:a9d9f1c8e90834c1ee59545214043fdd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a467de2418826b4dae56d5cb4d2291c9f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a467de2418826b4dae56d5cb4d2291c9f"></a>
-DWORD DWORD&#160;</td><td class="memItemRight" valign="bottom"><b>dwCount</b></td></tr>
+<tr class="memitem:a467de2418826b4dae56d5cb4d2291c9f"><td class="memItemLeft" align="right" valign="top">DWORD DWORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a467de2418826b4dae56d5cb4d2291c9f">dwCount</a></td></tr>
 <tr class="separator:a467de2418826b4dae56d5cb4d2291c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebe21dced79e87617c60b6929a1310de"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aebe21dced79e87617c60b6929a1310de"></a>
-DWORD DWORD OPCHANDLE *&#160;</td><td class="memItemRight" valign="bottom"><b>phServer</b></td></tr>
+<tr class="memitem:aebe21dced79e87617c60b6929a1310de"><td class="memItemLeft" align="right" valign="top">DWORD DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#aebe21dced79e87617c60b6929a1310de">phServer</a></td></tr>
 <tr class="separator:aebe21dced79e87617c60b6929a1310de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba942c65facb884a5ac149ee6523ad0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba942c65facb884a5ac149ee6523ad0d"></a>
-DWORD DWORD OPCHANDLE VARIANT *&#160;</td><td class="memItemRight" valign="bottom"><b>pItemValues</b></td></tr>
+<tr class="memitem:aba942c65facb884a5ac149ee6523ad0d"><td class="memItemLeft" align="right" valign="top">DWORD DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> VARIANT *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#aba942c65facb884a5ac149ee6523ad0d">pItemValues</a></td></tr>
 <tr class="separator:aba942c65facb884a5ac149ee6523ad0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afae76fe6043499618cbca7c9ea7bef29"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afae76fe6043499618cbca7c9ea7bef29"></a>
-DWORD DWORD OPCHANDLE VARIANT <br class="typebreak" />
-DWORD *&#160;</td><td class="memItemRight" valign="bottom"><b>pTransactionID</b></td></tr>
+<tr class="memitem:afae76fe6043499618cbca7c9ea7bef29"><td class="memItemLeft" align="right" valign="top">DWORD DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> VARIANT <br class="typebreak" />
+DWORD *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#afae76fe6043499618cbca7c9ea7bef29">pTransactionID</a></td></tr>
 <tr class="separator:afae76fe6043499618cbca7c9ea7bef29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44aac986530acceeae5aed8101ffa695"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a44aac986530acceeae5aed8101ffa695"></a>
-DWORD DWORD OPCHANDLE VARIANT <br class="typebreak" />
-DWORD HRESULT **&#160;</td><td class="memItemRight" valign="bottom"><b>ppErrors</b></td></tr>
+<tr class="memitem:a44aac986530acceeae5aed8101ffa695"><td class="memItemLeft" align="right" valign="top">DWORD DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> VARIANT <br class="typebreak" />
+DWORD <a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a84ed0e2d86e822558ce1840e8f19b440">HRESULT</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a44aac986530acceeae5aed8101ffa695">ppErrors</a></td></tr>
 <tr class="separator:a44aac986530acceeae5aed8101ffa695"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2870a4c9399e2681fb480c52e65853d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2870a4c9399e2681fb480c52e65853d7"></a>
-DWORD OPCDATASOURCE DWORD *&#160;</td><td class="memItemRight" valign="bottom"><b>pTransactionID</b></td></tr>
+<tr class="memitem:a2870a4c9399e2681fb480c52e65853d7"><td class="memItemLeft" align="right" valign="top">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a> DWORD *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a2870a4c9399e2681fb480c52e65853d7">pTransactionID</a></td></tr>
 <tr class="separator:a2870a4c9399e2681fb480c52e65853d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52ba5963d636ee3a1cb4c2a31ef85657"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52ba5963d636ee3a1cb4c2a31ef85657"></a>
-DWORD&#160;</td><td class="memItemRight" valign="bottom"><b>dwTransactionID</b></td></tr>
+<tr class="memitem:a52ba5963d636ee3a1cb4c2a31ef85657"><td class="memItemLeft" align="right" valign="top">DWORD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a52ba5963d636ee3a1cb4c2a31ef85657">dwTransactionID</a></td></tr>
 <tr class="separator:a52ba5963d636ee3a1cb4c2a31ef85657"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock">
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01880">1880</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+</div><h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="a84ed0e2d86e822558ce1840e8f19b440"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE IOPCAsyncIOVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>QueryInterface</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4d1925583ff46755c2f4e34adba1b36e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCAsyncIOVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Read</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abd27749ed8ce12ba649415449394107d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCAsyncIOVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Write</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4c6df8bd165f0bb98ac77ddd82b586bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCAsyncIOVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Refresh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad39c6b3ba5f8bc4ebd53f559357e67c5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCAsyncIOVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Cancel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9fe330cae6554ccf4d14742396a6e10d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCAsyncIOVtbl::ULONG </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>AddRef</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5c8014b8eabe84912bd3a8ea5eaf69ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCAsyncIOVtbl::ULONG </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Release</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="a0663f8ac20ff911e0ec87fd339dc26a7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD IOPCAsyncIOVtbl::dwConnection</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01897">1897</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a33c73d28656b8fbcac2207ae8d42f562"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a> DWORD IOPCAsyncIOVtbl::dwCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01897">1897</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a467de2418826b4dae56d5cb4d2291c9f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD DWORD IOPCAsyncIOVtbl::dwCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01906">1906</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a90ea83f70b9c93e797359a73727a7372"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a> IOPCAsyncIOVtbl::dwSource</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01897">1897</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a52ba5963d636ee3a1cb4c2a31ef85657"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD IOPCAsyncIOVtbl::dwTransactionID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01921">1921</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a43ee06debaad7f1de5c48ee3d0aa6c3e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a> DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a>* IOPCAsyncIOVtbl::phServer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01897">1897</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aebe21dced79e87617c60b6929a1310de"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a>* IOPCAsyncIOVtbl::phServer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01906">1906</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aba942c65facb884a5ac149ee6523ad0d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> VARIANT* IOPCAsyncIOVtbl::pItemValues</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01906">1906</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9d9f1c8e90834c1ee59545214043fdd9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a> DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> DWORD <a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a84ed0e2d86e822558ce1840e8f19b440">HRESULT</a>** IOPCAsyncIOVtbl::ppErrors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01897">1897</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a44aac986530acceeae5aed8101ffa695"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> VARIANT DWORD <a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a84ed0e2d86e822558ce1840e8f19b440">HRESULT</a>** IOPCAsyncIOVtbl::ppErrors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01906">1906</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8710c87c6d9beec259e09007973e1b48"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE REFIID void** IOPCAsyncIOVtbl::ppvObject</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01886">1886</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf306b28e8a0bcc9eaf0e7334836d317"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a> DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> DWORD* IOPCAsyncIOVtbl::pTransactionID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01897">1897</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afae76fe6043499618cbca7c9ea7bef29"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> VARIANT DWORD* IOPCAsyncIOVtbl::pTransactionID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01906">1906</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2870a4c9399e2681fb480c52e65853d7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD <a class="el" href="_opcda_8h.html#a9648d820c6969a225c573f9a5421f02b">OPCDATASOURCE</a> DWORD* IOPCAsyncIOVtbl::pTransactionID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01915">1915</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa6000ea7c9fbd078825b5d14e3b6203d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE REFIID IOPCAsyncIOVtbl::riid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01886">1886</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
 <li>SistemasdeControle/src/communicationLibs/opc/<a class="el" href="_opcda_8h_source.html">Opcda.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:47 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

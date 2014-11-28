@@ -1,0 +1,4 @@
+<map id="IOPCSyncIO2Vtbl" name="IOPCSyncIO2Vtbl">
+<area shape="rect" id="node2" href="$structtag_o_p_c_i_t_e_m_v_q_t.html" title="{tagOPCITEMVQT\n|+ vDataValue\l+ bQualitySpecified\l+ wQuality\l+ wReserved\l+ bTimeStampSpecified\l+ dwReserved\l+ ftTimeStamp\l|}" alt="" coords="5,5,165,171"/>
+<area shape="rect" id="node3" href="$structtag_o_p_c_i_t_e_m_s_t_a_t_e.html" title="{tagOPCITEMSTATE\n|+ hClient\l+ ftTimeStamp\l+ wQuality\l+ wReserved\l+ vDataValue\l|}" alt="" coords="189,20,328,156"/>
+</map>

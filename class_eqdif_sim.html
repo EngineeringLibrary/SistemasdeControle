@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,59 +85,951 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pri-methods">Métodos Privados</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
 <a href="class_eqdif_sim-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
 <div class="title">Referência da Template de Classe EqdifSim&lt; UsedType &gt;</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para EqdifSim&lt; UsedType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_eqdif_sim__coll__graph.png" border="0" usemap="#_eqdif_sim_3_01_used_type_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="_eqdif_sim_3_01_used_type_01_4_coll__map" id="_eqdif_sim_3_01_used_type_01_4_coll__map">
+<area shape="rect" id="node2" href="class_polynom.html" title="{Polynom\&lt; UsedType \&gt;\n|&#45; sizeNum\l&#45; sizeDen\l&#45; num\l&#45; den\l&#45; x\l|+ Polynom()\l+ Polynom()\l+ Polynom()\l+ Polynom()\l+ Polynom()\l+ Polynom()\l+ Polynom()\l+ ~Polynom()\l+ operator+()\l+ operator+()\land 14 more...\l&#45; init()\l&#45; init()\l&#45; init()\l&#45; init()\l&#45; init()\l&#45; VefDen()\l&#45; initPointer()\l&#45; SumPoly()\l&#45; SubPoly()\l&#45; MultPoly()\l}" alt="" coords="6,5,161,435"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
-<tr class="memitem:afe1ae08972ab936799b9415f15026b5e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe1ae08972ab936799b9415f15026b5e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EqdifSim</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; AIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; BIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; CIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; DIn)</td></tr>
+<tr class="memitem:aeaaa7678e275b42d8aa087cf3cd28c39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#aeaaa7678e275b42d8aa087cf3cd28c39">EqdifSim</a> ()</td></tr>
+<tr class="separator:aeaaa7678e275b42d8aa087cf3cd28c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe1ae08972ab936799b9415f15026b5e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#afe1ae08972ab936799b9415f15026b5e">EqdifSim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; AIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; BIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; CIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; DIn)</td></tr>
 <tr class="separator:afe1ae08972ab936799b9415f15026b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88bebdaa211859fa1bf1324e5963914e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88bebdaa211859fa1bf1324e5963914e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EqdifSim</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; AdIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; BdIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; CdIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; DdIn, float Time)</td></tr>
+<tr class="memitem:a88bebdaa211859fa1bf1324e5963914e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a88bebdaa211859fa1bf1324e5963914e">EqdifSim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; AdIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; BdIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; CdIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; DdIn, float Time)</td></tr>
 <tr class="separator:a88bebdaa211859fa1bf1324e5963914e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f83cec5b3ed01473a47291670e822ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f83cec5b3ed01473a47291670e822ea"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EqdifSim</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; NumIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; DenIn)</td></tr>
+<tr class="memitem:a3f83cec5b3ed01473a47291670e822ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a3f83cec5b3ed01473a47291670e822ea">EqdifSim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; NumIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; DenIn)</td></tr>
 <tr class="separator:a3f83cec5b3ed01473a47291670e822ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5025eba90cc170b86525286ce3f9adf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5025eba90cc170b86525286ce3f9adf"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EqdifSim</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; NumdIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; DendIn, float Time)</td></tr>
+<tr class="memitem:aa5025eba90cc170b86525286ce3f9adf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#aa5025eba90cc170b86525286ce3f9adf">EqdifSim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; NumdIn, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; DendIn, float Time)</td></tr>
 <tr class="separator:aa5025eba90cc170b86525286ce3f9adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd5415b0f67ebf451287003c0d0d40c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd5415b0f67ebf451287003c0d0d40c5"></a>
-<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Simulation</b> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; SystemInput, bool getState=0)</td></tr>
+<tr class="memitem:abd5415b0f67ebf451287003c0d0d40c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#abd5415b0f67ebf451287003c0d0d40c5">Simulation</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; SystemInput, bool getState=0)</td></tr>
 <tr class="separator:abd5415b0f67ebf451287003c0d0d40c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a432b76a19c93b3a30ee35707922d9d13"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a432b76a19c93b3a30ee35707922d9d13"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printSS</b> ()</td></tr>
+<tr class="memitem:a432b76a19c93b3a30ee35707922d9d13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a432b76a19c93b3a30ee35707922d9d13">printSS</a> ()</td></tr>
 <tr class="separator:a432b76a19c93b3a30ee35707922d9d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bd6290398cf60eec58fca7b7739fb2f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1bd6290398cf60eec58fca7b7739fb2f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>printTF</b> ()</td></tr>
+<tr class="memitem:a1bd6290398cf60eec58fca7b7739fb2f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a1bd6290398cf60eec58fca7b7739fb2f">printTF</a> ()</td></tr>
 <tr class="separator:a1bd6290398cf60eec58fca7b7739fb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30a984452e9c5cd5af7c693fb115a46b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a30a984452e9c5cd5af7c693fb115a46b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
+<tr class="memitem:a30a984452e9c5cd5af7c693fb115a46b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a30a984452e9c5cd5af7c693fb115a46b">print</a> ()</td></tr>
 <tr class="separator:a30a984452e9c5cd5af7c693fb115a46b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7faecb8f3fd8aa24aa6657b64957b29d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7faecb8f3fd8aa24aa6657b64957b29d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>c2d</b> (float Time)</td></tr>
+<tr class="memitem:a7faecb8f3fd8aa24aa6657b64957b29d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a7faecb8f3fd8aa24aa6657b64957b29d">c2d</a> (float Time)</td></tr>
 <tr class="separator:a7faecb8f3fd8aa24aa6657b64957b29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c894e67be1081677995c10aa74c8407"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8c894e67be1081677995c10aa74c8407"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>d2c</b> ()</td></tr>
+<tr class="memitem:a8c894e67be1081677995c10aa74c8407"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a8c894e67be1081677995c10aa74c8407">d2c</a> ()</td></tr>
 <tr class="separator:a8c894e67be1081677995c10aa74c8407"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85365414095a04fc51ef387068f83ddd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85365414095a04fc51ef387068f83ddd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setModel</b> (std::string model)</td></tr>
+<tr class="memitem:a85365414095a04fc51ef387068f83ddd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a85365414095a04fc51ef387068f83ddd">setModel</a> (std::string model)</td></tr>
 <tr class="separator:a85365414095a04fc51ef387068f83ddd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8c85f62208c14205423284d7e19b5a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8c85f62208c14205423284d7e19b5a7"></a>
-UsedType&#160;</td><td class="memItemRight" valign="bottom"><b>factorial</b> (float n)</td></tr>
+<tr class="memitem:ae8c85f62208c14205423284d7e19b5a7"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#ae8c85f62208c14205423284d7e19b5a7">factorial</a> (float n)</td></tr>
 <tr class="separator:ae8c85f62208c14205423284d7e19b5a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos Privados</h2></td></tr>
+<tr class="memitem:ae8cee0ed07264d9cf576f0e25181592f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#ae8cee0ed07264d9cf576f0e25181592f">tf2ssc</a> ()</td></tr>
+<tr class="separator:ae8cee0ed07264d9cf576f0e25181592f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc6e79f136bf214fc68730552c8216e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#adc6e79f136bf214fc68730552c8216e3">tf2ssd</a> ()</td></tr>
+<tr class="separator:adc6e79f136bf214fc68730552c8216e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66364d4fedf290a1ad3fa9384dc5aa8a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a66364d4fedf290a1ad3fa9384dc5aa8a">ss2tfc</a> ()</td></tr>
+<tr class="separator:a66364d4fedf290a1ad3fa9384dc5aa8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa77b876c88083c329f94116aff4d5ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#afa77b876c88083c329f94116aff4d5ca">ss2tfd</a> ()</td></tr>
+<tr class="separator:afa77b876c88083c329f94116aff4d5ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28c3065d4dc6f5438263f50ce4a868e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a28c3065d4dc6f5438263f50ce4a868e9">sumPoly</a> ()</td></tr>
+<tr class="separator:a28c3065d4dc6f5438263f50ce4a868e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:a1509be5e75905a3b0aeeafa77956882a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a1509be5e75905a3b0aeeafa77956882a">SampleTime</a></td></tr>
+<tr class="separator:a1509be5e75905a3b0aeeafa77956882a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb3970d94479216dda0721bd6ac6f390"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#acb3970d94479216dda0721bd6ac6f390">TimeSimulation</a></td></tr>
+<tr class="separator:acb3970d94479216dda0721bd6ac6f390"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbc2da1e33c7ed27ca195523bbb6e921"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#afbc2da1e33c7ed27ca195523bbb6e921">A</a></td></tr>
+<tr class="separator:afbc2da1e33c7ed27ca195523bbb6e921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ddc716492c3e324727f591a780524b8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a1ddc716492c3e324727f591a780524b8">B</a></td></tr>
+<tr class="separator:a1ddc716492c3e324727f591a780524b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4b9e62382d5236f817fa8f311a70654"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#aa4b9e62382d5236f817fa8f311a70654">C</a></td></tr>
+<tr class="separator:aa4b9e62382d5236f817fa8f311a70654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abff4ccb756f7f481b0f18fa77816b4c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#abff4ccb756f7f481b0f18fa77816b4c0">D</a></td></tr>
+<tr class="separator:abff4ccb756f7f481b0f18fa77816b4c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a288ef85f3d95f9814cc0d17ea6cd6c45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a288ef85f3d95f9814cc0d17ea6cd6c45">Ad</a></td></tr>
+<tr class="separator:a288ef85f3d95f9814cc0d17ea6cd6c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a61a2a98d9e0ad4f10291fc2f7b3263"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a1a61a2a98d9e0ad4f10291fc2f7b3263">Bd</a></td></tr>
+<tr class="separator:a1a61a2a98d9e0ad4f10291fc2f7b3263"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac34b47edd581ec9638ec44c1b5dffc7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#ac34b47edd581ec9638ec44c1b5dffc7a">Cd</a></td></tr>
+<tr class="separator:ac34b47edd581ec9638ec44c1b5dffc7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6946d25628bfe59c976f39a28b40fab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#ad6946d25628bfe59c976f39a28b40fab">Dd</a></td></tr>
+<tr class="separator:ad6946d25628bfe59c976f39a28b40fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18aa58ab8f69906b6cc348e13ea4dace"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; UsedType &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a18aa58ab8f69906b6cc348e13ea4dace">TransferFunction</a></td></tr>
+<tr class="separator:a18aa58ab8f69906b6cc348e13ea4dace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad414979450d50a47ef0b3c2bb1a778f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; UsedType &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#ad414979450d50a47ef0b3c2bb1a778f1">DiscreteTransferFunction</a></td></tr>
+<tr class="separator:ad414979450d50a47ef0b3c2bb1a778f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df99d4d6cd5252f83be8ec650e402c6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_eqdif_sim.html#a2df99d4d6cd5252f83be8ec650e402c6">typeModel</a></td></tr>
+<tr class="separator:a2df99d4d6cd5252f83be8ec650e402c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><h3>template&lt;class UsedType&gt;<br />
+class EqdifSim&lt; UsedType &gt;</h3>
+
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00007">7</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a class="anchor" id="aeaaa7678e275b42d8aa087cf3cd28c39"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::<a class="el" href="class_eqdif_sim.html">EqdifSim</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00004">4</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afe1ae08972ab936799b9415f15026b5e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::<a class="el" href="class_eqdif_sim.html">EqdifSim</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>AIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>BIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>CIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>DIn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00024">24</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a88bebdaa211859fa1bf1324e5963914e"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::<a class="el" href="class_eqdif_sim.html">EqdifSim</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>AdIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>BdIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>CdIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>DdIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>Time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00010">10</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3f83cec5b3ed01473a47291670e822ea"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::<a class="el" href="class_eqdif_sim.html">EqdifSim</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>NumIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>DenIn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00038">38</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa5025eba90cc170b86525286ce3f9adf"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::<a class="el" href="class_eqdif_sim.html">EqdifSim</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>NumdIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>DendIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>Time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00053">53</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="a7faecb8f3fd8aa24aa6657b64957b29d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::c2d </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>Time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00096">96</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8c894e67be1081677995c10aa74c8407"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::d2c </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00069">69</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_eqdif_sim_a8c894e67be1081677995c10aa74c8407_cgraph.png" border="0" usemap="#class_eqdif_sim_a8c894e67be1081677995c10aa74c8407_cgraph" alt=""/></div>
+<map name="class_eqdif_sim_a8c894e67be1081677995c10aa74c8407_cgraph" id="class_eqdif_sim_a8c894e67be1081677995c10aa74c8407_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a2cc1e0be0c535a46dbebddc7636a63f8" title="Calcula os autovalores da matriz. " alt="" coords="156,44,289,70"/><area shape="rect" id="node3" href="matrix_8cpp.html#adfe3600f358b2928305ba6175f32076f" title="max" alt="" coords="357,6,404,33"/><area shape="rect" id="node4" href="class_matrix.html#ab14a5f8484a9603109e01655cef1841d" title="Método para criar uma matriz identidade (Matriz com 1 nos elementos da diagonal principal). " alt="" coords="337,82,424,109"/><area shape="rect" id="node5" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8" title="Método inserir valores em uma determinada posição da matriz. " alt="" coords="179,145,266,172"/><area shape="rect" id="node7" href="class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="167,196,278,222"/><area shape="rect" id="node8" href="class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd" title="Cria uma matriz de zeros. " alt="" coords="173,246,272,273"/><area shape="rect" id="node9" href="class_matrix.html#a1a544492885c8925f6da46e44a896fe3" title="Retorna o número de linhas da matriz. " alt="" coords="165,297,281,324"/><area shape="rect" id="node10" href="matrix_8cpp.html#aa6503e0f8152c6f2973fd36aa4f5613f" title="abs" alt="" coords="201,348,244,374"/><area shape="rect" id="node6" href="class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a" title="Método de inicialização da matriz. " alt="" coords="339,145,422,172"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae8c85f62208c14205423284d7e19b5a7"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::factorial </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00314">314</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a30a984452e9c5cd5af7c693fb115a46b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::print </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00283">283</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a432b76a19c93b3a30ee35707922d9d13"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::printSS </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00232">232</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1bd6290398cf60eec58fca7b7739fb2f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::printTF </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00263">263</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a85365414095a04fc51ef387068f83ddd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::setModel </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>model</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00226">226</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd5415b0f67ebf451287003c0d0d40c5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::Simulation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>SystemInput</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>getState</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00294">294</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_eqdif_sim_abd5415b0f67ebf451287003c0d0d40c5_cgraph.png" border="0" usemap="#class_eqdif_sim_abd5415b0f67ebf451287003c0d0d40c5_cgraph" alt=""/></div>
+<map name="class_eqdif_sim_abd5415b0f67ebf451287003c0d0d40c5_cgraph" id="class_eqdif_sim_abd5415b0f67ebf451287003c0d0d40c5_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="372,5,483,32"/><area shape="rect" id="node3" href="class_matrix.html#a4d1bd93673b400e5282dfdc2eaeac2af" title="Inserir em uma matriz uma linha inteira em uma matriz. " alt="" coords="206,31,314,57"/><area shape="rect" id="node4" href="class_matrix.html#ab2e2de4a736bb752af047e33cc600acc" title="Obter uma coluna inteira de uma matriz. " alt="" coords="196,81,324,108"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a66364d4fedf290a1ad3fa9384dc5aa8a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::ss2tfc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00185">185</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_eqdif_sim_a66364d4fedf290a1ad3fa9384dc5aa8a_cgraph.png" border="0" usemap="#class_eqdif_sim_a66364d4fedf290a1ad3fa9384dc5aa8a_cgraph" alt=""/></div>
+<map name="class_eqdif_sim_a66364d4fedf290a1ad3fa9384dc5aa8a_cgraph" id="class_eqdif_sim_a66364d4fedf290a1ad3fa9384dc5aa8a_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#ab2e2de4a736bb752af047e33cc600acc" title="Obter uma coluna inteira de uma matriz. " alt="" coords="171,5,299,32"/><area shape="rect" id="node3" href="class_matrix.html#a95c22817d23b8b30b25115478e15694a" title="Obter uma linha inteira de uma matriz. " alt="" coords="181,56,289,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afa77b876c88083c329f94116aff4d5ca"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::ss2tfd </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00205">205</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_eqdif_sim_afa77b876c88083c329f94116aff4d5ca_cgraph.png" border="0" usemap="#class_eqdif_sim_afa77b876c88083c329f94116aff4d5ca_cgraph" alt=""/></div>
+<map name="class_eqdif_sim_afa77b876c88083c329f94116aff4d5ca_cgraph" id="class_eqdif_sim_afa77b876c88083c329f94116aff4d5ca_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#ab2e2de4a736bb752af047e33cc600acc" title="Obter uma coluna inteira de uma matriz. " alt="" coords="171,5,299,32"/><area shape="rect" id="node3" href="class_matrix.html#a95c22817d23b8b30b25115478e15694a" title="Obter uma linha inteira de uma matriz. " alt="" coords="181,56,289,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a28c3065d4dc6f5438263f50ce4a868e9"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::sumPoly </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae8cee0ed07264d9cf576f0e25181592f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::tf2ssc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00109">109</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_eqdif_sim_ae8cee0ed07264d9cf576f0e25181592f_cgraph.png" border="0" usemap="#class_eqdif_sim_ae8cee0ed07264d9cf576f0e25181592f_cgraph" alt=""/></div>
+<map name="class_eqdif_sim_ae8cee0ed07264d9cf576f0e25181592f_cgraph" id="class_eqdif_sim_ae8cee0ed07264d9cf576f0e25181592f_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#ab14a5f8484a9603109e01655cef1841d" title="Método para criar uma matriz identidade (Matriz com 1 nos elementos da diagonal principal). " alt="" coords="177,5,263,32"/><area shape="rect" id="node3" href="class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd" title="Cria uma matriz de zeros. " alt="" coords="171,56,269,83"/><area shape="rect" id="node4" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8" title="Método inserir valores em uma determinada posição da matriz. " alt="" coords="177,107,263,133"/><area shape="rect" id="node5" href="class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a" title="Método de inicialização da matriz. " alt="" coords="317,107,400,133"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="adc6e79f136bf214fc68730552c8216e3"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::tf2ssd </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8cpp_source.html#l00147">147</a> do arquivo <a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_eqdif_sim_adc6e79f136bf214fc68730552c8216e3_cgraph.png" border="0" usemap="#class_eqdif_sim_adc6e79f136bf214fc68730552c8216e3_cgraph" alt=""/></div>
+<map name="class_eqdif_sim_adc6e79f136bf214fc68730552c8216e3_cgraph" id="class_eqdif_sim_adc6e79f136bf214fc68730552c8216e3_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#ab14a5f8484a9603109e01655cef1841d" title="Método para criar uma matriz identidade (Matriz com 1 nos elementos da diagonal principal). " alt="" coords="177,5,263,32"/><area shape="rect" id="node3" href="class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd" title="Cria uma matriz de zeros. " alt="" coords="171,56,269,83"/><area shape="rect" id="node4" href="class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8" title="Método inserir valores em uma determinada posição da matriz. " alt="" coords="177,107,263,133"/><area shape="rect" id="node5" href="class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a" title="Método de inicialização da matriz. " alt="" coords="317,107,400,133"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="afbc2da1e33c7ed27ca195523bbb6e921"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::A</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00011">11</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a288ef85f3d95f9814cc0d17ea6cd6c45"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::Ad</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00011">11</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1ddc716492c3e324727f591a780524b8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::B</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00011">11</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a61a2a98d9e0ad4f10291fc2f7b3263"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::Bd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00011">11</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa4b9e62382d5236f817fa8f311a70654"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::C</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00011">11</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac34b47edd581ec9638ec44c1b5dffc7a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::Cd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00011">11</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abff4ccb756f7f481b0f18fa77816b4c0"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::D</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00011">11</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6946d25628bfe59c976f39a28b40fab"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::Dd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00011">11</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad414979450d50a47ef0b3c2bb1a778f1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt;UsedType&gt; ** <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::DiscreteTransferFunction</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00012">12</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1509be5e75905a3b0aeeafa77956882a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::SampleTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00010">10</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acb3970d94479216dda0721bd6ac6f390"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::TimeSimulation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00010">10</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a18aa58ab8f69906b6cc348e13ea4dace"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt;UsedType&gt;** <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::TransferFunction</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00012">12</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2df99d4d6cd5252f83be8ec650e402c6"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string <a class="el" href="class_eqdif_sim.html">EqdifSim</a>&lt; UsedType &gt;::typeModel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="eqdifsim_8h_source.html#l00013">13</a> do arquivo <a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>SistemasdeControle/src/simulationLibs/<a class="el" href="eqdifsim_8h_source.html">eqdifsim.h</a></li>
-<li>SistemasdeControle/src/simulationLibs/eqdifsim.cpp</li>
+<li>SistemasdeControle/src/simulationLibs/<a class="el" href="eqdifsim_8cpp_source.html">eqdifsim.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:46 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

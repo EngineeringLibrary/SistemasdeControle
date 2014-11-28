@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -90,18 +90,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 
 <p>Esta é a lista de todos os membros de <a class="el" href="class_o_p_c_client.html">OPCClient</a>, incluindo os membros herdados.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>InsertItens</b>(_bstr_t tags[], int QtdTags) (definido(a) em <a class="el" href="class_o_p_c_client.html">OPCClient</a>)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>OPCClient</b>() (definido(a) em <a class="el" href="class_o_p_c_client.html">OPCClient</a>)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>OPCClient</b>(_bstr_t ServerName) (definido(a) em <a class="el" href="class_o_p_c_client.html">OPCClient</a>)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>OPCConnect</b>(_bstr_t ServerName) (definido(a) em <a class="el" href="class_o_p_c_client.html">OPCClient</a>)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>ReadItens</b>() (definido(a) em <a class="el" href="class_o_p_c_client.html">OPCClient</a>)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>Show</b>(int ShowTime) (definido(a) em <a class="el" href="class_o_p_c_client.html">OPCClient</a>)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>WriteItens</b>(int TagIndex[], _variant_t Values[], int QtdValues) (definido(a) em <a class="el" href="class_o_p_c_client.html">OPCClient</a>)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>~OPCClient</b>() (definido(a) em <a class="el" href="class_o_p_c_client.html">OPCClient</a>)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#aa52f3a1fd2da967ab0f7bed1ea99af72">AbortCOM</a>()</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_o_p_c_client.html#add1aa4bd4313008872b0bd7d1de2db0d">CLSIDServer</a></td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#a4573940ab6761d17081f66ab33307551">CreateInstance</a>()</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_o_p_c_client.html#accbc64e9909711a34f770a0fbc0cc19a">GetCLSID</a>()</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#a18f5195683ad9160c4eebfee9b05f455">InsertItens</a>(_bstr_t tags[], int QtdTags)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_o_p_c_client.html#aafa94217d280c60c91d9b8fa57dfca4f">OPCClient</a>()</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#a96cd30ab01a3dcda1fc42076e4ebe8dd">OPCClient</a>(_bstr_t ServerName)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_o_p_c_client.html#ada26d701fa88f22e3c0821a1fe4d29b2">OPCConnect</a>(_bstr_t ServerName)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#a413ada0d5daac7fa2f323770be7a7ab5">OPCGroup</a></td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_o_p_c_client.html#ad1544d93d50a44f4d46ece508c2ebb32">OPCGroupTag</a></td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#a2f6f39bc29cf6f0a2f6e5331dd9454e5">QtdTags</a></td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_o_p_c_client.html#a66bf76e977eaf0e6df826727dfce9403">ReadItens</a>()</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#ac809ad934ea5c1f3d2e62bf9935fa131">ServerConnected</a></td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_o_p_c_client.html#a9bc5e06354e8914c0c7d1a9d8cb69f68">ServerName</a></td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#a34ba94e16bc8d3656dd2f8f00be0eb78">Show</a>(int ShowTime)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_o_p_c_client.html#aef4d3f3597688d6fd7411cf33081d567">StartCOM</a>()</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#ac64930b76846c692e3ea43d7efa19174">StartGroup</a>()</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_o_p_c_client.html#a6a9697ce3dea2e75b7202de372a975af">TagNames</a></td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#a6bca6299e15530aea84dfbd756e8346f">TagValues</a></td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_o_p_c_client.html#a14793da98feb409c76352163f097656b">TypeReadItem</a></td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#a5b0a9c0af23e33d150c35ddbb0d27779">TypeReadSync</a></td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_o_p_c_client.html#a303f2602fefeb975a202c37ab4badce7">WriteItens</a>(int TagIndex[], _variant_t Values[], int QtdValues)</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_o_p_c_client.html#a275740fd7b1877354c22069ebc4ec8b4">~OPCClient</a>()</td><td class="entry"><a class="el" href="class_o_p_c_client.html">OPCClient</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:48 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

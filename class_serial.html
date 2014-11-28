@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,35 +85,269 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pri-methods">Métodos Privados</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
 <a href="class_serial-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
 <div class="title">Referência da Classe Serial</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="comunicacao_8h_source.html">comunicacao.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para Serial:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_serial__coll__graph.png" border="0" usemap="#_serial_coll__map" alt="Collaboration graph"/></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
-<tr class="memitem:a580805013f1ee62de703a0d9e06b1beb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a580805013f1ee62de703a0d9e06b1beb"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Serial</b> (const char *namedoor)</td></tr>
+<tr class="memitem:a580805013f1ee62de703a0d9e06b1beb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial.html#a580805013f1ee62de703a0d9e06b1beb">Serial</a> (const char *namedoor)</td></tr>
 <tr class="separator:a580805013f1ee62de703a0d9e06b1beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae944c0077d55f1e0871a43a671ed73c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae944c0077d55f1e0871a43a671ed73c2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Close</b> ()</td></tr>
+<tr class="memitem:ae944c0077d55f1e0871a43a671ed73c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial.html#ae944c0077d55f1e0871a43a671ed73c2">Close</a> ()</td></tr>
 <tr class="separator:ae944c0077d55f1e0871a43a671ed73c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52b6c2114422438ad59f5be427d03490"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52b6c2114422438ad59f5be427d03490"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Write</b> (const char *teste)</td></tr>
+<tr class="memitem:a52b6c2114422438ad59f5be427d03490"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial.html#a52b6c2114422438ad59f5be427d03490">Write</a> (const char *teste)</td></tr>
 <tr class="separator:a52b6c2114422438ad59f5be427d03490"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ff2fb104033020d6f33a6d717b2a212"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5ff2fb104033020d6f33a6d717b2a212"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Read</b> ()</td></tr>
+<tr class="memitem:a5ff2fb104033020d6f33a6d717b2a212"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial.html#a5ff2fb104033020d6f33a6d717b2a212">Read</a> ()</td></tr>
 <tr class="separator:a5ff2fb104033020d6f33a6d717b2a212"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos Privados</h2></td></tr>
+<tr class="memitem:a3667c3137f2df94716b5193f9fb736ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial.html#a3667c3137f2df94716b5193f9fb736ab">Serial</a> ()</td></tr>
+<tr class="separator:a3667c3137f2df94716b5193f9fb736ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:a10ecf15c25e98bc7ecf65c6a2361115b"><td class="memItemLeft" align="right" valign="top">HANDLE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial.html#a10ecf15c25e98bc7ecf65c6a2361115b">PortaSerial</a></td></tr>
+<tr class="separator:a10ecf15c25e98bc7ecf65c6a2361115b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0454fc57d5912907a2e0167c02d47513"><td class="memItemLeft" align="right" valign="top">DCB&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial.html#a0454fc57d5912907a2e0167c02d47513">dcbPortaSerialparams</a></td></tr>
+<tr class="separator:a0454fc57d5912907a2e0167c02d47513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa71d8cc019d2675bbe6cb8d41326166"><td class="memItemLeft" align="right" valign="top">COMMTIMEOUTS&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial.html#afa71d8cc019d2675bbe6cb8d41326166">timeouts</a></td></tr>
+<tr class="separator:afa71d8cc019d2675bbe6cb8d41326166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedd38cb937402810dda7fffa7a1b3060"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial.html#aedd38cb937402810dda7fffa7a1b3060">bytes_pra_envio</a> []</td></tr>
+<tr class="separator:aedd38cb937402810dda7fffa7a1b3060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a89b5f17b9450bc0f5d3007c7637323"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_serial.html#a8a89b5f17b9450bc0f5d3007c7637323">bytes_para_receber</a> [5]</td></tr>
+<tr class="separator:a8a89b5f17b9450bc0f5d3007c7637323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock">
+<p>Definição na linha <a class="el" href="comunicacao_8h_source.html#l00010">10</a> do arquivo <a class="el" href="comunicacao_8h_source.html">comunicacao.h</a>.</p>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a class="anchor" id="a3667c3137f2df94716b5193f9fb736ab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Serial::Serial </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="comunicacao_8cpp_source.html#l00009">9</a> do arquivo <a class="el" href="comunicacao_8cpp_source.html">comunicacao.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a580805013f1ee62de703a0d9e06b1beb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Serial::Serial </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>namedoor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="comunicacao_8cpp_source.html#l00014">14</a> do arquivo <a class="el" href="comunicacao_8cpp_source.html">comunicacao.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="ae944c0077d55f1e0871a43a671ed73c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Serial::Close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="comunicacao_8cpp_source.html#l00055">55</a> do arquivo <a class="el" href="comunicacao_8cpp_source.html">comunicacao.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5ff2fb104033020d6f33a6d717b2a212"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Serial::Read </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="comunicacao_8cpp_source.html#l00090">90</a> do arquivo <a class="el" href="comunicacao_8cpp_source.html">comunicacao.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a52b6c2114422438ad59f5be427d03490"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Serial::Write </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>teste</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="comunicacao_8cpp_source.html#l00065">65</a> do arquivo <a class="el" href="comunicacao_8cpp_source.html">comunicacao.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="a8a89b5f17b9450bc0f5d3007c7637323"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Serial::bytes_para_receber[5]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="comunicacao_8h_source.html#l00016">16</a> do arquivo <a class="el" href="comunicacao_8h_source.html">comunicacao.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aedd38cb937402810dda7fffa7a1b3060"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char Serial::bytes_pra_envio[]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="comunicacao_8h_source.html#l00015">15</a> do arquivo <a class="el" href="comunicacao_8h_source.html">comunicacao.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0454fc57d5912907a2e0167c02d47513"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DCB Serial::dcbPortaSerialparams</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="comunicacao_8h_source.html#l00013">13</a> do arquivo <a class="el" href="comunicacao_8h_source.html">comunicacao.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a10ecf15c25e98bc7ecf65c6a2361115b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HANDLE Serial::PortaSerial</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="comunicacao_8h_source.html#l00012">12</a> do arquivo <a class="el" href="comunicacao_8h_source.html">comunicacao.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afa71d8cc019d2675bbe6cb8d41326166"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">COMMTIMEOUTS Serial::timeouts</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="comunicacao_8h_source.html#l00014">14</a> do arquivo <a class="el" href="comunicacao_8h_source.html">comunicacao.h</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>SistemasdeControle/src/communicationLibs/serial/<a class="el" href="comunicacao_8h_source.html">comunicacao.h</a></li>
-<li>SistemasdeControle/src/communicationLibs/serial/comunicacao.cpp</li>
+<li>SistemasdeControle/src/communicationLibs/serial/<a class="el" href="comunicacao_8cpp_source.html">comunicacao.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:48 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,41 +85,692 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pri-methods">Métodos Privados</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
 <a href="class_o_p_c_client-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
 <div class="title">Referência da Classe OPCClient</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para OPCClient:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_o_p_c_client__coll__graph.png" border="0" usemap="#_o_p_c_client_coll__map" alt="Collaboration graph"/></div>
+<map name="_o_p_c_client_coll__map" id="_o_p_c_client_coll__map">
+<area shape="rect" id="node2" href="struct___i_i_d.html" title="{_IID\n|+ x\l+ s1\l+ s2\l+ c\l|}" alt="" coords="45,5,93,127"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
-<tr class="memitem:a96cd30ab01a3dcda1fc42076e4ebe8dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96cd30ab01a3dcda1fc42076e4ebe8dd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>OPCClient</b> (_bstr_t ServerName)</td></tr>
+<tr class="memitem:aafa94217d280c60c91d9b8fa57dfca4f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#aafa94217d280c60c91d9b8fa57dfca4f">OPCClient</a> ()</td></tr>
+<tr class="separator:aafa94217d280c60c91d9b8fa57dfca4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96cd30ab01a3dcda1fc42076e4ebe8dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a96cd30ab01a3dcda1fc42076e4ebe8dd">OPCClient</a> (_bstr_t <a class="el" href="class_o_p_c_client.html#a9bc5e06354e8914c0c7d1a9d8cb69f68">ServerName</a>)</td></tr>
 <tr class="separator:a96cd30ab01a3dcda1fc42076e4ebe8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada26d701fa88f22e3c0821a1fe4d29b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada26d701fa88f22e3c0821a1fe4d29b2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>OPCConnect</b> (_bstr_t ServerName)</td></tr>
+<tr class="memitem:a275740fd7b1877354c22069ebc4ec8b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a275740fd7b1877354c22069ebc4ec8b4">~OPCClient</a> ()</td></tr>
+<tr class="separator:a275740fd7b1877354c22069ebc4ec8b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada26d701fa88f22e3c0821a1fe4d29b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#ada26d701fa88f22e3c0821a1fe4d29b2">OPCConnect</a> (_bstr_t <a class="el" href="class_o_p_c_client.html#a9bc5e06354e8914c0c7d1a9d8cb69f68">ServerName</a>)</td></tr>
 <tr class="separator:ada26d701fa88f22e3c0821a1fe4d29b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18f5195683ad9160c4eebfee9b05f455"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18f5195683ad9160c4eebfee9b05f455"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>InsertItens</b> (_bstr_t tags[], int QtdTags)</td></tr>
+<tr class="memitem:a18f5195683ad9160c4eebfee9b05f455"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a18f5195683ad9160c4eebfee9b05f455">InsertItens</a> (_bstr_t tags[], int <a class="el" href="class_o_p_c_client.html#a2f6f39bc29cf6f0a2f6e5331dd9454e5">QtdTags</a>)</td></tr>
 <tr class="separator:a18f5195683ad9160c4eebfee9b05f455"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a303f2602fefeb975a202c37ab4badce7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a303f2602fefeb975a202c37ab4badce7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>WriteItens</b> (int TagIndex[], _variant_t Values[], int QtdValues)</td></tr>
+<tr class="memitem:a303f2602fefeb975a202c37ab4badce7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a303f2602fefeb975a202c37ab4badce7">WriteItens</a> (int TagIndex[], _variant_t Values[], int QtdValues)</td></tr>
 <tr class="separator:a303f2602fefeb975a202c37ab4badce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34ba94e16bc8d3656dd2f8f00be0eb78"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34ba94e16bc8d3656dd2f8f00be0eb78"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Show</b> (int ShowTime)</td></tr>
+<tr class="memitem:a34ba94e16bc8d3656dd2f8f00be0eb78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a34ba94e16bc8d3656dd2f8f00be0eb78">Show</a> (int ShowTime)</td></tr>
 <tr class="separator:a34ba94e16bc8d3656dd2f8f00be0eb78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a66bf76e977eaf0e6df826727dfce9403"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66bf76e977eaf0e6df826727dfce9403"></a>
-_variant_t *&#160;</td><td class="memItemRight" valign="bottom"><b>ReadItens</b> ()</td></tr>
+<tr class="memitem:a66bf76e977eaf0e6df826727dfce9403"><td class="memItemLeft" align="right" valign="top">_variant_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a66bf76e977eaf0e6df826727dfce9403">ReadItens</a> ()</td></tr>
 <tr class="separator:a66bf76e977eaf0e6df826727dfce9403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos Privados</h2></td></tr>
+<tr class="memitem:aef4d3f3597688d6fd7411cf33081d567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#aef4d3f3597688d6fd7411cf33081d567">StartCOM</a> ()</td></tr>
+<tr class="separator:aef4d3f3597688d6fd7411cf33081d567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa52f3a1fd2da967ab0f7bed1ea99af72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#aa52f3a1fd2da967ab0f7bed1ea99af72">AbortCOM</a> ()</td></tr>
+<tr class="separator:aa52f3a1fd2da967ab0f7bed1ea99af72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4573940ab6761d17081f66ab33307551"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a4573940ab6761d17081f66ab33307551">CreateInstance</a> ()</td></tr>
+<tr class="separator:a4573940ab6761d17081f66ab33307551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accbc64e9909711a34f770a0fbc0cc19a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#accbc64e9909711a34f770a0fbc0cc19a">GetCLSID</a> ()</td></tr>
+<tr class="separator:accbc64e9909711a34f770a0fbc0cc19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac64930b76846c692e3ea43d7efa19174"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#ac64930b76846c692e3ea43d7efa19174">StartGroup</a> ()</td></tr>
+<tr class="separator:ac64930b76846c692e3ea43d7efa19174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:a9bc5e06354e8914c0c7d1a9d8cb69f68"><td class="memItemLeft" align="right" valign="top">_bstr_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a9bc5e06354e8914c0c7d1a9d8cb69f68">ServerName</a></td></tr>
+<tr class="separator:a9bc5e06354e8914c0c7d1a9d8cb69f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a9697ce3dea2e75b7202de372a975af"><td class="memItemLeft" align="right" valign="top">_bstr_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a6a9697ce3dea2e75b7202de372a975af">TagNames</a></td></tr>
+<tr class="separator:a6a9697ce3dea2e75b7202de372a975af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add1aa4bd4313008872b0bd7d1de2db0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="opccomn__i_8c.html#a2ab123f47f26d717283dbd5db694e130">CLSID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#add1aa4bd4313008872b0bd7d1de2db0d">CLSIDServer</a></td></tr>
+<tr class="separator:add1aa4bd4313008872b0bd7d1de2db0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac809ad934ea5c1f3d2e62bf9935fa131"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_opcda_8h.html#a423a8571fcb2dee77429a590a8892dd9">IOPCServer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#ac809ad934ea5c1f3d2e62bf9935fa131">ServerConnected</a></td></tr>
+<tr class="separator:ac809ad934ea5c1f3d2e62bf9935fa131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a413ada0d5daac7fa2f323770be7a7ab5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a413ada0d5daac7fa2f323770be7a7ab5">OPCGroup</a></td></tr>
+<tr class="separator:a413ada0d5daac7fa2f323770be7a7ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1544d93d50a44f4d46ece508c2ebb32"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#ad1544d93d50a44f4d46ece508c2ebb32">OPCGroupTag</a></td></tr>
+<tr class="separator:ad1544d93d50a44f4d46ece508c2ebb32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14793da98feb409c76352163f097656b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_opcda_8h.html#aabc9f9d2121dfebf489c07d559df1296">IOPCItemMgt</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a14793da98feb409c76352163f097656b">TypeReadItem</a></td></tr>
+<tr class="separator:a14793da98feb409c76352163f097656b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b0a9c0af23e33d150c35ddbb0d27779"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_opcda_8h.html#ad37cdcede341f65dd9639b36481ecf5a">IOPCSyncIO</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a5b0a9c0af23e33d150c35ddbb0d27779">TypeReadSync</a></td></tr>
+<tr class="separator:a5b0a9c0af23e33d150c35ddbb0d27779"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bca6299e15530aea84dfbd756e8346f"><td class="memItemLeft" align="right" valign="top">_variant_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a6bca6299e15530aea84dfbd756e8346f">TagValues</a></td></tr>
+<tr class="separator:a6bca6299e15530aea84dfbd756e8346f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f6f39bc29cf6f0a2f6e5331dd9454e5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_p_c_client.html#a2f6f39bc29cf6f0a2f6e5331dd9454e5">QtdTags</a></td></tr>
+<tr class="separator:a2f6f39bc29cf6f0a2f6e5331dd9454e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock">
+<p>Definição na linha <a class="el" href="_o_p_c_client_8h_source.html#l00015">15</a> do arquivo <a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>.</p>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a class="anchor" id="aafa94217d280c60c91d9b8fa57dfca4f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">OPCClient::OPCClient </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00003">3</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_o_p_c_client_aafa94217d280c60c91d9b8fa57dfca4f_cgraph.png" border="0" usemap="#class_o_p_c_client_aafa94217d280c60c91d9b8fa57dfca4f_cgraph" alt=""/></div>
+<map name="class_o_p_c_client_aafa94217d280c60c91d9b8fa57dfca4f_cgraph" id="class_o_p_c_client_aafa94217d280c60c91d9b8fa57dfca4f_cgraph">
+<area shape="rect" id="node2" href="class_o_p_c_client.html#aef4d3f3597688d6fd7411cf33081d567" title="OPCClient::StartCOM" alt="" coords="205,5,355,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a96cd30ab01a3dcda1fc42076e4ebe8dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">OPCClient::OPCClient </td>
+          <td>(</td>
+          <td class="paramtype">_bstr_t&#160;</td>
+          <td class="paramname"><em>ServerName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a275740fd7b1877354c22069ebc4ec8b4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">OPCClient::~OPCClient </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00008">8</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_o_p_c_client_a275740fd7b1877354c22069ebc4ec8b4_cgraph.png" border="0" usemap="#class_o_p_c_client_a275740fd7b1877354c22069ebc4ec8b4_cgraph" alt=""/></div>
+<map name="class_o_p_c_client_a275740fd7b1877354c22069ebc4ec8b4_cgraph" id="class_o_p_c_client_a275740fd7b1877354c22069ebc4ec8b4_cgraph">
+<area shape="rect" id="node2" href="class_o_p_c_client.html#aa52f3a1fd2da967ab0f7bed1ea99af72" title="OPCClient::AbortCOM" alt="" coords="213,5,365,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="aa52f3a1fd2da967ab0f7bed1ea99af72"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OPCClient::AbortCOM </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00018">18</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_o_p_c_client_aa52f3a1fd2da967ab0f7bed1ea99af72_icgraph.png" border="0" usemap="#class_o_p_c_client_aa52f3a1fd2da967ab0f7bed1ea99af72_icgraph" alt=""/></div>
+<map name="class_o_p_c_client_aa52f3a1fd2da967ab0f7bed1ea99af72_icgraph" id="class_o_p_c_client_aa52f3a1fd2da967ab0f7bed1ea99af72_icgraph">
+<area shape="rect" id="node2" href="class_o_p_c_client.html#a275740fd7b1877354c22069ebc4ec8b4" title="OPCClient::~OPCClient" alt="" coords="205,5,365,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4573940ab6761d17081f66ab33307551"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OPCClient::CreateInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00028">28</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_o_p_c_client_a4573940ab6761d17081f66ab33307551_icgraph.png" border="0" usemap="#class_o_p_c_client_a4573940ab6761d17081f66ab33307551_icgraph" alt=""/></div>
+<map name="class_o_p_c_client_a4573940ab6761d17081f66ab33307551_icgraph" id="class_o_p_c_client_a4573940ab6761d17081f66ab33307551_icgraph">
+<area shape="rect" id="node2" href="class_o_p_c_client.html#ada26d701fa88f22e3c0821a1fe4d29b2" title="OPCClient::OPCConnect" alt="" coords="232,5,399,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="accbc64e9909711a34f770a0fbc0cc19a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OPCClient::GetCLSID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00023">23</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_o_p_c_client_accbc64e9909711a34f770a0fbc0cc19a_icgraph.png" border="0" usemap="#class_o_p_c_client_accbc64e9909711a34f770a0fbc0cc19a_icgraph" alt=""/></div>
+<map name="class_o_p_c_client_accbc64e9909711a34f770a0fbc0cc19a_icgraph" id="class_o_p_c_client_accbc64e9909711a34f770a0fbc0cc19a_icgraph">
+<area shape="rect" id="node2" href="class_o_p_c_client.html#ada26d701fa88f22e3c0821a1fe4d29b2" title="OPCClient::OPCConnect" alt="" coords="203,5,369,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a18f5195683ad9160c4eebfee9b05f455"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OPCClient::InsertItens </td>
+          <td>(</td>
+          <td class="paramtype">_bstr_t&#160;</td>
+          <td class="paramname"><em>tags</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>QtdTags</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00062">62</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ada26d701fa88f22e3c0821a1fe4d29b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OPCClient::OPCConnect </td>
+          <td>(</td>
+          <td class="paramtype">_bstr_t&#160;</td>
+          <td class="paramname"><em>ServerName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00033">33</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_o_p_c_client_ada26d701fa88f22e3c0821a1fe4d29b2_cgraph.png" border="0" usemap="#class_o_p_c_client_ada26d701fa88f22e3c0821a1fe4d29b2_cgraph" alt=""/></div>
+<map name="class_o_p_c_client_ada26d701fa88f22e3c0821a1fe4d29b2_cgraph" id="class_o_p_c_client_ada26d701fa88f22e3c0821a1fe4d29b2_cgraph">
+<area shape="rect" id="node2" href="class_o_p_c_client.html#accbc64e9909711a34f770a0fbc0cc19a" title="OPCClient::GetCLSID" alt="" coords="235,5,384,32"/><area shape="rect" id="node3" href="class_o_p_c_client.html#a4573940ab6761d17081f66ab33307551" title="OPCClient::CreateInstance" alt="" coords="220,56,399,83"/><area shape="rect" id="node4" href="class_o_p_c_client.html#ac64930b76846c692e3ea43d7efa19174" title="OPCClient::StartGroup" alt="" coords="232,107,387,133"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a66bf76e977eaf0e6df826727dfce9403"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">_variant_t * OPCClient::ReadItens </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00096">96</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_o_p_c_client_a66bf76e977eaf0e6df826727dfce9403_icgraph.png" border="0" usemap="#class_o_p_c_client_a66bf76e977eaf0e6df826727dfce9403_icgraph" alt=""/></div>
+<map name="class_o_p_c_client_a66bf76e977eaf0e6df826727dfce9403_icgraph" id="class_o_p_c_client_a66bf76e977eaf0e6df826727dfce9403_icgraph">
+<area shape="rect" id="node2" href="class_o_p_c_client.html#a34ba94e16bc8d3656dd2f8f00be0eb78" title="OPCClient::Show" alt="" coords="203,5,325,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a34ba94e16bc8d3656dd2f8f00be0eb78"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OPCClient::Show </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ShowTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00131">131</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_o_p_c_client_a34ba94e16bc8d3656dd2f8f00be0eb78_cgraph.png" border="0" usemap="#class_o_p_c_client_a34ba94e16bc8d3656dd2f8f00be0eb78_cgraph" alt=""/></div>
+<map name="class_o_p_c_client_a34ba94e16bc8d3656dd2f8f00be0eb78_cgraph" id="class_o_p_c_client_a34ba94e16bc8d3656dd2f8f00be0eb78_cgraph">
+<area shape="rect" id="node2" href="class_o_p_c_client.html#a66bf76e977eaf0e6df826727dfce9403" title="OPCClient::ReadItens" alt="" coords="176,5,325,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aef4d3f3597688d6fd7411cf33081d567"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OPCClient::StartCOM </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00013">13</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_o_p_c_client_aef4d3f3597688d6fd7411cf33081d567_icgraph.png" border="0" usemap="#class_o_p_c_client_aef4d3f3597688d6fd7411cf33081d567_icgraph" alt=""/></div>
+<map name="class_o_p_c_client_aef4d3f3597688d6fd7411cf33081d567_icgraph" id="class_o_p_c_client_aef4d3f3597688d6fd7411cf33081d567_icgraph">
+<area shape="rect" id="node2" href="class_o_p_c_client.html#aafa94217d280c60c91d9b8fa57dfca4f" title="OPCClient::OPCClient" alt="" coords="203,5,355,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac64930b76846c692e3ea43d7efa19174"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OPCClient::StartGroup </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00041">41</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_o_p_c_client_ac64930b76846c692e3ea43d7efa19174_icgraph.png" border="0" usemap="#class_o_p_c_client_ac64930b76846c692e3ea43d7efa19174_icgraph" alt=""/></div>
+<map name="class_o_p_c_client_ac64930b76846c692e3ea43d7efa19174_icgraph" id="class_o_p_c_client_ac64930b76846c692e3ea43d7efa19174_icgraph">
+<area shape="rect" id="node2" href="class_o_p_c_client.html#ada26d701fa88f22e3c0821a1fe4d29b2" title="OPCClient::OPCConnect" alt="" coords="208,5,375,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a303f2602fefeb975a202c37ab4badce7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OPCClient::WriteItens </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>TagIndex</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">_variant_t&#160;</td>
+          <td class="paramname"><em>Values</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>QtdValues</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8cpp_source.html#l00114">114</a> do arquivo <a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="add1aa4bd4313008872b0bd7d1de2db0d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="opccomn__i_8c.html#a2ab123f47f26d717283dbd5db694e130">CLSID</a> OPCClient::CLSIDServer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8h_source.html#l00019">19</a> do arquivo <a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a413ada0d5daac7fa2f323770be7a7ab5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> OPCClient::OPCGroup</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8h_source.html#l00021">21</a> do arquivo <a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1544d93d50a44f4d46ece508c2ebb32"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> * OPCClient::OPCGroupTag</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8h_source.html#l00021">21</a> do arquivo <a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f6f39bc29cf6f0a2f6e5331dd9454e5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int OPCClient::QtdTags</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8h_source.html#l00026">26</a> do arquivo <a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac809ad934ea5c1f3d2e62bf9935fa131"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_opcda_8h.html#a423a8571fcb2dee77429a590a8892dd9">IOPCServer</a>* OPCClient::ServerConnected</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8h_source.html#l00020">20</a> do arquivo <a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9bc5e06354e8914c0c7d1a9d8cb69f68"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">_bstr_t OPCClient::ServerName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8h_source.html#l00018">18</a> do arquivo <a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6a9697ce3dea2e75b7202de372a975af"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">_bstr_t * OPCClient::TagNames</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8h_source.html#l00018">18</a> do arquivo <a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6bca6299e15530aea84dfbd756e8346f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">_variant_t* OPCClient::TagValues</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8h_source.html#l00024">24</a> do arquivo <a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a14793da98feb409c76352163f097656b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_opcda_8h.html#aabc9f9d2121dfebf489c07d559df1296">IOPCItemMgt</a>* OPCClient::TypeReadItem</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8h_source.html#l00022">22</a> do arquivo <a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5b0a9c0af23e33d150c35ddbb0d27779"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_opcda_8h.html#ad37cdcede341f65dd9639b36481ecf5a">IOPCSyncIO</a>* OPCClient::TypeReadSync</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_o_p_c_client_8h_source.html#l00023">23</a> do arquivo <a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>SistemasdeControle/src/communicationLibs/opc/<a class="el" href="_o_p_c_client_8h_source.html">OPCClient.h</a></li>
-<li>SistemasdeControle/src/communicationLibs/opc/OPCClient.cpp</li>
+<li>SistemasdeControle/src/communicationLibs/opc/<a class="el" href="_o_p_c_client_8cpp_source.html">OPCClient.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:48 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

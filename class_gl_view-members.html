@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,18 +92,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_gl_view.html#ad67ebb10fe30265fc6930d66dea1e544">display</a>()=0</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
   <tr><td class="entry"><a class="el" href="class_gl_view.html#af527a092e0168cdf1a69f6bdcc58cbcf">displayWrapper</a>(void)</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_gl_view.html#a24c8ef76a4a6d2bfbbb34dab889b046a">MotionFunc</a>(int x, int y)=0</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_gl_view.html#a18b463ac9db77ace80f484f0dce41b60">MotionFuncWrapper</a>(int x, int y)</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_gl_view.html#a495e59513eb70b3fc743f5e3f231a8e6">MouseClickProcess</a>(int button, int state, int x, int y)=0</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_gl_view.html#a04795854e77d9015c50e114fb2db2476">MouseFuncWrapper</a>(int button, int state, int x, int y)</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_gl_view.html#a6ee474bd379cfdf8579f4eb207d6e7d5">PassiveMotionFunc</a>(int x, int y)=0</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_gl_view.html#ab20d15d3194a0d5104d1bd13b55fb92c">PassiveMotionFuncWrapper</a>(int x, int y)</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_gl_view.html#a26ea52cd1f5bbafd716483ffbfc98485">setInstance</a>(GlView *Img)</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70">startFramework</a>(int argv, char *argc[])</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_gl_view.html#a0423570bb7ca80e705636a46caf9a0bf">instance</a></td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_gl_view.html#a24c8ef76a4a6d2bfbbb34dab889b046a">MotionFunc</a>(int x, int y)=0</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_gl_view.html#a18b463ac9db77ace80f484f0dce41b60">MotionFuncWrapper</a>(int x, int y)</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_gl_view.html#a495e59513eb70b3fc743f5e3f231a8e6">MouseClickProcess</a>(int button, int state, int x, int y)=0</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_gl_view.html#a04795854e77d9015c50e114fb2db2476">MouseFuncWrapper</a>(int button, int state, int x, int y)</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_gl_view.html#a6ee474bd379cfdf8579f4eb207d6e7d5">PassiveMotionFunc</a>(int x, int y)=0</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_gl_view.html#ab20d15d3194a0d5104d1bd13b55fb92c">PassiveMotionFuncWrapper</a>(int x, int y)</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_gl_view.html#a26ea52cd1f5bbafd716483ffbfc98485">setInstance</a>(GlView *Img)</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70">startFramework</a>(int argv, char *argc[])</td><td class="entry"><a class="el" href="class_gl_view.html">GlView</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:46 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

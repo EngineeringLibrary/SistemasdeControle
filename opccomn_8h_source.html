@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -88,7 +89,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="title">opccomn.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<a href="opccomn_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">/* this ALWAYS GENERATED file contains the definitions for the interfaces */</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
@@ -111,7 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/* verify that the &lt;rpcndr.h&gt; version is high enough to compile this file*/</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#ifndef __REQUIRED_RPCNDR_H_VERSION__</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#define __REQUIRED_RPCNDR_H_VERSION__ 440</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="opccomn_8h.html#ad76a32846c87da46b8d59d882ad6b4c0">   24</a></span>&#160;<span class="preprocessor">#define __REQUIRED_RPCNDR_H_VERSION__ 440</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;rpc.h&quot;</span></div>
@@ -136,62 +137,62 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/* Forward Declarations */</span> </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#ifndef __IOPCShutdown_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#define __IOPCShutdown_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span>IOPCShutdown IOPCShutdown;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a661de75062737aa57a3cebc5a241a85c">   49</a></span>&#160;<span class="preprocessor">#define __IOPCShutdown_FWD_DEFINED__</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">   50</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a> <a class="code" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a>;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* __IOPCShutdown_FWD_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#ifndef __IOPCCommon_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#define __IOPCCommon_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span>IOPCCommon IOPCCommon;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="opccomn_8h.html#aa708f1e026bb6cfa0b91b597dc2e7fd7">   55</a></span>&#160;<span class="preprocessor">#define __IOPCCommon_FWD_DEFINED__</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">   56</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a>;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* __IOPCCommon_FWD_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#ifndef __IOPCServerList_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#define __IOPCServerList_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span>IOPCServerList IOPCServerList;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a9c363917a7cd994830536c08c07d489c">   61</a></span>&#160;<span class="preprocessor">#define __IOPCServerList_FWD_DEFINED__</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">   62</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a>;</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* __IOPCServerList_FWD_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#ifndef __IOPCEnumGUID_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#define __IOPCEnumGUID_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span>IOPCEnumGUID IOPCEnumGUID;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a497797a06ff48508d79622b9a1ccdc53">   67</a></span>&#160;<span class="preprocessor">#define __IOPCEnumGUID_FWD_DEFINED__</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">   68</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a>;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* __IOPCEnumGUID_FWD_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#ifndef __IOPCServerList2_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#define __IOPCServerList2_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span>IOPCServerList2 IOPCServerList2;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="opccomn_8h.html#afe623dfe007e14333213438c3e2b8f64">   73</a></span>&#160;<span class="preprocessor">#define __IOPCServerList2_FWD_DEFINED__</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">   74</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a>;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* __IOPCServerList2_FWD_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#ifndef __IOPCCommon_FWD_DEFINED__</span></div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#define __IOPCCommon_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span>IOPCCommon IOPCCommon;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a>;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* __IOPCCommon_FWD_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#ifndef __IOPCShutdown_FWD_DEFINED__</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#define __IOPCShutdown_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span>IOPCShutdown IOPCShutdown;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a> <a class="code" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a>;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* __IOPCShutdown_FWD_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#ifndef __IOPCServerList_FWD_DEFINED__</span></div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#define __IOPCServerList_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span>IOPCServerList IOPCServerList;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a>;</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* __IOPCServerList_FWD_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#ifndef __IOPCServerList2_FWD_DEFINED__</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#define __IOPCServerList2_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span>IOPCServerList2 IOPCServerList2;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* __IOPCServerList2_FWD_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#ifndef __IOPCEnumGUID_FWD_DEFINED__</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#define __IOPCEnumGUID_FWD_DEFINED__</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span>IOPCEnumGUID IOPCEnumGUID;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">typedef</span> <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a>;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* __IOPCEnumGUID_FWD_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
@@ -204,22 +205,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span>{</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#endif </span></div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">void</span> * __RPC_USER MIDL_user_allocate(<span class="keywordtype">size_t</span>);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordtype">void</span> __RPC_USER MIDL_user_free( <span class="keywordtype">void</span> * ); </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">void</span> * __RPC_USER <a class="code" href="opccomn_8h.html#a18ebe1e23390e09b2fe2e82723924153">MIDL_user_allocate</a>(<span class="keywordtype">size_t</span>);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keywordtype">void</span> __RPC_USER <a class="code" href="opccomn_8h.html#a311841bad32933da904f30b7f16cb791">MIDL_user_free</a>( <span class="keywordtype">void</span> * ); </div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="preprocessor">#ifndef __IOPCShutdown_INTERFACE_DEFINED__</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="preprocessor">#define __IOPCShutdown_INTERFACE_DEFINED__</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="opccomn_8h.html#afd562d091d003c5b69ffe240847b41b2">  121</a></span>&#160;<span class="preprocessor">#define __IOPCShutdown_INTERFACE_DEFINED__</span></div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">/* interface IOPCShutdown */</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">/* [unique][uuid][object] */</span> </div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> IID_IOPCShutdown;</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="opccomn_8h.html#ad663bc6eac8c8da6227ead1020feb642">  127</a></span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> <a class="code" href="opccomn_8h.html#ad663bc6eac8c8da6227ead1020feb642">IID_IOPCShutdown</a>;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#if defined(__cplusplus) &amp;&amp; !defined(CINTERFACE)</span></div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    </div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    MIDL_INTERFACE(<span class="stringliteral">&quot;F31DFDE1-07B6-11d2-B2D8-0060083BA1FB&quot;</span>)</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    IOPCShutdown : public IUnknown</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a> : public IUnknown</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    {</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE ShutdownRequest( </div>
@@ -233,25 +234,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    {</div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        BEGIN_INTERFACE</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            IOPCShutdown * This,</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <span class="comment">/* [in] */</span> REFIID riid,</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="comment">/* [iid_is][out] */</span> <span class="keywordtype">void</span> **ppvObject);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a708f834ab6e1a0c839addddb052f39d2">HRESULT</a> ( STDMETHODCALLTYPE *QueryInterface )( </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;            <a class="code" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a> * This,</div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_shutdown_vtbl.html#af2ffaf87d4bfb63aad5b11828f626758">  148</a></span>&#160;            <span class="comment">/* [in] */</span> REFIID <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#af2ffaf87d4bfb63aad5b11828f626758">riid</a>,</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="comment">/* [iid_is][out] */</span> <span class="keywordtype">void</span> **<a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a4c78dc9bed1dd899b5def4daaea4525f">ppvObject</a>);</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        ULONG ( STDMETHODCALLTYPE *AddRef )( </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            IOPCShutdown * This);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a5efdcb8e88f16e37115647eb2c894e1f">ULONG</a> ( STDMETHODCALLTYPE *AddRef )( </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <a class="code" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a> * This);</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        ULONG ( STDMETHODCALLTYPE *Release )( </div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            IOPCShutdown * This);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a5efdcb8e88f16e37115647eb2c894e1f">ULONG</a> ( STDMETHODCALLTYPE *Release )( </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <a class="code" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a> * This);</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        HRESULT ( STDMETHODCALLTYPE *ShutdownRequest )( </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            IOPCShutdown * This,</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;            <span class="comment">/* [string][in] */</span> LPCWSTR szReason);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a708f834ab6e1a0c839addddb052f39d2">HRESULT</a> ( STDMETHODCALLTYPE *ShutdownRequest )( </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <a class="code" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a> * This,</div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_shutdown_vtbl.html#a80a7b1335e1abbc8c320826353f0505f">  159</a></span>&#160;            <span class="comment">/* [string][in] */</span> LPCWSTR <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a80a7b1335e1abbc8c320826353f0505f">szReason</a>);</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        </div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        END_INTERFACE</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    } <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html">IOPCShutdownVtbl</a>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    } <a class="code" href="opccomn_8h.html#a8dede16edbf3ffcd6f7e1ae5e72646d4">IOPCShutdownVtbl</a>;</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">interface </span>IOPCShutdown</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a></div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    {</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        CONST_VTBL <span class="keyword">struct </span><a class="code" href="struct_i_o_p_c_shutdown_vtbl.html">IOPCShutdownVtbl</a> *lpVtbl;</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    };</div>
@@ -281,12 +282,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;HRESULT STDMETHODCALLTYPE IOPCShutdown_ShutdownRequest_Proxy( </div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    IOPCShutdown * This,</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="comment">/* [string][in] */</span> LPCWSTR szReason);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a708f834ab6e1a0c839addddb052f39d2">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a7a85341225a9c3e58d9bd830d8715d96">IOPCShutdown_ShutdownRequest_Proxy</a>( </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <a class="code" href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a> * This,</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="comment">/* [string][in] */</span> LPCWSTR <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a80a7b1335e1abbc8c320826353f0505f">szReason</a>);</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCShutdown_ShutdownRequest_Stub(</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#a534f9755ec3dda8b1a6b57ba4fe52b37">IOPCShutdown_ShutdownRequest_Stub</a>(</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
@@ -298,35 +299,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">#ifndef __IOPCCommon_INTERFACE_DEFINED__</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="preprocessor">#define __IOPCCommon_INTERFACE_DEFINED__</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a6d60fc2ac4daf63a47fb8082311f1593">  211</a></span>&#160;<span class="preprocessor">#define __IOPCCommon_INTERFACE_DEFINED__</span></div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">/* interface IOPCCommon */</span></div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">/* [unique][uuid][object] */</span> </div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> IID_IOPCCommon;</div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a1167316427362cbe56eb13ab63ec066b">  217</a></span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> <a class="code" href="opccomn_8h.html#a1167316427362cbe56eb13ab63ec066b">IID_IOPCCommon</a>;</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="preprocessor">#if defined(__cplusplus) &amp;&amp; !defined(CINTERFACE)</span></div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    </div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    MIDL_INTERFACE(<span class="stringliteral">&quot;F31DFDE2-07B6-11d2-B2D8-0060083BA1FB&quot;</span>)</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    IOPCCommon : public IUnknown</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> : public IUnknown</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    {</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE SetLocaleID( </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a708f834ab6e1a0c839addddb052f39d2">HRESULT</a> STDMETHODCALLTYPE SetLocaleID( </div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            <span class="comment">/* [in] */</span> LCID dwLcid) = 0;</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        </div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE GetLocaleID( </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a708f834ab6e1a0c839addddb052f39d2">HRESULT</a> STDMETHODCALLTYPE GetLocaleID( </div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            <span class="comment">/* [out] */</span> LCID *pdwLcid) = 0;</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        </div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE QueryAvailableLocaleIDs( </div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a708f834ab6e1a0c839addddb052f39d2">HRESULT</a> STDMETHODCALLTYPE QueryAvailableLocaleIDs( </div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="comment">/* [out] */</span> DWORD *pdwCount,</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            <span class="comment">/* [size_is][size_is][out] */</span> LCID **pdwLcid) = 0;</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        </div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE GetErrorString( </div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="comment">/* [in] */</span> HRESULT dwError,</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a708f834ab6e1a0c839addddb052f39d2">HRESULT</a> STDMETHODCALLTYPE GetErrorString( </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a708f834ab6e1a0c839addddb052f39d2">HRESULT</a> dwError,</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            <span class="comment">/* [string][out] */</span> LPWSTR *ppString) = 0;</div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        </div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE SetClientName( </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_shutdown_vtbl.html#a708f834ab6e1a0c839addddb052f39d2">HRESULT</a> STDMETHODCALLTYPE SetClientName( </div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            <span class="comment">/* [string][in] */</span> LPCWSTR szName) = 0;</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        </div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    };</div>
@@ -337,43 +338,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    {</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        BEGIN_INTERFACE</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( </div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            IOPCCommon * This,</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;            <span class="comment">/* [in] */</span> REFIID riid,</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <span class="comment">/* [iid_is][out] */</span> <span class="keywordtype">void</span> **ppvObject);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> ( STDMETHODCALLTYPE *QueryInterface )( </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This,</div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_common_vtbl.html#af9ced3472dd02037c804ea8aa83c579d">  252</a></span>&#160;            <span class="comment">/* [in] */</span> REFIID <a class="code" href="struct_i_o_p_c_common_vtbl.html#af9ced3472dd02037c804ea8aa83c579d">riid</a>,</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <span class="comment">/* [iid_is][out] */</span> <span class="keywordtype">void</span> **<a class="code" href="struct_i_o_p_c_common_vtbl.html#a74c6688b6934436c95d5486cbcd94534">ppvObject</a>);</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        </div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        ULONG ( STDMETHODCALLTYPE *AddRef )( </div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            IOPCCommon * This);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <a class="code" href="struct_i_o_p_c_common_vtbl.html#a837af6e8e6b23b5bbb56e5a7596ae6bf">ULONG</a> ( STDMETHODCALLTYPE *AddRef )( </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This);</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        </div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        ULONG ( STDMETHODCALLTYPE *Release )( </div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            IOPCCommon * This);</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <a class="code" href="struct_i_o_p_c_common_vtbl.html#a837af6e8e6b23b5bbb56e5a7596ae6bf">ULONG</a> ( STDMETHODCALLTYPE *Release )( </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This);</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        HRESULT ( STDMETHODCALLTYPE *SetLocaleID )( </div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            IOPCCommon * This,</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            <span class="comment">/* [in] */</span> LCID dwLcid);</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> ( STDMETHODCALLTYPE *SetLocaleID )( </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This,</div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_common_vtbl.html#afdacf961a080529dc665a23af4c91779">  263</a></span>&#160;            <span class="comment">/* [in] */</span> LCID <a class="code" href="struct_i_o_p_c_common_vtbl.html#afdacf961a080529dc665a23af4c91779">dwLcid</a>);</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        HRESULT ( STDMETHODCALLTYPE *GetLocaleID )( </div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            IOPCCommon * This,</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;            <span class="comment">/* [out] */</span> LCID *pdwLcid);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> ( STDMETHODCALLTYPE *GetLocaleID )( </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;            <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This,</div>
+<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_common_vtbl.html#afc0921913408d2cedb00897ee1281119">  267</a></span>&#160;            <span class="comment">/* [out] */</span> LCID *<a class="code" href="struct_i_o_p_c_common_vtbl.html#afc0921913408d2cedb00897ee1281119">pdwLcid</a>);</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        HRESULT ( STDMETHODCALLTYPE *QueryAvailableLocaleIDs )( </div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            IOPCCommon * This,</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;            <span class="comment">/* [out] */</span> DWORD *pdwCount,</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            <span class="comment">/* [size_is][size_is][out] */</span> LCID **pdwLcid);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> ( STDMETHODCALLTYPE *QueryAvailableLocaleIDs )( </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;            <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This,</div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_common_vtbl.html#afc5191efc22ec783c23be0eb50d92f0e">  271</a></span>&#160;            <span class="comment">/* [out] */</span> DWORD *<a class="code" href="struct_i_o_p_c_common_vtbl.html#aa7f462e582580fdc3f377c30a2a8b8e0">pdwCount</a>,</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;            <span class="comment">/* [size_is][size_is][out] */</span> LCID **<a class="code" href="struct_i_o_p_c_common_vtbl.html#afc5191efc22ec783c23be0eb50d92f0e">pdwLcid</a>);</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        </div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        HRESULT ( STDMETHODCALLTYPE *GetErrorString )( </div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            IOPCCommon * This,</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            <span class="comment">/* [in] */</span> HRESULT dwError,</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            <span class="comment">/* [string][out] */</span> LPWSTR *ppString);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> ( STDMETHODCALLTYPE *GetErrorString )( </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This,</div>
+<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_common_vtbl.html#a23a91884a1c6c8751e2d2b14142b7e49">  276</a></span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> <a class="code" href="struct_i_o_p_c_common_vtbl.html#a3d8d6c2c353834c2fda82f4128a4790c">dwError</a>,</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            <span class="comment">/* [string][out] */</span> LPWSTR *<a class="code" href="struct_i_o_p_c_common_vtbl.html#a23a91884a1c6c8751e2d2b14142b7e49">ppString</a>);</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        </div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        HRESULT ( STDMETHODCALLTYPE *SetClientName )( </div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            IOPCCommon * This,</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            <span class="comment">/* [string][in] */</span> LPCWSTR szName);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> ( STDMETHODCALLTYPE *SetClientName )( </div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This,</div>
+<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_common_vtbl.html#a20f570a7b3a4613cc1529f51df747d4f">  281</a></span>&#160;            <span class="comment">/* [string][in] */</span> LPCWSTR <a class="code" href="struct_i_o_p_c_common_vtbl.html#a20f570a7b3a4613cc1529f51df747d4f">szName</a>);</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;        </div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        END_INTERFACE</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    } <a class="code" href="struct_i_o_p_c_common_vtbl.html">IOPCCommonVtbl</a>;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    } <a class="code" href="opccomn_8h.html#a06335aae2dbd5c9d43367d1ae2bd17b0">IOPCCommonVtbl</a>;</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keyword">interface </span>IOPCCommon</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a></div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    {</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        CONST_VTBL <span class="keyword">struct </span><a class="code" href="struct_i_o_p_c_common_vtbl.html">IOPCCommonVtbl</a> *lpVtbl;</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    };</div>
@@ -415,62 +416,62 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;HRESULT STDMETHODCALLTYPE IOPCCommon_SetLocaleID_Proxy( </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    IOPCCommon * This,</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="comment">/* [in] */</span> LCID dwLcid);</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#aef5ecbc3d802028c3de2e45c8094472e">IOPCCommon_SetLocaleID_Proxy</a>( </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This,</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="comment">/* [in] */</span> LCID <a class="code" href="struct_i_o_p_c_common_vtbl.html#afdacf961a080529dc665a23af4c91779">dwLcid</a>);</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCCommon_SetLocaleID_Stub(</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#ae4cdf25cdc6b80cde16b1ed1de7f58f6">IOPCCommon_SetLocaleID_Stub</a>(</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    DWORD *_pdwStubPhase);</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;HRESULT STDMETHODCALLTYPE IOPCCommon_GetLocaleID_Proxy( </div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    IOPCCommon * This,</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="comment">/* [out] */</span> LCID *pdwLcid);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a6a85ab593ecdee085647b2f5fc2f1754">IOPCCommon_GetLocaleID_Proxy</a>( </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This,</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="comment">/* [out] */</span> LCID *<a class="code" href="struct_i_o_p_c_common_vtbl.html#afc0921913408d2cedb00897ee1281119">pdwLcid</a>);</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCCommon_GetLocaleID_Stub(</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#a1e2b9877483dc96c6d1ba12176d0b998">IOPCCommon_GetLocaleID_Stub</a>(</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    DWORD *_pdwStubPhase);</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;HRESULT STDMETHODCALLTYPE IOPCCommon_QueryAvailableLocaleIDs_Proxy( </div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    IOPCCommon * This,</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="comment">/* [out] */</span> DWORD *pdwCount,</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">/* [size_is][size_is][out] */</span> LCID **pdwLcid);</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a5d1386ebba923240cf40bc14e91ea3bf">IOPCCommon_QueryAvailableLocaleIDs_Proxy</a>( </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This,</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="comment">/* [out] */</span> DWORD *<a class="code" href="struct_i_o_p_c_common_vtbl.html#aa7f462e582580fdc3f377c30a2a8b8e0">pdwCount</a>,</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="comment">/* [size_is][size_is][out] */</span> LCID **<a class="code" href="struct_i_o_p_c_common_vtbl.html#afc0921913408d2cedb00897ee1281119">pdwLcid</a>);</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCCommon_QueryAvailableLocaleIDs_Stub(</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#ad05c8dfc6d9c5a807d657644956a4c2f">IOPCCommon_QueryAvailableLocaleIDs_Stub</a>(</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    DWORD *_pdwStubPhase);</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;HRESULT STDMETHODCALLTYPE IOPCCommon_GetErrorString_Proxy( </div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    IOPCCommon * This,</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="comment">/* [in] */</span> HRESULT dwError,</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="comment">/* [string][out] */</span> LPWSTR *ppString);</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#af2500c8d4ba33e99d537685ec59187fd">IOPCCommon_GetErrorString_Proxy</a>( </div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This,</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> <a class="code" href="struct_i_o_p_c_common_vtbl.html#a3d8d6c2c353834c2fda82f4128a4790c">dwError</a>,</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="comment">/* [string][out] */</span> LPWSTR *<a class="code" href="struct_i_o_p_c_common_vtbl.html#a23a91884a1c6c8751e2d2b14142b7e49">ppString</a>);</div>
 <div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCCommon_GetErrorString_Stub(</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#af6bade24d1b8c90cf7b42515be3d8210">IOPCCommon_GetErrorString_Stub</a>(</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    DWORD *_pdwStubPhase);</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;HRESULT STDMETHODCALLTYPE IOPCCommon_SetClientName_Proxy( </div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    IOPCCommon * This,</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="comment">/* [string][in] */</span> LPCWSTR szName);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a48e8a8b00c1b6a170b825daa43f1e56d">IOPCCommon_SetClientName_Proxy</a>( </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <a class="code" href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a> * This,</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="comment">/* [string][in] */</span> LPCWSTR <a class="code" href="struct_i_o_p_c_common_vtbl.html#a20f570a7b3a4613cc1529f51df747d4f">szName</a>);</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCCommon_SetClientName_Stub(</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#abcfb8457e8a523cc7d1bcb088740e9cb">IOPCCommon_SetClientName_Stub</a>(</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
@@ -482,33 +483,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;</div>
 <div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="preprocessor">#ifndef __IOPCServerList_INTERFACE_DEFINED__</span></div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="preprocessor">#define __IOPCServerList_INTERFACE_DEFINED__</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno"><a class="line" href="opccomn_8h.html#acf4768125859c7d825f540066d4680d1">  395</a></span>&#160;<span class="preprocessor">#define __IOPCServerList_INTERFACE_DEFINED__</span></div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="comment">/* interface IOPCServerList */</span></div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">/* [unique][uuid][object] */</span> </div>
 <div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;</div>
 <div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> IID_IOPCServerList;</div>
+<div class="line"><a name="l00401"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a21bbc0f5793f57a3dd8a59adc78d700b">  401</a></span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> <a class="code" href="opccomn_8h.html#a21bbc0f5793f57a3dd8a59adc78d700b">IID_IOPCServerList</a>;</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;</div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;<span class="preprocessor">#if defined(__cplusplus) &amp;&amp; !defined(CINTERFACE)</span></div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    </div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    MIDL_INTERFACE(<span class="stringliteral">&quot;13486D50-4821-11D2-A494-3CB306C10000&quot;</span>)</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    IOPCServerList : public IUnknown</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> : public IUnknown</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    {</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE EnumClassesOfCategories( </div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            <span class="comment">/* [in] */</span> ULONG cImplemented,</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> STDMETHODCALLTYPE EnumClassesOfCategories( </div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_common_vtbl.html#a837af6e8e6b23b5bbb56e5a7596ae6bf">ULONG</a> cImplemented,</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID rgcatidImpl[  ],</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            <span class="comment">/* [in] */</span> ULONG cRequired,</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_common_vtbl.html#a837af6e8e6b23b5bbb56e5a7596ae6bf">ULONG</a> cRequired,</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID rgcatidReq[  ],</div>
 <div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;            <span class="comment">/* [out] */</span> IEnumGUID **ppenumClsid) = 0;</div>
 <div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        </div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE GetClassDetails( </div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> STDMETHODCALLTYPE GetClassDetails( </div>
 <div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            <span class="comment">/* [in] */</span> REFCLSID clsid,</div>
 <div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *ppszProgID,</div>
 <div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *ppszUserType) = 0;</div>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        </div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE CLSIDFromProgID( </div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">HRESULT</a> STDMETHODCALLTYPE CLSIDFromProgID( </div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;            <span class="comment">/* [in] */</span> LPCOLESTR szProgId,</div>
 <div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;            <span class="comment">/* [out] */</span> LPCLSID clsid) = 0;</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        </div>
@@ -520,40 +521,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    {</div>
 <div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;        BEGIN_INTERFACE</div>
 <div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;        </div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( </div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            IOPCServerList * This,</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            <span class="comment">/* [in] */</span> REFIID riid,</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;            <span class="comment">/* [iid_is][out] */</span> <span class="keywordtype">void</span> **ppvObject);</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">HRESULT</a> ( STDMETHODCALLTYPE *QueryInterface )( </div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> * This,</div>
+<div class="line"><a name="l00435"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_server_list_vtbl.html#aad0462a0aff9934409daabdb8c985271">  435</a></span>&#160;            <span class="comment">/* [in] */</span> REFIID <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#aad0462a0aff9934409daabdb8c985271">riid</a>,</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;            <span class="comment">/* [iid_is][out] */</span> <span class="keywordtype">void</span> **<a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ac74501bceb86194863957a9d4f4a170d">ppvObject</a>);</div>
 <div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;        </div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        ULONG ( STDMETHODCALLTYPE *AddRef )( </div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;            IOPCServerList * This);</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ae654a02aeab84a69accf24d30eda610a">ULONG</a> ( STDMETHODCALLTYPE *AddRef )( </div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;            <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> * This);</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        </div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        ULONG ( STDMETHODCALLTYPE *Release )( </div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            IOPCServerList * This);</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ae654a02aeab84a69accf24d30eda610a">ULONG</a> ( STDMETHODCALLTYPE *Release )( </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;            <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> * This);</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        </div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        HRESULT ( STDMETHODCALLTYPE *EnumClassesOfCategories )( </div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            IOPCServerList * This,</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;            <span class="comment">/* [in] */</span> ULONG cImplemented,</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID rgcatidImpl[  ],</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;            <span class="comment">/* [in] */</span> ULONG cRequired,</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID rgcatidReq[  ],</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;            <span class="comment">/* [out] */</span> IEnumGUID **ppenumClsid);</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">HRESULT</a> ( STDMETHODCALLTYPE *EnumClassesOfCategories )( </div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;            <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> * This,</div>
+<div class="line"><a name="l00446"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_server_list_vtbl.html#aac7d8314e294301d3efe66dbf38bad07">  446</a></span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ae654a02aeab84a69accf24d30eda610a">ULONG</a> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7a5024057ce8f34cc21c4fe4f79230f8">cImplemented</a>,</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a9d55ccb05172ea978557e8e4a3284dfc">rgcatidImpl</a>[  ],</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ae654a02aeab84a69accf24d30eda610a">ULONG</a> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#acb6cffc59df2d7461306071c40274107">cRequired</a>,</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#aac7d8314e294301d3efe66dbf38bad07">rgcatidReq</a>[  ],</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;            <span class="comment">/* [out] */</span> IEnumGUID **<a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a47d34a91bb34377b48cd66a1ebcd9307">ppenumClsid</a>);</div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        </div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        HRESULT ( STDMETHODCALLTYPE *GetClassDetails )( </div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;            IOPCServerList * This,</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;            <span class="comment">/* [in] */</span> REFCLSID clsid,</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *ppszProgID,</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *ppszUserType);</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">HRESULT</a> ( STDMETHODCALLTYPE *GetClassDetails )( </div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;            <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> * This,</div>
+<div class="line"><a name="l00454"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_server_list_vtbl.html#ad14b5bbe691c65f7bb3539547d6f4f44">  454</a></span>&#160;            <span class="comment">/* [in] */</span> REFCLSID <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a3c66535f70c6c974655d99076dc284a7">clsid</a>,</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *<a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a4ad87347c3f79a297dd61b38fe2207aa">ppszProgID</a>,</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *<a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ad14b5bbe691c65f7bb3539547d6f4f44">ppszUserType</a>);</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        </div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        HRESULT ( STDMETHODCALLTYPE *CLSIDFromProgID )( </div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;            IOPCServerList * This,</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;            <span class="comment">/* [in] */</span> LPCOLESTR szProgId,</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;            <span class="comment">/* [out] */</span> LPCLSID clsid);</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">HRESULT</a> ( STDMETHODCALLTYPE *CLSIDFromProgID )( </div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;            <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> * This,</div>
+<div class="line"><a name="l00460"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_server_list_vtbl.html#ab0e96dd1bcccd1e0326651ce8f860a08">  460</a></span>&#160;            <span class="comment">/* [in] */</span> LPCOLESTR <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ab0e96dd1bcccd1e0326651ce8f860a08">szProgId</a>,</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;            <span class="comment">/* [out] */</span> LPCLSID <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a3c66535f70c6c974655d99076dc284a7">clsid</a>);</div>
 <div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        </div>
 <div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        END_INTERFACE</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    } <a class="code" href="struct_i_o_p_c_server_list_vtbl.html">IOPCServerListVtbl</a>;</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    } <a class="code" href="opccomn_8h.html#a9f8779faacec2c7da6916951d81b719f">IOPCServerListVtbl</a>;</div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    <span class="keyword">interface </span>IOPCServerList</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a></div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    {</div>
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;        CONST_VTBL <span class="keyword">struct </span><a class="code" href="struct_i_o_p_c_server_list_vtbl.html">IOPCServerListVtbl</a> *lpVtbl;</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    };</div>
@@ -589,43 +590,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;</div>
 <div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;HRESULT STDMETHODCALLTYPE IOPCServerList_EnumClassesOfCategories_Proxy( </div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    IOPCServerList * This,</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    <span class="comment">/* [in] */</span> ULONG cImplemented,</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <span class="comment">/* [size_is][in] */</span> CATID rgcatidImpl[  ],</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    <span class="comment">/* [in] */</span> ULONG cRequired,</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="comment">/* [size_is][in] */</span> CATID rgcatidReq[  ],</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="comment">/* [out] */</span> IEnumGUID **ppenumClsid);</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a94626a1722b1458d13ddefce92bba580">IOPCServerList_EnumClassesOfCategories_Proxy</a>( </div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> * This,</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ae654a02aeab84a69accf24d30eda610a">ULONG</a> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7a5024057ce8f34cc21c4fe4f79230f8">cImplemented</a>,</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    <span class="comment">/* [size_is][in] */</span> CATID <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a9d55ccb05172ea978557e8e4a3284dfc">rgcatidImpl</a>[  ],</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ae654a02aeab84a69accf24d30eda610a">ULONG</a> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#acb6cffc59df2d7461306071c40274107">cRequired</a>,</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="comment">/* [size_is][in] */</span> CATID <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#aac7d8314e294301d3efe66dbf38bad07">rgcatidReq</a>[  ],</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="comment">/* [out] */</span> IEnumGUID **<a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a47d34a91bb34377b48cd66a1ebcd9307">ppenumClsid</a>);</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCServerList_EnumClassesOfCategories_Stub(</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#aab9a9b2935dd5a54d7977a42c8b95f39">IOPCServerList_EnumClassesOfCategories_Stub</a>(</div>
 <div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
 <div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    DWORD *_pdwStubPhase);</div>
 <div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;</div>
 <div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;HRESULT STDMETHODCALLTYPE IOPCServerList_GetClassDetails_Proxy( </div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    IOPCServerList * This,</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="comment">/* [in] */</span> REFCLSID clsid,</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="comment">/* [out] */</span> LPOLESTR *ppszProgID,</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="comment">/* [out] */</span> LPOLESTR *ppszUserType);</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a405a90a04c96a684a07713be1d7490fe">IOPCServerList_GetClassDetails_Proxy</a>( </div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> * This,</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="comment">/* [in] */</span> REFCLSID <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a3c66535f70c6c974655d99076dc284a7">clsid</a>,</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    <span class="comment">/* [out] */</span> LPOLESTR *<a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a4ad87347c3f79a297dd61b38fe2207aa">ppszProgID</a>,</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="comment">/* [out] */</span> LPOLESTR *<a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ad14b5bbe691c65f7bb3539547d6f4f44">ppszUserType</a>);</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCServerList_GetClassDetails_Stub(</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#abaad908120994a4f1e4fe7917f0a4146">IOPCServerList_GetClassDetails_Stub</a>(</div>
 <div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    DWORD *_pdwStubPhase);</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;</div>
 <div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;HRESULT STDMETHODCALLTYPE IOPCServerList_CLSIDFromProgID_Proxy( </div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    IOPCServerList * This,</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="comment">/* [in] */</span> LPCOLESTR szProgId,</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    <span class="comment">/* [out] */</span> LPCLSID clsid);</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;<a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a3e688cf3d0375941952d37a1cddf953b">IOPCServerList_CLSIDFromProgID_Proxy</a>( </div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    <a class="code" href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a> * This,</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="comment">/* [in] */</span> LPCOLESTR <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ab0e96dd1bcccd1e0326651ce8f860a08">szProgId</a>,</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    <span class="comment">/* [out] */</span> LPCLSID <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a3c66535f70c6c974655d99076dc284a7">clsid</a>);</div>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;</div>
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCServerList_CLSIDFromProgID_Stub(</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#af1e771914cc690e0d61f58acd2e6519a">IOPCServerList_CLSIDFromProgID_Stub</a>(</div>
 <div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
@@ -637,34 +638,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;</div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;</div>
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="preprocessor">#ifndef __IOPCEnumGUID_INTERFACE_DEFINED__</span></div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="preprocessor">#define __IOPCEnumGUID_INTERFACE_DEFINED__</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno"><a class="line" href="opccomn_8h.html#afdef86c33771b55fc027e7bc69c90688">  550</a></span>&#160;<span class="preprocessor">#define __IOPCEnumGUID_INTERFACE_DEFINED__</span></div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="comment">/* interface IOPCEnumGUID */</span></div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="comment">/* [unique][uuid][object] */</span> </div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;<span class="keyword">typedef</span> <span class="comment">/* [unique] */</span> IOPCEnumGUID *LPOPCENUMGUID;</div>
+<div class="line"><a name="l00555"></a><span class="lineno"><a class="line" href="opccomn_8h.html#ae27b96c812beed4f85ade9dd596ac674">  555</a></span>&#160;<span class="keyword">typedef</span> <span class="comment">/* [unique] */</span> <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> *<a class="code" href="opccomn_8h.html#ae27b96c812beed4f85ade9dd596ac674">LPOPCENUMGUID</a>;</div>
 <div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;</div>
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> IID_IOPCEnumGUID;</div>
+<div class="line"><a name="l00558"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a484d7da102f426fdd7714b4e59c2ef2e">  558</a></span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> <a class="code" href="opccomn_8h.html#a484d7da102f426fdd7714b4e59c2ef2e">IID_IOPCEnumGUID</a>;</div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;</div>
 <div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;<span class="preprocessor">#if defined(__cplusplus) &amp;&amp; !defined(CINTERFACE)</span></div>
 <div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;    </div>
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    MIDL_INTERFACE(<span class="stringliteral">&quot;55C382C8-21C7-4e88-96C1-BECFB1E3F483&quot;</span>)</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    IOPCEnumGUID : public IUnknown</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> : public IUnknown</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    {</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE Next( </div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;            <span class="comment">/* [in] */</span> ULONG celt,</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">HRESULT</a> STDMETHODCALLTYPE Next( </div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ae654a02aeab84a69accf24d30eda610a">ULONG</a> celt,</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;            <span class="comment">/* [length_is][size_is][out] */</span> GUID *rgelt,</div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;            <span class="comment">/* [out] */</span> ULONG *pceltFetched) = 0;</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;            <span class="comment">/* [out] */</span> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ae654a02aeab84a69accf24d30eda610a">ULONG</a> *pceltFetched) = 0;</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        </div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE Skip( </div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;            <span class="comment">/* [in] */</span> ULONG celt) = 0;</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">HRESULT</a> STDMETHODCALLTYPE Skip( </div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#ae654a02aeab84a69accf24d30eda610a">ULONG</a> celt) = 0;</div>
 <div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;        </div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE Reset( <span class="keywordtype">void</span>) = 0;</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">HRESULT</a> STDMETHODCALLTYPE Reset( <span class="keywordtype">void</span>) = 0;</div>
 <div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;        </div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE Clone( </div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;            <span class="comment">/* [out] */</span> IOPCEnumGUID **ppenum) = 0;</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">HRESULT</a> STDMETHODCALLTYPE Clone( </div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;            <span class="comment">/* [out] */</span> <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> **ppenum) = 0;</div>
 <div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        </div>
 <div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    };</div>
 <div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    </div>
@@ -674,38 +675,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    {</div>
 <div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;        BEGIN_INTERFACE</div>
 <div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        </div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( </div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;            IOPCEnumGUID * This,</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;            <span class="comment">/* [in] */</span> REFIID riid,</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;            <span class="comment">/* [iid_is][out] */</span> <span class="keywordtype">void</span> **ppvObject);</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> ( STDMETHODCALLTYPE *QueryInterface )( </div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;            <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> * This,</div>
+<div class="line"><a name="l00589"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ade36b4d28927dc260400b74c6342d7b5">  589</a></span>&#160;            <span class="comment">/* [in] */</span> REFIID <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ade36b4d28927dc260400b74c6342d7b5">riid</a>,</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;            <span class="comment">/* [iid_is][out] */</span> <span class="keywordtype">void</span> **<a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ab1f22d83dc3ffdca6dd6df181260213a">ppvObject</a>);</div>
 <div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        </div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        ULONG ( STDMETHODCALLTYPE *AddRef )( </div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;            IOPCEnumGUID * This);</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> ( STDMETHODCALLTYPE *AddRef )( </div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;            <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> * This);</div>
 <div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        </div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        ULONG ( STDMETHODCALLTYPE *Release )( </div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;            IOPCEnumGUID * This);</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> ( STDMETHODCALLTYPE *Release )( </div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;            <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> * This);</div>
 <div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;        </div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        HRESULT ( STDMETHODCALLTYPE *Next )( </div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;            IOPCEnumGUID * This,</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;            <span class="comment">/* [in] */</span> ULONG celt,</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            <span class="comment">/* [length_is][size_is][out] */</span> GUID *rgelt,</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            <span class="comment">/* [out] */</span> ULONG *pceltFetched);</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;        <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> ( STDMETHODCALLTYPE *Next )( </div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;            <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> * This,</div>
+<div class="line"><a name="l00600"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a23c4f114c3cba80f12d0bb718349fe52">  600</a></span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ac86637dbadf57b4be9a6bfc5d8986e22">celt</a>,</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            <span class="comment">/* [length_is][size_is][out] */</span> GUID *<a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a23c4f114c3cba80f12d0bb718349fe52">rgelt</a>,</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            <span class="comment">/* [out] */</span> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> *<a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#afd431fb5a31b2b50ae82de0ad9340457">pceltFetched</a>);</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;        </div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        HRESULT ( STDMETHODCALLTYPE *Skip )( </div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;            IOPCEnumGUID * This,</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;            <span class="comment">/* [in] */</span> ULONG celt);</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> ( STDMETHODCALLTYPE *Skip )( </div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;            <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> * This,</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ac86637dbadf57b4be9a6bfc5d8986e22">celt</a>);</div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        </div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        HRESULT ( STDMETHODCALLTYPE *Reset )( </div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;            IOPCEnumGUID * This);</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> ( STDMETHODCALLTYPE *Reset )( </div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;            <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> * This);</div>
 <div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;        </div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;        HRESULT ( STDMETHODCALLTYPE *Clone )( </div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;            IOPCEnumGUID * This,</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;            <span class="comment">/* [out] */</span> IOPCEnumGUID **ppenum);</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;        <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> ( STDMETHODCALLTYPE *Clone )( </div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;            <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> * This,</div>
+<div class="line"><a name="l00613"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ae3022a850e1c2e9ab255ccaf529028e0">  613</a></span>&#160;            <span class="comment">/* [out] */</span> <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> **<a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ae3022a850e1c2e9ab255ccaf529028e0">ppenum</a>);</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        </div>
 <div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;        END_INTERFACE</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    } <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html">IOPCEnumGUIDVtbl</a>;</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;    } <a class="code" href="opccomn_8h.html#a9b1c772e63862544872e97db342ee086">IOPCEnumGUIDVtbl</a>;</div>
 <div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    <span class="keyword">interface </span>IOPCEnumGUID</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a></div>
 <div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    {</div>
 <div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;        CONST_VTBL <span class="keyword">struct </span><a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html">IOPCEnumGUIDVtbl</a> *lpVtbl;</div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;    };</div>
@@ -744,49 +745,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;</div>
 <div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;</div>
 <div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;HRESULT STDMETHODCALLTYPE IOPCEnumGUID_Next_Proxy( </div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    IOPCEnumGUID * This,</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="comment">/* [in] */</span> ULONG celt,</div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="comment">/* [length_is][size_is][out] */</span> GUID *rgelt,</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="comment">/* [out] */</span> ULONG *pceltFetched);</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a095a2d8f8d8b727585e4cc3e7fe2c23e">IOPCEnumGUID_Next_Proxy</a>( </div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> * This,</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ac86637dbadf57b4be9a6bfc5d8986e22">celt</a>,</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;    <span class="comment">/* [length_is][size_is][out] */</span> GUID *<a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a23c4f114c3cba80f12d0bb718349fe52">rgelt</a>,</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;    <span class="comment">/* [out] */</span> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> *<a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#afd431fb5a31b2b50ae82de0ad9340457">pceltFetched</a>);</div>
 <div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;</div>
 <div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCEnumGUID_Next_Stub(</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#aa19d7e84fd6436c0c3adf027d6277506">IOPCEnumGUID_Next_Stub</a>(</div>
 <div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
 <div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;    DWORD *_pdwStubPhase);</div>
 <div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;</div>
 <div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;HRESULT STDMETHODCALLTYPE IOPCEnumGUID_Skip_Proxy( </div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    IOPCEnumGUID * This,</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    <span class="comment">/* [in] */</span> ULONG celt);</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a9db3baed4c2f82c9fde1e773f4984e8d">IOPCEnumGUID_Skip_Proxy</a>( </div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;    <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> * This,</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;    <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ac86637dbadf57b4be9a6bfc5d8986e22">celt</a>);</div>
 <div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;</div>
 <div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCEnumGUID_Skip_Stub(</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#ae863b2268b5e926db9938b444cd02c07">IOPCEnumGUID_Skip_Stub</a>(</div>
 <div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
 <div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;    DWORD *_pdwStubPhase);</div>
 <div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;</div>
 <div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;</div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;HRESULT STDMETHODCALLTYPE IOPCEnumGUID_Reset_Proxy( </div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    IOPCEnumGUID * This);</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a956dadca7faea82ce201ae6dd123164a">IOPCEnumGUID_Reset_Proxy</a>( </div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;    <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> * This);</div>
 <div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;</div>
 <div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;</div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCEnumGUID_Reset_Stub(</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#a2eeeff882e621bcd0adce7abba74e5a5">IOPCEnumGUID_Reset_Stub</a>(</div>
 <div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
 <div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    DWORD *_pdwStubPhase);</div>
 <div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;</div>
 <div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;HRESULT STDMETHODCALLTYPE IOPCEnumGUID_Clone_Proxy( </div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    IOPCEnumGUID * This,</div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="comment">/* [out] */</span> IOPCEnumGUID **ppenum);</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;<a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a3588b94772753daf47dc08661b5d789c">IOPCEnumGUID_Clone_Proxy</a>( </div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> * This,</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="comment">/* [out] */</span> <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> **<a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ae3022a850e1c2e9ab255ccaf529028e0">ppenum</a>);</div>
 <div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;</div>
 <div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCEnumGUID_Clone_Stub(</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#a7ebbc9cbdaaf18d4e0d929c845a65317">IOPCEnumGUID_Clone_Stub</a>(</div>
 <div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
@@ -798,34 +799,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;</div>
 <div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;</div>
 <div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;<span class="preprocessor">#ifndef __IOPCServerList2_INTERFACE_DEFINED__</span></div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;<span class="preprocessor">#define __IOPCServerList2_INTERFACE_DEFINED__</span></div>
+<div class="line"><a name="l00711"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a8982bd60029821fe0180c4489550ed57">  711</a></span>&#160;<span class="preprocessor">#define __IOPCServerList2_INTERFACE_DEFINED__</span></div>
 <div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;</div>
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment">/* interface IOPCServerList2 */</span></div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;<span class="comment">/* [unique][uuid][object] */</span> </div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;</div>
 <div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;</div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> IID_IOPCServerList2;</div>
+<div class="line"><a name="l00717"></a><span class="lineno"><a class="line" href="opccomn_8h.html#aff96ee0d7b6d75d40c7d15cf88c8917b">  717</a></span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> <a class="code" href="opccomn_8h.html#aff96ee0d7b6d75d40c7d15cf88c8917b">IID_IOPCServerList2</a>;</div>
 <div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;</div>
 <div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;<span class="preprocessor">#if defined(__cplusplus) &amp;&amp; !defined(CINTERFACE)</span></div>
 <div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;    </div>
 <div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    MIDL_INTERFACE(<span class="stringliteral">&quot;9DD0B56C-AD9E-43ee-8305-487F3188BF7A&quot;</span>)</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    IOPCServerList2 : public IUnknown</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;    <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> : public IUnknown</div>
 <div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    {</div>
 <div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE EnumClassesOfCategories( </div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;            <span class="comment">/* [in] */</span> ULONG cImplemented,</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> STDMETHODCALLTYPE EnumClassesOfCategories( </div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> cImplemented,</div>
 <div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID rgcatidImpl[  ],</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;            <span class="comment">/* [in] */</span> ULONG cRequired,</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">ULONG</a> cRequired,</div>
 <div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID rgcatidReq[  ],</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;            <span class="comment">/* [out] */</span> IOPCEnumGUID **ppenumClsid) = 0;</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;            <span class="comment">/* [out] */</span> <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> **ppenumClsid) = 0;</div>
 <div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;        </div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE GetClassDetails( </div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> STDMETHODCALLTYPE GetClassDetails( </div>
 <div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;            <span class="comment">/* [in] */</span> REFCLSID clsid,</div>
 <div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *ppszProgID,</div>
 <div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *ppszUserType,</div>
 <div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *ppszVerIndProgID) = 0;</div>
 <div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;        </div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;        <span class="keyword">virtual</span> HRESULT STDMETHODCALLTYPE CLSIDFromProgID( </div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">HRESULT</a> STDMETHODCALLTYPE CLSIDFromProgID( </div>
 <div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;            <span class="comment">/* [in] */</span> LPCOLESTR szProgId,</div>
 <div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;            <span class="comment">/* [out] */</span> LPCLSID clsid) = 0;</div>
 <div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;        </div>
@@ -837,41 +838,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    {</div>
 <div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;        BEGIN_INTERFACE</div>
 <div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;        </div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( </div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;            IOPCServerList2 * This,</div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;            <span class="comment">/* [in] */</span> REFIID riid,</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;            <span class="comment">/* [iid_is][out] */</span> <span class="keywordtype">void</span> **ppvObject);</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a9625e7bcbac3fc476e6af9a0d399dc80">HRESULT</a> ( STDMETHODCALLTYPE *QueryInterface )( </div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;            <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> * This,</div>
+<div class="line"><a name="l00752"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_server_list2_vtbl.html#a9d385008f9782fcedff916bd4eb98531">  752</a></span>&#160;            <span class="comment">/* [in] */</span> REFIID <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a9d385008f9782fcedff916bd4eb98531">riid</a>,</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;            <span class="comment">/* [iid_is][out] */</span> <span class="keywordtype">void</span> **<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a6c5248699da6ef6938bc4a0921b0eac6">ppvObject</a>);</div>
 <div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;        </div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;        ULONG ( STDMETHODCALLTYPE *AddRef )( </div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;            IOPCServerList2 * This);</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#ae0fe7b6d15c25fa93882c11f83c4c200">ULONG</a> ( STDMETHODCALLTYPE *AddRef )( </div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;            <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> * This);</div>
 <div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;        </div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;        ULONG ( STDMETHODCALLTYPE *Release )( </div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;            IOPCServerList2 * This);</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#ae0fe7b6d15c25fa93882c11f83c4c200">ULONG</a> ( STDMETHODCALLTYPE *Release )( </div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;            <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> * This);</div>
 <div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;        </div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;        HRESULT ( STDMETHODCALLTYPE *EnumClassesOfCategories )( </div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;            IOPCServerList2 * This,</div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;            <span class="comment">/* [in] */</span> ULONG cImplemented,</div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID rgcatidImpl[  ],</div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;            <span class="comment">/* [in] */</span> ULONG cRequired,</div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID rgcatidReq[  ],</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;            <span class="comment">/* [out] */</span> IOPCEnumGUID **ppenumClsid);</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a9625e7bcbac3fc476e6af9a0d399dc80">HRESULT</a> ( STDMETHODCALLTYPE *EnumClassesOfCategories )( </div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;            <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> * This,</div>
+<div class="line"><a name="l00763"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_server_list2_vtbl.html#a4f60cc2cc6aaeb26a0d27403dec1662e">  763</a></span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#ae0fe7b6d15c25fa93882c11f83c4c200">ULONG</a> <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#afade554290fe9f08fade677ba8e0faef">cImplemented</a>,</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a6b2d9f4902dea7b6bfa477b309b62066">rgcatidImpl</a>[  ],</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;            <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#ae0fe7b6d15c25fa93882c11f83c4c200">ULONG</a> <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#ad73076767ab2d3fa7c2e3b1bf538281c">cRequired</a>,</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;            <span class="comment">/* [size_is][in] */</span> CATID <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a4f60cc2cc6aaeb26a0d27403dec1662e">rgcatidReq</a>[  ],</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;            <span class="comment">/* [out] */</span> <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> **<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a6820eab096397ae0dd0578597cec1a3d">ppenumClsid</a>);</div>
 <div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;        </div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        HRESULT ( STDMETHODCALLTYPE *GetClassDetails )( </div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;            IOPCServerList2 * This,</div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;            <span class="comment">/* [in] */</span> REFCLSID clsid,</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *ppszProgID,</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *ppszUserType,</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *ppszVerIndProgID);</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a9625e7bcbac3fc476e6af9a0d399dc80">HRESULT</a> ( STDMETHODCALLTYPE *GetClassDetails )( </div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;            <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> * This,</div>
+<div class="line"><a name="l00771"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_server_list2_vtbl.html#aba1d2961493c7ce2a4f826688d5fba0a">  771</a></span>&#160;            <span class="comment">/* [in] */</span> REFCLSID <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a7d9dd4dac3efebcfa0deb33c48ac3486">clsid</a>,</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#adca3a3ccb069ae12c68fa86e7b2a0093">ppszProgID</a>,</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a5cb4c81b0cf5a789dc9a6a272d0aa554">ppszUserType</a>,</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;            <span class="comment">/* [out] */</span> LPOLESTR *<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#aba1d2961493c7ce2a4f826688d5fba0a">ppszVerIndProgID</a>);</div>
 <div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;        </div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;        HRESULT ( STDMETHODCALLTYPE *CLSIDFromProgID )( </div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;            IOPCServerList2 * This,</div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;            <span class="comment">/* [in] */</span> LPCOLESTR szProgId,</div>
-<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;            <span class="comment">/* [out] */</span> LPCLSID clsid);</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;        <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a9625e7bcbac3fc476e6af9a0d399dc80">HRESULT</a> ( STDMETHODCALLTYPE *CLSIDFromProgID )( </div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;            <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> * This,</div>
+<div class="line"><a name="l00778"></a><span class="lineno"><a class="line" href="struct_i_o_p_c_server_list2_vtbl.html#a1fdb5626d74c3ae4a150b5033fd462e3">  778</a></span>&#160;            <span class="comment">/* [in] */</span> LPCOLESTR <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a1fdb5626d74c3ae4a150b5033fd462e3">szProgId</a>,</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;            <span class="comment">/* [out] */</span> LPCLSID <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a7d9dd4dac3efebcfa0deb33c48ac3486">clsid</a>);</div>
 <div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;        </div>
 <div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;        END_INTERFACE</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;    } <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html">IOPCServerList2Vtbl</a>;</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;    } <a class="code" href="opccomn_8h.html#a7d7e541f29d5764ebed8e96c93c10bfc">IOPCServerList2Vtbl</a>;</div>
 <div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    <span class="keyword">interface </span>IOPCServerList2</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;    <span class="keyword">interface </span><a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a></div>
 <div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;    {</div>
 <div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;        CONST_VTBL <span class="keyword">struct </span><a class="code" href="struct_i_o_p_c_server_list2_vtbl.html">IOPCServerList2Vtbl</a> *lpVtbl;</div>
 <div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;    };</div>
@@ -907,44 +908,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;</div>
 <div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;</div>
 <div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160;</div>
-<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;HRESULT STDMETHODCALLTYPE IOPCServerList2_EnumClassesOfCategories_Proxy( </div>
-<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    IOPCServerList2 * This,</div>
-<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <span class="comment">/* [in] */</span> ULONG cImplemented,</div>
-<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    <span class="comment">/* [size_is][in] */</span> CATID rgcatidImpl[  ],</div>
-<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;    <span class="comment">/* [in] */</span> ULONG cRequired,</div>
-<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;    <span class="comment">/* [size_is][in] */</span> CATID rgcatidReq[  ],</div>
-<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;    <span class="comment">/* [out] */</span> IOPCEnumGUID **ppenumClsid);</div>
+<div class="line"><a name="l00820"></a><span class="lineno">  820</span>&#160;<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a9625e7bcbac3fc476e6af9a0d399dc80">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#abdd5c488c877533c04ffff82707b572b">IOPCServerList2_EnumClassesOfCategories_Proxy</a>( </div>
+<div class="line"><a name="l00821"></a><span class="lineno">  821</span>&#160;    <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> * This,</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;    <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#ae0fe7b6d15c25fa93882c11f83c4c200">ULONG</a> <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#afade554290fe9f08fade677ba8e0faef">cImplemented</a>,</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    <span class="comment">/* [size_is][in] */</span> CATID <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a6b2d9f4902dea7b6bfa477b309b62066">rgcatidImpl</a>[  ],</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;    <span class="comment">/* [in] */</span> <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#ae0fe7b6d15c25fa93882c11f83c4c200">ULONG</a> <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#ad73076767ab2d3fa7c2e3b1bf538281c">cRequired</a>,</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;    <span class="comment">/* [size_is][in] */</span> CATID <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a4f60cc2cc6aaeb26a0d27403dec1662e">rgcatidReq</a>[  ],</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;    <span class="comment">/* [out] */</span> <a class="code" href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a> **<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a6820eab096397ae0dd0578597cec1a3d">ppenumClsid</a>);</div>
 <div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;</div>
 <div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;</div>
-<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCServerList2_EnumClassesOfCategories_Stub(</div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#af9f6e7ef6327a0696e2ae8ad2a3c6097">IOPCServerList2_EnumClassesOfCategories_Stub</a>(</div>
 <div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
 <div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;    DWORD *_pdwStubPhase);</div>
 <div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;</div>
 <div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;</div>
-<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;HRESULT STDMETHODCALLTYPE IOPCServerList2_GetClassDetails_Proxy( </div>
-<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;    IOPCServerList2 * This,</div>
-<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;    <span class="comment">/* [in] */</span> REFCLSID clsid,</div>
-<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;    <span class="comment">/* [out] */</span> LPOLESTR *ppszProgID,</div>
-<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;    <span class="comment">/* [out] */</span> LPOLESTR *ppszUserType,</div>
-<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;    <span class="comment">/* [out] */</span> LPOLESTR *ppszVerIndProgID);</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a9625e7bcbac3fc476e6af9a0d399dc80">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#aaba1832df3e10be28a189994afc2796a">IOPCServerList2_GetClassDetails_Proxy</a>( </div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;    <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> * This,</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;    <span class="comment">/* [in] */</span> REFCLSID <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a7d9dd4dac3efebcfa0deb33c48ac3486">clsid</a>,</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;    <span class="comment">/* [out] */</span> LPOLESTR *<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#adca3a3ccb069ae12c68fa86e7b2a0093">ppszProgID</a>,</div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;    <span class="comment">/* [out] */</span> LPOLESTR *<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a5cb4c81b0cf5a789dc9a6a272d0aa554">ppszUserType</a>,</div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;    <span class="comment">/* [out] */</span> LPOLESTR *<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#aba1d2961493c7ce2a4f826688d5fba0a">ppszVerIndProgID</a>);</div>
 <div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;</div>
 <div class="line"><a name="l00843"></a><span class="lineno">  843</span>&#160;</div>
-<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCServerList2_GetClassDetails_Stub(</div>
+<div class="line"><a name="l00844"></a><span class="lineno">  844</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#aa50bd2bfe3a55c4515ab6e394800ad85">IOPCServerList2_GetClassDetails_Stub</a>(</div>
 <div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00846"></a><span class="lineno">  846</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
 <div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;    DWORD *_pdwStubPhase);</div>
 <div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;</div>
 <div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160;</div>
-<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;HRESULT STDMETHODCALLTYPE IOPCServerList2_CLSIDFromProgID_Proxy( </div>
-<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;    IOPCServerList2 * This,</div>
-<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    <span class="comment">/* [in] */</span> LPCOLESTR szProgId,</div>
-<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    <span class="comment">/* [out] */</span> LPCLSID clsid);</div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160;<a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a9625e7bcbac3fc476e6af9a0d399dc80">HRESULT</a> STDMETHODCALLTYPE <a class="code" href="opccomn_8h.html#a44a0738cc7622b55739a528810222e88">IOPCServerList2_CLSIDFromProgID_Proxy</a>( </div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;    <a class="code" href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a> * This,</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;    <span class="comment">/* [in] */</span> LPCOLESTR <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a1fdb5626d74c3ae4a150b5033fd462e3">szProgId</a>,</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;    <span class="comment">/* [out] */</span> LPCLSID <a class="code" href="struct_i_o_p_c_server_list2_vtbl.html#a7d9dd4dac3efebcfa0deb33c48ac3486">clsid</a>);</div>
 <div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;</div>
 <div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;</div>
-<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;<span class="keywordtype">void</span> __RPC_STUB IOPCServerList2_CLSIDFromProgID_Stub(</div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;<span class="keywordtype">void</span> __RPC_STUB <a class="code" href="opccomn_8h.html#ae3a3a3437c7bda57b886fa486bf20c54">IOPCServerList2_CLSIDFromProgID_Stub</a>(</div>
 <div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    IRpcStubBuffer *This,</div>
 <div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;    IRpcChannelBuffer *_pRpcChannelBuffer,</div>
 <div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;    PRPC_MESSAGE _pRpcMessage,</div>
@@ -957,7 +958,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00867"></a><span class="lineno">  867</span>&#160;</div>
 <div class="line"><a name="l00868"></a><span class="lineno">  868</span>&#160;</div>
 <div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;<span class="preprocessor">#ifndef __OPCCOMN_LIBRARY_DEFINED__</span></div>
-<div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;<span class="preprocessor">#define __OPCCOMN_LIBRARY_DEFINED__</span></div>
+<div class="line"><a name="l00870"></a><span class="lineno"><a class="line" href="opccomn_8h.html#acaa6fd0684ff36b5d89a1ea75829c524">  870</a></span>&#160;<span class="preprocessor">#define __OPCCOMN_LIBRARY_DEFINED__</span></div>
 <div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;</div>
 <div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;<span class="comment">/* library OPCCOMN */</span></div>
 <div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;<span class="comment">/* [helpstring][version][uuid] */</span> </div>
@@ -973,7 +974,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160;</div>
 <div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160;</div>
 <div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;</div>
-<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> LIBID_OPCCOMN;</div>
+<div class="line"><a name="l00886"></a><span class="lineno"><a class="line" href="opccomn_8h.html#a5bdbcfb84e23ddbcc573061fa564f531">  886</a></span>&#160;EXTERN_C <span class="keyword">const</span> <a class="code" href="struct___i_i_d.html">IID</a> <a class="code" href="opccomn_8h.html#a5bdbcfb84e23ddbcc573061fa564f531">LIBID_OPCCOMN</a>;</div>
 <div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __OPCCOMN_LIBRARY_DEFINED__ */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160;</div>
 <div class="line"><a name="l00889"></a><span class="lineno">  889</span>&#160;<span class="comment">/* Additional Prototypes for ALL interfaces */</span></div>
@@ -987,16 +988,118 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;</div>
 <div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;</div>
-<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html">IOPCServerList2Vtbl</a></div><div class="ttdef"><b>Definition:</b> opccomn.h:746</div></div>
-<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html">IOPCServerListVtbl</a></div><div class="ttdef"><b>Definition:</b> opccomn.h:429</div></div>
-<div class="ttc" id="struct___i_i_d_html"><div class="ttname"><a href="struct___i_i_d.html">_IID</a></div><div class="ttdef"><b>Definition:</b> opccomn_i.c:53</div></div>
-<div class="ttc" id="struct_i_o_p_c_common_vtbl_html"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html">IOPCCommonVtbl</a></div><div class="ttdef"><b>Definition:</b> opccomn.h:246</div></div>
-<div class="ttc" id="struct_i_o_p_c_enum_g_u_i_d_vtbl_html"><div class="ttname"><a href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html">IOPCEnumGUIDVtbl</a></div><div class="ttdef"><b>Definition:</b> opccomn.h:583</div></div>
-<div class="ttc" id="struct_i_o_p_c_shutdown_vtbl_html"><div class="ttname"><a href="struct_i_o_p_c_shutdown_vtbl.html">IOPCShutdownVtbl</a></div><div class="ttdef"><b>Definition:</b> opccomn.h:142</div></div>
+<div class="ttc" id="opccomn_8h_html_ad663bc6eac8c8da6227ead1020feb642"><div class="ttname"><a href="opccomn_8h.html#ad663bc6eac8c8da6227ead1020feb642">IID_IOPCShutdown</a></div><div class="ttdeci">EXTERN_C const IID IID_IOPCShutdown</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00127">opccomn.h:127</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html_a05d8718df68bc78e9e270b6300717273"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html#a05d8718df68bc78e9e270b6300717273">IOPCCommonVtbl::HRESULT</a></div><div class="ttdeci">BEGIN_INTERFACE HRESULT(STDMETHODCALLTYPE *QueryInterface)(IOPCCommon *This</div></div>
+<div class="ttc" id="opccomn_8h_html_ae3a3a3437c7bda57b886fa486bf20c54"><div class="ttname"><a href="opccomn_8h.html#ae3a3a3437c7bda57b886fa486bf20c54">IOPCServerList2_CLSIDFromProgID_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCServerList2_CLSIDFromProgID_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_ac74501bceb86194863957a9d4f4a170d"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#ac74501bceb86194863957a9d4f4a170d">IOPCServerListVtbl::ppvObject</a></div><div class="ttdeci">BEGIN_INTERFACE REFIID void ** ppvObject</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00435">opccomn.h:435</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_a6c5248699da6ef6938bc4a0921b0eac6"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#a6c5248699da6ef6938bc4a0921b0eac6">IOPCServerList2Vtbl::ppvObject</a></div><div class="ttdeci">BEGIN_INTERFACE REFIID void ** ppvObject</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00752">opccomn.h:752</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html">IOPCServerList2Vtbl</a></div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00746">opccomn.h:746</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a9f8779faacec2c7da6916951d81b719f"><div class="ttname"><a href="opccomn_8h.html#a9f8779faacec2c7da6916951d81b719f">IOPCServerListVtbl</a></div><div class="ttdeci">struct IOPCServerListVtbl IOPCServerListVtbl</div></div>
+<div class="ttc" id="opccomn_8h_html_a6a85ab593ecdee085647b2f5fc2f1754"><div class="ttname"><a href="opccomn_8h.html#a6a85ab593ecdee085647b2f5fc2f1754">IOPCCommon_GetLocaleID_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCCommon_GetLocaleID_Proxy(IOPCCommon *This, LCID *pdwLcid)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html">IOPCServerListVtbl</a></div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00429">opccomn.h:429</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a1167316427362cbe56eb13ab63ec066b"><div class="ttname"><a href="opccomn_8h.html#a1167316427362cbe56eb13ab63ec066b">IID_IOPCCommon</a></div><div class="ttdeci">EXTERN_C const IID IID_IOPCCommon</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00217">opccomn.h:217</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a095a2d8f8d8b727585e4cc3e7fe2c23e"><div class="ttname"><a href="opccomn_8h.html#a095a2d8f8d8b727585e4cc3e7fe2c23e">IOPCEnumGUID_Next_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCEnumGUID_Next_Proxy(IOPCEnumGUID *This, ULONG celt, GUID *rgelt, ULONG *pceltFetched)</div></div>
+<div class="ttc" id="opccomn_8h_html_aab9a9b2935dd5a54d7977a42c8b95f39"><div class="ttname"><a href="opccomn_8h.html#aab9a9b2935dd5a54d7977a42c8b95f39">IOPCServerList_EnumClassesOfCategories_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCServerList_EnumClassesOfCategories_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="opccomn_8h_html_ae4cdf25cdc6b80cde16b1ed1de7f58f6"><div class="ttname"><a href="opccomn_8h.html#ae4cdf25cdc6b80cde16b1ed1de7f58f6">IOPCCommon_SetLocaleID_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCCommon_SetLocaleID_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_a6820eab096397ae0dd0578597cec1a3d"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#a6820eab096397ae0dd0578597cec1a3d">IOPCServerList2Vtbl::ppenumClsid</a></div><div class="ttdeci">ULONG CATID ULONG CATID IOPCEnumGUID ** ppenumClsid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00763">opccomn.h:763</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a3e688cf3d0375941952d37a1cddf953b"><div class="ttname"><a href="opccomn_8h.html#a3e688cf3d0375941952d37a1cddf953b">IOPCServerList_CLSIDFromProgID_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCServerList_CLSIDFromProgID_Proxy(IOPCServerList *This, LPCOLESTR szProgId, LPCLSID clsid)</div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html_a3d8d6c2c353834c2fda82f4128a4790c"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html#a3d8d6c2c353834c2fda82f4128a4790c">IOPCCommonVtbl::dwError</a></div><div class="ttdeci">HRESULT dwError</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00276">opccomn.h:276</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a9db3baed4c2f82c9fde1e773f4984e8d"><div class="ttname"><a href="opccomn_8h.html#a9db3baed4c2f82c9fde1e773f4984e8d">IOPCEnumGUID_Skip_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCEnumGUID_Skip_Proxy(IOPCEnumGUID *This, ULONG celt)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_ae654a02aeab84a69accf24d30eda610a"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#ae654a02aeab84a69accf24d30eda610a">IOPCServerListVtbl::ULONG</a></div><div class="ttdeci">ULONG(STDMETHODCALLTYPE *AddRef)(IOPCServerList *This)</div></div>
+<div class="ttc" id="opccomn_8h_html_a311841bad32933da904f30b7f16cb791"><div class="ttname"><a href="opccomn_8h.html#a311841bad32933da904f30b7f16cb791">MIDL_user_free</a></div><div class="ttdeci">void __RPC_USER MIDL_user_free(void *)</div></div>
+<div class="ttc" id="opccomn_8h_html_a1e2b9877483dc96c6d1ba12176d0b998"><div class="ttname"><a href="opccomn_8h.html#a1e2b9877483dc96c6d1ba12176d0b998">IOPCCommon_GetLocaleID_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCCommon_GetLocaleID_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="opccomn_8h_html_a21bbc0f5793f57a3dd8a59adc78d700b"><div class="ttname"><a href="opccomn_8h.html#a21bbc0f5793f57a3dd8a59adc78d700b">IID_IOPCServerList</a></div><div class="ttdeci">EXTERN_C const IID IID_IOPCServerList</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00401">opccomn.h:401</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html_af9ced3472dd02037c804ea8aa83c579d"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html#af9ced3472dd02037c804ea8aa83c579d">IOPCCommonVtbl::riid</a></div><div class="ttdeci">BEGIN_INTERFACE REFIID riid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00252">opccomn.h:252</a></div></div>
+<div class="ttc" id="opccomn_8h_html_aa50bd2bfe3a55c4515ab6e394800ad85"><div class="ttname"><a href="opccomn_8h.html#aa50bd2bfe3a55c4515ab6e394800ad85">IOPCServerList2_GetClassDetails_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCServerList2_GetClassDetails_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="opccomn_8h_html_a94626a1722b1458d13ddefce92bba580"><div class="ttname"><a href="opccomn_8h.html#a94626a1722b1458d13ddefce92bba580">IOPCServerList_EnumClassesOfCategories_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCServerList_EnumClassesOfCategories_Proxy(IOPCServerList *This, ULONG cImplemented, CATID rgcatidImpl[], ULONG cRequired, CATID rgcatidReq[], IEnumGUID **ppenumClsid)</div></div>
+<div class="ttc" id="struct_i_o_p_c_enum_g_u_i_d_vtbl_html_a23c4f114c3cba80f12d0bb718349fe52"><div class="ttname"><a href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a23c4f114c3cba80f12d0bb718349fe52">IOPCEnumGUIDVtbl::rgelt</a></div><div class="ttdeci">ULONG GUID * rgelt</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00600">opccomn.h:600</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a534f9755ec3dda8b1a6b57ba4fe52b37"><div class="ttname"><a href="opccomn_8h.html#a534f9755ec3dda8b1a6b57ba4fe52b37">IOPCShutdown_ShutdownRequest_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCShutdown_ShutdownRequest_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="struct_i_o_p_c_shutdown_vtbl_html_a80a7b1335e1abbc8c320826353f0505f"><div class="ttname"><a href="struct_i_o_p_c_shutdown_vtbl.html#a80a7b1335e1abbc8c320826353f0505f">IOPCShutdownVtbl::szReason</a></div><div class="ttdeci">LPCWSTR szReason</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00159">opccomn.h:159</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html_a20f570a7b3a4613cc1529f51df747d4f"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html#a20f570a7b3a4613cc1529f51df747d4f">IOPCCommonVtbl::szName</a></div><div class="ttdeci">LPCWSTR szName</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00281">opccomn.h:281</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_ad73076767ab2d3fa7c2e3b1bf538281c"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#ad73076767ab2d3fa7c2e3b1bf538281c">IOPCServerList2Vtbl::cRequired</a></div><div class="ttdeci">ULONG CATID ULONG cRequired</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00763">opccomn.h:763</a></div></div>
+<div class="ttc" id="opccomn_8h_html_af2500c8d4ba33e99d537685ec59187fd"><div class="ttname"><a href="opccomn_8h.html#af2500c8d4ba33e99d537685ec59187fd">IOPCCommon_GetErrorString_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCCommon_GetErrorString_Proxy(IOPCCommon *This, HRESULT dwError, LPWSTR *ppString)</div></div>
+<div class="ttc" id="opccomn_8h_html_a405a90a04c96a684a07713be1d7490fe"><div class="ttname"><a href="opccomn_8h.html#a405a90a04c96a684a07713be1d7490fe">IOPCServerList_GetClassDetails_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCServerList_GetClassDetails_Proxy(IOPCServerList *This, REFCLSID clsid, LPOLESTR *ppszProgID, LPOLESTR *ppszUserType)</div></div>
+<div class="ttc" id="opccomn_8h_html_ae863b2268b5e926db9938b444cd02c07"><div class="ttname"><a href="opccomn_8h.html#ae863b2268b5e926db9938b444cd02c07">IOPCEnumGUID_Skip_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCEnumGUID_Skip_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html_aa7f462e582580fdc3f377c30a2a8b8e0"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html#aa7f462e582580fdc3f377c30a2a8b8e0">IOPCCommonVtbl::pdwCount</a></div><div class="ttdeci">DWORD * pdwCount</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00271">opccomn.h:271</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a7d7e541f29d5764ebed8e96c93c10bfc"><div class="ttname"><a href="opccomn_8h.html#a7d7e541f29d5764ebed8e96c93c10bfc">IOPCServerList2Vtbl</a></div><div class="ttdeci">struct IOPCServerList2Vtbl IOPCServerList2Vtbl</div></div>
+<div class="ttc" id="opccomn_8h_html_af1e771914cc690e0d61f58acd2e6519a"><div class="ttname"><a href="opccomn_8h.html#af1e771914cc690e0d61f58acd2e6519a">IOPCServerList_CLSIDFromProgID_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCServerList_CLSIDFromProgID_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_acb6cffc59df2d7461306071c40274107"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#acb6cffc59df2d7461306071c40274107">IOPCServerListVtbl::cRequired</a></div><div class="ttdeci">ULONG CATID ULONG cRequired</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00446">opccomn.h:446</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_ad14b5bbe691c65f7bb3539547d6f4f44"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#ad14b5bbe691c65f7bb3539547d6f4f44">IOPCServerListVtbl::ppszUserType</a></div><div class="ttdeci">REFCLSID LPOLESTR LPOLESTR * ppszUserType</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00454">opccomn.h:454</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a9b1c772e63862544872e97db342ee086"><div class="ttname"><a href="opccomn_8h.html#a9b1c772e63862544872e97db342ee086">IOPCEnumGUIDVtbl</a></div><div class="ttdeci">struct IOPCEnumGUIDVtbl IOPCEnumGUIDVtbl</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_a9625e7bcbac3fc476e6af9a0d399dc80"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#a9625e7bcbac3fc476e6af9a0d399dc80">IOPCServerList2Vtbl::HRESULT</a></div><div class="ttdeci">BEGIN_INTERFACE HRESULT(STDMETHODCALLTYPE *QueryInterface)(IOPCServerList2 *This</div></div>
+<div class="ttc" id="opccomn_8h_html_a0fe6c70e7bfe1b16a87df21d72cc7a8c"><div class="ttname"><a href="opccomn_8h.html#a0fe6c70e7bfe1b16a87df21d72cc7a8c">IOPCEnumGUID</a></div><div class="ttdeci">interface IOPCEnumGUID IOPCEnumGUID</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00068">opccomn.h:68</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_a4f60cc2cc6aaeb26a0d27403dec1662e"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#a4f60cc2cc6aaeb26a0d27403dec1662e">IOPCServerList2Vtbl::rgcatidReq</a></div><div class="ttdeci">ULONG CATID ULONG CATID rgcatidReq[]</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00763">opccomn.h:763</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a5a7e9a26a1b0dba84b50c877e5584f91"><div class="ttname"><a href="opccomn_8h.html#a5a7e9a26a1b0dba84b50c877e5584f91">IOPCShutdown</a></div><div class="ttdeci">interface IOPCShutdown IOPCShutdown</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00050">opccomn.h:50</a></div></div>
+<div class="ttc" id="struct___i_i_d_html"><div class="ttname"><a href="struct___i_i_d.html">_IID</a></div><div class="ttdef"><b>Definition:</b> <a href="opccomn__i_8c_source.html#l00053">opccomn_i.c:53</a></div></div>
+<div class="ttc" id="opccomn_8h_html_aaba1832df3e10be28a189994afc2796a"><div class="ttname"><a href="opccomn_8h.html#aaba1832df3e10be28a189994afc2796a">IOPCServerList2_GetClassDetails_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCServerList2_GetClassDetails_Proxy(IOPCServerList2 *This, REFCLSID clsid, LPOLESTR *ppszProgID, LPOLESTR *ppszUserType, LPOLESTR *ppszVerIndProgID)</div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html_a837af6e8e6b23b5bbb56e5a7596ae6bf"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html#a837af6e8e6b23b5bbb56e5a7596ae6bf">IOPCCommonVtbl::ULONG</a></div><div class="ttdeci">ULONG(STDMETHODCALLTYPE *AddRef)(IOPCCommon *This)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_a7a5024057ce8f34cc21c4fe4f79230f8"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#a7a5024057ce8f34cc21c4fe4f79230f8">IOPCServerListVtbl::cImplemented</a></div><div class="ttdeci">ULONG cImplemented</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00446">opccomn.h:446</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a2eeeff882e621bcd0adce7abba74e5a5"><div class="ttname"><a href="opccomn_8h.html#a2eeeff882e621bcd0adce7abba74e5a5">IOPCEnumGUID_Reset_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCEnumGUID_Reset_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="opccomn_8h_html_aef5ecbc3d802028c3de2e45c8094472e"><div class="ttname"><a href="opccomn_8h.html#aef5ecbc3d802028c3de2e45c8094472e">IOPCCommon_SetLocaleID_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCCommon_SetLocaleID_Proxy(IOPCCommon *This, LCID dwLcid)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_a4ad87347c3f79a297dd61b38fe2207aa"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#a4ad87347c3f79a297dd61b38fe2207aa">IOPCServerListVtbl::ppszProgID</a></div><div class="ttdeci">REFCLSID LPOLESTR * ppszProgID</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00454">opccomn.h:454</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_shutdown_vtbl_html_a4c78dc9bed1dd899b5def4daaea4525f"><div class="ttname"><a href="struct_i_o_p_c_shutdown_vtbl.html#a4c78dc9bed1dd899b5def4daaea4525f">IOPCShutdownVtbl::ppvObject</a></div><div class="ttdeci">BEGIN_INTERFACE REFIID void ** ppvObject</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00148">opccomn.h:148</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a06335aae2dbd5c9d43367d1ae2bd17b0"><div class="ttname"><a href="opccomn_8h.html#a06335aae2dbd5c9d43367d1ae2bd17b0">IOPCCommonVtbl</a></div><div class="ttdeci">struct IOPCCommonVtbl IOPCCommonVtbl</div></div>
+<div class="ttc" id="opccomn_8h_html_a7a85341225a9c3e58d9bd830d8715d96"><div class="ttname"><a href="opccomn_8h.html#a7a85341225a9c3e58d9bd830d8715d96">IOPCShutdown_ShutdownRequest_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCShutdown_ShutdownRequest_Proxy(IOPCShutdown *This, LPCWSTR szReason)</div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html">IOPCCommonVtbl</a></div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00246">opccomn.h:246</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a18ebe1e23390e09b2fe2e82723924153"><div class="ttname"><a href="opccomn_8h.html#a18ebe1e23390e09b2fe2e82723924153">MIDL_user_allocate</a></div><div class="ttdeci">void *__RPC_USER MIDL_user_allocate(size_t)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_a9d55ccb05172ea978557e8e4a3284dfc"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#a9d55ccb05172ea978557e8e4a3284dfc">IOPCServerListVtbl::rgcatidImpl</a></div><div class="ttdeci">ULONG CATID rgcatidImpl[]</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00446">opccomn.h:446</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_aac7d8314e294301d3efe66dbf38bad07"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#aac7d8314e294301d3efe66dbf38bad07">IOPCServerListVtbl::rgcatidReq</a></div><div class="ttdeci">ULONG CATID ULONG CATID rgcatidReq[]</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00446">opccomn.h:446</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_a7d9dd4dac3efebcfa0deb33c48ac3486"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#a7d9dd4dac3efebcfa0deb33c48ac3486">IOPCServerList2Vtbl::clsid</a></div><div class="ttdeci">REFCLSID clsid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00771">opccomn.h:771</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_a3c66535f70c6c974655d99076dc284a7"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#a3c66535f70c6c974655d99076dc284a7">IOPCServerListVtbl::clsid</a></div><div class="ttdeci">REFCLSID clsid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00454">opccomn.h:454</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a8dede16edbf3ffcd6f7e1ae5e72646d4"><div class="ttname"><a href="opccomn_8h.html#a8dede16edbf3ffcd6f7e1ae5e72646d4">IOPCShutdownVtbl</a></div><div class="ttdeci">struct IOPCShutdownVtbl IOPCShutdownVtbl</div></div>
+<div class="ttc" id="struct_i_o_p_c_enum_g_u_i_d_vtbl_html"><div class="ttname"><a href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html">IOPCEnumGUIDVtbl</a></div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00583">opccomn.h:583</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a5bdbcfb84e23ddbcc573061fa564f531"><div class="ttname"><a href="opccomn_8h.html#a5bdbcfb84e23ddbcc573061fa564f531">LIBID_OPCCOMN</a></div><div class="ttdeci">EXTERN_C const IID LIBID_OPCCOMN</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00886">opccomn.h:886</a></div></div>
+<div class="ttc" id="opccomn_8h_html_abcfb8457e8a523cc7d1bcb088740e9cb"><div class="ttname"><a href="opccomn_8h.html#abcfb8457e8a523cc7d1bcb088740e9cb">IOPCCommon_SetClientName_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCCommon_SetClientName_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html_a74c6688b6934436c95d5486cbcd94534"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html#a74c6688b6934436c95d5486cbcd94534">IOPCCommonVtbl::ppvObject</a></div><div class="ttdeci">BEGIN_INTERFACE REFIID void ** ppvObject</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00252">opccomn.h:252</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a44a0738cc7622b55739a528810222e88"><div class="ttname"><a href="opccomn_8h.html#a44a0738cc7622b55739a528810222e88">IOPCServerList2_CLSIDFromProgID_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCServerList2_CLSIDFromProgID_Proxy(IOPCServerList2 *This, LPCOLESTR szProgId, LPCLSID clsid)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_ae0fe7b6d15c25fa93882c11f83c4c200"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#ae0fe7b6d15c25fa93882c11f83c4c200">IOPCServerList2Vtbl::ULONG</a></div><div class="ttdeci">ULONG(STDMETHODCALLTYPE *AddRef)(IOPCServerList2 *This)</div></div>
+<div class="ttc" id="opccomn_8h_html_a5d1386ebba923240cf40bc14e91ea3bf"><div class="ttname"><a href="opccomn_8h.html#a5d1386ebba923240cf40bc14e91ea3bf">IOPCCommon_QueryAvailableLocaleIDs_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCCommon_QueryAvailableLocaleIDs_Proxy(IOPCCommon *This, DWORD *pdwCount, LCID **pdwLcid)</div></div>
+<div class="ttc" id="opccomn_8h_html_a0a553fc5b9b4a7c9b98d8002415287dc"><div class="ttname"><a href="opccomn_8h.html#a0a553fc5b9b4a7c9b98d8002415287dc">IOPCServerList2</a></div><div class="ttdeci">interface IOPCServerList2 IOPCServerList2</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00074">opccomn.h:74</a></div></div>
+<div class="ttc" id="opccomn_8h_html_aff96ee0d7b6d75d40c7d15cf88c8917b"><div class="ttname"><a href="opccomn_8h.html#aff96ee0d7b6d75d40c7d15cf88c8917b">IID_IOPCServerList2</a></div><div class="ttdeci">EXTERN_C const IID IID_IOPCServerList2</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00717">opccomn.h:717</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_a7c57b6aee73c8d42c64c981c7615b402"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#a7c57b6aee73c8d42c64c981c7615b402">IOPCServerListVtbl::HRESULT</a></div><div class="ttdeci">BEGIN_INTERFACE HRESULT(STDMETHODCALLTYPE *QueryInterface)(IOPCServerList *This</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_a5cb4c81b0cf5a789dc9a6a272d0aa554"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#a5cb4c81b0cf5a789dc9a6a272d0aa554">IOPCServerList2Vtbl::ppszUserType</a></div><div class="ttdeci">REFCLSID LPOLESTR LPOLESTR * ppszUserType</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00771">opccomn.h:771</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_enum_g_u_i_d_vtbl_html_aab18d61d4fb721170b2cdc0822465bc0"><div class="ttname"><a href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#aab18d61d4fb721170b2cdc0822465bc0">IOPCEnumGUIDVtbl::ULONG</a></div><div class="ttdeci">ULONG(STDMETHODCALLTYPE *AddRef)(IOPCEnumGUID *This)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_a1fdb5626d74c3ae4a150b5033fd462e3"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#a1fdb5626d74c3ae4a150b5033fd462e3">IOPCServerList2Vtbl::szProgId</a></div><div class="ttdeci">LPCOLESTR szProgId</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00778">opccomn.h:778</a></div></div>
+<div class="ttc" id="opccomn_8h_html_abdd5c488c877533c04ffff82707b572b"><div class="ttname"><a href="opccomn_8h.html#abdd5c488c877533c04ffff82707b572b">IOPCServerList2_EnumClassesOfCategories_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCServerList2_EnumClassesOfCategories_Proxy(IOPCServerList2 *This, ULONG cImplemented, CATID rgcatidImpl[], ULONG cRequired, CATID rgcatidReq[], IOPCEnumGUID **ppenumClsid)</div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html_afc5191efc22ec783c23be0eb50d92f0e"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html#afc5191efc22ec783c23be0eb50d92f0e">IOPCCommonVtbl::pdwLcid</a></div><div class="ttdeci">DWORD LCID ** pdwLcid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00271">opccomn.h:271</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a0107b80be9a4f68e6643beb8d1623ca6"><div class="ttname"><a href="opccomn_8h.html#a0107b80be9a4f68e6643beb8d1623ca6">IOPCCommon</a></div><div class="ttdeci">interface IOPCCommon IOPCCommon</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00056">opccomn.h:56</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_enum_g_u_i_d_vtbl_html_afd431fb5a31b2b50ae82de0ad9340457"><div class="ttname"><a href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#afd431fb5a31b2b50ae82de0ad9340457">IOPCEnumGUIDVtbl::pceltFetched</a></div><div class="ttdeci">ULONG GUID ULONG * pceltFetched</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00600">opccomn.h:600</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a3588b94772753daf47dc08661b5d789c"><div class="ttname"><a href="opccomn_8h.html#a3588b94772753daf47dc08661b5d789c">IOPCEnumGUID_Clone_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCEnumGUID_Clone_Proxy(IOPCEnumGUID *This, IOPCEnumGUID **ppenum)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_adca3a3ccb069ae12c68fa86e7b2a0093"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#adca3a3ccb069ae12c68fa86e7b2a0093">IOPCServerList2Vtbl::ppszProgID</a></div><div class="ttdeci">REFCLSID LPOLESTR * ppszProgID</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00771">opccomn.h:771</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_enum_g_u_i_d_vtbl_html_ae3022a850e1c2e9ab255ccaf529028e0"><div class="ttname"><a href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ae3022a850e1c2e9ab255ccaf529028e0">IOPCEnumGUIDVtbl::ppenum</a></div><div class="ttdeci">IOPCEnumGUID ** ppenum</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00613">opccomn.h:613</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_aba1d2961493c7ce2a4f826688d5fba0a"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#aba1d2961493c7ce2a4f826688d5fba0a">IOPCServerList2Vtbl::ppszVerIndProgID</a></div><div class="ttdeci">REFCLSID LPOLESTR LPOLESTR LPOLESTR * ppszVerIndProgID</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00771">opccomn.h:771</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a48e8a8b00c1b6a170b825daa43f1e56d"><div class="ttname"><a href="opccomn_8h.html#a48e8a8b00c1b6a170b825daa43f1e56d">IOPCCommon_SetClientName_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCCommon_SetClientName_Proxy(IOPCCommon *This, LPCWSTR szName)</div></div>
+<div class="ttc" id="struct_i_o_p_c_enum_g_u_i_d_vtbl_html_ade36b4d28927dc260400b74c6342d7b5"><div class="ttname"><a href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ade36b4d28927dc260400b74c6342d7b5">IOPCEnumGUIDVtbl::riid</a></div><div class="ttdeci">BEGIN_INTERFACE REFIID riid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00589">opccomn.h:589</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_a9d385008f9782fcedff916bd4eb98531"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#a9d385008f9782fcedff916bd4eb98531">IOPCServerList2Vtbl::riid</a></div><div class="ttdeci">BEGIN_INTERFACE REFIID riid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00752">opccomn.h:752</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_a6b2d9f4902dea7b6bfa477b309b62066"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#a6b2d9f4902dea7b6bfa477b309b62066">IOPCServerList2Vtbl::rgcatidImpl</a></div><div class="ttdeci">ULONG CATID rgcatidImpl[]</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00763">opccomn.h:763</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list2_vtbl_html_afade554290fe9f08fade677ba8e0faef"><div class="ttname"><a href="struct_i_o_p_c_server_list2_vtbl.html#afade554290fe9f08fade677ba8e0faef">IOPCServerList2Vtbl::cImplemented</a></div><div class="ttdeci">ULONG cImplemented</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00763">opccomn.h:763</a></div></div>
+<div class="ttc" id="opccomn_8h_html_ae27b96c812beed4f85ade9dd596ac674"><div class="ttname"><a href="opccomn_8h.html#ae27b96c812beed4f85ade9dd596ac674">LPOPCENUMGUID</a></div><div class="ttdeci">IOPCEnumGUID * LPOPCENUMGUID</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00555">opccomn.h:555</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_ab0e96dd1bcccd1e0326651ce8f860a08"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#ab0e96dd1bcccd1e0326651ce8f860a08">IOPCServerListVtbl::szProgId</a></div><div class="ttdeci">LPCOLESTR szProgId</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00460">opccomn.h:460</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_enum_g_u_i_d_vtbl_html_a60d808ca021eb57cb700c8fd8e77a918"><div class="ttname"><a href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#a60d808ca021eb57cb700c8fd8e77a918">IOPCEnumGUIDVtbl::HRESULT</a></div><div class="ttdeci">BEGIN_INTERFACE HRESULT(STDMETHODCALLTYPE *QueryInterface)(IOPCEnumGUID *This</div></div>
+<div class="ttc" id="opccomn_8h_html_af6bade24d1b8c90cf7b42515be3d8210"><div class="ttname"><a href="opccomn_8h.html#af6bade24d1b8c90cf7b42515be3d8210">IOPCCommon_GetErrorString_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCCommon_GetErrorString_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="opccomn_8h_html_a7ebbc9cbdaaf18d4e0d929c845a65317"><div class="ttname"><a href="opccomn_8h.html#a7ebbc9cbdaaf18d4e0d929c845a65317">IOPCEnumGUID_Clone_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCEnumGUID_Clone_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="opccomn_8h_html_ad05c8dfc6d9c5a807d657644956a4c2f"><div class="ttname"><a href="opccomn_8h.html#ad05c8dfc6d9c5a807d657644956a4c2f">IOPCCommon_QueryAvailableLocaleIDs_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCCommon_QueryAvailableLocaleIDs_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="struct_i_o_p_c_enum_g_u_i_d_vtbl_html_ab1f22d83dc3ffdca6dd6df181260213a"><div class="ttname"><a href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ab1f22d83dc3ffdca6dd6df181260213a">IOPCEnumGUIDVtbl::ppvObject</a></div><div class="ttdeci">BEGIN_INTERFACE REFIID void ** ppvObject</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00589">opccomn.h:589</a></div></div>
+<div class="ttc" id="opccomn_8h_html_abaad908120994a4f1e4fe7917f0a4146"><div class="ttname"><a href="opccomn_8h.html#abaad908120994a4f1e4fe7917f0a4146">IOPCServerList_GetClassDetails_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCServerList_GetClassDetails_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_a47d34a91bb34377b48cd66a1ebcd9307"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#a47d34a91bb34377b48cd66a1ebcd9307">IOPCServerListVtbl::ppenumClsid</a></div><div class="ttdeci">ULONG CATID ULONG CATID IEnumGUID ** ppenumClsid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00446">opccomn.h:446</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a956dadca7faea82ce201ae6dd123164a"><div class="ttname"><a href="opccomn_8h.html#a956dadca7faea82ce201ae6dd123164a">IOPCEnumGUID_Reset_Proxy</a></div><div class="ttdeci">HRESULT STDMETHODCALLTYPE IOPCEnumGUID_Reset_Proxy(IOPCEnumGUID *This)</div></div>
+<div class="ttc" id="struct_i_o_p_c_shutdown_vtbl_html"><div class="ttname"><a href="struct_i_o_p_c_shutdown_vtbl.html">IOPCShutdownVtbl</a></div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00142">opccomn.h:142</a></div></div>
+<div class="ttc" id="opccomn_8h_html_aa19d7e84fd6436c0c3adf027d6277506"><div class="ttname"><a href="opccomn_8h.html#aa19d7e84fd6436c0c3adf027d6277506">IOPCEnumGUID_Next_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCEnumGUID_Next_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="opccomn_8h_html_a484d7da102f426fdd7714b4e59c2ef2e"><div class="ttname"><a href="opccomn_8h.html#a484d7da102f426fdd7714b4e59c2ef2e">IID_IOPCEnumGUID</a></div><div class="ttdeci">EXTERN_C const IID IID_IOPCEnumGUID</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00558">opccomn.h:558</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html_a23a91884a1c6c8751e2d2b14142b7e49"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html#a23a91884a1c6c8751e2d2b14142b7e49">IOPCCommonVtbl::ppString</a></div><div class="ttdeci">HRESULT LPWSTR * ppString</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00276">opccomn.h:276</a></div></div>
+<div class="ttc" id="opccomn_8h_html_a09c6cfb34d1457e74f7d72fbbc72be20"><div class="ttname"><a href="opccomn_8h.html#a09c6cfb34d1457e74f7d72fbbc72be20">IOPCServerList</a></div><div class="ttdeci">interface IOPCServerList IOPCServerList</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00062">opccomn.h:62</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_server_list_vtbl_html_aad0462a0aff9934409daabdb8c985271"><div class="ttname"><a href="struct_i_o_p_c_server_list_vtbl.html#aad0462a0aff9934409daabdb8c985271">IOPCServerListVtbl::riid</a></div><div class="ttdeci">BEGIN_INTERFACE REFIID riid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00435">opccomn.h:435</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_enum_g_u_i_d_vtbl_html_ac86637dbadf57b4be9a6bfc5d8986e22"><div class="ttname"><a href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html#ac86637dbadf57b4be9a6bfc5d8986e22">IOPCEnumGUIDVtbl::celt</a></div><div class="ttdeci">ULONG celt</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00600">opccomn.h:600</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html_afdacf961a080529dc665a23af4c91779"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html#afdacf961a080529dc665a23af4c91779">IOPCCommonVtbl::dwLcid</a></div><div class="ttdeci">LCID dwLcid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00263">opccomn.h:263</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_shutdown_vtbl_html_a5efdcb8e88f16e37115647eb2c894e1f"><div class="ttname"><a href="struct_i_o_p_c_shutdown_vtbl.html#a5efdcb8e88f16e37115647eb2c894e1f">IOPCShutdownVtbl::ULONG</a></div><div class="ttdeci">ULONG(STDMETHODCALLTYPE *AddRef)(IOPCShutdown *This)</div></div>
+<div class="ttc" id="struct_i_o_p_c_shutdown_vtbl_html_a708f834ab6e1a0c839addddb052f39d2"><div class="ttname"><a href="struct_i_o_p_c_shutdown_vtbl.html#a708f834ab6e1a0c839addddb052f39d2">IOPCShutdownVtbl::HRESULT</a></div><div class="ttdeci">BEGIN_INTERFACE HRESULT(STDMETHODCALLTYPE *QueryInterface)(IOPCShutdown *This</div></div>
+<div class="ttc" id="opccomn_8h_html_af9f6e7ef6327a0696e2ae8ad2a3c6097"><div class="ttname"><a href="opccomn_8h.html#af9f6e7ef6327a0696e2ae8ad2a3c6097">IOPCServerList2_EnumClassesOfCategories_Stub</a></div><div class="ttdeci">void __RPC_STUB IOPCServerList2_EnumClassesOfCategories_Stub(IRpcStubBuffer *This, IRpcChannelBuffer *_pRpcChannelBuffer, PRPC_MESSAGE _pRpcMessage, DWORD *_pdwStubPhase)</div></div>
+<div class="ttc" id="struct_i_o_p_c_common_vtbl_html_afc0921913408d2cedb00897ee1281119"><div class="ttname"><a href="struct_i_o_p_c_common_vtbl.html#afc0921913408d2cedb00897ee1281119">IOPCCommonVtbl::pdwLcid</a></div><div class="ttdeci">LCID * pdwLcid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00267">opccomn.h:267</a></div></div>
+<div class="ttc" id="struct_i_o_p_c_shutdown_vtbl_html_af2ffaf87d4bfb63aad5b11828f626758"><div class="ttname"><a href="struct_i_o_p_c_shutdown_vtbl.html#af2ffaf87d4bfb63aad5b11828f626758">IOPCShutdownVtbl::riid</a></div><div class="ttdeci">BEGIN_INTERFACE REFIID riid</div><div class="ttdef"><b>Definition:</b> <a href="opccomn_8h_source.html#l00148">opccomn.h:148</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:11 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:45 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

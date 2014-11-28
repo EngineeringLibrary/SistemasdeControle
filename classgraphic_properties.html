@@ -63,7 +63,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
-      <li><a href="hierarchy.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
       <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
@@ -72,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -85,128 +85,1637 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
 <a href="classgraphic_properties-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
 <div class="title">Referência da Classe graphicProperties</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe para auxiliar a construção de gráficos.  
+ <a href="classgraphic_properties.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para graphicProperties:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties__coll__graph.png" border="0" usemap="#graphic_properties_coll__map" alt="Collaboration graph"/></div>
+<map name="graphic_properties_coll__map" id="graphic_properties_coll__map">
+<area shape="rect" id="node2" href="class_matrix.html" title="{Matrix\&lt; double \&gt;\n|&#45; rows\l&#45; cols\l&#45; Mat\l|+ Matrix()\l+ Matrix()\l+ Matrix()\l+ Matrix()\l+ ~Matrix()\l+ init()\l+ init()\l+ add()\l+ eye()\l+ ones()\land 40 more...\l&#45; sqr()\l&#45; ind()\l}" alt="" coords="25,5,145,288"/></map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
-<tr class="memitem:adb687004725e5b0addab8d41df398cd5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb687004725e5b0addab8d41df398cd5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInGraphicRegion</b> (double in, double out)</td></tr>
+<tr class="memitem:a900b2d49b599930a444ec6472c71459b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a900b2d49b599930a444ec6472c71459b">graphicProperties</a> ()</td></tr>
+<tr class="memdesc:a900b2d49b599930a444ec6472c71459b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão da biblioteca de propriedades gráficas.  <a href="#a900b2d49b599930a444ec6472c71459b">Mais...</a><br /></td></tr>
+<tr class="separator:a900b2d49b599930a444ec6472c71459b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb687004725e5b0addab8d41df398cd5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#adb687004725e5b0addab8d41df398cd5">isInGraphicRegion</a> (double in, double out)</td></tr>
+<tr class="memdesc:adb687004725e5b0addab8d41df398cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar verdadeiro (1) quando os parâmetros in (x) e out (x) estão dentro dos limites de plotagem do gráfico.  <a href="#adb687004725e5b0addab8d41df398cd5">Mais...</a><br /></td></tr>
 <tr class="separator:adb687004725e5b0addab8d41df398cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acad144e36b287587f385351e026f4c2d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acad144e36b287587f385351e026f4c2d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInXLimit</b> (double in)</td></tr>
+<tr class="memitem:acad144e36b287587f385351e026f4c2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#acad144e36b287587f385351e026f4c2d">isInXLimit</a> (double in)</td></tr>
+<tr class="memdesc:acad144e36b287587f385351e026f4c2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar verdadeiro (1) quando o parâmetro in (x) está dentro dos limites de plotagem (x) do gráfico.  <a href="#acad144e36b287587f385351e026f4c2d">Mais...</a><br /></td></tr>
 <tr class="separator:acad144e36b287587f385351e026f4c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e0f8e7849617746016c49282adf344e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e0f8e7849617746016c49282adf344e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isInYLimit</b> (double out)</td></tr>
+<tr class="memitem:a4e0f8e7849617746016c49282adf344e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a4e0f8e7849617746016c49282adf344e">isInYLimit</a> (double out)</td></tr>
+<tr class="memdesc:a4e0f8e7849617746016c49282adf344e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar verdadeiro (1) quando o parâmetro out (y) está dentro dos limites de plotagem (y) do gráfico.  <a href="#a4e0f8e7849617746016c49282adf344e">Mais...</a><br /></td></tr>
 <tr class="separator:a4e0f8e7849617746016c49282adf344e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae92099f16113393d652134023abca30f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae92099f16113393d652134023abca30f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setXClicks</b> (int i, int j, double number)</td></tr>
+<tr class="memitem:ae92099f16113393d652134023abca30f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#ae92099f16113393d652134023abca30f">setXClicks</a> (int i, int j, double number)</td></tr>
+<tr class="memdesc:ae92099f16113393d652134023abca30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir na variável xClicks os clicks realizados no gráfico (somente a componente x).  <a href="#ae92099f16113393d652134023abca30f">Mais...</a><br /></td></tr>
 <tr class="separator:ae92099f16113393d652134023abca30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f35160846d94b6d3745a03a5fef2497"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f35160846d94b6d3745a03a5fef2497"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setYClicks</b> (int i, int j, double number)</td></tr>
+<tr class="memitem:a6f35160846d94b6d3745a03a5fef2497"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a6f35160846d94b6d3745a03a5fef2497">setYClicks</a> (int i, int j, double number)</td></tr>
+<tr class="memdesc:a6f35160846d94b6d3745a03a5fef2497"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir na variável yClicks os clicks realizados no gráfico (somente a componentey).  <a href="#a6f35160846d94b6d3745a03a5fef2497">Mais...</a><br /></td></tr>
 <tr class="separator:a6f35160846d94b6d3745a03a5fef2497"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6ec99261b7f6c8f7835e8b52538d8dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6ec99261b7f6c8f7835e8b52538d8dc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGraphicXposition</b> (double GraphicXposition)</td></tr>
+<tr class="memitem:ac6ec99261b7f6c8f7835e8b52538d8dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#ac6ec99261b7f6c8f7835e8b52538d8dc">setGraphicXposition</a> (double <a class="el" href="classgraphic_properties.html#a2b156ab99c00cf3d3037818f33d02d75">GraphicXposition</a>)</td></tr>
+<tr class="memdesc:ac6ec99261b7f6c8f7835e8b52538d8dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir um valor na variável GraphicXposition.  <a href="#ac6ec99261b7f6c8f7835e8b52538d8dc">Mais...</a><br /></td></tr>
 <tr class="separator:ac6ec99261b7f6c8f7835e8b52538d8dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4f554cd4170217c385499e3b923c181"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4f554cd4170217c385499e3b923c181"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGraphicYposition</b> (double GraphicYposition)</td></tr>
+<tr class="memitem:ab4f554cd4170217c385499e3b923c181"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#ab4f554cd4170217c385499e3b923c181">setGraphicYposition</a> (double <a class="el" href="classgraphic_properties.html#a62c1ac33269dbd445273ea73cc6e7bab">GraphicYposition</a>)</td></tr>
+<tr class="memdesc:ab4f554cd4170217c385499e3b923c181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir um valor na variável GraphicYposition.  <a href="#ab4f554cd4170217c385499e3b923c181">Mais...</a><br /></td></tr>
 <tr class="separator:ab4f554cd4170217c385499e3b923c181"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f2708237164d26849436ce99fdc4532"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9f2708237164d26849436ce99fdc4532"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMotionOcurrency</b> (bool MotionOcurrency)</td></tr>
+<tr class="memitem:a9f2708237164d26849436ce99fdc4532"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a9f2708237164d26849436ce99fdc4532">setMotionOcurrency</a> (bool <a class="el" href="classgraphic_properties.html#ab2b46a629c9878c66353a9ae54541e24">MotionOcurrency</a>)</td></tr>
+<tr class="memdesc:a9f2708237164d26849436ce99fdc4532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir um valor booleano na variável MotionOcurrency.  <a href="#a9f2708237164d26849436ce99fdc4532">Mais...</a><br /></td></tr>
 <tr class="separator:a9f2708237164d26849436ce99fdc4532"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2489924029aa23afb85c03e285efb6dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2489924029aa23afb85c03e285efb6dc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGridStatus</b> (bool GridStatus)</td></tr>
+<tr class="memitem:a2489924029aa23afb85c03e285efb6dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a2489924029aa23afb85c03e285efb6dc">setGridStatus</a> (bool <a class="el" href="classgraphic_properties.html#ae0afdedff819a0dc18785578c70685d3">GridStatus</a>)</td></tr>
+<tr class="memdesc:a2489924029aa23afb85c03e285efb6dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir um valor booleano na variável GridStatus.  <a href="#a2489924029aa23afb85c03e285efb6dc">Mais...</a><br /></td></tr>
 <tr class="separator:a2489924029aa23afb85c03e285efb6dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0975232548d847106cb0a3c05b6cbbf4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0975232548d847106cb0a3c05b6cbbf4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setHoldStatus</b> (bool HoldStatus)</td></tr>
+<tr class="memitem:a0975232548d847106cb0a3c05b6cbbf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a0975232548d847106cb0a3c05b6cbbf4">setHoldStatus</a> (bool <a class="el" href="classgraphic_properties.html#a24905c619ceb8fa302f2bb803ee5c8b1">HoldStatus</a>)</td></tr>
+<tr class="memdesc:a0975232548d847106cb0a3c05b6cbbf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir um valor booleano na variável HoldStatus.  <a href="#a0975232548d847106cb0a3c05b6cbbf4">Mais...</a><br /></td></tr>
 <tr class="separator:a0975232548d847106cb0a3c05b6cbbf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9651fdf472c0e2121f605e9a5aa77af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad9651fdf472c0e2121f605e9a5aa77af"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGraphicDataSize</b> (double GraphicDataSize)</td></tr>
+<tr class="memitem:ad9651fdf472c0e2121f605e9a5aa77af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#ad9651fdf472c0e2121f605e9a5aa77af">setGraphicDataSize</a> (double <a class="el" href="classgraphic_properties.html#aba77d97bad6fd2d5949f192614ee8e5d">GraphicDataSize</a>)</td></tr>
+<tr class="memdesc:ad9651fdf472c0e2121f605e9a5aa77af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir um valor na variável GraphicDataSize.  <a href="#ad9651fdf472c0e2121f605e9a5aa77af">Mais...</a><br /></td></tr>
 <tr class="separator:ad9651fdf472c0e2121f605e9a5aa77af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18b142b9a4dba31881155b79afe896b7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a18b142b9a4dba31881155b79afe896b7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNumberOfClicks</b> (int NumberOfClicks)</td></tr>
+<tr class="memitem:a18b142b9a4dba31881155b79afe896b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a18b142b9a4dba31881155b79afe896b7">setNumberOfClicks</a> (int <a class="el" href="classgraphic_properties.html#a70d4dc3aa01d4285dfb61b6e9f620078">NumberOfClicks</a>)</td></tr>
+<tr class="memdesc:a18b142b9a4dba31881155b79afe896b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir um valor na variável NumberOfClicks.  <a href="#a18b142b9a4dba31881155b79afe896b7">Mais...</a><br /></td></tr>
 <tr class="separator:a18b142b9a4dba31881155b79afe896b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acba92f7f91f1dc2fe4d7597e74bb6db5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acba92f7f91f1dc2fe4d7597e74bb6db5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setXLabel</b> (std::string xLabel)</td></tr>
+<tr class="memitem:acba92f7f91f1dc2fe4d7597e74bb6db5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#acba92f7f91f1dc2fe4d7597e74bb6db5">setXLabel</a> (std::string <a class="el" href="classgraphic_properties.html#a3ed85317d2f79eef761efe6017eaecc2">xLabel</a>)</td></tr>
+<tr class="memdesc:acba92f7f91f1dc2fe4d7597e74bb6db5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir uma string para colocar no eixo X como legenda.  <a href="#acba92f7f91f1dc2fe4d7597e74bb6db5">Mais...</a><br /></td></tr>
 <tr class="separator:acba92f7f91f1dc2fe4d7597e74bb6db5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a407bfa5cce78b72ee69b0b61f99a1ba1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a407bfa5cce78b72ee69b0b61f99a1ba1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setYLabel</b> (std::string yLabel)</td></tr>
+<tr class="memitem:a407bfa5cce78b72ee69b0b61f99a1ba1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a407bfa5cce78b72ee69b0b61f99a1ba1">setYLabel</a> (std::string <a class="el" href="classgraphic_properties.html#a7c6e43ed63f341c959518adab636c8b0">yLabel</a>)</td></tr>
+<tr class="memdesc:a407bfa5cce78b72ee69b0b61f99a1ba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir uma string para colocar no eixo Y como legenda.  <a href="#a407bfa5cce78b72ee69b0b61f99a1ba1">Mais...</a><br /></td></tr>
 <tr class="separator:a407bfa5cce78b72ee69b0b61f99a1ba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a226add3b408cc6823fcad9908c57dc0d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a226add3b408cc6823fcad9908c57dc0d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTitle</b> (std::string title)</td></tr>
+<tr class="memitem:a226add3b408cc6823fcad9908c57dc0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a226add3b408cc6823fcad9908c57dc0d">setTitle</a> (std::string <a class="el" href="classgraphic_properties.html#addd5780635acfe7645db38f74a43a554">title</a>)</td></tr>
+<tr class="memdesc:a226add3b408cc6823fcad9908c57dc0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir uma string para colocar no título.  <a href="#a226add3b408cc6823fcad9908c57dc0d">Mais...</a><br /></td></tr>
 <tr class="separator:a226add3b408cc6823fcad9908c57dc0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4145e9fe547ce415f66598fda40744fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4145e9fe547ce415f66598fda40744fc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setLastMotionPosition</b> (double LastMotionXPosition, double LastMotionYPosition)</td></tr>
+<tr class="memitem:a4145e9fe547ce415f66598fda40744fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a4145e9fe547ce415f66598fda40744fc">setLastMotionPosition</a> (double <a class="el" href="classgraphic_properties.html#a6d5802d364637a1ffcfecd3745e806d9">LastMotionXPosition</a>, double <a class="el" href="classgraphic_properties.html#a56605ab8f67d0c7ded9e18cb8a021d80">LastMotionYPosition</a>)</td></tr>
+<tr class="memdesc:a4145e9fe547ce415f66598fda40744fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir valores que indiquem a posição do mouse na qual o botão direito do mouse foi despressionado.  <a href="#a4145e9fe547ce415f66598fda40744fc">Mais...</a><br /></td></tr>
 <tr class="separator:a4145e9fe547ce415f66598fda40744fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7abc1ef4cdc3d66d7fd9bc60e40e2af"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7abc1ef4cdc3d66d7fd9bc60e40e2af"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setLimits</b> (double GraphicXLimit_Left, double GraphicXLimit_Rigth, double GraphicYLimit_Down, double GraphicYLimit_Up)</td></tr>
+<tr class="memitem:ad7abc1ef4cdc3d66d7fd9bc60e40e2af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#ad7abc1ef4cdc3d66d7fd9bc60e40e2af">setLimits</a> (double <a class="el" href="classgraphic_properties.html#af6be55803a00a99e453e47b4f1221133">GraphicXLimit_Left</a>, double GraphicXLimit_Rigth, double <a class="el" href="classgraphic_properties.html#acc030c766de1a6ed7015190071db09ef">GraphicYLimit_Down</a>, double <a class="el" href="classgraphic_properties.html#a33aa4972d287d8efba3cf37ce31ae80a">GraphicYLimit_Up</a>)</td></tr>
+<tr class="memdesc:ad7abc1ef4cdc3d66d7fd9bc60e40e2af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é inserir valores que indiquem os limites do gráfico.  <a href="#ad7abc1ef4cdc3d66d7fd9bc60e40e2af">Mais...</a><br /></td></tr>
 <tr class="separator:ad7abc1ef4cdc3d66d7fd9bc60e40e2af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d8664c7390f364ef1bfd77b9bbc58dc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d8664c7390f364ef1bfd77b9bbc58dc"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumberOfClicks</b> ()</td></tr>
+<tr class="memitem:a7d8664c7390f364ef1bfd77b9bbc58dc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a7d8664c7390f364ef1bfd77b9bbc58dc">getNumberOfClicks</a> ()</td></tr>
+<tr class="memdesc:a7d8664c7390f364ef1bfd77b9bbc58dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável NumberOfClicks.  <a href="#a7d8664c7390f364ef1bfd77b9bbc58dc">Mais...</a><br /></td></tr>
 <tr class="separator:a7d8664c7390f364ef1bfd77b9bbc58dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc704c457ba5b1f9164db6903c8d017b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc704c457ba5b1f9164db6903c8d017b"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getMotionOcurrency</b> ()</td></tr>
+<tr class="memitem:abc704c457ba5b1f9164db6903c8d017b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#abc704c457ba5b1f9164db6903c8d017b">getMotionOcurrency</a> ()</td></tr>
+<tr class="memdesc:abc704c457ba5b1f9164db6903c8d017b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é saber se houve movimento do mouse (obtendo o valor booleano de MotionOcurrency).  <a href="#abc704c457ba5b1f9164db6903c8d017b">Mais...</a><br /></td></tr>
 <tr class="separator:abc704c457ba5b1f9164db6903c8d017b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a721ad92961c770a88304398c8719fdec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a721ad92961c770a88304398c8719fdec"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getHoldStatus</b> ()</td></tr>
+<tr class="memitem:a721ad92961c770a88304398c8719fdec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a721ad92961c770a88304398c8719fdec">getHoldStatus</a> ()</td></tr>
+<tr class="memdesc:a721ad92961c770a88304398c8719fdec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor booleano da variável HoldStatus.  <a href="#a721ad92961c770a88304398c8719fdec">Mais...</a><br /></td></tr>
 <tr class="separator:a721ad92961c770a88304398c8719fdec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26d7a963521694476e8da428e584b68c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a26d7a963521694476e8da428e584b68c"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>getGridStatus</b> ()</td></tr>
+<tr class="memitem:a26d7a963521694476e8da428e584b68c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a26d7a963521694476e8da428e584b68c">getGridStatus</a> ()</td></tr>
+<tr class="memdesc:a26d7a963521694476e8da428e584b68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor booleano da variável GridStatus.  <a href="#a26d7a963521694476e8da428e584b68c">Mais...</a><br /></td></tr>
 <tr class="separator:a26d7a963521694476e8da428e584b68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea8f5cd9bfaf99856eb7fd91bf3d086c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea8f5cd9bfaf99856eb7fd91bf3d086c"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getGraphicXposition</b> ()</td></tr>
+<tr class="memitem:aea8f5cd9bfaf99856eb7fd91bf3d086c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#aea8f5cd9bfaf99856eb7fd91bf3d086c">getGraphicXposition</a> ()</td></tr>
+<tr class="memdesc:aea8f5cd9bfaf99856eb7fd91bf3d086c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável GraphicXposition.  <a href="#aea8f5cd9bfaf99856eb7fd91bf3d086c">Mais...</a><br /></td></tr>
 <tr class="separator:aea8f5cd9bfaf99856eb7fd91bf3d086c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81c260628d08ab74c7da7eb2b43c48a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81c260628d08ab74c7da7eb2b43c48a8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getGraphicYposition</b> ()</td></tr>
+<tr class="memitem:a81c260628d08ab74c7da7eb2b43c48a8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a81c260628d08ab74c7da7eb2b43c48a8">getGraphicYposition</a> ()</td></tr>
+<tr class="memdesc:a81c260628d08ab74c7da7eb2b43c48a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável GraphicYposition.  <a href="#a81c260628d08ab74c7da7eb2b43c48a8">Mais...</a><br /></td></tr>
 <tr class="separator:a81c260628d08ab74c7da7eb2b43c48a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8dc33f953731a4dc72abda53112a0c6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8dc33f953731a4dc72abda53112a0c6e"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getXLimitLeft</b> ()</td></tr>
+<tr class="memitem:a8dc33f953731a4dc72abda53112a0c6e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a8dc33f953731a4dc72abda53112a0c6e">getXLimitLeft</a> ()</td></tr>
+<tr class="memdesc:a8dc33f953731a4dc72abda53112a0c6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável GraphicXLimit_Left.  <a href="#a8dc33f953731a4dc72abda53112a0c6e">Mais...</a><br /></td></tr>
 <tr class="separator:a8dc33f953731a4dc72abda53112a0c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a548447e01db25f30a49fa58b9f67d4e9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a548447e01db25f30a49fa58b9f67d4e9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getXLimitRight</b> ()</td></tr>
+<tr class="memitem:a548447e01db25f30a49fa58b9f67d4e9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a548447e01db25f30a49fa58b9f67d4e9">getXLimitRight</a> ()</td></tr>
+<tr class="memdesc:a548447e01db25f30a49fa58b9f67d4e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável GraphicXLimit_Rigth.  <a href="#a548447e01db25f30a49fa58b9f67d4e9">Mais...</a><br /></td></tr>
 <tr class="separator:a548447e01db25f30a49fa58b9f67d4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa62f0b05fe493a0aed0ef71e52949656"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa62f0b05fe493a0aed0ef71e52949656"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getYLimitDown</b> ()</td></tr>
+<tr class="memitem:aa62f0b05fe493a0aed0ef71e52949656"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#aa62f0b05fe493a0aed0ef71e52949656">getYLimitDown</a> ()</td></tr>
+<tr class="memdesc:aa62f0b05fe493a0aed0ef71e52949656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável GraphicYLimit_Down.  <a href="#aa62f0b05fe493a0aed0ef71e52949656">Mais...</a><br /></td></tr>
 <tr class="separator:aa62f0b05fe493a0aed0ef71e52949656"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ea0a4c975048f9dea87bfd13b2a967f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8ea0a4c975048f9dea87bfd13b2a967f"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getYLimitUp</b> ()</td></tr>
+<tr class="memitem:a8ea0a4c975048f9dea87bfd13b2a967f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a8ea0a4c975048f9dea87bfd13b2a967f">getYLimitUp</a> ()</td></tr>
+<tr class="memdesc:a8ea0a4c975048f9dea87bfd13b2a967f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável GraphicYLimit_Up.  <a href="#a8ea0a4c975048f9dea87bfd13b2a967f">Mais...</a><br /></td></tr>
 <tr class="separator:a8ea0a4c975048f9dea87bfd13b2a967f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed5502c17167013011d4d187c794e4f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed5502c17167013011d4d187c794e4f8"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getLastXMotionPosition</b> ()</td></tr>
+<tr class="memitem:aed5502c17167013011d4d187c794e4f8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#aed5502c17167013011d4d187c794e4f8">getLastXMotionPosition</a> ()</td></tr>
+<tr class="memdesc:aed5502c17167013011d4d187c794e4f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável LastXMotionPosition.  <a href="#aed5502c17167013011d4d187c794e4f8">Mais...</a><br /></td></tr>
 <tr class="separator:aed5502c17167013011d4d187c794e4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab242e9f342333166185b4f5b80c88470"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab242e9f342333166185b4f5b80c88470"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getLastYMotionPosition</b> ()</td></tr>
+<tr class="memitem:ab242e9f342333166185b4f5b80c88470"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#ab242e9f342333166185b4f5b80c88470">getLastYMotionPosition</a> ()</td></tr>
+<tr class="memdesc:ab242e9f342333166185b4f5b80c88470"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável LastYMotionPosition.  <a href="#ab242e9f342333166185b4f5b80c88470">Mais...</a><br /></td></tr>
 <tr class="separator:ab242e9f342333166185b4f5b80c88470"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5030c3bcccb2fc16b7d539c97c04be9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac5030c3bcccb2fc16b7d539c97c04be9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getGraphicDataSize</b> ()</td></tr>
+<tr class="memitem:ac5030c3bcccb2fc16b7d539c97c04be9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#ac5030c3bcccb2fc16b7d539c97c04be9">getGraphicDataSize</a> ()</td></tr>
+<tr class="memdesc:ac5030c3bcccb2fc16b7d539c97c04be9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável GraphicDataSize.  <a href="#ac5030c3bcccb2fc16b7d539c97c04be9">Mais...</a><br /></td></tr>
 <tr class="separator:ac5030c3bcccb2fc16b7d539c97c04be9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc62d42a96f211346c6d4b6d7d77435b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc62d42a96f211346c6d4b6d7d77435b"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getXLabel</b> ()</td></tr>
+<tr class="memitem:acc62d42a96f211346c6d4b6d7d77435b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#acc62d42a96f211346c6d4b6d7d77435b">getXLabel</a> ()</td></tr>
+<tr class="memdesc:acc62d42a96f211346c6d4b6d7d77435b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável XLabel.  <a href="#acc62d42a96f211346c6d4b6d7d77435b">Mais...</a><br /></td></tr>
 <tr class="separator:acc62d42a96f211346c6d4b6d7d77435b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3962832e6381685093495afa53fa11f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3962832e6381685093495afa53fa11f8"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getYLabel</b> ()</td></tr>
+<tr class="memitem:a3962832e6381685093495afa53fa11f8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a3962832e6381685093495afa53fa11f8">getYLabel</a> ()</td></tr>
+<tr class="memdesc:a3962832e6381685093495afa53fa11f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável YLabel.  <a href="#a3962832e6381685093495afa53fa11f8">Mais...</a><br /></td></tr>
 <tr class="separator:a3962832e6381685093495afa53fa11f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6fb3fddc049a89e82463142c69802fa9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6fb3fddc049a89e82463142c69802fa9"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getTitle</b> ()</td></tr>
+<tr class="memitem:a6fb3fddc049a89e82463142c69802fa9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a6fb3fddc049a89e82463142c69802fa9">getTitle</a> ()</td></tr>
+<tr class="memdesc:a6fb3fddc049a89e82463142c69802fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável Title.  <a href="#a6fb3fddc049a89e82463142c69802fa9">Mais...</a><br /></td></tr>
 <tr class="separator:a6fb3fddc049a89e82463142c69802fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b773a9dac6f3b60e071322779b2e31c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b773a9dac6f3b60e071322779b2e31c"></a>
-<a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getXClicks</b> ()</td></tr>
+<tr class="memitem:a6b773a9dac6f3b60e071322779b2e31c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a6b773a9dac6f3b60e071322779b2e31c">getXClicks</a> ()</td></tr>
+<tr class="memdesc:a6b773a9dac6f3b60e071322779b2e31c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável XClicks.  <a href="#a6b773a9dac6f3b60e071322779b2e31c">Mais...</a><br /></td></tr>
 <tr class="separator:a6b773a9dac6f3b60e071322779b2e31c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4b6c60aea5700963532456ed7e58ad0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4b6c60aea5700963532456ed7e58ad0"></a>
-<a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getYClicks</b> ()</td></tr>
+<tr class="memitem:ab4b6c60aea5700963532456ed7e58ad0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#ab4b6c60aea5700963532456ed7e58ad0">getYClicks</a> ()</td></tr>
+<tr class="memdesc:ab4b6c60aea5700963532456ed7e58ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é obter o valor da variável YClicks.  <a href="#ab4b6c60aea5700963532456ed7e58ad0">Mais...</a><br /></td></tr>
 <tr class="separator:ab4b6c60aea5700963532456ed7e58ad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:af6be55803a00a99e453e47b4f1221133"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#af6be55803a00a99e453e47b4f1221133">GraphicXLimit_Left</a></td></tr>
+<tr class="separator:af6be55803a00a99e453e47b4f1221133"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d028a3ca8132b82a5aaeffcaf47d06f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a4d028a3ca8132b82a5aaeffcaf47d06f">GraphicXLimit_Right</a></td></tr>
+<tr class="separator:a4d028a3ca8132b82a5aaeffcaf47d06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc030c766de1a6ed7015190071db09ef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#acc030c766de1a6ed7015190071db09ef">GraphicYLimit_Down</a></td></tr>
+<tr class="separator:acc030c766de1a6ed7015190071db09ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33aa4972d287d8efba3cf37ce31ae80a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a33aa4972d287d8efba3cf37ce31ae80a">GraphicYLimit_Up</a></td></tr>
+<tr class="separator:a33aa4972d287d8efba3cf37ce31ae80a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70d4dc3aa01d4285dfb61b6e9f620078"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a70d4dc3aa01d4285dfb61b6e9f620078">NumberOfClicks</a></td></tr>
+<tr class="separator:a70d4dc3aa01d4285dfb61b6e9f620078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba77d97bad6fd2d5949f192614ee8e5d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#aba77d97bad6fd2d5949f192614ee8e5d">GraphicDataSize</a></td></tr>
+<tr class="separator:aba77d97bad6fd2d5949f192614ee8e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b156ab99c00cf3d3037818f33d02d75"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a2b156ab99c00cf3d3037818f33d02d75">GraphicXposition</a></td></tr>
+<tr class="separator:a2b156ab99c00cf3d3037818f33d02d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62c1ac33269dbd445273ea73cc6e7bab"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a62c1ac33269dbd445273ea73cc6e7bab">GraphicYposition</a></td></tr>
+<tr class="separator:a62c1ac33269dbd445273ea73cc6e7bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d5802d364637a1ffcfecd3745e806d9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a6d5802d364637a1ffcfecd3745e806d9">LastMotionXPosition</a></td></tr>
+<tr class="separator:a6d5802d364637a1ffcfecd3745e806d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56605ab8f67d0c7ded9e18cb8a021d80"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a56605ab8f67d0c7ded9e18cb8a021d80">LastMotionYPosition</a></td></tr>
+<tr class="separator:a56605ab8f67d0c7ded9e18cb8a021d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0afdedff819a0dc18785578c70685d3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#ae0afdedff819a0dc18785578c70685d3">GridStatus</a></td></tr>
+<tr class="separator:ae0afdedff819a0dc18785578c70685d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24905c619ceb8fa302f2bb803ee5c8b1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a24905c619ceb8fa302f2bb803ee5c8b1">HoldStatus</a></td></tr>
+<tr class="separator:a24905c619ceb8fa302f2bb803ee5c8b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2b46a629c9878c66353a9ae54541e24"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#ab2b46a629c9878c66353a9ae54541e24">MotionOcurrency</a></td></tr>
+<tr class="separator:ab2b46a629c9878c66353a9ae54541e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9184a479e762a2bb0575fcb1f731e49a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a9184a479e762a2bb0575fcb1f731e49a">XClicks</a></td></tr>
+<tr class="separator:a9184a479e762a2bb0575fcb1f731e49a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04eb5b87312807bc8ee006901859fc00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a04eb5b87312807bc8ee006901859fc00">YClicks</a></td></tr>
+<tr class="separator:a04eb5b87312807bc8ee006901859fc00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ed85317d2f79eef761efe6017eaecc2"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a3ed85317d2f79eef761efe6017eaecc2">xLabel</a></td></tr>
+<tr class="separator:a3ed85317d2f79eef761efe6017eaecc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c6e43ed63f341c959518adab636c8b0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#a7c6e43ed63f341c959518adab636c8b0">yLabel</a></td></tr>
+<tr class="separator:a7c6e43ed63f341c959518adab636c8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addd5780635acfe7645db38f74a43a554"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgraphic_properties.html#addd5780635acfe7645db38f74a43a554">title</a></td></tr>
+<tr class="separator:addd5780635acfe7645db38f74a43a554"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><p>Classe para auxiliar a construção de gráficos. </p>
+<p>A Classe <a class="el" href="classgraphic_properties.html" title="Classe para auxiliar a construção de gráficos. ">graphicProperties</a> tem como objetivo principal auxiliar as classes de plotagem de gráficos.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">title</td><td>Variável responsável por armazenar a string que será apresentada como um título para o gráfico. </td></tr>
+    <tr><td class="paramname">xLabel</td><td>Variável responsável por armazenar a string que será apresentada como um rótulo para o eixo x. </td></tr>
+    <tr><td class="paramname">yLabel</td><td>Variável responsável por armazenar a string que será apresentada como um rótulo para o eixo y. </td></tr>
+    <tr><td class="paramname">XClicks</td><td>Variável que guarda os clicks em x realizados em uma pilha, de maneira a permitir que quando o usuário clique com o botão esquerdo do mouse as telas sejam apresentadas com o caminho inverso de quando o gráfico foi aproximado. </td></tr>
+    <tr><td class="paramname">YClicks</td><td>Variável que guarda os clicks em y realizados em uma pilha, de maneira a permitir que quando o usuário clique com o botão esquerdo do mouse as telas sejam apresentadas com o caminho inverso de quando o gráfico foi aproximado. </td></tr>
+    <tr><td class="paramname">GridStatus</td><td>Variável que quando setada em 1 indica que o grid deve ser plotado juntamente com o gráfico e quando setada em zero indica o contrário. </td></tr>
+    <tr><td class="paramname">HoldStatus</td><td>Variável que quando setada em 1 indica que outros gráficos podem ser plotados juntamente com o gráfico da instancia atual e quando setada em zero indica o contrário. </td></tr>
+    <tr><td class="paramname">NumberOfClicks</td><td>Variável inteira que é a diferença entre a quantidade de cliques realizados com o botão direito e esquerdo do mouse. Incrementa quando for clicado o botão direito e decrementa quando houver um clique com o botão esquerdo. </td></tr>
+    <tr><td class="paramname">GraphicDataSize</td><td>Variável que indica a quantidade de pontos que serão, ou estão plotados no gráfico. </td></tr>
+    <tr><td class="paramname">MotionOcurrency</td><td>Variável booleana que registra se houve movimento com o mouse quando ele foi clicado (1 houve e 0 não houve). </td></tr>
+    <tr><td class="paramname">GraphicXposition</td><td>Variável inteira que registra a posição x em que houve um clique com o mouse. </td></tr>
+    <tr><td class="paramname">GraphicYposition</td><td>Variável inteira que registra a posição y em que houve um clique com o mouse. </td></tr>
+    <tr><td class="paramname">GraphicYLimit_Up</td><td>Variável inteira que armazena o limite superior do eixo y (para que não haja plotagem fora da região gráfica). </td></tr>
+    <tr><td class="paramname">GraphicXLimit_Left</td><td>Variável inteira que armazena o limite inferior (lado esquerdo) do eixo x (para que não haja plotagem fora da região gráfica). </td></tr>
+    <tr><td class="paramname">GraphicYLimit_Down</td><td>Variável inteira que armazena o limite inferior do eixo y (para que não haja plotagem fora da região gráfica). </td></tr>
+    <tr><td class="paramname">GraphicXLimit_Right</td><td>Variável inteira que armazena o limite superior (lado direito) do eixo x (para que não haja plotagem fora da região gráfica). </td></tr>
+    <tr><td class="paramname">LastMotionXPosition</td><td>Variável inteira que armazena a ultima posição de movimento do mouse no eixo x (com o objetivo de deslocar a região gráfica quando o mouse for clicado e arrastado). </td></tr>
+    <tr><td class="paramname">LastMotionYPosition</td><td>Variável inteira que armazena a ultima posição de movimento do mouse no eixo y (com o objetivo de deslocar a região gráfica quando o mouse for clicado e arrastado). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00032">32</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a class="anchor" id="a900b2d49b599930a444ec6472c71459b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">graphicProperties::graphicProperties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construtor padrão da biblioteca de propriedades gráficas. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00003">3</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="ac5030c3bcccb2fc16b7d539c97c04be9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::getGraphicDataSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável GraphicDataSize. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00202">202</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_ac5030c3bcccb2fc16b7d539c97c04be9_icgraph.png" border="0" usemap="#classgraphic_properties_ac5030c3bcccb2fc16b7d539c97c04be9_icgraph" alt=""/></div>
+<map name="classgraphic_properties_ac5030c3bcccb2fc16b7d539c97c04be9_icgraph" id="classgraphic_properties_ac5030c3bcccb2fc16b7d539c97c04be9_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="231,5,337,32"/><area shape="rect" id="node3" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="213,56,355,83"/><area shape="rect" id="node6" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="192,107,376,133"/><area shape="rect" id="node4" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="424,56,571,83"/><area shape="rect" id="node5" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="619,56,728,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="aea8f5cd9bfaf99856eb7fd91bf3d086c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::getGraphicXposition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável GraphicXposition. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00039">39</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_aea8f5cd9bfaf99856eb7fd91bf3d086c_icgraph.png" border="0" usemap="#classgraphic_properties_aea8f5cd9bfaf99856eb7fd91bf3d086c_icgraph" alt=""/></div>
+<map name="classgraphic_properties_aea8f5cd9bfaf99856eb7fd91bf3d086c_icgraph" id="classgraphic_properties_aea8f5cd9bfaf99856eb7fd91bf3d086c_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="229,5,336,32"/><area shape="rect" id="node3" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="211,56,354,83"/><area shape="rect" id="node6" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="191,107,375,133"/><area shape="rect" id="node7" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="215,157,351,184"/><area shape="rect" id="node4" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="423,56,569,83"/><area shape="rect" id="node5" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="617,56,727,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a81c260628d08ab74c7da7eb2b43c48a8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::getGraphicYposition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável GraphicYposition. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00044">44</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a81c260628d08ab74c7da7eb2b43c48a8_icgraph.png" border="0" usemap="#classgraphic_properties_a81c260628d08ab74c7da7eb2b43c48a8_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a81c260628d08ab74c7da7eb2b43c48a8_icgraph" id="classgraphic_properties_a81c260628d08ab74c7da7eb2b43c48a8_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="231,5,337,32"/><area shape="rect" id="node3" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="213,56,355,83"/><area shape="rect" id="node6" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="192,107,376,133"/><area shape="rect" id="node7" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="216,157,352,184"/><area shape="rect" id="node4" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="424,56,571,83"/><area shape="rect" id="node5" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="619,56,728,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a26d7a963521694476e8da428e584b68c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool graphicProperties::getGridStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor booleano da variável GridStatus. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00127">127</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a26d7a963521694476e8da428e584b68c_icgraph.png" border="0" usemap="#classgraphic_properties_a26d7a963521694476e8da428e584b68c_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a26d7a963521694476e8da428e584b68c_icgraph" id="classgraphic_properties_a26d7a963521694476e8da428e584b68c_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="185,5,292,32"/><area shape="rect" id="node3" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="184,56,293,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a721ad92961c770a88304398c8719fdec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool graphicProperties::getHoldStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor booleano da variável HoldStatus. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00122">122</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aed5502c17167013011d4d187c794e4f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::getLastXMotionPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável LastXMotionPosition. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00132">132</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_aed5502c17167013011d4d187c794e4f8_icgraph.png" border="0" usemap="#classgraphic_properties_aed5502c17167013011d4d187c794e4f8_icgraph" alt=""/></div>
+<map name="classgraphic_properties_aed5502c17167013011d4d187c794e4f8_icgraph" id="classgraphic_properties_aed5502c17167013011d4d187c794e4f8_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="227,5,333,32"/><area shape="rect" id="node3" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="212,56,348,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab242e9f342333166185b4f5b80c88470"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::getLastYMotionPosition </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável LastYMotionPosition. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00137">137</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_ab242e9f342333166185b4f5b80c88470_icgraph.png" border="0" usemap="#classgraphic_properties_ab242e9f342333166185b4f5b80c88470_icgraph" alt=""/></div>
+<map name="classgraphic_properties_ab242e9f342333166185b4f5b80c88470_icgraph" id="classgraphic_properties_ab242e9f342333166185b4f5b80c88470_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="228,5,335,32"/><area shape="rect" id="node3" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="213,56,349,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="abc704c457ba5b1f9164db6903c8d017b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool graphicProperties::getMotionOcurrency </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é saber se houve movimento do mouse (obtendo o valor booleano de MotionOcurrency). </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00117">117</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_abc704c457ba5b1f9164db6903c8d017b_icgraph.png" border="0" usemap="#classgraphic_properties_abc704c457ba5b1f9164db6903c8d017b_icgraph" alt=""/></div>
+<map name="classgraphic_properties_abc704c457ba5b1f9164db6903c8d017b_icgraph" id="classgraphic_properties_abc704c457ba5b1f9164db6903c8d017b_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="231,5,337,32"/><area shape="rect" id="node3" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="192,56,376,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d8664c7390f364ef1bfd77b9bbc58dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int graphicProperties::getNumberOfClicks </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável NumberOfClicks. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00142">142</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a7d8664c7390f364ef1bfd77b9bbc58dc_icgraph.png" border="0" usemap="#classgraphic_properties_a7d8664c7390f364ef1bfd77b9bbc58dc_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a7d8664c7390f364ef1bfd77b9bbc58dc_icgraph" id="classgraphic_properties_a7d8664c7390f364ef1bfd77b9bbc58dc_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="227,5,333,32"/><area shape="rect" id="node3" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="188,56,372,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6fb3fddc049a89e82463142c69802fa9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string graphicProperties::getTitle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável Title. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00157">157</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a6fb3fddc049a89e82463142c69802fa9_icgraph.png" border="0" usemap="#classgraphic_properties_a6fb3fddc049a89e82463142c69802fa9_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a6fb3fddc049a89e82463142c69802fa9_icgraph" id="classgraphic_properties_a6fb3fddc049a89e82463142c69802fa9_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a378dcacb25cb7917fa1168d3aadedb52" title="grafics::DrawTitle" alt="" coords="184,13,305,39"/><area shape="rect" id="node3" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="353,13,463,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a6b773a9dac6f3b60e071322779b2e31c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt; graphicProperties::getXClicks </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável XClicks. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00182">182</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a6b773a9dac6f3b60e071322779b2e31c_icgraph.png" border="0" usemap="#classgraphic_properties_a6b773a9dac6f3b60e071322779b2e31c_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a6b773a9dac6f3b60e071322779b2e31c_icgraph" id="classgraphic_properties_a6b773a9dac6f3b60e071322779b2e31c_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="184,13,368,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acc62d42a96f211346c6d4b6d7d77435b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string graphicProperties::getXLabel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável XLabel. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00147">147</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8dc33f953731a4dc72abda53112a0c6e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::getXLimitLeft </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável GraphicXLimit_Left. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00162">162</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a8dc33f953731a4dc72abda53112a0c6e_icgraph.png" border="0" usemap="#classgraphic_properties_a8dc33f953731a4dc72abda53112a0c6e_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a8dc33f953731a4dc72abda53112a0c6e_icgraph" id="classgraphic_properties_a8dc33f953731a4dc72abda53112a0c6e_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="223,5,329,32"/><area shape="rect" id="node3" href="classgrafics.html#ad7eaa632e224769e92d2e58e8648667a" title="grafics::DrawAxis" alt="" coords="215,56,337,83"/><area shape="rect" id="node4" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="416,107,559,133"/><area shape="rect" id="node7" href="classgrafics.html#aff4f7ec740a2f20a1817bc90ae8b5540" title="grafics::DrawGrid" alt="" coords="427,157,548,184"/><area shape="rect" id="node8" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="184,208,368,235"/><area shape="rect" id="node9" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="208,259,344,285"/><area shape="rect" id="node10" href="classgrafics.html#a22b7ffc9ead32948b81208fb74750f5e" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="185,309,367,336"/><area shape="rect" id="node5" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="607,107,753,133"/><area shape="rect" id="node6" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="801,132,911,159"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a548447e01db25f30a49fa58b9f67d4e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::getXLimitRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável GraphicXLimit_Rigth. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00167">167</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a548447e01db25f30a49fa58b9f67d4e9_icgraph.png" border="0" usemap="#classgraphic_properties_a548447e01db25f30a49fa58b9f67d4e9_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a548447e01db25f30a49fa58b9f67d4e9_icgraph" id="classgraphic_properties_a548447e01db25f30a49fa58b9f67d4e9_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="223,5,329,32"/><area shape="rect" id="node3" href="classgrafics.html#a378dcacb25cb7917fa1168d3aadedb52" title="grafics::DrawTitle" alt="" coords="427,63,548,89"/><area shape="rect" id="node5" href="classgrafics.html#ad7eaa632e224769e92d2e58e8648667a" title="grafics::DrawAxis" alt="" coords="215,107,337,133"/><area shape="rect" id="node6" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="416,132,559,159"/><area shape="rect" id="node8" href="classgrafics.html#aff4f7ec740a2f20a1817bc90ae8b5540" title="grafics::DrawGrid" alt="" coords="619,195,741,221"/><area shape="rect" id="node9" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="184,259,368,285"/><area shape="rect" id="node10" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="208,309,344,336"/><area shape="rect" id="node11" href="classgrafics.html#a22b7ffc9ead32948b81208fb74750f5e" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="185,360,367,387"/><area shape="rect" id="node4" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="801,132,911,159"/><area shape="rect" id="node7" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="607,132,753,159"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab4b6c60aea5700963532456ed7e58ad0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; double &gt; graphicProperties::getYClicks </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável YClicks. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00187">187</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_ab4b6c60aea5700963532456ed7e58ad0_icgraph.png" border="0" usemap="#classgraphic_properties_ab4b6c60aea5700963532456ed7e58ad0_icgraph" alt=""/></div>
+<map name="classgraphic_properties_ab4b6c60aea5700963532456ed7e58ad0_icgraph" id="classgraphic_properties_ab4b6c60aea5700963532456ed7e58ad0_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="184,13,368,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a3962832e6381685093495afa53fa11f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string graphicProperties::getYLabel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável YLabel. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00152">152</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa62f0b05fe493a0aed0ef71e52949656"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::getYLimitDown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável GraphicYLimit_Down. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00172">172</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_aa62f0b05fe493a0aed0ef71e52949656_icgraph.png" border="0" usemap="#classgraphic_properties_aa62f0b05fe493a0aed0ef71e52949656_icgraph" alt=""/></div>
+<map name="classgraphic_properties_aa62f0b05fe493a0aed0ef71e52949656_icgraph" id="classgraphic_properties_aa62f0b05fe493a0aed0ef71e52949656_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="223,5,329,32"/><area shape="rect" id="node3" href="classgrafics.html#ad7eaa632e224769e92d2e58e8648667a" title="grafics::DrawAxis" alt="" coords="215,56,337,83"/><area shape="rect" id="node4" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="416,107,559,133"/><area shape="rect" id="node7" href="classgrafics.html#aff4f7ec740a2f20a1817bc90ae8b5540" title="grafics::DrawGrid" alt="" coords="427,157,548,184"/><area shape="rect" id="node8" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="184,208,368,235"/><area shape="rect" id="node9" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="208,259,344,285"/><area shape="rect" id="node10" href="classgrafics.html#a22b7ffc9ead32948b81208fb74750f5e" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="185,309,367,336"/><area shape="rect" id="node5" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="607,107,753,133"/><area shape="rect" id="node6" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="801,132,911,159"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8ea0a4c975048f9dea87bfd13b2a967f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::getYLimitUp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é obter o valor da variável GraphicYLimit_Up. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00177">177</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a8ea0a4c975048f9dea87bfd13b2a967f_icgraph.png" border="0" usemap="#classgraphic_properties_a8ea0a4c975048f9dea87bfd13b2a967f_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a8ea0a4c975048f9dea87bfd13b2a967f_icgraph" id="classgraphic_properties_a8ea0a4c975048f9dea87bfd13b2a967f_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="223,5,329,32"/><area shape="rect" id="node3" href="classgrafics.html#a378dcacb25cb7917fa1168d3aadedb52" title="grafics::DrawTitle" alt="" coords="427,63,548,89"/><area shape="rect" id="node5" href="classgrafics.html#ad7eaa632e224769e92d2e58e8648667a" title="grafics::DrawAxis" alt="" coords="215,107,337,133"/><area shape="rect" id="node6" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="416,132,559,159"/><area shape="rect" id="node8" href="classgrafics.html#aff4f7ec740a2f20a1817bc90ae8b5540" title="grafics::DrawGrid" alt="" coords="619,195,741,221"/><area shape="rect" id="node9" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="184,259,368,285"/><area shape="rect" id="node10" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="208,309,344,336"/><area shape="rect" id="node11" href="classgrafics.html#a22b7ffc9ead32948b81208fb74750f5e" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="185,360,367,387"/><area shape="rect" id="node4" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="801,132,911,159"/><area shape="rect" id="node7" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="607,132,753,159"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="adb687004725e5b0addab8d41df398cd5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool graphicProperties::isInGraphicRegion </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é retornar verdadeiro (1) quando os parâmetros in (x) e out (x) estão dentro dos limites de plotagem do gráfico. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00019">19</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_adb687004725e5b0addab8d41df398cd5_icgraph.png" border="0" usemap="#classgraphic_properties_adb687004725e5b0addab8d41df398cd5_icgraph" alt=""/></div>
+<map name="classgraphic_properties_adb687004725e5b0addab8d41df398cd5_icgraph" id="classgraphic_properties_adb687004725e5b0addab8d41df398cd5_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="184,13,327,39"/><area shape="rect" id="node3" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="375,13,521,39"/><area shape="rect" id="node4" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="569,13,679,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acad144e36b287587f385351e026f4c2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool graphicProperties::isInXLimit </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é retornar verdadeiro (1) quando o parâmetro in (x) está dentro dos limites de plotagem (x) do gráfico. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00027">27</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_acad144e36b287587f385351e026f4c2d_icgraph.png" border="0" usemap="#classgraphic_properties_acad144e36b287587f385351e026f4c2d_icgraph" alt=""/></div>
+<map name="classgraphic_properties_acad144e36b287587f385351e026f4c2d_icgraph" id="classgraphic_properties_acad144e36b287587f385351e026f4c2d_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#ad7eaa632e224769e92d2e58e8648667a" title="grafics::DrawAxis" alt="" coords="184,13,307,39"/><area shape="rect" id="node3" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="355,13,497,39"/><area shape="rect" id="node4" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="545,13,692,39"/><area shape="rect" id="node5" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="740,13,849,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a4e0f8e7849617746016c49282adf344e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool graphicProperties::isInYLimit </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é retornar verdadeiro (1) quando o parâmetro out (y) está dentro dos limites de plotagem (y) do gráfico. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00033">33</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a4e0f8e7849617746016c49282adf344e_icgraph.png" border="0" usemap="#classgraphic_properties_a4e0f8e7849617746016c49282adf344e_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a4e0f8e7849617746016c49282adf344e_icgraph" id="classgraphic_properties_a4e0f8e7849617746016c49282adf344e_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#ad7eaa632e224769e92d2e58e8648667a" title="grafics::DrawAxis" alt="" coords="184,13,307,39"/><area shape="rect" id="node3" href="classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="355,13,497,39"/><area shape="rect" id="node4" href="classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="545,13,692,39"/><area shape="rect" id="node5" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="740,13,849,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad9651fdf472c0e2121f605e9a5aa77af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setGraphicDataSize </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>GraphicDataSize</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir um valor na variável GraphicDataSize. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00112">112</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_ad9651fdf472c0e2121f605e9a5aa77af_icgraph.png" border="0" usemap="#classgraphic_properties_ad9651fdf472c0e2121f605e9a5aa77af_icgraph" alt=""/></div>
+<map name="classgraphic_properties_ad9651fdf472c0e2121f605e9a5aa77af_icgraph" id="classgraphic_properties_ad9651fdf472c0e2121f605e9a5aa77af_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="231,5,337,32"/><area shape="rect" id="node3" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="192,56,376,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac6ec99261b7f6c8f7835e8b52538d8dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setGraphicXposition </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>GraphicXposition</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir um valor na variável GraphicXposition. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00192">192</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_ac6ec99261b7f6c8f7835e8b52538d8dc_icgraph.png" border="0" usemap="#classgraphic_properties_ac6ec99261b7f6c8f7835e8b52538d8dc_icgraph" alt=""/></div>
+<map name="classgraphic_properties_ac6ec99261b7f6c8f7835e8b52538d8dc_icgraph" id="classgraphic_properties_ac6ec99261b7f6c8f7835e8b52538d8dc_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="229,5,336,32"/><area shape="rect" id="node3" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="191,56,375,83"/><area shape="rect" id="node4" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="215,107,351,133"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ab4f554cd4170217c385499e3b923c181"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setGraphicYposition </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>GraphicYposition</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir um valor na variável GraphicYposition. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00197">197</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_ab4f554cd4170217c385499e3b923c181_icgraph.png" border="0" usemap="#classgraphic_properties_ab4f554cd4170217c385499e3b923c181_icgraph" alt=""/></div>
+<map name="classgraphic_properties_ab4f554cd4170217c385499e3b923c181_icgraph" id="classgraphic_properties_ab4f554cd4170217c385499e3b923c181_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="231,5,337,32"/><area shape="rect" id="node3" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="192,56,376,83"/><area shape="rect" id="node4" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="216,107,352,133"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2489924029aa23afb85c03e285efb6dc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setGridStatus </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>GridStatus</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir um valor booleano na variável GridStatus. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00054">54</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a2489924029aa23afb85c03e285efb6dc_icgraph.png" border="0" usemap="#classgraphic_properties_a2489924029aa23afb85c03e285efb6dc_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a2489924029aa23afb85c03e285efb6dc_icgraph" id="classgraphic_properties_a2489924029aa23afb85c03e285efb6dc_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="184,13,291,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a0975232548d847106cb0a3c05b6cbbf4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setHoldStatus </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>HoldStatus</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir um valor booleano na variável HoldStatus. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00059">59</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4145e9fe547ce415f66598fda40744fc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setLastMotionPosition </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>LastMotionXPosition</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>LastMotionYPosition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir valores que indiquem a posição do mouse na qual o botão direito do mouse foi despressionado. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00064">64</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a4145e9fe547ce415f66598fda40744fc_icgraph.png" border="0" usemap="#classgraphic_properties_a4145e9fe547ce415f66598fda40744fc_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a4145e9fe547ce415f66598fda40744fc_icgraph" id="classgraphic_properties_a4145e9fe547ce415f66598fda40744fc_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="241,5,348,32"/><area shape="rect" id="node3" href="classgrafics.html#a22b7ffc9ead32948b81208fb74750f5e" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="204,56,385,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad7abc1ef4cdc3d66d7fd9bc60e40e2af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setLimits </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>GraphicXLimit_Left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>GraphicXLimit_Rigth</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>GraphicYLimit_Down</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>GraphicYLimit_Up</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir valores que indiquem os limites do gráfico. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00091">91</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_ad7abc1ef4cdc3d66d7fd9bc60e40e2af_icgraph.png" border="0" usemap="#classgraphic_properties_ad7abc1ef4cdc3d66d7fd9bc60e40e2af_icgraph" alt=""/></div>
+<map name="classgraphic_properties_ad7abc1ef4cdc3d66d7fd9bc60e40e2af_icgraph" id="classgraphic_properties_ad7abc1ef4cdc3d66d7fd9bc60e40e2af_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="184,13,291,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a9f2708237164d26849436ce99fdc4532"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setMotionOcurrency </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>MotionOcurrency</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir um valor booleano na variável MotionOcurrency. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00049">49</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a9f2708237164d26849436ce99fdc4532_icgraph.png" border="0" usemap="#classgraphic_properties_a9f2708237164d26849436ce99fdc4532_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a9f2708237164d26849436ce99fdc4532_icgraph" id="classgraphic_properties_a9f2708237164d26849436ce99fdc4532_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="231,5,337,32"/><area shape="rect" id="node3" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="192,56,376,83"/><area shape="rect" id="node4" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="216,107,352,133"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a18b142b9a4dba31881155b79afe896b7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setNumberOfClicks </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>NumberOfClicks</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir um valor na variável NumberOfClicks. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00071">71</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a18b142b9a4dba31881155b79afe896b7_icgraph.png" border="0" usemap="#classgraphic_properties_a18b142b9a4dba31881155b79afe896b7_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a18b142b9a4dba31881155b79afe896b7_icgraph" id="classgraphic_properties_a18b142b9a4dba31881155b79afe896b7_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="227,5,333,32"/><area shape="rect" id="node3" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="188,56,372,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a226add3b408cc6823fcad9908c57dc0d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setTitle </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>title</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir uma string para colocar no título. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00086">86</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae92099f16113393d652134023abca30f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setXClicks </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>number</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir na variável xClicks os clicks realizados no gráfico (somente a componente x). </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00102">102</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_ae92099f16113393d652134023abca30f_icgraph.png" border="0" usemap="#classgraphic_properties_ae92099f16113393d652134023abca30f_icgraph" alt=""/></div>
+<map name="classgraphic_properties_ae92099f16113393d652134023abca30f_icgraph" id="classgraphic_properties_ae92099f16113393d652134023abca30f_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="184,13,368,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="acba92f7f91f1dc2fe4d7597e74bb6db5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setXLabel </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>xLabel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir uma string para colocar no eixo X como legenda. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00076">76</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6f35160846d94b6d3745a03a5fef2497"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setYClicks </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>number</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir na variável yClicks os clicks realizados no gráfico (somente a componentey). </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00107">107</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="classgraphic_properties_a6f35160846d94b6d3745a03a5fef2497_icgraph.png" border="0" usemap="#classgraphic_properties_a6f35160846d94b6d3745a03a5fef2497_icgraph" alt=""/></div>
+<map name="classgraphic_properties_a6f35160846d94b6d3745a03a5fef2497_icgraph" id="classgraphic_properties_a6f35160846d94b6d3745a03a5fef2497_icgraph">
+<area shape="rect" id="node2" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="184,13,368,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a407bfa5cce78b72ee69b0b61f99a1ba1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void graphicProperties::setYLabel </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>yLabel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Método cuja responsabilidade é inserir uma string para colocar no eixo Y como legenda. </p>
+
+<p>Definição na linha <a class="el" href="graphicproperties_8cpp_source.html#l00081">81</a> do arquivo <a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="aba77d97bad6fd2d5949f192614ee8e5d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::GraphicDataSize</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00038">38</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af6be55803a00a99e453e47b4f1221133"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int graphicProperties::GraphicXLimit_Left</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00035">35</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4d028a3ca8132b82a5aaeffcaf47d06f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int graphicProperties::GraphicXLimit_Right</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00035">35</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b156ab99c00cf3d3037818f33d02d75"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::GraphicXposition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00038">38</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc030c766de1a6ed7015190071db09ef"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int graphicProperties::GraphicYLimit_Down</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00035">35</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a33aa4972d287d8efba3cf37ce31ae80a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int graphicProperties::GraphicYLimit_Up</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00035">35</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a62c1ac33269dbd445273ea73cc6e7bab"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::GraphicYposition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00038">38</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae0afdedff819a0dc18785578c70685d3"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool graphicProperties::GridStatus</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00041">41</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a24905c619ceb8fa302f2bb803ee5c8b1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool graphicProperties::HoldStatus</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00041">41</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d5802d364637a1ffcfecd3745e806d9"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::LastMotionXPosition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00038">38</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a56605ab8f67d0c7ded9e18cb8a021d80"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double graphicProperties::LastMotionYPosition</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00038">38</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab2b46a629c9878c66353a9ae54541e24"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool graphicProperties::MotionOcurrency</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00041">41</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a70d4dc3aa01d4285dfb61b6e9f620078"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int graphicProperties::NumberOfClicks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00035">35</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="addd5780635acfe7645db38f74a43a554"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string graphicProperties::title</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00043">43</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9184a479e762a2bb0575fcb1f731e49a"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;double&gt; graphicProperties::XClicks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00042">42</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3ed85317d2f79eef761efe6017eaecc2"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string graphicProperties::xLabel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00043">43</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a04eb5b87312807bc8ee006901859fc00"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;double&gt; graphicProperties::YClicks</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00042">42</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7c6e43ed63f341c959518adab636c8b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string graphicProperties::yLabel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="graphicproperties_8h_source.html#l00043">43</a> do arquivo <a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a>.</p>
+
+</div>
+</div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>SistemasdeControle/src/graphicLibs/<a class="el" href="graphicproperties_8h_source.html">graphicproperties.h</a></li>
-<li>SistemasdeControle/src/graphicLibs/graphicproperties.cpp</li>
+<li>SistemasdeControle/src/graphicLibs/<a class="el" href="graphicproperties_8cpp_source.html">graphicproperties.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Segunda, 24 de Novembro de 2014 22:02:12 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sexta, 28 de Novembro de 2014 12:40:47 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
