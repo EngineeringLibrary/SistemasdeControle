@@ -54,20 +54,22 @@ public:
 
         Ex:
 
-        \code
-        #include <src/primitiveLibs/matrix.h>
-        int main(int argc, char *argv)
-        {
-           Matrix<double> A; //Instancia com linhas e colunas iguais a zero
-           A.print();
-           return 0;
-        }
-        \endcode
-
+\code
+            #include <src/primitiveLibs/matrix.h>
+            int main(int argc, char *argv)
+            {
+               Matrix<double> A; //Instancia com linhas e colunas iguais a zero
+               A.print();
+               return 0;
+            }
+\endcode
+*/
+/*!
          Resultado:
 
          Obs: Não mostra nada na tela
-    */
+*/
+
     Matrix();
 
     //! Construtor que recebe como parâmetro uma string
@@ -83,13 +85,13 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-           Matrix<double> A("1,2,3;4,5,6;7,8,9");
-           A.print();
-           return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+               Matrix<double> A("1,2,3;4,5,6;7,8,9");
+               A.print();
+               return 0;
+             }
 \endcode
 
         Resultado:
@@ -112,13 +114,13 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A(3,3); //Instancia com linhas e colunas iguais a zero
-          A.print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A(3,3); //Instancia com linhas e colunas iguais a zero
+              A.print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -157,14 +159,14 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A;
-          A.init(3,3);
-          A.print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A;
+              A.init(3,3);
+              A.print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -188,14 +190,14 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A;
-          A.init("1,2,3;4,5,6;7,8,9");
-          A.print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A;
+              A.init("1,2,3;4,5,6;7,8,9");
+              A.print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -218,22 +220,22 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A;
-          A.add(1,1,1);
-          A.add(1,2,2);
-          A.add(1,2,3);
-          A.add(2,1,4);
-          A.add(2,2,5);
-          A.add(2,3,6);
-          A.add(3,1,7);
-          A.add(3,2,8);
-          A.add(3,3,9);
-          A.print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A;
+              A.add(1,1,1);
+              A.add(1,2,2);
+              A.add(1,2,3);
+              A.add(2,1,4);
+              A.add(2,2,5);
+              A.add(2,3,6);
+              A.add(3,1,7);
+              A.add(3,2,8);
+              A.add(3,3,9);
+              A.print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -254,14 +256,14 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A;
-          A.eye(3);
-          A.print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A;
+              A.eye(3);
+              A.print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -283,14 +285,14 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A;
-          A.ones(3,3);
-          A.print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A;
+              A.ones(3,3);
+              A.print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -311,14 +313,14 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A;
-          A.zeros(3,3);
-          A.print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A;
+              A.zeros(3,3);
+              A.print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -341,14 +343,14 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A;
-          A.randU(3,3);
-          A.print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A;
+              A.randU(3,3);
+              A.print();
+              return 0;
+             }
 \endcode
 
         Possível resultado:
@@ -369,13 +371,13 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A(5,9);
-          std::cout << A.length() << std::endl;
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A(5,9);
+              std::cout << A.length() << std::endl;
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -395,13 +397,13 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A("1,2,3;4,5,6;7,8,9");
-          std::cout << A.max() << std::endl;
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A("1,2,3;4,5,6;7,8,9");
+              std::cout << A.max() << std::endl;
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -421,13 +423,13 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A("1,2,3;4,5,6;7,8,9");
-          std::cout << A.min() << std::endl;
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A("1,2,3;4,5,6;7,8,9");
+              std::cout << A.min() << std::endl;
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -469,13 +471,13 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A("1,2,3;4,5,6;7,8,9");
-          A.print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A("1,2,3;4,5,6;7,8,9");
+              A.print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -498,16 +500,16 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A("1,2,3;4,5,6;7,8,9");
-          Matrix<double> B("3,2,1;6,5,4;9,8,7");
-          A.print();
-          B.print();
-          (A+B).print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A("1,2,3;4,5,6;7,8,9");
+              Matrix<double> B("3,2,1;6,5,4;9,8,7");
+              A.print();
+              B.print();
+              (A+B).print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -536,14 +538,14 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A("1,2,3;4,5,6;7,8,9");
-          A.print();
-          (A+3).print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A("1,2,3;4,5,6;7,8,9");
+              A.print();
+              (A+3).print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -571,16 +573,16 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A("1,2,3;4,5,6;7,8,9");
-          Matrix<double> B("3,2,1;6,5,4;9,8,7");
-          A.print();
-          B.print();
-          (A-B).print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A("1,2,3;4,5,6;7,8,9");
+              Matrix<double> B("3,2,1;6,5,4;9,8,7");
+              A.print();
+              B.print();
+              (A-B).print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -610,14 +612,14 @@ public:
         Ex:
 
 \code
-         #include <src/primitiveLibs/matrix.h>
-         int main(int argc, char *argv)
-         {
-          Matrix<double> A("1,2,3;4,5,6;7,8,9");
-          A.print();
-          (A-3).print();
-          return 0;
-         }
+             #include <src/primitiveLibs/matrix.h>
+             int main(int argc, char *argv)
+             {
+              Matrix<double> A("1,2,3;4,5,6;7,8,9");
+              A.print();
+              (A-3).print();
+              return 0;
+             }
 \endcode
 
         Resultado:
@@ -642,7 +644,7 @@ public:
 
         Ex:
 
-            \code
+\code
             #include <src/primitiveLibs/matrix.h>
             int main(int argc, char *argv)
             {
@@ -653,7 +655,7 @@ public:
                 B.print();
                 return 0;
             }
-            \endcode
+\endcode
 
         Resultado:
 
@@ -688,7 +690,7 @@ public:
                 B.print();
                 return 0;
             }
-            \endcode
+\endcode
 
         Resultado:
 
@@ -713,7 +715,7 @@ public:
 
         Ex:
 
-            \code
+\code
             #include <src/primitiveLibs/matrix.h>
             int main(int argc, char *argv)
             {
@@ -725,7 +727,7 @@ public:
                 (A*B).print();
                 return 0;
             }
-            \endcode
+\endcode
 
         Resultado:
 
@@ -765,7 +767,7 @@ public:
                 B.print();
                 return 0;
             }
-            \endcode
+\endcode
 
         Resultado:
 
@@ -827,7 +829,7 @@ public:
 
         Ex:
 
-    \code
+\code
             #include <src/primitiveLibs/matrix.h>
             int main(int argc, char *argv)
             {
@@ -838,7 +840,7 @@ public:
                 B.print();
                 return 0;
             }
-            \endcode
+\endcode
 
         Resultado:
 
