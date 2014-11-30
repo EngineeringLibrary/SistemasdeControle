@@ -84,7 +84,7 @@ Matrix<UsedType> PSO<UsedType>::Evaluation(Matrix<UsedType> Matrix2Evaluate)
 
     for(int i = 1; i <= Matrix2Evaluate.getRows(); i++)
     {
-      ret.add(i, 1, norm(this->Model.getOutput() - Model.simArxOneStep(2, 2, Matrix2Evaluate.getLine(i))));
+      ret.add(i, 1, pow(Matrix2Evaluate.getLine(i)(1,1),2.0));
     }
 
     return ret;
@@ -170,7 +170,7 @@ void PSO<UsedType>::FitnessUpdateMax()
 }
 
 template <class UsedType>
-void PSO<UsedType>::Run()
+Matrix<UsedType> PSO<UsedType>::Run()
 {
 //    clock_t start, stop;
 
@@ -193,6 +193,8 @@ void PSO<UsedType>::Run()
 //        this->GGen = this->GGen||this->G; // função lenta
 //        this->GfitnessGen = this->GfitnessnTime||this->Gfitness; // função lenta
     }
+
+    return this->G;
 
 }
 

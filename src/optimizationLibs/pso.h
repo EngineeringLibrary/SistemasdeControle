@@ -30,7 +30,7 @@ public:
     PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax);
     ~PSO();
 
-    void Run();
+    Matrix<UsedType> Run();
     void Run(int nTimes);
     void setData(Matrix<UsedType> dataIn, Matrix<UsedType> dataOut);
 
