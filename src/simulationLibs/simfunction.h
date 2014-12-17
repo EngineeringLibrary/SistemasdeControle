@@ -1,20 +1,25 @@
 #ifndef SIMFUNCTION_H
 #define SIMFUNCTION_H
 #include <src/primitiveLibs/matrix.h>
+#include <simulationLibs/model.h>
 
-class simFunction
+template <class UsedType>
+class simFunction : public Model<UsedType>
 {
 private:
-    Matrix<double> input, output;
-    double         (*FunctionToCall)(double), lMin, lMax, step;
+    UsedType (*FunctionToCall)(UsedType);
 
 public:
-    simFunction();
-    simFunction(Matrix<double> in, Matrix<double> out);
-    simFunction(double (*FunctionToCall)(double), double lMin,
-                double lMax, double step);
+    simFunction(UsedType (*FunctionToCall)(UsedType));
 
-    double FunctionCalculation(double input);
+    UsedType sim(UsedType input);
+    Matrix<UsedType> sim(Matrix<UsedType> x);
+    Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
+
+    typedef double(*FunctionCall)(double);
+    FunctionCall   GetFunctionCall();
+
+    /*
     void   GenerateDataFunction();
     double normalize(double input, double xUp, double xDown,
                      double yUp, double yDown);
@@ -30,10 +35,9 @@ public:
     double   GetDataStep  ();
     double   GetDataMinLimit();
     double   GetDataMaxLimit();
-    typedef double(*FunctionCall)(double);
-    FunctionCall   GetFunctionCall();
 
     void simulate();
+    */
 };
 
 #endif // SIMFUNCTION_H
