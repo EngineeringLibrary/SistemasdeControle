@@ -1,34 +1,46 @@
 #include "simfunction.h"
-simFunction::simFunction()
-{
 
-}
-
-simFunction::simFunction(Matrix<double> in, Matrix<double> out)
-{
-    this->FunctionToCall = NULL;
-    this->input          = in;
-    this->output         = out;
-    this->lMax           = in.max();
-    this->lMin           = out.min();
-    this->step           = 2;
-}
-
-simFunction::simFunction(double (*FunctionToCall)(double), double lMin,
-                         double lMax, double step)
+template<class UsedType>
+simFunction<UsedType>::simFunction(UsedType (*FunctionToCall)(UsedType))
 {
     this->FunctionToCall = FunctionToCall;
-    this->lMax           = lMax;
-    this->lMin           = lMin;
-    this->step           = step;
 }
 
-double simFunction::FunctionCalculation(double input)
+template <class UsedType>
+UsedType simFunction<UsedType>::sim(UsedType input)
 {
     input = ((*this->FunctionToCall)(input));
     return (input);
 }
 
+template<class UsedType>
+Matrix<UsedType> simFunction<UsedType>::sim(Matrix<UsedType> X)
+{
+    Matrix<UsedType> Y;
+
+    for(int i = 1; i < X.getRows(); i++)
+        for(int j = 1; j < X.getRows(); j++)
+            Y(i,j, sim(X(i,j)));
+
+    return Y;
+}
+
+template<class UsedType>
+Matrix<UsedType> simFunction<UsedType>::sim(UsedType lmim, UsedType lmax, UsedType step)
+{
+    unsigned i = 1;
+    Matrix<UsedType> Y;
+
+    for(UsedType x = lmim; x <= lmax; x+= step)
+    {
+        Y(i,1, sim(x));
+        i++;
+    }
+
+    return Y;
+}
+
+/*
 void simFunction::GenerateDataFunction()
 {
     int tam  = (int)((this->lMax - this->lMin)/this->step);
@@ -105,3 +117,7 @@ FunctionCall simFunction::GetFunctionCall()
 {
     return this->FunctionToCall;
 }
+*/
+
+template class simFunction<float>;
+template class simFunction<double>;
