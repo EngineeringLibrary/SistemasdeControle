@@ -6,11 +6,15 @@
 template <class UsedType>
 class Model
 {
-    double input,output, lmin,lmax, step;
+    UsedType input,output, lmin,lmax, step;
+    Model<UsedType> *instance;
     Matrix<UsedType> Input,Output;
 
 public:
     Model();
+    UsedType diff(UsedType x);
+    void setInstance(Model<UsedType> *m);
+    void setStep(UsedType step);
 
     virtual UsedType sim(UsedType x) = 0;
     virtual Matrix<UsedType> sim(Matrix<UsedType> x) = 0;

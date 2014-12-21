@@ -40,8 +40,8 @@ Matrix<UsedType> simFunction<UsedType>::sim(UsedType lmim, UsedType lmax, UsedTy
     return Y;
 }
 
-/*
-void simFunction::GenerateDataFunction()
+template <class UsedType>
+void simFunction<UsedType>::GenerateDataFunction()
 {
     int tam  = (int)((this->lMax - this->lMin)/this->step);
     int cont = 1;
@@ -54,70 +54,82 @@ void simFunction::GenerateDataFunction()
         cont++;
     }
 }
-
-double simFunction::normalize(double input, double xUp,
+template <class UsedType>
+double simFunction<UsedType>::normalize(double input, double xUp,
                               double xDown, double yUp, double yDown)
 {
     return ((input - xDown)/(xUp - xDown))*(yUp - yDown) + yDown;
 }
 
-void simFunction::SetDataStep(double step)
+template <class UsedType>
+void simFunction<UsedType>::SetDataStep(double step)
 {
     this->step = step;
 }
 
-void simFunction::SetDataLimits(double lMin, double lMax)
+template <class UsedType>
+void simFunction<UsedType>::SetDataLimits(double lMin, double lMax)
 {
     this->lMax = lMax;
     this->lMin = lMin;
 }
 
-void simFunction::SetInputData(Matrix<double> input)
+template <class UsedType>
+void simFunction<UsedType>::SetInputData(Matrix<double> input)
 {
     this->input = input;
 }
 
-void simFunction::SetOutputData(Matrix<double> output)
+template <class UsedType>
+void simFunction<UsedType>::SetOutputData(Matrix<double> output)
 {
     this->output = output;
 }
 
-void simFunction::SetFunctionCall(double (*FunctionToCall)(double))
+template <class UsedType>
+void simFunction<UsedType>::SetFunctionCall(double (*FunctionToCall)(double))
 {
     this->FunctionToCall = FunctionToCall;
 }
 
-Matrix<double> simFunction::GetInputData()
+template <class UsedType>
+Matrix<double> simFunction<UsedType>::GetInputData()
 {
     return this->input;
 }
 
-Matrix<double> simFunction::GetOutputData()
+template <class UsedType>
+Matrix<double> simFunction<UsedType>::GetOutputData()
 {
     return this->output;
 }
 
-double simFunction::GetDataStep()
+template <class UsedType>
+double simFunction<UsedType>::GetDataStep()
 {
     return this->step;
 }
 
-double simFunction::GetDataMinLimit()
+template <class UsedType>
+double simFunction<UsedType>::GetDataMinLimit()
 {
     return this->lMin;
 }
 
-double simFunction::GetDataMaxLimit()
+template <class UsedType>
+double simFunction<UsedType>::GetDataMaxLimit()
 {
     return this->lMax;
 }
 
+
 typedef double(*FunctionCall)(double);
-FunctionCall simFunction::GetFunctionCall()
+template <class UsedType>
+FunctionCall simFunction<UsedType>::GetFunctionCall()
 {
     return this->FunctionToCall;
 }
-*/
+
 
 template class simFunction<float>;
 template class simFunction<double>;

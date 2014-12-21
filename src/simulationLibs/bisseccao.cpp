@@ -10,7 +10,7 @@ void bisseccao<UsedType>::setInterval(UsedType a, UsedType b)
     this->fb = this->f->sim(b);
 
     if(this->fa * this->fb > 0)
-        std::cout << "\nNão é possível encontrar raíz do intervalo dado." << std::endl;
+        std::cout << "\nNao foi possível encontrar raíz no intervalo dado." << std::endl;
 }
 
 template <class UsedType>
