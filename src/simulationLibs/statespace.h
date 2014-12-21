@@ -23,7 +23,7 @@ public:
 
     UsedType sim(UsedType u);
     Matrix<UsedType> sim(Matrix<UsedType> u);
-    Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
+    Matrix<UsedType> sim(UsedType lmim, UsedType lmax, UsedType step);
 };
 
 #endif // STATESPACE_H

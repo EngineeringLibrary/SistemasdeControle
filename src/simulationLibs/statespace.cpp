@@ -89,7 +89,25 @@ Matrix<UsedType> StateSpace<UsedType>::sim(Matrix<UsedType> u)
     for(unsigned i = 0; i < u.getCols(); i++)
     {
         Matrix<UsedType> Xi1 = Ad*X+Bd*u.getColumn(i+1);
-        y = C*X+D*u.getColumn(i+1);
+        y = y|C*X+D*u.getColumn(i+1);
+        X = Xi1;
+    }
+
+    return y;
+}
+
+template <class UsedType>
+Matrix<UsedType> StateSpace<UsedType>::sim(UsedType lmim, UsedType lmax, UsedType step)
+{
+    Matrix<UsedType> y;
+    X = initialState;
+    unsigned cont = 1;
+    for(UsedType i = lmim; i <= lmax; i+= step)
+    {
+        Matrix<UsedType> Xi1 = Ad*X+Bd*i;
+        y = y|C*X+D*i;
+        X = Xi1;
+        cont++;
     }
 
     return y;

@@ -16,28 +16,25 @@ public:
     Matrix<UsedType> sim(Matrix<UsedType> x);
     Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
 
-    typedef double(*FunctionCall)(double);
-    FunctionCall   GetFunctionCall();
+    typedef UsedType(*FunctionCall)(UsedType);
+    FunctionCall GetFunctionCall(){return FunctionToCall;}
 
 
     void   GenerateDataFunction();
-    double normalize(double input, double xUp, double xDown,
-                     double yUp, double yDown);
+    UsedType normalize(UsedType input, UsedType xUp, UsedType xDown,
+                     UsedType yUp, UsedType yDown);
 
-    void   SetDataStep    (double step);
-    void   SetDataLimits  (double lMin, double lMax);
-    void   SetInputData   (Matrix<double> input);
-    void   SetOutputData  (Matrix<double> Output);
-    void   SetFunctionCall(double (*FunctionToCall)(double));
+    void   SetDataStep    (UsedType step);
+    void   SetDataLimits  (UsedType lMin, UsedType lMax);
+    void   SetInputData   (Matrix<UsedType> input);
+    void   SetOutputData  (Matrix<UsedType> Output);
+    void   SetFunctionCall(UsedType (*FunctionToCall)(UsedType));
 
-    Matrix<double> GetInputData ();
-    Matrix<double> GetOutputData();
-    double   GetDataStep  ();
-    double   GetDataMinLimit();
-    double   GetDataMaxLimit();
-
-    void simulate();
-
+    Matrix<UsedType> GetInputData ();
+    Matrix<UsedType> GetOutputData();
+    UsedType   GetDataStep  ();
+    UsedType   GetDataMinLimit();
+    UsedType   GetDataMaxLimit();
 };
 
 #endif // SIMFUNCTION_H

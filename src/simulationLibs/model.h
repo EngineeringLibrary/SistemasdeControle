@@ -6,6 +6,7 @@
 template <class UsedType>
 class Model
 {
+protected:
     UsedType input,output, lmin,lmax, step;
     Model<UsedType> *instance;
     Matrix<UsedType> Input,Output;
