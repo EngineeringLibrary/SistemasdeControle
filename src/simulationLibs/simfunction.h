@@ -1,7 +1,7 @@
 #ifndef SIMFUNCTION_H
 #define SIMFUNCTION_H
 #include <src/primitiveLibs/matrix.h>
-#include <simulationLibs/model.h>
+#include <src/simulationLibs/model.h>
 
 template <class UsedType>
 class simFunction : public Model<UsedType>

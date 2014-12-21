@@ -48,5 +48,5 @@ double Relay::relayLoop(double output)
     this->systemOutput.add(this->Sample, 1, output);
 
     relayCalc();
-
+    return 0;
 }

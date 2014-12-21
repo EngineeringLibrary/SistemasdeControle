@@ -19,7 +19,7 @@ private:
 
     void init(std::string Num);
     void init(std::string Num, string Den);
-    void init(Matrix<TypeOfClass> Num, Matrix<TypeOfClass> Den);
+
 
     bool VefDen(TypeOfClass *den1, TypeOfClass *den2, int sizeden1, int sizeden2);
 
@@ -29,6 +29,7 @@ private:
     TypeOfClass *MultPoly(TypeOfClass *value1, TypeOfClass *value2, int SizeValue1, int SizeValue2);
 
 public:
+
     Polynom();
     Polynom(int Num);
     Polynom(int Num, int Den);
@@ -41,6 +42,8 @@ public:
     Polynom(const Polynom<TypeOfClass> &CopyPolynom);
 
     ~Polynom();
+
+    void init(Matrix<TypeOfClass> Num, Matrix<TypeOfClass> Den);
 
     Polynom<TypeOfClass> operator+(Polynom<TypeOfClass> P);
     Polynom<TypeOfClass> operator+(TypeOfClass scalar);

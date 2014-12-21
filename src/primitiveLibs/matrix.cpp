@@ -73,6 +73,8 @@ Matrix<UsedType>::Matrix() //Inicializa linhas e colunas com zero
 template <class UsedType>
 Matrix<UsedType>::Matrix(string value) //Inicializa linhas e colunas com zero
 {
+    this->rows = 0;
+    this->cols = 0;
     this->init(value);
 }
 
