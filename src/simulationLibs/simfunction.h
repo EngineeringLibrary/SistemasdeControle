@@ -19,7 +19,7 @@ public:
     typedef double(*FunctionCall)(double);
     FunctionCall   GetFunctionCall();
 
-    /*
+
     void   GenerateDataFunction();
     double normalize(double input, double xUp, double xDown,
                      double yUp, double yDown);
@@ -37,7 +37,7 @@ public:
     double   GetDataMaxLimit();
 
     void simulate();
-    */
+
 };
 
 #endif // SIMFUNCTION_H
