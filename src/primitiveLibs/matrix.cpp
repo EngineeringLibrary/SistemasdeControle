@@ -486,7 +486,12 @@ Matrix<FriendType> operator/ (FriendType a, Matrix<FriendType> Mat1)//Operador d
 template <class UsedType>
 Matrix<UsedType> Matrix<UsedType>::operator|(Matrix<UsedType> Mat1)//Concatenção de Matrizes a Esquerda
 {
-    Matrix<UsedType> temp(this->rows,this->cols+Mat1.cols);
+    Matrix<UsedType> temp;
+
+    if (this->rows > 0)
+        temp.init(this->rows,this->cols+Mat1.cols);
+    else
+        temp.init(1,this->cols+Mat1.cols);
 
     for(int i = 0; i < temp.rows; i++)
         for (int j = 0; j < temp.cols; j++)

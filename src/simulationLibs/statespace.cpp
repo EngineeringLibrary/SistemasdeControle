@@ -45,6 +45,16 @@ StateSpace<UsedType>::StateSpace(Matrix<UsedType> A, Matrix<UsedType> B,
     this->SampleTime         =  0.1;
     this->TimeSimulation     =   10;
     this->nDiscretization    =    4;
+
+    this->initialState.zeros(A.getRows(),B.getCols());
+}
+
+template <class UsedType>
+void StateSpace<UsedType>::c2d(UsedType SampleTime)
+{
+    this->SampleTime = SampleTime;
+    this->c2dConversion();
+    this->Continuous = false;
 }
 
 template <class UsedType>
@@ -72,8 +82,17 @@ void StateSpace<UsedType>::print()
 }
 
 template <class UsedType>
+void StateSpace<UsedType>::setInitialState(Matrix<UsedType> X0)
+{
+    this->initialState = X0;
+}
+
+template <class UsedType>
 UsedType StateSpace<UsedType>::sim(UsedType u)
 {
+    if(this->Continuous)
+        this->c2dConversion();
+
     X = initialState;
     Matrix<UsedType> Xi1 = Ad*X+Bd*u;
     Matrix<UsedType> y  = C*X+D*u;
@@ -84,12 +103,15 @@ UsedType StateSpace<UsedType>::sim(UsedType u)
 template <class UsedType>
 Matrix<UsedType> StateSpace<UsedType>::sim(Matrix<UsedType> u)
 {
+    if(this->Continuous)
+        this->c2dConversion();
+
     Matrix<UsedType> y;
     X = initialState;
     for(unsigned i = 0; i < u.getCols(); i++)
     {
         Matrix<UsedType> Xi1 = Ad*X+Bd*u.getColumn(i+1);
-        y = y|C*X+D*u.getColumn(i+1);
+        y = y|(C*X+D*u.getColumn(i+1));
         X = Xi1;
     }
 
@@ -99,13 +121,16 @@ Matrix<UsedType> StateSpace<UsedType>::sim(Matrix<UsedType> u)
 template <class UsedType>
 Matrix<UsedType> StateSpace<UsedType>::sim(UsedType lmim, UsedType lmax, UsedType step)
 {
+    if(this->Continuous)
+        this->c2dConversion();
+
     Matrix<UsedType> y;
     X = initialState;
     unsigned cont = 1;
     for(UsedType i = lmim; i <= lmax; i+= step)
     {
         Matrix<UsedType> Xi1 = Ad*X+Bd*i;
-        y = y|C*X+D*i;
+        y = y|(C*X+D*i);
         X = Xi1;
         cont++;
     }
@@ -123,3 +148,6 @@ UsedType StateSpace<UsedType>::factorial(unsigned n)
 
     return retval;
 }
+
+template class StateSpace<float>;
+template class StateSpace<double>;
