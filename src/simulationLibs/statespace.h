@@ -5,14 +5,24 @@
 template <class UsedType>
 class StateSpace : public Model<UsedType>
 {
+private:
+    bool Continuous;
+    unsigned nDiscretization;
     UsedType SampleTime, TimeSimulation;
-    Matrix<UsedType> A, B, C, D;
+    Matrix<UsedType> A, B, C, D, Ad, Bd, X, initialState;
+
+    UsedType factorial(unsigned n);
+    void c2dConversion();
+    void d2cConversion();
+
 public:
-    StateSpace();
+    StateSpace(Matrix<UsedType> A, Matrix<UsedType> B,
+               Matrix<UsedType> C, Matrix<UsedType> D);
 
+    void print();
 
-    UsedType sim(UsedType x);
-    Matrix<UsedType> sim(Matrix<UsedType> x);
+    UsedType sim(UsedType u);
+    Matrix<UsedType> sim(Matrix<UsedType> u);
     Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
 };
 

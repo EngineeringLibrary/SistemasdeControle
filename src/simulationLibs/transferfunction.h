@@ -7,7 +7,7 @@ template <class UsedType>
 class TransferFunction : public Model<UsedType>
 {
 private:
-    UsedType sampleTime;
+    UsedType sampleTime, timeSimulation;
     unsigned nRowsTF;
     Polynom<UsedType> **TF;
     void initTfNumber();
