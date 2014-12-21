@@ -50,7 +50,7 @@ void simFunction<UsedType>::GenerateDataFunction()
     for (UsedType i = this->lmin; i < this->lmax; i += this->step)
     {
         this->Input(1,cont,i);
-        this->Output(1,cont,this->instance->sim(i));
+        this->Output(1,cont,this->sim(i));
         cont++;
     }
 }
