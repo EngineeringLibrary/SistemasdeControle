@@ -21,6 +21,7 @@ public:
     TransferFunction(std::string num, std::string den);
 
     Polynom<UsedType> operator()(unsigned row, unsigned col);
+    void operator()(unsigned row, unsigned col, Polynom<UsedType> P);
 
     void printTF(); // Método Opcional
 
