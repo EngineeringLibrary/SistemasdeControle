@@ -1,6 +1,7 @@
 #ifndef STATESPACE_H
 #define STATESPACE_H
 #include <src/simulationLibs/model.h>
+#include <src/simulationLibs/transferfunction.h>
 
 template <class UsedType>
 class StateSpace : public Model<UsedType>

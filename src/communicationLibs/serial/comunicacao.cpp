@@ -72,7 +72,7 @@ void Serial::Close()
 
 void Serial::Write(const char *teste)
 { 	
-	int  i = 0, n =0 , m = 0;
+    int  i = 0, m = 0; //n =0;
 	 m = strlen(teste);
 	
 	 for (i=0 ; i != m ; i++)
@@ -81,7 +81,7 @@ void Serial::Write(const char *teste)
       }
    int tamanho = m;
 
-	DWORD bytes_written, total_bytes_written = 0;
+    DWORD bytes_written;//, total_bytes_written = 0;
    // fprintf(stderr, "Enviando bytes...");
     if(!WriteFile(this->PortaSerial,		//identificador da porta serial
 				  this->bytes_pra_envio,	//buffer onde ser� depositado para serem enviados a porta serial
@@ -99,7 +99,7 @@ char Serial::Read()
 {
 	while (PortaSerial != INVALID_HANDLE_VALUE){
 	
-	DWORD bytes_lidos , total_bytes_lidos = 0;
+    DWORD bytes_lidos;// , total_bytes_lidos = 0;
     //fprintf(stderr, "Recebendo bytes....");
     
     if (!ReadFile(this->PortaSerial,		//identificador da porta serial
@@ -119,5 +119,6 @@ char Serial::Read()
                 return this->bytes_para_receber[0];
 	}
   }		
+  return '0';
 }
 

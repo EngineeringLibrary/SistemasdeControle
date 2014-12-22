@@ -1,6 +1,6 @@
 #include "eqdifsim.h"
 
-template <class UsedType>
+/*template <class UsedType>
 EqdifSim<UsedType>::EqdifSim()
 {
 
@@ -179,54 +179,54 @@ void EqdifSim<UsedType>::tf2ssd()
          }
         this->Dd.add( 1, 1,  B0);
     }
-}
+}*/
 
-template <class UsedType>
-void EqdifSim<UsedType>::ss2tfc()
-{
-    Matrix<UsedType> tempB, tempC;
+//template <class UsedType>
+//void EqdifSim<UsedType>::ss2tfc()
+//{
+//    Matrix<UsedType> tempB, tempC;
 
-    this->TransferFunction = new Polynom<UsedType>*[this->C.getRows()];
-    for(int i = 0; i < this->C.getRows(); i++)
-        this->TransferFunction[i] = new Polynom<UsedType>[this->B.getCols()];
+//    this->TransferFunction = new Polynom<UsedType>*[this->C.getRows()];
+//    for(int i = 0; i < this->C.getRows(); i++)
+//        this->TransferFunction[i] = new Polynom<UsedType>[this->B.getCols()];
 
-    for(int i = 1; i <= this->C.getRows(); i++)
-        for(int j = 1; j<= this->B.getCols(); j++)
-        {
-            tempB = this->B.getColumn(j);
-            tempC = this->C.getLine(i);
+//    for(int i = 1; i <= this->C.getRows(); i++)
+//        for(int j = 1; j<= this->B.getCols(); j++)
+//        {
+//            tempB = this->B.getColumn(j);
+//            tempC = this->C.getLine(i);
 
-            this->TransferFunction[i-1][j-1] = Polynom<UsedType>((this->A - tempB*tempC).pol() - this->A.pol(), this->A.pol());
-            this->TransferFunction[i-1][j-1] = this->TransferFunction[i-1][j-1] + this->D(i,j);
-        }
-}
+//            this->TransferFunction[i-1][j-1] = Polynom<UsedType>((this->A - tempB*tempC).pol() - this->A.pol(), this->A.pol());
+//            this->TransferFunction[i-1][j-1] = this->TransferFunction[i-1][j-1] + this->D(i,j);
+//        }
+//}
 
-template <class UsedType>
-void EqdifSim<UsedType>::ss2tfd()
-{
-   Matrix<UsedType> tempBd, tempCd;
+//template <class UsedType>
+//void EqdifSim<UsedType>::ss2tfd()
+//{
+//   Matrix<UsedType> tempBd, tempCd;
 
-    this->DiscreteTransferFunction = new Polynom<UsedType>*[this->Cd.getRows()];
-    for(int i = 0; i < this->Cd.getRows(); i++)
-        this->DiscreteTransferFunction[i] = new Polynom<UsedType>[this->Bd.getCols()];
+//    this->DiscreteTransferFunction = new Polynom<UsedType>*[this->Cd.getRows()];
+//    for(int i = 0; i < this->Cd.getRows(); i++)
+//        this->DiscreteTransferFunction[i] = new Polynom<UsedType>[this->Bd.getCols()];
 
-    for(int i = 1; i <= this->Cd.getRows(); i++)
-        for(int j = 1; j<= this->Bd.getCols(); j++)
-        {
-            tempBd = this->Bd.getColumn(j);
-            tempCd = this->Cd.getLine(i);
+//    for(int i = 1; i <= this->Cd.getRows(); i++)
+//        for(int j = 1; j<= this->Bd.getCols(); j++)
+//        {
+//            tempBd = this->Bd.getColumn(j);
+//            tempCd = this->Cd.getLine(i);
 
-            this->DiscreteTransferFunction[i-1][j-1] = Polynom<UsedType>((this->Ad - tempBd*tempCd).pol() - this->Ad.pol(), this->Ad.pol());
-            this->DiscreteTransferFunction[i-1][j-1] = this->DiscreteTransferFunction[i-1][j-1] + this->Dd(i,j);
-        }
+//            this->DiscreteTransferFunction[i-1][j-1] = Polynom<UsedType>((this->Ad - tempBd*tempCd).pol() - this->Ad.pol(), this->Ad.pol());
+//            this->DiscreteTransferFunction[i-1][j-1] = this->DiscreteTransferFunction[i-1][j-1] + this->Dd(i,j);
+//        }
 
-}
+//}
 
-template <class UsedType>
-void EqdifSim<UsedType>::setModel(std::string model)
-{
-    this->typeModel = model;
-}
+//template <class UsedType>
+//void EqdifSim<UsedType>::setModel(std::string model)
+//{
+//    this->typeModel = model;
+//}
 
 template <class UsedType>
 void EqdifSim<UsedType>::printSS()

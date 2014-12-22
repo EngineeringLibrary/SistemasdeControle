@@ -604,7 +604,63 @@ UsedType Matrix<UsedType>::trace()//Cálcula o Traço da Matriz
 }
 
 template <class UsedType>
-Matrix<UsedType> Matrix<UsedType>::inv()//Encontra a Matriz Inversa.
+Matrix<UsedType> Matrix<UsedType>::transpose()
+{
+  Matrix trans;
+  trans.zeros(this->cols, this->rows);
+
+  for(int i = 0; i < this->rows; i++)
+    for(int j = 0; j < this->cols; j++)
+      trans.Mat[j][i] = this->Mat[i][j];
+
+  return trans;
+}
+
+template <class UsedType>
+Matrix<UsedType> Matrix<UsedType>::cofactor()
+{
+  unsigned i, j, ii, jj, i1, j1;
+//  double det;
+  Matrix<UsedType> Temp, ret;
+  unsigned n = this->rows;
+  Temp.zeros(n-1, n-1);
+  ret.zeros(n, n);
+
+  if(this->rows != this->cols)
+    return ret;
+  if (n < 1) { /* Error */
+
+  }
+
+  for(j=0; j<n; j++)
+    for(i=0; i<n; i++) {
+
+      /* Form the adjoint a_ij */
+      i1 = 0;
+      for(ii=0; ii<n; ii++) {
+        if(ii == i)
+          continue;
+
+        j1 = 0;
+        for(jj=0; jj<n; jj++) {
+          if(jj == j)
+            continue;
+
+          Temp.Mat[i1][j1] = this->Mat[ii][jj];
+          j1++;
+        }
+        i1++;
+      }
+
+      /* Fill in the elements of the cofactor */
+      ret.Mat[i][j] = pow(-1.0, i+j+2.0) * Temp.det();
+    }
+
+  return ret;
+}
+
+template <class UsedType>
+Matrix<UsedType> Matrix<UsedType>::NumericInv()
 {
     Matrix<UsedType> Ret =*this, Id;
 
@@ -660,6 +716,16 @@ Matrix<UsedType> Matrix<UsedType>::inv()//Encontra a Matriz Inversa.
     }
 
     return Id;
+}
+
+template <class UsedType>
+Matrix<UsedType> Matrix<UsedType>::inv()//Encontra a Matriz Inversa.
+{
+    Matrix<UsedType> ret;
+    ret = this->cofactor();
+    ret = ret.transpose() / this->det();
+
+    return ret;
 }
 
 template <class UsedType>
@@ -759,7 +825,7 @@ Matrix<UsedType> Matrix<UsedType>::eigenvalues()//Encontra os Auto Valores da Ma
 }
 
 template <class UsedType>
-UsedType Matrix<UsedType>::det()//Encontra o determinante da Matriz.
+UsedType Matrix<UsedType>::NumericDet()
 {
     UsedType x = 1;
     Matrix<UsedType> A;
@@ -784,6 +850,53 @@ UsedType Matrix<UsedType>::det()//Encontra o determinante da Matriz.
     }
 
     return x;
+}
+
+template <class UsedType>
+UsedType Matrix<UsedType>::det()//Encontra o determinante da Matriz.
+{
+    unsigned i, j, j1, j2;
+    double det = 0;
+    Matrix Temp;
+    unsigned n = this->rows;
+
+    if(this->rows != this->cols)
+        return 0.0;
+
+    if (n < 1)
+    { /* Error */
+
+    }
+    else if (n == 1)
+    { /* Shouldn't get used */
+        det = this->Mat[0][0];
+    }
+    else if (n == 2)
+    {
+        det = this->Mat[0][0] * this->Mat[1][1] - this->Mat[1][0] * this->Mat[0][1];
+    }
+    else
+    {
+        for(j1=0; j1<n; j1++)
+        {
+            Temp.zeros(n-1,n-1);
+            for(i=1; i<n; i++)
+            {
+                j2 = 0;
+                for(j=0; j<n; j++)
+                {
+                    if(j == j1)
+                        continue;
+
+                    Temp.Mat[i-1][j2] = this->Mat[i][j];
+                    j2++;
+                }
+            }
+            det += pow(-1.0, j1+2.0) * this->Mat[0][j1] * Temp.det();
+
+        }
+    }
+    return(det);
 }
 
 template <class FriendType>

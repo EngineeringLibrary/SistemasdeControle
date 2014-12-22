@@ -113,10 +113,14 @@ public:
 
     //#####Álgebra Linear#####//
     UsedType trace();//Cálculo do traço de uma matriz.
+    Matrix   transpose();
+    Matrix   NumericInv();
     Matrix   inv();//Cálculo da matriz inversa da matriz.
     Matrix   pol();//Cálculo dos índices do polinômio característico da matriz.
     Matrix   eigenvalues();//Cálculo dos auto valores de uma matriz.
+    UsedType NumericDet();
     UsedType det();//Cálculo do determinante de uma matriz.
+    Matrix   cofactor();
     //##############################//
 
 
