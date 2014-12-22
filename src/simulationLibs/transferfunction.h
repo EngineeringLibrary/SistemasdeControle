@@ -2,6 +2,8 @@
 #define TRANSFERFUNCTION_H
 #include <src/simulationLibs/model.h>
 #include <src/primitiveLibs/polynom.h>
+#include <src/simulationLibs/statespace.h>
+
 
 template <class UsedType>
 class TransferFunction : public Model<UsedType>
@@ -14,8 +16,11 @@ private:
     void c2dConversion();
 
 public:
+    TransferFunction(unsigned length);
+    TransferFunction(StateSpace<UsedType> SS);
     TransferFunction(std::string num, std::string den);
 
+    Polynom<UsedType> operator()(unsigned row, unsigned col);
 
     void printTF(); // Método Opcional
 

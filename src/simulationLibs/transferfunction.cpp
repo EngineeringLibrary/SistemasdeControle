@@ -1,4 +1,5 @@
 #include "transferfunction.h"
+#include "src/simulationLibs/conversions.h"
 
 template <class UsedType>
 void TransferFunction<UsedType>::initTfNumber()
@@ -32,6 +33,30 @@ TransferFunction<UsedType>::TransferFunction(std::string num, std::string den)
 }
 
 template <class UsedType>
+TransferFunction<UsedType>::TransferFunction(unsigned length)
+{
+    nRowsTF = length;
+    this->initTfNumber();
+    sampleTime = 0.1;
+}
+
+template <class UsedType>
+TransferFunction<UsedType>::TransferFunction(StateSpace<UsedType> SS)
+{
+    TransferFunction<UsedType> TF = convesions::ss2tf(SS);
+    this->TF = TF.TF;
+}
+
+template <class UsedType>
+Polynom<UsedType> TransferFunction<UsedType>::operator ()(unsigned row, unsigned col)
+{
+    Polynom<UsedType> Ret(this->TF[row-1][col-1].getNum(),
+                          this->TF[row-1][col-1].getDen());
+
+    return Ret;
+}
+
+template <class UsedType>
 void TransferFunction<UsedType>::printTF()
 {
     for(unsigned i = 0; i < nRowsTF; i++)
@@ -62,5 +87,6 @@ Matrix<UsedType> TransferFunction<UsedType>::sim(UsedType lsim, UsedType lmax, U
 
 }
 
+//template class TransferFunction<int>;
 template class TransferFunction<float>;
 template class TransferFunction<double>;

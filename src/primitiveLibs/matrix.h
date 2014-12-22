@@ -15,7 +15,7 @@ class Matrix
 {
 private:
 
-    int rows, cols;
+    unsigned rows, cols;
     UsedType **Mat;
 
     //#####Verificação de Matriz Quadrada#####//
@@ -31,21 +31,21 @@ public:
     //#####Construtores e Destrutores da Classe#####//
     Matrix(); //Construtor
     Matrix(string value); //Construtor
-    Matrix(int row, int col);//Constroi a matriz de acordo com o número de linhas e colunas informados, respectivamente.
+    Matrix(unsigned row, unsigned col);//Constroi a matriz de acordo com o número de linhas e colunas informados, respectivamente.
     Matrix(const Matrix & otherMatrix);//Faz uma cópia da Matriz
     ~Matrix();//Destrutor
     //#############################################//
 
 
     //#####Métodos de Inicialização da Matriz#####//
-    void init(int row, int col); //Inicializador da Matriz de acordo com o número de linhas e colunas informados, respectivamente.
+    void init(unsigned row, unsigned col); //Inicializador da Matriz de acordo com o número de linhas e colunas informados, respectivamente.
     void init(string value);//Adiciona os valores de uma string a matriz, serparando os elementos por "," e as linhas por ";".
-    void add(int rol, int col, UsedType number);//Adiciona elementos a matriz pelos índices i e j respectivamente. Obs.: i e j iniciam de 1 para este método.
-    void eye(int num);//Cria uma matriz identidade de ordem num.
-    void ones(int row, int col);//Inicia uma matriz com todos os índices iguais a 1, de acordo com o número de linhas e colunas respectivamente.
-    void zeros(int row, int col);//Inicia uma matriz com todos os índices iguais a 0, de acordo com o número de linhas e colunas, respectivamente.
-    void randU(int row, int col);//Gera uma matriz contendo numeros aleatórios com distribuição uniforme
-    int  length();//Retorna o maior tamanho entre as linhas e colunas
+    void add(unsigned rol, unsigned col, UsedType number);//Adiciona elementos a matriz pelos índices i e j respectivamente. Obs.: i e j iniciam de 1 para este método.
+    void eye(unsigned num);//Cria uma matriz identidade de ordem num.
+    void ones(unsigned row, unsigned col);//Inicia uma matriz com todos os índices iguais a 1, de acordo com o número de linhas e colunas respectivamente.
+    void zeros(unsigned row, unsigned col);//Inicia uma matriz com todos os índices iguais a 0, de acordo com o número de linhas e colunas, respectivamente.
+    void randU(unsigned row, unsigned col);//Gera uma matriz contendo numeros aleatórios com distribuição uniforme
+    unsigned  length();//Retorna o maior tamanho entre as linhas e colunas
     UsedType max();//Retorna o maior valor de uma matriz
     UsedType min();//Retorna o menor valor de uma matriz
 
@@ -59,7 +59,7 @@ public:
     //#####Método de Impressão da Matriz#####//
     void print();
 
-//    void printMatOr();
+//    void prunsignedMatOr();
 
     //######################################//
 
@@ -78,7 +78,7 @@ public:
     //-----Operadores de Atribuição-----//
     void   operator=(Matrix Mat1);//Igualando Matriz Matriz
     void   operator=(string value);//Atribuindo String a Entrada da Matriz
-    void   operator=(UsedType B(int row, int col));
+    void   operator=(UsedType B(unsigned row, unsigned col));
     //---------------------------------//
 
     //-----Operadores de Multiplicação-----//
@@ -103,10 +103,10 @@ public:
     //-----Operador de Potência de Matrizes-----//
     Matrix   operator^  (UsedType exp);//Eleva a matriz a um determinado expoente.
     Matrix   operator>  (UsedType num);//Eleva os elementos de uma matriz a um determinado
-    UsedType operator() (int row,int col);//Acessa os elementos de uma matriz
-    void     operator() (int row, int col, UsedType value);
+    UsedType operator() (unsigned row,unsigned col);//Acessa os elementos de uma matriz
+    void     operator() (unsigned row, unsigned col, UsedType value);
 
-    void lineVector(int left, int rigth);//Cria uma matriz elementos crescentes ou decrescentes de um em um de left até rigth
+    void lineVector(unsigned left, unsigned rigth);//Cria uma matriz elementos crescentes ou decrescentes de um em um de left até rigth
     //-----------------------------------------//
 
     //##########################################//
@@ -122,14 +122,14 @@ public:
 
 
     //#####Retornando Informações da Matriz#####//
-    int  getRows();//Retorna o número de linhas da matriz.
-    int  getCols();//Retorna o número de colunas da matriz.
-    void setLine(int num, Matrix<UsedType> Line);
-    void setColumn(int num, Matrix<UsedType> Colummn);
-    Matrix<UsedType> getLine(int num);
-    Matrix<UsedType> getColumn(int num);
-    UsedType getMat(int row, int col);//Retorna o elemento no índice ij da matriz.
-    void     setMat(int row, int col, UsedType num);
+    unsigned  getRows();//Retorna o número de linhas da matriz.
+    unsigned  getCols();//Retorna o número de colunas da matriz.
+    void setLine(unsigned num, Matrix<UsedType> Line);
+    void setColumn(unsigned num, Matrix<UsedType> Colummn);
+    Matrix<UsedType> getLine(unsigned num);
+    Matrix<UsedType> getColumn(unsigned num);
+    UsedType getMat(unsigned row, unsigned col);//Retorna o elemento no índice ij da matriz.
+    void     setMat(unsigned row, unsigned col, UsedType num);
     Matrix<UsedType> normalize(UsedType yUp, UsedType yDown);//Retorna uma matriz Normalizada
     //#######################################################//
 //Friend functions
@@ -164,8 +164,8 @@ UsedType max(Matrix<UsedType> M)
 {
     UsedType  maximum = M(1,1);
      if(M.getRows() != 0 && M.getCols() != 0)
-         for(int i = 1; i <= M.getRows(); i++)
-            for(int j = 1; j <= M.getCols(); j++)
+         for(unsigned i = 1; i <= M.getRows(); i++)
+            for(unsigned j = 1; j <= M.getCols(); j++)
                 if(maximum < M(i,j))
                     maximum = M(i,j);
 

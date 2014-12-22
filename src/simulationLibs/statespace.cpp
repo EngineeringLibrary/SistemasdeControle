@@ -119,6 +119,36 @@ Matrix<UsedType> StateSpace<UsedType>::sim(Matrix<UsedType> u)
 }
 
 template <class UsedType>
+Matrix<UsedType> StateSpace<UsedType>::getA()
+{
+    if(this->Continuous)
+        return this->A;
+    else
+        return this->Ad;
+}
+
+template <class UsedType>
+Matrix<UsedType> StateSpace<UsedType>::getB()
+{
+    if(this->Continuous)
+        return this->B;
+    else
+        return this->Bd;
+}
+
+template <class UsedType>
+Matrix<UsedType> StateSpace<UsedType>::getC()
+{
+    return this->C;
+}
+
+template <class UsedType>
+Matrix<UsedType> StateSpace<UsedType>::getD()
+{
+    return this->D;
+}
+
+template <class UsedType>
 Matrix<UsedType> StateSpace<UsedType>::sim(UsedType lmim, UsedType lmax, UsedType step)
 {
     if(this->Continuous)

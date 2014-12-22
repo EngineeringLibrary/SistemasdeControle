@@ -19,9 +19,16 @@ public:
     StateSpace(Matrix<UsedType> A, Matrix<UsedType> B,
                Matrix<UsedType> C, Matrix<UsedType> D);
 
-    void c2d(UsedType SampleTime);
     void print();
+    void c2d(UsedType SampleTime);
     void setInitialState(Matrix<UsedType> X0);
+
+    Matrix<UsedType> getA();
+    Matrix<UsedType> getB();
+    Matrix<UsedType> getC();
+    Matrix<UsedType> getD();
+
+
     UsedType sim(UsedType u);
     Matrix<UsedType> sim(Matrix<UsedType> u);
     Matrix<UsedType> sim(UsedType lmim, UsedType lmax, UsedType step);
