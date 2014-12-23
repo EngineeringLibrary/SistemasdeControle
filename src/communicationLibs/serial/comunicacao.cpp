@@ -24,7 +24,7 @@ Serial::Serial(const char *namedoor)
 	this->dcbPortaSerialparams = {0};
 	this->timeouts = {0};
     this->PortaSerial = CreateFile(this->IdCom,
-	GENERIC_READ|GENERIC_WRITE,     //para leitura e escrita
+        GENERIC_READ|GENERIC_WRITE,     //para leitura e escrita
 	  	0,							//outra abertura n�o ser� permitida
 	   	NULL,						//atributo de seguranca(null)padr�o
 	    OPEN_EXISTING, 				//cria��o ou abertura
@@ -32,10 +32,10 @@ Serial::Serial(const char *namedoor)
 		NULL );
 	
 this->dcbPortaSerialparams.DCBlength = sizeof(this->dcbPortaSerialparams); 
-	if (GetCommState(this->PortaSerial, &this->dcbPortaSerialparams) == 0)
+    if (GetCommState(this->PortaSerial, &this->dcbPortaSerialparams) == 0)
     {
         fprintf(stderr, "Error de estado de dispositivo\n");
-        CloseHandle(this->PortaSerial);        
+        CloseHandle(this->PortaSerial);
     }
      
     this->dcbPortaSerialparams.BaudRate = CBR_4800;		   //velocidade
@@ -46,7 +46,7 @@ this->dcbPortaSerialparams.DCBlength = sizeof(this->dcbPortaSerialparams);
     if(SetCommState(this->PortaSerial, &this->dcbPortaSerialparams) == 0)
     {
         fprintf(stderr, "Parametro de dispositivo errado\n");
-        CloseHandle(this->PortaSerial);        
+        CloseHandle(this->PortaSerial);
     }
     this->timeouts.ReadIntervalTimeout = 50;
     this->timeouts.ReadTotalTimeoutConstant = 50;
@@ -57,7 +57,7 @@ this->dcbPortaSerialparams.DCBlength = sizeof(this->dcbPortaSerialparams);
     {
         fprintf(stderr, "timeout configurado errado\n");
         CloseHandle(this->PortaSerial);
-    }  
+    }
 }
 
 void Serial::Close()

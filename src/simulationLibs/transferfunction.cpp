@@ -83,22 +83,63 @@ void TransferFunction<UsedType>::printTF()
 
 
 template <class UsedType>
+void TransferFunction<UsedType>::setTF(Polynom<UsedType> **TF,
+                                       unsigned rows, unsigned cols)
+{
+    this->TF = PolynomMatrix<UsedType> (rows,cols);
+    nRowsTF = rows;
+    nColsTF = cols;
+
+    for(unsigned i = 0; i < nRowsTF; i++)
+        for(unsigned j = 0; j < nColsTF; j++)
+        {
+            this->TF[i][j] = TF[i][j];
+        }
+
+}
+
+template <class UsedType>
+Polynom<UsedType>** TransferFunction<UsedType>::getTF()
+{
+    Polynom<UsedType> GerPol;
+    Polynom<UsedType> **Ret = PolynomMatrix<UsedType>(nRowsTF,nColsTF);
+
+    for(unsigned i = 0; i < nRowsTF; i++)
+        for(unsigned j = 0; j < nColsTF; j++)
+        {
+            Ret[i][j] = TF[i][j];
+        }
+    return Ret;
+}
+
+template <class UsedType>
+unsigned TransferFunction<UsedType>::getNRowsTF()
+{
+    return nRowsTF;
+}
+
+template <class UsedType>
+unsigned TransferFunction<UsedType>::getNColsTF()
+{
+    return nColsTF;
+}
+
+template <class UsedType>
 UsedType TransferFunction<UsedType>::sim(UsedType x)
 {
-
+    return x;
 }
 
 
 template <class UsedType>
 Matrix<UsedType> TransferFunction<UsedType>::sim(Matrix<UsedType> x)
 {
-
+    return x;
 }
 
 template <class UsedType>
 Matrix<UsedType> TransferFunction<UsedType>::sim(UsedType lsim, UsedType lmax, UsedType step)
 {
-
 }
 
 //template class TransferFunction<int>;

@@ -7,7 +7,7 @@ Polynom<TypeOfClass>::Polynom()
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom(int Num, int Den)
+Polynom<TypeOfClass>::Polynom(unsigned Num, unsigned Den)
 {
     init(Num, Den);
 }
@@ -31,7 +31,7 @@ Polynom<TypeOfClass>::Polynom(std::string Num)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom(int Num)
+Polynom<TypeOfClass>::Polynom(unsigned Num)
 {
     init(Num);
 }
@@ -39,16 +39,16 @@ Polynom<TypeOfClass>::Polynom(int Num)
 template <class TypeOfClass>
 Polynom<TypeOfClass>::Polynom(const Polynom<TypeOfClass> &CopyPolynom)
 {
-    this->num = initPointer(CopyPolynom.sizeNum);
-    this->den = initPointer(CopyPolynom.sizeDen);
+    this->num = initPointer<TypeOfClass>(CopyPolynom.sizeNum);
+    this->den = initPointer<TypeOfClass>(CopyPolynom.sizeDen);
     this->sizeNum = CopyPolynom.sizeNum;
     this->sizeDen = CopyPolynom.sizeDen;
     this->x = CopyPolynom.x;
 
-    for(int i = 0; i < this->sizeNum; i++)
+    for(unsigned i = 0; i < this->sizeNum; i++)
         this->num[i] = CopyPolynom.num[i];
 
-    for(int i = 0; i < this->sizeDen; i++)
+    for(unsigned i = 0; i < this->sizeDen; i++)
         this->den[i] = CopyPolynom.den[i];
 }
 
@@ -69,21 +69,10 @@ Polynom<TypeOfClass>::~Polynom()
 }
 
 template <class TypeOfClass>
-TypeOfClass *Polynom<TypeOfClass>::initPointer(int Size)
+void Polynom<TypeOfClass>::init(unsigned NumSize)
 {
-    TypeOfClass *ret;
-    //ret = new TypeOfClass[Size];
-
-    ret = (TypeOfClass*)calloc((Size+1),(Size+1)*sizeof(TypeOfClass*));
-
-    return ret;
-}
-
-template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(int NumSize)
-{
-    this->num = initPointer(NumSize);
-    this->den = initPointer(0);
+    this->num = initPointer<TypeOfClass>(NumSize);
+    this->den = initPointer<TypeOfClass>(0);
     this->sizeNum = NumSize;
     this->sizeDen = 1;
     this->den[0] = 1;
@@ -91,10 +80,10 @@ void Polynom<TypeOfClass>::init(int NumSize)
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(int NumSize, int DenSize)
+void Polynom<TypeOfClass>::init(unsigned NumSize, unsigned DenSize)
 {
-    this->num = initPointer(NumSize);
-    this->den = initPointer(DenSize);
+    this->num = initPointer<TypeOfClass>(NumSize);
+    this->den = initPointer<TypeOfClass>(DenSize);
     this->sizeNum = NumSize;
     this->sizeDen = DenSize;
     this->x = 's';
@@ -109,12 +98,12 @@ void Polynom<TypeOfClass>::init(std::string Num)
 
     tempNum = Num;
     this->sizeNum = tempNum.getCols();
-    this->num = initPointer(tempNum.getCols());
+    this->num = initPointer<TypeOfClass>(tempNum.getCols());
     for (int i = 0; i < tempNum.getCols(); i++)
         this->num[i] = (TypeOfClass) tempNum(1, i+1);
 
     this->sizeDen = 1;
-    this->den = initPointer(1);
+    this->den = initPointer<TypeOfClass>(1);
     this->den[0] = 1;
     this->x = 's';
 
@@ -129,13 +118,13 @@ void Polynom<TypeOfClass>::init(std::string Num, std::string Den)
 
     tempNum = Num;
     this->sizeNum = tempNum.getCols();
-    this->num = initPointer(tempNum.getCols());
+    this->num = initPointer<TypeOfClass>(tempNum.getCols());
     for (int i = 0; i < tempNum.getCols(); i++)
         this->num[i] = (TypeOfClass) tempNum(1, i+1);
 
     tempDen = Den;
     this->sizeDen = tempDen.getCols();
-    this->den = initPointer(tempDen.getCols());
+    this->den = initPointer<TypeOfClass>(tempDen.getCols());
     for (int i = 0; i < tempDen.getCols(); i++)
         this->den[i] = (TypeOfClass) tempDen(1 , i+1);
     this->x = 's';
@@ -147,18 +136,16 @@ void Polynom<TypeOfClass>::init(Matrix<TypeOfClass> Num, Matrix<TypeOfClass> Den
     using namespace std;
 
     this->sizeNum = Num.getCols();
-    this->num = initPointer(Num.getCols());
+    this->num = initPointer<TypeOfClass>(Num.getCols());
     for (int i = 0; i < Num.getCols(); i++)
         this->num[i] = (TypeOfClass) Num(1, i+1);
 
     this->sizeDen = Den.getCols();
-    this->den = initPointer(Den.getCols());
+    this->den = initPointer<TypeOfClass>(Den.getCols());
     for (int i = 0; i < Den.getCols(); i++)
         this->den[i] = (TypeOfClass) Den(1 , i+1);
     this->x = 's';
 }
-
-
 
 template <class TypeOfClass>
 Polynom<TypeOfClass> Polynom<TypeOfClass>::operator +(Polynom<TypeOfClass> P)
@@ -256,7 +243,7 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator *(Polynom<TypeOfClass> P)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass> Polynom<TypeOfClass>::operator^(int scalar)
+Polynom<TypeOfClass> Polynom<TypeOfClass>::operator^(unsigned scalar)
 {
     Polynom<TypeOfClass> ret;
 
@@ -274,9 +261,9 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator^(int scalar)
     }
     else
     {
-        ret.num = initPointer(1);
+        ret.num = initPointer<TypeOfClass>(1);
         ret.num[0] = 1;
-        ret.den = initPointer(1);
+        ret.den = initPointer<TypeOfClass>(1);
         ret.den[0] = 1;
         ret.sizeNum = 1;
         ret.sizeDen = 1;
@@ -315,7 +302,7 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator/(TypeOfClass scalar)
 }
 
 template <class TypeOfClass>
-bool Polynom<TypeOfClass>::VefDen(TypeOfClass *den1, TypeOfClass *den2, int sizeden1, int sizeden2)
+bool Polynom<TypeOfClass>::VefDen(TypeOfClass *den1, TypeOfClass *den2, unsigned sizeden1, unsigned sizeden2)
 {
     bool vef = true;
 
@@ -323,7 +310,7 @@ bool Polynom<TypeOfClass>::VefDen(TypeOfClass *den1, TypeOfClass *den2, int size
         vef = false;
     else
     {
-        for (int i = 0; i < sizeden1; i++)
+        for (unsigned i = 0; i < sizeden1; i++)
             if (den1[i] != den2[2])
             {
                 break;
@@ -335,23 +322,43 @@ bool Polynom<TypeOfClass>::VefDen(TypeOfClass *den1, TypeOfClass *den2, int size
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::setNum(TypeOfClass *Num, int sizenum)
+void Polynom<TypeOfClass>::setNum(TypeOfClass *Num, unsigned sizenum)
 {
-    this->num = initPointer(sizenum);
+    this->num = initPointer<TypeOfClass>(sizenum);
     this->sizeNum = sizenum;
 
-    for (int i = 0; i < sizenum; i++)
+    for (unsigned i = 0; i < sizenum; i++)
         this->num[i] = Num[i];
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::setDen(TypeOfClass *Den, int sizeden)
+void Polynom<TypeOfClass>::setNum(Matrix<TypeOfClass> Num)
 {
-    this->den = initPointer(sizeden);
+    this->num = initPointer<TypeOfClass>(Num.getCols());
+    this->sizeNum = Num.getCols();
+
+    for (unsigned i = 0; i < Num.getCols(); i++)
+        this->num[i] = Num(1,i+1);
+}
+
+template <class TypeOfClass>
+void Polynom<TypeOfClass>::setDen(TypeOfClass *Den, unsigned sizeden)
+{
+    this->den = initPointer<TypeOfClass>(sizeden);
     this->sizeDen = sizeden;
 
-    for (int i = 0; i < sizeden; i++)
+    for (unsigned i = 0; i < sizeden; i++)
         this->den[i] = Den[i];
+}
+
+template <class TypeOfClass>
+void Polynom<TypeOfClass>::setDen(Matrix<TypeOfClass> Den)
+{
+    this->den = initPointer<TypeOfClass>(Den.getCols());
+    this->sizeDen = Den.getCols();
+
+    for (unsigned i = 0; i < Den.getCols(); i++)
+        this->den[i] = Den(1,i+1);
 }
 
 template <class TypeOfClass>
@@ -361,67 +368,20 @@ void Polynom<TypeOfClass>::setVar(char var)
 }
 
 template <class TypeOfClass>
-TypeOfClass *Polynom<TypeOfClass>::SumPoly(TypeOfClass *value1, TypeOfClass *value2, int SizeValue1, int SizeValue2)
-{
-   TypeOfClass *ret;
-
-   int min = SizeValue1, max = SizeValue2;
-
-   if(min < SizeValue2)
-   {
-       min = SizeValue2;
-       max = SizeValue1;
-   }
-
-   ret = initPointer(max);
-   for (int i = 1; i <= min; i++)
-       ret[max - i] =  value1[SizeValue1 - i] + value2[SizeValue2 - i];
-
-   return ret;
-}
-
-template <class TypeOfClass>
-TypeOfClass *Polynom<TypeOfClass>::SubPoly(TypeOfClass *value1, TypeOfClass *value2, int SizeValue1, int SizeValue2)
-{
-    TypeOfClass *ret;
-
-    int min = SizeValue1, max = SizeValue2;
-
-    if(min < SizeValue2)
-    {
-        min = SizeValue2;
-        max = SizeValue1;
-    }
-
-    ret = initPointer(max);
-    for (int i = 1; i <= min; i++)
-        ret[max - i] =  value1[SizeValue1 - i] - value2[SizeValue2 - i];
-
-    return ret;
-}
-
-template <class TypeOfClass>
-TypeOfClass *Polynom<TypeOfClass>::MultPoly(TypeOfClass *value1, TypeOfClass *value2, int SizeValue1, int SizeValue2)
-{
-    TypeOfClass *ret;
-
-    ret = initPointer(SizeValue1+SizeValue2);
-    for(int i = 0; i < SizeValue1; i++)
-        for(int j = 0; j < SizeValue2; j++)
-            ret[i+j] = ret[i+j] +  value1[i]*value2[j];
-
-    return ret;
-}
-
-template <class TypeOfClass>
 Matrix<TypeOfClass> Polynom<TypeOfClass>::getNum()
 {
     Matrix<TypeOfClass> ret(1, this->sizeNum);
 
-    for(int i = 0; i < this->sizeNum; i++)
+    for(unsigned i = 0; i < this->sizeNum; i++)
         ret(1,i+1, this->num[i]);
 
     return ret;
+}
+
+template <class TypeOfClass>
+unsigned Polynom<TypeOfClass>::getNumSize()
+{
+    return sizeNum;
 }
 
 template <class TypeOfClass>
@@ -429,16 +389,22 @@ Matrix<TypeOfClass> Polynom<TypeOfClass>::getDen()
 {
     Matrix<TypeOfClass> ret(1, this->sizeDen);
 
-    for(int i = 0; i < this->sizeDen; i++)
+    for(unsigned i = 0; i < this->sizeDen; i++)
         ret(1,i+1, this->den[i]);
 
     return ret;
 }
 
 template <class TypeOfClass>
+unsigned Polynom<TypeOfClass>::getDenSize()
+{
+    return sizeDen;
+}
+
+template <class TypeOfClass>
 void Polynom<TypeOfClass>::print()
 {
-    unsigned int maxSize;
+    unsigned maxSize;
 
         if(this->sizeNum > this->sizeDen)
             maxSize = this->sizeNum;

@@ -23,6 +23,11 @@ public:
     void operator= (TransferFunction TF);
     void printTF(); // Método Opcional
 
+    void setTF(Polynom<UsedType> **TF, unsigned rows, unsigned cols);
+    Polynom<UsedType> **getTF();
+    unsigned getNRowsTF();
+    unsigned getNColsTF();
+
     UsedType sim(UsedType x);
     Matrix<UsedType> sim(Matrix<UsedType> x);
     Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
