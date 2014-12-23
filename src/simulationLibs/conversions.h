@@ -31,7 +31,7 @@ namespace conversions{
     StateSpace<UsedType> tf2ss(TransferFunction<UsedType> TF)
     {
         Matrix<UsedType> A, B, C, D;
-//        TF.setTF(MMC(TF.getTF()),
+//        TF.setTF(MMC(TF.getTF(),TF.getNRowsTF(),TF.getNColsTF()),
 //                 TF.getNRowsTF(),TF.getNColsTF());
 
         unsigned TFdenCols = 2*(TF(1,1).getDen().getCols()-2);
