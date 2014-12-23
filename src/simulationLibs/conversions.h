@@ -31,59 +31,57 @@ namespace conversions{
     StateSpace<UsedType> tf2ss(TransferFunction<UsedType> TF)
     {
         Matrix<UsedType> A, B, C, D;
-        TransferFunction<UsedType> TFtemp = TF;
-        TFtemp.setTF(TF.getTF()[0][0].MMC(TF.getTF()),
-                     TF.getNRowsTF(),TF.getNColsTF());
+//        TF.setTF(MMC(TF.getTF()),
+//                 TF.getNRowsTF(),TF.getNColsTF());
 
-        unsigned TFdenCols = TFtemp(1,1).getDen().getCols();
+        unsigned TFdenCols = 2*(TF(1,1).getDen().getCols()-2);
 
-        Matrix<UsedType> I, ZeroVector, tempDen(1, TFdenCols-1);
+        Matrix<UsedType> I, ZeroVector, tempDen(2, TFdenCols-1);
 
-        I.eye(TFdenCols-2);
-        ZeroVector.zeros( TFdenCols-2, 1);
-        for (unsigned i = 2; i <= TFdenCols; i++)
-            tempDen( 1, i-1, -(TFtemp(1,1).getDen()( 1, i)));
-
+        I.eye(TFdenCols);
+        ZeroVector.zeros( TFdenCols, TF.getNColsTF());
+        for (unsigned i = 1; i < TFdenCols; i++)
+        {
+            tempDen( 1, 2*i-1, -(TF(1,1).getDen()( 1, i+1)));
+            tempDen( 2, 2*i, -(TF(1,1).getDen()( 1, i+1)));
+        }
+        tempDen.print();
         A = tempDen||(I|ZeroVector);
-        B.zeros(A.getRows(), TFtemp.getNColsTF());
+
+        B.zeros(A.getRows(), TF.getNColsTF());
 
         for (unsigned i = 1; i <= B.getCols(); i++)
-            B.add(B.getRows(), i, 1);
+            B(i, i, 1);
 
+        D.zeros(TF.getNRowsTF(),TF.getNColsTF());
+        for(unsigned i = 1; i <= TF.getNRowsTF(); i++)
+            for(unsigned j = 1; j <= TF.getNColsTF(); j++)
+                if(TF(i,j).getNum().getCols() == TF(i,j).getDen().getCols())
+                    D(i,j, TF(i,j).getNum()(1,1));
 
-//            else if (TFnumCols == TFdenCols)
-//            {
-//                float B0 = TF(1,1).getNum()( 1, 1);
+        C.zeros(TF.getNRowsTF(),A.getCols());
 
-//                for (int i = 1; i <= this->B.getRows(); i++)
-//                 {
-//                    this->C.add( 1, i, TF(1,1).getNum()( 1, i+1)- TF(1,1).getDen()( 1, i+1)*B0);
-//                 }
-//                this->D.add( 1, 1,  B0);
-//            }
-//        if (TFnumCols == 1)
-//        {
-//            this->C( 1, this->B.getRows(), TF(1,1).getNum()( 1, 1));
-//            this->D( 1, 1, 0);
-//        }
-//        else if (TFnumCols < TFdenCols)
-//        {
-//            for (int i = this->B.getRows(); i > 1; i--)
-//                this->C.add( 1, i, TF(1,1).getNum()( 1, TFnumCols -( this->B.getRows() - i )));
-//            this->D.add( 1, 1, 0);
-//        }
+        for(unsigned i = 1; i <= TF.getNRowsTF(); i++)
+            for(unsigned j = 1; j <= TF.getNColsTF(); j++)
+            {
+                Matrix<UsedType> Num = TF(i,j).getNum();
+                unsigned cont  = 1;
+                unsigned cont2 = 0;
+                if((TF(i,j).getDenSize() - Num.getCols()) > 1)
+                    cont2 = TF.getNColsTF()*(TF(i,j).getDenSize() - Num.getCols() - 1);
 
-//        else if (TFnumCols == TFdenCols)
-//        {
-//            float B0 = TF(1,1).getNum()( 1, 1);
+                for(unsigned k = Num.getCols(); k > 0 ; k--)
+                {
+                    if(k < TF(i,j).getDenSize())
+                    {
+                        C(i,j + cont2, Num(1,cont));
+                        cont2 += TF.getNColsTF();
+                    }
+                    cont++;
+                }
+            }
 
-//            for (int i = 1; i <= this->B.getRows(); i++)
-//             {
-//                this->C.add( 1, i, TF(1,1).getNum()( 1, i+1)- TF(1,1).getDen()( 1, i+1)*B0);
-//             }
-//            this->D.add( 1, 1,  B0);
-//        }
-
+        return StateSpace<UsedType>(A,B,C,D);
     }
 
 }

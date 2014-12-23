@@ -203,4 +203,14 @@ Polynom<TypeOfClass>** MMC(Polynom<TypeOfClass> **P,
     return Ret;
 }
 
+template <class TypeOfClass>
+void zeroPoleGain(Polynom<TypeOfClass> P,
+                  Matrix <TypeOfClass> Zero,
+                  Matrix <TypeOfClass> Pole,
+                          TypeOfClass  gain)
+{
+
+}
+
+
 #endif // POLYNOM_H
