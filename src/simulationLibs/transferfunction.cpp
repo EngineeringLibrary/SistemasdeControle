@@ -130,9 +130,20 @@ UsedType TransferFunction<UsedType>::sim(UsedType x)
     return x;
 }
 
+template <class UsedType>
+UsedType TransferFunction<UsedType>::sim(UsedType x, UsedType y)
+{
+    return x;
+}
 
 template <class UsedType>
 Matrix<UsedType> TransferFunction<UsedType>::sim(Matrix<UsedType> x)
+{
+    return x;
+}
+
+template <class UsedType>
+Matrix<UsedType> TransferFunction<UsedType>::sim(Matrix<UsedType> x, Matrix<UsedType> y)
 {
     return x;
 }

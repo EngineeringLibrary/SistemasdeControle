@@ -13,6 +13,12 @@ UsedType simFunction<UsedType>::sim(UsedType input)
     return (input);
 }
 
+template <class UsedType>
+UsedType simFunction<UsedType>::sim(UsedType input, UsedType output)
+{
+
+}
+
 template<class UsedType>
 Matrix<UsedType> simFunction<UsedType>::sim(Matrix<UsedType> X)
 {
@@ -23,6 +29,12 @@ Matrix<UsedType> simFunction<UsedType>::sim(Matrix<UsedType> X)
             Y(i,j, sim(X(i,j)));
 
     return Y;
+}
+
+template<class UsedType>
+Matrix<UsedType> simFunction<UsedType>::sim(Matrix<UsedType> X, Matrix<UsedType> Y)
+{
+
 }
 
 template<class UsedType>

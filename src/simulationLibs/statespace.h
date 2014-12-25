@@ -30,9 +30,12 @@ public:
     Matrix<UsedType> getD();
 
 
+
     UsedType sim(UsedType u);
+    UsedType sim(UsedType u, UsedType y);
     Matrix<UsedType> sim(Matrix<UsedType> u);
-    Matrix<UsedType> sim(UsedType lmim, UsedType lmax, UsedType step);
+    Matrix<UsedType> sim(Matrix<UsedType> u, Matrix<UsedType> y);
+    Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
 };
 
 #endif // STATESPACE_H

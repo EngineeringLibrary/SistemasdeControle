@@ -18,7 +18,9 @@ public:
     void setStep(UsedType step);
 
     virtual UsedType sim(UsedType x) = 0;
+    virtual UsedType sim(UsedType x, UsedType y) = 0;
     virtual Matrix<UsedType> sim(Matrix<UsedType> x) = 0;
+    virtual Matrix<UsedType> sim(Matrix<UsedType> x, Matrix<UsedType> y) = 0;
     virtual Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step) = 0;
 
 };

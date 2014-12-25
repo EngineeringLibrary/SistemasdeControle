@@ -101,6 +101,12 @@ UsedType StateSpace<UsedType>::sim(UsedType u)
 }
 
 template <class UsedType>
+UsedType StateSpace<UsedType>::sim(UsedType u, UsedType y)
+{
+
+}
+
+template <class UsedType>
 Matrix<UsedType> StateSpace<UsedType>::sim(Matrix<UsedType> u)
 {
     if(this->Continuous)
@@ -113,6 +119,32 @@ Matrix<UsedType> StateSpace<UsedType>::sim(Matrix<UsedType> u)
         Matrix<UsedType> Xi1 = Ad*X+Bd*u.getColumn(i+1);
         y = y|(C*X+D*u.getColumn(i+1));
         X = Xi1;
+    }
+
+    return y;
+}
+
+template <class UsedType>
+Matrix<UsedType> StateSpace<UsedType>::sim(Matrix<UsedType> u, Matrix<UsedType> y)
+{
+
+}
+
+template <class UsedType>
+Matrix<UsedType> StateSpace<UsedType>::sim(UsedType lmim, UsedType lmax, UsedType step)
+{
+    if(this->Continuous)
+        this->c2dConversion();
+
+    Matrix<UsedType> y;
+    X = initialState;
+    unsigned cont = 1;
+    for(UsedType i = lmim; i <= lmax; i+= step)
+    {
+        Matrix<UsedType> Xi1 = Ad*X+Bd*i;
+        y = y|(C*X+D*i);
+        X = Xi1;
+        cont++;
     }
 
     return y;
@@ -146,26 +178,6 @@ template <class UsedType>
 Matrix<UsedType> StateSpace<UsedType>::getD()
 {
     return this->D;
-}
-
-template <class UsedType>
-Matrix<UsedType> StateSpace<UsedType>::sim(UsedType lmim, UsedType lmax, UsedType step)
-{
-    if(this->Continuous)
-        this->c2dConversion();
-
-    Matrix<UsedType> y;
-    X = initialState;
-    unsigned cont = 1;
-    for(UsedType i = lmim; i <= lmax; i+= step)
-    {
-        Matrix<UsedType> Xi1 = Ad*X+Bd*i;
-        y = y|(C*X+D*i);
-        X = Xi1;
-        cont++;
-    }
-
-    return y;
 }
 
 template <class UsedType>

@@ -13,7 +13,9 @@ public:
     simFunction(UsedType (*FunctionToCall)(UsedType));
 
     UsedType sim(UsedType input);
+    UsedType sim(UsedType input, UsedType output);
     Matrix<UsedType> sim(Matrix<UsedType> x);
+    Matrix<UsedType> sim(Matrix<UsedType> X, Matrix<UsedType> Y);
     Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
 
     typedef UsedType(*FunctionCall)(UsedType);

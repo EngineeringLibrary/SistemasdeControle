@@ -20,7 +20,7 @@ public:
 
     Polynom<UsedType> operator()(unsigned row, unsigned col);
     void operator()(unsigned row, unsigned col, Polynom<UsedType> P);
-    void operator= (TransferFunction TF);
+    void operator= (TransferFunction<UsedType> TF);
     void printTF(); // Método Opcional
 
     void setTF(Polynom<UsedType> **TF, unsigned rows, unsigned cols);
@@ -28,8 +28,11 @@ public:
     unsigned getNRowsTF();
     unsigned getNColsTF();
 
-    UsedType sim(UsedType x);
+
+    UsedType sim(UsedType input);
+    UsedType sim(UsedType x, UsedType y);
     Matrix<UsedType> sim(Matrix<UsedType> x);
+    Matrix<UsedType> sim(Matrix<UsedType> x, Matrix<UsedType> y);
     Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
 };
 
