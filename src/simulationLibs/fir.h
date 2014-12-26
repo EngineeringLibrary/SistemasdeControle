@@ -6,8 +6,9 @@ template <class UsedType>
 class FIR : public Model<UsedType>
 {
     unsigned nUpar, delay, qdtVar, cont;
-    Matrix<UsedType> U, SysPar, OneStepLinSys;
+
     void setOneStepLinSys(UsedType input);
+    void setMultStepLinSys(UsedType input);
 public:
     FIR(unsigned nUpar, unsigned delay=0, unsigned qdtVar=1);
 

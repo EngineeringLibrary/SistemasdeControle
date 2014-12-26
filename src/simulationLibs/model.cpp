@@ -23,5 +23,24 @@ UsedType Model<UsedType>::diff(UsedType x)
     return (instance->sim(x+step)-instance->sim(x))/step;
 }
 
+template <class UsedType>
+void Model<UsedType>::setModelCoef(Matrix<UsedType> coef)
+{
+    this->ModelCoef = coef;
+}
+
+template <class UsedType>
+Matrix<UsedType> Model<UsedType>::getLinearVectorPhi()
+{
+    return this->LinearVectorPhi;
+}
+
+template <class UsedType>
+Matrix<UsedType> Model<UsedType>::getModelCoef()
+{
+    return this->ModelCoef;
+}
+
+
 template class Model<float>;
 template class Model<double>;

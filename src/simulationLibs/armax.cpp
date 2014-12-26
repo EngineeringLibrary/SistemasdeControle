@@ -6,6 +6,36 @@ ARMAX<UsedType>::ARMAX()
 
 }
 
+template <class UsedType>
+UsedType ARMAX<UsedType>::sim(UsedType input)
+{
+
+}
+
+template <class UsedType>
+UsedType ARMAX<UsedType>::sim(UsedType x, UsedType y)
+{
+
+}
+
+template <class UsedType>
+Matrix<UsedType> ARMAX<UsedType>::sim(Matrix<UsedType> x)
+{
+
+}
+
+template <class UsedType>
+Matrix<UsedType> ARMAX<UsedType>::sim(Matrix<UsedType> x, Matrix<UsedType> y)
+{
+
+}
+
+template <class UsedType>
+Matrix<UsedType> ARMAX<UsedType>::sim(UsedType lsim, UsedType lmax, UsedType step)
+{
+
+}
+
 //template <class UsedType>
 //void Sim<UsedType>::SetArmaxOneStep()
 //{

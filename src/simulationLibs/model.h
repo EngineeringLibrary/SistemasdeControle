@@ -7,18 +7,27 @@ template <class UsedType>
 class Model
 {
 protected:
-    UsedType input,output, lmin,lmax, step;
     Model<UsedType> *instance;
-    Matrix<UsedType> Input,Output;
-
+    UsedType         input,output,    lmin,lmax,     step;
+    Matrix<UsedType> Input,Output,    EstOutput,     ModelCoef,
+                     LinearVectorPhi, LinearMatrixA, LinearEqualityB;
 public:
     Model();
     UsedType diff(UsedType x);
-    void setInstance(Model<UsedType> *m);
     void setStep(UsedType step);
+    void setInstance(Model<UsedType> *m);
+    void setModelCoef(Matrix<UsedType> coef);
+    void setIO(Matrix<UsedType> in, Matrix<UsedType> out);
 
-    virtual UsedType sim(UsedType x) = 0;
-    virtual UsedType sim(UsedType x, UsedType y) = 0;
+    Matrix<UsedType> getModelCoef();
+    Matrix<UsedType> getInputMatrix();
+    Matrix<UsedType> getOutputMatrix();
+    Matrix<UsedType> getLinearMatrixA();
+    Matrix<UsedType> getLinearEqualityB();
+    Matrix<UsedType> getLinearVectorPhi();
+
+    virtual UsedType         sim(UsedType x) = 0;
+    virtual UsedType         sim(UsedType x, UsedType y) = 0;
     virtual Matrix<UsedType> sim(Matrix<UsedType> x) = 0;
     virtual Matrix<UsedType> sim(Matrix<UsedType> x, Matrix<UsedType> y) = 0;
     virtual Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step) = 0;

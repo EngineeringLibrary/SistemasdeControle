@@ -5,6 +5,36 @@ MA<UsedType>::MA()
 {
 }
 
+template <class UsedType>
+UsedType MA<UsedType>::sim(UsedType input)
+{
+
+}
+
+template <class UsedType>
+UsedType MA<UsedType>::sim(UsedType x, UsedType y)
+{
+
+}
+
+template <class UsedType>
+Matrix<UsedType> MA<UsedType>::sim(Matrix<UsedType> x)
+{
+
+}
+
+template <class UsedType>
+Matrix<UsedType> MA<UsedType>::sim(Matrix<UsedType> x, Matrix<UsedType> y)
+{
+
+}
+
+template <class UsedType>
+Matrix<UsedType> MA<UsedType>::sim(UsedType lsim, UsedType lmax, UsedType step)
+{
+
+}
+
 //template <class UsedType>
 //void Sim<UsedType>::SetArmaxOneStep()
 //{
