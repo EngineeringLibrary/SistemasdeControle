@@ -1,22 +1,32 @@
-#include "src\optimization libs\optimization.h"
-#include "src\simulation libs\sim.h"
+#include <src/simulationLibs/transferfunction.h>
+#include <src/simulationLibs/statespace.h>
+#include "src/simulationLibs/conversions.h"
+#include "src/simulationLibs/fir.h"
+#include "src/simulationLibs/arx.h"
+#include "src/optimizationLibs/optimization.h"
+#include "src/optimizationLibs/leastsquare.h"
+
+using namespace conversions;
 
 int main()
 {
-    Matrix <double> in, out;
+    ARX<double> gz(2,2,1);
+    Matrix<double> syspar;
+    syspar = "-1.809674836071920;0.818730753077982;0.004678840160444;0.004377076845618";
+    gz.setModelCoef(syspar);
+    double temp = 0;
+    for(int i = 1; i < 100; i++)
+    {
+        temp = gz.sim(1,temp);
+        std::cout << temp << std::endl;
+    }
+    gz.setLinearModel(gz.getInputMatrix(),gz.getOutputMatrix());
 
-    in = "0.8147;0.9058;0.1270;0.9134;0.6324;0.0975;0.2785;0.5469;0.9575;0.9649;0.1576;0.9706;0.9572;0.4854;0.8003;0.1419;0.4218;0.9157;0.7922;0.9595";
-    out = "0;0.0038;0.0147;0.0280;0.0435;0.0628;0.0812;0.0973;0.1133;0.1323;0.1554;0.1778;0.1998;0.2247;0.2496;0.2735;0.2948;0.3121;0.3296;0.3487";
+//    Model<double> *EQD = &gz;
+    Optimization<double> *Sys = new LeastSquare<double>(&gz);
 
-    Sim<double> S1(in, out, "ARX", 2, 2);
-    Matrix<double> par;
-    par = "1,1,1,1";
-    S1.RunSimulation(~par, 10);
-//    Optimization <double>Solve;
-//    Solve.RLS(2,2,1000,in,out);
-//    PSO <double>P(4, 80, 1000, 3.7, 0.9, 0.5, 0);
-//    P.setData(in,out);
-//    P.Run(50);
+    Sys->Optimize();
+    Sys->getOptimizatedVariable().print();
 
     return 0;
 }
