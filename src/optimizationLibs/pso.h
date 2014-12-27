@@ -27,9 +27,6 @@ template <class UsedType>
 class PSO
 {
 private:
-    bool MinMax;
-    int varNum, PopSize, GenSize;
-    double phi1, phi2, omega, Stime;
     Matrix<UsedType> V, X, P, G, GGen, GnTimes, Xfitness, Pfitness, Gfitness, GfitnessGen, GfitnessnTime, RunTime;
     Lsim<UsedType> Model;
 
