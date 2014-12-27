@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Código-Fonte de SistemasdeControle/src/optimizationLibs/recursiveleastsquare.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ac84d4b158a08a9898e25c99d7a17639.html">SistemasdeControle</a></li><li class="navelem"><a class="el" href="dir_2fab4fe404714932936eb34a72b6b633.html">src</a></li><li class="navelem"><a class="el" href="dir_6d9895facca9a8213661a191b9356958.html">optimizationLibs</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">recursiveleastsquare.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="recursiveleastsquare_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef RECURSIVELEASTSQUARE_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define RECURSIVELEASTSQUARE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="optimization_8h.html">src/optimizationLibs/optimization.h</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_recursive_least_square.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_recursive_least_square.html">RecursiveLeastSquare</a>: <span class="keyword">public</span> <a class="code" href="class_optimization.html">Optimization</a>&lt;UsedType&gt;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_recursive_least_square.html#a1f6ccd409910baf896e2e94e7f97583d">    8</a></span>&#160;    <span class="keywordtype">unsigned</span> <a class="code" href="class_recursive_least_square.html#a1f6ccd409910baf896e2e94e7f97583d">nIteration</a>;</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_recursive_least_square.html#a0985b1dc1313afe272e2fb11358ee205">    9</a></span>&#160;    UsedType <a class="code" href="class_recursive_least_square.html#a0985b1dc1313afe272e2fb11358ee205">p0</a>, <a class="code" href="class_recursive_least_square.html#a38e3d33a73d989780494ba4f63d6f6d2">lambda</a>, <a class="code" href="class_recursive_least_square.html#ae8ba0dbf47de06a8ca8ec29b69a4f09e">e</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_recursive_least_square.html#a28aea64b03f24079649c5dac6a057b66">   10</a></span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_recursive_least_square.html#abe728fa5b515531fc10bf08c12251449">P</a>, <a class="code" href="class_recursive_least_square.html#ac599721ef357296d99fd13f9bff36dcf">K</a>, <a class="code" href="class_recursive_least_square.html#a28aea64b03f24079649c5dac6a057b66">phi</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_recursive_least_square.html#ab8c9554c9de560e64caf481dd04b300b">RecursiveLeastSquare</a>(<a class="code" href="class_model.html">Model&lt;UsedType&gt;</a> *<a class="code" href="class_optimization.html#aa840cd6c3baf8fd4ce35018701672fce">model</a>,</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                         UsedType p0,</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;                         <span class="keywordtype">unsigned</span> nIteration,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;                         UsedType lambda);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_recursive_least_square.html#a34ceb5d4ce44b349b39d40e21573d551">Iteration</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_recursive_least_square.html#a1d18de4bee0be4a47cd7035b0de26371">Optimize</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif // RECURSIVELEASTSQUARE_H</span></div>
+<div class="ttc" id="class_recursive_least_square_html_abe728fa5b515531fc10bf08c12251449"><div class="ttname"><a href="class_recursive_least_square.html#abe728fa5b515531fc10bf08c12251449">RecursiveLeastSquare::P</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; P</div><div class="ttdef"><b>Definition:</b> <a href="recursiveleastsquare_8h_source.html#l00010">recursiveleastsquare.h:10</a></div></div>
+<div class="ttc" id="class_recursive_least_square_html_ae8ba0dbf47de06a8ca8ec29b69a4f09e"><div class="ttname"><a href="class_recursive_least_square.html#ae8ba0dbf47de06a8ca8ec29b69a4f09e">RecursiveLeastSquare::e</a></div><div class="ttdeci">UsedType e</div><div class="ttdef"><b>Definition:</b> <a href="recursiveleastsquare_8h_source.html#l00009">recursiveleastsquare.h:9</a></div></div>
+<div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00007">model.h:7</a></div></div>
+<div class="ttc" id="class_recursive_least_square_html_a1d18de4bee0be4a47cd7035b0de26371"><div class="ttname"><a href="class_recursive_least_square.html#a1d18de4bee0be4a47cd7035b0de26371">RecursiveLeastSquare::Optimize</a></div><div class="ttdeci">void Optimize()</div><div class="ttdef"><b>Definition:</b> <a href="recursiveleastsquare_8cpp_source.html#l00039">recursiveleastsquare.cpp:39</a></div></div>
+<div class="ttc" id="class_recursive_least_square_html_a1f6ccd409910baf896e2e94e7f97583d"><div class="ttname"><a href="class_recursive_least_square.html#a1f6ccd409910baf896e2e94e7f97583d">RecursiveLeastSquare::nIteration</a></div><div class="ttdeci">unsigned nIteration</div><div class="ttdef"><b>Definition:</b> <a href="recursiveleastsquare_8h_source.html#l00008">recursiveleastsquare.h:8</a></div></div>
+<div class="ttc" id="class_recursive_least_square_html_a28aea64b03f24079649c5dac6a057b66"><div class="ttname"><a href="class_recursive_least_square.html#a28aea64b03f24079649c5dac6a057b66">RecursiveLeastSquare::phi</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; phi</div><div class="ttdef"><b>Definition:</b> <a href="recursiveleastsquare_8h_source.html#l00010">recursiveleastsquare.h:10</a></div></div>
+<div class="ttc" id="class_optimization_html_aa840cd6c3baf8fd4ce35018701672fce"><div class="ttname"><a href="class_optimization.html#aa840cd6c3baf8fd4ce35018701672fce">Optimization::model</a></div><div class="ttdeci">Model&lt; UsedType &gt; * model</div><div class="ttdef"><b>Definition:</b> <a href="optimization_8h_source.html#l00014">optimization.h:14</a></div></div>
+<div class="ttc" id="optimization_8h_html"><div class="ttname"><a href="optimization_8h.html">optimization.h</a></div></div>
+<div class="ttc" id="class_recursive_least_square_html_ac599721ef357296d99fd13f9bff36dcf"><div class="ttname"><a href="class_recursive_least_square.html#ac599721ef357296d99fd13f9bff36dcf">RecursiveLeastSquare::K</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; K</div><div class="ttdef"><b>Definition:</b> <a href="recursiveleastsquare_8h_source.html#l00010">recursiveleastsquare.h:10</a></div></div>
+<div class="ttc" id="class_optimization_html"><div class="ttname"><a href="class_optimization.html">Optimization</a></div><div class="ttdef"><b>Definition:</b> <a href="optimization_8h_source.html#l00010">optimization.h:10</a></div></div>
+<div class="ttc" id="class_recursive_least_square_html_a0985b1dc1313afe272e2fb11358ee205"><div class="ttname"><a href="class_recursive_least_square.html#a0985b1dc1313afe272e2fb11358ee205">RecursiveLeastSquare::p0</a></div><div class="ttdeci">UsedType p0</div><div class="ttdef"><b>Definition:</b> <a href="recursiveleastsquare_8h_source.html#l00009">recursiveleastsquare.h:9</a></div></div>
+<div class="ttc" id="class_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdoc">Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. </div><div class="ttdef"><b>Definition:</b> <a href="matrix_8h_source.html#l00023">matrix.h:23</a></div></div>
+<div class="ttc" id="class_recursive_least_square_html_a34ceb5d4ce44b349b39d40e21573d551"><div class="ttname"><a href="class_recursive_least_square.html#a34ceb5d4ce44b349b39d40e21573d551">RecursiveLeastSquare::Iteration</a></div><div class="ttdeci">void Iteration()</div><div class="ttdef"><b>Definition:</b> <a href="recursiveleastsquare_8cpp_source.html#l00019">recursiveleastsquare.cpp:19</a></div></div>
+<div class="ttc" id="class_recursive_least_square_html"><div class="ttname"><a href="class_recursive_least_square.html">RecursiveLeastSquare</a></div><div class="ttdef"><b>Definition:</b> <a href="recursiveleastsquare_8h_source.html#l00006">recursiveleastsquare.h:6</a></div></div>
+<div class="ttc" id="class_recursive_least_square_html_a38e3d33a73d989780494ba4f63d6f6d2"><div class="ttname"><a href="class_recursive_least_square.html#a38e3d33a73d989780494ba4f63d6f6d2">RecursiveLeastSquare::lambda</a></div><div class="ttdeci">UsedType lambda</div><div class="ttdef"><b>Definition:</b> <a href="recursiveleastsquare_8h_source.html#l00009">recursiveleastsquare.h:9</a></div></div>
+<div class="ttc" id="class_recursive_least_square_html_ab8c9554c9de560e64caf481dd04b300b"><div class="ttname"><a href="class_recursive_least_square.html#ab8c9554c9de560e64caf481dd04b300b">RecursiveLeastSquare::RecursiveLeastSquare</a></div><div class="ttdeci">RecursiveLeastSquare(Model&lt; UsedType &gt; *model, UsedType p0, unsigned nIteration, UsedType lambda)</div><div class="ttdef"><b>Definition:</b> <a href="recursiveleastsquare_8cpp_source.html#l00004">recursiveleastsquare.cpp:4</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 27 de Dezembro de 2014 19:30:04 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

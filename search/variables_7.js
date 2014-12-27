@@ -1,7 +1,6 @@
 var searchData=
 [
   ['g',['G',['../class_p_s_o.html#ad390fa63ddb330542f599c0853046f13',1,'PSO']]],
-  ['gensize',['GenSize',['../class_p_s_o.html#a4a5c31a30c91c59959fadfb7027d860a',1,'PSO']]],
   ['gfitness',['Gfitness',['../class_p_s_o.html#a95f16dbcacd7b3a35e3fe73c0c7bfb85',1,'PSO']]],
   ['gfitnessgen',['GfitnessGen',['../class_p_s_o.html#a3928576407a53b26970c46f8d1784518',1,'PSO']]],
   ['gfitnessntime',['GfitnessnTime',['../class_p_s_o.html#afa91a6cc675cfc890158e49343855e79',1,'PSO']]],

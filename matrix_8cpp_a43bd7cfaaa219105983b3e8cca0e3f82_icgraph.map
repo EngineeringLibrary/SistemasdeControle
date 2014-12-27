@@ -1,5 +1,4 @@
 <map id="min" name="min">
-<area shape="rect" id="node2" href="$class_optimization.html#aa856b5eca32cbd6584eaf8b453057383" title="Optimization::initRLS" alt="" coords="96,5,241,32"/>
-<area shape="rect" id="node3" href="$class_polynom.html#a936858db267c9cf00769a09be4d99e0f" title="Polynom::SumPoly" alt="" coords="101,56,236,83"/>
-<area shape="rect" id="node4" href="$class_polynom.html#a6a21248c8f4fd8a44bafe37cbb605e8a" title="Polynom::SubPoly" alt="" coords="103,107,234,133"/>
+<area shape="rect" id="node2" href="$class_polynom.html#a936858db267c9cf00769a09be4d99e0f" title="Polynom::SumPoly" alt="" coords="96,5,231,32"/>
+<area shape="rect" id="node3" href="$class_polynom.html#a6a21248c8f4fd8a44bafe37cbb605e8a" title="Polynom::SubPoly" alt="" coords="98,56,229,83"/>
 </map>

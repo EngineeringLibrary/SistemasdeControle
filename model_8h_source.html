@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Código-Fonte de SistemasdeControle/src/simulationLibs/model.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ac84d4b158a08a9898e25c99d7a17639.html">SistemasdeControle</a></li><li class="navelem"><a class="el" href="dir_2fab4fe404714932936eb34a72b6b633.html">src</a></li><li class="navelem"><a class="el" href="dir_116122ab50e882228fa30f7e72edbc14.html">simulationLibs</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">model.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="model_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef MODEL_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define MODEL_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;cfloat&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="matrix_8h.html">src/primitiveLibs/matrix.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_model.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_model.html">Model</a></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_model.html#a381a769ba6e064f309241db9c75fc5b3">   10</a></span>&#160;    <a class="code" href="class_model.html">Model&lt;UsedType&gt;</a> *<a class="code" href="class_model.html#a381a769ba6e064f309241db9c75fc5b3">instance</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">   11</a></span>&#160;    UsedType         <a class="code" href="class_model.html#a2c312cff68ca3c479efca62d2e58eb43">input</a>,<a class="code" href="class_model.html#a1655ed1be7b0815382e2214acb16c65e">output</a>,    <a class="code" href="class_model.html#a066e532d095a7b6392a4d81db1a3cf80">lmin</a>,<a class="code" href="class_model.html#a4d671bd41ec010c049bed0f3988d23d6">lmax</a>,     <a class="code" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">step</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_model.html#a46a4ef34d4c37af4fd8f1fd13eb4b634">   12</a></span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#a85e77811af5d075e0d9267f102e92606">Input</a>,<a class="code" href="class_model.html#a46a4ef34d4c37af4fd8f1fd13eb4b634">Output</a>,    <a class="code" href="class_model.html#a07e768b8a08f4a10b442e3cb38fbcb7d">EstOutput</a>,     <a class="code" href="class_model.html#a58c7970b4c66f18eb92d0fa57e771aed">ModelCoef</a>,</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;                     <a class="code" href="class_model.html#acf238ff176ac3a7757147bee7e84e1fe">LinearVectorPhi</a>, <a class="code" href="class_model.html#a442245913133d5e6f85600f4ba2b28eb">LinearMatrixA</a>, <a class="code" href="class_model.html#a3e02ae73cd67f9851543165ff953b26c">LinearEqualityB</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_model.html#aa12b72318e043183d998c4e17dcc5de4">Model</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    UsedType <a class="code" href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315">diff</a>(UsedType x);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63">setStep</a>(UsedType step);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_model.html#a7c1e7d2c2c2372e5b54e4ebbfd1f4e12">setInstance</a>(<a class="code" href="class_model.html">Model&lt;UsedType&gt;</a> *m);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_model.html#af9946deebc9e2f25f438e9a9bb2c08fe">setModelCoef</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> coef);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7">setIO</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> in, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> out);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#a256a5480e78b8996e4c9f1108aa37bdc">getModelCoef</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#a902897849acc18824b06d0857c7d8fd4">getInputMatrix</a>();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    UsedType <a class="code" href="class_model.html#ae8ba7295e08cf557088e55bf33007d55">getOutput</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#a698582cf99335ce846eaecc5896441db">getOutputMatrix</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#a75334a58859e6bc9cc2fd11d1a42ee3a">getLinearMatrixA</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#ac9e2bac3b1b26a6eb88173e3f45c8998">getLinearEqualityB</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#a0675b540e2717e46a2bbac9659cde7ed">getLinearVectorPhi</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> UsedType         <a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(UsedType x) = 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> UsedType         <a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(UsedType x, UsedType y) = 0;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> x) = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> x, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> y) = 0;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(UsedType lsim, UsedType lmax, UsedType step) = 0;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif // MODEL_H</span></div>
+<div class="ttc" id="class_model_html_a1c08a884d93ab0a9b1775f299f18ee63"><div class="ttname"><a href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63">Model::setStep</a></div><div class="ttdeci">void setStep(UsedType step)</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00015">model.cpp:15</a></div></div>
+<div class="ttc" id="class_model_html_a75334a58859e6bc9cc2fd11d1a42ee3a"><div class="ttname"><a href="class_model.html#a75334a58859e6bc9cc2fd11d1a42ee3a">Model::getLinearMatrixA</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; getLinearMatrixA()</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00057">model.cpp:57</a></div></div>
+<div class="ttc" id="class_model_html_a5c56d54e2f1e548e62c901aa443e662d"><div class="ttname"><a href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">Model::sim</a></div><div class="ttdeci">virtual UsedType sim(UsedType x)=0</div></div>
+<div class="ttc" id="class_model_html_a2c312cff68ca3c479efca62d2e58eb43"><div class="ttname"><a href="class_model.html#a2c312cff68ca3c479efca62d2e58eb43">Model::input</a></div><div class="ttdeci">UsedType input</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00011">model.h:11</a></div></div>
+<div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00007">model.h:7</a></div></div>
+<div class="ttc" id="class_model_html_a381a769ba6e064f309241db9c75fc5b3"><div class="ttname"><a href="class_model.html#a381a769ba6e064f309241db9c75fc5b3">Model::instance</a></div><div class="ttdeci">Model&lt; UsedType &gt; * instance</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00010">model.h:10</a></div></div>
+<div class="ttc" id="class_model_html_ac9e2bac3b1b26a6eb88173e3f45c8998"><div class="ttname"><a href="class_model.html#ac9e2bac3b1b26a6eb88173e3f45c8998">Model::getLinearEqualityB</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; getLinearEqualityB()</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00063">model.cpp:63</a></div></div>
+<div class="ttc" id="class_model_html_ade0ac98afcdcde9ee1faaf28bdf28315"><div class="ttname"><a href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315">Model::diff</a></div><div class="ttdeci">UsedType diff(UsedType x)</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00021">model.cpp:21</a></div></div>
+<div class="ttc" id="class_model_html_a7c1e7d2c2c2372e5b54e4ebbfd1f4e12"><div class="ttname"><a href="class_model.html#a7c1e7d2c2c2372e5b54e4ebbfd1f4e12">Model::setInstance</a></div><div class="ttdeci">void setInstance(Model&lt; UsedType &gt; *m)</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00009">model.cpp:9</a></div></div>
+<div class="ttc" id="class_model_html_a4d671bd41ec010c049bed0f3988d23d6"><div class="ttname"><a href="class_model.html#a4d671bd41ec010c049bed0f3988d23d6">Model::lmax</a></div><div class="ttdeci">UsedType lmax</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00011">model.h:11</a></div></div>
+<div class="ttc" id="class_model_html_acf238ff176ac3a7757147bee7e84e1fe"><div class="ttname"><a href="class_model.html#acf238ff176ac3a7757147bee7e84e1fe">Model::LinearVectorPhi</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; LinearVectorPhi</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00012">model.h:12</a></div></div>
+<div class="ttc" id="class_model_html_a7cd2a1db919315b7c223f82765cacab7"><div class="ttname"><a href="class_model.html#a7cd2a1db919315b7c223f82765cacab7">Model::setIO</a></div><div class="ttdeci">void setIO(Matrix&lt; UsedType &gt; in, Matrix&lt; UsedType &gt; out)</div></div>
+<div class="ttc" id="class_model_html_a1655ed1be7b0815382e2214acb16c65e"><div class="ttname"><a href="class_model.html#a1655ed1be7b0815382e2214acb16c65e">Model::output</a></div><div class="ttdeci">UsedType output</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00011">model.h:11</a></div></div>
+<div class="ttc" id="class_model_html_a46a4ef34d4c37af4fd8f1fd13eb4b634"><div class="ttname"><a href="class_model.html#a46a4ef34d4c37af4fd8f1fd13eb4b634">Model::Output</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; Output</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00012">model.h:12</a></div></div>
+<div class="ttc" id="class_model_html_a698582cf99335ce846eaecc5896441db"><div class="ttname"><a href="class_model.html#a698582cf99335ce846eaecc5896441db">Model::getOutputMatrix</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; getOutputMatrix()</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00039">model.cpp:39</a></div></div>
+<div class="ttc" id="class_model_html_a256a5480e78b8996e4c9f1108aa37bdc"><div class="ttname"><a href="class_model.html#a256a5480e78b8996e4c9f1108aa37bdc">Model::getModelCoef</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; getModelCoef()</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00069">model.cpp:69</a></div></div>
+<div class="ttc" id="class_model_html_a07e768b8a08f4a10b442e3cb38fbcb7d"><div class="ttname"><a href="class_model.html#a07e768b8a08f4a10b442e3cb38fbcb7d">Model::EstOutput</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; EstOutput</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00012">model.h:12</a></div></div>
+<div class="ttc" id="matrix_8h_html"><div class="ttname"><a href="matrix_8h.html">matrix.h</a></div></div>
+<div class="ttc" id="class_model_html_ae8ba7295e08cf557088e55bf33007d55"><div class="ttname"><a href="class_model.html#ae8ba7295e08cf557088e55bf33007d55">Model::getOutput</a></div><div class="ttdeci">UsedType getOutput()</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00045">model.cpp:45</a></div></div>
+<div class="ttc" id="class_model_html_a0675b540e2717e46a2bbac9659cde7ed"><div class="ttname"><a href="class_model.html#a0675b540e2717e46a2bbac9659cde7ed">Model::getLinearVectorPhi</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; getLinearVectorPhi()</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00051">model.cpp:51</a></div></div>
+<div class="ttc" id="class_model_html_a442245913133d5e6f85600f4ba2b28eb"><div class="ttname"><a href="class_model.html#a442245913133d5e6f85600f4ba2b28eb">Model::LinearMatrixA</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; LinearMatrixA</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00012">model.h:12</a></div></div>
+<div class="ttc" id="class_model_html_a3e02ae73cd67f9851543165ff953b26c"><div class="ttname"><a href="class_model.html#a3e02ae73cd67f9851543165ff953b26c">Model::LinearEqualityB</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; LinearEqualityB</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00012">model.h:12</a></div></div>
+<div class="ttc" id="class_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdoc">Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. </div><div class="ttdef"><b>Definition:</b> <a href="matrix_8h_source.html#l00023">matrix.h:23</a></div></div>
+<div class="ttc" id="class_model_html_af9946deebc9e2f25f438e9a9bb2c08fe"><div class="ttname"><a href="class_model.html#af9946deebc9e2f25f438e9a9bb2c08fe">Model::setModelCoef</a></div><div class="ttdeci">void setModelCoef(Matrix&lt; UsedType &gt; coef)</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00027">model.cpp:27</a></div></div>
+<div class="ttc" id="class_model_html_a066e532d095a7b6392a4d81db1a3cf80"><div class="ttname"><a href="class_model.html#a066e532d095a7b6392a4d81db1a3cf80">Model::lmin</a></div><div class="ttdeci">UsedType lmin</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00011">model.h:11</a></div></div>
+<div class="ttc" id="class_model_html_a902897849acc18824b06d0857c7d8fd4"><div class="ttname"><a href="class_model.html#a902897849acc18824b06d0857c7d8fd4">Model::getInputMatrix</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; getInputMatrix()</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00033">model.cpp:33</a></div></div>
+<div class="ttc" id="class_model_html_aff37aef61263d461fe7be2a3aef2c19c"><div class="ttname"><a href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">Model::step</a></div><div class="ttdeci">UsedType step</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00011">model.h:11</a></div></div>
+<div class="ttc" id="class_model_html_aa12b72318e043183d998c4e17dcc5de4"><div class="ttname"><a href="class_model.html#aa12b72318e043183d998c4e17dcc5de4">Model::Model</a></div><div class="ttdeci">Model()</div><div class="ttdef"><b>Definition:</b> <a href="model_8cpp_source.html#l00004">model.cpp:4</a></div></div>
+<div class="ttc" id="class_model_html_a85e77811af5d075e0d9267f102e92606"><div class="ttname"><a href="class_model.html#a85e77811af5d075e0d9267f102e92606">Model::Input</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; Input</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00012">model.h:12</a></div></div>
+<div class="ttc" id="class_model_html_a58c7970b4c66f18eb92d0fa57e771aed"><div class="ttname"><a href="class_model.html#a58c7970b4c66f18eb92d0fa57e771aed">Model::ModelCoef</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; ModelCoef</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00012">model.h:12</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 27 de Dezembro de 2014 19:30:04 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

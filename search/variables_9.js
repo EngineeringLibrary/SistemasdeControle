@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['idcom',['IdCom',['../class_serial.html#a2412dafec838f103efbcc6e8a111b6a6',1,'Serial']]],
   ['iid_5fcatid_5fopcdaserver10',['IID_CATID_OPCDAServer10',['../_opcda_8h.html#aed726f4d0cc1a1aeb5504191d4110e5a',1,'Opcda.h']]],
   ['iid_5fcatid_5fopcdaserver20',['IID_CATID_OPCDAServer20',['../_opcda_8h.html#a7d048177a7c28c60ba94c3ae92e24843',1,'Opcda.h']]],
   ['iid_5fcatid_5fopcdaserver30',['IID_CATID_OPCDAServer30',['../_opcda_8h.html#aab3e2372c3bbade7d76cd09cbde89c89',1,'Opcda.h']]],
@@ -28,8 +29,9 @@ var searchData=
   ['iid_5fiopcshutdown',['IID_IOPCShutdown',['../opccomn_8h.html#ad663bc6eac8c8da6227ead1020feb642',1,'opccomn.h']]],
   ['iid_5fiopcsyncio',['IID_IOPCSyncIO',['../_opcda_8h.html#a6d8836accc8b30852b12becd291f33c1',1,'Opcda.h']]],
   ['iid_5fiopcsyncio2',['IID_IOPCSyncIO2',['../_opcda_8h.html#ab3f8d09ff0fee057ecc449532f397ea2',1,'Opcda.h']]],
-  ['input',['input',['../class_lsim.html#a8c806023acb1c8b953031d359b4adf94',1,'Lsim::input()'],['../classsim_function.html#a92513b19dbf064039f0e2380cdaf647d',1,'simFunction::input()'],['../class_sim.html#a69d74bc890463553c62baa8882442e6a',1,'Sim::InPut()']]],
-  ['instance',['instance',['../class_gl_view.html#a0423570bb7ca80e705636a46caf9a0bf',1,'GlView']]],
+  ['initialstate',['initialState',['../class_state_space.html#a5c120dcb5eec4caea963390f3991e332',1,'StateSpace']]],
+  ['input',['input',['../class_lsim.html#a8c806023acb1c8b953031d359b4adf94',1,'Lsim::input()'],['../class_model.html#a2c312cff68ca3c479efca62d2e58eb43',1,'Model::input()'],['../classsim_function.html#a92513b19dbf064039f0e2380cdaf647d',1,'simFunction::input()'],['../class_sim.html#a69d74bc890463553c62baa8882442e6a',1,'Sim::InPut()'],['../class_model.html#a85e77811af5d075e0d9267f102e92606',1,'Model::Input()']]],
+  ['instance',['instance',['../class_gl_view.html#a0423570bb7ca80e705636a46caf9a0bf',1,'GlView::instance()'],['../class_model.html#a381a769ba6e064f309241db9c75fc5b3',1,'Model::instance()']]],
   ['integralerror',['integralError',['../class_p_i_d.html#abf26051a6857019edac542298babce9f',1,'PID']]],
   ['itemproperties',['ItemProperties',['../structtag_o_p_c_b_r_o_w_s_e_e_l_e_m_e_n_t.html#af878aab5ef0ecf20245059574cb8064a',1,'tagOPCBROWSEELEMENT']]]
 ];

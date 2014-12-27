@@ -1,5 +1,27 @@
 var searchData=
 [
-  ['opcclient',['OPCClient',['../class_o_p_c_client.html',1,'']]],
-  ['optimization',['Optimization',['../class_optimization.html',1,'']]]
+  ['ienumopcitemattributesvtbl',['IEnumOPCItemAttributesVtbl',['../struct_i_enum_o_p_c_item_attributes_vtbl.html',1,'']]],
+  ['iopcasyncio2vtbl',['IOPCAsyncIO2Vtbl',['../struct_i_o_p_c_async_i_o2_vtbl.html',1,'']]],
+  ['iopcasyncio3vtbl',['IOPCAsyncIO3Vtbl',['../struct_i_o_p_c_async_i_o3_vtbl.html',1,'']]],
+  ['iopcasynciovtbl',['IOPCAsyncIOVtbl',['../struct_i_o_p_c_async_i_o_vtbl.html',1,'']]],
+  ['iopcbrowseserveraddressspacevtbl',['IOPCBrowseServerAddressSpaceVtbl',['../struct_i_o_p_c_browse_server_address_space_vtbl.html',1,'']]],
+  ['iopcbrowsevtbl',['IOPCBrowseVtbl',['../struct_i_o_p_c_browse_vtbl.html',1,'']]],
+  ['iopccommonvtbl',['IOPCCommonVtbl',['../struct_i_o_p_c_common_vtbl.html',1,'']]],
+  ['iopcdatacallbackvtbl',['IOPCDataCallbackVtbl',['../struct_i_o_p_c_data_callback_vtbl.html',1,'']]],
+  ['iopcenumguidvtbl',['IOPCEnumGUIDVtbl',['../struct_i_o_p_c_enum_g_u_i_d_vtbl.html',1,'']]],
+  ['iopcgroupstatemgt2vtbl',['IOPCGroupStateMgt2Vtbl',['../struct_i_o_p_c_group_state_mgt2_vtbl.html',1,'']]],
+  ['iopcgroupstatemgtvtbl',['IOPCGroupStateMgtVtbl',['../struct_i_o_p_c_group_state_mgt_vtbl.html',1,'']]],
+  ['iopcitemdeadbandmgtvtbl',['IOPCItemDeadbandMgtVtbl',['../struct_i_o_p_c_item_deadband_mgt_vtbl.html',1,'']]],
+  ['iopcitemiovtbl',['IOPCItemIOVtbl',['../struct_i_o_p_c_item_i_o_vtbl.html',1,'']]],
+  ['iopcitemmgtvtbl',['IOPCItemMgtVtbl',['../struct_i_o_p_c_item_mgt_vtbl.html',1,'']]],
+  ['iopcitempropertiesvtbl',['IOPCItemPropertiesVtbl',['../struct_i_o_p_c_item_properties_vtbl.html',1,'']]],
+  ['iopcitemsamplingmgtvtbl',['IOPCItemSamplingMgtVtbl',['../struct_i_o_p_c_item_sampling_mgt_vtbl.html',1,'']]],
+  ['iopcpublicgroupstatemgtvtbl',['IOPCPublicGroupStateMgtVtbl',['../struct_i_o_p_c_public_group_state_mgt_vtbl.html',1,'']]],
+  ['iopcserverlist2vtbl',['IOPCServerList2Vtbl',['../struct_i_o_p_c_server_list2_vtbl.html',1,'']]],
+  ['iopcserverlistvtbl',['IOPCServerListVtbl',['../struct_i_o_p_c_server_list_vtbl.html',1,'']]],
+  ['iopcserverpublicgroupsvtbl',['IOPCServerPublicGroupsVtbl',['../struct_i_o_p_c_server_public_groups_vtbl.html',1,'']]],
+  ['iopcservervtbl',['IOPCServerVtbl',['../struct_i_o_p_c_server_vtbl.html',1,'']]],
+  ['iopcshutdownvtbl',['IOPCShutdownVtbl',['../struct_i_o_p_c_shutdown_vtbl.html',1,'']]],
+  ['iopcsyncio2vtbl',['IOPCSyncIO2Vtbl',['../struct_i_o_p_c_sync_i_o2_vtbl.html',1,'']]],
+  ['iopcsynciovtbl',['IOPCSyncIOVtbl',['../struct_i_o_p_c_sync_i_o_vtbl.html',1,'']]]
 ];

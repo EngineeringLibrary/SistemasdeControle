@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['c',['C',['../class_eqdif_sim.html#aa4b9e62382d5236f817fa8f311a70654',1,'EqdifSim::C()'],['../struct___i_i_d.html#aa13b8da4d66ea5f5af6e66f173768b13',1,'_IID::c()']]],
-  ['c2d',['c2d',['../class_eqdif_sim.html#a7faecb8f3fd8aa24aa6657b64957b29d',1,'EqdifSim']]],
+  ['c',['C',['../class_eqdif_sim.html#aa4b9e62382d5236f817fa8f311a70654',1,'EqdifSim::C()'],['../class_state_space.html#af1b66a28661ef6f85c0aa105756d8d29',1,'StateSpace::C()'],['../struct___i_i_d.html#aa13b8da4d66ea5f5af6e66f173768b13',1,'_IID::c()'],['../classbisseccao.html#a45e5fc5f75536e0d38c139bd2cae6287',1,'bisseccao::c()']]],
+  ['c2d',['c2d',['../class_eqdif_sim.html#a7faecb8f3fd8aa24aa6657b64957b29d',1,'EqdifSim::c2d()'],['../class_state_space.html#a41cf30a838b393851caed1059943c014',1,'StateSpace::c2d()']]],
+  ['c2dconversion',['c2dConversion',['../class_state_space.html#a6a238f4601404ee837336166ca20917e',1,'StateSpace::c2dConversion()'],['../class_transfer_function.html#a1ca397b7a0583da56c86058fa16eb335',1,'TransferFunction::c2dConversion()']]],
   ['catid_5fopcdaserver10',['CATID_OPCDAServer10',['../_opcda_8h.html#a7e80262d64e1b9b1fd35f5f66ff8d184',1,'CATID_OPCDAServer10():&#160;Opcda.h'],['../_opcda_8h.html#a9e081516ae5b5e8940a590661bb87a3d',1,'CATID_OPCDAServer10():&#160;Opcda.h']]],
   ['catid_5fopcdaserver10vtbl',['CATID_OPCDAServer10Vtbl',['../struct_c_a_t_i_d___o_p_c_d_a_server10_vtbl.html',1,'CATID_OPCDAServer10Vtbl'],['../_opcda_8h.html#a35a1e46200e470da078660112a43aa9b',1,'CATID_OPCDAServer10Vtbl():&#160;Opcda.h']]],
   ['catid_5fopcdaserver20',['CATID_OPCDAServer20',['../_opcda_8h.html#a64eec205b4a95899ce081a38c39d674c',1,'CATID_OPCDAServer20():&#160;Opcda.h'],['../_opcda_8h.html#a79a8948965a4c73fda65f4b5e15cc90d',1,'CATID_OPCDAServer20():&#160;Opcda.h']]],
@@ -28,6 +29,10 @@ var searchData=
   ['cols',['cols',['../class_matrix.html#a4b1e096baa24d034d711bd77c3e1bc8d',1,'Matrix']]],
   ['comunicacao_2ecpp',['comunicacao.cpp',['../comunicacao_8cpp.html',1,'']]],
   ['comunicacao_2eh',['comunicacao.h',['../comunicacao_8h.html',1,'']]],
+  ['cont',['cont',['../class_f_i_r.html#adef4c9cdf0da1168be8e95d479e92231',1,'FIR']]],
+  ['continuous',['Continuous',['../class_state_space.html#a478a4ceb3124bd54ceb146fe9371e8d5',1,'StateSpace']]],
+  ['conversions',['conversions',['../namespaceconversions.html',1,'']]],
+  ['conversions_2eh',['conversions.h',['../conversions_8h.html',1,'']]],
   ['cos',['cos',['../class_matrix.html#acb9e57b539107785226ed4362dc2d712',1,'Matrix::cos()'],['../matrix_8cpp.html#aa80a6b44b3f27ba572a143b28003b711',1,'cos():&#160;matrix.cpp']]],
   ['cos_3c_20double_20_3e',['cos&lt; double &gt;',['../matrix_8cpp.html#a9416310a5cfe465066d266da62641a36',1,'matrix.cpp']]],
   ['cos_3c_20float_20_3e',['cos&lt; float &gt;',['../matrix_8cpp.html#a9e193a247e8b25b6b3b0388a8849c8f2',1,'matrix.cpp']]],

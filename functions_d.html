@@ -39,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Arquivos</span></a></li>
       <li>
@@ -112,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,9 +128,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
 <li>D
 : <a class="el" href="class_eqdif_sim.html#abff4ccb756f7f481b0f18fa77816b4c0">EqdifSim&lt; UsedType &gt;</a>
+, <a class="el" href="class_state_space.html#acf96a86d495d42d47c915b93961d115e">StateSpace&lt; UsedType &gt;</a>
 </li>
 <li>d2c()
 : <a class="el" href="class_eqdif_sim.html#a8c894e67be1081677995c10aa74c8407">EqdifSim&lt; UsedType &gt;</a>
+</li>
+<li>d2cConversion()
+: <a class="el" href="class_state_space.html#a0f32de6eab7460b30bd16cf6e6ddb620">StateSpace&lt; UsedType &gt;</a>
 </li>
 <li>DataChange
 : <a class="el" href="class_sim.html#a02dd2bbbde2395710c71ceccf1c87a7d">Sim&lt; UsedType &gt;</a>
@@ -143,6 +148,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <li>Degree
 : <a class="el" href="class_sim.html#a0188b160b4ed4848635091c4fdf5e876">Sim&lt; UsedType &gt;</a>
 </li>
+<li>delay
+: <a class="el" href="class_a_r_x.html#a2554ae6a1660ec605487101d757e0325">ARX&lt; UsedType &gt;</a>
+, <a class="el" href="class_f_i_r.html#a7a44fafaea1e9d40d6d0fce3dcf1acf4">FIR&lt; UsedType &gt;</a>
+</li>
 <li>den
 : <a class="el" href="class_polynom.html#a90ac0214cb5181b6abfc761622996d7f">Polynom&lt; TypeOfClass &gt;</a>
 </li>
@@ -152,11 +161,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <li>det()
 : <a class="el" href="class_matrix.html#a5f933c53833ab2079407882b8718c826">Matrix&lt; UsedType &gt;</a>
 </li>
+<li>dfx
+: <a class="el" href="class_newton.html#ae475f56d075bb588798a5adc28989a28">Newton&lt; UsedType &gt;</a>
+</li>
 <li>difError()
 : <a class="el" href="class_p_i_d.html#af5acea538dbc8d9b260b07bc2d3ae66d">PID&lt; UsedType &gt;</a>
 </li>
 <li>diff
 : <a class="el" href="class_matrix.html#ad44e24444d2fcb1286f2fac55c4da8a2">Matrix&lt; UsedType &gt;</a>
+, <a class="el" href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315">Model&lt; UsedType &gt;</a>
 </li>
 <li>DiscreteTransferFunction
 : <a class="el" href="class_eqdif_sim.html#ad414979450d50a47ef0b3c2bb1a778f1">EqdifSim&lt; UsedType &gt;</a>
@@ -308,8 +321,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 , <a class="el" href="struct_i_o_p_c_sync_i_o_vtbl.html#a74864769da826a2a80a904795e2494a6">IOPCSyncIOVtbl</a>
 </li>
 <li>dwTransactionID
-: <a class="el" href="struct_i_o_p_c_async_i_o2_vtbl.html#a509156bfebd93f76baef524b307f478c">IOPCAsyncIO2Vtbl</a>
-, <a class="el" href="struct_i_o_p_c_async_i_o3_vtbl.html#a85f8baa72e8d9553011c7598ba4551b7">IOPCAsyncIO3Vtbl</a>
+: <a class="el" href="struct_i_o_p_c_async_i_o2_vtbl.html#ae7aaf54fdfa78f73d5288452dd97c105">IOPCAsyncIO2Vtbl</a>
+, <a class="el" href="struct_i_o_p_c_async_i_o3_vtbl.html#ac9bebca8dd9e2e960550472bc5769813">IOPCAsyncIO3Vtbl</a>
 , <a class="el" href="struct_i_o_p_c_async_i_o_vtbl.html#a52ba5963d636ee3a1cb4c2a31ef85657">IOPCAsyncIOVtbl</a>
 , <a class="el" href="structtag_o_p_c_g_r_o_u_p_h_e_a_d_e_r.html#a80d2057dec11bf186b2c8e28f16b764d">tagOPCGROUPHEADER</a>
 , <a class="el" href="structtag_o_p_c_g_r_o_u_p_h_e_a_d_e_r_w_r_i_t_e.html#a488ae7c35a470968110f0315e037c55f">tagOPCGROUPHEADERWRITE</a>
@@ -325,7 +338,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 28 de Novembro de 2014 12:40:48 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sábado, 27 de Dezembro de 2014 19:30:40 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

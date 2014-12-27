@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['e',['e',['../class_recursive_least_square.html#ae8ba0dbf47de06a8ca8ec29b69a4f09e',1,'RecursiveLeastSquare']]],
   ['eigenvalues',['eigenvalues',['../class_matrix.html#a2cc1e0be0c535a46dbebddc7636a63f8',1,'Matrix']]],
   ['eqdifcoef',['eqdifCoef',['../class_lsim.html#afdfb3503d15838a14290c08687ef4681',1,'Lsim']]],
   ['eqdifmodel',['eqdifModel',['../class_lsim.html#a249e55fdcbe403a95f0c14f3ada5a01f',1,'Lsim']]],
@@ -7,7 +8,7 @@ var searchData=
   ['eqdifsim_2ecpp',['eqdifsim.cpp',['../eqdifsim_8cpp.html',1,'']]],
   ['eqdifsim_2eh',['eqdifsim.h',['../eqdifsim_8h.html',1,'']]],
   ['error',['Error',['../class_p_i_d.html#aad49126776dbf59d31209eead1b9f2ea',1,'PID::Error()'],['../class_relay.html#ad7c29f9df933e2f9d47d1fb43776a0e3',1,'Relay::Error()'],['../class_sim.html#ada643970e7e5aa784a94cad4185e5b75',1,'Sim::Error()']]],
-  ['estoutput',['EstOutPut',['../class_sim.html#aa086dac31049bb306ac5c645ef701cc8',1,'Sim']]],
+  ['estoutput',['EstOutput',['../class_model.html#a07e768b8a08f4a10b442e3cb38fbcb7d',1,'Model::EstOutput()'],['../class_sim.html#aa086dac31049bb306ac5c645ef701cc8',1,'Sim::EstOutPut()']]],
   ['evaluation',['Evaluation',['../class_p_s_o.html#a9ade88c7f4db3671174a21aebfe92db8',1,'PSO']]],
   ['exp',['exp',['../class_matrix.html#a490bfe8498fc7e33f5f4d08e6083b1b4',1,'Matrix::exp()'],['../matrix_8cpp.html#a7b67209d43fd2f9cde910f9eb099d882',1,'exp():&#160;matrix.cpp']]],
   ['exp_3c_20double_20_3e',['exp&lt; double &gt;',['../matrix_8cpp.html#a5005a338ece06e63949aedc308830fc5',1,'matrix.cpp']]],

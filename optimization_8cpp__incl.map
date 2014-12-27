@@ -1,3 +1,6 @@
 <map id="SistemasdeControle/src/optimizationLibs/optimization.cpp" name="SistemasdeControle/src/optimizationLibs/optimization.cpp">
-<area shape="rect" id="node2" href="$optimization_8h.html" title="optimization.h" alt="" coords="25,109,128,136"/>
+<area shape="rect" id="node2" href="$optimization_8h.html" title="optimization.h" alt="" coords="177,109,280,136"/>
+<area shape="rect" id="node3" href="$model_8h.html" title="src/simulationLibs\l/model.h" alt="" coords="165,273,292,315"/>
+<area shape="rect" id="node13" href="$arx_8h.html" title="src/simulationLibs\l/arx.h" alt="" coords="216,184,343,225"/>
+<area shape="rect" id="node5" href="$matrix_8h.html" title="src/primitiveLibs/matrix.h" alt="" coords="213,363,380,389"/>
 </map>

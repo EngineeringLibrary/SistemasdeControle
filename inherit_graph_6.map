@@ -1,4 +1,7 @@
 <map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
-<area shape="rect" id="node1" href="$class_gl_view.html" title="Classe para gerenciar interfaces com o OpenGl. " alt="" coords="5,5,68,32"/>
-<area shape="rect" id="node2" href="$classgrafics.html" title="Classe concreta que herda da Classe GlView. " alt="" coords="116,5,176,32"/>
+<area shape="rect" id="node1" href="$class_f_zero.html" title="FZero\&lt; UsedType \&gt;" alt="" coords="5,81,143,108"/>
+<area shape="rect" id="node2" href="$classbisseccao.html" title="bisseccao\&lt; UsedType \&gt;" alt="" coords="191,5,353,32"/>
+<area shape="rect" id="node3" href="$class_newton.html" title="Newton\&lt; UsedType \&gt;" alt="" coords="199,56,345,83"/>
+<area shape="rect" id="node4" href="$classsecant.html" title="secant\&lt; UsedType \&gt;" alt="" coords="201,107,343,133"/>
+<area shape="rect" id="node5" href="$classsteffensen.html" title="Classe steffensen, com o intuito de encontrar o zero de uma função modelo. " alt="" coords="191,157,353,184"/>
 </map>

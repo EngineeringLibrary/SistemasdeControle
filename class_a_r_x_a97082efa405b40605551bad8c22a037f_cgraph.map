@@ -1,0 +1,6 @@
+<map id="ARX::setLinearModel" name="ARX::setLinearModel">
+<area shape="rect" id="node2" href="$class_matrix.html#a1a544492885c8925f6da46e44a896fe3" title="Retorna o número de linhas da matriz. " alt="" coords="196,5,312,32"/>
+<area shape="rect" id="node3" href="$class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd" title="Cria uma matriz de zeros. " alt="" coords="205,56,303,83"/>
+<area shape="rect" id="node4" href="$class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="199,107,309,133"/>
+<area shape="rect" id="node5" href="$class_matrix.html#a95c22817d23b8b30b25115478e15694a" title="Obter uma linha inteira de uma matriz. " alt="" coords="200,157,308,184"/>
+</map>

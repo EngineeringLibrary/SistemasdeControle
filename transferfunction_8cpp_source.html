@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Código-Fonte de SistemasdeControle/src/simulationLibs/transferfunction.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ac84d4b158a08a9898e25c99d7a17639.html">SistemasdeControle</a></li><li class="navelem"><a class="el" href="dir_2fab4fe404714932936eb34a72b6b633.html">src</a></li><li class="navelem"><a class="el" href="dir_116122ab50e882228fa30f7e72edbc14.html">simulationLibs</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">transferfunction.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="transferfunction_8cpp.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transferfunction_8h.html">transferfunction.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="class_transfer_function.html#a85b098374d20e3852e67e190a7323038">    4</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_transfer_function.html#a85b098374d20e3852e67e190a7323038">TransferFunction&lt;UsedType&gt;::initTfNumber</a>()</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    this-&gt;TF = <span class="keyword">new</span> <a class="code" href="class_polynom.html">Polynom&lt;UsedType&gt;</a> *[nRowsTF];</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> i = 0; i &lt; nRowsTF; i++)</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        this-&gt;TF[i] = <span class="keyword">new</span> <a class="code" href="class_polynom.html">Polynom&lt;UsedType&gt;</a> [nColsTF];</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;}</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_transfer_function.html#a1ca397b7a0583da56c86058fa16eb335">   12</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_transfer_function.html#a1ca397b7a0583da56c86058fa16eb335">TransferFunction&lt;UsedType&gt;::c2dConversion</a>()</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_transfer_function.html#a3880806383a62225faa2492417ac622c">   18</a></span>&#160;<a class="code" href="class_transfer_function.html#acddfe59f21e8364bca9c91f884db02fa">TransferFunction&lt;UsedType&gt;::TransferFunction</a>(std::string num, std::string den,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                                             <span class="keywordtype">unsigned</span> rows  , <span class="keywordtype">unsigned</span> cols)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> Num(num), Den(den);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    nRowsTF = rows;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    nColsTF = cols;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    this-&gt;initTfNumber();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    sampleTime = 0.1;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">unsigned</span> cont = 1;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; nRowsTF; i++)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> j = 0; j &lt; nColsTF; j++)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            this-&gt;TF[i][j].init(Num.getLine(cont), Den.<a class="code" href="class_matrix.html#a95c22817d23b8b30b25115478e15694a">getLine</a>(cont));</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            cont++;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_transfer_function.html#acddfe59f21e8364bca9c91f884db02fa">   37</a></span>&#160;<a class="code" href="class_transfer_function.html#acddfe59f21e8364bca9c91f884db02fa">TransferFunction&lt;UsedType&gt;::TransferFunction</a>(<span class="keywordtype">unsigned</span> rows, <span class="keywordtype">unsigned</span> cols)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    nRowsTF = rows;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    nColsTF = cols;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    this-&gt;initTfNumber();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    sampleTime = 0.1;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_transfer_function.html#aa9af5790490080160c5a730c13297e10">   46</a></span>&#160;<a class="code" href="class_polynom.html">Polynom&lt;UsedType&gt;</a> <a class="code" href="class_transfer_function.html#aa9af5790490080160c5a730c13297e10">TransferFunction&lt;UsedType&gt;::operator ()</a>(<span class="keywordtype">unsigned</span> row, <span class="keywordtype">unsigned</span> col)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;UsedType&gt;</a> Ret(this-&gt;TF[row-1][col-1].getNum(),</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                          this-&gt;TF[row-1][col-1].getDen());</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> Ret;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_transfer_function.html#a9ddff164a1e2d4c759b4efba331504fd">   55</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_transfer_function.html#aa9af5790490080160c5a730c13297e10">TransferFunction&lt;UsedType&gt;::operator ()</a>(<span class="keywordtype">unsigned</span> row, <span class="keywordtype">unsigned</span> col, <a class="code" href="class_polynom.html">Polynom&lt;UsedType&gt;</a> P)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    this-&gt;TF[row-1][col-1] = P;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_transfer_function.html#a27c1bbd88699f97997e3c058b042f1e2">   61</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_transfer_function.html#a27c1bbd88699f97997e3c058b042f1e2">TransferFunction&lt;UsedType&gt;::operator =</a>(<a class="code" href="class_transfer_function.html">TransferFunction</a> TF)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    this-&gt;sampleTime = TF.<a class="code" href="class_transfer_function.html#a8f4abfd9a32e54f4df6d3f8845abb940">sampleTime</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    this-&gt;timeSimulation = TF.<a class="code" href="class_transfer_function.html#a1147e22359ad13a71eacb749c581d681">timeSimulation</a>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    this-&gt;nRowsTF = TF.<a class="code" href="class_transfer_function.html#af414210fa76962db2c257aa63e446e32">nRowsTF</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    this-&gt;initTfNumber();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; this-&gt;nRowsTF; i++)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> j = 0; j &lt; this-&gt;nRowsTF; j++)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            this-&gt;TF[i][j] = TF.<a class="code" href="class_transfer_function.html#abc2ec56ccf027333ccb6921e11d822d8">TF</a>[i][j];</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="class_transfer_function.html#a3ac42a08bdc63ad14533aaba65b450cd">   74</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_transfer_function.html#a3ac42a08bdc63ad14533aaba65b450cd">TransferFunction&lt;UsedType&gt;::printTF</a>()</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; nRowsTF; i++)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> j = 0; j &lt; nColsTF; j++)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            this-&gt;TF[i][j].setVar(<span class="charliteral">&#39;s&#39;</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            this-&gt;TF[i][j].print();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="class_transfer_function.html#a6d83d09a607cbcb6f75412c35ff36fa5">   86</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_transfer_function.html#a6d83d09a607cbcb6f75412c35ff36fa5">TransferFunction&lt;UsedType&gt;::setTF</a>(<a class="code" href="class_polynom.html">Polynom&lt;UsedType&gt;</a> **TF,</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                                       <span class="keywordtype">unsigned</span> rows, <span class="keywordtype">unsigned</span> cols)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    this-&gt;TF = PolynomMatrix&lt;UsedType&gt; (rows,cols);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    nRowsTF = rows;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    nColsTF = cols;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; nRowsTF; i++)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> j = 0; j &lt; nColsTF; j++)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        {</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            this-&gt;TF[i][j] = TF[i][j];</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="class_transfer_function.html#a447fbfc6b9b641dbc72210d45e1143fe">  102</a></span>&#160;<a class="code" href="class_polynom.html">Polynom&lt;UsedType&gt;</a>** <a class="code" href="class_transfer_function.html#a447fbfc6b9b641dbc72210d45e1143fe">TransferFunction&lt;UsedType&gt;::getTF</a>()</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;UsedType&gt;</a> GerPol;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="class_polynom.html">Polynom&lt;UsedType&gt;</a> **Ret = PolynomMatrix&lt;UsedType&gt;(nRowsTF,nColsTF);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> i = 0; i &lt; nRowsTF; i++)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> j = 0; j &lt; nColsTF; j++)</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            Ret[i][j] = TF[i][j];</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> Ret;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="class_transfer_function.html#ad6299817f4f016e77185252f4b7fc931">  116</a></span>&#160;<span class="keywordtype">unsigned</span> <a class="code" href="class_transfer_function.html#ad6299817f4f016e77185252f4b7fc931">TransferFunction&lt;UsedType&gt;::getNRowsTF</a>()</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> nRowsTF;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="class_transfer_function.html#a1375e12bc5b5ce612db162cddcdc6077">  122</a></span>&#160;<span class="keywordtype">unsigned</span> <a class="code" href="class_transfer_function.html#a1375e12bc5b5ce612db162cddcdc6077">TransferFunction&lt;UsedType&gt;::getNColsTF</a>()</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> nColsTF;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="class_transfer_function.html#ac63a261ef2f632979d882e214c5cf310">  128</a></span>&#160;UsedType <a class="code" href="class_transfer_function.html#ac63a261ef2f632979d882e214c5cf310">TransferFunction&lt;UsedType&gt;::sim</a>(UsedType x)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;}</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="class_transfer_function.html#abc79523ccd810b5ed044cfc5c024788b">  134</a></span>&#160;UsedType <a class="code" href="class_transfer_function.html#ac63a261ef2f632979d882e214c5cf310">TransferFunction&lt;UsedType&gt;::sim</a>(UsedType x, UsedType y)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;{</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="class_transfer_function.html#ab1a57526ba82159decede6632122b04b">  140</a></span>&#160;<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_transfer_function.html#ac63a261ef2f632979d882e214c5cf310">TransferFunction&lt;UsedType&gt;::sim</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> x)</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;{</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="class_transfer_function.html#ae7f60d69b77077496e69f03fb1b4ce62">  146</a></span>&#160;<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_transfer_function.html#ac63a261ef2f632979d882e214c5cf310">TransferFunction&lt;UsedType&gt;::sim</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> x, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> y)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;{</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="class_transfer_function.html#af6b08167e8ff910ed02a70799c922d81">  152</a></span>&#160;<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_transfer_function.html#ac63a261ef2f632979d882e214c5cf310">TransferFunction&lt;UsedType&gt;::sim</a>(UsedType lsim, UsedType lmax, UsedType step)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">//template class TransferFunction&lt;int&gt;;</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="class_transfer_function.html">TransferFunction&lt;float&gt;</a>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="class_transfer_function.html">TransferFunction&lt;double&gt;</a>;</div>
+<div class="ttc" id="transferfunction_8h_html"><div class="ttname"><a href="transferfunction_8h.html">transferfunction.h</a></div></div>
+<div class="ttc" id="class_transfer_function_html_ac63a261ef2f632979d882e214c5cf310"><div class="ttname"><a href="class_transfer_function.html#ac63a261ef2f632979d882e214c5cf310">TransferFunction::sim</a></div><div class="ttdeci">UsedType sim(UsedType input)</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8cpp_source.html#l00128">transferfunction.cpp:128</a></div></div>
+<div class="ttc" id="class_transfer_function_html_a1ca397b7a0583da56c86058fa16eb335"><div class="ttname"><a href="class_transfer_function.html#a1ca397b7a0583da56c86058fa16eb335">TransferFunction::c2dConversion</a></div><div class="ttdeci">void c2dConversion()</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8cpp_source.html#l00012">transferfunction.cpp:12</a></div></div>
+<div class="ttc" id="class_matrix_html_a95c22817d23b8b30b25115478e15694a"><div class="ttname"><a href="class_matrix.html#a95c22817d23b8b30b25115478e15694a">Matrix::getLine</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; getLine(int num)</div><div class="ttdoc">Obter uma linha inteira de uma matriz. </div><div class="ttdef"><b>Definition:</b> <a href="matrix_8cpp_source.html#l00841">matrix.cpp:841</a></div></div>
+<div class="ttc" id="class_transfer_function_html_a6d83d09a607cbcb6f75412c35ff36fa5"><div class="ttname"><a href="class_transfer_function.html#a6d83d09a607cbcb6f75412c35ff36fa5">TransferFunction::setTF</a></div><div class="ttdeci">void setTF(Polynom&lt; UsedType &gt; **TF, unsigned rows, unsigned cols)</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8cpp_source.html#l00086">transferfunction.cpp:86</a></div></div>
+<div class="ttc" id="class_transfer_function_html_a85b098374d20e3852e67e190a7323038"><div class="ttname"><a href="class_transfer_function.html#a85b098374d20e3852e67e190a7323038">TransferFunction::initTfNumber</a></div><div class="ttdeci">void initTfNumber()</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8cpp_source.html#l00004">transferfunction.cpp:4</a></div></div>
+<div class="ttc" id="class_transfer_function_html_ad6299817f4f016e77185252f4b7fc931"><div class="ttname"><a href="class_transfer_function.html#ad6299817f4f016e77185252f4b7fc931">TransferFunction::getNRowsTF</a></div><div class="ttdeci">unsigned getNRowsTF()</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8cpp_source.html#l00116">transferfunction.cpp:116</a></div></div>
+<div class="ttc" id="class_transfer_function_html_a1375e12bc5b5ce612db162cddcdc6077"><div class="ttname"><a href="class_transfer_function.html#a1375e12bc5b5ce612db162cddcdc6077">TransferFunction::getNColsTF</a></div><div class="ttdeci">unsigned getNColsTF()</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8cpp_source.html#l00122">transferfunction.cpp:122</a></div></div>
+<div class="ttc" id="class_transfer_function_html_abc2ec56ccf027333ccb6921e11d822d8"><div class="ttname"><a href="class_transfer_function.html#abc2ec56ccf027333ccb6921e11d822d8">TransferFunction::TF</a></div><div class="ttdeci">Polynom&lt; UsedType &gt; ** TF</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8h_source.html#l00012">transferfunction.h:12</a></div></div>
+<div class="ttc" id="class_transfer_function_html_acddfe59f21e8364bca9c91f884db02fa"><div class="ttname"><a href="class_transfer_function.html#acddfe59f21e8364bca9c91f884db02fa">TransferFunction::TransferFunction</a></div><div class="ttdeci">TransferFunction(unsigned rows, unsigned cols)</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8cpp_source.html#l00037">transferfunction.cpp:37</a></div></div>
+<div class="ttc" id="class_transfer_function_html_af414210fa76962db2c257aa63e446e32"><div class="ttname"><a href="class_transfer_function.html#af414210fa76962db2c257aa63e446e32">TransferFunction::nRowsTF</a></div><div class="ttdeci">unsigned nRowsTF</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8h_source.html#l00011">transferfunction.h:11</a></div></div>
+<div class="ttc" id="class_transfer_function_html_a27c1bbd88699f97997e3c058b042f1e2"><div class="ttname"><a href="class_transfer_function.html#a27c1bbd88699f97997e3c058b042f1e2">TransferFunction::operator=</a></div><div class="ttdeci">void operator=(TransferFunction&lt; UsedType &gt; TF)</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8cpp_source.html#l00061">transferfunction.cpp:61</a></div></div>
+<div class="ttc" id="class_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdoc">Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. </div><div class="ttdef"><b>Definition:</b> <a href="matrix_8h_source.html#l00023">matrix.h:23</a></div></div>
+<div class="ttc" id="class_transfer_function_html_a1147e22359ad13a71eacb749c581d681"><div class="ttname"><a href="class_transfer_function.html#a1147e22359ad13a71eacb749c581d681">TransferFunction::timeSimulation</a></div><div class="ttdeci">UsedType timeSimulation</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8h_source.html#l00010">transferfunction.h:10</a></div></div>
+<div class="ttc" id="class_transfer_function_html"><div class="ttname"><a href="class_transfer_function.html">TransferFunction</a></div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8h_source.html#l00007">transferfunction.h:7</a></div></div>
+<div class="ttc" id="class_transfer_function_html_a447fbfc6b9b641dbc72210d45e1143fe"><div class="ttname"><a href="class_transfer_function.html#a447fbfc6b9b641dbc72210d45e1143fe">TransferFunction::getTF</a></div><div class="ttdeci">Polynom&lt; UsedType &gt; ** getTF()</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8cpp_source.html#l00102">transferfunction.cpp:102</a></div></div>
+<div class="ttc" id="class_transfer_function_html_a8f4abfd9a32e54f4df6d3f8845abb940"><div class="ttname"><a href="class_transfer_function.html#a8f4abfd9a32e54f4df6d3f8845abb940">TransferFunction::sampleTime</a></div><div class="ttdeci">UsedType sampleTime</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8h_source.html#l00010">transferfunction.h:10</a></div></div>
+<div class="ttc" id="class_transfer_function_html_a3ac42a08bdc63ad14533aaba65b450cd"><div class="ttname"><a href="class_transfer_function.html#a3ac42a08bdc63ad14533aaba65b450cd">TransferFunction::printTF</a></div><div class="ttdeci">void printTF()</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8cpp_source.html#l00074">transferfunction.cpp:74</a></div></div>
+<div class="ttc" id="class_transfer_function_html_aa9af5790490080160c5a730c13297e10"><div class="ttname"><a href="class_transfer_function.html#aa9af5790490080160c5a730c13297e10">TransferFunction::operator()</a></div><div class="ttdeci">Polynom&lt; UsedType &gt; operator()(unsigned row, unsigned col)</div><div class="ttdef"><b>Definition:</b> <a href="transferfunction_8cpp_source.html#l00046">transferfunction.cpp:46</a></div></div>
+<div class="ttc" id="class_polynom_html"><div class="ttname"><a href="class_polynom.html">Polynom&lt; UsedType &gt;</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 27 de Dezembro de 2014 19:30:04 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['idcom',['IdCom',['../class_serial.html#a2412dafec838f103efbcc6e8a111b6a6',1,'Serial']]],
   ['ienumopcitemattributes',['IEnumOPCItemAttributes',['../_opcda_8h.html#af666f20a776da261e66b40881e03cc9d',1,'Opcda.h']]],
   ['ienumopcitemattributes_5fclone_5fproxy',['IEnumOPCItemAttributes_Clone_Proxy',['../_opcda_8h.html#a538009689a9b1b0d536fd16864e66c2e',1,'Opcda.h']]],
   ['ienumopcitemattributes_5fclone_5fstub',['IEnumOPCItemAttributes_Clone_Stub',['../_opcda_8h.html#a8a5808581cb29e4c1b234cd29944ff72',1,'Opcda.h']]],
@@ -40,14 +41,14 @@ var searchData=
   ['iid_5fiopcsyncio',['IID_IOPCSyncIO',['../_opcda_8h.html#a6d8836accc8b30852b12becd291f33c1',1,'Opcda.h']]],
   ['iid_5fiopcsyncio2',['IID_IOPCSyncIO2',['../_opcda_8h.html#ab3f8d09ff0fee057ecc449532f397ea2',1,'Opcda.h']]],
   ['ind',['ind',['../class_matrix.html#a2c0a4b4b8896f7d317e4b3cbdfb9daf2',1,'Matrix']]],
-  ['index_2ecpp',['index.cpp',['../index_8cpp.html',1,'']]],
   ['init',['init',['../class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a',1,'Matrix::init(int row, int col)'],['../class_matrix.html#a8807a3fa883609fc9b012f34be12d14e',1,'Matrix::init(string value)'],['../class_polynom.html#ab167990fe1e52cd84611a48f7e458235',1,'Polynom::init(int NumSize)'],['../class_polynom.html#a4831c193ec9ac42ecd75232bcf502d49',1,'Polynom::init(int NumSize, int DenSize)'],['../class_polynom.html#a52a7f7d6ed4d51673d82ab11227af2b3',1,'Polynom::init(std::string Num)'],['../class_polynom.html#a386fc0566cde36536cb25448b46ae91f',1,'Polynom::init(std::string Num, string Den)'],['../class_polynom.html#ad909f355f6aa903ab79a5bc75367c90d',1,'Polynom::init(Matrix&lt; TypeOfClass &gt; Num, Matrix&lt; TypeOfClass &gt; Den)']]],
   ['initalgorithm',['initAlgorithm',['../class_p_s_o.html#af15a02c0704d142cef639949c54f1054',1,'PSO']]],
+  ['initialstate',['initialState',['../class_state_space.html#a5c120dcb5eec4caea963390f3991e332',1,'StateSpace']]],
   ['initpointer',['initPointer',['../class_polynom.html#a123b90606607c96f8e7659ec8b0aef9b',1,'Polynom']]],
-  ['initrls',['initRLS',['../class_optimization.html#aa856b5eca32cbd6584eaf8b453057383',1,'Optimization']]],
-  ['input',['input',['../class_lsim.html#a8c806023acb1c8b953031d359b4adf94',1,'Lsim::input()'],['../classsim_function.html#a92513b19dbf064039f0e2380cdaf647d',1,'simFunction::input()'],['../class_sim.html#a69d74bc890463553c62baa8882442e6a',1,'Sim::InPut()']]],
+  ['inittfnumber',['initTfNumber',['../class_transfer_function.html#a85b098374d20e3852e67e190a7323038',1,'TransferFunction']]],
+  ['input',['input',['../class_lsim.html#a8c806023acb1c8b953031d359b4adf94',1,'Lsim::input()'],['../class_model.html#a2c312cff68ca3c479efca62d2e58eb43',1,'Model::input()'],['../classsim_function.html#a92513b19dbf064039f0e2380cdaf647d',1,'simFunction::input()'],['../class_sim.html#a69d74bc890463553c62baa8882442e6a',1,'Sim::InPut()'],['../class_model.html#a85e77811af5d075e0d9267f102e92606',1,'Model::Input()']]],
   ['insertitens',['InsertItens',['../class_o_p_c_client.html#a18f5195683ad9160c4eebfee9b05f455',1,'OPCClient']]],
-  ['instance',['instance',['../class_gl_view.html#a0423570bb7ca80e705636a46caf9a0bf',1,'GlView']]],
+  ['instance',['instance',['../class_gl_view.html#a0423570bb7ca80e705636a46caf9a0bf',1,'GlView::instance()'],['../class_model.html#a381a769ba6e064f309241db9c75fc5b3',1,'Model::instance()']]],
   ['integralerror',['integralError',['../class_p_i_d.html#abf26051a6857019edac542298babce9f',1,'PID']]],
   ['interror',['intError',['../class_p_i_d.html#a21fa1af2071c96310be16315a2ab8aa8',1,'PID']]],
   ['inv',['inv',['../class_matrix.html#a34571e2bd304203ade32d490a0376f1a',1,'Matrix']]],
@@ -260,5 +261,6 @@ var searchData=
   ['isingraphicregion',['isInGraphicRegion',['../classgraphic_properties.html#adb687004725e5b0addab8d41df398cd5',1,'graphicProperties']]],
   ['isinxlimit',['isInXLimit',['../classgraphic_properties.html#acad144e36b287587f385351e026f4c2d',1,'graphicProperties']]],
   ['isinylimit',['isInYLimit',['../classgraphic_properties.html#a4e0f8e7849617746016c49282adf344e',1,'graphicProperties']]],
-  ['itemproperties',['ItemProperties',['../structtag_o_p_c_b_r_o_w_s_e_e_l_e_m_e_n_t.html#af878aab5ef0ecf20245059574cb8064a',1,'tagOPCBROWSEELEMENT']]]
+  ['itemproperties',['ItemProperties',['../structtag_o_p_c_b_r_o_w_s_e_e_l_e_m_e_n_t.html#af878aab5ef0ecf20245059574cb8064a',1,'tagOPCBROWSEELEMENT']]],
+  ['iteration',['Iteration',['../class_recursive_least_square.html#a34ceb5d4ce44b349b39d40e21573d551',1,'RecursiveLeastSquare']]]
 ];

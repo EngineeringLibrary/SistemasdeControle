@@ -1,17 +1,16 @@
 var searchData=
 [
-  ['random',['random',['../externalfunctions_8cpp.html#a7ba5ae854b32f4fd9f36f8dac1a27fdc',1,'random():&#160;externalfunctions.cpp'],['../externalfunctions_8h.html#a7ba5ae854b32f4fd9f36f8dac1a27fdc',1,'random():&#160;externalfunctions.cpp']]],
-  ['randu',['randU',['../class_matrix.html#a1e0fb9ec11443abd6862163823d69b4a',1,'Matrix']]],
-  ['read',['Read',['../class_serial.html#a5ff2fb104033020d6f33a6d717b2a212',1,'Serial']]],
-  ['readitens',['ReadItens',['../class_o_p_c_client.html#a66bf76e977eaf0e6df826727dfce9403',1,'OPCClient']]],
-  ['relay',['Relay',['../class_relay.html#a8c3f19e1e845315418003cd41d2a6a87',1,'Relay']]],
-  ['relaycalc',['relayCalc',['../class_relay.html#a26c97fa02ea60af9cd060d107a5f497f',1,'Relay']]],
-  ['relayloop',['relayLoop',['../class_relay.html#ad2c6218a5aaa393066a17e8666bc6448',1,'Relay']]],
-  ['rls',['RLS',['../class_optimization.html#a817e63e44c278ae4f776af1bcf436134',1,'Optimization']]],
-  ['round',['round',['../matrix_8cpp.html#abd9b93a59cb3348affe3db93fbaf03dc',1,'matrix.cpp']]],
-  ['round_3c_20double_20_3e',['round&lt; double &gt;',['../matrix_8cpp.html#a78ca84b373145bdf89b0badec5adbd72',1,'matrix.cpp']]],
-  ['round_3c_20float_20_3e',['round&lt; float &gt;',['../matrix_8cpp.html#a7fb25517b79c44f4aaf90868038e9bd5',1,'matrix.cpp']]],
-  ['round_3c_20int_20_3e',['round&lt; int &gt;',['../matrix_8cpp.html#a3a44916b977e09dae41567532234747b',1,'matrix.cpp']]],
-  ['run',['Run',['../class_p_s_o.html#a17efed117e404509e31c2d77ac533dcb',1,'PSO::Run()'],['../class_p_s_o.html#a156a5cd6e0a3c1ab6a62b14bccf66908',1,'PSO::Run(int nTimes)']]],
-  ['runsimulation',['RunSimulation',['../class_sim.html#ade703a1ecb8df3220ea628a984b2f0ab',1,'Sim']]]
+  ['particleevaluation',['ParticleEvaluation',['../class_p_s_o.html#a3a42f6e83481ba852bb4a250c8d5abe5',1,'PSO']]],
+  ['particleupdate',['ParticleUpdate',['../class_p_s_o.html#a0699ed34ffd0ce04a341530c9be80ed6',1,'PSO']]],
+  ['passivemotionfunc',['PassiveMotionFunc',['../class_gl_view.html#a6ee474bd379cfdf8579f4eb207d6e7d5',1,'GlView::PassiveMotionFunc()'],['../classgrafics.html#a22b7ffc9ead32948b81208fb74750f5e',1,'grafics::PassiveMotionFunc()']]],
+  ['passivemotionfuncwrapper',['PassiveMotionFuncWrapper',['../class_gl_view.html#ab20d15d3194a0d5104d1bd13b55fb92c',1,'GlView']]],
+  ['pid',['PID',['../class_p_i_d.html#aac97dfe35f8d3c980ccb1863f0331f53',1,'PID']]],
+  ['pol',['pol',['../class_matrix.html#a29ede755f978702c18c7e4bca5da36c7',1,'Matrix']]],
+  ['polycoef',['polyCoef',['../class_lsim.html#a33e32ade5b8962f4bc8a71ff4d867992',1,'Lsim']]],
+  ['polymodel',['polyModel',['../class_lsim.html#a9f25475f6d4f20ffe00ff5a9e5ba8fd6',1,'Lsim']]],
+  ['polynom',['Polynom',['../class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714',1,'Polynom::Polynom()'],['../class_polynom.html#a8599887a4cd1ed52be870191ef6fa703',1,'Polynom::Polynom(int Num)'],['../class_polynom.html#a44c35ae93ecdd6f978784ca642507e0e',1,'Polynom::Polynom(int Num, int Den)'],['../class_polynom.html#a7e6323738c6ad112ed6595ec9560517c',1,'Polynom::Polynom(std::string Num)'],['../class_polynom.html#a9ce083fa7e44f9a44bb7480435db7f32',1,'Polynom::Polynom(std::string Num, std::string Den)'],['../class_polynom.html#a9548632447296846ef6f458a375e3181',1,'Polynom::Polynom(Matrix&lt; TypeOfClass &gt; Num, Matrix&lt; TypeOfClass &gt; Den)'],['../class_polynom.html#a4024baeeed368df0608049860b6fef74',1,'Polynom::Polynom(const Polynom&lt; TypeOfClass &gt; &amp;CopyPolynom)']]],
+  ['print',['print',['../class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a',1,'Matrix::print()'],['../class_polynom.html#ad6c7ef73abea2d67e8919cf538e92217',1,'Polynom::print()'],['../class_eqdif_sim.html#a30a984452e9c5cd5af7c693fb115a46b',1,'EqdifSim::print()'],['../class_state_space.html#aeaa32a0d5d2537ee6d8a14950acb43b2',1,'StateSpace::print()']]],
+  ['printss',['printSS',['../class_eqdif_sim.html#a432b76a19c93b3a30ee35707922d9d13',1,'EqdifSim']]],
+  ['printtf',['printTF',['../class_eqdif_sim.html#a1bd6290398cf60eec58fca7b7739fb2f',1,'EqdifSim::printTF()'],['../class_transfer_function.html#a3ac42a08bdc63ad14533aaba65b450cd',1,'TransferFunction::printTF()']]],
+  ['pso',['PSO',['../class_p_s_o.html#a728b1ffd7dbcd4fb55b37cfa0d16a37b',1,'PSO::PSO()'],['../class_p_s_o.html#af335ab7d474e4d0d5578fd502f9549c4',1,'PSO::PSO(int varNum, int PopSize, int GenSize)'],['../class_p_s_o.html#ad6b88250fa54c27233e70f438c404650',1,'PSO::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2)'],['../class_p_s_o.html#ae12083c1bdd6b993c1c6d9da97660601',1,'PSO::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax)']]]
 ];

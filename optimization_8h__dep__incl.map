@@ -1,3 +1,7 @@
 <map id="SistemasdeControle/src/optimizationLibs/optimization.h" name="SistemasdeControle/src/optimizationLibs/optimization.h">
-<area shape="rect" id="node2" href="$optimization_8cpp.html" title="SistemasdeControle\l/src/optimizationLibs\l/optimization.cpp" alt="" coords="5,109,148,165"/>
+<area shape="rect" id="node2" href="$leastsquare_8h.html" title="SistemasdeControle\l/src/optimizationLibs\l/leastsquare.h" alt="" coords="5,109,148,165"/>
+<area shape="rect" id="node4" href="$optimization_8cpp.html" title="SistemasdeControle\l/src/optimizationLibs\l/optimization.cpp" alt="" coords="172,109,315,165"/>
+<area shape="rect" id="node5" href="$recursiveleastsquare_8h.html" title="SistemasdeControle\l/src/optimizationLibs\l/recursiveleastsquare.h" alt="" coords="339,109,494,165"/>
+<area shape="rect" id="node3" href="$leastsquare_8cpp.html" title="SistemasdeControle\l/src/optimizationLibs\l/leastsquare.cpp" alt="" coords="5,213,148,269"/>
+<area shape="rect" id="node6" href="$recursiveleastsquare_8cpp.html" title="SistemasdeControle\l/src/optimizationLibs\l/recursiveleastsquare.cpp" alt="" coords="332,213,501,269"/>
 </map>

@@ -13,6 +13,8 @@ var searchData=
   ['add',['add',['../class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8',1,'Matrix']]],
   ['addio',['addIO',['../class_lsim.html#a4c99487c396e35f8fb2679a548ef5aa9',1,'Lsim::addIO()'],['../lsim_8cpp.html#a023fa06e3f036bbed5a25db1f02ca3f5',1,'addIO():&#160;lsim.cpp']]],
   ['antreset',['antReset',['../class_p_i_d.html#a7bf4a091ca23d127c8e4167c6ac4c3b5',1,'PID']]],
+  ['armax',['ARMAX',['../class_a_r_m_a_x.html#a1feed82e05ecb36b25ab0e624444628e',1,'ARMAX']]],
+  ['arx',['ARX',['../class_a_r_x.html#a66503d0cbead1d2639520b7094667ffe',1,'ARX']]],
   ['arxcoef',['arxCoef',['../class_lsim.html#a058a1d717b3b48e420493e3a0922ae23',1,'Lsim']]],
   ['arxmodel',['arxModel',['../class_lsim.html#acc11551ae380aff8a3f358a87c7ddc69',1,'Lsim']]],
   ['arxmodelonestep',['arxModelOneStep',['../class_lsim.html#a0aff0375acf6e7d826ddccab6d91413f',1,'Lsim']]],

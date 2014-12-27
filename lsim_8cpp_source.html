@@ -39,6 +39,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
       <li>
@@ -70,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -113,7 +114,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">template</span>  &lt;<span class="keyword">class</span> UsedType&gt;</div>
 <div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_lsim.html#a9f25475f6d4f20ffe00ff5a9e5ba8fd6">   23</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a9f25475f6d4f20ffe00ff5a9e5ba8fd6">Lsim&lt;UsedType&gt;::polyModel</a>(<span class="keywordtype">int</span> grau)</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    this-&gt;Model = <span class="stringliteral">&quot;polinomial&quot;</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    this-&gt;<a class="code" href="class_model.html">Model</a> = <span class="stringliteral">&quot;polinomial&quot;</span>;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    this-&gt;input.print();</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    this-&gt;A.ones(this-&gt;input.getRows(),1);</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 1; i &lt;= grau; i++)</div>
@@ -140,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_lsim.html#acc11551ae380aff8a3f358a87c7ddc69">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_lsim.html#acc11551ae380aff8a3f358a87c7ddc69">Lsim&lt;UsedType&gt;::arxModel</a>(<span class="keywordtype">int</span> ny, <span class="keywordtype">int</span> nu)</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">int</span> maxNuNy,minRowInOut;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    this-&gt;Model = <span class="stringliteral">&quot;ARX&quot;</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    this-&gt;<a class="code" href="class_model.html">Model</a> = <span class="stringliteral">&quot;ARX&quot;</span>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">if</span>(ny&gt;nu)</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        maxNuNy = ny;</div>
@@ -170,7 +171,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="class_lsim.html#a0aff0375acf6e7d826ddccab6d91413f">   79</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a0aff0375acf6e7d826ddccab6d91413f">Lsim&lt;UsedType&gt;::arxModelOneStep</a>(<span class="keywordtype">int</span> ny, <span class="keywordtype">int</span> nu, <span class="keywordtype">int</span> line)</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    this-&gt;Model = <span class="stringliteral">&quot;ARX&quot;</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    this-&gt;<a class="code" href="class_model.html">Model</a> = <span class="stringliteral">&quot;ARX&quot;</span>;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; nu+ny; j++)</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    {</div>
@@ -186,7 +187,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="class_lsim.html#af51e435dec3a267acf74b6b7afed070b">   95</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_lsim.html#af51e435dec3a267acf74b6b7afed070b">Lsim&lt;UsedType&gt;::arxModelOneStepReal</a>(<span class="keywordtype">int</span> ny, <span class="keywordtype">int</span> nu, <span class="keywordtype">int</span> line)</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;{</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    this-&gt;Model = <span class="stringliteral">&quot;ARX&quot;</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    this-&gt;<a class="code" href="class_model.html">Model</a> = <span class="stringliteral">&quot;ARX&quot;</span>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; nu+ny; j++)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
@@ -327,6 +328,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="class_lsim.html">Lsim&lt;float&gt;</a>;</div>
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="class_lsim.html">Lsim&lt;double&gt;</a>;</div>
 <div class="ttc" id="class_lsim_html_a8c806023acb1c8b953031d359b4adf94"><div class="ttname"><a href="class_lsim.html#a8c806023acb1c8b953031d359b4adf94">Lsim::input</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; input</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8h_source.html#l00011">lsim.h:11</a></div></div>
+<div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00007">model.h:7</a></div></div>
 <div class="ttc" id="class_lsim_html_afcd2f9daf30369c91b1a1c01f565271b"><div class="ttname"><a href="class_lsim.html#afcd2f9daf30369c91b1a1c01f565271b">Lsim::getOutput</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; getOutput()</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00189">lsim.cpp:189</a></div></div>
 <div class="ttc" id="class_lsim_html_a93e970eb0082a6be3bf6113ce8cc1069"><div class="ttname"><a href="class_lsim.html#a93e970eb0082a6be3bf6113ce8cc1069">Lsim::modelCoef</a></div><div class="ttdeci">void modelCoef(Matrix&lt; UsedType &gt; coef)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00017">lsim.cpp:17</a></div></div>
 <div class="ttc" id="class_lsim_html_acc11551ae380aff8a3f358a87c7ddc69"><div class="ttname"><a href="class_lsim.html#acc11551ae380aff8a3f358a87c7ddc69">Lsim::arxModel</a></div><div class="ttdeci">void arxModel(int ny, int nu)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00049">lsim.cpp:49</a></div></div>
@@ -355,7 +357,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 28 de Novembro de 2014 12:40:45 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sábado, 27 de Dezembro de 2014 19:30:04 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

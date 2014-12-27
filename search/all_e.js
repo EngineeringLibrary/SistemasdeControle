@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['omega',['omega',['../class_p_s_o.html#a2a3c6e567fe772dfd19395a0e6c2eed1',1,'PSO']]],
   ['ones',['ones',['../class_matrix.html#ad4a7edc44799f031ff2a65fc3de8439b',1,'Matrix']]],
   ['opc_5fanalog',['OPC_ANALOG',['../_opcda_8h.html#a70fc9643eba2cf31ea000d8954a559a6a68eb677d82f297d59392b0955ac09c9f',1,'Opcda.h']]],
   ['opc_5fbranch',['OPC_BRANCH',['../_opcda_8h.html#a53a7db739d925b4a7b4fd7795fcaaab1a1fb22cb16d6fb997cd66e88f08392a3d',1,'Opcda.h']]],
@@ -185,7 +184,7 @@ var searchData=
   ['opcserverlist',['OpcServerList',['../_opc_enum_8h.html#a899e52070464a4e421613a805cb5e166',1,'OpcEnum.h']]],
   ['opcserverstate',['OPCSERVERSTATE',['../_opcda_8h.html#a316b2e835eae187c4fef62eb88d060bb',1,'Opcda.h']]],
   ['opcserverstatus',['OPCSERVERSTATUS',['../_opcda_8h.html#ad3965ce1cfb1d6b78c35a262336fdf32',1,'Opcda.h']]],
-  ['operator_28_29',['operator()',['../class_matrix.html#aa73d79e0b72c4a97aac31f474240ebd0',1,'Matrix::operator()(int row, int col)'],['../class_matrix.html#aad4198e65fe06c4940df2198657b2d1d',1,'Matrix::operator()(int row, int col, UsedType value)']]],
+  ['operator_28_29',['operator()',['../class_matrix.html#aa73d79e0b72c4a97aac31f474240ebd0',1,'Matrix::operator()(int row, int col)'],['../class_matrix.html#aad4198e65fe06c4940df2198657b2d1d',1,'Matrix::operator()(int row, int col, UsedType value)'],['../class_transfer_function.html#aa9af5790490080160c5a730c13297e10',1,'TransferFunction::operator()(unsigned row, unsigned col)'],['../class_transfer_function.html#a9ddff164a1e2d4c759b4efba331504fd',1,'TransferFunction::operator()(unsigned row, unsigned col, Polynom&lt; UsedType &gt; P)']]],
   ['operator_2a',['operator*',['../class_matrix.html#a0496868d56e4938088e0bc3b160c3d71',1,'Matrix::operator*(Matrix Mat1)'],['../class_matrix.html#ab2cd4ad5fcc0a1752d6a1aecf48e9af8',1,'Matrix::operator*(UsedType a)'],['../class_matrix.html#aaa08ec8e157404d0d60dd539d18728f8',1,'Matrix::operator*()'],['../class_polynom.html#a5a26fb1c5f840cd422b42de1cf3810b6',1,'Polynom::operator*(TypeOfClass scalar)'],['../class_polynom.html#a708940eceab9c36a06b5871be4de3bf2',1,'Polynom::operator*(Polynom&lt; TypeOfClass &gt; P)'],['../class_polynom.html#adbe2906590ebb11e8d868078c1a0a3f6',1,'Polynom::operator*()'],['../matrix_8cpp.html#aaa08ec8e157404d0d60dd539d18728f8',1,'operator*():&#160;matrix.cpp']]],
   ['operator_2a_3c_20double_20_3e',['operator*&lt; double &gt;',['../matrix_8cpp.html#ab094329999c69a6742cf58a14ae302d9',1,'matrix.cpp']]],
   ['operator_2a_3c_20float_20_3e',['operator*&lt; float &gt;',['../matrix_8cpp.html#aeeffb29be26435f273d8e7041b9a480a',1,'matrix.cpp']]],
@@ -196,15 +195,17 @@ var searchData=
   ['operator_2f_3c_20double_20_3e',['operator/&lt; double &gt;',['../matrix_8cpp.html#aae1207c26479b35e4a9d498f73ce07f2',1,'matrix.cpp']]],
   ['operator_2f_3c_20float_20_3e',['operator/&lt; float &gt;',['../matrix_8cpp.html#ad59a9ac03042c34f7daf87f9bd50f45c',1,'matrix.cpp']]],
   ['operator_2f_3c_20int_20_3e',['operator/&lt; int &gt;',['../matrix_8cpp.html#ac26904f2d4a5954be14de4fd2df0abc0',1,'matrix.cpp']]],
-  ['operator_3d',['operator=',['../class_matrix.html#a6f7a323c09e8a5abedec9c45a8451243',1,'Matrix::operator=(Matrix Mat1)'],['../class_matrix.html#a3f5d4635f398819188829557fe30f8c8',1,'Matrix::operator=(string value)'],['../class_polynom.html#a1a4f41e1aabc14cd7e7e92135abbe21e',1,'Polynom::operator=()']]],
+  ['operator_3d',['operator=',['../class_matrix.html#a6f7a323c09e8a5abedec9c45a8451243',1,'Matrix::operator=(Matrix Mat1)'],['../class_matrix.html#a3f5d4635f398819188829557fe30f8c8',1,'Matrix::operator=(string value)'],['../class_polynom.html#a1a4f41e1aabc14cd7e7e92135abbe21e',1,'Polynom::operator=()'],['../class_transfer_function.html#a27c1bbd88699f97997e3c058b042f1e2',1,'TransferFunction::operator=()']]],
   ['operator_3e',['operator&gt;',['../class_matrix.html#aea1e9fca5fd32462e471b1a0110e1539',1,'Matrix']]],
   ['operator_5e',['operator^',['../class_matrix.html#adc5f9ab9fb8db320ce572ff96e8d94fb',1,'Matrix::operator^()'],['../class_polynom.html#a4378bcceec215656ced7a3dfe62ac49d',1,'Polynom::operator^()']]],
   ['operator_7c',['operator|',['../class_matrix.html#a85b3c16adbdbb302e5a46c5d471248ea',1,'Matrix']]],
   ['operator_7c_7c',['operator||',['../class_matrix.html#a473569bdc7909276ec1fa33653b28844',1,'Matrix']]],
   ['operator_7e',['operator~',['../class_matrix.html#a5d19e9e62d8332a7aa05e1b58e1d5b97',1,'Matrix']]],
+  ['optimizatedvariable',['OptimizatedVariable',['../class_optimization.html#afaa1b1a88155752e6a75f87484b53c3e',1,'Optimization']]],
   ['optimization',['Optimization',['../class_optimization.html',1,'Optimization&lt; UsedType &gt;'],['../class_optimization.html#a57f578f49b325a65d8cb20263095e780',1,'Optimization::Optimization()']]],
   ['optimization_2ecpp',['optimization.cpp',['../optimization_8cpp.html',1,'']]],
   ['optimization_2eh',['optimization.h',['../optimization_8h.html',1,'']]],
-  ['output',['output',['../class_lsim.html#ac04d5c5ee9c31cd3196c9113d4b41510',1,'Lsim::output()'],['../classsim_function.html#a50f32444a8b563679318596bc151016f',1,'simFunction::output()'],['../class_sim.html#a8bfc3ec1a3f43c473eb6d85d6668e69b',1,'Sim::OutPut()']]],
+  ['optimize',['Optimize',['../class_least_square.html#a39c280f4d523c841e12cf3df5299b8c5',1,'LeastSquare::Optimize()'],['../class_optimization.html#a1ece927f88429f4c44530b840ab57a96',1,'Optimization::Optimize()'],['../class_recursive_least_square.html#a1d18de4bee0be4a47cd7035b0de26371',1,'RecursiveLeastSquare::Optimize()']]],
+  ['output',['output',['../class_lsim.html#ac04d5c5ee9c31cd3196c9113d4b41510',1,'Lsim::output()'],['../class_model.html#a1655ed1be7b0815382e2214acb16c65e',1,'Model::output()'],['../classsim_function.html#a50f32444a8b563679318596bc151016f',1,'simFunction::output()'],['../class_model.html#a46a4ef34d4c37af4fd8f1fd13eb4b634',1,'Model::Output()'],['../class_sim.html#a8bfc3ec1a3f43c473eb6d85d6668e69b',1,'Sim::OutPut()']]],
   ['outputcontrol',['OutputControl',['../class_p_i_d.html#a3041bd11fcb81058ad0a72c9fa7031f8',1,'PID']]]
 ];

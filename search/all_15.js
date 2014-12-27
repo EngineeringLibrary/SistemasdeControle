@@ -6,7 +6,6 @@ var searchData=
   ['variant_5fusermarshal',['VARIANT_UserMarshal',['../_opcda_8h.html#a54a3b702423e1c1c2500adc9efdfb68f',1,'Opcda.h']]],
   ['variant_5fusersize',['VARIANT_UserSize',['../_opcda_8h.html#ad30e2bac580095aaba416c361e3199a4',1,'Opcda.h']]],
   ['variant_5fuserunmarshal',['VARIANT_UserUnmarshal',['../_opcda_8h.html#a7ff97d66bf9033fa3dafc67af7cb86d0',1,'Opcda.h']]],
-  ['varnum',['varNum',['../class_p_s_o.html#ac9b5de00d09d0d107230b26688fee711',1,'PSO']]],
   ['vdatavalue',['vDataValue',['../structtag_o_p_c_i_t_e_m_s_t_a_t_e.html#acd8fdb57ae8ca64f85f432721a82aa60',1,'tagOPCITEMSTATE::vDataValue()'],['../structtag_o_p_c_i_t_e_m_v_q_t.html#a7427dbca8e7fdfdb2b929afae26bd76b',1,'tagOPCITEMVQT::vDataValue()']]],
   ['vefden',['VefDen',['../class_polynom.html#a1e51895837e3a7582a559888547aac2a',1,'Polynom']]],
   ['velocityupdate',['VelocityUpdate',['../class_p_s_o.html#ad9410ef6e8276ee805c3ce785ae2843b',1,'PSO']]],

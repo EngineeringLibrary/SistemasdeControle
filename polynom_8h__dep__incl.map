@@ -1,3 +1,8 @@
 <map id="SistemasdeControle/src/primitiveLibs/polynom.h" name="SistemasdeControle/src/primitiveLibs/polynom.h">
-<area shape="rect" id="node2" href="$polynom_8cpp.html" title="SistemasdeControle\l/src/primitiveLibs/polynom.cpp" alt="" coords="5,95,203,136"/>
+<area shape="rect" id="node2" href="$polynom_8cpp.html" title="SistemasdeControle\l/src/primitiveLibs/polynom.cpp" alt="" coords="5,102,203,143"/>
+<area shape="rect" id="node3" href="$transferfunction_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/transferfunction.h" alt="" coords="227,95,365,151"/>
+<area shape="rect" id="node4" href="$conversions_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/conversions.h" alt="" coords="120,303,259,359"/>
+<area shape="rect" id="node5" href="$statespace_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/statespace.h" alt="" coords="227,199,365,255"/>
+<area shape="rect" id="node7" href="$transferfunction_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/transferfunction.cpp" alt="" coords="389,199,528,255"/>
+<area shape="rect" id="node6" href="$statespace_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/statespace.cpp" alt="" coords="283,303,421,359"/>
 </map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eqdifsim',['EqdifSim',['../class_eqdif_sim.html',1,'']]]
+  ['bisseccao',['bisseccao',['../classbisseccao.html',1,'']]]
 ];

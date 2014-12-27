@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['d',['D',['../class_eqdif_sim.html#abff4ccb756f7f481b0f18fa77816b4c0',1,'EqdifSim']]],
+  ['d',['D',['../class_eqdif_sim.html#abff4ccb756f7f481b0f18fa77816b4c0',1,'EqdifSim::D()'],['../class_state_space.html#acf96a86d495d42d47c915b93961d115e',1,'StateSpace::D()']]],
   ['datachange',['DataChange',['../class_sim.html#a02dd2bbbde2395710c71ceccf1c87a7d',1,'Sim']]],
   ['dcbportaserialparams',['dcbPortaSerialparams',['../class_serial.html#a0454fc57d5912907a2e0167c02d47513',1,'Serial']]],
   ['dd',['Dd',['../class_eqdif_sim.html#ad6946d25628bfe59c976f39a28b40fab',1,'EqdifSim']]],
   ['degree',['Degree',['../class_sim.html#a0188b160b4ed4848635091c4fdf5e876',1,'Sim']]],
+  ['delay',['delay',['../class_a_r_x.html#a2554ae6a1660ec605487101d757e0325',1,'ARX::delay()'],['../class_f_i_r.html#a7a44fafaea1e9d40d6d0fce3dcf1acf4',1,'FIR::delay()']]],
   ['den',['den',['../class_polynom.html#a90ac0214cb5181b6abfc761622996d7f',1,'Polynom']]],
   ['derivativeerror',['derivativeError',['../class_p_i_d.html#acdf7381a34f042703e862ed78a1a23ba',1,'PID']]],
+  ['dfx',['dfx',['../class_newton.html#ae475f56d075bb588798a5adc28989a28',1,'Newton']]],
   ['discretetransferfunction',['DiscreteTransferFunction',['../class_eqdif_sim.html#ad414979450d50a47ef0b3c2bb1a778f1',1,'EqdifSim']]],
   ['dwaccessrights',['dwAccessRights',['../structtag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s.html#a905670893f96fc8efa4e059eaabce13e',1,'tagOPCITEMATTRIBUTES::dwAccessRights()'],['../structtag_o_p_c_i_t_e_m_r_e_s_u_l_t.html#acb0472fb8844526ab5af7072ba84001c',1,'tagOPCITEMRESULT::dwAccessRights()']]],
   ['dwaccessrightsfilter',['dwAccessRightsFilter',['../struct_i_o_p_c_browse_server_address_space_vtbl.html#adb8627ca6e6d93298b1d713a055ccb12',1,'IOPCBrowseServerAddressSpaceVtbl']]],

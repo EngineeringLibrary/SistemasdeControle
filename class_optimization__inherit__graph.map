@@ -1,0 +1,4 @@
+<map id="Optimization&lt; UsedType &gt;" name="Optimization&lt; UsedType &gt;">
+<area shape="rect" id="node2" href="$class_least_square.html" title="{LeastSquare\&lt; UsedType \&gt;\n||+ LeastSquare()\l+ Optimize()\l}" alt="" coords="5,233,183,325"/>
+<area shape="rect" id="node3" href="$class_recursive_least_square.html" title="{RecursiveLeastSquare\l\&lt; UsedType \&gt;\n|&#45; nIteration\l&#45; p0\l&#45; lambda\l&#45; e\l&#45; P\l&#45; K\l&#45; phi\l|+ RecursiveLeastSquare()\l+ Iteration()\l+ Optimize()\l}" alt="" coords="207,175,378,384"/>
+</map>

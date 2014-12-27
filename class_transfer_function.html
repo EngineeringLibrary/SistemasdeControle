@@ -1,0 +1,901 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Referência da Template de Classe TransferFunction&lt; UsedType &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
+      <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pri-methods">Métodos Privados</a> &#124;
+<a href="#pri-attribs">Atributos Privados</a> &#124;
+<a href="class_transfer_function-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência da Template de Classe TransferFunction&lt; UsedType &gt;</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="transferfunction_8h_source.html">transferfunction.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de Hierarquia para TransferFunction&lt; UsedType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_transfer_function__inherit__graph.png" border="0" usemap="#_transfer_function_3_01_used_type_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="_transfer_function_3_01_used_type_01_4_inherit__map" id="_transfer_function_3_01_used_type_01_4_inherit__map">
+<area shape="rect" id="node2" href="class_model.html" title="{Model\&lt; UsedType \&gt;\n|# instance\l# input\l# output\l# lmin\l# lmax\l# step\l# Input\l# Output\l# EstOutput\l# ModelCoef\l# LinearVectorPhi\l# LinearMatrixA\l# LinearEqualityB\l|+ Model()\l+ diff()\l+ setStep()\l+ setInstance()\l+ setModelCoef()\l+ setIO()\l+ getModelCoef()\l+ getInputMatrix()\l+ getOutput()\l+ getOutputMatrix()\land 8 more...\l}" alt="" coords="36,5,175,405"/></map>
+</div>
+<div class="dynheader">
+Diagrama de colaboração para TransferFunction&lt; UsedType &gt;:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_transfer_function__coll__graph.png" border="0" usemap="#_transfer_function_3_01_used_type_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="_transfer_function_3_01_used_type_01_4_coll__map" id="_transfer_function_3_01_used_type_01_4_coll__map">
+<area shape="rect" id="node2" href="class_model.html" title="{Model\&lt; UsedType \&gt;\n|# instance\l# Input\l# Output\l# EstOutput\l# ModelCoef\l# LinearVectorPhi\l# LinearMatrixA\l# LinearEqualityB\l|+ Model()\l+ diff()\l+ setStep()\l+ setInstance()\l+ setModelCoef()\l+ setIO()\l+ getModelCoef()\l+ getInputMatrix()\l+ getOutput()\l+ getOutputMatrix()\land 8 more...\l}" alt="" coords="141,255,280,582"/><area shape="rect" id="node4" href="class_polynom.html" title="{Polynom\&lt; UsedType \&gt;\n|&#45; sizeNum\l&#45; sizeDen\l&#45; num\l&#45; den\l&#45; x\l|+ Polynom()\l+ Polynom()\l+ Polynom()\l+ Polynom()\l+ Polynom()\l+ Polynom()\l+ Polynom()\l+ ~Polynom()\l+ operator+()\l+ operator+()\land 14 more...\l&#45; init()\l&#45; init()\l&#45; init()\l&#45; init()\l&#45; init()\l&#45; VefDen()\l&#45; initPointer()\l&#45; SumPoly()\l&#45; SubPoly()\l&#45; MultPoly()\l}" alt="" coords="304,204,459,633"/></map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Métodos Públicos</h2></td></tr>
+<tr class="memitem:acddfe59f21e8364bca9c91f884db02fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#acddfe59f21e8364bca9c91f884db02fa">TransferFunction</a> (unsigned rows, unsigned cols)</td></tr>
+<tr class="separator:acddfe59f21e8364bca9c91f884db02fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3880806383a62225faa2492417ac622c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a3880806383a62225faa2492417ac622c">TransferFunction</a> (std::string num, std::string den, unsigned rows, unsigned cols)</td></tr>
+<tr class="separator:a3880806383a62225faa2492417ac622c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9af5790490080160c5a730c13297e10"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#aa9af5790490080160c5a730c13297e10">operator()</a> (unsigned row, unsigned col)</td></tr>
+<tr class="separator:aa9af5790490080160c5a730c13297e10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ddff164a1e2d4c759b4efba331504fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a9ddff164a1e2d4c759b4efba331504fd">operator()</a> (unsigned row, unsigned col, <a class="el" href="class_polynom.html">Polynom</a>&lt; UsedType &gt; P)</td></tr>
+<tr class="separator:a9ddff164a1e2d4c759b4efba331504fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27c1bbd88699f97997e3c058b042f1e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a27c1bbd88699f97997e3c058b042f1e2">operator=</a> (<a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt; <a class="el" href="class_transfer_function.html#abc2ec56ccf027333ccb6921e11d822d8">TF</a>)</td></tr>
+<tr class="separator:a27c1bbd88699f97997e3c058b042f1e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ac42a08bdc63ad14533aaba65b450cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a3ac42a08bdc63ad14533aaba65b450cd">printTF</a> ()</td></tr>
+<tr class="separator:a3ac42a08bdc63ad14533aaba65b450cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d83d09a607cbcb6f75412c35ff36fa5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a6d83d09a607cbcb6f75412c35ff36fa5">setTF</a> (<a class="el" href="class_polynom.html">Polynom</a>&lt; UsedType &gt; **<a class="el" href="class_transfer_function.html#abc2ec56ccf027333ccb6921e11d822d8">TF</a>, unsigned rows, unsigned cols)</td></tr>
+<tr class="separator:a6d83d09a607cbcb6f75412c35ff36fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a447fbfc6b9b641dbc72210d45e1143fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; UsedType &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a447fbfc6b9b641dbc72210d45e1143fe">getTF</a> ()</td></tr>
+<tr class="separator:a447fbfc6b9b641dbc72210d45e1143fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6299817f4f016e77185252f4b7fc931"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#ad6299817f4f016e77185252f4b7fc931">getNRowsTF</a> ()</td></tr>
+<tr class="separator:ad6299817f4f016e77185252f4b7fc931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1375e12bc5b5ce612db162cddcdc6077"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a1375e12bc5b5ce612db162cddcdc6077">getNColsTF</a> ()</td></tr>
+<tr class="separator:a1375e12bc5b5ce612db162cddcdc6077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac63a261ef2f632979d882e214c5cf310"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#ac63a261ef2f632979d882e214c5cf310">sim</a> (UsedType <a class="el" href="class_model.html#a2c312cff68ca3c479efca62d2e58eb43">input</a>)</td></tr>
+<tr class="separator:ac63a261ef2f632979d882e214c5cf310"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc79523ccd810b5ed044cfc5c024788b"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#abc79523ccd810b5ed044cfc5c024788b">sim</a> (UsedType x, UsedType y)</td></tr>
+<tr class="separator:abc79523ccd810b5ed044cfc5c024788b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1a57526ba82159decede6632122b04b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#ab1a57526ba82159decede6632122b04b">sim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; x)</td></tr>
+<tr class="separator:ab1a57526ba82159decede6632122b04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7f60d69b77077496e69f03fb1b4ce62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#ae7f60d69b77077496e69f03fb1b4ce62">sim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; x, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; y)</td></tr>
+<tr class="separator:ae7f60d69b77077496e69f03fb1b4ce62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6b08167e8ff910ed02a70799c922d81"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#af6b08167e8ff910ed02a70799c922d81">sim</a> (UsedType lsim, UsedType <a class="el" href="class_model.html#a4d671bd41ec010c049bed0f3988d23d6">lmax</a>, UsedType <a class="el" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">step</a>)</td></tr>
+<tr class="separator:af6b08167e8ff910ed02a70799c922d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_model"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_model')"><img src="closed.png" alt="-"/>&#160;Métodos Públicos inherited from <a class="el" href="class_model.html">Model&lt; UsedType &gt;</a></td></tr>
+<tr class="memitem:aa12b72318e043183d998c4e17dcc5de4 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#aa12b72318e043183d998c4e17dcc5de4">Model</a> ()</td></tr>
+<tr class="separator:aa12b72318e043183d998c4e17dcc5de4 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade0ac98afcdcde9ee1faaf28bdf28315 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315">diff</a> (UsedType x)</td></tr>
+<tr class="separator:ade0ac98afcdcde9ee1faaf28bdf28315 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c08a884d93ab0a9b1775f299f18ee63 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63">setStep</a> (UsedType <a class="el" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">step</a>)</td></tr>
+<tr class="separator:a1c08a884d93ab0a9b1775f299f18ee63 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c1e7d2c2c2372e5b54e4ebbfd1f4e12 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a7c1e7d2c2c2372e5b54e4ebbfd1f4e12">setInstance</a> (<a class="el" href="class_model.html">Model</a>&lt; UsedType &gt; *m)</td></tr>
+<tr class="separator:a7c1e7d2c2c2372e5b54e4ebbfd1f4e12 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9946deebc9e2f25f438e9a9bb2c08fe inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#af9946deebc9e2f25f438e9a9bb2c08fe">setModelCoef</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; coef)</td></tr>
+<tr class="separator:af9946deebc9e2f25f438e9a9bb2c08fe inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cd2a1db919315b7c223f82765cacab7 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7">setIO</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; in, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; out)</td></tr>
+<tr class="separator:a7cd2a1db919315b7c223f82765cacab7 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a256a5480e78b8996e4c9f1108aa37bdc inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a256a5480e78b8996e4c9f1108aa37bdc">getModelCoef</a> ()</td></tr>
+<tr class="separator:a256a5480e78b8996e4c9f1108aa37bdc inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a902897849acc18824b06d0857c7d8fd4 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a902897849acc18824b06d0857c7d8fd4">getInputMatrix</a> ()</td></tr>
+<tr class="separator:a902897849acc18824b06d0857c7d8fd4 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8ba7295e08cf557088e55bf33007d55 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ae8ba7295e08cf557088e55bf33007d55">getOutput</a> ()</td></tr>
+<tr class="separator:ae8ba7295e08cf557088e55bf33007d55 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a698582cf99335ce846eaecc5896441db inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a698582cf99335ce846eaecc5896441db">getOutputMatrix</a> ()</td></tr>
+<tr class="separator:a698582cf99335ce846eaecc5896441db inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75334a58859e6bc9cc2fd11d1a42ee3a inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a75334a58859e6bc9cc2fd11d1a42ee3a">getLinearMatrixA</a> ()</td></tr>
+<tr class="separator:a75334a58859e6bc9cc2fd11d1a42ee3a inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9e2bac3b1b26a6eb88173e3f45c8998 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ac9e2bac3b1b26a6eb88173e3f45c8998">getLinearEqualityB</a> ()</td></tr>
+<tr class="separator:ac9e2bac3b1b26a6eb88173e3f45c8998 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0675b540e2717e46a2bbac9659cde7ed inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a0675b540e2717e46a2bbac9659cde7ed">getLinearVectorPhi</a> ()</td></tr>
+<tr class="separator:a0675b540e2717e46a2bbac9659cde7ed inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Métodos Privados</h2></td></tr>
+<tr class="memitem:a85b098374d20e3852e67e190a7323038"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a85b098374d20e3852e67e190a7323038">initTfNumber</a> ()</td></tr>
+<tr class="separator:a85b098374d20e3852e67e190a7323038"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ca397b7a0583da56c86058fa16eb335"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a1ca397b7a0583da56c86058fa16eb335">c2dConversion</a> ()</td></tr>
+<tr class="separator:a1ca397b7a0583da56c86058fa16eb335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Atributos Privados</h2></td></tr>
+<tr class="memitem:a8f4abfd9a32e54f4df6d3f8845abb940"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a8f4abfd9a32e54f4df6d3f8845abb940">sampleTime</a></td></tr>
+<tr class="separator:a8f4abfd9a32e54f4df6d3f8845abb940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1147e22359ad13a71eacb749c581d681"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a1147e22359ad13a71eacb749c581d681">timeSimulation</a></td></tr>
+<tr class="separator:a1147e22359ad13a71eacb749c581d681"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af414210fa76962db2c257aa63e446e32"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#af414210fa76962db2c257aa63e446e32">nRowsTF</a></td></tr>
+<tr class="separator:af414210fa76962db2c257aa63e446e32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bea8a273e904736f6da276c17c27d7c"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#a3bea8a273e904736f6da276c17c27d7c">nColsTF</a></td></tr>
+<tr class="separator:a3bea8a273e904736f6da276c17c27d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc2ec56ccf027333ccb6921e11d822d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; UsedType &gt; **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_transfer_function.html#abc2ec56ccf027333ccb6921e11d822d8">TF</a></td></tr>
+<tr class="separator:abc2ec56ccf027333ccb6921e11d822d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_model"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_model')"><img src="closed.png" alt="-"/>&#160;Atributos Protegidos inherited from <a class="el" href="class_model.html">Model&lt; UsedType &gt;</a></td></tr>
+<tr class="memitem:a381a769ba6e064f309241db9c75fc5b3 inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_model.html">Model</a>&lt; UsedType &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a381a769ba6e064f309241db9c75fc5b3">instance</a></td></tr>
+<tr class="separator:a381a769ba6e064f309241db9c75fc5b3 inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c312cff68ca3c479efca62d2e58eb43 inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a2c312cff68ca3c479efca62d2e58eb43">input</a></td></tr>
+<tr class="separator:a2c312cff68ca3c479efca62d2e58eb43 inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1655ed1be7b0815382e2214acb16c65e inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a1655ed1be7b0815382e2214acb16c65e">output</a></td></tr>
+<tr class="separator:a1655ed1be7b0815382e2214acb16c65e inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a066e532d095a7b6392a4d81db1a3cf80 inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a066e532d095a7b6392a4d81db1a3cf80">lmin</a></td></tr>
+<tr class="separator:a066e532d095a7b6392a4d81db1a3cf80 inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d671bd41ec010c049bed0f3988d23d6 inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a4d671bd41ec010c049bed0f3988d23d6">lmax</a></td></tr>
+<tr class="separator:a4d671bd41ec010c049bed0f3988d23d6 inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff37aef61263d461fe7be2a3aef2c19c inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">step</a></td></tr>
+<tr class="separator:aff37aef61263d461fe7be2a3aef2c19c inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e77811af5d075e0d9267f102e92606 inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a85e77811af5d075e0d9267f102e92606">Input</a></td></tr>
+<tr class="separator:a85e77811af5d075e0d9267f102e92606 inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46a4ef34d4c37af4fd8f1fd13eb4b634 inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a46a4ef34d4c37af4fd8f1fd13eb4b634">Output</a></td></tr>
+<tr class="separator:a46a4ef34d4c37af4fd8f1fd13eb4b634 inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e768b8a08f4a10b442e3cb38fbcb7d inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a07e768b8a08f4a10b442e3cb38fbcb7d">EstOutput</a></td></tr>
+<tr class="separator:a07e768b8a08f4a10b442e3cb38fbcb7d inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58c7970b4c66f18eb92d0fa57e771aed inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a58c7970b4c66f18eb92d0fa57e771aed">ModelCoef</a></td></tr>
+<tr class="separator:a58c7970b4c66f18eb92d0fa57e771aed inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf238ff176ac3a7757147bee7e84e1fe inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#acf238ff176ac3a7757147bee7e84e1fe">LinearVectorPhi</a></td></tr>
+<tr class="separator:acf238ff176ac3a7757147bee7e84e1fe inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a442245913133d5e6f85600f4ba2b28eb inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a442245913133d5e6f85600f4ba2b28eb">LinearMatrixA</a></td></tr>
+<tr class="separator:a442245913133d5e6f85600f4ba2b28eb inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e02ae73cd67f9851543165ff953b26c inherit pro_attribs_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a3e02ae73cd67f9851543165ff953b26c">LinearEqualityB</a></td></tr>
+<tr class="separator:a3e02ae73cd67f9851543165ff953b26c inherit pro_attribs_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><h3>template&lt;class UsedType&gt;<br />
+class TransferFunction&lt; UsedType &gt;</h3>
+
+
+<p>Definição na linha <a class="el" href="transferfunction_8h_source.html#l00007">7</a> do arquivo <a class="el" href="transferfunction_8h_source.html">transferfunction.h</a>.</p>
+</div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
+<a class="anchor" id="acddfe59f21e8364bca9c91f884db02fa"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::<a class="el" href="class_transfer_function.html">TransferFunction</a> </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>cols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00037">37</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3880806383a62225faa2492417ac622c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::<a class="el" href="class_transfer_function.html">TransferFunction</a> </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>den</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>cols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00018">18</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções utilizadas por esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_transfer_function_a3880806383a62225faa2492417ac622c_cgraph.png" border="0" usemap="#class_transfer_function_a3880806383a62225faa2492417ac622c_cgraph" alt=""/></div>
+<map name="class_transfer_function_a3880806383a62225faa2492417ac622c_cgraph" id="class_transfer_function_a3880806383a62225faa2492417ac622c_cgraph">
+<area shape="rect" id="node2" href="class_matrix.html#a95c22817d23b8b30b25115478e15694a" title="Obter uma linha inteira de uma matriz. " alt="" coords="225,13,333,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="a1ca397b7a0583da56c86058fa16eb335"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::c2dConversion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00012">12</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1375e12bc5b5ce612db162cddcdc6077"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::getNColsTF </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00122">122</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_transfer_function_a1375e12bc5b5ce612db162cddcdc6077_icgraph.png" border="0" usemap="#class_transfer_function_a1375e12bc5b5ce612db162cddcdc6077_icgraph" alt=""/></div>
+<map name="class_transfer_function_a1375e12bc5b5ce612db162cddcdc6077_icgraph" id="class_transfer_function_a1375e12bc5b5ce612db162cddcdc6077_icgraph">
+<area shape="rect" id="node2" href="namespaceconversions.html#ae9c73d4a1dc3c20d8dfb0017a053d1a2" title="conversions::tf2ss" alt="" coords="248,5,375,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6299817f4f016e77185252f4b7fc931"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::getNRowsTF </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00116">116</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+<p><div class="dynheader">
+Este é o diagrama das funções que utilizam esta função:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_transfer_function_ad6299817f4f016e77185252f4b7fc931_icgraph.png" border="0" usemap="#class_transfer_function_ad6299817f4f016e77185252f4b7fc931_icgraph" alt=""/></div>
+<map name="class_transfer_function_ad6299817f4f016e77185252f4b7fc931_icgraph" id="class_transfer_function_ad6299817f4f016e77185252f4b7fc931_icgraph">
+<area shape="rect" id="node2" href="namespaceconversions.html#ae9c73d4a1dc3c20d8dfb0017a053d1a2" title="conversions::tf2ss" alt="" coords="253,5,380,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a447fbfc6b9b641dbc72210d45e1143fe"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; UsedType &gt; ** <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::getTF </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00102">102</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a85b098374d20e3852e67e190a7323038"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::initTfNumber </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00004">4</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa9af5790490080160c5a730c13297e10"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt; UsedType &gt; <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>col</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00046">46</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ddff164a1e2d4c759b4efba331504fd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_polynom.html">Polynom</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>P</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00055">55</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a27c1bbd88699f97997e3c058b042f1e2"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>TF</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00061">61</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3ac42a08bdc63ad14533aaba65b450cd"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::printTF </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00074">74</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d83d09a607cbcb6f75412c35ff36fa5"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::setTF </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_polynom.html">Polynom</a>&lt; UsedType &gt; **&#160;</td>
+          <td class="paramname"><em>TF</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>rows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>cols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00086">86</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac63a261ef2f632979d882e214c5cf310"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::sim </td>
+          <td>(</td>
+          <td class="paramtype">UsedType&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementa <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">Model&lt; UsedType &gt;</a>.</p>
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00128">128</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abc79523ccd810b5ed044cfc5c024788b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::sim </td>
+          <td>(</td>
+          <td class="paramtype">UsedType&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UsedType&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementa <a class="el" href="class_model.html#a71f3de80b24e26aaf4fc9e668c2c1f6c">Model&lt; UsedType &gt;</a>.</p>
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00134">134</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab1a57526ba82159decede6632122b04b"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::sim </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementa <a class="el" href="class_model.html#ab5bfd0d4f6898737fbd4a5c048cea1df">Model&lt; UsedType &gt;</a>.</p>
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00140">140</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae7f60d69b77077496e69f03fb1b4ce62"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::sim </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementa <a class="el" href="class_model.html#a12e8b345b66375c4dfaa81e54b0b61bd">Model&lt; UsedType &gt;</a>.</p>
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00146">146</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af6b08167e8ff910ed02a70799c922d81"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::sim </td>
+          <td>(</td>
+          <td class="paramtype">UsedType&#160;</td>
+          <td class="paramname"><em>lsim</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UsedType&#160;</td>
+          <td class="paramname"><em>lmax</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UsedType&#160;</td>
+          <td class="paramname"><em>step</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementa <a class="el" href="class_model.html#a5bd83719f8b006de8bab95a354622e61">Model&lt; UsedType &gt;</a>.</p>
+
+<p>Definição na linha <a class="el" href="transferfunction_8cpp_source.html#l00152">152</a> do arquivo <a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="a3bea8a273e904736f6da276c17c27d7c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::nColsTF</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8h_source.html#l00011">11</a> do arquivo <a class="el" href="transferfunction_8h_source.html">transferfunction.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af414210fa76962db2c257aa63e446e32"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::nRowsTF</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8h_source.html#l00011">11</a> do arquivo <a class="el" href="transferfunction_8h_source.html">transferfunction.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8f4abfd9a32e54f4df6d3f8845abb940"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::sampleTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8h_source.html#l00010">10</a> do arquivo <a class="el" href="transferfunction_8h_source.html">transferfunction.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abc2ec56ccf027333ccb6921e11d822d8"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_polynom.html">Polynom</a>&lt;UsedType&gt;** <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::TF</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8h_source.html#l00012">12</a> do arquivo <a class="el" href="transferfunction_8h_source.html">transferfunction.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1147e22359ad13a71eacb749c581d681"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class UsedType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UsedType <a class="el" href="class_transfer_function.html">TransferFunction</a>&lt; UsedType &gt;::timeSimulation</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="transferfunction_8h_source.html#l00010">10</a> do arquivo <a class="el" href="transferfunction_8h_source.html">transferfunction.h</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>SistemasdeControle/src/simulationLibs/<a class="el" href="transferfunction_8h_source.html">transferfunction.h</a></li>
+<li>SistemasdeControle/src/simulationLibs/<a class="el" href="transferfunction_8cpp_source.html">transferfunction.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 27 de Dezembro de 2014 19:30:18 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>
