@@ -11,34 +11,42 @@ Serial::Serial()
 
 }
 
+void Serial::setIdCom(const char *namedoor)
+{
+    WCHAR    str3[5];
+    MultiByteToWideChar( 0,0, namedoor, 5, str3, 5);
+    IdCom = str3;
+}
+
 Serial::Serial(const char *namedoor)
 {
-	//namedoor = "COM9";
+    this->setIdCom(namedoor);
 	this->dcbPortaSerialparams = {0};
 	this->timeouts = {0};
-	this->PortaSerial = CreateFile(namedoor,
-	GENERIC_READ|GENERIC_WRITE,     //para leitura e escrita
-	  	0,							//outra abertura não será permitida
-	   	NULL,						//atributo de seguranca(null)padrão
-	    OPEN_EXISTING, 				//criação ou abertura
+    this->PortaSerial = CreateFile(this->IdCom,
+        GENERIC_READ|GENERIC_WRITE,     //para leitura e escrita
+	  	0,							//outra abertura nï¿½o serï¿½ permitida
+	   	NULL,						//atributo de seguranca(null)padrï¿½o
+	    OPEN_EXISTING, 				//criaï¿½ï¿½o ou abertura
 		FILE_ATTRIBUTE_NORMAL, 		//ouverlapped
 		NULL );
 	
 this->dcbPortaSerialparams.DCBlength = sizeof(this->dcbPortaSerialparams); 
-	if (GetCommState(this->PortaSerial, &this->dcbPortaSerialparams) == 0)
+    if (GetCommState(this->PortaSerial, &this->dcbPortaSerialparams) == 0)
     {
         fprintf(stderr, "Error de estado de dispositivo\n");
-        CloseHandle(this->PortaSerial);        
+        CloseHandle(this->PortaSerial);
     }
      
-    this->dcbPortaSerialparams.BaudRate = CBR_9600;		   //velocidade
+    this->dcbPortaSerialparams.BaudRate = CBR_4800;		   //velocidade
     this->dcbPortaSerialparams.ByteSize = 8;			   //tamanho do dado
     this->dcbPortaSerialparams.StopBits = ONESTOPBIT;	   //bits de parada
     this->dcbPortaSerialparams.Parity =  NOPARITY;		   //paridde
+    this->dcbPortaSerialparams.fDtrControl = DTR_CONTROL_DISABLE;
     if(SetCommState(this->PortaSerial, &this->dcbPortaSerialparams) == 0)
     {
         fprintf(stderr, "Parametro de dispositivo errado\n");
-        CloseHandle(this->PortaSerial);        
+        CloseHandle(this->PortaSerial);
     }
     this->timeouts.ReadIntervalTimeout = 50;
     this->timeouts.ReadTotalTimeoutConstant = 50;
@@ -49,7 +57,7 @@ this->dcbPortaSerialparams.DCBlength = sizeof(this->dcbPortaSerialparams);
     {
         fprintf(stderr, "timeout configurado errado\n");
         CloseHandle(this->PortaSerial);
-    }  
+    }
 }
 
 void Serial::Close()
@@ -64,7 +72,7 @@ void Serial::Close()
 
 void Serial::Write(const char *teste)
 { 	
-	int  i = 0, n =0 , m = 0;
+    int  i = 0, m = 0; //n =0;
 	 m = strlen(teste);
 	
 	 for (i=0 ; i != m ; i++)
@@ -73,10 +81,10 @@ void Serial::Write(const char *teste)
       }
    int tamanho = m;
 
-	DWORD bytes_written, total_bytes_written = 0;
+    DWORD bytes_written;//, total_bytes_written = 0;
    // fprintf(stderr, "Enviando bytes...");
     if(!WriteFile(this->PortaSerial,		//identificador da porta serial
-				  this->bytes_pra_envio,	//buffer onde será depositado para serem enviados a porta serial
+				  this->bytes_pra_envio,	//buffer onde serï¿½ depositado para serem enviados a porta serial
 				  tamanho,					//tamanho do buffer de dados
 				  &bytes_written,	        //ponteiro onde armazena a quantidade exata de bytes escritos
 				  NULL))				    //ponteiro para overlapped
@@ -87,27 +95,30 @@ void Serial::Write(const char *teste)
    
  }
 
-void Serial::Read()
+char Serial::Read()
 {
 	while (PortaSerial != INVALID_HANDLE_VALUE){
 	
-	DWORD bytes_lidos , total_bytes_lidos = 0;
+    DWORD bytes_lidos;// , total_bytes_lidos = 0;
     //fprintf(stderr, "Recebendo bytes....");
     
     if (!ReadFile(this->PortaSerial,		//identificador da porta serial
-				this->bytes_para_receber,	//buffer, local temporário onde os dados lidos serão armazenados 
+				this->bytes_para_receber,	//buffer, local temporï¿½rio onde os dados lidos serï¿½o armazenados 
 				1,					        //tamanho do buffer
-				&bytes_lidos,		        //ponteiro onde armazenará a quantidade exata de bytes lidos
+				&bytes_lidos,		        //ponteiro onde armazenarï¿½ a quantidade exata de bytes lidos
 				NULL))				        //ponteiro para overlapped
 	{
 		fprintf(stderr, "Erro\n");
-		CloseHandle(this->PortaSerial);		
+
+
+       CloseHandle(this->PortaSerial);
 	} 
 	else 
 	{
-			if (bytes_lidos > 0)
-			cout << "" << this->bytes_para_receber[0];
+            if (bytes_lidos > 0)
+                return this->bytes_para_receber[0];
 	}
   }		
+  return '0';
 }
 
