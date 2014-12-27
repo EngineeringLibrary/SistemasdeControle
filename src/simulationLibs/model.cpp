@@ -42,6 +42,12 @@ Matrix<UsedType> Model<UsedType>::getOutputMatrix()
 }
 
 template <class UsedType>
+UsedType Model<UsedType>::getOutput()
+{
+    return this->output;
+}
+
+template <class UsedType>
 Matrix<UsedType> Model<UsedType>::getLinearVectorPhi()
 {
     return this->LinearVectorPhi;

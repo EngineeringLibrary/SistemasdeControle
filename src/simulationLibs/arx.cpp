@@ -115,6 +115,7 @@ UsedType ARX<UsedType>::sim(UsedType input, UsedType output)
         this->LinearVectorPhi.zeros(1, nInputpar*this->Input.getCols() + nOutputpar*this->Output.getCols());
     }
 
+    this->input = input;
     this->Input(nSample-1,1,input);
     this->Output(nSample-1,1,output);
     this->setLinearVectorPhi();

@@ -21,6 +21,7 @@ public:
 
     Matrix<UsedType> getModelCoef();
     Matrix<UsedType> getInputMatrix();
+    UsedType getOutput();
     Matrix<UsedType> getOutputMatrix();
     Matrix<UsedType> getLinearMatrixA();
     Matrix<UsedType> getLinearEqualityB();
