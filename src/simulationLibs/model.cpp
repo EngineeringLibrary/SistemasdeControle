@@ -30,9 +30,33 @@ void Model<UsedType>::setModelCoef(Matrix<UsedType> coef)
 }
 
 template <class UsedType>
+Matrix<UsedType> Model<UsedType>::getInputMatrix()
+{
+    return this->Input;
+}
+
+template <class UsedType>
+Matrix<UsedType> Model<UsedType>::getOutputMatrix()
+{
+    return this->Output;
+}
+
+template <class UsedType>
 Matrix<UsedType> Model<UsedType>::getLinearVectorPhi()
 {
     return this->LinearVectorPhi;
+}
+
+template <class UsedType>
+Matrix<UsedType> Model<UsedType>::getLinearMatrixA()
+{
+    return this->LinearMatrixA;
+}
+
+template <class UsedType>
+Matrix<UsedType> Model<UsedType>::getLinearEqualityB()
+{
+    return this->LinearEqualityB;
 }
 
 template <class UsedType>

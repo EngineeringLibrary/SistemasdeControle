@@ -44,6 +44,51 @@ void ARX<UsedType>::setLinearVectorPhiEstimation()
 }
 
 template <class UsedType>
+void ARX<UsedType>::setLinearVectorPhi()
+{
+    unsigned cont = 1;
+    for(unsigned i = 1; i <= this->Output.getCols(); i++)
+    {
+        for(unsigned j = 1; j <= this->nOutputpar; j++)
+        {
+            this->LinearVectorPhi(1, cont, -this->Output(this->nSample - j, i));
+            cont++;
+        }
+    }
+    for(unsigned i = 1; i <= this->Input.getCols(); i++)
+    {
+        for(unsigned j = 1; j <= this->nInputpar; j++)
+        {
+            this->LinearVectorPhi(1, cont, this->Input(this->nSample - j - delay, i));
+            cont++;
+        }
+    }
+}
+
+template <class UsedType>
+void ARX<UsedType>::setLinearModel(Matrix<UsedType> Input,
+                                   Matrix<UsedType> Output)
+{
+    this->Input  = Input;
+    this->Output = Output;
+    for(nSample = delay + maxnInOut + 1; nSample <= this->Input.getRows(); nSample++)
+    {
+        if(nSample == delay + maxnInOut + 1)
+        {
+            this->LinearVectorPhi.zeros(1, nInputpar*this->Input.getCols() + nOutputpar*this->Output.getCols());
+            this->LinearMatrixA   = this->LinearVectorPhi;
+            this->LinearEqualityB = this->Output.getLine(nSample);
+        }
+        else
+        {
+            this->setLinearVectorPhi();
+            this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorPhi;
+            this->LinearEqualityB = this->LinearEqualityB || this->Output.getLine(nSample);
+        }
+    }
+}
+
+template <class UsedType>
 UsedType ARX<UsedType>::sim(UsedType input)
 {
     if(nSample == delay + maxnInOut + 1)
@@ -63,9 +108,19 @@ UsedType ARX<UsedType>::sim(UsedType input)
 }
 
 template <class UsedType>
-UsedType ARX<UsedType>::sim(UsedType x, UsedType y)
+UsedType ARX<UsedType>::sim(UsedType input, UsedType output)
 {
+    if(nSample == delay + maxnInOut + 1)
+    {
+        this->LinearVectorPhi.zeros(1, nInputpar*this->Input.getCols() + nOutputpar*this->Output.getCols());
+    }
 
+    this->Input(nSample-1,1,input);
+    this->Output(nSample-1,1,output);
+    this->setLinearVectorPhi();
+    nSample++;
+
+    return (this->LinearVectorPhi*this->ModelCoef)(1,1);
 }
 
 template <class UsedType>
