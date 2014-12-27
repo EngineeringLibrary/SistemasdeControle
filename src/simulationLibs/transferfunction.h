@@ -21,7 +21,7 @@ public:
     Polynom<UsedType> operator()(unsigned row, unsigned col);
     void operator()(unsigned row, unsigned col, Polynom<UsedType> P);
     void operator= (TransferFunction<UsedType> TF);
-    void printTF(); // Método Opcional
+    void print(); // Método Opcional
 
     void setTF(Polynom<UsedType> **TF, unsigned rows, unsigned cols);
     Polynom<UsedType> **getTF();

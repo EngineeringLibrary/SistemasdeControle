@@ -47,6 +47,7 @@ StateSpace<UsedType>::StateSpace(Matrix<UsedType> A, Matrix<UsedType> B,
     this->nDiscretization    =    4;
 
     this->initialState.zeros(A.getRows(),B.getCols());
+    this->X = this->initialState;
 }
 
 template <class UsedType>
@@ -69,9 +70,9 @@ void StateSpace<UsedType>::print()
     }
     else
     {
-        std::cout<<std::endl<<"A = "<<std::endl;
+        std::cout<<std::endl<<"Ad = "<<std::endl;
         this->Ad.print();
-        std::cout<<std::endl<<"B = "<<std::endl;
+        std::cout<<std::endl<<"Bd = "<<std::endl;
         this->Bd.print();
     }
     std::cout<<std::endl<<"C = "<<std::endl;
@@ -85,6 +86,7 @@ template <class UsedType>
 void StateSpace<UsedType>::setInitialState(Matrix<UsedType> X0)
 {
     this->initialState = X0;
+    this->X = X0;
 }
 
 template <class UsedType>
@@ -96,6 +98,7 @@ UsedType StateSpace<UsedType>::sim(UsedType u)
     X = initialState;
     Matrix<UsedType> Xi1 = Ad*X+Bd*u;
     Matrix<UsedType> y  = C*X+D*u;
+    X = Xi1;
 
     return y(1,1);
 }
@@ -178,6 +181,12 @@ template <class UsedType>
 Matrix<UsedType> StateSpace<UsedType>::getD()
 {
     return this->D;
+}
+
+template <class UsedType>
+Matrix<UsedType> StateSpace<UsedType>::getActualState()
+{
+    return X;
 }
 
 template <class UsedType>

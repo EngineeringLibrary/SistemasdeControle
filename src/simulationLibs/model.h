@@ -27,6 +27,7 @@ public:
     Matrix<UsedType> getLinearEqualityB();
     Matrix<UsedType> getLinearVectorPhi();
 
+    virtual void print()=0;
     virtual UsedType         sim(UsedType x) = 0;
     virtual UsedType         sim(UsedType x, UsedType y) = 0;
     virtual Matrix<UsedType> sim(Matrix<UsedType> x) = 0;

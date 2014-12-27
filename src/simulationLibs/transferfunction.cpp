@@ -71,7 +71,7 @@ void TransferFunction<UsedType>::operator =(TransferFunction TF)
 }
 
 template <class UsedType>
-void TransferFunction<UsedType>::printTF()
+void TransferFunction<UsedType>::print()
 {
     for(unsigned i = 0; i < nRowsTF; i++)
         for(unsigned j = 0; j < nColsTF; j++)
