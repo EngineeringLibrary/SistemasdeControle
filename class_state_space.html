@@ -39,7 +39,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Arquivos</span></a></li>
       <li>
@@ -73,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -127,36 +126,36 @@ Métodos Públicos</h2></td></tr>
 <tr class="memitem:a6b573639ae37aaa5bc768cab3f98bfce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#a6b573639ae37aaa5bc768cab3f98bfce">setInitialState</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; X0)</td></tr>
 <tr class="memdesc:a6b573639ae37aaa5bc768cab3f98bfce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é receber uma matriz que representará o estado inicial para simulação do sistema em espaço de estados.  <a href="#a6b573639ae37aaa5bc768cab3f98bfce">Mais...</a><br /></td></tr>
 <tr class="separator:a6b573639ae37aaa5bc768cab3f98bfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46756c06ea82bef9fab00a4179f53125"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#a46756c06ea82bef9fab00a4179f53125">getA</a> ()</td></tr>
-<tr class="memdesc:a46756c06ea82bef9fab00a4179f53125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz A do espaço de estados.  <a href="#a46756c06ea82bef9fab00a4179f53125">Mais...</a><br /></td></tr>
-<tr class="separator:a46756c06ea82bef9fab00a4179f53125"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17fae6c70c55a63a98beb623689b0fda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#a17fae6c70c55a63a98beb623689b0fda">getB</a> ()</td></tr>
-<tr class="memdesc:a17fae6c70c55a63a98beb623689b0fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz B do espaço de estados.  <a href="#a17fae6c70c55a63a98beb623689b0fda">Mais...</a><br /></td></tr>
-<tr class="separator:a17fae6c70c55a63a98beb623689b0fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa5305eb838949d5f15e66168f815df1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#aaa5305eb838949d5f15e66168f815df1">getC</a> ()</td></tr>
-<tr class="memdesc:aaa5305eb838949d5f15e66168f815df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz C do espaço de estados.  <a href="#aaa5305eb838949d5f15e66168f815df1">Mais...</a><br /></td></tr>
-<tr class="separator:aaa5305eb838949d5f15e66168f815df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5ad117d4fccdc6112976e924dd774ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#ae5ad117d4fccdc6112976e924dd774ee">getA</a> ()</td></tr>
+<tr class="memdesc:ae5ad117d4fccdc6112976e924dd774ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz A do espaço de estados.  <a href="#ae5ad117d4fccdc6112976e924dd774ee">Mais...</a><br /></td></tr>
+<tr class="separator:ae5ad117d4fccdc6112976e924dd774ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a486791121706d493efbdcf14c1b9fe9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#a486791121706d493efbdcf14c1b9fe9f">getB</a> ()</td></tr>
+<tr class="memdesc:a486791121706d493efbdcf14c1b9fe9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz B do espaço de estados.  <a href="#a486791121706d493efbdcf14c1b9fe9f">Mais...</a><br /></td></tr>
+<tr class="separator:a486791121706d493efbdcf14c1b9fe9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a754d43e54304a749c38834686f187f63"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#a754d43e54304a749c38834686f187f63">getC</a> ()</td></tr>
+<tr class="memdesc:a754d43e54304a749c38834686f187f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz C do espaço de estados.  <a href="#a754d43e54304a749c38834686f187f63">Mais...</a><br /></td></tr>
+<tr class="separator:a754d43e54304a749c38834686f187f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03d5cfb387938e358939aed801f56359"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#a03d5cfb387938e358939aed801f56359">getActualState</a> ()</td></tr>
 <tr class="memdesc:a03d5cfb387938e358939aed801f56359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar uma matriz com os valores atuais do estado calculados na função sim.  <a href="#a03d5cfb387938e358939aed801f56359">Mais...</a><br /></td></tr>
 <tr class="separator:a03d5cfb387938e358939aed801f56359"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a462bb7b4fc76f2faa760b51740bfbf5d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#a462bb7b4fc76f2faa760b51740bfbf5d">getD</a> ()</td></tr>
-<tr class="memdesc:a462bb7b4fc76f2faa760b51740bfbf5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz D do espaço de estados.  <a href="#a462bb7b4fc76f2faa760b51740bfbf5d">Mais...</a><br /></td></tr>
-<tr class="separator:a462bb7b4fc76f2faa760b51740bfbf5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a0d702a2615fdb14fdc2c9513dea013"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#a5a0d702a2615fdb14fdc2c9513dea013">getD</a> ()</td></tr>
+<tr class="memdesc:a5a0d702a2615fdb14fdc2c9513dea013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz D do espaço de estados.  <a href="#a5a0d702a2615fdb14fdc2c9513dea013">Mais...</a><br /></td></tr>
+<tr class="separator:a5a0d702a2615fdb14fdc2c9513dea013"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02b6fe329444f36a5b6304337ec3e8cf"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">sim</a> (UsedType u)</td></tr>
 <tr class="memdesc:a02b6fe329444f36a5b6304337ec3e8cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é simular os valores futuros da saída da equação diferencial.  <a href="#a02b6fe329444f36a5b6304337ec3e8cf">Mais...</a><br /></td></tr>
 <tr class="separator:a02b6fe329444f36a5b6304337ec3e8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd4d8609e8d427afa909a1e739f574e3"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#afd4d8609e8d427afa909a1e739f574e3">sim</a> (UsedType u, UsedType y)</td></tr>
 <tr class="memdesc:afd4d8609e8d427afa909a1e739f574e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método não implementado.  <a href="#afd4d8609e8d427afa909a1e739f574e3">Mais...</a><br /></td></tr>
 <tr class="separator:afd4d8609e8d427afa909a1e739f574e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80ae9da252a70ab430358f8264618da8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#a80ae9da252a70ab430358f8264618da8">sim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; u)</td></tr>
-<tr class="memdesc:a80ae9da252a70ab430358f8264618da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é simular os valores futuros da saída da equação diferencial.  <a href="#a80ae9da252a70ab430358f8264618da8">Mais...</a><br /></td></tr>
-<tr class="separator:a80ae9da252a70ab430358f8264618da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5b55e00ef80735b7a4a57a3cdf3f2e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#af5b55e00ef80735b7a4a57a3cdf3f2e0">sim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; u, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; y)</td></tr>
-<tr class="memdesc:af5b55e00ef80735b7a4a57a3cdf3f2e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método não implementado.  <a href="#af5b55e00ef80735b7a4a57a3cdf3f2e0">Mais...</a><br /></td></tr>
-<tr class="separator:af5b55e00ef80735b7a4a57a3cdf3f2e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7666051df0dca24ecbd32264ee7cd0f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#a7666051df0dca24ecbd32264ee7cd0f7">sim</a> (UsedType lmim, UsedType <a class="el" href="class_model.html#a4d671bd41ec010c049bed0f3988d23d6">lmax</a>, UsedType <a class="el" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">step</a>)</td></tr>
-<tr class="memdesc:a7666051df0dca24ecbd32264ee7cd0f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é simular os valores futuros da saída da equação diferencial.  <a href="#a7666051df0dca24ecbd32264ee7cd0f7">Mais...</a><br /></td></tr>
-<tr class="separator:a7666051df0dca24ecbd32264ee7cd0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbb931298a2c834b3685e43137d1fbf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#afbb931298a2c834b3685e43137d1fbf3">sim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; u)</td></tr>
+<tr class="memdesc:afbb931298a2c834b3685e43137d1fbf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é simular os valores futuros da saída da equação diferencial.  <a href="#afbb931298a2c834b3685e43137d1fbf3">Mais...</a><br /></td></tr>
+<tr class="separator:afbb931298a2c834b3685e43137d1fbf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affb34984ea27356182bc1812862073ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#affb34984ea27356182bc1812862073ee">sim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; u, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; y)</td></tr>
+<tr class="memdesc:affb34984ea27356182bc1812862073ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método não implementado.  <a href="#affb34984ea27356182bc1812862073ee">Mais...</a><br /></td></tr>
+<tr class="separator:affb34984ea27356182bc1812862073ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab29212e32fdce034c65fe27bc5a6084b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state_space.html#ab29212e32fdce034c65fe27bc5a6084b">sim</a> (UsedType lmim, UsedType <a class="el" href="class_model.html#a4d671bd41ec010c049bed0f3988d23d6">lmax</a>, UsedType <a class="el" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">step</a>)</td></tr>
+<tr class="memdesc:ab29212e32fdce034c65fe27bc5a6084b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é simular os valores futuros da saída da equação diferencial.  <a href="#ab29212e32fdce034c65fe27bc5a6084b">Mais...</a><br /></td></tr>
+<tr class="separator:ab29212e32fdce034c65fe27bc5a6084b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_model"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_model')"><img src="closed.png" alt="-"/>&#160;Métodos Públicos inherited from <a class="el" href="class_model.html">Model&lt; UsedType &gt;</a></td></tr>
 <tr class="memitem:aa12b72318e043183d998c4e17dcc5de4 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#aa12b72318e043183d998c4e17dcc5de4">Model</a> ()</td></tr>
 <tr class="separator:aa12b72318e043183d998c4e17dcc5de4 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -170,20 +169,20 @@ Métodos Públicos</h2></td></tr>
 <tr class="separator:af9946deebc9e2f25f438e9a9bb2c08fe inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cd2a1db919315b7c223f82765cacab7 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7">setIO</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; in, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; out)</td></tr>
 <tr class="separator:a7cd2a1db919315b7c223f82765cacab7 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a256a5480e78b8996e4c9f1108aa37bdc inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a256a5480e78b8996e4c9f1108aa37bdc">getModelCoef</a> ()</td></tr>
-<tr class="separator:a256a5480e78b8996e4c9f1108aa37bdc inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a902897849acc18824b06d0857c7d8fd4 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a902897849acc18824b06d0857c7d8fd4">getInputMatrix</a> ()</td></tr>
-<tr class="separator:a902897849acc18824b06d0857c7d8fd4 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376157f1c86ab267b1330283926ee87a inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a376157f1c86ab267b1330283926ee87a">getModelCoef</a> ()</td></tr>
+<tr class="separator:a376157f1c86ab267b1330283926ee87a inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae114fadcc2d82dd8c335a09650325da5 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ae114fadcc2d82dd8c335a09650325da5">getInputMatrix</a> ()</td></tr>
+<tr class="separator:ae114fadcc2d82dd8c335a09650325da5 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8ba7295e08cf557088e55bf33007d55 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ae8ba7295e08cf557088e55bf33007d55">getOutput</a> ()</td></tr>
 <tr class="separator:ae8ba7295e08cf557088e55bf33007d55 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a698582cf99335ce846eaecc5896441db inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a698582cf99335ce846eaecc5896441db">getOutputMatrix</a> ()</td></tr>
-<tr class="separator:a698582cf99335ce846eaecc5896441db inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75334a58859e6bc9cc2fd11d1a42ee3a inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a75334a58859e6bc9cc2fd11d1a42ee3a">getLinearMatrixA</a> ()</td></tr>
-<tr class="separator:a75334a58859e6bc9cc2fd11d1a42ee3a inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9e2bac3b1b26a6eb88173e3f45c8998 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ac9e2bac3b1b26a6eb88173e3f45c8998">getLinearEqualityB</a> ()</td></tr>
-<tr class="separator:ac9e2bac3b1b26a6eb88173e3f45c8998 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0675b540e2717e46a2bbac9659cde7ed inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a0675b540e2717e46a2bbac9659cde7ed">getLinearVectorPhi</a> ()</td></tr>
-<tr class="separator:a0675b540e2717e46a2bbac9659cde7ed inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92d41740a9681d0bb6b5608a29206c34 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a92d41740a9681d0bb6b5608a29206c34">getOutputMatrix</a> ()</td></tr>
+<tr class="separator:a92d41740a9681d0bb6b5608a29206c34 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30aec59cef1b0a4c2b3cb4e8212d1642 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a30aec59cef1b0a4c2b3cb4e8212d1642">getLinearMatrixA</a> ()</td></tr>
+<tr class="separator:a30aec59cef1b0a4c2b3cb4e8212d1642 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0823c5cfae6d575705258fdc82547025 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a0823c5cfae6d575705258fdc82547025">getLinearEqualityB</a> ()</td></tr>
+<tr class="separator:a0823c5cfae6d575705258fdc82547025 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11ab9e4f0cfa75f2bb678e319d40bad9 inherit pub_methods_class_model"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a11ab9e4f0cfa75f2bb678e319d40bad9">getLinearVectorPhi</a> ()</td></tr>
+<tr class="separator:a11ab9e4f0cfa75f2bb678e319d40bad9 inherit pub_methods_class_model"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Métodos Privados</h2></td></tr>
@@ -393,17 +392,6 @@ template&lt;class UsedType &gt; </div>
         0.000
 
      Ver também: \sa print(), sim();</pre> 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00037">37</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções utilizadas por esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_state_space_aa04793c97f5e89788b70bbf3b83f51d3_cgraph.png" border="0" usemap="#class_state_space_aa04793c97f5e89788b70bbf3b83f51d3_cgraph" alt=""/></div>
-<map name="class_state_space_aa04793c97f5e89788b70bbf3b83f51d3_cgraph" id="class_state_space_aa04793c97f5e89788b70bbf3b83f51d3_cgraph">
-<area shape="rect" id="node2" href="class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd" title="Cria uma matriz de zeros. " alt="" coords="229,5,327,32"/><area shape="rect" id="node3" href="class_matrix.html#a1a544492885c8925f6da46e44a896fe3" title="Retorna o número de linhas da matriz. " alt="" coords="220,56,336,83"/><area shape="rect" id="node4" href="class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="223,107,333,133"/></map>
-</div>
-</p>
-
 </div>
 </div>
 <h2 class="groupheader">Métodos</h2>
@@ -411,7 +399,7 @@ Este é o diagrama das funções utilizadas por esta função:</div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::c2d </td>
@@ -474,15 +462,13 @@ template&lt;class UsedType &gt; </div>
         0.000
 
      Ver também: \sa print(), getA(), getB(), getC(), getD();</pre> 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00053">53</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a6a238f4601404ee837336166ca20917e"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -505,15 +491,13 @@ template&lt;class UsedType &gt; </div>
 <p>Este método utiliza a expansão em série de taylor para encontrar e^At que é Ad e para encontrar Bd (Bd = (A^-1)*(Ad - (I))*B).</p>
 <p>Ver também: </p><dl class="section see"><dt>Veja também</dt><dd><a class="el" href="class_state_space.html#a0f32de6eab7460b30bd16cf6e6ddb620" title="Método para realizar a conversão de um sistema em espaço de estados na forma discreta para a forma co...">d2cConversion()</a>; </dd></dl>
 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00004">4</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a0f32de6eab7460b30bd16cf6e6ddb620"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -536,24 +520,13 @@ template&lt;class UsedType &gt; </div>
 <p>Este método utiliza uma transformação obtendo a matriz A, sabendo que ela foi obtida de Ad utilizando uma certa quantidade de termos da série de taylor. B = (((A^-1)*(Ad - I))^-1)*Bd;</p>
 <p>Ver também: </p><dl class="section see"><dt>Veja também</dt><dd><a class="el" href="class_state_space.html#a6a238f4601404ee837336166ca20917e" title="Método para realizar a conversão de um sistema em espaço de estados na forma contínua para a forma di...">c2dConversion()</a>; </dd></dl>
 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00013">13</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções utilizadas por esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_state_space_a0f32de6eab7460b30bd16cf6e6ddb620_cgraph.png" border="0" usemap="#class_state_space_a0f32de6eab7460b30bd16cf6e6ddb620_cgraph" alt=""/></div>
-<map name="class_state_space_a0f32de6eab7460b30bd16cf6e6ddb620_cgraph" id="class_state_space_a0f32de6eab7460b30bd16cf6e6ddb620_cgraph">
-<area shape="rect" id="node2" href="class_matrix.html#a2cc1e0be0c535a46dbebddc7636a63f8" title="Calcula os autovalores da matriz. " alt="" coords="236,33,369,60"/><area shape="rect" id="node3" href="matrix_8cpp.html#adfe3600f358b2928305ba6175f32076f" title="max" alt="" coords="437,8,484,35"/><area shape="rect" id="node4" href="class_matrix.html#ab14a5f8484a9603109e01655cef1841d" title="Método para criar uma matriz identidade (Matriz com 1 nos elementos da diagonal principal). " alt="" coords="417,71,504,97"/><area shape="rect" id="node5" href="class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="247,135,358,161"/><area shape="rect" id="node6" href="class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd" title="Cria uma matriz de zeros. " alt="" coords="253,185,352,212"/><area shape="rect" id="node7" href="class_matrix.html#a1a544492885c8925f6da46e44a896fe3" title="Retorna o número de linhas da matriz. " alt="" coords="245,236,361,263"/><area shape="rect" id="node8" href="matrix_8cpp.html#aa6503e0f8152c6f2973fd36aa4f5613f" title="abs" alt="" coords="281,287,324,313"/></map>
-</div>
-</p>
-
 </div>
 </div>
 <a class="anchor" id="a18961611908e7489e224a971d52d4543"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -577,18 +550,16 @@ template&lt;class UsedType &gt; </div>
 <p>Este método auxilia a função de discretização (que usa a expansão em série de taylor).</p>
 <p>Ver também: </p><dl class="section see"><dt>Veja também</dt><dd><a class="el" href="class_state_space.html#a6a238f4601404ee837336166ca20917e" title="Método para realizar a conversão de um sistema em espaço de estados na forma contínua para a forma di...">c2dConversion()</a>, <a class="el" href="class_state_space.html#a41cf30a838b393851caed1059943c014" title="Método cujo objetivo é converter as equações em espaço de estados da forma contínua para a forma disc...">c2d()</a>; </dd></dl>
 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00184">184</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a46756c06ea82bef9fab00a4179f53125"></a>
+<a class="anchor" id="ae5ad117d4fccdc6112976e924dd774ee"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::getA </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::getA </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -638,17 +609,6 @@ template&lt;class UsedType &gt; </div>
        -0.200  0.905
 
      Ver também: \sa print(), getB(), getC(), getD();</pre> 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00154">154</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_state_space_a46756c06ea82bef9fab00a4179f53125_icgraph.png" border="0" usemap="#class_state_space_a46756c06ea82bef9fab00a4179f53125_icgraph" alt=""/></div>
-<map name="class_state_space_a46756c06ea82bef9fab00a4179f53125_icgraph" id="class_state_space_a46756c06ea82bef9fab00a4179f53125_icgraph">
-<area shape="rect" id="node2" href="namespaceconversions.html#a714a82ad5ddbac05e2259606524800d8" title="conversions::ss2tf" alt="" coords="179,5,305,32"/></map>
-</div>
-</p>
-
 </div>
 </div>
 <a class="anchor" id="a03d5cfb387938e358939aed801f56359"></a>
@@ -691,14 +651,14 @@ template&lt;class UsedType&gt; </div>
      Ver também: \sa print();</pre> 
 </div>
 </div>
-<a class="anchor" id="a17fae6c70c55a63a98beb623689b0fda"></a>
+<a class="anchor" id="a486791121706d493efbdcf14c1b9fe9f"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::getB </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::getB </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -748,27 +708,16 @@ template&lt;class UsedType &gt; </div>
         0.095
 
      Ver também: \sa print(), getA(), getC(), getD();</pre> 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00163">163</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_state_space_a17fae6c70c55a63a98beb623689b0fda_icgraph.png" border="0" usemap="#class_state_space_a17fae6c70c55a63a98beb623689b0fda_icgraph" alt=""/></div>
-<map name="class_state_space_a17fae6c70c55a63a98beb623689b0fda_icgraph" id="class_state_space_a17fae6c70c55a63a98beb623689b0fda_icgraph">
-<area shape="rect" id="node2" href="namespaceconversions.html#a714a82ad5ddbac05e2259606524800d8" title="conversions::ss2tf" alt="" coords="179,5,305,32"/></map>
-</div>
-</p>
-
 </div>
 </div>
-<a class="anchor" id="aaa5305eb838949d5f15e66168f815df1"></a>
+<a class="anchor" id="a754d43e54304a749c38834686f187f63"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::getC </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::getC </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -797,27 +746,16 @@ template&lt;class UsedType &gt; </div>
         0.000  1.000
 
      Ver também: \sa print(), getA(), getB(), getD();</pre> 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00172">172</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_state_space_aaa5305eb838949d5f15e66168f815df1_icgraph.png" border="0" usemap="#class_state_space_aaa5305eb838949d5f15e66168f815df1_icgraph" alt=""/></div>
-<map name="class_state_space_aaa5305eb838949d5f15e66168f815df1_icgraph" id="class_state_space_aaa5305eb838949d5f15e66168f815df1_icgraph">
-<area shape="rect" id="node2" href="namespaceconversions.html#a714a82ad5ddbac05e2259606524800d8" title="conversions::ss2tf" alt="" coords="179,5,305,32"/></map>
-</div>
-</p>
-
 </div>
 </div>
-<a class="anchor" id="a462bb7b4fc76f2faa760b51740bfbf5d"></a>
+<a class="anchor" id="a5a0d702a2615fdb14fdc2c9513dea013"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::getD </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::getD </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -846,24 +784,13 @@ template&lt;class UsedType &gt; </div>
         0.000  1.000
 
      Ver também: \sa print(), getA(), getB(), getC();</pre> 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00178">178</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_state_space_a462bb7b4fc76f2faa760b51740bfbf5d_icgraph.png" border="0" usemap="#class_state_space_a462bb7b4fc76f2faa760b51740bfbf5d_icgraph" alt=""/></div>
-<map name="class_state_space_a462bb7b4fc76f2faa760b51740bfbf5d_icgraph" id="class_state_space_a462bb7b4fc76f2faa760b51740bfbf5d_icgraph">
-<area shape="rect" id="node2" href="namespaceconversions.html#a714a82ad5ddbac05e2259606524800d8" title="conversions::ss2tf" alt="" coords="179,5,305,32"/></map>
-</div>
-</p>
-
 </div>
 </div>
 <a class="anchor" id="aeaa32a0d5d2537ee6d8a14950acb43b2"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::print </td>
@@ -907,15 +834,13 @@ template&lt;class UsedType &gt; </div>
         0.000
 
      Ver também: sim(UsedType u);</pre> 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00061">61</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a6b573639ae37aaa5bc768cab3f98bfce"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::setInitialState </td>
@@ -950,15 +875,13 @@ template&lt;class UsedType &gt; </div>
     1.000  0.960  0.919  0.878  0.836  0.792  0.745  0.697  0.645  0.589  0.530  0.446  0.396
 
      Ver também: \sa print(), sim(Matrix&lt;UsedType&gt; u);</pre> 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00085">85</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a02b6fe329444f36a5b6304337ec3e8cf"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1015,15 +938,13 @@ template&lt;class UsedType &gt; </div>
      Ver também: \sa print();</pre> 
 <p>Implementa <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">Model&lt; UsedType &gt;</a>.</p>
 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00091">91</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="afd4d8609e8d427afa909a1e739f574e3"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1057,21 +978,19 @@ template&lt;class UsedType &gt; </div>
 
 <p>Implementa <a class="el" href="class_model.html#a71f3de80b24e26aaf4fc9e668c2c1f6c">Model&lt; UsedType &gt;</a>.</p>
 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00104">104</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a80ae9da252a70ab430358f8264618da8"></a>
+<a class="anchor" id="afbb931298a2c834b3685e43137d1fbf3"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::sim </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::sim </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
           <td class="paramname"><em>u</em></td><td>)</td>
@@ -1110,30 +1029,19 @@ template&lt;class UsedType &gt; </div>
      Ver também: \sa print();</pre> 
 <p>Implementa <a class="el" href="class_model.html#ab5bfd0d4f6898737fbd4a5c048cea1df">Model&lt; UsedType &gt;</a>.</p>
 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00110">110</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções utilizadas por esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_state_space_a80ae9da252a70ab430358f8264618da8_cgraph.png" border="0" usemap="#class_state_space_a80ae9da252a70ab430358f8264618da8_cgraph" alt=""/></div>
-<map name="class_state_space_a80ae9da252a70ab430358f8264618da8_cgraph" id="class_state_space_a80ae9da252a70ab430358f8264618da8_cgraph">
-<area shape="rect" id="node2" href="class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="181,5,291,32"/><area shape="rect" id="node3" href="class_matrix.html#ab2e2de4a736bb752af047e33cc600acc" title="Obter uma coluna inteira de uma matriz. " alt="" coords="172,56,300,83"/></map>
-</div>
-</p>
-
 </div>
 </div>
-<a class="anchor" id="af5b55e00ef80735b7a4a57a3cdf3f2e0"></a>
+<a class="anchor" id="affb34984ea27356182bc1812862073ee"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::sim </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::sim </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td>
           <td class="paramname"><em>u</em>, </td>
@@ -1161,21 +1069,19 @@ template&lt;class UsedType &gt; </div>
 
 <p>Implementa <a class="el" href="class_model.html#a12e8b345b66375c4dfaa81e54b0b61bd">Model&lt; UsedType &gt;</a>.</p>
 
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00128">128</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a7666051df0dca24ecbd32264ee7cd0f7"></a>
+<a class="anchor" id="ab29212e32fdce034c65fe27bc5a6084b"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class UsedType &gt; </div>
+template&lt;class UsedType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::sim </td>
+          <td class="memname"><a class="el" href="class_matrix.html">Matrix</a>&lt;UsedType&gt; <a class="el" href="class_state_space.html">StateSpace</a>&lt; UsedType &gt;::sim </td>
           <td>(</td>
           <td class="paramtype">UsedType&#160;</td>
           <td class="paramname"><em>lmim</em>, </td>
@@ -1235,8 +1141,6 @@ template&lt;class UsedType &gt; </div>
 
      Ver também: \sa print();</pre> 
 <p>Implementa <a class="el" href="class_model.html#a5bd83719f8b006de8bab95a354622e61">Model&lt; UsedType &gt;</a>.</p>
-
-<p>Definição na linha <a class="el" href="statespace_8cpp_source.html#l00134">134</a> do arquivo <a class="el" href="statespace_8cpp_source.html">statespace.cpp</a>.</p>
 
 </div>
 </div>
@@ -1529,14 +1433,13 @@ template&lt;class UsedType&gt; </div>
 
 </div>
 </div>
-<hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
+<hr/>A documentação para esta classe foi gerada a partir do seguinte arquivo:<ul>
 <li>SistemasdeControle/src/simulationLibs/<a class="el" href="statespace_8h_source.html">statespace.h</a></li>
-<li>SistemasdeControle/src/simulationLibs/<a class="el" href="statespace_8cpp_source.html">statespace.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sábado, 27 de Dezembro de 2014 19:30:18 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Domingo, 28 de Dezembro de 2014 16:53:15 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

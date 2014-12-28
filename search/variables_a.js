@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['k',['K',['../class_recursive_least_square.html#ac599721ef357296d99fd13f9bff36dcf',1,'RecursiveLeastSquare']]],
-  ['kd',['kd',['../class_p_i_d.html#a164ad404a158b9e1f90220f731428778',1,'PID::kd()'],['../class_relay.html#a87530d81b06872fff874be753be3cd37',1,'Relay::kd()']]],
-  ['ki',['ki',['../class_p_i_d.html#a34d8ddeddc5bfa85d76f696d5657f88b',1,'PID::ki()'],['../class_relay.html#a48dea4593629b70cdfee2b0a4651c9ab',1,'Relay::ki()']]],
-  ['kp',['kp',['../class_p_i_d.html#a99287595b56cde1e29bae6322834be52',1,'PID::kp()'],['../class_relay.html#a681ce7fd19ec3afed2ab5afc99fe5be2',1,'Relay::kp()']]]
+  ['lastmotionxposition',['LastMotionXPosition',['../classgraphic_properties.html#a6d5802d364637a1ffcfecd3745e806d9',1,'graphicProperties']]],
+  ['lastmotionyposition',['LastMotionYPosition',['../classgraphic_properties.html#a56605ab8f67d0c7ded9e18cb8a021d80',1,'graphicProperties']]],
+  ['linearequalityb',['LinearEqualityB',['../class_model.html#a3e02ae73cd67f9851543165ff953b26c',1,'Model']]],
+  ['linearmatrixa',['LinearMatrixA',['../class_model.html#a442245913133d5e6f85600f4ba2b28eb',1,'Model']]],
+  ['linearvectorphi',['LinearVectorPhi',['../class_model.html#acf238ff176ac3a7757147bee7e84e1fe',1,'Model']]],
+  ['lmax',['lmax',['../class_model.html#a4d671bd41ec010c049bed0f3988d23d6',1,'Model::lmax()'],['../classsim_function.html#a65370f8d4bb2a706791d8c099455818e',1,'simFunction::lMax()']]],
+  ['lmin',['lmin',['../class_model.html#a066e532d095a7b6392a4d81db1a3cf80',1,'Model::lmin()'],['../classsim_function.html#aa3638b8dd50163a205ea9d5fc45b5c27',1,'simFunction::lMin()']]],
+  ['lowerlimit',['lowerLimit',['../class_p_i_d.html#aaaea342ae45c3617ed3b9685b16e4fa0',1,'PID']]]
 ];

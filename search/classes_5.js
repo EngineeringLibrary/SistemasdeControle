@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['fir',['FIR',['../class_f_i_r.html',1,'']]],
-  ['fzero',['FZero',['../class_f_zero.html',1,'']]]
+  ['serial',['Serial',['../class_serial.html',1,'']]],
+  ['simfunction',['simFunction',['../classsim_function.html',1,'']]],
+  ['statespace',['StateSpace',['../class_state_space.html',1,'']]]
 ];

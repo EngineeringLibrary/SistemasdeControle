@@ -39,7 +39,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Arquivos</span></a></li>
       <li>
@@ -73,7 +72,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -131,26 +130,26 @@ Métodos Públicos</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Métodos Públicos Estáticos</h2></td></tr>
-<tr class="memitem:a26ea52cd1f5bbafd716483ffbfc98485"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#a26ea52cd1f5bbafd716483ffbfc98485">setInstance</a> (<a class="el" href="class_gl_view.html">GlView</a> *Img)</td></tr>
-<tr class="memdesc:a26ea52cd1f5bbafd716483ffbfc98485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recebe uma instância do objeto <a class="el" href="class_gl_view.html" title="Classe para gerenciar interfaces com o OpenGl. ">GlView</a> e seta a variável instance.  <a href="#a26ea52cd1f5bbafd716483ffbfc98485">Mais...</a><br /></td></tr>
-<tr class="separator:a26ea52cd1f5bbafd716483ffbfc98485"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af527a092e0168cdf1a69f6bdcc58cbcf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#af527a092e0168cdf1a69f6bdcc58cbcf">displayWrapper</a> (void)</td></tr>
-<tr class="memdesc:af527a092e0168cdf1a69f6bdcc58cbcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para mostrar na janela desenhos criados com comandos no OpenGL.  <a href="#af527a092e0168cdf1a69f6bdcc58cbcf">Mais...</a><br /></td></tr>
-<tr class="separator:af527a092e0168cdf1a69f6bdcc58cbcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04795854e77d9015c50e114fb2db2476"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#a04795854e77d9015c50e114fb2db2476">MouseFuncWrapper</a> (int button, int state, int x, int y)</td></tr>
-<tr class="memdesc:a04795854e77d9015c50e114fb2db2476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para obter o click do mouse, se o mouse está clicado e sua posição x e y na tela;.  <a href="#a04795854e77d9015c50e114fb2db2476">Mais...</a><br /></td></tr>
-<tr class="separator:a04795854e77d9015c50e114fb2db2476"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18b463ac9db77ace80f484f0dce41b60"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#a18b463ac9db77ace80f484f0dce41b60">MotionFuncWrapper</a> (int x, int y)</td></tr>
-<tr class="memdesc:a18b463ac9db77ace80f484f0dce41b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para obter a posição do mouse enquanto ele está em movimento e com o botão apertado.  <a href="#a18b463ac9db77ace80f484f0dce41b60">Mais...</a><br /></td></tr>
-<tr class="separator:a18b463ac9db77ace80f484f0dce41b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab20d15d3194a0d5104d1bd13b55fb92c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#ab20d15d3194a0d5104d1bd13b55fb92c">PassiveMotionFuncWrapper</a> (int x, int y)</td></tr>
-<tr class="memdesc:ab20d15d3194a0d5104d1bd13b55fb92c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para obter a posição do mouse enquanto ele está em movimento sem que o botão esteja apertado.  <a href="#ab20d15d3194a0d5104d1bd13b55fb92c">Mais...</a><br /></td></tr>
-<tr class="separator:ab20d15d3194a0d5104d1bd13b55fb92c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada8c8845b03456ca3e07765c12b82180"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#ada8c8845b03456ca3e07765c12b82180">setInstance</a> (<a class="el" href="class_gl_view.html">GlView</a> *Img)</td></tr>
+<tr class="memdesc:ada8c8845b03456ca3e07765c12b82180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recebe uma instância do objeto <a class="el" href="class_gl_view.html" title="Classe para gerenciar interfaces com o OpenGl. ">GlView</a> e seta a variável instance.  <a href="#ada8c8845b03456ca3e07765c12b82180">Mais...</a><br /></td></tr>
+<tr class="separator:ada8c8845b03456ca3e07765c12b82180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33c5b6654fc1f0f404cfb9993472d454"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#a33c5b6654fc1f0f404cfb9993472d454">displayWrapper</a> (void)</td></tr>
+<tr class="memdesc:a33c5b6654fc1f0f404cfb9993472d454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para mostrar na janela desenhos criados com comandos no OpenGL.  <a href="#a33c5b6654fc1f0f404cfb9993472d454">Mais...</a><br /></td></tr>
+<tr class="separator:a33c5b6654fc1f0f404cfb9993472d454"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ff36c94d5ffc109f93e91a78db7321c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#a5ff36c94d5ffc109f93e91a78db7321c">MouseFuncWrapper</a> (int button, int state, int x, int y)</td></tr>
+<tr class="memdesc:a5ff36c94d5ffc109f93e91a78db7321c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para obter o click do mouse, se o mouse está clicado e sua posição x e y na tela;.  <a href="#a5ff36c94d5ffc109f93e91a78db7321c">Mais...</a><br /></td></tr>
+<tr class="separator:a5ff36c94d5ffc109f93e91a78db7321c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a283294b2d1603ac26a6ecf42da46d631"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#a283294b2d1603ac26a6ecf42da46d631">MotionFuncWrapper</a> (int x, int y)</td></tr>
+<tr class="memdesc:a283294b2d1603ac26a6ecf42da46d631"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para obter a posição do mouse enquanto ele está em movimento e com o botão apertado.  <a href="#a283294b2d1603ac26a6ecf42da46d631">Mais...</a><br /></td></tr>
+<tr class="separator:a283294b2d1603ac26a6ecf42da46d631"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dd7f44e4757c9596177ec0f5d77e5ec"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#a0dd7f44e4757c9596177ec0f5d77e5ec">PassiveMotionFuncWrapper</a> (int x, int y)</td></tr>
+<tr class="memdesc:a0dd7f44e4757c9596177ec0f5d77e5ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método para obter a posição do mouse enquanto ele está em movimento sem que o botão esteja apertado.  <a href="#a0dd7f44e4757c9596177ec0f5d77e5ec">Mais...</a><br /></td></tr>
+<tr class="separator:a0dd7f44e4757c9596177ec0f5d77e5ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Atributos Privados Estáticos</h2></td></tr>
-<tr class="memitem:a0423570bb7ca80e705636a46caf9a0bf"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_gl_view.html">GlView</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#a0423570bb7ca80e705636a46caf9a0bf">instance</a> = 0</td></tr>
-<tr class="separator:a0423570bb7ca80e705636a46caf9a0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3e7f47134dcbe2499c0f7ed38483163"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_gl_view.html">GlView</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gl_view.html#ac3e7f47134dcbe2499c0f7ed38483163">instance</a></td></tr>
+<tr class="separator:ac3e7f47134dcbe2499c0f7ed38483163"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
 <div class="textblock"><p>Classe para gerenciar interfaces com o OpenGl. </p>
@@ -183,18 +182,9 @@ Atributos Privados Estáticos</h2></td></tr>
 
 <p>Implementado por <a class="el" href="classgrafics.html#a671902de2db8480ff2cabfea82fdf19c">grafics</a>.</p>
 
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_ad67ebb10fe30265fc6930d66dea1e544_icgraph.png" border="0" usemap="#class_gl_view_ad67ebb10fe30265fc6930d66dea1e544_icgraph" alt=""/></div>
-<map name="class_gl_view_ad67ebb10fe30265fc6930d66dea1e544_icgraph" id="class_gl_view_ad67ebb10fe30265fc6930d66dea1e544_icgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#af527a092e0168cdf1a69f6bdcc58cbcf" title="Método para mostrar na janela desenhos criados com comandos no OpenGL. " alt="" coords="165,5,327,32"/><area shape="rect" id="node3" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70" title="Inicializa a aplicação permitindo a abertura de uma janela e o desenhos quaisquer a partir do OpenGL..." alt="" coords="375,5,536,32"/></map>
-</div>
-</p>
-
 </div>
 </div>
-<a class="anchor" id="af527a092e0168cdf1a69f6bdcc58cbcf"></a>
+<a class="anchor" id="a33c5b6654fc1f0f404cfb9993472d454"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -202,7 +192,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void GlView::displayWrapper </td>
+          <td class="memname">static void GlView::displayWrapper </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -217,26 +207,6 @@ Este é o diagrama das funções que utilizam esta função:</div>
 </div><div class="memdoc">
 
 <p>Método para mostrar na janela desenhos criados com comandos no OpenGL. </p>
-
-<p>Definição na linha <a class="el" href="glview_8cpp_source.html#l00042">42</a> do arquivo <a class="el" href="glview_8cpp_source.html">glview.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções utilizadas por esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_af527a092e0168cdf1a69f6bdcc58cbcf_cgraph.png" border="0" usemap="#class_gl_view_af527a092e0168cdf1a69f6bdcc58cbcf_cgraph" alt=""/></div>
-<map name="class_gl_view_af527a092e0168cdf1a69f6bdcc58cbcf_cgraph" id="class_gl_view_af527a092e0168cdf1a69f6bdcc58cbcf_cgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#ad67ebb10fe30265fc6930d66dea1e544" title="Método virtual que permite que uma classe filha implemente um método para mostrar na janela desenhos ..." alt="" coords="215,5,327,32"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_af527a092e0168cdf1a69f6bdcc58cbcf_icgraph.png" border="0" usemap="#class_gl_view_af527a092e0168cdf1a69f6bdcc58cbcf_icgraph" alt=""/></div>
-<map name="class_gl_view_af527a092e0168cdf1a69f6bdcc58cbcf_icgraph" id="class_gl_view_af527a092e0168cdf1a69f6bdcc58cbcf_icgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70" title="Inicializa a aplicação permitindo a abertura de uma janela e o desenhos quaisquer a partir do OpenGL..." alt="" coords="215,5,376,32"/></map>
-</div>
-</p>
 
 </div>
 </div>
@@ -276,18 +246,9 @@ Este é o diagrama das funções que utilizam esta função:</div>
 
 <p>Implementado por <a class="el" href="classgrafics.html#a4a436808787b386883041fef6a79ecb2">grafics</a>.</p>
 
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_a24c8ef76a4a6d2bfbbb34dab889b046a_icgraph.png" border="0" usemap="#class_gl_view_a24c8ef76a4a6d2bfbbb34dab889b046a_icgraph" alt=""/></div>
-<map name="class_gl_view_a24c8ef76a4a6d2bfbbb34dab889b046a_icgraph" id="class_gl_view_a24c8ef76a4a6d2bfbbb34dab889b046a_icgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#a18b463ac9db77ace80f484f0dce41b60" title="Método para obter a posição do mouse enquanto ele está em movimento e com o botão apertado..." alt="" coords="192,5,380,32"/><area shape="rect" id="node3" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70" title="Inicializa a aplicação permitindo a abertura de uma janela e o desenhos quaisquer a partir do OpenGL..." alt="" coords="428,5,589,32"/></map>
-</div>
-</p>
-
 </div>
 </div>
-<a class="anchor" id="a18b463ac9db77ace80f484f0dce41b60"></a>
+<a class="anchor" id="a283294b2d1603ac26a6ecf42da46d631"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -295,7 +256,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void GlView::MotionFuncWrapper </td>
+          <td class="memname">static void GlView::MotionFuncWrapper </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -320,26 +281,6 @@ Este é o diagrama das funções que utilizam esta função:</div>
 </div><div class="memdoc">
 
 <p>Método para obter a posição do mouse enquanto ele está em movimento e com o botão apertado. </p>
-
-<p>Definição na linha <a class="el" href="glview_8cpp_source.html#l00052">52</a> do arquivo <a class="el" href="glview_8cpp_source.html">glview.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções utilizadas por esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_a18b463ac9db77ace80f484f0dce41b60_cgraph.png" border="0" usemap="#class_gl_view_a18b463ac9db77ace80f484f0dce41b60_cgraph" alt=""/></div>
-<map name="class_gl_view_a18b463ac9db77ace80f484f0dce41b60_cgraph" id="class_gl_view_a18b463ac9db77ace80f484f0dce41b60_cgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#a24c8ef76a4a6d2bfbbb34dab889b046a" title="Método virtual que permite que uma classe filha implemente um Método para tratar a posição do mouse e..." alt="" coords="241,5,380,32"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_a18b463ac9db77ace80f484f0dce41b60_icgraph.png" border="0" usemap="#class_gl_view_a18b463ac9db77ace80f484f0dce41b60_icgraph" alt=""/></div>
-<map name="class_gl_view_a18b463ac9db77ace80f484f0dce41b60_icgraph" id="class_gl_view_a18b463ac9db77ace80f484f0dce41b60_icgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70" title="Inicializa a aplicação permitindo a abertura de uma janela e o desenhos quaisquer a partir do OpenGL..." alt="" coords="241,5,403,32"/></map>
-</div>
-</p>
 
 </div>
 </div>
@@ -391,18 +332,9 @@ Este é o diagrama das funções que utilizam esta função:</div>
 
 <p>Implementado por <a class="el" href="classgrafics.html#a2426ec3eb82e1617952e15c76041be6d">grafics</a>.</p>
 
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_a495e59513eb70b3fc743f5e3f231a8e6_icgraph.png" border="0" usemap="#class_gl_view_a495e59513eb70b3fc743f5e3f231a8e6_icgraph" alt=""/></div>
-<map name="class_gl_view_a495e59513eb70b3fc743f5e3f231a8e6_icgraph" id="class_gl_view_a495e59513eb70b3fc743f5e3f231a8e6_icgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#a04795854e77d9015c50e114fb2db2476" title="Método para obter o click do mouse, se o mouse está clicado e sua posição x e y na tela;..." alt="" coords="240,5,428,32"/><area shape="rect" id="node3" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70" title="Inicializa a aplicação permitindo a abertura de uma janela e o desenhos quaisquer a partir do OpenGL..." alt="" coords="476,5,637,32"/></map>
-</div>
-</p>
-
 </div>
 </div>
-<a class="anchor" id="a04795854e77d9015c50e114fb2db2476"></a>
+<a class="anchor" id="a5ff36c94d5ffc109f93e91a78db7321c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -410,7 +342,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void GlView::MouseFuncWrapper </td>
+          <td class="memname">static void GlView::MouseFuncWrapper </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>button</em>, </td>
@@ -447,26 +379,6 @@ Este é o diagrama das funções que utilizam esta função:</div>
 </div><div class="memdoc">
 
 <p>Método para obter o click do mouse, se o mouse está clicado e sua posição x e y na tela;. </p>
-
-<p>Definição na linha <a class="el" href="glview_8cpp_source.html#l00047">47</a> do arquivo <a class="el" href="glview_8cpp_source.html">glview.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções utilizadas por esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_a04795854e77d9015c50e114fb2db2476_cgraph.png" border="0" usemap="#class_gl_view_a04795854e77d9015c50e114fb2db2476_cgraph" alt=""/></div>
-<map name="class_gl_view_a04795854e77d9015c50e114fb2db2476_cgraph" id="class_gl_view_a04795854e77d9015c50e114fb2db2476_cgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#a495e59513eb70b3fc743f5e3f231a8e6" title="Método virtual que permite que uma classe filha implemente um Método para tratar o click do mouse..." alt="" coords="241,5,428,32"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_a04795854e77d9015c50e114fb2db2476_icgraph.png" border="0" usemap="#class_gl_view_a04795854e77d9015c50e114fb2db2476_icgraph" alt=""/></div>
-<map name="class_gl_view_a04795854e77d9015c50e114fb2db2476_icgraph" id="class_gl_view_a04795854e77d9015c50e114fb2db2476_icgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70" title="Inicializa a aplicação permitindo a abertura de uma janela e o desenhos quaisquer a partir do OpenGL..." alt="" coords="241,5,403,32"/></map>
-</div>
-</p>
 
 </div>
 </div>
@@ -506,18 +418,9 @@ Este é o diagrama das funções que utilizam esta função:</div>
 
 <p>Implementado por <a class="el" href="classgrafics.html#a22b7ffc9ead32948b81208fb74750f5e">grafics</a>.</p>
 
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_a6ee474bd379cfdf8579f4eb207d6e7d5_icgraph.png" border="0" usemap="#class_gl_view_a6ee474bd379cfdf8579f4eb207d6e7d5_icgraph" alt=""/></div>
-<map name="class_gl_view_a6ee474bd379cfdf8579f4eb207d6e7d5_icgraph" id="class_gl_view_a6ee474bd379cfdf8579f4eb207d6e7d5_icgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#ab20d15d3194a0d5104d1bd13b55fb92c" title="Método para obter a posição do mouse enquanto ele está em movimento sem que o botão esteja apertado..." alt="" coords="237,5,421,47"/><area shape="rect" id="node3" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70" title="Inicializa a aplicação permitindo a abertura de uma janela e o desenhos quaisquer a partir do OpenGL..." alt="" coords="469,13,631,39"/></map>
-</div>
-</p>
-
 </div>
 </div>
-<a class="anchor" id="ab20d15d3194a0d5104d1bd13b55fb92c"></a>
+<a class="anchor" id="a0dd7f44e4757c9596177ec0f5d77e5ec"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -525,7 +428,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void GlView::PassiveMotionFuncWrapper </td>
+          <td class="memname">static void GlView::PassiveMotionFuncWrapper </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>x</em>, </td>
@@ -551,29 +454,9 @@ Este é o diagrama das funções que utilizam esta função:</div>
 
 <p>Método para obter a posição do mouse enquanto ele está em movimento sem que o botão esteja apertado. </p>
 
-<p>Definição na linha <a class="el" href="glview_8cpp_source.html#l00056">56</a> do arquivo <a class="el" href="glview_8cpp_source.html">glview.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções utilizadas por esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_ab20d15d3194a0d5104d1bd13b55fb92c_cgraph.png" border="0" usemap="#class_gl_view_ab20d15d3194a0d5104d1bd13b55fb92c_cgraph" alt=""/></div>
-<map name="class_gl_view_ab20d15d3194a0d5104d1bd13b55fb92c_cgraph" id="class_gl_view_ab20d15d3194a0d5104d1bd13b55fb92c_cgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#a6ee474bd379cfdf8579f4eb207d6e7d5" title="Método virtual que permite que uma classe filha implemente um Método para tratar a posição do mouse e..." alt="" coords="237,13,421,39"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções que utilizam esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_ab20d15d3194a0d5104d1bd13b55fb92c_icgraph.png" border="0" usemap="#class_gl_view_ab20d15d3194a0d5104d1bd13b55fb92c_icgraph" alt=""/></div>
-<map name="class_gl_view_ab20d15d3194a0d5104d1bd13b55fb92c_icgraph" id="class_gl_view_ab20d15d3194a0d5104d1bd13b55fb92c_icgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70" title="Inicializa a aplicação permitindo a abertura de uma janela e o desenhos quaisquer a partir do OpenGL..." alt="" coords="237,13,399,39"/></map>
-</div>
-</p>
-
 </div>
 </div>
-<a class="anchor" id="a26ea52cd1f5bbafd716483ffbfc98485"></a>
+<a class="anchor" id="ada8c8845b03456ca3e07765c12b82180"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -581,7 +464,7 @@ Este é o diagrama das funções que utilizam esta função:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void GlView::setInstance </td>
+          <td class="memname">static void GlView::setInstance </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_gl_view.html">GlView</a> *&#160;</td>
           <td class="paramname"><em>Img</em></td><td>)</td>
@@ -608,12 +491,12 @@ Este é o diagrama das funções que utilizam esta função:</div>
 <div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argv, <span class="keywordtype">char</span> *argc[])</div>
 <div class="line">{</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="classsim_function.html">simFunction</a> S(<a class="code" href="matrix_8cpp.html#aa80a6b44b3f27ba572a143b28003b711">cos</a>, 0,2*3.14,3.14/100);</div>
+<div class="line">    <a class="code" href="classsim_function.html">simFunction</a> S(cos, 0,2*3.14,3.14/100);</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="classgraphic_properties.html">graphicProperties</a> prop;</div>
 <div class="line">    <a class="code" href="class_gl_view.html">GlView</a> *f = <span class="keyword">new</span> <a class="code" href="classgrafics.html">grafics</a>(prop, S);</div>
 <div class="line"></div>
-<div class="line">    f-&gt;<a class="code" href="class_gl_view.html#a26ea52cd1f5bbafd716483ffbfc98485">setInstance</a>(f);</div>
+<div class="line">    f-&gt;<a class="code" href="class_gl_view.html#ada8c8845b03456ca3e07765c12b82180">setInstance</a>(f);</div>
 <div class="line">    f-&gt;<a class="code" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70">startFramework</a>(argv,argc);</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
@@ -622,8 +505,6 @@ Este é o diagrama das funções que utilizam esta função:</div>
     \image &lt;PNG&gt; &lt;Exemplo2&gt; ‘‘Exemplo da apresentação do gráfico’’
 
     Ver também: \sa startFramework(ins argv, char *argc[])</pre> 
-<p>Definição na linha <a class="el" href="glview_8cpp_source.html#l00004">4</a> do arquivo <a class="el" href="glview_8cpp_source.html">glview.cpp</a>.</p>
-
 </div>
 </div>
 <a class="anchor" id="a451013c536ee6fb5fd286c3362522a70"></a>
@@ -664,12 +545,12 @@ Este é o diagrama das funções que utilizam esta função:</div>
 <div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argv, <span class="keywordtype">char</span> *argc[])</div>
 <div class="line">{</div>
 <div class="line"></div>
-<div class="line">    <a class="code" href="classsim_function.html">simFunction</a> S(<a class="code" href="matrix_8cpp.html#aa80a6b44b3f27ba572a143b28003b711">cos</a>, 0,2*3.14,3.14/100);</div>
+<div class="line">    <a class="code" href="classsim_function.html">simFunction</a> S(cos, 0,2*3.14,3.14/100);</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="classgraphic_properties.html">graphicProperties</a> prop;</div>
 <div class="line">    <a class="code" href="class_gl_view.html">GlView</a> *f = <span class="keyword">new</span> <a class="code" href="classgrafics.html">grafics</a>(prop, S);</div>
 <div class="line"></div>
-<div class="line">    f-&gt;<a class="code" href="class_gl_view.html#a26ea52cd1f5bbafd716483ffbfc98485">setInstance</a>(f);</div>
+<div class="line">    f-&gt;<a class="code" href="class_gl_view.html#ada8c8845b03456ca3e07765c12b82180">setInstance</a>(f);</div>
 <div class="line">    f-&gt;<a class="code" href="class_gl_view.html#a451013c536ee6fb5fd286c3362522a70">startFramework</a>(argv,argc);</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
@@ -678,21 +559,10 @@ Este é o diagrama das funções que utilizam esta função:</div>
     \image &lt;PNG&gt; &lt;Exemplo2&gt; ‘‘Exemplo da apresentação do gráfico’’
 
     Ver também: \sa setInstance(GlView *Img)</pre> 
-<p>Definição na linha <a class="el" href="glview_8cpp_source.html#l00017">17</a> do arquivo <a class="el" href="glview_8cpp_source.html">glview.cpp</a>.</p>
-
-<p><div class="dynheader">
-Este é o diagrama das funções utilizadas por esta função:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_gl_view_a451013c536ee6fb5fd286c3362522a70_cgraph.png" border="0" usemap="#class_gl_view_a451013c536ee6fb5fd286c3362522a70_cgraph" alt=""/></div>
-<map name="class_gl_view_a451013c536ee6fb5fd286c3362522a70_cgraph" id="class_gl_view_a451013c536ee6fb5fd286c3362522a70_cgraph">
-<area shape="rect" id="node2" href="class_gl_view.html#af527a092e0168cdf1a69f6bdcc58cbcf" title="Método para mostrar na janela desenhos criados com comandos no OpenGL. " alt="" coords="228,5,389,32"/><area shape="rect" id="node4" href="class_gl_view.html#a04795854e77d9015c50e114fb2db2476" title="Método para obter o click do mouse, se o mouse está clicado e sua posição x e y na tela;..." alt="" coords="215,56,403,83"/><area shape="rect" id="node6" href="class_gl_view.html#a18b463ac9db77ace80f484f0dce41b60" title="Método para obter a posição do mouse enquanto ele está em movimento e com o botão apertado..." alt="" coords="215,107,403,133"/><area shape="rect" id="node8" href="class_gl_view.html#ab20d15d3194a0d5104d1bd13b55fb92c" title="Método para obter a posição do mouse enquanto ele está em movimento sem que o botão esteja apertado..." alt="" coords="217,158,401,199"/><area shape="rect" id="node3" href="class_gl_view.html#ad67ebb10fe30265fc6930d66dea1e544" title="Método virtual que permite que uma classe filha implemente um método para mostrar na janela desenhos ..." alt="" coords="488,5,600,32"/><area shape="rect" id="node5" href="class_gl_view.html#a495e59513eb70b3fc743f5e3f231a8e6" title="Método virtual que permite que uma classe filha implemente um Método para tratar o click do mouse..." alt="" coords="451,56,637,83"/><area shape="rect" id="node7" href="class_gl_view.html#a24c8ef76a4a6d2bfbbb34dab889b046a" title="Método virtual que permite que uma classe filha implemente um Método para tratar a posição do mouse e..." alt="" coords="475,107,613,133"/><area shape="rect" id="node9" href="class_gl_view.html#a6ee474bd379cfdf8579f4eb207d6e7d5" title="Método virtual que permite que uma classe filha implemente um Método para tratar a posição do mouse e..." alt="" coords="452,165,636,192"/></map>
-</div>
-</p>
-
 </div>
 </div>
 <h2 class="groupheader">Atributos</h2>
-<a class="anchor" id="a0423570bb7ca80e705636a46caf9a0bf"></a>
+<a class="anchor" id="ac3e7f47134dcbe2499c0f7ed38483163"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -700,7 +570,7 @@ Este é o diagrama das funções utilizadas por esta função:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_gl_view.html">GlView</a> * GlView::instance = 0</td>
+          <td class="memname"><a class="el" href="class_gl_view.html">GlView</a>* GlView::instance</td>
         </tr>
       </table>
   </td>
@@ -714,14 +584,13 @@ Este é o diagrama das funções utilizadas por esta função:</div>
 
 </div>
 </div>
-<hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
+<hr/>A documentação para esta classe foi gerada a partir do seguinte arquivo:<ul>
 <li>SistemasdeControle/src/graphicLibs/<a class="el" href="glview_8h_source.html">glview.h</a></li>
-<li>SistemasdeControle/src/graphicLibs/<a class="el" href="glview_8cpp_source.html">glview.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sábado, 27 de Dezembro de 2014 19:30:10 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Domingo, 28 de Dezembro de 2014 16:53:14 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

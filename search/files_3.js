@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['eqdifsim_2ecpp',['eqdifsim.cpp',['../eqdifsim_8cpp.html',1,'']]],
-  ['eqdifsim_2eh',['eqdifsim.h',['../eqdifsim_8h.html',1,'']]],
-  ['externalfunctions_2ecpp',['externalfunctions.cpp',['../externalfunctions_8cpp.html',1,'']]],
-  ['externalfunctions_2eh',['externalfunctions.h',['../externalfunctions_8h.html',1,'']]]
+  ['glview_2eh',['glview.h',['../glview_8h.html',1,'']]],
+  ['grafics_2eh',['grafics.h',['../grafics_8h.html',1,'']]],
+  ['graphicproperties_2eh',['graphicproperties.h',['../graphicproperties_8h.html',1,'']]]
 ];

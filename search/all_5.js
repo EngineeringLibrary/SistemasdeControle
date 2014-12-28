@@ -1,19 +1,12 @@
 var searchData=
 [
-  ['e',['e',['../class_recursive_least_square.html#ae8ba0dbf47de06a8ca8ec29b69a4f09e',1,'RecursiveLeastSquare']]],
-  ['eigenvalues',['eigenvalues',['../class_matrix.html#a2cc1e0be0c535a46dbebddc7636a63f8',1,'Matrix']]],
-  ['eqdifcoef',['eqdifCoef',['../class_lsim.html#afdfb3503d15838a14290c08687ef4681',1,'Lsim']]],
-  ['eqdifmodel',['eqdifModel',['../class_lsim.html#a249e55fdcbe403a95f0c14f3ada5a01f',1,'Lsim']]],
-  ['eqdifsim',['EqdifSim',['../class_eqdif_sim.html',1,'EqdifSim&lt; UsedType &gt;'],['../class_eqdif_sim.html#aeaaa7678e275b42d8aa087cf3cd28c39',1,'EqdifSim::EqdifSim()'],['../class_eqdif_sim.html#afe1ae08972ab936799b9415f15026b5e',1,'EqdifSim::EqdifSim(Matrix&lt; UsedType &gt; AIn, Matrix&lt; UsedType &gt; BIn, Matrix&lt; UsedType &gt; CIn, Matrix&lt; UsedType &gt; DIn)'],['../class_eqdif_sim.html#a88bebdaa211859fa1bf1324e5963914e',1,'EqdifSim::EqdifSim(Matrix&lt; UsedType &gt; AdIn, Matrix&lt; UsedType &gt; BdIn, Matrix&lt; UsedType &gt; CdIn, Matrix&lt; UsedType &gt; DdIn, float Time)'],['../class_eqdif_sim.html#a3f83cec5b3ed01473a47291670e822ea',1,'EqdifSim::EqdifSim(Matrix&lt; UsedType &gt; NumIn, Matrix&lt; UsedType &gt; DenIn)'],['../class_eqdif_sim.html#aa5025eba90cc170b86525286ce3f9adf',1,'EqdifSim::EqdifSim(Matrix&lt; UsedType &gt; NumdIn, Matrix&lt; UsedType &gt; DendIn, float Time)']]],
-  ['eqdifsim_2ecpp',['eqdifsim.cpp',['../eqdifsim_8cpp.html',1,'']]],
-  ['eqdifsim_2eh',['eqdifsim.h',['../eqdifsim_8h.html',1,'']]],
-  ['error',['Error',['../class_p_i_d.html#aad49126776dbf59d31209eead1b9f2ea',1,'PID::Error()'],['../class_relay.html#ad7c29f9df933e2f9d47d1fb43776a0e3',1,'Relay::Error()'],['../class_sim.html#ada643970e7e5aa784a94cad4185e5b75',1,'Sim::Error()']]],
-  ['estoutput',['EstOutput',['../class_model.html#a07e768b8a08f4a10b442e3cb38fbcb7d',1,'Model::EstOutput()'],['../class_sim.html#aa086dac31049bb306ac5c645ef701cc8',1,'Sim::EstOutPut()']]],
-  ['evaluation',['Evaluation',['../class_p_s_o.html#a9ade88c7f4db3671174a21aebfe92db8',1,'PSO']]],
-  ['exp',['exp',['../class_matrix.html#a490bfe8498fc7e33f5f4d08e6083b1b4',1,'Matrix::exp()'],['../matrix_8cpp.html#a7b67209d43fd2f9cde910f9eb099d882',1,'exp():&#160;matrix.cpp']]],
-  ['exp_3c_20double_20_3e',['exp&lt; double &gt;',['../matrix_8cpp.html#a5005a338ece06e63949aedc308830fc5',1,'matrix.cpp']]],
-  ['exp_3c_20float_20_3e',['exp&lt; float &gt;',['../matrix_8cpp.html#ad733a18f9cd411d11b2c0e4e8b924744',1,'matrix.cpp']]],
-  ['externalfunctions_2ecpp',['externalfunctions.cpp',['../externalfunctions_8cpp.html',1,'']]],
-  ['externalfunctions_2eh',['externalfunctions.h',['../externalfunctions_8h.html',1,'']]],
-  ['eye',['eye',['../class_matrix.html#ab14a5f8484a9603109e01655cef1841d',1,'Matrix']]]
+  ['factorial',['factorial',['../class_state_space.html#a18961611908e7489e224a971d52d4543',1,'StateSpace']]],
+  ['fitnessupdate',['FitnessUpdate',['../class_p_s_o.html#aead5ae94d054807efe21bf04d4f2e8b2',1,'PSO']]],
+  ['fitnessupdatemax',['FitnessUpdateMax',['../class_p_s_o.html#ae6b5e5e9e99caf3b50129c8cfc878dcf',1,'PSO']]],
+  ['fitnessupdatemin',['FitnessUpdateMin',['../class_p_s_o.html#a6b06deb5228b41cc0ce83c88d03d6032',1,'PSO']]],
+  ['floor',['floor',['../class_matrix.html#a4b5268bf51e2c213ea03c29aab55e199',1,'Matrix']]],
+  ['func',['func',['../classgrafics.html#a0e114efd7d3c39d6e71d9a002a0a95a1',1,'grafics']]],
+  ['functioncalculation',['FunctionCalculation',['../classsim_function.html#a89198672492b73f6c5511b976103f51f',1,'simFunction']]],
+  ['functioncall',['FunctionCall',['../classsim_function.html#a56d434f6d0ebeaab998bba32d0ed2515',1,'simFunction']]],
+  ['functiontocall',['FunctionToCall',['../classsim_function.html#a28878ad5a60c554cbde9bc6fff54eaac',1,'simFunction']]]
 ];

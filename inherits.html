@@ -39,7 +39,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Arquivos</span></a></li>
       <li>
@@ -74,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -91,255 +90,59 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="textblock">
 <p><a href="hierarchy.html">Vá para a Hierarquia de Classes (texto)</a></p>
 </div><table border="0" cellspacing="10" cellpadding="0">
-<tr><td><img src="inherit_graph_0.png" border="0" alt="" usemap="#___i_i_d"/>
-<map name="___i_i_d" id="___i_i_d">
-<area shape="rect" id="node1" href="struct___i_i_d.html" title="_IID" alt="" coords="5,5,49,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_1.png" border="0" alt="" usemap="#_c_a_t_i_d___o_p_c_d_a_server10_vtbl"/>
-<map name="_c_a_t_i_d___o_p_c_d_a_server10_vtbl" id="_c_a_t_i_d___o_p_c_d_a_server10_vtbl">
-<area shape="rect" id="node1" href="struct_c_a_t_i_d___o_p_c_d_a_server10_vtbl.html" title="CATID_OPCDAServer10Vtbl" alt="" coords="5,5,191,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#_c_a_t_i_d___o_p_c_d_a_server20_vtbl"/>
-<map name="_c_a_t_i_d___o_p_c_d_a_server20_vtbl" id="_c_a_t_i_d___o_p_c_d_a_server20_vtbl">
-<area shape="rect" id="node1" href="struct_c_a_t_i_d___o_p_c_d_a_server20_vtbl.html" title="CATID_OPCDAServer20Vtbl" alt="" coords="5,5,191,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#_c_a_t_i_d___o_p_c_d_a_server30_vtbl"/>
-<map name="_c_a_t_i_d___o_p_c_d_a_server30_vtbl" id="_c_a_t_i_d___o_p_c_d_a_server30_vtbl">
-<area shape="rect" id="node1" href="struct_c_a_t_i_d___o_p_c_d_a_server30_vtbl.html" title="CATID_OPCDAServer30Vtbl" alt="" coords="5,5,191,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#_c_a_t_i_d___x_m_l_d_a_server10_vtbl"/>
-<map name="_c_a_t_i_d___x_m_l_d_a_server10_vtbl" id="_c_a_t_i_d___x_m_l_d_a_server10_vtbl">
-<area shape="rect" id="node1" href="struct_c_a_t_i_d___x_m_l_d_a_server10_vtbl.html" title="CATID_XMLDAServer10Vtbl" alt="" coords="5,5,188,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#_eqdif_sim_3_01_used_type_01_4"/>
-<map name="_eqdif_sim_3_01_used_type_01_4" id="_eqdif_sim_3_01_used_type_01_4">
-<area shape="rect" id="node1" href="class_eqdif_sim.html" title="EqdifSim\&lt; UsedType \&gt;" alt="" coords="5,5,161,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#_f_zero_3_01_used_type_01_4"/>
-<map name="_f_zero_3_01_used_type_01_4" id="_f_zero_3_01_used_type_01_4">
-<area shape="rect" id="node1" href="class_f_zero.html" title="FZero\&lt; UsedType \&gt;" alt="" coords="5,81,143,108"/><area shape="rect" id="node2" href="classbisseccao.html" title="bisseccao\&lt; UsedType \&gt;" alt="" coords="191,5,353,32"/><area shape="rect" id="node3" href="class_newton.html" title="Newton\&lt; UsedType \&gt;" alt="" coords="199,56,345,83"/><area shape="rect" id="node4" href="classsecant.html" title="secant\&lt; UsedType \&gt;" alt="" coords="201,107,343,133"/><area shape="rect" id="node5" href="classsteffensen.html" title="Classe steffensen, com o intuito de encontrar o zero de uma função modelo. " alt="" coords="191,157,353,184"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#_gl_view"/>
+<tr><td><img src="inherit_graph_0.png" border="0" alt="" usemap="#_gl_view"/>
 <map name="_gl_view" id="_gl_view">
 <area shape="rect" id="node1" href="class_gl_view.html" title="Classe para gerenciar interfaces com o OpenGl. " alt="" coords="5,5,68,32"/><area shape="rect" id="node2" href="classgrafics.html" title="Classe concreta que herda da Classe GlView. " alt="" coords="116,5,176,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#graphic_properties"/>
+<tr><td><img src="inherit_graph_1.png" border="0" alt="" usemap="#graphic_properties"/>
 <map name="graphic_properties" id="graphic_properties">
 <area shape="rect" id="node1" href="classgraphic_properties.html" title="Classe para auxiliar a construção de gráficos. " alt="" coords="5,5,128,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#_i_enum_o_p_c_item_attributes_vtbl"/>
-<map name="_i_enum_o_p_c_item_attributes_vtbl" id="_i_enum_o_p_c_item_attributes_vtbl">
-<area shape="rect" id="node1" href="struct_i_enum_o_p_c_item_attributes_vtbl.html" title="IEnumOPCItemAttributesVtbl" alt="" coords="5,5,196,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#_i_o_p_c_async_i_o2_vtbl"/>
-<map name="_i_o_p_c_async_i_o2_vtbl" id="_i_o_p_c_async_i_o2_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_async_i_o2_vtbl.html" title="IOPCAsyncIO2Vtbl" alt="" coords="5,5,139,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#_i_o_p_c_async_i_o3_vtbl"/>
-<map name="_i_o_p_c_async_i_o3_vtbl" id="_i_o_p_c_async_i_o3_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_async_i_o3_vtbl.html" title="IOPCAsyncIO3Vtbl" alt="" coords="5,5,139,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_12.png" border="0" alt="" usemap="#_i_o_p_c_async_i_o_vtbl"/>
-<map name="_i_o_p_c_async_i_o_vtbl" id="_i_o_p_c_async_i_o_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_async_i_o_vtbl.html" title="IOPCAsyncIOVtbl" alt="" coords="5,5,132,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_13.png" border="0" alt="" usemap="#_i_o_p_c_browse_server_address_space_vtbl"/>
-<map name="_i_o_p_c_browse_server_address_space_vtbl" id="_i_o_p_c_browse_server_address_space_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_browse_server_address_space_vtbl.html" title="IOPCBrowseServerAddressSpaceVtbl" alt="" coords="5,5,245,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_14.png" border="0" alt="" usemap="#_i_o_p_c_browse_vtbl"/>
-<map name="_i_o_p_c_browse_vtbl" id="_i_o_p_c_browse_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_browse_vtbl.html" title="IOPCBrowseVtbl" alt="" coords="5,5,124,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_15.png" border="0" alt="" usemap="#_i_o_p_c_common_vtbl"/>
-<map name="_i_o_p_c_common_vtbl" id="_i_o_p_c_common_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_common_vtbl.html" title="IOPCCommonVtbl" alt="" coords="5,5,133,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_16.png" border="0" alt="" usemap="#_i_o_p_c_data_callback_vtbl"/>
-<map name="_i_o_p_c_data_callback_vtbl" id="_i_o_p_c_data_callback_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_data_callback_vtbl.html" title="IOPCDataCallbackVtbl" alt="" coords="5,5,159,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_17.png" border="0" alt="" usemap="#_i_o_p_c_enum_g_u_i_d_vtbl"/>
-<map name="_i_o_p_c_enum_g_u_i_d_vtbl" id="_i_o_p_c_enum_g_u_i_d_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_enum_g_u_i_d_vtbl.html" title="IOPCEnumGUIDVtbl" alt="" coords="5,5,147,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_18.png" border="0" alt="" usemap="#_i_o_p_c_group_state_mgt2_vtbl"/>
-<map name="_i_o_p_c_group_state_mgt2_vtbl" id="_i_o_p_c_group_state_mgt2_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_group_state_mgt2_vtbl.html" title="IOPCGroupStateMgt2Vtbl" alt="" coords="5,5,176,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_19.png" border="0" alt="" usemap="#_i_o_p_c_group_state_mgt_vtbl"/>
-<map name="_i_o_p_c_group_state_mgt_vtbl" id="_i_o_p_c_group_state_mgt_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_group_state_mgt_vtbl.html" title="IOPCGroupStateMgtVtbl" alt="" coords="5,5,169,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_20.png" border="0" alt="" usemap="#_i_o_p_c_item_deadband_mgt_vtbl"/>
-<map name="_i_o_p_c_item_deadband_mgt_vtbl" id="_i_o_p_c_item_deadband_mgt_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_item_deadband_mgt_vtbl.html" title="IOPCItemDeadbandMgtVtbl" alt="" coords="5,5,187,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_21.png" border="0" alt="" usemap="#_i_o_p_c_item_i_o_vtbl"/>
-<map name="_i_o_p_c_item_i_o_vtbl" id="_i_o_p_c_item_i_o_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_item_i_o_vtbl.html" title="IOPCItemIOVtbl" alt="" coords="5,5,120,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_22.png" border="0" alt="" usemap="#_i_o_p_c_item_mgt_vtbl"/>
-<map name="_i_o_p_c_item_mgt_vtbl" id="_i_o_p_c_item_mgt_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_item_mgt_vtbl.html" title="IOPCItemMgtVtbl" alt="" coords="5,5,128,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_23.png" border="0" alt="" usemap="#_i_o_p_c_item_properties_vtbl"/>
-<map name="_i_o_p_c_item_properties_vtbl" id="_i_o_p_c_item_properties_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_item_properties_vtbl.html" title="IOPCItemPropertiesVtbl" alt="" coords="5,5,165,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_24.png" border="0" alt="" usemap="#_i_o_p_c_item_sampling_mgt_vtbl"/>
-<map name="_i_o_p_c_item_sampling_mgt_vtbl" id="_i_o_p_c_item_sampling_mgt_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_item_sampling_mgt_vtbl.html" title="IOPCItemSamplingMgtVtbl" alt="" coords="5,5,183,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_25.png" border="0" alt="" usemap="#_i_o_p_c_public_group_state_mgt_vtbl"/>
-<map name="_i_o_p_c_public_group_state_mgt_vtbl" id="_i_o_p_c_public_group_state_mgt_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_public_group_state_mgt_vtbl.html" title="IOPCPublicGroupStateMgtVtbl" alt="" coords="5,5,205,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_26.png" border="0" alt="" usemap="#_i_o_p_c_server_list2_vtbl"/>
-<map name="_i_o_p_c_server_list2_vtbl" id="_i_o_p_c_server_list2_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_server_list2_vtbl.html" title="IOPCServerList2Vtbl" alt="" coords="5,5,145,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_27.png" border="0" alt="" usemap="#_i_o_p_c_server_list_vtbl"/>
-<map name="_i_o_p_c_server_list_vtbl" id="_i_o_p_c_server_list_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_server_list_vtbl.html" title="IOPCServerListVtbl" alt="" coords="5,5,139,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_28.png" border="0" alt="" usemap="#_i_o_p_c_server_public_groups_vtbl"/>
-<map name="_i_o_p_c_server_public_groups_vtbl" id="_i_o_p_c_server_public_groups_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_server_public_groups_vtbl.html" title="IOPCServerPublicGroupsVtbl" alt="" coords="5,5,196,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_29.png" border="0" alt="" usemap="#_i_o_p_c_server_vtbl"/>
-<map name="_i_o_p_c_server_vtbl" id="_i_o_p_c_server_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_server_vtbl.html" title="IOPCServerVtbl" alt="" coords="5,5,117,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_30.png" border="0" alt="" usemap="#_i_o_p_c_shutdown_vtbl"/>
-<map name="_i_o_p_c_shutdown_vtbl" id="_i_o_p_c_shutdown_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_shutdown_vtbl.html" title="IOPCShutdownVtbl" alt="" coords="5,5,139,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_31.png" border="0" alt="" usemap="#_i_o_p_c_sync_i_o2_vtbl"/>
-<map name="_i_o_p_c_sync_i_o2_vtbl" id="_i_o_p_c_sync_i_o2_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_sync_i_o2_vtbl.html" title="IOPCSyncIO2Vtbl" alt="" coords="5,5,132,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_32.png" border="0" alt="" usemap="#_i_o_p_c_sync_i_o_vtbl"/>
-<map name="_i_o_p_c_sync_i_o_vtbl" id="_i_o_p_c_sync_i_o_vtbl">
-<area shape="rect" id="node1" href="struct_i_o_p_c_sync_i_o_vtbl.html" title="IOPCSyncIOVtbl" alt="" coords="5,5,124,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_33.png" border="0" alt="" usemap="#_lsim_3_01_used_type_01_4"/>
-<map name="_lsim_3_01_used_type_01_4" id="_lsim_3_01_used_type_01_4">
-<area shape="rect" id="node1" href="class_lsim.html" title="Lsim\&lt; UsedType \&gt;" alt="" coords="5,5,137,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_34.png" border="0" alt="" usemap="#_matrix_3_01double_01_4"/>
+<tr><td><img src="inherit_graph_2.png" border="0" alt="" usemap="#_matrix_3_01double_01_4"/>
 <map name="_matrix_3_01double_01_4" id="_matrix_3_01double_01_4">
 <area shape="rect" id="node1" href="class_matrix.html" title="Matrix\&lt; double \&gt;" alt="" coords="5,5,125,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_35.png" border="0" alt="" usemap="#_matrix_3_01_used_type_01_4"/>
+<tr><td><img src="inherit_graph_3.png" border="0" alt="" usemap="#_matrix_3_01_used_type_01_4"/>
 <map name="_matrix_3_01_used_type_01_4" id="_matrix_3_01_used_type_01_4">
 <area shape="rect" id="node1" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. " alt="" coords="5,5,145,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_36.png" border="0" alt="" usemap="#_model_3_01_used_type_01_4"/>
+<tr><td><img src="inherit_graph_4.png" border="0" alt="" usemap="#_model_3_01_used_type_01_4"/>
 <map name="_model_3_01_used_type_01_4" id="_model_3_01_used_type_01_4">
-<area shape="rect" id="node1" href="class_model.html" title="Model\&lt; UsedType \&gt;" alt="" coords="5,132,144,159"/><area shape="rect" id="node2" href="class_a_r_m_a_x.html" title="ARMAX\&lt; UsedType \&gt;" alt="" coords="217,5,367,32"/><area shape="rect" id="node3" href="class_a_r_x.html" title="ARX\&lt; UsedType \&gt;" alt="" coords="227,56,357,83"/><area shape="rect" id="node4" href="class_f_i_r.html" title="FIR\&lt; UsedType \&gt;" alt="" coords="230,107,354,133"/><area shape="rect" id="node5" href="class_m_a.html" title="MA\&lt; UsedType \&gt;" alt="" coords="230,157,354,184"/><area shape="rect" id="node6" href="class_state_space.html" title="Classe concreta de modelos para representar equações diferenciais em espaço de estados. " alt="" coords="206,208,378,235"/><area shape="rect" id="node7" href="class_transfer_function.html" title="TransferFunction\&lt; UsedType \&gt;" alt="" coords="192,259,392,285"/></map>
+<area shape="rect" id="node1" href="class_model.html" title="Model\&lt; UsedType \&gt;" alt="" coords="5,56,144,83"/><area shape="rect" id="node2" href="class_a_r_x.html" title="ARX\&lt; UsedType \&gt;" alt="" coords="227,5,357,32"/><area shape="rect" id="node3" href="class_state_space.html" title="Classe concreta de modelos para representar equações diferenciais em espaço de estados. " alt="" coords="206,56,378,83"/><area shape="rect" id="node4" href="class_transfer_function.html" title="Classe concreta de modelos para representar equações diferenciais na forma discreta e contínua (domín..." alt="" coords="192,107,392,133"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_37.png" border="0" alt="" usemap="#_o_p_c_client"/>
+<tr><td><img src="inherit_graph_5.png" border="0" alt="" usemap="#_o_p_c_client"/>
 <map name="_o_p_c_client" id="_o_p_c_client">
 <area shape="rect" id="node1" href="class_o_p_c_client.html" title="OPCClient" alt="" coords="5,5,88,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_38.png" border="0" alt="" usemap="#_optimization_3_01_used_type_01_4"/>
-<map name="_optimization_3_01_used_type_01_4" id="_optimization_3_01_used_type_01_4">
-<area shape="rect" id="node1" href="class_optimization.html" title="Optimization\&lt; UsedType \&gt;" alt="" coords="5,35,183,61"/><area shape="rect" id="node2" href="class_least_square.html" title="LeastSquare\&lt; UsedType \&gt;" alt="" coords="231,5,408,32"/><area shape="rect" id="node3" href="class_recursive_least_square.html" title="RecursiveLeastSquare\l\&lt; UsedType \&gt;" alt="" coords="244,57,395,98"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_39.png" border="0" alt="" usemap="#_p_i_d_3_01_used_type_01_4"/>
+<tr><td><img src="inherit_graph_6.png" border="0" alt="" usemap="#_p_i_d_3_01_used_type_01_4"/>
 <map name="_p_i_d_3_01_used_type_01_4" id="_p_i_d_3_01_used_type_01_4">
 <area shape="rect" id="node1" href="class_p_i_d.html" title="Classe PID. " alt="" coords="5,5,131,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_40.png" border="0" alt="" usemap="#_polynom_3_01_type_of_class_01_4"/>
+<tr><td><img src="inherit_graph_7.png" border="0" alt="" usemap="#_polynom_3_01_type_of_class_01_4"/>
 <map name="_polynom_3_01_type_of_class_01_4" id="_polynom_3_01_type_of_class_01_4">
 <area shape="rect" id="node1" href="class_polynom.html" title="Polynom\&lt; TypeOfClass \&gt;" alt="" coords="5,5,176,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_41.png" border="0" alt="" usemap="#_polynom_3_01_used_type_01_4"/>
+<tr><td><img src="inherit_graph_8.png" border="0" alt="" usemap="#_polynom_3_01_used_type_01_4"/>
 <map name="_polynom_3_01_used_type_01_4" id="_polynom_3_01_used_type_01_4">
 <area shape="rect" id="node1" href="class_polynom.html" title="Polynom\&lt; UsedType \&gt;" alt="" coords="5,5,160,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_42.png" border="0" alt="" usemap="#_p_s_o_3_01_used_type_01_4"/>
+<tr><td><img src="inherit_graph_9.png" border="0" alt="" usemap="#_p_s_o_3_01_used_type_01_4"/>
 <map name="_p_s_o_3_01_used_type_01_4" id="_p_s_o_3_01_used_type_01_4">
 <area shape="rect" id="node1" href="class_p_s_o.html" title="Classe de otimização por nuvem de partículas. " alt="" coords="5,5,137,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_43.png" border="0" alt="" usemap="#_relay"/>
-<map name="_relay" id="_relay">
-<area shape="rect" id="node1" href="class_relay.html" title="Relay" alt="" coords="5,5,60,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_44.png" border="0" alt="" usemap="#_serial"/>
+<tr><td><img src="inherit_graph_10.png" border="0" alt="" usemap="#_serial"/>
 <map name="_serial" id="_serial">
 <area shape="rect" id="node1" href="class_serial.html" title="Serial" alt="" coords="5,5,60,32"/></map>
 </td></tr>
-<tr><td><img src="inherit_graph_45.png" border="0" alt="" usemap="#_sim_3_01_used_type_01_4"/>
-<map name="_sim_3_01_used_type_01_4" id="_sim_3_01_used_type_01_4">
-<area shape="rect" id="node1" href="class_sim.html" title="Sim\&lt; UsedType \&gt;" alt="" coords="5,5,132,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_46.png" border="0" alt="" usemap="#sim_function"/>
+<tr><td><img src="inherit_graph_11.png" border="0" alt="" usemap="#sim_function"/>
 <map name="sim_function" id="sim_function">
 <area shape="rect" id="node1" href="classsim_function.html" title="Classe cuja responsabilidade é simular funções criadas externamente. " alt="" coords="5,5,99,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_47.png" border="0" alt="" usemap="#tag_o_p_c_b_r_o_w_s_e_e_l_e_m_e_n_t"/>
-<map name="tag_o_p_c_b_r_o_w_s_e_e_l_e_m_e_n_t" id="tag_o_p_c_b_r_o_w_s_e_e_l_e_m_e_n_t">
-<area shape="rect" id="node1" href="structtag_o_p_c_b_r_o_w_s_e_e_l_e_m_e_n_t.html" title="tagOPCBROWSEELEMENT" alt="" coords="5,5,193,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_48.png" border="0" alt="" usemap="#tag_o_p_c_g_r_o_u_p_h_e_a_d_e_r"/>
-<map name="tag_o_p_c_g_r_o_u_p_h_e_a_d_e_r" id="tag_o_p_c_g_r_o_u_p_h_e_a_d_e_r">
-<area shape="rect" id="node1" href="structtag_o_p_c_g_r_o_u_p_h_e_a_d_e_r.html" title="tagOPCGROUPHEADER" alt="" coords="5,5,175,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_49.png" border="0" alt="" usemap="#tag_o_p_c_g_r_o_u_p_h_e_a_d_e_r_w_r_i_t_e"/>
-<map name="tag_o_p_c_g_r_o_u_p_h_e_a_d_e_r_w_r_i_t_e" id="tag_o_p_c_g_r_o_u_p_h_e_a_d_e_r_w_r_i_t_e">
-<area shape="rect" id="node1" href="structtag_o_p_c_g_r_o_u_p_h_e_a_d_e_r_w_r_i_t_e.html" title="tagOPCGROUPHEADERWRITE" alt="" coords="5,5,216,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_50.png" border="0" alt="" usemap="#tag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s"/>
-<map name="tag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s" id="tag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s">
-<area shape="rect" id="node1" href="structtag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s.html" title="tagOPCITEMATTRIBUTES" alt="" coords="5,5,181,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_51.png" border="0" alt="" usemap="#tag_o_p_c_i_t_e_m_d_e_f"/>
-<map name="tag_o_p_c_i_t_e_m_d_e_f" id="tag_o_p_c_i_t_e_m_d_e_f">
-<area shape="rect" id="node1" href="structtag_o_p_c_i_t_e_m_d_e_f.html" title="tagOPCITEMDEF" alt="" coords="5,5,129,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_52.png" border="0" alt="" usemap="#tag_o_p_c_i_t_e_m_h_e_a_d_e_r1"/>
-<map name="tag_o_p_c_i_t_e_m_h_e_a_d_e_r1" id="tag_o_p_c_i_t_e_m_h_e_a_d_e_r1">
-<area shape="rect" id="node1" href="structtag_o_p_c_i_t_e_m_h_e_a_d_e_r1.html" title="tagOPCITEMHEADER1" alt="" coords="5,5,164,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_53.png" border="0" alt="" usemap="#tag_o_p_c_i_t_e_m_h_e_a_d_e_r2"/>
-<map name="tag_o_p_c_i_t_e_m_h_e_a_d_e_r2" id="tag_o_p_c_i_t_e_m_h_e_a_d_e_r2">
-<area shape="rect" id="node1" href="structtag_o_p_c_i_t_e_m_h_e_a_d_e_r2.html" title="tagOPCITEMHEADER2" alt="" coords="5,5,164,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_54.png" border="0" alt="" usemap="#tag_o_p_c_i_t_e_m_h_e_a_d_e_r_w_r_i_t_e"/>
-<map name="tag_o_p_c_i_t_e_m_h_e_a_d_e_r_w_r_i_t_e" id="tag_o_p_c_i_t_e_m_h_e_a_d_e_r_w_r_i_t_e">
-<area shape="rect" id="node1" href="structtag_o_p_c_i_t_e_m_h_e_a_d_e_r_w_r_i_t_e.html" title="tagOPCITEMHEADERWRITE" alt="" coords="5,5,199,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_55.png" border="0" alt="" usemap="#tag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_i_e_s"/>
-<map name="tag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_i_e_s" id="tag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_i_e_s">
-<area shape="rect" id="node1" href="structtag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_i_e_s.html" title="tagOPCITEMPROPERTIES" alt="" coords="5,5,187,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_56.png" border="0" alt="" usemap="#tag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_y"/>
-<map name="tag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_y" id="tag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_y">
-<area shape="rect" id="node1" href="structtag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_y.html" title="tagOPCITEMPROPERTY" alt="" coords="5,5,175,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_57.png" border="0" alt="" usemap="#tag_o_p_c_i_t_e_m_r_e_s_u_l_t"/>
-<map name="tag_o_p_c_i_t_e_m_r_e_s_u_l_t" id="tag_o_p_c_i_t_e_m_r_e_s_u_l_t">
-<area shape="rect" id="node1" href="structtag_o_p_c_i_t_e_m_r_e_s_u_l_t.html" title="tagOPCITEMRESULT" alt="" coords="5,5,153,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_58.png" border="0" alt="" usemap="#tag_o_p_c_i_t_e_m_s_t_a_t_e"/>
-<map name="tag_o_p_c_i_t_e_m_s_t_a_t_e" id="tag_o_p_c_i_t_e_m_s_t_a_t_e">
-<area shape="rect" id="node1" href="structtag_o_p_c_i_t_e_m_s_t_a_t_e.html" title="tagOPCITEMSTATE" alt="" coords="5,5,144,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_59.png" border="0" alt="" usemap="#tag_o_p_c_i_t_e_m_v_q_t"/>
-<map name="tag_o_p_c_i_t_e_m_v_q_t" id="tag_o_p_c_i_t_e_m_v_q_t">
-<area shape="rect" id="node1" href="structtag_o_p_c_i_t_e_m_v_q_t.html" title="tagOPCITEMVQT" alt="" coords="5,5,129,32"/></map>
-</td></tr>
-<tr><td><img src="inherit_graph_60.png" border="0" alt="" usemap="#tag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s"/>
-<map name="tag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s" id="tag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s">
-<area shape="rect" id="node1" href="structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html" title="tagOPCSERVERSTATUS" alt="" coords="5,5,177,32"/></map>
 </td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sábado, 27 de Dezembro de 2014 19:30:40 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Domingo, 28 de Dezembro de 2014 16:53:16 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

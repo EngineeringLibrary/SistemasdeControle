@@ -1,16 +1,17 @@
 var searchData=
 [
-  ['f',['f',['../class_f_zero.html#a97ac6b18ecee0c8251b6fd57a9b8c2cf',1,'FZero']]],
-  ['fa',['fa',['../classbisseccao.html#ad0fe58b692a135946c124580d2d430ce',1,'bisseccao::fa()'],['../classsecant.html#a9334a39664c5d0d04f20546be4732837',1,'secant::fa()']]],
-  ['fb',['fb',['../classbisseccao.html#a4ba5b0dfbfc3e3ac770f69a4940a3db2',1,'bisseccao::fb()'],['../classsecant.html#adbd36f68ca8c5b2968136c561a4c5b4b',1,'secant::fb()']]],
-  ['fc',['fc',['../classbisseccao.html#aad4258a3bdcb55566bb51ed790a623ef',1,'bisseccao']]],
-  ['fm',['fm',['../classsecant.html#a29c3691d326d94625471c51cebb66965',1,'secant']]],
-  ['ftcurrenttime',['ftCurrentTime',['../structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#a319ccd967ff0882023cdaa42c0ab74e0',1,'tagOPCSERVERSTATUS']]],
-  ['ftlastupdatetime',['ftLastUpdateTime',['../structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#a3af49ebb10b0306e89c0163fc74a0198',1,'tagOPCSERVERSTATUS']]],
-  ['ftstarttime',['ftStartTime',['../structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#aa2fe145d5bfd30de82de4a94fea7e9a6',1,'tagOPCSERVERSTATUS']]],
-  ['fttimestamp',['ftTimeStamp',['../structtag_o_p_c_i_t_e_m_s_t_a_t_e.html#a704487de426cc7e071eae7125f92bb47',1,'tagOPCITEMSTATE::ftTimeStamp()'],['../structtag_o_p_c_i_t_e_m_v_q_t.html#ab0799b1e6c33134ae47dafcda62bb5c2',1,'tagOPCITEMVQT::ftTimeStamp()']]],
-  ['fttimestampitem',['ftTimeStampItem',['../structtag_o_p_c_i_t_e_m_h_e_a_d_e_r1.html#a84ba38ba9eb436183063048a8e50da4e',1,'tagOPCITEMHEADER1']]],
-  ['func',['func',['../classgrafics.html#a0e114efd7d3c39d6e71d9a002a0a95a1',1,'grafics']]],
-  ['functiontocall',['FunctionToCall',['../classsim_function.html#a28878ad5a60c554cbde9bc6fff54eaac',1,'simFunction']]],
-  ['fx',['fx',['../class_newton.html#a5ff2345fe0dfd76f201b655af97caa3d',1,'Newton::fx()'],['../classsteffensen.html#a133f636e32454645d59476e6d65d0785',1,'steffensen::fx()']]]
+  ['g',['G',['../class_p_s_o.html#ad390fa63ddb330542f599c0853046f13',1,'PSO']]],
+  ['gfitness',['Gfitness',['../class_p_s_o.html#a95f16dbcacd7b3a35e3fe73c0c7bfb85',1,'PSO']]],
+  ['gfitnessgen',['GfitnessGen',['../class_p_s_o.html#a3928576407a53b26970c46f8d1784518',1,'PSO']]],
+  ['gfitnessntime',['GfitnessnTime',['../class_p_s_o.html#afa91a6cc675cfc890158e49343855e79',1,'PSO']]],
+  ['ggen',['GGen',['../class_p_s_o.html#a6e151934282a1cc1448a49d1be25a70c',1,'PSO']]],
+  ['gntimes',['GnTimes',['../class_p_s_o.html#a1e3e3892345b2f4fe0b6c693a0059004',1,'PSO']]],
+  ['graphicdatasize',['GraphicDataSize',['../classgraphic_properties.html#aba77d97bad6fd2d5949f192614ee8e5d',1,'graphicProperties']]],
+  ['graphicxlimit_5fleft',['GraphicXLimit_Left',['../classgraphic_properties.html#af6be55803a00a99e453e47b4f1221133',1,'graphicProperties']]],
+  ['graphicxlimit_5fright',['GraphicXLimit_Right',['../classgraphic_properties.html#a4d028a3ca8132b82a5aaeffcaf47d06f',1,'graphicProperties']]],
+  ['graphicxposition',['GraphicXposition',['../classgraphic_properties.html#a2b156ab99c00cf3d3037818f33d02d75',1,'graphicProperties']]],
+  ['graphicylimit_5fdown',['GraphicYLimit_Down',['../classgraphic_properties.html#acc030c766de1a6ed7015190071db09ef',1,'graphicProperties']]],
+  ['graphicylimit_5fup',['GraphicYLimit_Up',['../classgraphic_properties.html#a33aa4972d287d8efba3cf37ce31ae80a',1,'graphicProperties']]],
+  ['graphicyposition',['GraphicYposition',['../classgraphic_properties.html#a62c1ac33269dbd445273ea73cc6e7bab',1,'graphicProperties']]],
+  ['gridstatus',['GridStatus',['../classgraphic_properties.html#ae0afdedff819a0dc18785578c70685d3',1,'graphicProperties']]]
 ];

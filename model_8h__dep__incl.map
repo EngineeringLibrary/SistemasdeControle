@@ -1,32 +1,5 @@
 <map id="SistemasdeControle/src/simulationLibs/model.h" name="SistemasdeControle/src/simulationLibs/model.h">
-<area shape="rect" id="node2" href="$optimization_8h.html" title="SistemasdeControle\l/src/optimizationLibs\l/optimization.h" alt="" coords="188,213,331,269"/>
-<area shape="rect" id="node8" href="$armax_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/armax.h" alt="" coords="66,109,205,165"/>
-<area shape="rect" id="node10" href="$arx_8h.html" title="SistemasdeControle\l/src/simulationLibs/arx.h" alt="" coords="343,117,507,158"/>
-<area shape="rect" id="node12" href="$fzero_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/fzero.h" alt="" coords="851,109,990,165"/>
-<area shape="rect" id="node22" href="$fir_8h.html" title="SistemasdeControle\l/src/simulationLibs/fir.h" alt="" coords="1032,117,1188,158"/>
-<area shape="rect" id="node24" href="$ma_8h.html" title="SistemasdeControle\l/src/simulationLibs/ma.h" alt="" coords="1212,117,1376,158"/>
-<area shape="rect" id="node26" href="$model_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/model.cpp" alt="" coords="1401,109,1539,165"/>
-<area shape="rect" id="node27" href="$statespace_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/statespace.h" alt="" coords="1657,213,1795,269"/>
-<area shape="rect" id="node30" href="$transferfunction_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/transferfunction.h" alt="" coords="1738,109,1877,165"/>
-<area shape="rect" id="node3" href="$leastsquare_8h.html" title="SistemasdeControle\l/src/optimizationLibs\l/leastsquare.h" alt="" coords="5,317,148,373"/>
-<area shape="rect" id="node5" href="$optimization_8cpp.html" title="SistemasdeControle\l/src/optimizationLibs\l/optimization.cpp" alt="" coords="172,317,315,373"/>
-<area shape="rect" id="node6" href="$recursiveleastsquare_8h.html" title="SistemasdeControle\l/src/optimizationLibs\l/recursiveleastsquare.h" alt="" coords="339,317,494,373"/>
-<area shape="rect" id="node4" href="$leastsquare_8cpp.html" title="SistemasdeControle\l/src/optimizationLibs\l/leastsquare.cpp" alt="" coords="5,421,148,477"/>
-<area shape="rect" id="node7" href="$recursiveleastsquare_8cpp.html" title="SistemasdeControle\l/src/optimizationLibs\l/recursiveleastsquare.cpp" alt="" coords="332,421,501,477"/>
-<area shape="rect" id="node9" href="$armax_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/armax.cpp" alt="" coords="25,213,163,269"/>
-<area shape="rect" id="node11" href="$arx_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/arx.cpp" alt="" coords="355,213,494,269"/>
-<area shape="rect" id="node13" href="$bisseccao_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/bisseccao.h" alt="" coords="843,213,982,269"/>
-<area shape="rect" id="node15" href="$fzero_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/fzero.cpp" alt="" coords="1006,213,1145,269"/>
-<area shape="rect" id="node16" href="$newton_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/newton.h" alt="" coords="1169,213,1307,269"/>
-<area shape="rect" id="node18" href="$secant_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/secant.h" alt="" coords="518,213,657,269"/>
-<area shape="rect" id="node20" href="$steffensen_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/steffensen.h" alt="" coords="681,213,819,269"/>
-<area shape="rect" id="node14" href="$bisseccao_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/bisseccao.cpp" alt="" coords="843,317,982,373"/>
-<area shape="rect" id="node17" href="$newton_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/newton.cpp" alt="" coords="1169,317,1307,373"/>
-<area shape="rect" id="node19" href="$secant_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/secant.cpp" alt="" coords="518,317,657,373"/>
-<area shape="rect" id="node21" href="$steffensen_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/steffensen.cpp" alt="" coords="681,317,819,373"/>
-<area shape="rect" id="node23" href="$fir_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/fir.cpp" alt="" coords="1331,213,1470,269"/>
-<area shape="rect" id="node25" href="$ma_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/ma.cpp" alt="" coords="1494,213,1633,269"/>
-<area shape="rect" id="node28" href="$conversions_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/conversions.h" alt="" coords="1873,317,2011,373"/>
-<area shape="rect" id="node29" href="$statespace_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/statespace.cpp" alt="" coords="1657,317,1795,373"/>
-<area shape="rect" id="node31" href="$transferfunction_8cpp.html" title="SistemasdeControle\l/src/simulationLibs\l/transferfunction.cpp" alt="" coords="1819,213,1958,269"/>
+<area shape="rect" id="node2" href="$arx_8h.html" title="SistemasdeControle\l/src/simulationLibs/arx.h" alt="" coords="5,117,169,158"/>
+<area shape="rect" id="node3" href="$statespace_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/statespace.h" alt="" coords="191,213,330,269"/>
+<area shape="rect" id="node4" href="$transferfunction_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/transferfunction.h" alt="" coords="245,109,383,165"/>
 </map>

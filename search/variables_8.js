@@ -1,14 +1,9 @@
 var searchData=
 [
-  ['hclient',['hClient',['../structtag_o_p_c_i_t_e_m_h_e_a_d_e_r1.html#a3aa90c10e5c462279ddd0f3107456ebc',1,'tagOPCITEMHEADER1::hClient()'],['../structtag_o_p_c_i_t_e_m_h_e_a_d_e_r2.html#a2a62db204782e02c8d092f6ab391e743',1,'tagOPCITEMHEADER2::hClient()'],['../structtag_o_p_c_i_t_e_m_h_e_a_d_e_r_w_r_i_t_e.html#ae112c37c18f4c4d9bd1aa3dc4c7166f5',1,'tagOPCITEMHEADERWRITE::hClient()'],['../structtag_o_p_c_i_t_e_m_s_t_a_t_e.html#a15ac38f3357057a9477cb130f79276f6',1,'tagOPCITEMSTATE::hClient()'],['../structtag_o_p_c_i_t_e_m_d_e_f.html#a54fafb00d8a790dc527dd98b0313cb63',1,'tagOPCITEMDEF::hClient()'],['../structtag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s.html#a5cf5ac4fdc6c92b04445847d105067f8',1,'tagOPCITEMATTRIBUTES::hClient()']]],
-  ['hclientgroup',['hClientGroup',['../structtag_o_p_c_g_r_o_u_p_h_e_a_d_e_r.html#aba8db10708e2dcb02acf28b1b4bc2b24',1,'tagOPCGROUPHEADER::hClientGroup()'],['../structtag_o_p_c_g_r_o_u_p_h_e_a_d_e_r_w_r_i_t_e.html#aeb987b8ee13663a5df7ac730761131a8',1,'tagOPCGROUPHEADERWRITE::hClientGroup()'],['../struct_i_o_p_c_server_vtbl.html#a5a81acb6263540bac9da5bbbffb4d251',1,'IOPCServerVtbl::hClientGroup()']]],
-  ['hgroup',['hGroup',['../struct_i_o_p_c_data_callback_vtbl.html#a9b7e0be4646cf190faf6a73003f42862',1,'IOPCDataCallbackVtbl']]],
-  ['holdstatus',['HoldStatus',['../classgraphic_properties.html#a24905c619ceb8fa302f2bb803ee5c8b1',1,'graphicProperties']]],
-  ['hrerrorid',['hrErrorID',['../structtag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_y.html#ad02ba5352b85f8ab11843d4f0be43038',1,'tagOPCITEMPROPERTY::hrErrorID()'],['../structtag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_i_e_s.html#ade6671e96aa68f1b19232c9bb717bf9c',1,'tagOPCITEMPROPERTIES::hrErrorID()']]],
-  ['hrmastererr',['hrMastererr',['../struct_i_o_p_c_data_callback_vtbl.html#a473d2f8e7800b15a7adf642aacfcaf9a',1,'IOPCDataCallbackVtbl']]],
-  ['hrmastererror',['hrMastererror',['../struct_i_o_p_c_data_callback_vtbl.html#a98ff02717ee82c1586a374db52c06f67',1,'IOPCDataCallbackVtbl']]],
-  ['hrmasterquality',['hrMasterquality',['../struct_i_o_p_c_data_callback_vtbl.html#a06741212af4d8fb68191d6f4aa5f9a84',1,'IOPCDataCallbackVtbl']]],
-  ['hrstatus',['hrStatus',['../structtag_o_p_c_g_r_o_u_p_h_e_a_d_e_r.html#a64cde5d3f2cb93b9465bfb2304fba701',1,'tagOPCGROUPHEADER::hrStatus()'],['../structtag_o_p_c_g_r_o_u_p_h_e_a_d_e_r_w_r_i_t_e.html#a97411f15784ca5ceca9d2b9f73f9a4cc',1,'tagOPCGROUPHEADERWRITE::hrStatus()']]],
-  ['hserver',['hServer',['../structtag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s.html#aa7c8c69fe2da52b93552af25906e71ff',1,'tagOPCITEMATTRIBUTES::hServer()'],['../structtag_o_p_c_i_t_e_m_r_e_s_u_l_t.html#ad3557504633f335752072e1fc3f0ef33',1,'tagOPCITEMRESULT::hServer()']]],
-  ['hservergroup',['hServerGroup',['../struct_i_o_p_c_server_vtbl.html#a3e8bc2ec12e5b19f7057d9982df2dab0',1,'IOPCServerVtbl::hServerGroup()'],['../struct_i_o_p_c_server_public_groups_vtbl.html#a3d41a7e9d25106d6ac2fbf2b410328b6',1,'IOPCServerPublicGroupsVtbl::hServerGroup()']]]
+  ['idcom',['IdCom',['../class_serial.html#a2412dafec838f103efbcc6e8a111b6a6',1,'Serial']]],
+  ['initialstate',['initialState',['../class_state_space.html#a5c120dcb5eec4caea963390f3991e332',1,'StateSpace']]],
+  ['input',['input',['../class_model.html#a2c312cff68ca3c479efca62d2e58eb43',1,'Model::input()'],['../classsim_function.html#a92513b19dbf064039f0e2380cdaf647d',1,'simFunction::input()'],['../class_model.html#a85e77811af5d075e0d9267f102e92606',1,'Model::Input()']]],
+  ['instance',['instance',['../class_gl_view.html#ac3e7f47134dcbe2499c0f7ed38483163',1,'GlView::instance()'],['../class_model.html#a381a769ba6e064f309241db9c75fc5b3',1,'Model::instance()']]],
+  ['integralerror',['integralError',['../class_p_i_d.html#abf26051a6857019edac542298babce9f',1,'PID']]],
+  ['iscontinuous',['isContinuous',['../class_transfer_function.html#a83bfabfeb7c405382116f1bb2e331324',1,'TransferFunction']]]
 ];

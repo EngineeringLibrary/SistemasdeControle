@@ -1,25 +1,11 @@
 var searchData=
 [
-  ['s1',['s1',['../struct___i_i_d.html#a23024837c1b267b2fe58b64d57b509da',1,'_IID']]],
-  ['s2',['s2',['../struct___i_i_d.html#afbdacab5216098be663859a1d2764de7',1,'_IID']]],
-  ['sample',['Sample',['../class_relay.html#a6102245d606ad4a33274242d444c7425',1,'Relay']]],
-  ['sampletime',['sampleTime',['../class_transfer_function.html#a8f4abfd9a32e54f4df6d3f8845abb940',1,'TransferFunction::sampleTime()'],['../class_relay.html#a8447c24c351c8761551036fc7852b318',1,'Relay::SampleTime()'],['../class_eqdif_sim.html#a1509be5e75905a3b0aeeafa77956882a',1,'EqdifSim::SampleTime()'],['../class_state_space.html#a1056d592a5a529152ed64ef306eebf8e',1,'StateSpace::SampleTime()']]],
-  ['serverconnected',['ServerConnected',['../class_o_p_c_client.html#ac809ad934ea5c1f3d2e62bf9935fa131',1,'OPCClient']]],
-  ['servername',['ServerName',['../class_o_p_c_client.html#a9bc5e06354e8914c0c7d1a9d8cb69f68',1,'OPCClient']]],
-  ['sizeden',['sizeDen',['../class_polynom.html#af46771583a9ae7f845e682baf6d2f301',1,'Polynom']]],
-  ['sizenum',['sizeNum',['../class_polynom.html#af8bf879f47ffc4a8af747b002171ffe4',1,'Polynom']]],
-  ['step',['step',['../class_model.html#aff37aef61263d461fe7be2a3aef2c19c',1,'Model::step()'],['../classsim_function.html#a1d938beab011419820e89493f7b431c9',1,'simFunction::step()'],['../class_p_i_d.html#a1e4e9e676a5a0313a961df43ddb9bbdd',1,'PID::Step()']]],
-  ['systemoutput',['systemOutput',['../class_relay.html#af315c6c0e24ef5399b17acf11e516881',1,'Relay']]],
-  ['szaccesspath',['szAccessPath',['../structtag_o_p_c_i_t_e_m_d_e_f.html#a643638e6bbc7af27f053c110ab636705',1,'tagOPCITEMDEF::szAccessPath()'],['../structtag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s.html#a1aded4d1e0770cf448506e43a0c7f91d',1,'tagOPCITEMATTRIBUTES::szAccessPath()']]],
-  ['szdescription',['szDescription',['../structtag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_y.html#a83c042f6ce036ab08f5b8fa231263304',1,'tagOPCITEMPROPERTY']]],
-  ['szelementnamefilter',['szElementNameFilter',['../struct_i_o_p_c_browse_vtbl.html#a1e1073865785bca14dcbc689179167f4',1,'IOPCBrowseVtbl']]],
-  ['szfiltercriteria',['szFilterCriteria',['../struct_i_o_p_c_browse_server_address_space_vtbl.html#ae81b74356f4474dbd356405b71980e83',1,'IOPCBrowseServerAddressSpaceVtbl']]],
-  ['szitemdataid',['szItemDataID',['../struct_i_o_p_c_browse_server_address_space_vtbl.html#a8b62ec1de807d77d5f60d7164da704cc',1,'IOPCBrowseServerAddressSpaceVtbl']]],
-  ['szitemid',['szItemID',['../structtag_o_p_c_i_t_e_m_d_e_f.html#a12af631f564898ff6943e1a0c904ba6d',1,'tagOPCITEMDEF::szItemID()'],['../structtag_o_p_c_i_t_e_m_a_t_t_r_i_b_u_t_e_s.html#aaa8eacd453970c0dc421ccdf17723766',1,'tagOPCITEMATTRIBUTES::szItemID()'],['../structtag_o_p_c_i_t_e_m_p_r_o_p_e_r_t_y.html#a9127b67df2b4e9cbabe70565a0a86f47',1,'tagOPCITEMPROPERTY::szItemID()'],['../structtag_o_p_c_b_r_o_w_s_e_e_l_e_m_e_n_t.html#a434717132a715c98b02074e24386d160',1,'tagOPCBROWSEELEMENT::szItemID()'],['../struct_i_o_p_c_browse_server_address_space_vtbl.html#a49741a75e6b774865f314d9443dbda86',1,'IOPCBrowseServerAddressSpaceVtbl::szItemID()'],['../struct_i_o_p_c_browse_server_address_space_vtbl.html#ac2d8abb4e1b59ac50ef45562a5e3213d',1,'IOPCBrowseServerAddressSpaceVtbl::szItemID()'],['../struct_i_o_p_c_item_properties_vtbl.html#a50ccd08b7121ada14e979ea8c5f3167a',1,'IOPCItemPropertiesVtbl::szItemID()'],['../struct_i_o_p_c_browse_vtbl.html#ab2817f34a371a906b5d066badafac290',1,'IOPCBrowseVtbl::szItemID()']]],
-  ['szname',['szName',['../struct_i_o_p_c_common_vtbl.html#a20f570a7b3a4613cc1529f51df747d4f',1,'IOPCCommonVtbl::szName()'],['../structtag_o_p_c_b_r_o_w_s_e_e_l_e_m_e_n_t.html#a2383d88b53e002871b946749a5f5d6dd',1,'tagOPCBROWSEELEMENT::szName()'],['../struct_i_o_p_c_server_vtbl.html#a20d91a1941ebf4515ddeeef4cddf4c9b',1,'IOPCServerVtbl::szName()'],['../struct_i_o_p_c_server_public_groups_vtbl.html#a37f3a3e487725236559276addb8e4da7',1,'IOPCServerPublicGroupsVtbl::szName()'],['../struct_i_o_p_c_group_state_mgt_vtbl.html#adc987c4b8a222fd0e236a7ffa024de13',1,'IOPCGroupStateMgtVtbl::szName()'],['../struct_i_o_p_c_group_state_mgt2_vtbl.html#af82683ac8faa934d2fac048fad759812',1,'IOPCGroupStateMgt2Vtbl::szName()']]],
-  ['szprogid',['szProgId',['../struct_i_o_p_c_server_list_vtbl.html#ab0e96dd1bcccd1e0326651ce8f860a08',1,'IOPCServerListVtbl::szProgId()'],['../struct_i_o_p_c_server_list2_vtbl.html#a1fdb5626d74c3ae4a150b5033fd462e3',1,'IOPCServerList2Vtbl::szProgId()']]],
-  ['szreason',['szReason',['../struct_i_o_p_c_shutdown_vtbl.html#a80a7b1335e1abbc8c320826353f0505f',1,'IOPCShutdownVtbl']]],
-  ['szstring',['szString',['../struct_i_o_p_c_browse_server_address_space_vtbl.html#aae715cccd6d589ae7de314e19fe04cc3',1,'IOPCBrowseServerAddressSpaceVtbl']]],
-  ['szvendorfilter',['szVendorFilter',['../struct_i_o_p_c_browse_vtbl.html#ada8f6c3dd4fe5ff6a05772be145efb89',1,'IOPCBrowseVtbl']]],
-  ['szvendorinfo',['szVendorInfo',['../structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html#a42a8bb481ac6eb9c8d1db964498c16d0',1,'tagOPCSERVERSTATUS']]]
+  ['tagnames',['TagNames',['../class_o_p_c_client.html#a6a9697ce3dea2e75b7202de372a975af',1,'OPCClient']]],
+  ['tagvalues',['TagValues',['../class_o_p_c_client.html#a6bca6299e15530aea84dfbd756e8346f',1,'OPCClient']]],
+  ['tf',['TF',['../class_transfer_function.html#abc2ec56ccf027333ccb6921e11d822d8',1,'TransferFunction']]],
+  ['timeouts',['timeouts',['../class_serial.html#afa71d8cc019d2675bbe6cb8d41326166',1,'Serial']]],
+  ['timesimulation',['timeSimulation',['../class_transfer_function.html#a1147e22359ad13a71eacb749c581d681',1,'TransferFunction::timeSimulation()'],['../class_state_space.html#ae0f15ef7ca400a7575d15c1d69e294e8',1,'StateSpace::TimeSimulation()']]],
+  ['title',['title',['../classgraphic_properties.html#addd5780635acfe7645db38f74a43a554',1,'graphicProperties']]],
+  ['typereaditem',['TypeReadItem',['../class_o_p_c_client.html#a14793da98feb409c76352163f097656b',1,'OPCClient']]],
+  ['typereadsync',['TypeReadSync',['../class_o_p_c_client.html#a5b0a9c0af23e33d150c35ddbb0d27779',1,'OPCClient']]]
 ];

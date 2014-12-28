@@ -1,18 +1,17 @@
 var searchData=
 [
-  ['c2d',['c2d',['../class_eqdif_sim.html#a7faecb8f3fd8aa24aa6657b64957b29d',1,'EqdifSim::c2d()'],['../class_state_space.html#a41cf30a838b393851caed1059943c014',1,'StateSpace::c2d()']]],
-  ['c2dconversion',['c2dConversion',['../class_state_space.html#a6a238f4601404ee837336166ca20917e',1,'StateSpace::c2dConversion()'],['../class_transfer_function.html#a1ca397b7a0583da56c86058fa16eb335',1,'TransferFunction::c2dConversion()']]],
-  ['ceil',['ceil',['../matrix_8cpp.html#a36ed6c54463c9543f639c7f7764325ba',1,'matrix.cpp']]],
-  ['ceil_3c_20double_20_3e',['ceil&lt; double &gt;',['../matrix_8cpp.html#ac98a8fd504c29390753db34a7f014dbf',1,'matrix.cpp']]],
-  ['ceil_3c_20float_20_3e',['ceil&lt; float &gt;',['../matrix_8cpp.html#a3ca6acca0c00ab26e9607dd699842043',1,'matrix.cpp']]],
-  ['ceil_3c_20int_20_3e',['ceil&lt; int &gt;',['../matrix_8cpp.html#ae03ada9512df9ce2b53ec9cd2269c577',1,'matrix.cpp']]],
-  ['cleardraw',['clearDraw',['../classgrafics.html#ac59a2645c42675b2fecaa4fabfc65e82',1,'grafics']]],
-  ['close',['Close',['../class_serial.html#ae944c0077d55f1e0871a43a671ed73c2',1,'Serial']]],
-  ['cos',['cos',['../matrix_8cpp.html#aa80a6b44b3f27ba572a143b28003b711',1,'matrix.cpp']]],
-  ['cos_3c_20double_20_3e',['cos&lt; double &gt;',['../matrix_8cpp.html#a9416310a5cfe465066d266da62641a36',1,'matrix.cpp']]],
-  ['cos_3c_20float_20_3e',['cos&lt; float &gt;',['../matrix_8cpp.html#a9e193a247e8b25b6b3b0388a8849c8f2',1,'matrix.cpp']]],
-  ['cosh',['cosh',['../matrix_8cpp.html#a6c6713f193c137b6aca7e790c32724c3',1,'matrix.cpp']]],
-  ['cosh_3c_20double_20_3e',['cosh&lt; double &gt;',['../matrix_8cpp.html#a7cc12e7f42e19505ed021aef28208225',1,'matrix.cpp']]],
-  ['cosh_3c_20float_20_3e',['cosh&lt; float &gt;',['../matrix_8cpp.html#a716ed97aac93cd4a26bd3f782dcae252',1,'matrix.cpp']]],
-  ['createinstance',['CreateInstance',['../class_o_p_c_client.html#a4573940ab6761d17081f66ab33307551',1,'OPCClient']]]
+  ['d2cconversion',['d2cConversion',['../class_state_space.html#a0f32de6eab7460b30bd16cf6e6ddb620',1,'StateSpace']]],
+  ['det',['det',['../class_matrix.html#a5f933c53833ab2079407882b8718c826',1,'Matrix']]],
+  ['diferror',['difError',['../class_p_i_d.html#af5acea538dbc8d9b260b07bc2d3ae66d',1,'PID']]],
+  ['diff',['diff',['../class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315',1,'Model']]],
+  ['display',['display',['../class_gl_view.html#ad67ebb10fe30265fc6930d66dea1e544',1,'GlView::display()'],['../classgrafics.html#a671902de2db8480ff2cabfea82fdf19c',1,'grafics::display()']]],
+  ['displaywrapper',['displayWrapper',['../class_gl_view.html#a33c5b6654fc1f0f404cfb9993472d454',1,'GlView']]],
+  ['drawaxis',['DrawAxis',['../classgrafics.html#ad7eaa632e224769e92d2e58e8648667a',1,'grafics']]],
+  ['drawdata',['DrawData',['../classgrafics.html#a6d1174f7b8b6dbb07846be8a9e3942d3',1,'grafics']]],
+  ['drawfunction',['DrawFunction',['../classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c',1,'grafics']]],
+  ['drawgraphic',['DrawGraphic',['../classgrafics.html#aa72be463573bf9c12c35c606ea1858b3',1,'grafics']]],
+  ['drawgrid',['DrawGrid',['../classgrafics.html#aff4f7ec740a2f20a1817bc90ae8b5540',1,'grafics']]],
+  ['drawtitle',['DrawTitle',['../classgrafics.html#a378dcacb25cb7917fa1168d3aadedb52',1,'grafics']]],
+  ['drawxlabel',['DrawXLabel',['../classgrafics.html#abd8e5813c4efb5acf776356d39409932',1,'grafics']]],
+  ['drawylabel',['DrawYLabel',['../classgrafics.html#a85ff6572872d48d64f469baac5fab789',1,'grafics']]]
 ];
