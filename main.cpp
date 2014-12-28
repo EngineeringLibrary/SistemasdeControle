@@ -1,27 +1,28 @@
-#include "src/primitive libs/matrix.h"
+#include <src/simulationLibs/statespace.h>
+#include <src/simulationLibs/arx.h>
+#include <src/optimizationLibs/leastsquare.h>
+#include <src/simulationLibs/conversions.h>
 
-int main()
+using namespace conversions;
+
+int main(int argc, char *argv)
 {
-//    Matrix <double> in, out;
-//
-//    in = "0.8147;0.9058;0.1270;0.9134;0.6324;0.0975;0.2785;0.5469;0.9575;0.9649;0.1576;0.9706;0.9572;0.4854;0.8003;0.1419;0.4218;0.9157;0.7922;0.9595";
-//    out = "0;0.0038;0.0147;0.0280;0.0435;0.0628;0.0812;0.0973;0.1133;0.1323;0.1554;0.1778;0.1998;0.2247;0.2496;0.2735;0.2948;0.3121;0.3296;0.3487";
-//
-//    Sim<double> S1(in, out, "ARX", 2, 2);
-//    Matrix<double> par;
-//    par = "1,1,1,1";
-//    S1.RunSimulation(~par, 10);
-//    Optimization <double>Solve;
-//    Solve.RLS(2,2,1000,in,out);
-//    PSO <double>P(4, 80, 1000, 3.7, 0.9, 0.5, 0);
-//    P.setData(in,out);
-//    P.Run(50);
-
-    Matrix<double> Teste;
-
-    Teste.lineVector(0, 6);
-
-    Teste.print();
-
+    Matrix<double> A,B,C,D,u;
+    A = "1,0;-2,-1";
+    B = "0;1";
+    C = "0,1";
+    D = "0";
+    u = "1,2,3,-1,-3,8,8,8,1,1,1,1,1";
+    StateSpace<double> SS(A,B,C,D);
+    SS.sim(u).print();
+    TransferFunction<double> TF = ss2tf(SS);
+    TF.print();
+    TF.c2d(0.1);
+    TF.print();
+    ARX<double> gz(2,2);
+    gz.setLinearModel(~u,~SS.sim(u));
+    Optimization<double> *LS = new LeastSquare<double>(&gz);
+    LS->Optimize();
+    LS->getOptimizatedVariable().print();
     return 0;
 }
