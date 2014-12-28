@@ -7,6 +7,7 @@ template <class UsedType>
 class TransferFunction : public Model<UsedType>
 {
 private:
+    bool isContinuous;
     UsedType sampleTime, timeSimulation;
     unsigned nRowsTF, nColsTF;
     Polynom<UsedType> **TF;
@@ -18,6 +19,7 @@ public:
     TransferFunction(std::string num, std::string den,
                      unsigned rows  , unsigned cols);
 
+    void c2d(UsedType sampleTime);
     Polynom<UsedType> operator()(unsigned row, unsigned col);
     void operator()(unsigned row, unsigned col, Polynom<UsedType> P);
     void operator= (TransferFunction<UsedType> TF);

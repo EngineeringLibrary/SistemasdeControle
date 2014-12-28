@@ -1,4 +1,6 @@
 #include "transferfunction.h"
+#include "src/simulationLibs/statespace.h"
+#include "src/simulationLibs/conversions.h"
 
 template <class UsedType>
 void TransferFunction<UsedType>::initTfNumber()
@@ -11,7 +13,17 @@ void TransferFunction<UsedType>::initTfNumber()
 template <class UsedType>
 void TransferFunction<UsedType>::c2dConversion()
 {
+    StateSpace<UsedType> SS = conversions::tf2ss(*this);
+    SS.c2d(this->sampleTime);
+    *this = conversions::ss2tf(SS);
+}
 
+template <class UsedType>
+void TransferFunction<UsedType>::c2d(UsedType sampleTime)
+{
+    this->sampleTime = sampleTime;
+    this->c2dConversion();
+    this->isContinuous = false;
 }
 
 template <class UsedType>
@@ -76,7 +88,10 @@ void TransferFunction<UsedType>::print()
     for(unsigned i = 0; i < nRowsTF; i++)
         for(unsigned j = 0; j < nColsTF; j++)
         {
-            this->TF[i][j].setVar('s');
+            if(isContinuous)
+                this->TF[i][j].setVar('s');
+            else
+                this->TF[i][j].setVar('z');
             this->TF[i][j].print();
         }
 }
