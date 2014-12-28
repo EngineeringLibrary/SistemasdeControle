@@ -3,6 +3,8 @@
 template <class TypeOfClass>
 Polynom<TypeOfClass>::Polynom()
 {
+    this->sizeNum = 0;
+    this->sizeDen = 0;
     this->x = 's';
 }
 
@@ -404,7 +406,9 @@ unsigned Polynom<TypeOfClass>::getDenSize()
 template <class TypeOfClass>
 void Polynom<TypeOfClass>::print()
 {
-    unsigned maxSize;
+    if((this->sizeDen != 0)&&(this->sizeNum != 0))
+    {
+        unsigned maxSize;
 
         if(this->sizeNum > this->sizeDen)
             maxSize = this->sizeNum;
@@ -476,6 +480,7 @@ void Polynom<TypeOfClass>::print()
                std::cout << '+' << ' ' << this->den[this->sizeDen - 1];
         }
         std::cout << '\n';
+    }
 }
 
 template class Polynom <int>;
