@@ -2,7 +2,7 @@
 #define __RELAY_H_INCLUDED
 
 #include <cmath>
-#include "..\primitive libs\matrix.h"
+#include "..\primitivelibs\matrix.h"
 
 class Relay
 {

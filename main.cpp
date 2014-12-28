@@ -16,13 +16,7 @@ int main(int argc, char *argv)
     StateSpace<double> SS(A,B,C,D);
     SS.sim(u).print();
     TransferFunction<double> TF = ss2tf(SS);
-    TF.print();
-    TF.c2d(0.1);
-    TF.print();
     ARX<double> gz(2,2);
     gz.setLinearModel(~u,~SS.sim(u));
-    Optimization<double> *LS = new LeastSquare<double>(&gz);
-    LS->Optimize();
-    LS->getOptimizatedVariable().print();
     return 0;
 }

@@ -1,7 +1,7 @@
 #ifndef __LSIM_H_INCLUDED
 #define __LSIM_H_INCLUDED
 
-#include "..\primitive libs\matrix.h"
+#include "..\primitivelibs\matrix.h"
 #include "fstream"
 
 template <class UsedType>

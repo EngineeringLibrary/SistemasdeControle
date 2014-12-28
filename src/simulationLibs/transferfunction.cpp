@@ -1,4 +1,5 @@
 #include "transferfunction.h"
+#include "src/simulationLibs/conversions.h"
 
 template <class UsedType>
 void TransferFunction<UsedType>::initTfNumber()
