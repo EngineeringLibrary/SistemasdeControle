@@ -125,6 +125,12 @@ UsedType ARX<UsedType>::sim(UsedType input, UsedType output)
 }
 
 template <class UsedType>
+void ARX<UsedType>::print()
+{
+
+}
+
+template <class UsedType>
 Matrix<UsedType> ARX<UsedType>::sim(Matrix<UsedType> x)
 {
 

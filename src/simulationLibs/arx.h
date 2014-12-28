@@ -18,6 +18,7 @@ public:
     void setLinearVectorPhi();
     void setLinearModel(Matrix<UsedType> Input, Matrix<UsedType> Output);
 
+    void print();
     UsedType sim(UsedType input);
     UsedType sim(UsedType input, UsedType output);
     Matrix<UsedType> sim(Matrix<UsedType> x);
