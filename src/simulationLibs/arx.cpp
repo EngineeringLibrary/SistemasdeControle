@@ -25,7 +25,7 @@ template <class UsedType>
 void ARX<UsedType>::setLinearVectorPhiEstimation()
 {
     unsigned cont = 1;
-    for(unsigned i = 1; i <= this->Output.getCols(); i++)
+    for(unsigned i = 1; i <= this->qdtOutputVar; i++)
     {
         for(unsigned j = 1; j <= this->nOutputpar; j++)
         {
@@ -33,7 +33,7 @@ void ARX<UsedType>::setLinearVectorPhiEstimation()
             cont++;
         }
     }
-    for(unsigned i = 1; i <= this->Input.getCols(); i++)
+    for(unsigned i = 1; i <= this->qdtInputVar; i++)
     {
         for(unsigned j = 1; j <= this->nInputpar; j++)
         {
@@ -47,7 +47,7 @@ template <class UsedType>
 void ARX<UsedType>::setLinearVectorPhi()
 {
     unsigned cont = 1;
-    for(unsigned i = 1; i <= this->Output.getCols(); i++)
+    for(unsigned i = 1; i <= this->qdtOutputVar; i++)
     {
         for(unsigned j = 1; j <= this->nOutputpar; j++)
         {
@@ -55,7 +55,7 @@ void ARX<UsedType>::setLinearVectorPhi()
             cont++;
         }
     }
-    for(unsigned i = 1; i <= this->Input.getCols(); i++)
+    for(unsigned i = 1; i <= this->qdtInputVar; i++)
     {
         for(unsigned j = 1; j <= this->nInputpar; j++)
         {
@@ -69,22 +69,22 @@ template <class UsedType>
 void ARX<UsedType>::setLinearModel(Matrix<UsedType> Input,
                                    Matrix<UsedType> Output)
 {
-    this->Input  = Input;
-    this->Output = Output;
+    this->Input  = this->Input||Input;
+    this->Output = this->Output||Output;
     for(nSample = delay + maxnInOut + 1; nSample <= this->Input.getRows(); nSample++)
     {
-        if(nSample == delay + maxnInOut + 1)
-        {
-            this->LinearVectorPhi.zeros(1, nInputpar*this->Input.getCols() + nOutputpar*this->Output.getCols());
-            this->LinearMatrixA   = this->LinearVectorPhi;
-            this->LinearEqualityB = this->Output.getLine(nSample);
-        }
-        else
-        {
+//        if(nSample == delay + maxnInOut + 1)
+//        {
+//            this->LinearVectorPhi.zeros(1, nInputpar*this->Input.getCols() + nOutputpar*this->Output.getCols());
+//            this->LinearMatrixA   = this->LinearVectorPhi;
+//            this->LinearEqualityB = this->Output.getLine(nSample);
+//        }
+//        else
+//        {
             this->setLinearVectorPhi();
             this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorPhi;
             this->LinearEqualityB = this->LinearEqualityB || this->Output.getLine(nSample);
-        }
+//        }
     }
 }
 
@@ -131,9 +131,23 @@ void ARX<UsedType>::print()
 }
 
 template <class UsedType>
-Matrix<UsedType> ARX<UsedType>::sim(Matrix<UsedType> x)
+Matrix<UsedType> ARX<UsedType>::sim(Matrix<UsedType> Input)
 {
+    Matrix<UsedType> y;
 
+    this->Input = this->Input||Input;
+    this->nSample == this->delay + this->maxnInOut + 1;
+    this->LinearVectorPhi.zeros(1, nInputpar*this->Input.getCols() + nOutputpar*this->Output.getCols());
+
+    while(nSample <= this->Input.getRows())
+    {
+        this->setLinearVectorPhiEstimation();
+        this->EstOutput.setLine(this->nSample,(this->LinearVectorPhi*this->ModelCoef));
+        y = y||(this->LinearVectorPhi*this->ModelCoef);;
+        this->nSample++;
+
+    }
+    return y;
 }
 
 template <class UsedType>

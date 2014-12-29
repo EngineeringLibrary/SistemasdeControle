@@ -24,6 +24,13 @@ UsedType Model<UsedType>::diff(UsedType x)
 }
 
 template <class UsedType>
+void Model<UsedType>::setIO(Matrix<UsedType> in, Matrix<UsedType> out)
+{
+    this->Input  = in;
+    this->Output = out;
+}
+
+template <class UsedType>
 void Model<UsedType>::setModelCoef(Matrix<UsedType> coef)
 {
     this->ModelCoef = coef;

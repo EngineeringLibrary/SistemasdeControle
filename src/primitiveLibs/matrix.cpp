@@ -934,8 +934,8 @@ void Matrix<UsedType>::setLine(unsigned num, Matrix<UsedType> Line)
             throw "Numero de colunas incompativel";
         else
         {
-            for(unsigned i = 0; i < Line.getCols(); i++)
-                this->Mat[num-1][i] = Line.Mat[num-1][i];
+            for(unsigned i = 1; i <= Line.getCols(); i++)
+                this->add(num,i,Line.Mat[0][i-1]);
         }
     }
     catch(const char* msg)

@@ -21,7 +21,7 @@ public:
     void print();
     UsedType sim(UsedType input);
     UsedType sim(UsedType input, UsedType output);
-    Matrix<UsedType> sim(Matrix<UsedType> x);
+    Matrix<UsedType> sim(Matrix<UsedType> Input);
     Matrix<UsedType> sim(Matrix<UsedType> x, Matrix<UsedType> y);
     Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
 };

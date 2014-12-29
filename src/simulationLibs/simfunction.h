@@ -12,6 +12,7 @@ private:
 public:
     simFunction(UsedType (*FunctionToCall)(UsedType));
 
+    void print();
     UsedType sim(UsedType input);
     UsedType sim(UsedType input, UsedType output);
     Matrix<UsedType> sim(Matrix<UsedType> x);

@@ -7,6 +7,12 @@ simFunction<UsedType>::simFunction(UsedType (*FunctionToCall)(UsedType))
 }
 
 template <class UsedType>
+void simFunction<UsedType>::print()
+{
+
+}
+
+template <class UsedType>
 UsedType simFunction<UsedType>::sim(UsedType input)
 {
     input = ((*this->FunctionToCall)(input));

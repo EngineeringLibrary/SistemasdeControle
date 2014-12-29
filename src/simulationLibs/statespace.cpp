@@ -51,6 +51,24 @@ StateSpace<UsedType>::StateSpace(Matrix<UsedType> A, Matrix<UsedType> B,
 }
 
 template <class UsedType>
+StateSpace<UsedType>::StateSpace(Matrix<UsedType> Ad, Matrix<UsedType> Bd,
+                                 Matrix<UsedType> C , Matrix<UsedType> D ,
+                                 UsedType SampleTime)
+{
+    this->Ad                 =    Ad;
+    this->Bd                 =    Bd;
+    this->C                  =    C;
+    this->D                  =    D;
+    this->Continuous         = false;
+    this->SampleTime         = SampleTime;
+    this->TimeSimulation     =   10;
+    this->nDiscretization    =    4;
+
+    this->initialState.zeros(Ad.getRows(),Bd.getCols());
+    this->X = this->initialState;
+}
+
+template <class UsedType>
 void StateSpace<UsedType>::c2d(UsedType SampleTime)
 {
     this->SampleTime = SampleTime;

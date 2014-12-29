@@ -20,8 +20,11 @@ private:
 
 public:
 
-    StateSpace(Matrix<UsedType> A, Matrix<UsedType> B,
-               Matrix<UsedType> C, Matrix<UsedType> D);
+    StateSpace(Matrix<UsedType> A , Matrix<UsedType> B,
+               Matrix<UsedType> C , Matrix<UsedType> D);
+    StateSpace(Matrix<UsedType> Ad, Matrix<UsedType> Bd,
+               Matrix<UsedType> C , Matrix<UsedType> D,
+               UsedType SampleTime);
 
     void print();
 
