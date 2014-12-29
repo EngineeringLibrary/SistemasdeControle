@@ -332,7 +332,7 @@ public:
 
         \endcode
 
-             Ver também: getTF(), getNRowsTF(), getNColsTF();
+    Ver também: getTF(), getNRowsTF(), getNColsTF();
 */
 
 

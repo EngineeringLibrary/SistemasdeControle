@@ -32,62 +32,99 @@ private:
     UsedType SampleTime, TimeSimulation;
     Matrix<UsedType> A, B, C, D, Ad, Bd, X, initialState;
 
-    //! Método para calcular o fatorial de um número.
+//! Método para calcular o fatorial de um número.
 
-        /*!
-            Este método auxilia a função de discretização (que usa a expansão em série de taylor).
+/*!
+    Este método auxilia a função de discretização (que usa a expansão em série de taylor).
 
-            Ver também: \sa c2dConversion(), c2d();
-        */
+    Ver também: \sa c2dConversion(), c2d();
+*/
     UsedType factorial(unsigned n);
 
-    //! Método para realizar a conversão de um sistema em espaço de estados na forma contínua para a forma discreta.
+//! Método para realizar a conversão de um sistema em espaço de estados na forma contínua para a forma discreta.
 
-        /*!
-            Este método utiliza a expansão em série de taylor para encontrar e^At que é Ad e para encontrar Bd (Bd = (A^-1)*(Ad - (I))*B).
+/*!
+    Este método utiliza a expansão em série de taylor para encontrar e^At que é Ad e para encontrar Bd (Bd = (A^-1)*(Ad - (I))*B).
 
-             Ver também: \sa d2cConversion();
-        */
+     Ver também: \sa d2cConversion();
+*/
 
 
     void c2dConversion();
 
-    //! Método para realizar a conversão de um sistema em espaço de estados na forma discreta para a forma contínua.
+//! Método para realizar a conversão de um sistema em espaço de estados na forma discreta para a forma contínua.
 
-        /*!
-            Este método utiliza uma transformação obtendo a matriz A, sabendo que ela foi obtida de Ad utilizando uma certa quantidade de termos da série de taylor. B = (((A^-1)*(Ad - I))^-1)*Bd;
+/*!
+    Este método utiliza uma transformação obtendo a matriz A, sabendo que ela foi obtida de Ad utilizando uma certa quantidade de termos da série de taylor. B = (((A^-1)*(Ad - I))^-1)*Bd;
 
-             Ver também: \sa c2dConversion();
-        */
+     Ver também: \sa c2dConversion();
+*/
 
     void d2cConversion();
 
 public:
 
-    //! Construtor padrão da biblioteca de Equações diferenciais em espaço de estados.
+//! Construtor padrão da biblioteca de Equações diferenciais em espaço de estados.
 
-        /*!
-            O construtor padrão da biblioteca de simulação inicializa o objeto StateSpace com um período de amostragem padrão de 0,1 e com os valores de A, B, C, e D dados pelo usuário. Inicializa também Contínuos como true, nDiscretization = 4, e TimeSimulation = 10.
+/*!
+    O construtor padrão da biblioteca de simulação inicializa o objeto StateSpace com um período de amostragem padrão de 0,1 e com os valores de A, B, C, e D dados pelo usuário. Inicializa também Contínuos como true, nDiscretization = 4, e TimeSimulation = 10.
 
-            Ex1:
+    Ex1:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
-            StateSpace<double> SS(A,B,C,D);
-            SS.print();
-            return 0;
-        }
-    \endcode
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
+                StateSpace<double> SS(A,B,C,D);
+                SS.print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
 
+        \code
+            A =
+                1.000  0.000
+               -2.000 -1.000
+
+            B =
+                0.000
+                1.000
+
+            C =
+                0.000  1.000
+
+
+            D =
+                0.000
+        \endcode
+    Ex2:
+
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
+                StateSpace<double> SS(A,B,C,D);
+                Model<double> *model = &SS;
+                model->print();
+                return 0;
+            }
+        \endcode
+
+    Resultado:
+
+        \code
             A =
                 1.000  0.000
                -2.000 -1.000
@@ -103,25 +140,29 @@ public:
             D =
                 0.000
 
-            Ex2:
+        \endcode
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
-            StateSpace<double> SS(A,B,C,D);
-            Model<double> *model = &SS;
-            model->print();
-            return 0;
-        }
-    \endcode
-            Resultado:
+    Ex3:
 
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
+
+                Model<double> *model = new StateSpace<double>(A,B,C,D);
+                model->print();
+                return 0;
+            }
+        \endcode
+
+    Resultado:
+
+        \code
             A =
                 1.000  0.000
                -2.000 -1.000
@@ -136,70 +177,38 @@ public:
 
             D =
                 0.000
+        \endcode
 
-            Ex3:
-
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
-
-            Model<double> *model = new StateSpace<double>(A,B,C,D);
-            model->print();
-            return 0;
-        }
-    \endcode
-            Resultado:
-
-            A =
-                1.000  0.000
-               -2.000 -1.000
-
-            B =
-                0.000
-                1.000
-
-            C =
-                0.000  1.000
-
-
-            D =
-                0.000
-
-             Ver também: \sa print(), sim();
+    Ver também: \sa print(), sim();
 */
     StateSpace(Matrix<UsedType> A, Matrix<UsedType> B,
                Matrix<UsedType> C, Matrix<UsedType> D);
 
-    //! Método que imprime no prompt de comando o conteúdo de cada matriz (A,B,C,D).
+//! Método que imprime no prompt de comando o conteúdo de cada matriz (A,B,C,D).
 
-        /*!
-            A responsabilidade deste método é apresentar os valores das matrizes da equação.
+/*!
+    A responsabilidade deste método é apresentar os valores das matrizes da equação.
 
-            Ex:
+    Ex:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
-            StateSpace<double> SS(A,B,C,D);
-            SS.print();
-            return 0;
-        }
-    \endcode
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
+                StateSpace<double> SS(A,B,C,D);
+                SS.print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
 
+        \code
             A =
                 1.000  0.000
                -2.000 -1.000
@@ -214,38 +223,40 @@ public:
 
             D =
                 0.000
+         \endcode
 
-             Ver também: sim(UsedType u);
+    Ver também: sim(UsedType u);
 */
 
     void print();
 
-    //! Método cujo objetivo é converter as equações em espaço de estados da forma contínua para a forma discreta.
+//! Método cujo objetivo é converter as equações em espaço de estados da forma contínua para a forma discreta.
 
-        /*!
-            A responsabilidade deste método utilizar os métodos privados de conversão contínuo para discreto e converter as matrizes A e B para a forma discreta.
+/*!
+    A responsabilidade deste método utilizar os métodos privados de conversão contínuo para discreto e converter as matrizes A e B para a forma discreta.
 
-            Ex:
+    Ex:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
-            StateSpace<double> SS(A,B,C,D);
-            SS.print();
-            SS.c2d(0.1);
-            SS.print();
-            return 0;
-        }
-    \endcode
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
+                StateSpace<double> SS(A,B,C,D);
+                SS.print();
+                SS.c2d(0.1);
+                SS.print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
 
+        \code
             A =
                 1.000  0.000
                -2.000 -1.000
@@ -276,380 +287,403 @@ public:
 
             D =
                 0.000
+        \endcode
 
-             Ver também: \sa print(), getA(), getB(), getC(), getD();
+    Ver também: \sa print(), getA(), getB(), getC(), getD();
 */
 
     void c2d(UsedType SampleTime);
 
-    //! Método cuja responsabilidade é receber uma matriz que representará o estado inicial para simulação do sistema em espaço de estados.
+//! Método cuja responsabilidade é receber uma matriz que representará o estado inicial para simulação do sistema em espaço de estados.
 
-        /*!
-            A responsabilidade deste método é preparar o sistema para realizar a simulação, caso os estado iniciais não sejam nulos.
+/*!
+    A responsabilidade deste método é preparar o sistema para realizar a simulação, caso os estado iniciais não sejam nulos.
 
-            Ex:
+    Ex:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D,X0,u;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
-            X0 = "0.2;1";
-            u = "1,1,1,1,1,1,1,1,1,1,1,1,1";
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D,X0,u;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
+                X0 = "0.2;1";
+                u = "1,1,1,1,1,1,1,1,1,1,1,1,1";
 
-            StateSpace<double> SS(A,B,C,D);
-            SS.setInitialState(X0);
-            SS.sim(u).print();
-            return 0;
-        }
-    \endcode
+                StateSpace<double> SS(A,B,C,D);
+                SS.setInitialState(X0);
+                SS.sim(u).print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
+
+        \code
             1.000  0.960  0.919  0.878  0.836  0.792  0.745  0.697  0.645  0.589  0.530  0.446  0.396
+        \endcode
 
-             Ver também: \sa print(), sim(Matrix<UsedType> u);
+    Ver também: \sa print(), sim(Matrix<UsedType> u);
 */
 
     void setInitialState(Matrix<UsedType> X0);
 
-    //! Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz A do espaço de estados.
+//! Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz A do espaço de estados.
 
-        /*!
-            A responsabilidade deste método é retornar uma Matrix contendo os valores de A. Caso o sistema esteja no domínio discreto a matriz apresentada será Ad.
+/*!
+    A responsabilidade deste método é retornar uma Matrix contendo os valores de A. Caso o sistema esteja no domínio discreto a matriz apresentada será Ad.
 
-            Ex1:
+    Ex1:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
 
-            StateSpace<double> SS(A,B,C,D);
-            SS.getA().print();
-            return 0;
-        }
-    \endcode
+                StateSpace<double> SS(A,B,C,D);
+                SS.getA().print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
 
+        \code
                 1.000  0.000
                -2.000 -1.000
+        \endcode
 
-            Ex2:
+    Ex2:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
 
-            StateSpace<double> SS(A,B,C,D);
-            SS.c2d(0.1);
-            SS.getA().print();
-            return 0;
-        }
-    \endcode
+                StateSpace<double> SS(A,B,C,D);
+                SS.c2d(0.1);
+                SS.getA().print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
 
+        \code
                 1.105  0.000
                -0.200  0.905
+        \endcode
 
-             Ver também: \sa print(), getB(), getC(), getD();
+    Ver também: \sa print(), getB(), getC(), getD();
 */
 
     Matrix<UsedType> getA();
 
-    //! Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz B do espaço de estados.
+//! Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz B do espaço de estados.
 
-        /*!
-            A responsabilidade deste método é retornar uma Matrix contendo os valores de B. Caso o sistema esteja no domínio discreto será apresentado Bd.
+/*!
+    A responsabilidade deste método é retornar uma Matrix contendo os valores de B. Caso o sistema esteja no domínio discreto será apresentado Bd.
 
-            Ex1:
+    Ex1:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
 
-            StateSpace<double> SS(A,B,C,D);
-            SS.getB().print();
-            return 0;
-        }
-    \endcode
+                StateSpace<double> SS(A,B,C,D);
+                SS.getB().print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
 
+        \code
                 0.000
                 1.000
+        \endcode
 
-            Ex2:
+    Ex2:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D,X0,u;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D,X0,u;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
 
-            StateSpace<double> SS(A,B,C,D);
-            SS.c2d(0.1);
-            SS.getB().print();
-            return 0;
-        }
+                StateSpace<double> SS(A,B,C,D);
+                SS.c2d(0.1);
+                SS.getB().print();
+                return 0;
+            }
 
-    \endcode
+        \endcode
 
-            Resultado:
+    Resultado:
 
-                0.000
-                0.095
+        \code
+            0.000
+            0.095
+        \endcode
 
-             Ver também: \sa print(), getA(), getC(), getD();
+    Ver também: \sa print(), getA(), getC(), getD();
 */
 
     Matrix<UsedType> getB();
 
-    //! Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz C do espaço de estados.
+//! Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz C do espaço de estados.
 
-        /*!
-            A responsabilidade deste método é retornar uma Matrix contendo os valores de C. Este método independe do sistema estar no domínio contínuo ou discreto.
+/*!
+    A responsabilidade deste método é retornar uma Matrix contendo os valores de C. Este método independe do sistema estar no domínio contínuo ou discreto.
 
-            Ex:
+    Ex:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
 
-            StateSpace<double> SS(A,B,C,D);
-            SS.getC().print();
-            return 0;
-        }
-    \endcode
+                StateSpace<double> SS(A,B,C,D);
+                SS.getC().print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
 
-                0.000  1.000
+        \code
+            0.000  1.000
+        \endcode
 
-             Ver também: \sa print(), getA(), getB(), getD();
+    Ver também: \sa print(), getA(), getB(), getD();
 */
 
     Matrix<UsedType> getC();
 
-    //! Método cuja responsabilidade é retornar uma matriz com os valores atuais do estado calculados na função sim.
+//! Método cuja responsabilidade é retornar uma matriz com os valores atuais do estado calculados na função sim.
 
-        /*!
-            A responsabilidade deste método é retornar a Matrix X. A cada iteração uma matriz X de estados é calculada, e, a partir dela são obtidas as saídas da equação.
+/*!
+    A responsabilidade deste método é retornar a Matrix X. A cada iteração uma matriz X de estados é calculada, e, a partir dela são obtidas as saídas da equação.
 
-            Ex:
+    Ex:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D,X0;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
-            X0 = "0;0";
-            StateSpace<double> SS(A,B,C,D);
-            SS.setInitialState(X0);
-            SS.getActualState().print();
-            return 0;
-        }
-    \endcode
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D,X0;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
+                X0 = "0;0";
+                StateSpace<double> SS(A,B,C,D);
+                SS.setInitialState(X0);
+                SS.getActualState().print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
 
-                0.000
-                0.000
+        \code
+            0.000
+            0.000
+        \endcode
 
-             Ver também: \sa print();
+    Ver também: \sa print();
 */
 
     Matrix<UsedType> getActualState();
 
-    //! Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz D do espaço de estados.
+//! Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz D do espaço de estados.
 
-        /*!
-            A responsabilidade deste método é retornar uma Matrix contendo os valores de D. Este método independe do sistema estar no domínio contínuo ou discreto.
+/*!
+    A responsabilidade deste método é retornar uma Matrix contendo os valores de D. Este método independe do sistema estar no domínio contínuo ou discreto.
 
-            Ex:
+    Ex:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
 
-            StateSpace<double> SS(A,B,C,D);
-            SS.getD().print();
-            return 0;
-        }
-    \endcode
+                StateSpace<double> SS(A,B,C,D);
+                SS.getD().print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
 
-                0.000  1.000
+        \code
+            0.000  1.000
+        \endcode
 
-             Ver também: \sa print(), getA(), getB(), getC();
+    Ver também: \sa print(), getA(), getB(), getC();
 */
 
     Matrix<UsedType> getD();
 
+//! Método cuja responsabilidade é simular os valores futuros da saída da equação diferencial.
 
-    //! Método cuja responsabilidade é simular os valores futuros da saída da equação diferencial.
+/*!
+    A responsabilidade deste método é retornar um escalar com o valor correspondente a simulação da equação diferencial.
 
-        /*!
-            A responsabilidade deste método é retornar um escalar com o valor correspondente a simulação da equação diferencial.
+    Ex:
 
-            Ex:
-
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
-
-            StateSpace<double> SS(A,B,C,D);
-
-            for(int i = 0; i < 10; i++)
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
             {
-                std::cout << SS.sim(1) << std::endl;
-                SS.setInitialState(SS.getActualState());
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
+
+                StateSpace<double> SS(A,B,C,D);
+
+                for(int i = 0; i < 10; i++)
+                {
+                    std::cout << SS.sim(1) << std::endl;
+                    SS.setInitialState(SS.getActualState());
+                }
+                return 0;
             }
-            return 0;
-        }
-    \endcode
+        \endcode
 
-            Resultado:
+    Resultado:
 
-                0
-                0.0951667
-                0.181277
-                0.259192
-                0.329692
-                0.393483
-                0.451203
-                0.50343
-                0.550687
-                0.593447
+        \code
+            0
+            0.0951667
+            0.181277
+            0.259192
+            0.329692
+            0.393483
+            0.451203
+            0.50343
+            0.550687
+            0.593447
+        \endcode
 
-             Ver também: \sa print();
+    Ver também: \sa print();
 */
 
     UsedType sim(UsedType u);
 
-    //! Método não implementado
+//! Método não implementado
 
     UsedType sim(UsedType u, UsedType y);
 
-    //! Método cuja responsabilidade é simular os valores futuros da saída da equação diferencial.
+//! Método cuja responsabilidade é simular os valores futuros da saída da equação diferencial.
 
-        /*!
-            A responsabilidade deste método é receber uma matriz (como sinal de entrada da equação diferncial) e retornar uma matriz com a resposta do sistema para aquele conjunto de entradas determinadas.
+/*!
+    A responsabilidade deste método é receber uma matriz (como sinal de entrada da equação diferncial) e retornar uma matriz com a resposta do sistema para aquele conjunto de entradas determinadas.
 
-            Ex:
+    Ex:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D,X0,u;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
-            X0 = "0;0";
-            u = "1,1,1,1,1,1,1,1,1,1,1,1";
-            StateSpace<double> SS(A,B,C,D);
-            SS.setInitialState(X0);
-            SS.sim(u).print();
-            return 0;
-        }
-    \endcode
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D,X0,u;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
+                X0 = "0;0";
+                u = "1,1,1,1,1,1,1,1,1,1,1,1";
+                StateSpace<double> SS(A,B,C,D);
+                SS.setInitialState(X0);
+                SS.sim(u).print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
 
-                0.000  0.095  0.181  0.259  0.330  0.393  0.451  0.503  0.551  0.593  0.632  0.667
+        \code
+           0.000  0.095  0.181  0.259  0.330  0.393  0.451  0.503  0.551  0.593  0.632  0.667
+        \endcode
 
-             Ver também: \sa print();
+    Ver também: \sa print();
 */
 
     Matrix<UsedType> sim(Matrix<UsedType> u);
 
-    //! Método não implementado
+//! Método não implementado
 
     Matrix<UsedType> sim(Matrix<UsedType> u, Matrix<UsedType> y);
 
-    //! Método cuja responsabilidade é simular os valores futuros da saída da equação diferencial.
+//! Método cuja responsabilidade é simular os valores futuros da saída da equação diferencial.
 
-        /*!
-            A responsabilidade deste método é simular a equação diferencial a partir de um sinal de entrada contido em um dado intervalo. Em que:
+/*!
+    A responsabilidade deste método é simular a equação diferencial a partir de um sinal de entrada contido em um dado intervalo. Em que:
 
-            \param lmin é o limite mínimo da entrada da equação diferencial
-            \param lmax é o limite máximo da entrada da equação diferencial
-            \param step é o valor incremental da entrada da equação diferencial
+    \param lmin é o limite mínimo da entrada da equação diferencial
+    \param lmax é o limite máximo da entrada da equação diferencial
+    \param step é o valor incremental da entrada da equação diferencial
 
-            Ex:
+    Ex:
 
-    \code
-        #include <src/simulationLibs/statespace.h>
-        int main(int argc, char *argv)
-        {
-            Matrix<double> A,B,C,D;
-            A = "1,0;-2,-1";
-            B = "0;1";
-            C = "0,1";
-            D = "0";
+        \code
+            #include <src/simulationLibs/statespace.h>
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D;
+                A = "1,0;-2,-1";
+                B = "0;1";
+                C = "0,1";
+                D = "0";
 
-            StateSpace<double> SS(A,B,C,D);
-            SS.sim(0,5,1).print();
-            return 0;
-        }
-    \endcode
+                StateSpace<double> SS(A,B,C,D);
+                SS.sim(0,5,1).print();
+                return 0;
+            }
+        \endcode
 
-            Resultado:
+    Resultado:
 
-                0.000  0.000  0.095  0.276  0.536  0.865
+        \code
+            0.000  0.000  0.095  0.276  0.536  0.865
+        \endcode
 
-             Ver também: \sa print();
+    Ver também: \sa print();
 */
 
     Matrix<UsedType> sim(UsedType lmim, UsedType lmax, UsedType step);
