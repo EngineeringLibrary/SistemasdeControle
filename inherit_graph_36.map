@@ -1,0 +1,9 @@
+<map id="Gráfico de Hierarquia de Classes" name="Gráfico de Hierarquia de Classes">
+<area shape="rect" id="node1" href="$class_model.html" title="Model\&lt; UsedType \&gt;" alt="" coords="5,132,144,159"/>
+<area shape="rect" id="node2" href="$class_a_r_m_a_x.html" title="ARMAX\&lt; UsedType \&gt;" alt="" coords="217,5,367,32"/>
+<area shape="rect" id="node3" href="$class_a_r_x.html" title="ARX\&lt; UsedType \&gt;" alt="" coords="227,56,357,83"/>
+<area shape="rect" id="node4" href="$class_f_i_r.html" title="FIR\&lt; UsedType \&gt;" alt="" coords="230,107,354,133"/>
+<area shape="rect" id="node5" href="$class_m_a.html" title="MA\&lt; UsedType \&gt;" alt="" coords="230,157,354,184"/>
+<area shape="rect" id="node6" href="$class_state_space.html" title="Classe concreta de modelos para representar equações diferenciais em espaço de estados. " alt="" coords="206,208,378,235"/>
+<area shape="rect" id="node7" href="$class_transfer_function.html" title="TransferFunction\&lt; UsedType \&gt;" alt="" coords="192,259,392,285"/>
+</map>

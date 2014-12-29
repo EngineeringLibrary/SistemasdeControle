@@ -1,0 +1,9 @@
+<map id="StateSpace::d2cConversion" name="StateSpace::d2cConversion">
+<area shape="rect" id="node2" href="$class_matrix.html#a2cc1e0be0c535a46dbebddc7636a63f8" title="Calcula os autovalores da matriz. " alt="" coords="236,33,369,60"/>
+<area shape="rect" id="node3" href="$matrix_8cpp.html#adfe3600f358b2928305ba6175f32076f" title="max" alt="" coords="437,8,484,35"/>
+<area shape="rect" id="node4" href="$class_matrix.html#ab14a5f8484a9603109e01655cef1841d" title="Método para criar uma matriz identidade (Matriz com 1 nos elementos da diagonal principal). " alt="" coords="417,71,504,97"/>
+<area shape="rect" id="node5" href="$class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="247,135,358,161"/>
+<area shape="rect" id="node6" href="$class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd" title="Cria uma matriz de zeros. " alt="" coords="253,185,352,212"/>
+<area shape="rect" id="node7" href="$class_matrix.html#a1a544492885c8925f6da46e44a896fe3" title="Retorna o número de linhas da matriz. " alt="" coords="245,236,361,263"/>
+<area shape="rect" id="node8" href="$matrix_8cpp.html#aa6503e0f8152c6f2973fd36aa4f5613f" title="abs" alt="" coords="281,287,324,313"/>
+</map>

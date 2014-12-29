@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Referência da Estrutura IOPCGroupStateMgtVtbl</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
+      <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
+      <li><a href="inherits.html"><span>Hierarquia&#160;de&#160;Classes</span></a></li>
+      <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#pub-attribs">Atributos Públicos</a> &#124;
+<a href="struct_i_o_p_c_group_state_mgt_vtbl-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência da Estrutura IOPCGroupStateMgtVtbl</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_opcda_8h_source.html">Opcda.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para IOPCGroupStateMgtVtbl:</div>
+<div class="dyncontent">
+<div class="center"><img src="struct_i_o_p_c_group_state_mgt_vtbl__coll__graph.png" border="0" usemap="#_i_o_p_c_group_state_mgt_vtbl_coll__map" alt="Collaboration graph"/></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Métodos Públicos</h2></td></tr>
+<tr class="memitem:a8d528bd246f8296d337e28d50d7d3e5d"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a8d528bd246f8296d337e28d50d7d3e5d">HRESULT</a> (STDMETHODCALLTYPE *QueryInterface)(<a class="el" href="_opcda_8h.html#a242ca36c6e44e0da46b81bede0478aab">IOPCGroupStateMgt</a> *This</td></tr>
+<tr class="separator:a8d528bd246f8296d337e28d50d7d3e5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32bbe82816140f75516f56d4687f1064"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a32bbe82816140f75516f56d4687f1064">ULONG</a> (STDMETHODCALLTYPE *AddRef)(<a class="el" href="_opcda_8h.html#a242ca36c6e44e0da46b81bede0478aab">IOPCGroupStateMgt</a> *This)</td></tr>
+<tr class="separator:a32bbe82816140f75516f56d4687f1064"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe1ec5d8b374539a660e423ce6d49027"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#afe1ec5d8b374539a660e423ce6d49027">ULONG</a> (STDMETHODCALLTYPE *Release)(<a class="el" href="_opcda_8h.html#a242ca36c6e44e0da46b81bede0478aab">IOPCGroupStateMgt</a> *This)</td></tr>
+<tr class="separator:afe1ec5d8b374539a660e423ce6d49027"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a967fe5395555e17f9bb45d669afdf648"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a967fe5395555e17f9bb45d669afdf648">HRESULT</a> (STDMETHODCALLTYPE *GetState)(<a class="el" href="_opcda_8h.html#a242ca36c6e44e0da46b81bede0478aab">IOPCGroupStateMgt</a> *This</td></tr>
+<tr class="separator:a967fe5395555e17f9bb45d669afdf648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1cd0c554bdbadf9169f136f608f40c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#aee1cd0c554bdbadf9169f136f608f40c">HRESULT</a> (STDMETHODCALLTYPE *SetState)(<a class="el" href="_opcda_8h.html#a242ca36c6e44e0da46b81bede0478aab">IOPCGroupStateMgt</a> *This</td></tr>
+<tr class="separator:aee1cd0c554bdbadf9169f136f608f40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53a9154af65ae376465e5a8be483b814"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a53a9154af65ae376465e5a8be483b814">HRESULT</a> (STDMETHODCALLTYPE *SetName)(<a class="el" href="_opcda_8h.html#a242ca36c6e44e0da46b81bede0478aab">IOPCGroupStateMgt</a> *This</td></tr>
+<tr class="separator:a53a9154af65ae376465e5a8be483b814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8257c2081d9f6e36b685daa3117857a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#ae8257c2081d9f6e36b685daa3117857a">HRESULT</a> (STDMETHODCALLTYPE *CloneGroup)(<a class="el" href="_opcda_8h.html#a242ca36c6e44e0da46b81bede0478aab">IOPCGroupStateMgt</a> *This</td></tr>
+<tr class="separator:ae8257c2081d9f6e36b685daa3117857a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Atributos Públicos</h2></td></tr>
+<tr class="memitem:aacc4591a0f1d357968c8eb9c45ab4817"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE REFIID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#aacc4591a0f1d357968c8eb9c45ab4817">riid</a></td></tr>
+<tr class="separator:aacc4591a0f1d357968c8eb9c45ab4817"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a880d8ec13b4bc090920fb55f6cd2387e"><td class="memItemLeft" align="right" valign="top">BEGIN_INTERFACE REFIID void **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a880d8ec13b4bc090920fb55f6cd2387e">ppvObject</a></td></tr>
+<tr class="separator:a880d8ec13b4bc090920fb55f6cd2387e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a003b9ba57a9e59d798d91706deaad098"><td class="memItemLeft" align="right" valign="top">DWORD *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a003b9ba57a9e59d798d91706deaad098">pUpdateRate</a></td></tr>
+<tr class="separator:a003b9ba57a9e59d798d91706deaad098"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92adcd3521ba850c03aa441df9ebfbd9"><td class="memItemLeft" align="right" valign="top">DWORD BOOL *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a92adcd3521ba850c03aa441df9ebfbd9">pActive</a></td></tr>
+<tr class="separator:a92adcd3521ba850c03aa441df9ebfbd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a285edbe4b3f8bee0bf9245152df8308d"><td class="memItemLeft" align="right" valign="top">DWORD BOOL LPWSTR *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a285edbe4b3f8bee0bf9245152df8308d">ppName</a></td></tr>
+<tr class="separator:a285edbe4b3f8bee0bf9245152df8308d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cbe54058608533483c2e205ed69dd0c"><td class="memItemLeft" align="right" valign="top">DWORD BOOL LPWSTR LONG *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a4cbe54058608533483c2e205ed69dd0c">pTimeBias</a></td></tr>
+<tr class="separator:a4cbe54058608533483c2e205ed69dd0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab695c3ccb84bbfac179ec151727f2cfd"><td class="memItemLeft" align="right" valign="top">DWORD BOOL LPWSTR LONG FLOAT *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#ab695c3ccb84bbfac179ec151727f2cfd">pPercentDeadband</a></td></tr>
+<tr class="separator:ab695c3ccb84bbfac179ec151727f2cfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a188f9dc81488f5bd5dcd61e71115583e"><td class="memItemLeft" align="right" valign="top">DWORD BOOL LPWSTR LONG FLOAT <br class="typebreak" />
+DWORD *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a188f9dc81488f5bd5dcd61e71115583e">pLCID</a></td></tr>
+<tr class="separator:a188f9dc81488f5bd5dcd61e71115583e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bee5bb359508a7085d3a160179fff4c"><td class="memItemLeft" align="right" valign="top">DWORD BOOL LPWSTR LONG FLOAT <br class="typebreak" />
+DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a8bee5bb359508a7085d3a160179fff4c">phClientGroup</a></td></tr>
+<tr class="separator:a8bee5bb359508a7085d3a160179fff4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e978d7cc44db19d281fc4169f128dc2"><td class="memItemLeft" align="right" valign="top">DWORD BOOL LPWSTR LONG FLOAT <br class="typebreak" />
+DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a7e978d7cc44db19d281fc4169f128dc2">phServerGroup</a></td></tr>
+<tr class="separator:a7e978d7cc44db19d281fc4169f128dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf27479f47cf8ec5b5ee7a54bee97f3f"><td class="memItemLeft" align="right" valign="top">DWORD *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#adf27479f47cf8ec5b5ee7a54bee97f3f">pRequestedUpdateRate</a></td></tr>
+<tr class="separator:adf27479f47cf8ec5b5ee7a54bee97f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93069d03c180a8f20020a7e498fef3f4"><td class="memItemLeft" align="right" valign="top">DWORD DWORD *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a93069d03c180a8f20020a7e498fef3f4">pRevisedUpdateRate</a></td></tr>
+<tr class="separator:a93069d03c180a8f20020a7e498fef3f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac7b482fc6fdb54088c5eea673b20b27"><td class="memItemLeft" align="right" valign="top">DWORD DWORD BOOL *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#aac7b482fc6fdb54088c5eea673b20b27">pActive</a></td></tr>
+<tr class="separator:aac7b482fc6fdb54088c5eea673b20b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f58cf935e17b27673ec1d882800fbcb"><td class="memItemLeft" align="right" valign="top">DWORD DWORD BOOL LONG *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a3f58cf935e17b27673ec1d882800fbcb">pTimeBias</a></td></tr>
+<tr class="separator:a3f58cf935e17b27673ec1d882800fbcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d9eb7d76444f4328ec27bacd511b69a"><td class="memItemLeft" align="right" valign="top">DWORD DWORD BOOL LONG FLOAT *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a7d9eb7d76444f4328ec27bacd511b69a">pPercentDeadband</a></td></tr>
+<tr class="separator:a7d9eb7d76444f4328ec27bacd511b69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66d14ed86b3b4fba6d80636b01fb19b2"><td class="memItemLeft" align="right" valign="top">DWORD DWORD BOOL LONG FLOAT DWORD *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a66d14ed86b3b4fba6d80636b01fb19b2">pLCID</a></td></tr>
+<tr class="separator:a66d14ed86b3b4fba6d80636b01fb19b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af66c8418e9db28d2a198109b7ce91e3a"><td class="memItemLeft" align="right" valign="top">DWORD DWORD BOOL LONG FLOAT <br class="typebreak" />
+DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#af66c8418e9db28d2a198109b7ce91e3a">phClientGroup</a></td></tr>
+<tr class="separator:af66c8418e9db28d2a198109b7ce91e3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc987c4b8a222fd0e236a7ffa024de13"><td class="memItemLeft" align="right" valign="top">LPCWSTR&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#adc987c4b8a222fd0e236a7ffa024de13">szName</a></td></tr>
+<tr class="separator:adc987c4b8a222fd0e236a7ffa024de13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fed28d1505a9f6e4834553a23b19336"><td class="memItemLeft" align="right" valign="top">LPCWSTR REFIID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#a0fed28d1505a9f6e4834553a23b19336">riid</a></td></tr>
+<tr class="separator:a0fed28d1505a9f6e4834553a23b19336"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a348c5b476d02f676243ce3dea1eae"><td class="memItemLeft" align="right" valign="top">LPCWSTR REFIID LPUNKNOWN *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_i_o_p_c_group_state_mgt_vtbl.html#ad9a348c5b476d02f676243ce3dea1eae">ppUnk</a></td></tr>
+<tr class="separator:ad9a348c5b476d02f676243ce3dea1eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock">
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01440">1440</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+</div><h2 class="groupheader">Métodos</h2>
+<a class="anchor" id="a8d528bd246f8296d337e28d50d7d3e5d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE IOPCGroupStateMgtVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>QueryInterface</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a967fe5395555e17f9bb45d669afdf648"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCGroupStateMgtVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>GetState</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aee1cd0c554bdbadf9169f136f608f40c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCGroupStateMgtVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>SetState</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a53a9154af65ae376465e5a8be483b814"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCGroupStateMgtVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>SetName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae8257c2081d9f6e36b685daa3117857a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCGroupStateMgtVtbl::HRESULT </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>CloneGroup</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a32bbe82816140f75516f56d4687f1064"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCGroupStateMgtVtbl::ULONG </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>AddRef</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afe1ec5d8b374539a660e423ce6d49027"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IOPCGroupStateMgtVtbl::ULONG </td>
+          <td>(</td>
+          <td class="paramtype">STDMETHODCALLTYPE *&#160;</td>
+          <td class="paramname"><em>Release</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Atributos</h2>
+<a class="anchor" id="a92adcd3521ba850c03aa441df9ebfbd9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD BOOL* IOPCGroupStateMgtVtbl::pActive</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01457">1457</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aac7b482fc6fdb54088c5eea673b20b27"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD DWORD BOOL* IOPCGroupStateMgtVtbl::pActive</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01468">1468</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8bee5bb359508a7085d3a160179fff4c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD BOOL LPWSTR LONG FLOAT DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a>* IOPCGroupStateMgtVtbl::phClientGroup</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01457">1457</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af66c8418e9db28d2a198109b7ce91e3a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD DWORD BOOL LONG FLOAT DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a>* IOPCGroupStateMgtVtbl::phClientGroup</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01468">1468</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7e978d7cc44db19d281fc4169f128dc2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD BOOL LPWSTR LONG FLOAT DWORD <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a> <a class="el" href="_opcda_8h.html#ad275844fed0e82a7a0f5f06929880324">OPCHANDLE</a>* IOPCGroupStateMgtVtbl::phServerGroup</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01457">1457</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a188f9dc81488f5bd5dcd61e71115583e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD BOOL LPWSTR LONG FLOAT DWORD* IOPCGroupStateMgtVtbl::pLCID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01457">1457</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a66d14ed86b3b4fba6d80636b01fb19b2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD DWORD BOOL LONG FLOAT DWORD* IOPCGroupStateMgtVtbl::pLCID</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01468">1468</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab695c3ccb84bbfac179ec151727f2cfd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD BOOL LPWSTR LONG FLOAT* IOPCGroupStateMgtVtbl::pPercentDeadband</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01457">1457</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d9eb7d76444f4328ec27bacd511b69a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD DWORD BOOL LONG FLOAT* IOPCGroupStateMgtVtbl::pPercentDeadband</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01468">1468</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a285edbe4b3f8bee0bf9245152df8308d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD BOOL LPWSTR* IOPCGroupStateMgtVtbl::ppName</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01457">1457</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad9a348c5b476d02f676243ce3dea1eae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LPCWSTR REFIID LPUNKNOWN* IOPCGroupStateMgtVtbl::ppUnk</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01482">1482</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a880d8ec13b4bc090920fb55f6cd2387e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE REFIID void** IOPCGroupStateMgtVtbl::ppvObject</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01446">1446</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adf27479f47cf8ec5b5ee7a54bee97f3f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD* IOPCGroupStateMgtVtbl::pRequestedUpdateRate</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01468">1468</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a93069d03c180a8f20020a7e498fef3f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD DWORD* IOPCGroupStateMgtVtbl::pRevisedUpdateRate</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01468">1468</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4cbe54058608533483c2e205ed69dd0c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD BOOL LPWSTR LONG* IOPCGroupStateMgtVtbl::pTimeBias</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01457">1457</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3f58cf935e17b27673ec1d882800fbcb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD DWORD BOOL LONG* IOPCGroupStateMgtVtbl::pTimeBias</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01468">1468</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a003b9ba57a9e59d798d91706deaad098"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DWORD* IOPCGroupStateMgtVtbl::pUpdateRate</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01457">1457</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aacc4591a0f1d357968c8eb9c45ab4817"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BEGIN_INTERFACE REFIID IOPCGroupStateMgtVtbl::riid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01446">1446</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0fed28d1505a9f6e4834553a23b19336"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LPCWSTR REFIID IOPCGroupStateMgtVtbl::riid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01482">1482</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adc987c4b8a222fd0e236a7ffa024de13"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LPCWSTR IOPCGroupStateMgtVtbl::szName</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="_opcda_8h_source.html#l01478">1478</a> do arquivo <a class="el" href="_opcda_8h_source.html">Opcda.h</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
+<li>SistemasdeControle/src/communicationLibs/opc/<a class="el" href="_opcda_8h_source.html">Opcda.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 27 de Dezembro de 2014 19:30:15 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

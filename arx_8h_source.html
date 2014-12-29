@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Código-Fonte de SistemasdeControle/src/simulationLibs/arx.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ac84d4b158a08a9898e25c99d7a17639.html">SistemasdeControle</a></li><li class="navelem"><a class="el" href="dir_2fab4fe404714932936eb34a72b6b633.html">src</a></li><li class="navelem"><a class="el" href="dir_116122ab50e882228fa30f7e72edbc14.html">simulationLibs</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">arx.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="arx_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ARX_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ARX_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_a_r_x.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_a_r_x.html">ARX</a> : <span class="keyword">public</span> <a class="code" href="class_model.html">Model</a>&lt;UsedType&gt;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_a_r_x.html#a623f5e225712368e98bb6f5a60356a4e">    9</a></span>&#160;    <span class="keywordtype">unsigned</span> <a class="code" href="class_a_r_x.html#a056b110fd1819caad5fe1f676a453a42">nInputpar</a>  , <a class="code" href="class_a_r_x.html#a384a9b3f0b656f3b01cdedcc276f0c21">nOutputpar</a>  , <a class="code" href="class_a_r_x.html#a2554ae6a1660ec605487101d757e0325">delay</a>,</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;             <a class="code" href="class_a_r_x.html#aa70817568b3dddcba3d05d71b66f4729">qdtInputVar</a>, <a class="code" href="class_a_r_x.html#a623f5e225712368e98bb6f5a60356a4e">qdtOutputVar</a>, <a class="code" href="class_a_r_x.html#ac922ea6e1557623ee1f26dd9e63d833c">nSample</a>,</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;             <a class="code" href="class_a_r_x.html#a2a24f001c0ef6fa58c4e5c1ed4b6966c">maxnInOut</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_a_r_x.html#a66503d0cbead1d2639520b7094667ffe">ARX</a>(<span class="keywordtype">unsigned</span> nInputpar , <span class="keywordtype">unsigned</span> nOutputpar,</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">unsigned</span> delay = 0,</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">unsigned</span> qdtInputVar = 1, <span class="keywordtype">unsigned</span> qdtOutputVar = 1);</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_a_r_x.html#aad2c8f7972bdf82a4e3a5f706170b1ac">setLinearVectorPhiEstimation</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_a_r_x.html#a11334ec469369fb25a8f97e7472cfe6d">setLinearVectorPhi</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_a_r_x.html#a97082efa405b40605551bad8c22a037f">setLinearModel</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#a85e77811af5d075e0d9267f102e92606">Input</a>, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_model.html#a46a4ef34d4c37af4fd8f1fd13eb4b634">Output</a>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    UsedType <a class="code" href="class_a_r_x.html#ac24c7295c6a63b8b4a4caa471793e25f">sim</a>(UsedType <a class="code" href="class_model.html#a2c312cff68ca3c479efca62d2e58eb43">input</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    UsedType <a class="code" href="class_a_r_x.html#ac24c7295c6a63b8b4a4caa471793e25f">sim</a>(UsedType <a class="code" href="class_model.html#a2c312cff68ca3c479efca62d2e58eb43">input</a>, UsedType <a class="code" href="class_model.html#a1655ed1be7b0815382e2214acb16c65e">output</a>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_a_r_x.html#ac24c7295c6a63b8b4a4caa471793e25f">sim</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> x);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_a_r_x.html#ac24c7295c6a63b8b4a4caa471793e25f">sim</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> x, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> y);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_a_r_x.html#ac24c7295c6a63b8b4a4caa471793e25f">sim</a>(UsedType lsim, UsedType <a class="code" href="class_model.html#a4d671bd41ec010c049bed0f3988d23d6">lmax</a>, UsedType <a class="code" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">step</a>);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#endif // ARX_H</span></div>
+<div class="ttc" id="class_a_r_x_html"><div class="ttname"><a href="class_a_r_x.html">ARX</a></div><div class="ttdef"><b>Definition:</b> <a href="arx_8h_source.html#l00006">arx.h:6</a></div></div>
+<div class="ttc" id="class_a_r_x_html_a97082efa405b40605551bad8c22a037f"><div class="ttname"><a href="class_a_r_x.html#a97082efa405b40605551bad8c22a037f">ARX::setLinearModel</a></div><div class="ttdeci">void setLinearModel(Matrix&lt; UsedType &gt; Input, Matrix&lt; UsedType &gt; Output)</div></div>
+<div class="ttc" id="class_model_html_a2c312cff68ca3c479efca62d2e58eb43"><div class="ttname"><a href="class_model.html#a2c312cff68ca3c479efca62d2e58eb43">Model::input</a></div><div class="ttdeci">UsedType input</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00011">model.h:11</a></div></div>
+<div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00007">model.h:7</a></div></div>
+<div class="ttc" id="class_a_r_x_html_aa70817568b3dddcba3d05d71b66f4729"><div class="ttname"><a href="class_a_r_x.html#aa70817568b3dddcba3d05d71b66f4729">ARX::qdtInputVar</a></div><div class="ttdeci">unsigned qdtInputVar</div><div class="ttdef"><b>Definition:</b> <a href="arx_8h_source.html#l00009">arx.h:9</a></div></div>
+<div class="ttc" id="class_a_r_x_html_a056b110fd1819caad5fe1f676a453a42"><div class="ttname"><a href="class_a_r_x.html#a056b110fd1819caad5fe1f676a453a42">ARX::nInputpar</a></div><div class="ttdeci">unsigned nInputpar</div><div class="ttdef"><b>Definition:</b> <a href="arx_8h_source.html#l00009">arx.h:9</a></div></div>
+<div class="ttc" id="model_8h_html"><div class="ttname"><a href="model_8h.html">model.h</a></div></div>
+<div class="ttc" id="class_a_r_x_html_a2a24f001c0ef6fa58c4e5c1ed4b6966c"><div class="ttname"><a href="class_a_r_x.html#a2a24f001c0ef6fa58c4e5c1ed4b6966c">ARX::maxnInOut</a></div><div class="ttdeci">unsigned maxnInOut</div><div class="ttdef"><b>Definition:</b> <a href="arx_8h_source.html#l00009">arx.h:9</a></div></div>
+<div class="ttc" id="class_a_r_x_html_aad2c8f7972bdf82a4e3a5f706170b1ac"><div class="ttname"><a href="class_a_r_x.html#aad2c8f7972bdf82a4e3a5f706170b1ac">ARX::setLinearVectorPhiEstimation</a></div><div class="ttdeci">void setLinearVectorPhiEstimation()</div></div>
+<div class="ttc" id="class_model_html_a4d671bd41ec010c049bed0f3988d23d6"><div class="ttname"><a href="class_model.html#a4d671bd41ec010c049bed0f3988d23d6">Model::lmax</a></div><div class="ttdeci">UsedType lmax</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00011">model.h:11</a></div></div>
+<div class="ttc" id="class_a_r_x_html_ac922ea6e1557623ee1f26dd9e63d833c"><div class="ttname"><a href="class_a_r_x.html#ac922ea6e1557623ee1f26dd9e63d833c">ARX::nSample</a></div><div class="ttdeci">unsigned nSample</div><div class="ttdef"><b>Definition:</b> <a href="arx_8h_source.html#l00009">arx.h:9</a></div></div>
+<div class="ttc" id="class_model_html_a1655ed1be7b0815382e2214acb16c65e"><div class="ttname"><a href="class_model.html#a1655ed1be7b0815382e2214acb16c65e">Model::output</a></div><div class="ttdeci">UsedType output</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00011">model.h:11</a></div></div>
+<div class="ttc" id="class_a_r_x_html_a2554ae6a1660ec605487101d757e0325"><div class="ttname"><a href="class_a_r_x.html#a2554ae6a1660ec605487101d757e0325">ARX::delay</a></div><div class="ttdeci">unsigned delay</div><div class="ttdef"><b>Definition:</b> <a href="arx_8h_source.html#l00009">arx.h:9</a></div></div>
+<div class="ttc" id="class_model_html_a46a4ef34d4c37af4fd8f1fd13eb4b634"><div class="ttname"><a href="class_model.html#a46a4ef34d4c37af4fd8f1fd13eb4b634">Model::Output</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; Output</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00012">model.h:12</a></div></div>
+<div class="ttc" id="class_a_r_x_html_a66503d0cbead1d2639520b7094667ffe"><div class="ttname"><a href="class_a_r_x.html#a66503d0cbead1d2639520b7094667ffe">ARX::ARX</a></div><div class="ttdeci">ARX(unsigned nInputpar, unsigned nOutputpar, unsigned delay=0, unsigned qdtInputVar=1, unsigned qdtOutputVar=1)</div></div>
+<div class="ttc" id="class_a_r_x_html_a11334ec469369fb25a8f97e7472cfe6d"><div class="ttname"><a href="class_a_r_x.html#a11334ec469369fb25a8f97e7472cfe6d">ARX::setLinearVectorPhi</a></div><div class="ttdeci">void setLinearVectorPhi()</div></div>
+<div class="ttc" id="class_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdoc">Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. </div><div class="ttdef"><b>Definition:</b> <a href="matrix_8h_source.html#l00023">matrix.h:23</a></div></div>
+<div class="ttc" id="class_model_html_aff37aef61263d461fe7be2a3aef2c19c"><div class="ttname"><a href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">Model::step</a></div><div class="ttdeci">UsedType step</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00011">model.h:11</a></div></div>
+<div class="ttc" id="class_a_r_x_html_ac24c7295c6a63b8b4a4caa471793e25f"><div class="ttname"><a href="class_a_r_x.html#ac24c7295c6a63b8b4a4caa471793e25f">ARX::sim</a></div><div class="ttdeci">UsedType sim(UsedType input)</div></div>
+<div class="ttc" id="class_model_html_a85e77811af5d075e0d9267f102e92606"><div class="ttname"><a href="class_model.html#a85e77811af5d075e0d9267f102e92606">Model::Input</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; Input</div><div class="ttdef"><b>Definition:</b> <a href="model_8h_source.html#l00012">model.h:12</a></div></div>
+<div class="ttc" id="class_a_r_x_html_a623f5e225712368e98bb6f5a60356a4e"><div class="ttname"><a href="class_a_r_x.html#a623f5e225712368e98bb6f5a60356a4e">ARX::qdtOutputVar</a></div><div class="ttdeci">unsigned qdtOutputVar</div><div class="ttdef"><b>Definition:</b> <a href="arx_8h_source.html#l00009">arx.h:9</a></div></div>
+<div class="ttc" id="class_a_r_x_html_a384a9b3f0b656f3b01cdedcc276f0c21"><div class="ttname"><a href="class_a_r_x.html#a384a9b3f0b656f3b01cdedcc276f0c21">ARX::nOutputpar</a></div><div class="ttdeci">unsigned nOutputpar</div><div class="ttdef"><b>Definition:</b> <a href="arx_8h_source.html#l00009">arx.h:9</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Domingo, 28 de Dezembro de 2014 22:30:35 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

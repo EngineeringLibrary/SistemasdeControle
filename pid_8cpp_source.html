@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Código-Fonte de SistemasdeControle/src/optimizationLibs/pid.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ac84d4b158a08a9898e25c99d7a17639.html">SistemasdeControle</a></li><li class="navelem"><a class="el" href="dir_2fab4fe404714932936eb34a72b6b633.html">src</a></li><li class="navelem"><a class="el" href="dir_6d9895facca9a8213661a191b9356958.html">optimizationLibs</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">pid.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="pid_8cpp.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pid_8h.html">pid.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> UsedType&gt;</div>
+<div class="line"><a name="l00004"></a><span class="lineno"><a class="line" href="class_p_i_d.html#aac97dfe35f8d3c980ccb1863f0331f53">    4</a></span>&#160;<a class="code" href="class_p_i_d.html#aac97dfe35f8d3c980ccb1863f0331f53">PID&lt;UsedType&gt;::PID</a>()</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    this-&gt;kd = 0;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    this-&gt;ki = 0;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    this-&gt;kp = 0;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    this-&gt;Error = 0;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    this-&gt;derivativeError = 0;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    this-&gt;pastError = 0;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    this-&gt;integralError = 0;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    this-&gt;Step = 0;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> UsedType&gt;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_p_i_d.html#a7bf4a091ca23d127c8e4167c6ac4c3b5">   19</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_p_i_d.html#a7bf4a091ca23d127c8e4167c6ac4c3b5">PID&lt;UsedType&gt;::antReset</a>()</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">if</span>(this-&gt;PIDout &gt;= this-&gt;upperLimit)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        this-&gt;checkUpLim = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        this-&gt;PIDout = this-&gt;upperLimit;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        this-&gt;checkUpLim = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">if</span>(this-&gt;PIDout &lt;= this-&gt;lowerLimit)</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        this-&gt;checkLowLim = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        this-&gt;PIDout = this-&gt;lowerLimit;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        this-&gt;checkLowLim = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;}</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> UsedType&gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="class_p_i_d.html#a21fa1af2071c96310be16315a2ab8aa8">   39</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_p_i_d.html#a21fa1af2071c96310be16315a2ab8aa8">PID&lt;UsedType&gt;::intError</a>()</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    antReset();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">if</span>(!this-&gt;checkUpLim &amp;&amp; !this-&gt;checkLowLim)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        this-&gt;integralError += this-&gt;Error*this-&gt;Step;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> UsedType&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_p_i_d.html#af5acea538dbc8d9b260b07bc2d3ae66d">   48</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_p_i_d.html#af5acea538dbc8d9b260b07bc2d3ae66d">PID&lt;UsedType&gt;::difError</a>()</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    this-&gt;derivativeError = ((this-&gt;Error - this-&gt;pastError)/this-&gt;Step);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> UsedType&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_p_i_d.html#a3ed27364d4dfbc00359befd1023c6841">   54</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_p_i_d.html#a3ed27364d4dfbc00359befd1023c6841">PID&lt;UsedType&gt;::setLimits</a>(UsedType upperLimit, UsedType lowerLimit)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    this-&gt;upperLimit = upperLimit;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    this-&gt;lowerLimit = lowerLimit;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> UsedType&gt;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_p_i_d.html#adf714d63b7d5d16125898b97b1cac602">   61</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_p_i_d.html#adf714d63b7d5d16125898b97b1cac602">PID&lt;UsedType&gt;::setSampleTime</a>(UsedType Time)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    this-&gt;Step = Time;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> UsedType&gt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_p_i_d.html#a984d1f5b551ea2477ee07818ed32acf2">   67</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="class_p_i_d.html#a984d1f5b551ea2477ee07818ed32acf2">PID&lt;UsedType&gt;::setParams</a>(UsedType kp, UsedType ki, UsedType kd)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    this-&gt;kp = kp;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    this-&gt;ki = ki;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    this-&gt;kd = kd;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> UsedType&gt;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="class_p_i_d.html#a3041bd11fcb81058ad0a72c9fa7031f8">   75</a></span>&#160;UsedType <a class="code" href="class_p_i_d.html#a3041bd11fcb81058ad0a72c9fa7031f8">PID&lt;UsedType&gt;::OutputControl</a>(UsedType Reference, UsedType SignalInput)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    this-&gt;Error = Reference - SignalInput;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    difError();</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    intError();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    this-&gt;PIDout = (this-&gt;kp*this-&gt;Error + this-&gt;ki*this-&gt;integralError + this-&gt;kd*this-&gt;derivativeError);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    antReset();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> this-&gt;PIDout;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="class_p_i_d.html">PID &lt;int&gt;</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="class_p_i_d.html">PID &lt;float&gt;</a>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="class_p_i_d.html">PID &lt;double&gt;</a>;</div>
+<div class="ttc" id="class_p_i_d_html_a7bf4a091ca23d127c8e4167c6ac4c3b5"><div class="ttname"><a href="class_p_i_d.html#a7bf4a091ca23d127c8e4167c6ac4c3b5">PID::antReset</a></div><div class="ttdeci">void antReset()</div><div class="ttdoc">Membro onde &ecute armazenada a sa&icute do PID. </div><div class="ttdef"><b>Definition:</b> <a href="pid_8cpp_source.html#l00019">pid.cpp:19</a></div></div>
+<div class="ttc" id="class_p_i_d_html_a21fa1af2071c96310be16315a2ab8aa8"><div class="ttname"><a href="class_p_i_d.html#a21fa1af2071c96310be16315a2ab8aa8">PID::intError</a></div><div class="ttdeci">void intError()</div><div class="ttdoc">M&ecutetodo privado intError(). </div><div class="ttdef"><b>Definition:</b> <a href="pid_8cpp_source.html#l00039">pid.cpp:39</a></div></div>
+<div class="ttc" id="class_p_i_d_html_adf714d63b7d5d16125898b97b1cac602"><div class="ttname"><a href="class_p_i_d.html#adf714d63b7d5d16125898b97b1cac602">PID::setSampleTime</a></div><div class="ttdeci">void setSampleTime(UsedType Time)</div><div class="ttdoc">M&ecutetodo o qual define o passo. </div><div class="ttdef"><b>Definition:</b> <a href="pid_8cpp_source.html#l00061">pid.cpp:61</a></div></div>
+<div class="ttc" id="class_p_i_d_html_a984d1f5b551ea2477ee07818ed32acf2"><div class="ttname"><a href="class_p_i_d.html#a984d1f5b551ea2477ee07818ed32acf2">PID::setParams</a></div><div class="ttdeci">void setParams(UsedType kp, UsedType ki, UsedType kd)</div><div class="ttdoc">M&ecute o qual define os param&ecirctos kp, ki, e kd respectivamente do sistema a ser controlado...</div><div class="ttdef"><b>Definition:</b> <a href="pid_8cpp_source.html#l00067">pid.cpp:67</a></div></div>
+<div class="ttc" id="class_p_i_d_html_aac97dfe35f8d3c980ccb1863f0331f53"><div class="ttname"><a href="class_p_i_d.html#aac97dfe35f8d3c980ccb1863f0331f53">PID::PID</a></div><div class="ttdeci">PID()</div><div class="ttdoc">Construtor padr&atildeo da classe. </div><div class="ttdef"><b>Definition:</b> <a href="pid_8cpp_source.html#l00004">pid.cpp:4</a></div></div>
+<div class="ttc" id="class_p_i_d_html_a3ed27364d4dfbc00359befd1023c6841"><div class="ttname"><a href="class_p_i_d.html#a3ed27364d4dfbc00359befd1023c6841">PID::setLimits</a></div><div class="ttdeci">void setLimits(UsedType upperLimit, UsedType lowerLimit)</div><div class="ttdoc">M&ecutetodo o qual define os limites. </div><div class="ttdef"><b>Definition:</b> <a href="pid_8cpp_source.html#l00054">pid.cpp:54</a></div></div>
+<div class="ttc" id="class_p_i_d_html_a3041bd11fcb81058ad0a72c9fa7031f8"><div class="ttname"><a href="class_p_i_d.html#a3041bd11fcb81058ad0a72c9fa7031f8">PID::OutputControl</a></div><div class="ttdeci">UsedType OutputControl(UsedType Reference, UsedType SignalInput)</div><div class="ttdoc">M&ecutetodo o qual c&acute a sa&icuteda do PID. </div><div class="ttdef"><b>Definition:</b> <a href="pid_8cpp_source.html#l00075">pid.cpp:75</a></div></div>
+<div class="ttc" id="class_p_i_d_html"><div class="ttname"><a href="class_p_i_d.html">PID</a></div><div class="ttdoc">Classe PID. </div><div class="ttdef"><b>Definition:</b> <a href="pid_8h_source.html#l00013">pid.h:13</a></div></div>
+<div class="ttc" id="pid_8h_html"><div class="ttname"><a href="pid_8h.html">pid.h</a></div></div>
+<div class="ttc" id="class_p_i_d_html_af5acea538dbc8d9b260b07bc2d3ae66d"><div class="ttname"><a href="class_p_i_d.html#af5acea538dbc8d9b260b07bc2d3ae66d">PID::difError</a></div><div class="ttdeci">void difError()</div><div class="ttdoc">M&etodo privado difError(). </div><div class="ttdef"><b>Definition:</b> <a href="pid_8cpp_source.html#l00048">pid.cpp:48</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 27 de Dezembro de 2014 19:30:04 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

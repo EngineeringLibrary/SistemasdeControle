@@ -1,0 +1,7 @@
+<map id="conversions::ss2tf" name="conversions::ss2tf">
+<area shape="rect" id="node2" href="$class_state_space.html#a46756c06ea82bef9fab00a4179f53125" title="Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz A do espaço de estad..." alt="" coords="180,5,305,32"/>
+<area shape="rect" id="node3" href="$class_state_space.html#a17fae6c70c55a63a98beb623689b0fda" title="Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz B do espaço de estad..." alt="" coords="180,56,305,83"/>
+<area shape="rect" id="node4" href="$class_state_space.html#aaa5305eb838949d5f15e66168f815df1" title="Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz C do espaço de estad..." alt="" coords="180,107,305,133"/>
+<area shape="rect" id="node5" href="$class_state_space.html#a462bb7b4fc76f2faa760b51740bfbf5d" title="Método cuja responsabilidade é retornar uma matriz contendo os valores da matriz D do espaço de estad..." alt="" coords="180,157,305,184"/>
+<area shape="rect" id="node6" href="$class_matrix.html#a29ede755f978702c18c7e4bca5da36c7" title="Encontra o polinômio característico da matriz. " alt="" coords="201,208,284,235"/>
+</map>

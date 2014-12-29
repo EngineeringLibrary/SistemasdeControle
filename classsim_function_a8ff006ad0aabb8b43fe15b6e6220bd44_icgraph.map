@@ -1,0 +1,6 @@
+<map id="simFunction::GetOutputData" name="simFunction::GetOutputData">
+<area shape="rect" id="node2" href="$classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="259,5,366,32"/>
+<area shape="rect" id="node3" href="$classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="241,56,384,83"/>
+<area shape="rect" id="node4" href="$classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="432,56,579,83"/>
+<area shape="rect" id="node5" href="$classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="627,56,736,83"/>
+</map>

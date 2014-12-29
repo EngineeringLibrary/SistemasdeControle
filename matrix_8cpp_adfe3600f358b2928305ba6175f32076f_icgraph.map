@@ -1,0 +1,8 @@
+<map id="max" name="max">
+<area shape="rect" id="node2" href="$class_matrix.html#a2cc1e0be0c535a46dbebddc7636a63f8" title="Calcula os autovalores da matriz. " alt="" coords="101,43,235,69"/>
+<area shape="rect" id="node3" href="$class_eqdif_sim.html#a8c894e67be1081677995c10aa74c8407" title="EqdifSim::d2c" alt="" coords="324,17,427,44"/>
+<area shape="rect" id="node4" href="$class_state_space.html#a0f32de6eab7460b30bd16cf6e6ddb620" title="Método para realizar a conversão de um sistema em espaço de estados na forma discreta para a forma co..." alt="" coords="284,80,467,107"/>
+<area shape="rect" id="node5" href="$class_polynom.html#ac46cf0626b3b4d6ba2216f1e4c8ad991" title="Polynom::operator+" alt="" coords="100,144,236,171"/>
+<area shape="rect" id="node6" href="$class_polynom.html#a936858db267c9cf00769a09be4d99e0f" title="Polynom::SumPoly" alt="" coords="101,195,235,221"/>
+<area shape="rect" id="node7" href="$class_polynom.html#a6a21248c8f4fd8a44bafe37cbb605e8a" title="Polynom::SubPoly" alt="" coords="103,245,233,272"/>
+</map>

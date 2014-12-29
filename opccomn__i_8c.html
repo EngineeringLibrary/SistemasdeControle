@@ -1,0 +1,855 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Referência do Arquivo SistemasdeControle/src/communicationLibs/opc/opccomn_i.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ac84d4b158a08a9898e25c99d7a17639.html">SistemasdeControle</a></li><li class="navelem"><a class="el" href="dir_2fab4fe404714932936eb34a72b6b633.html">src</a></li><li class="navelem"><a class="el" href="dir_2960eb9c961a50edea8af11969191b60.html">communicationLibs</a></li><li class="navelem"><a class="el" href="dir_4036eb9595bd7aef56a69757184ee821.html">opc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Componentes</a> &#124;
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#typedef-members">Definições de Tipos</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo opccomn_i.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;rpc.h&gt;</code><br />
+<code>#include &lt;rpcndr.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para opccomn_i.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="opccomn__i_8c__incl.png" border="0" usemap="#_sistemasde_controle_2src_2communication_libs_2opc_2opccomn__i_8c" alt=""/></div>
+</div>
+</div>
+<p><a href="opccomn__i_8c_source.html">Vá para o código-fonte deste arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___i_i_d.html">_IID</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a7f5cd0c3db50bb23786ff5c28bd27f84"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="opccomn__i_8c.html#a7f5cd0c3db50bb23786ff5c28bd27f84">__IID_DEFINED__</a></td></tr>
+<tr class="separator:a7f5cd0c3db50bb23786ff5c28bd27f84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0af1405593caa7a5b2e6c619e74c5f3b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="opccomn__i_8c.html#a0af1405593caa7a5b2e6c619e74c5f3b">CLSID_DEFINED</a></td></tr>
+<tr class="separator:a0af1405593caa7a5b2e6c619e74c5f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac06d82f944ddc76f7ac5f8aae6a90d82"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="opccomn__i_8c.html#ac06d82f944ddc76f7ac5f8aae6a90d82">MIDL_DEFINE_GUID</a>(type, name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8)&#160;&#160;&#160;const type name = {l,w1,w2,{b1,b2,b3,b4,b5,b6,b7,b8}}</td></tr>
+<tr class="separator:ac06d82f944ddc76f7ac5f8aae6a90d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Definições de Tipos</h2></td></tr>
+<tr class="memitem:a3af62021fbc1c75a8d41a8b05ce9ebb9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct___i_i_d.html">_IID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a></td></tr>
+<tr class="separator:a3af62021fbc1c75a8d41a8b05ce9ebb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ab123f47f26d717283dbd5db694e130"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="opccomn__i_8c.html#a2ab123f47f26d717283dbd5db694e130">CLSID</a></td></tr>
+<tr class="separator:a2ab123f47f26d717283dbd5db694e130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:ab77a44599a923c3792800962ab1dc2d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="opccomn__i_8c.html#ab77a44599a923c3792800962ab1dc2d6">MIDL_DEFINE_GUID</a> (<a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>, <a class="el" href="opccomn_8h.html#ad663bc6eac8c8da6227ead1020feb642">IID_IOPCShutdown</a>, 0xF31DFDE1, 0x07B6, 0x11d2, 0xB2, 0xD8, 0x00, 0x60, 0x08, 0x3B, 0xA1, 0xFB)</td></tr>
+<tr class="separator:ab77a44599a923c3792800962ab1dc2d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7753c13c6bab8a0a1b279dde55062d82"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="opccomn__i_8c.html#a7753c13c6bab8a0a1b279dde55062d82">MIDL_DEFINE_GUID</a> (<a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>, <a class="el" href="opccomn_8h.html#a1167316427362cbe56eb13ab63ec066b">IID_IOPCCommon</a>, 0xF31DFDE2, 0x07B6, 0x11d2, 0xB2, 0xD8, 0x00, 0x60, 0x08, 0x3B, 0xA1, 0xFB)</td></tr>
+<tr class="separator:a7753c13c6bab8a0a1b279dde55062d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41cab11807702478c92fd0f3fe2245a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="opccomn__i_8c.html#a41cab11807702478c92fd0f3fe2245a3">MIDL_DEFINE_GUID</a> (<a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>, <a class="el" href="opccomn_8h.html#a21bbc0f5793f57a3dd8a59adc78d700b">IID_IOPCServerList</a>, 0x13486D50, 0x4821, 0x11D2, 0xA4, 0x94, 0x3C, 0xB3, 0x06, 0xC1, 0x00, 0x00)</td></tr>
+<tr class="separator:a41cab11807702478c92fd0f3fe2245a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca2018aeb950a1dc2074d7e3d233a711"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="opccomn__i_8c.html#aca2018aeb950a1dc2074d7e3d233a711">MIDL_DEFINE_GUID</a> (<a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>, <a class="el" href="opccomn_8h.html#a484d7da102f426fdd7714b4e59c2ef2e">IID_IOPCEnumGUID</a>, 0x55C382C8, 0x21C7, 0x4e88, 0x96, 0xC1, 0xBE, 0xCF, 0xB1, 0xE3, 0xF4, 0x83)</td></tr>
+<tr class="separator:aca2018aeb950a1dc2074d7e3d233a711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6399d39d079a5e8aa092b167d1280dac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="opccomn__i_8c.html#a6399d39d079a5e8aa092b167d1280dac">MIDL_DEFINE_GUID</a> (<a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>, <a class="el" href="opccomn_8h.html#aff96ee0d7b6d75d40c7d15cf88c8917b">IID_IOPCServerList2</a>, 0x9DD0B56C, 0xAD9E, 0x43ee, 0x83, 0x05, 0x48, 0x7F, 0x31, 0x88, 0xBF, 0x7A)</td></tr>
+<tr class="separator:a6399d39d079a5e8aa092b167d1280dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43de1c46bc1d30d69754d6dc5addca73"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="opccomn__i_8c.html#a43de1c46bc1d30d69754d6dc5addca73">MIDL_DEFINE_GUID</a> (<a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>, <a class="el" href="opccomn_8h.html#a5bdbcfb84e23ddbcc573061fa564f531">LIBID_OPCCOMN</a>, 0xB28EEDB1, 0xAC6F, 0x11d1, 0x84, 0xD5, 0x00, 0x60, 0x8C, 0xB8, 0xA7, 0xE9)</td></tr>
+<tr class="separator:a43de1c46bc1d30d69754d6dc5addca73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Definições e macros</h2>
+<a class="anchor" id="a7f5cd0c3db50bb23786ff5c28bd27f84"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define __IID_DEFINED__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="opccomn__i_8c_source.html#l00051">51</a> do arquivo <a class="el" href="opccomn__i_8c_source.html">opccomn_i.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0af1405593caa7a5b2e6c619e74c5f3b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CLSID_DEFINED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="opccomn__i_8c_source.html#l00064">64</a> do arquivo <a class="el" href="opccomn__i_8c_source.html">opccomn_i.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac06d82f944ddc76f7ac5f8aae6a90d82"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIDL_DEFINE_GUID</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">type, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">l, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">w1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">w2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b3, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b4, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b5, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b6, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b7, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">b8&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;const type name = {l,w1,w2,{b1,b2,b3,b4,b5,b6,b7,b8}}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="opccomn__i_8c_source.html#l00068">68</a> do arquivo <a class="el" href="opccomn__i_8c_source.html">opccomn_i.c</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Definições dos tipos</h2>
+<a class="anchor" id="a2ab123f47f26d717283dbd5db694e130"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a> <a class="el" href="opccomn__i_8c.html#a2ab123f47f26d717283dbd5db694e130">CLSID</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definição na linha <a class="el" href="opccomn__i_8c_source.html#l00065">65</a> do arquivo <a class="el" href="opccomn__i_8c_source.html">opccomn_i.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3af62021fbc1c75a8d41a8b05ce9ebb9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct___i_i_d.html">_IID</a>  <a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Funções</h2>
+<a class="anchor" id="ab77a44599a923c3792800962ab1dc2d6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MIDL_DEFINE_GUID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="opccomn_8h.html#ad663bc6eac8c8da6227ead1020feb642">IID_IOPCShutdown</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xF31DFDE1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x07B6&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x11d2&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xB2&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xD8&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x00&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x60&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x08&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x3B&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xA1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xFB&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7753c13c6bab8a0a1b279dde55062d82"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MIDL_DEFINE_GUID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="opccomn_8h.html#a1167316427362cbe56eb13ab63ec066b">IID_IOPCCommon</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xF31DFDE2&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x07B6&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x11d2&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xB2&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xD8&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x00&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x60&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x08&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x3B&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xA1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xFB&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a41cab11807702478c92fd0f3fe2245a3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MIDL_DEFINE_GUID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="opccomn_8h.html#a21bbc0f5793f57a3dd8a59adc78d700b">IID_IOPCServerList</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x13486D50&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x4821&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x11D2&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xA4&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x94&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x3C&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xB3&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x06&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xC1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x00&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x00&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aca2018aeb950a1dc2074d7e3d233a711"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MIDL_DEFINE_GUID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="opccomn_8h.html#a484d7da102f426fdd7714b4e59c2ef2e">IID_IOPCEnumGUID</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x55C382C8&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x21C7&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x4e88&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x96&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xC1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xBE&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xCF&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xB1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xE3&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xF4&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x83&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6399d39d079a5e8aa092b167d1280dac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MIDL_DEFINE_GUID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="opccomn_8h.html#aff96ee0d7b6d75d40c7d15cf88c8917b">IID_IOPCServerList2</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x9DD0B56C&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xAD9E&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x43ee&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x83&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x05&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x48&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x7F&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x31&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x88&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xBF&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x7A&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a43de1c46bc1d30d69754d6dc5addca73"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MIDL_DEFINE_GUID </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="opccomn__i_8c.html#a3af62021fbc1c75a8d41a8b05ce9ebb9">IID</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="opccomn_8h.html#a5bdbcfb84e23ddbcc573061fa564f531">LIBID_OPCCOMN</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xB28EEDB1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xAC6F&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x11d1&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x84&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xD5&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x00&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x60&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0x8C&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xB8&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xA7&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">0xE9&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 27 de Dezembro de 2014 19:30:05 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>

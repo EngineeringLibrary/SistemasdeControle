@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.8"/>
+<title>Sistema de Controle: Código-Fonte de SistemasdeControle/src/simulationLibs/lsim.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Sistema de Controle
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Biblioteca matematica de Controle</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.8 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Página&#160;Principal</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Arquivos</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Busca" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Lista&#160;de&#160;Arquivos</span></a></li>
+      <li><a href="globals.html"><span>Arquivos&#160;Membros</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variáveis</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Definições de Tipos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerações</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Valores enumerados</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Definições e Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_ac84d4b158a08a9898e25c99d7a17639.html">SistemasdeControle</a></li><li class="navelem"><a class="el" href="dir_2fab4fe404714932936eb34a72b6b633.html">src</a></li><li class="navelem"><a class="el" href="dir_116122ab50e882228fa30f7e72edbc14.html">simulationLibs</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">lsim.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="lsim_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef __LSIM_H_INCLUDED</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define __LSIM_H_INCLUDED</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;..\primitive libs\matrix.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;fstream&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> UsedType&gt;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_lsim.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_lsim.html">Lsim</a></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_lsim.html#a4fb4d237c76ffa6cfa236f24c853dc8f">   11</a></span>&#160;        <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_lsim.html#ac04d5c5ee9c31cd3196c9113d4b41510">output</a>, <a class="code" href="class_lsim.html#a8c806023acb1c8b953031d359b4adf94">input</a>, <a class="code" href="class_lsim.html#a837e63425098e11e5d6afd3749858534">Phi</a>, <a class="code" href="class_lsim.html#a37a372035bc498c93517ba26423163c0">A</a>, <a class="code" href="class_lsim.html#a4fb4d237c76ffa6cfa236f24c853dc8f">X</a>, <a class="code" href="class_lsim.html#a1001b82cda6341834b215d77b4bf09b9">b</a>, <a class="code" href="class_lsim.html#a3dd2e4994f7e802530b57ce4ed9747ef">PeriodicTime</a>;<span class="comment">//Saídas,Entradas,Matriz montada a partir dos dados, coeficientes, Saída simulada</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_lsim.html#a8804ee5e2f7f113c2c89ebef47659175">   12</a></span>&#160;        <span class="keywordtype">string</span> <a class="code" href="class_lsim.html#a8804ee5e2f7f113c2c89ebef47659175">Model</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="class_lsim.html#a918a47b68bbfdf35704fd7dada3c872e">Lsim</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a4c99487c396e35f8fb2679a548ef5aa9">addIO</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> in, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> out);</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">template</span> &lt;<span class="keyword">class</span> FriendType&gt; <span class="keyword">friend</span> <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a4c99487c396e35f8fb2679a548ef5aa9">addIO</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *namefile, <a class="code" href="class_lsim.html">Lsim&lt;FriendType&gt;</a> Sis);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a93e970eb0082a6be3bf6113ce8cc1069">modelCoef</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> coef);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="comment">//Modelos polinomiais</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a9f25475f6d4f20ffe00ff5a9e5ba8fd6">polyModel</a>(<span class="keywordtype">int</span> grau);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a59ad0599ed51d653f04714a188432991">simPoly</a>(<span class="keywordtype">int</span> grau);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a33e32ade5b8962f4bc8a71ff4d867992">polyCoef</a>(<span class="keywordtype">int</span> grau);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">//Modelos ARX (Auto Recursive with eXogenous output)</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#acc11551ae380aff8a3f358a87c7ddc69">arxModel</a>(<span class="keywordtype">int</span> ny, <span class="keywordtype">int</span> nu);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a0aff0375acf6e7d826ddccab6d91413f">arxModelOneStep</a>(<span class="keywordtype">int</span> ny, <span class="keywordtype">int</span> nu, <span class="keywordtype">int</span> line);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#af51e435dec3a267acf74b6b7afed070b">arxModelOneStepReal</a>(<span class="keywordtype">int</span> ny, <span class="keywordtype">int</span> nu, <span class="keywordtype">int</span> line);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_lsim.html#ae4ccb3f31928b324ee892951be982d1f">getArxPhi</a>(<span class="keywordtype">int</span> ny, <span class="keywordtype">int</span> nu, <span class="keywordtype">int</span> line);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_lsim.html#a76f7073386216ae4a61d06d5f0c8eb1c">simArxOneStep</a>(<span class="keywordtype">int</span> ny, <span class="keywordtype">int</span> nu, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> ArxPar);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a230647e92000e5140446dbb4aa0b7391">simArx</a>(<span class="keywordtype">int</span> ny, <span class="keywordtype">int</span> nu);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a058a1d717b3b48e420493e3a0922ae23">arxCoef</a>(<span class="keywordtype">int</span> ny, <span class="keywordtype">int</span> nu);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">//Modelos de equações diferenciais</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#a249e55fdcbe403a95f0c14f3ada5a01f">eqdifModel</a>(UsedType h);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_lsim.html#afdfb3503d15838a14290c08687ef4681">eqdifCoef</a>(UsedType h);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">//Retornando a entrada e a saída</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_lsim.html#aca4df6a9c98f96b491286aed114a834f">getInput</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_lsim.html#afcd2f9daf30369c91b1a1c01f565271b">getOutput</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">//        Matrix&lt;UsedType&gt; getPhi(int ny, int nu, int line);</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif // LSIM_H</span></div>
+<div class="ttc" id="class_lsim_html_a8c806023acb1c8b953031d359b4adf94"><div class="ttname"><a href="class_lsim.html#a8c806023acb1c8b953031d359b4adf94">Lsim::input</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; input</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8h_source.html#l00011">lsim.h:11</a></div></div>
+<div class="ttc" id="class_lsim_html_afcd2f9daf30369c91b1a1c01f565271b"><div class="ttname"><a href="class_lsim.html#afcd2f9daf30369c91b1a1c01f565271b">Lsim::getOutput</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; getOutput()</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00189">lsim.cpp:189</a></div></div>
+<div class="ttc" id="class_lsim_html_a93e970eb0082a6be3bf6113ce8cc1069"><div class="ttname"><a href="class_lsim.html#a93e970eb0082a6be3bf6113ce8cc1069">Lsim::modelCoef</a></div><div class="ttdeci">void modelCoef(Matrix&lt; UsedType &gt; coef)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00017">lsim.cpp:17</a></div></div>
+<div class="ttc" id="class_lsim_html_acc11551ae380aff8a3f358a87c7ddc69"><div class="ttname"><a href="class_lsim.html#acc11551ae380aff8a3f358a87c7ddc69">Lsim::arxModel</a></div><div class="ttdeci">void arxModel(int ny, int nu)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00049">lsim.cpp:49</a></div></div>
+<div class="ttc" id="class_lsim_html_a59ad0599ed51d653f04714a188432991"><div class="ttname"><a href="class_lsim.html#a59ad0599ed51d653f04714a188432991">Lsim::simPoly</a></div><div class="ttdeci">void simPoly(int grau)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00033">lsim.cpp:33</a></div></div>
+<div class="ttc" id="class_lsim_html_a1001b82cda6341834b215d77b4bf09b9"><div class="ttname"><a href="class_lsim.html#a1001b82cda6341834b215d77b4bf09b9">Lsim::b</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; b</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8h_source.html#l00011">lsim.h:11</a></div></div>
+<div class="ttc" id="class_lsim_html_a249e55fdcbe403a95f0c14f3ada5a01f"><div class="ttname"><a href="class_lsim.html#a249e55fdcbe403a95f0c14f3ada5a01f">Lsim::eqdifModel</a></div><div class="ttdeci">void eqdifModel(UsedType h)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00160">lsim.cpp:160</a></div></div>
+<div class="ttc" id="class_lsim_html_a837e63425098e11e5d6afd3749858534"><div class="ttname"><a href="class_lsim.html#a837e63425098e11e5d6afd3749858534">Lsim::Phi</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; Phi</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8h_source.html#l00011">lsim.h:11</a></div></div>
+<div class="ttc" id="class_lsim_html_a918a47b68bbfdf35704fd7dada3c872e"><div class="ttname"><a href="class_lsim.html#a918a47b68bbfdf35704fd7dada3c872e">Lsim::Lsim</a></div><div class="ttdeci">Lsim()</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00004">lsim.cpp:4</a></div></div>
+<div class="ttc" id="class_lsim_html_a37a372035bc498c93517ba26423163c0"><div class="ttname"><a href="class_lsim.html#a37a372035bc498c93517ba26423163c0">Lsim::A</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; A</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8h_source.html#l00011">lsim.h:11</a></div></div>
+<div class="ttc" id="class_lsim_html_a76f7073386216ae4a61d06d5f0c8eb1c"><div class="ttname"><a href="class_lsim.html#a76f7073386216ae4a61d06d5f0c8eb1c">Lsim::simArxOneStep</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; simArxOneStep(int ny, int nu, Matrix&lt; UsedType &gt; ArxPar)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00118">lsim.cpp:118</a></div></div>
+<div class="ttc" id="class_lsim_html_a230647e92000e5140446dbb4aa0b7391"><div class="ttname"><a href="class_lsim.html#a230647e92000e5140446dbb4aa0b7391">Lsim::simArx</a></div><div class="ttdeci">void simArx(int ny, int nu)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00146">lsim.cpp:146</a></div></div>
+<div class="ttc" id="class_lsim_html_afdfb3503d15838a14290c08687ef4681"><div class="ttname"><a href="class_lsim.html#afdfb3503d15838a14290c08687ef4681">Lsim::eqdifCoef</a></div><div class="ttdeci">void eqdifCoef(UsedType h)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00176">lsim.cpp:176</a></div></div>
+<div class="ttc" id="class_lsim_html_af51e435dec3a267acf74b6b7afed070b"><div class="ttname"><a href="class_lsim.html#af51e435dec3a267acf74b6b7afed070b">Lsim::arxModelOneStepReal</a></div><div class="ttdeci">void arxModelOneStepReal(int ny, int nu, int line)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00095">lsim.cpp:95</a></div></div>
+<div class="ttc" id="class_lsim_html_a0aff0375acf6e7d826ddccab6d91413f"><div class="ttname"><a href="class_lsim.html#a0aff0375acf6e7d826ddccab6d91413f">Lsim::arxModelOneStep</a></div><div class="ttdeci">void arxModelOneStep(int ny, int nu, int line)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00079">lsim.cpp:79</a></div></div>
+<div class="ttc" id="class_lsim_html"><div class="ttname"><a href="class_lsim.html">Lsim</a></div><div class="ttdef"><b>Definition:</b> <a href="lsim_8h_source.html#l00008">lsim.h:8</a></div></div>
+<div class="ttc" id="class_matrix_html"><div class="ttname"><a href="class_matrix.html">Matrix</a></div><div class="ttdoc">Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. </div><div class="ttdef"><b>Definition:</b> <a href="matrix_8h_source.html#l00023">matrix.h:23</a></div></div>
+<div class="ttc" id="class_lsim_html_a4fb4d237c76ffa6cfa236f24c853dc8f"><div class="ttname"><a href="class_lsim.html#a4fb4d237c76ffa6cfa236f24c853dc8f">Lsim::X</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; X</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8h_source.html#l00011">lsim.h:11</a></div></div>
+<div class="ttc" id="class_lsim_html_a058a1d717b3b48e420493e3a0922ae23"><div class="ttname"><a href="class_lsim.html#a058a1d717b3b48e420493e3a0922ae23">Lsim::arxCoef</a></div><div class="ttdeci">void arxCoef(int ny, int nu)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00153">lsim.cpp:153</a></div></div>
+<div class="ttc" id="class_lsim_html_a8804ee5e2f7f113c2c89ebef47659175"><div class="ttname"><a href="class_lsim.html#a8804ee5e2f7f113c2c89ebef47659175">Lsim::Model</a></div><div class="ttdeci">string Model</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8h_source.html#l00012">lsim.h:12</a></div></div>
+<div class="ttc" id="class_lsim_html_a9f25475f6d4f20ffe00ff5a9e5ba8fd6"><div class="ttname"><a href="class_lsim.html#a9f25475f6d4f20ffe00ff5a9e5ba8fd6">Lsim::polyModel</a></div><div class="ttdeci">void polyModel(int grau)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00023">lsim.cpp:23</a></div></div>
+<div class="ttc" id="class_lsim_html_a4c99487c396e35f8fb2679a548ef5aa9"><div class="ttname"><a href="class_lsim.html#a4c99487c396e35f8fb2679a548ef5aa9">Lsim::addIO</a></div><div class="ttdeci">void addIO(Matrix&lt; UsedType &gt; in, Matrix&lt; UsedType &gt; out)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00010">lsim.cpp:10</a></div></div>
+<div class="ttc" id="class_lsim_html_a33e32ade5b8962f4bc8a71ff4d867992"><div class="ttname"><a href="class_lsim.html#a33e32ade5b8962f4bc8a71ff4d867992">Lsim::polyCoef</a></div><div class="ttdeci">void polyCoef(int grau)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00040">lsim.cpp:40</a></div></div>
+<div class="ttc" id="class_lsim_html_aca4df6a9c98f96b491286aed114a834f"><div class="ttname"><a href="class_lsim.html#aca4df6a9c98f96b491286aed114a834f">Lsim::getInput</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; getInput()</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00183">lsim.cpp:183</a></div></div>
+<div class="ttc" id="class_lsim_html_a3dd2e4994f7e802530b57ce4ed9747ef"><div class="ttname"><a href="class_lsim.html#a3dd2e4994f7e802530b57ce4ed9747ef">Lsim::PeriodicTime</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; PeriodicTime</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8h_source.html#l00011">lsim.h:11</a></div></div>
+<div class="ttc" id="class_lsim_html_ae4ccb3f31928b324ee892951be982d1f"><div class="ttname"><a href="class_lsim.html#ae4ccb3f31928b324ee892951be982d1f">Lsim::getArxPhi</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; getArxPhi(int ny, int nu, int line)</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8cpp_source.html#l00111">lsim.cpp:111</a></div></div>
+<div class="ttc" id="class_lsim_html_ac04d5c5ee9c31cd3196c9113d4b41510"><div class="ttname"><a href="class_lsim.html#ac04d5c5ee9c31cd3196c9113d4b41510">Lsim::output</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; output</div><div class="ttdef"><b>Definition:</b> <a href="lsim_8h_source.html#l00011">lsim.h:11</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado em Sábado, 27 de Dezembro de 2014 19:30:04 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.8
+</small></address>
+</body>
+</html>
