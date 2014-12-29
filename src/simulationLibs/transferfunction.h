@@ -72,7 +72,7 @@ public:
     OBS: Nenhum resultado é apresentado, pois os valores internos da função de transferência não foram preenchidos.
 
 
-     Ver também: \sa print();
+    Ver também: \sa print();
     */
 
     TransferFunction(unsigned rows, unsigned cols);
@@ -95,13 +95,14 @@ public:
         \endcode
 
     Resultado:
-       +1
-     -------
-      s + 1
-
+         \code
+               +1
+             -------
+              s + 1
+         \endcode
     Ex2:
 
-        \code
+         \code
             #include <src/simulationLibs/transferfunction.h>
 
             int main(int argc, char *argv)
@@ -109,16 +110,18 @@ public:
                 TransferFunction<double> TF("1;2","0,1,1;1,2,1",2,1);
                 TF.print();
             }
-        \endcode
+         \endcode
 
     Resultado:
-       +1
-     -------
-      s + 1
+         \code
+               +1
+             -------
+              s + 1
 
-          +2
-     -------------
-      s^2 + 2s + 1
+                  +2
+             -------------
+              s^2 + 2s + 1
+         \endcode
 
     Ex3:
 
@@ -133,13 +136,16 @@ public:
         \endcode
 
     Resultado:
-       +1
-     -------
-      s + 1
 
-          +2
-     -------------
-      s^2 + 2s + 1
+        \code
+               +1
+             -------
+              s + 1
+
+                  +2
+             -------------
+              s^2 + 2s + 1
+        \endcode
 
     Ex4:
 
@@ -156,21 +162,24 @@ public:
         \endcode
 
     Resultado:
-          +1
-     -------------
-      s^2 + 2s + 1
 
-          +2
-     -------------
-      s^2 + 2s + 1
+        \code
+                  +1
+             -------------
+              s^2 + 2s + 1
 
-         s + 2
-     -------------
-      s^2 + 2s + 1
+                  +2
+             -------------
+              s^2 + 2s + 1
 
-         s + 3
-     -------------
-      s^2 + 2s + 1
+                 s + 2
+             -------------
+              s^2 + 2s + 1
+
+                 s + 3
+             -------------
+              s^2 + 2s + 1
+        \endcode
 
      Ver também: \sa print();
     */
@@ -200,10 +209,13 @@ public:
 
     Resultado:
 
-          +1
-     -------------
-      s^2 + 2s + 1
+        \code
 
+                   +1
+             -------------
+              s^2 + 2s + 1
+
+        \endcode
 
     Ver também: \sa print(), getTF(), getNRowsTF(), getNColsTF();
     */
@@ -234,31 +246,255 @@ public:
 
     Resultado:
 
-          +1
-     -------------
-      s^2 + 2s + 1
+        \code
 
+                   +1
+             -------------
+              s^2 + 2s + 1
+
+        \endcode
 
     Ver também: \sa print(), getTF(), getNRowsTF(), getNColsTF();
     */
 
     void operator()(unsigned row, unsigned col, Polynom<UsedType> P);
 
+//! Método cuja responsabilidade atribuir à função de transferência a esquerda da igualdade os valores da função de transferência a direita da igualdade.
 
+/*!
+    A responsabilidade deste método é realizar uma atribuição profunda, ou seja, não apenas atribuir o ponteiro da função de transferência, mas criar uma nova função e atribuir os valores.
+
+    Ex:
+
+        \code
+            #include <src/simulationLibs/transferfunction.h>
+
+            int main(int argc, char *argv)
+            {
+                Polynom<double> P("0,1","1,2,1");
+                TransferFunction<double> TF(1,1);
+
+                TF(1,1,P);
+                TF.print();
+                TransferFunction<double> TF2(1,1);
+                TF2 = TF;
+                TF2.print();
+
+                return 0;
+            }
+        \endcode
+
+    Resultado:
+
+        \code
+
+                   +1
+             -------------
+              s^2 + 2s + 1
+
+                   +1
+             -------------
+              s^2 + 2s + 1
+
+        \endcode
+
+    Ver também: \sa print(), getTF(), getNRowsTF(), getNColsTF();
+*/
 
     void operator= (TransferFunction<UsedType> TF);
+
+//! Método que imprime no prompt de comando o conteúdo de cada função de transferência.
+
+/*!
+    A responsabilidade deste método é apresentar os valores de cada função de transferência adicionada pelo usuário (para o caso geral, multivariável).
+
+    Ex:
+
+        \code
+            #include <src/simulationLibs/transferfunction.h>
+
+            int main(int argc, char *argv)
+            {
+                TransferFunction<double> TF("0,1","1,2,1",1,1);
+                TF.print();
+
+                return 0;
+            }
+        \endcode
+
+    Resultado:
+
+        \code
+
+                   +1
+             -------------
+              s^2 + 2s + 1
+
+        \endcode
+
+             Ver também: getTF(), getNRowsTF(), getNColsTF();
+*/
+
+
     void print(); // Método Opcional
 
+//! Método cuja responsabilidade é inserir um ponteiro de funções de transferência com um tamanho de linhas e colunas determinadas.
+
+/*!
+    A responsabilidade deste método é inserir um conjunto de polinômios ( que neste caso representa funções de transferência na forma multivariável) que possui rows linhas e cols colunas.
+
+        Ex:
+
+            \code
+                #include <src/simulationLibs/transferfunction.h>
+
+                int main(int argc, char *argv)
+                {
+                    TransferFunction<double> TF("0,1","1,2,1",1,1);
+                    TF.print();
+
+                    TransferFunction<double> TF2(1,1);
+
+                    TF2.setTF(TF.getTF(),TF.getNRowsTF(),TF.getNColsTF());
+                    TF2.print();
+                    return 0;
+                }
+            \endcode
+
+        Resultado:
+
+            \code
+
+                       +1
+                 -------------
+                  s^2 + 2s + 1
+                       +1
+                 -------------
+                  s^2 + 2s + 1
+
+            \endcode
+
+        Ver também: \sa print(), getTF(), getNRowsTF(), getNColsTF();
+*/
+
     void setTF(Polynom<UsedType> **TF, unsigned rows, unsigned cols);
+
+//! Método cuja responsabilidade é pegar o conteúdo da variável **TF
+
+/*!
+    A responsabilidade deste método é retornar os polinômios que estão contidos na variável TF, que é um ponteiro duplo (Matriz de polinômios).
+
+        Ex:
+
+            \code
+                #include <src/simulationLibs/transferfunction.h>
+
+                int main(int argc, char *argv)
+                {
+                    TransferFunction<double> TF("0,1","1,2,1",1,1);
+                    TF.print();
+
+                    TF.getTF()[0][0].print();
+                    return 0;
+                }
+            \endcode
+
+        Resultado:
+
+            \code
+
+                       +1
+                 -------------
+                  s^2 + 2s + 1
+                       +1
+                 -------------
+                  s^2 + 2s + 1
+
+            \endcode
+
+  Ver também: \sa print(), getTF(), getNRowsTF(), getNColsTF();
+*/
+
     Polynom<UsedType> **getTF();
+
+//! Método cuja responsabilidade é pegar o conteúdo da variável nRowsTF
+
+/*!
+    A responsabilidade deste método é retornar a quantidade de linhas da matriz de funções de transferência (Multivariável).
+
+        Ex:
+
+            \code
+                #include <src/simulationLibs/transferfunction.h>
+
+                int main(int argc, char *argv)
+                {
+                    TransferFunction<double> TF("0,1","1,2,1",1,1);
+                    std::cout << TF.getNRowsTF() << std::endl;
+                }
+            \endcode
+
+        Resultado:
+
+            \code
+
+                1
+
+            \endcode
+
+  Ver também: \sa print(), getTF(), getNColsTF();
+*/
+
     unsigned getNRowsTF();
+
+//! Método cuja responsabilidade é pegar o conteúdo da variável nColsTF
+
+/*!
+    A responsabilidade deste método é retornar a quantidade de colunas da matriz de funções de transferência (Multivariável).
+
+        Ex:
+
+            \code
+                #include <src/simulationLibs/transferfunction.h>
+
+                int main(int argc, char *argv)
+                {
+                    TransferFunction<double> TF("0,1","1,2,1",1,1);
+                    std::cout << TF.getNColsTF()<< std::endl;
+                }
+            \endcode
+
+        Resultado:
+
+            \code
+
+                1
+
+            \endcode
+
+  Ver também: \sa print(), getTF(), getNColsTF();
+*/
+
     unsigned getNColsTF();
 
+    //! Método não implementado
 
     UsedType sim(UsedType input);
+
+    //! Método não implementado
+
     UsedType sim(UsedType x, UsedType y);
+
+    //! Método não implementado
+
     Matrix<UsedType> sim(Matrix<UsedType> x);
+
+    //! Método não implementado
+
     Matrix<UsedType> sim(Matrix<UsedType> x, Matrix<UsedType> y);
+
+    //! Método não implementado
+
     Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
 };
 
