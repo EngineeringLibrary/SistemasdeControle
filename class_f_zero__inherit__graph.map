@@ -1,6 +1,0 @@
-<map id="FZero&lt; UsedType &gt;" name="FZero&lt; UsedType &gt;">
-<area shape="rect" id="node2" href="$classbisseccao.html" title="{bisseccao\&lt; UsedType \&gt;\n|&#45; a\l&#45; b\l&#45; c\l&#45; fa\l&#45; fb\l&#45; fc\l|+ bisseccao()\l+ setInterval()\l+ zeroFind()\l}" alt="" coords="5,189,168,369"/>
-<area shape="rect" id="node3" href="$class_newton.html" title="{Newton\&lt; UsedType \&gt;\n|&#45; x\l&#45; fx\l&#45; dfx\l|+ Newton()\l+ setInterval()\l+ zeroFind()\l}" alt="" coords="192,211,339,347"/>
-<area shape="rect" id="node4" href="$classsecant.html" title="{secant\&lt; UsedType \&gt;\n|&#45; a\l&#45; b\l&#45; m\l&#45; fa\l&#45; fb\l&#45; fm\l|+ secant()\l+ setInterval()\l+ zeroFind()\l}" alt="" coords="363,189,506,369"/>
-<area shape="rect" id="node5" href="$classsteffensen.html" title="Classe steffensen, com o intuito de encontrar o zero de uma função modelo. " alt="" coords="531,219,693,340"/>
-</map>

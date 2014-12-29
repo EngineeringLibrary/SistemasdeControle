@@ -1,6 +1,0 @@
-<map id="EqdifSim::tf2ssc" name="EqdifSim::tf2ssc">
-<area shape="rect" id="node2" href="$class_matrix.html#ab14a5f8484a9603109e01655cef1841d" title="Método para criar uma matriz identidade (Matriz com 1 nos elementos da diagonal principal). " alt="" coords="177,5,263,32"/>
-<area shape="rect" id="node3" href="$class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd" title="Cria uma matriz de zeros. " alt="" coords="171,56,269,83"/>
-<area shape="rect" id="node4" href="$class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8" title="Método inserir valores em uma determinada posição da matriz. " alt="" coords="177,107,263,133"/>
-<area shape="rect" id="node5" href="$class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a" title="Método de inicialização da matriz. " alt="" coords="317,107,400,133"/>
-</map>

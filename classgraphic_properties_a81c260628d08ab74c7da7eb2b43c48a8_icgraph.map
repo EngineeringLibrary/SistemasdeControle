@@ -1,8 +1,0 @@
-<map id="graphicProperties::getGraphicYposition" name="graphicProperties::getGraphicYposition">
-<area shape="rect" id="node2" href="$classgrafics.html#a2a5cce94ed1d610c1d3a37a735b32b96" title="Sobrecarga do construtor da biblioteca de plotagem de gráficos 2d. " alt="" coords="231,5,337,32"/>
-<area shape="rect" id="node3" href="$classgrafics.html#aa72be463573bf9c12c35c606ea1858b3" title="grafics::DrawGraphic" alt="" coords="213,56,355,83"/>
-<area shape="rect" id="node6" href="$classgrafics.html#a2426ec3eb82e1617952e15c76041be6d" title="Método implementado da classe abstrata GlView para tratar o click do mouse, se o mouse está clicado e..." alt="" coords="192,107,376,133"/>
-<area shape="rect" id="node7" href="$classgrafics.html#a4a436808787b386883041fef6a79ecb2" title="Método implementado da classe abstrata GlView para tratar a posição do mouse enquanto ele está em mov..." alt="" coords="216,157,352,184"/>
-<area shape="rect" id="node4" href="$classgrafics.html#a01bc51ac406557b4ffc7c29acff06c0c" title="grafics::DrawFunction" alt="" coords="424,56,571,83"/>
-<area shape="rect" id="node5" href="$classgrafics.html#a671902de2db8480ff2cabfea82fdf19c" title="Método implementado da classe abstrata GlView que apresenta o gráfico na tela com todas as propriedad..." alt="" coords="619,56,728,83"/>
-</map>

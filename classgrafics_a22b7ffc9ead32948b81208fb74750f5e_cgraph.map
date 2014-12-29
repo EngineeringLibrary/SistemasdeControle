@@ -1,7 +1,0 @@
-<map id="grafics::PassiveMotionFunc" name="grafics::PassiveMotionFunc">
-<area shape="rect" id="node2" href="$classgraphic_properties.html#a548447e01db25f30a49fa58b9f67d4e9" title="Método cuja responsabilidade é obter o valor da variável GraphicXLimit_Rigth. " alt="" coords="245,5,375,47"/>
-<area shape="rect" id="node3" href="$classgraphic_properties.html#a8dc33f953731a4dc72abda53112a0c6e" title="Método cuja responsabilidade é obter o valor da variável GraphicXLimit_Left. " alt="" coords="245,71,375,112"/>
-<area shape="rect" id="node4" href="$classgraphic_properties.html#a8ea0a4c975048f9dea87bfd13b2a967f" title="Método cuja responsabilidade é obter o valor da variável GraphicYLimit_Up. " alt="" coords="245,136,375,177"/>
-<area shape="rect" id="node5" href="$classgraphic_properties.html#aa62f0b05fe493a0aed0ef71e52949656" title="Método cuja responsabilidade é obter o valor da variável GraphicYLimit_Down. " alt="" coords="245,201,375,243"/>
-<area shape="rect" id="node6" href="$classgraphic_properties.html#a4145e9fe547ce415f66598fda40744fc" title="Método cuja responsabilidade é inserir valores que indiquem a posição do mouse na qual o botão direit..." alt="" coords="235,267,385,308"/>
-</map>

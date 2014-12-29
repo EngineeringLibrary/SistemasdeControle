@@ -1,3 +1,0 @@
-<map id="MA&lt; UsedType &gt;" name="MA&lt; UsedType &gt;">
-<area shape="rect" id="node2" href="$class_model.html" title="{Model\&lt; UsedType \&gt;\n|# instance\l# Input\l# Output\l# EstOutput\l# ModelCoef\l# LinearVectorPhi\l# LinearMatrixA\l# LinearEqualityB\l|+ Model()\l+ diff()\l+ setStep()\l+ setInstance()\l+ setModelCoef()\l+ setIO()\l+ getModelCoef()\l+ getInputMatrix()\l+ getOutput()\l+ getOutputMatrix()\land 8 more...\l}" alt="" coords="5,204,144,531"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="Model&lt; UsedType &gt;" name="Model&lt; UsedType &gt;">
-<area shape="rect" id="node2" href="$class_a_r_x.html" title="{ARX\&lt; UsedType \&gt;\n|&#45; nInputpar\l&#45; nOutputpar\l&#45; delay\l&#45; qdtInputVar\l&#45; qdtOutputVar\l&#45; nSample\l&#45; maxnInOut\l|+ ARX()\l+ setLinearVectorPhiEstimation()\l+ setLinearVectorPhi()\l+ setLinearModel()\l+ sim()\l+ sim()\l+ sim()\l+ sim()\l+ sim()\l}" alt="" coords="5,549,220,831"/>
-<area shape="rect" id="node3" href="$class_state_space.html" title="Classe concreta de modelos para representar equações diferenciais em espaço de estados. " alt="" coords="244,453,416,927"/>
-<area shape="rect" id="node4" href="$class_transfer_function.html" title="Classe concreta de modelos para representar equações diferenciais na forma discreta e contínua (domín..." alt="" coords="441,497,641,883"/>
-</map>

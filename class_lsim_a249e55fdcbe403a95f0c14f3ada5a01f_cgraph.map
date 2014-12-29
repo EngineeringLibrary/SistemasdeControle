@@ -1,6 +1,0 @@
-<map id="Lsim::eqdifModel" name="Lsim::eqdifModel">
-<area shape="rect" id="node2" href="$matrix_8cpp.html#ad44e24444d2fcb1286f2fac55c4da8a2" title="diff" alt="" coords="212,5,251,32"/>
-<area shape="rect" id="node5" href="$class_matrix.html#a1a544492885c8925f6da46e44a896fe3" title="Retorna o número de linhas da matriz. " alt="" coords="173,56,289,83"/>
-<area shape="rect" id="node3" href="$class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8" title="Método inserir valores em uma determinada posição da matriz. " alt="" coords="337,5,424,32"/>
-<area shape="rect" id="node4" href="$class_matrix.html#af86ea80f9823c2a3aba4ae78da8b864a" title="Método de inicialização da matriz. " alt="" coords="472,5,555,32"/>
-</map>

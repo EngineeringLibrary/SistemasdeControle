@@ -1,3 +1,0 @@
-<map id="IOPCServerVtbl" name="IOPCServerVtbl">
-<area shape="rect" id="node2" href="$structtag_o_p_c_s_e_r_v_e_r_s_t_a_t_u_s.html" title="{tagOPCSERVERSTATUS\n|+ ftStartTime\l+ ftCurrentTime\l+ ftLastUpdateTime\l+ dwServerState\l+ dwGroupCount\l+ dwBandWidth\l+ wMajorVersion\l+ wMinorVersion\l+ wBuildNumber\l+ wReserved\l+ szVendorInfo\l|}" alt="" coords="9,5,181,229"/>
-</map>

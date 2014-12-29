@@ -1,9 +1,0 @@
-<map id="conversions::tf2ss" name="conversions::tf2ss">
-<area shape="rect" id="node2" href="$class_matrix.html#ab14a5f8484a9603109e01655cef1841d" title="Método para criar uma matriz identidade (Matriz com 1 nos elementos da diagonal principal). " alt="" coords="237,5,323,32"/>
-<area shape="rect" id="node3" href="$class_matrix.html#a8a75a810eb076ca76d9418db55a9ffbd" title="Cria uma matriz de zeros. " alt="" coords="231,56,329,83"/>
-<area shape="rect" id="node4" href="$class_transfer_function.html#a1375e12bc5b5ce612db162cddcdc6077" title="TransferFunction::getNColsTF" alt="" coords="183,107,377,133"/>
-<area shape="rect" id="node5" href="$class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a" title="Exibe a matriz. " alt="" coords="235,157,325,184"/>
-<area shape="rect" id="node6" href="$class_matrix.html#a1a544492885c8925f6da46e44a896fe3" title="Retorna o número de linhas da matriz. " alt="" coords="222,208,338,235"/>
-<area shape="rect" id="node7" href="$class_matrix.html#ab37ac29b603443da84f18129a8b1aca5" title="Retorna o número de colunas da matriz. " alt="" coords="225,259,335,285"/>
-<area shape="rect" id="node8" href="$class_transfer_function.html#ad6299817f4f016e77185252f4b7fc931" title="TransferFunction::getNRowsTF" alt="" coords="180,309,380,336"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="OPCClient::OPCConnect" name="OPCClient::OPCConnect">
-<area shape="rect" id="node2" href="$class_o_p_c_client.html#accbc64e9909711a34f770a0fbc0cc19a" title="OPCClient::GetCLSID" alt="" coords="235,5,384,32"/>
-<area shape="rect" id="node3" href="$class_o_p_c_client.html#a4573940ab6761d17081f66ab33307551" title="OPCClient::CreateInstance" alt="" coords="220,56,399,83"/>
-<area shape="rect" id="node4" href="$class_o_p_c_client.html#ac64930b76846c692e3ea43d7efa19174" title="OPCClient::StartGroup" alt="" coords="232,107,387,133"/>
-</map>

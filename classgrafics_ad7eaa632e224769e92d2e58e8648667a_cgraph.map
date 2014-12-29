@@ -1,8 +1,0 @@
-<map id="grafics::DrawAxis" name="grafics::DrawAxis">
-<area shape="rect" id="node2" href="$classgraphic_properties.html#acad144e36b287587f385351e026f4c2d" title="Método cuja responsabilidade é retornar verdadeiro (1) quando o parâmetro in (x) está dentro dos limi..." alt="" coords="176,5,307,47"/>
-<area shape="rect" id="node3" href="$classgraphic_properties.html#aa62f0b05fe493a0aed0ef71e52949656" title="Método cuja responsabilidade é obter o valor da variável GraphicYLimit_Down. " alt="" coords="176,71,307,112"/>
-<area shape="rect" id="node4" href="$classgraphic_properties.html#a8ea0a4c975048f9dea87bfd13b2a967f" title="Método cuja responsabilidade é obter o valor da variável GraphicYLimit_Up. " alt="" coords="176,136,307,177"/>
-<area shape="rect" id="node5" href="$classgraphic_properties.html#a4e0f8e7849617746016c49282adf344e" title="Método cuja responsabilidade é retornar verdadeiro (1) quando o parâmetro out (y) está dentro dos lim..." alt="" coords="176,201,307,243"/>
-<area shape="rect" id="node6" href="$classgraphic_properties.html#a8dc33f953731a4dc72abda53112a0c6e" title="Método cuja responsabilidade é obter o valor da variável GraphicXLimit_Left. " alt="" coords="176,267,307,308"/>
-<area shape="rect" id="node7" href="$classgraphic_properties.html#a548447e01db25f30a49fa58b9f67d4e9" title="Método cuja responsabilidade é obter o valor da variável GraphicXLimit_Rigth. " alt="" coords="176,332,307,373"/>
-</map>

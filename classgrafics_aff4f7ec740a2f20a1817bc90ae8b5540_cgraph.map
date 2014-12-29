@@ -1,7 +1,0 @@
-<map id="grafics::DrawGrid" name="grafics::DrawGrid">
-<area shape="rect" id="node2" href="$matrix_8cpp.html#aa6503e0f8152c6f2973fd36aa4f5613f" title="abs" alt="" coords="219,5,261,32"/>
-<area shape="rect" id="node3" href="$classgraphic_properties.html#a548447e01db25f30a49fa58b9f67d4e9" title="Método cuja responsabilidade é obter o valor da variável GraphicXLimit_Rigth. " alt="" coords="175,57,305,98"/>
-<area shape="rect" id="node4" href="$classgraphic_properties.html#a8dc33f953731a4dc72abda53112a0c6e" title="Método cuja responsabilidade é obter o valor da variável GraphicXLimit_Left. " alt="" coords="175,122,305,163"/>
-<area shape="rect" id="node5" href="$classgraphic_properties.html#a8ea0a4c975048f9dea87bfd13b2a967f" title="Método cuja responsabilidade é obter o valor da variável GraphicYLimit_Up. " alt="" coords="175,187,305,229"/>
-<area shape="rect" id="node6" href="$classgraphic_properties.html#aa62f0b05fe493a0aed0ef71e52949656" title="Método cuja responsabilidade é obter o valor da variável GraphicYLimit_Down. " alt="" coords="175,253,305,294"/>
-</map>
