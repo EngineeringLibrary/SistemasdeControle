@@ -92,6 +92,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 
+<p>Classe abstrata que tratam todos os modelos matemáticos.  
+ <a href="class_model.html#details">Mais...</a></p>
+
 <p><code>#include &lt;<a class="el" href="model_8h_source.html">model.h</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de Hierarquia para Model&lt; UsedType &gt;:</div>
@@ -109,40 +112,58 @@ Diagrama de colaboração para Model&lt; UsedType &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
 <tr class="memitem:aa12b72318e043183d998c4e17dcc5de4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#aa12b72318e043183d998c4e17dcc5de4">Model</a> ()</td></tr>
+<tr class="memdesc:aa12b72318e043183d998c4e17dcc5de4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão da biblioteca modelos matemáticos.  <a href="#aa12b72318e043183d998c4e17dcc5de4">Mais...</a><br /></td></tr>
 <tr class="separator:aa12b72318e043183d998c4e17dcc5de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade0ac98afcdcde9ee1faaf28bdf28315"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315">diff</a> (UsedType x)</td></tr>
+<tr class="memdesc:ade0ac98afcdcde9ee1faaf28bdf28315"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que realiza a derivada de uma função de maneira numérica.  <a href="#ade0ac98afcdcde9ee1faaf28bdf28315">Mais...</a><br /></td></tr>
 <tr class="separator:ade0ac98afcdcde9ee1faaf28bdf28315"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c08a884d93ab0a9b1775f299f18ee63"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63">setStep</a> (UsedType <a class="el" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">step</a>)</td></tr>
+<tr class="memdesc:a1c08a884d93ab0a9b1775f299f18ee63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que insere na variável step um valor determinado.  <a href="#a1c08a884d93ab0a9b1775f299f18ee63">Mais...</a><br /></td></tr>
 <tr class="separator:a1c08a884d93ab0a9b1775f299f18ee63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c1e7d2c2c2372e5b54e4ebbfd1f4e12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a7c1e7d2c2c2372e5b54e4ebbfd1f4e12">setInstance</a> (<a class="el" href="class_model.html">Model</a>&lt; UsedType &gt; *m)</td></tr>
+<tr class="memdesc:a7c1e7d2c2c2372e5b54e4ebbfd1f4e12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que insere na variável instance uma instância do objeto do tipo model.  <a href="#a7c1e7d2c2c2372e5b54e4ebbfd1f4e12">Mais...</a><br /></td></tr>
 <tr class="separator:a7c1e7d2c2c2372e5b54e4ebbfd1f4e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9946deebc9e2f25f438e9a9bb2c08fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#af9946deebc9e2f25f438e9a9bb2c08fe">setModelCoef</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; coef)</td></tr>
+<tr class="memdesc:af9946deebc9e2f25f438e9a9bb2c08fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que insere na variável ModelCoef os coeficientes do modelo que será simulado.  <a href="#af9946deebc9e2f25f438e9a9bb2c08fe">Mais...</a><br /></td></tr>
 <tr class="separator:af9946deebc9e2f25f438e9a9bb2c08fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cd2a1db919315b7c223f82765cacab7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7">setIO</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; in, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; out)</td></tr>
+<tr class="memdesc:a7cd2a1db919315b7c223f82765cacab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que insere nas variáveis Input e Output os valores de entrada e saída de um modelo, ou função.  <a href="#a7cd2a1db919315b7c223f82765cacab7">Mais...</a><br /></td></tr>
 <tr class="separator:a7cd2a1db919315b7c223f82765cacab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a376157f1c86ab267b1330283926ee87a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a376157f1c86ab267b1330283926ee87a">getModelCoef</a> ()</td></tr>
+<tr class="memdesc:a376157f1c86ab267b1330283926ee87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que retorna a variável ModelCoef, os coeficientes do modelo.  <a href="#a376157f1c86ab267b1330283926ee87a">Mais...</a><br /></td></tr>
 <tr class="separator:a376157f1c86ab267b1330283926ee87a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae114fadcc2d82dd8c335a09650325da5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ae114fadcc2d82dd8c335a09650325da5">getInputMatrix</a> ()</td></tr>
+<tr class="memdesc:ae114fadcc2d82dd8c335a09650325da5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que retorna as variável Input os valores de entrada do um modelo, ou função.  <a href="#ae114fadcc2d82dd8c335a09650325da5">Mais...</a><br /></td></tr>
 <tr class="separator:ae114fadcc2d82dd8c335a09650325da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8ba7295e08cf557088e55bf33007d55"><td class="memItemLeft" align="right" valign="top">UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ae8ba7295e08cf557088e55bf33007d55">getOutput</a> ()</td></tr>
+<tr class="memdesc:ae8ba7295e08cf557088e55bf33007d55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que retorna a variável output, o valore de saída do modelo, ou função.  <a href="#ae8ba7295e08cf557088e55bf33007d55">Mais...</a><br /></td></tr>
 <tr class="separator:ae8ba7295e08cf557088e55bf33007d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92d41740a9681d0bb6b5608a29206c34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a92d41740a9681d0bb6b5608a29206c34">getOutputMatrix</a> ()</td></tr>
+<tr class="memdesc:a92d41740a9681d0bb6b5608a29206c34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método que retorna a variável Output, os valores de saída do um modelo, ou função.  <a href="#a92d41740a9681d0bb6b5608a29206c34">Mais...</a><br /></td></tr>
 <tr class="separator:a92d41740a9681d0bb6b5608a29206c34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30aec59cef1b0a4c2b3cb4e8212d1642"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a30aec59cef1b0a4c2b3cb4e8212d1642">getLinearMatrixA</a> ()</td></tr>
+<tr class="memdesc:a30aec59cef1b0a4c2b3cb4e8212d1642"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar a <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> A do sistema linear AX = b.  <a href="#a30aec59cef1b0a4c2b3cb4e8212d1642">Mais...</a><br /></td></tr>
 <tr class="separator:a30aec59cef1b0a4c2b3cb4e8212d1642"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0823c5cfae6d575705258fdc82547025"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a0823c5cfae6d575705258fdc82547025">getLinearEqualityB</a> ()</td></tr>
+<tr class="memdesc:a0823c5cfae6d575705258fdc82547025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar a <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> b do sistema linear AX = b.  <a href="#a0823c5cfae6d575705258fdc82547025">Mais...</a><br /></td></tr>
 <tr class="separator:a0823c5cfae6d575705258fdc82547025"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11ab9e4f0cfa75f2bb678e319d40bad9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a11ab9e4f0cfa75f2bb678e319d40bad9">getLinearVectorPhi</a> ()</td></tr>
+<tr class="memdesc:a11ab9e4f0cfa75f2bb678e319d40bad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é retornar uma linha da <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> A do sistema linear AX = b.  <a href="#a11ab9e4f0cfa75f2bb678e319d40bad9">Mais...</a><br /></td></tr>
 <tr class="separator:a11ab9e4f0cfa75f2bb678e319d40bad9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c56d54e2f1e548e62c901aa443e662d"><td class="memItemLeft" align="right" valign="top">virtual UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a> (UsedType x)=0</td></tr>
+<tr class="memdesc:a5c56d54e2f1e548e62c901aa443e662d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é simular os valores futuros da saída de um modelo.  <a href="#a5c56d54e2f1e548e62c901aa443e662d">Mais...</a><br /></td></tr>
 <tr class="separator:a5c56d54e2f1e548e62c901aa443e662d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71f3de80b24e26aaf4fc9e668c2c1f6c"><td class="memItemLeft" align="right" valign="top">virtual UsedType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a71f3de80b24e26aaf4fc9e668c2c1f6c">sim</a> (UsedType x, UsedType y)=0</td></tr>
+<tr class="memdesc:a71f3de80b24e26aaf4fc9e668c2c1f6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método não implementado.  <a href="#a71f3de80b24e26aaf4fc9e668c2c1f6c">Mais...</a><br /></td></tr>
 <tr class="separator:a71f3de80b24e26aaf4fc9e668c2c1f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab5bfd0d4f6898737fbd4a5c048cea1df"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ab5bfd0d4f6898737fbd4a5c048cea1df">sim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; x)=0</td></tr>
+<tr class="memdesc:ab5bfd0d4f6898737fbd4a5c048cea1df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é simular os valores futuros da saída do modelo.  <a href="#ab5bfd0d4f6898737fbd4a5c048cea1df">Mais...</a><br /></td></tr>
 <tr class="separator:ab5bfd0d4f6898737fbd4a5c048cea1df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12e8b345b66375c4dfaa81e54b0b61bd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a12e8b345b66375c4dfaa81e54b0b61bd">sim</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; x, <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt; y)=0</td></tr>
+<tr class="memdesc:a12e8b345b66375c4dfaa81e54b0b61bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método não implementado.  <a href="#a12e8b345b66375c4dfaa81e54b0b61bd">Mais...</a><br /></td></tr>
 <tr class="separator:a12e8b345b66375c4dfaa81e54b0b61bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bd83719f8b006de8bab95a354622e61"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_matrix.html">Matrix</a>&lt; UsedType &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a5bd83719f8b006de8bab95a354622e61">sim</a> (UsedType lsim, UsedType <a class="el" href="class_model.html#a4d671bd41ec010c049bed0f3988d23d6">lmax</a>, UsedType <a class="el" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">step</a>)=0</td></tr>
+<tr class="memdesc:a5bd83719f8b006de8bab95a354622e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método cuja responsabilidade é simular os valores futuros da saída do modelo.  <a href="#a5bd83719f8b006de8bab95a354622e61">Mais...</a><br /></td></tr>
 <tr class="separator:a5bd83719f8b006de8bab95a354622e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -178,8 +199,28 @@ Atributos Protegidos</h2></td></tr>
 <div class="textblock"><h3>template&lt;class UsedType&gt;<br />
 class Model&lt; UsedType &gt;</h3>
 
+<p>Classe abstrata que tratam todos os modelos matemáticos. </p>
+<p>O objetivo principal dessa classe é ser uma abstração para tratar e simular modelos matemáticos (redes neurais, arx, armax, carima, espaço de estados, função de transferência, fuzzy, e etc.). A funcionalidade desta classe é inquestionável quando percebemos que precisamos simular, prever, derivar, obter um sistema linear (linearizar) dos modelos. Por isso, ter uma classe que integre e abstraia essas funcionalidades facilitará a implementação e, também, a desacoplará.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*instance</td><td>É uma instância do próprio objeto do tipo <a class="el" href="class_model.html" title="Classe abstrata que tratam todos os modelos matemáticos. ">Model</a>. Ele permite que, por exemplo, seja possível obter a derivada dos modelos sem precisar saber qual a sua implementação concreta. </td></tr>
+    <tr><td class="paramname">input</td><td>É uma variável de memória que armazena a entrada fornecida pelo usuário. </td></tr>
+    <tr><td class="paramname">output</td><td>É uma variável de memória que armazena a saida fornecida pela simulação, realizada pelo objeto concreto. </td></tr>
+    <tr><td class="paramname">lmin</td><td>É o mínimo valor de entrada que será aplicada no modelo matemático com o objetivo de se obter uma saída. </td></tr>
+    <tr><td class="paramname">lmax</td><td>É o máximo valor de entrada que será aplicada no modelo matemático com o objetivo de se obter uma saída. </td></tr>
+    <tr><td class="paramname">step</td><td>É o incremento da entrada que será utilizado na simulação e obtenção de valores futuros das equações e modelos. </td></tr>
+    <tr><td class="paramname">Input</td><td>É uma <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> que armazena uma sequencia de entradas que será aplicada no modelo (fornecida pelo usuário). </td></tr>
+    <tr><td class="paramname">Output</td><td>É uma <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> que armazena uma sequencia de saídas que serão obtidas do modelo (fornecida pelo usuário). Estas saídas são comparadas com as saídas estimadas EstOutput para se obter o erro de estimação. </td></tr>
+    <tr><td class="paramname">EstOutput</td><td>É uma <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> que armazena uma sequencia de saídas que são resultado da aplicação de uma sequância de entradas no modelo. </td></tr>
+    <tr><td class="paramname">ModelCoef</td><td>É uma <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> que armazena os coeficientes do modelo matemático que será utilizado. </td></tr>
+    <tr><td class="paramname">LinearVectorPhi</td><td>Um sistema linear é dado pela seguinte equação: AX = b. Esta variável representa uma linha da <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> A e pode ser utilizada para se obter estimatidas em algoritmos recursivos, por exemplo. </td></tr>
+    <tr><td class="paramname">LinearMatrixA</td><td>Um sistema linear é dado pela seguinte equação: AX = b. Esta variável representa a variável A do sistema linear. </td></tr>
+    <tr><td class="paramname">LinearEqualityB</td><td>Um sistema linear é dado pela seguinte equação: AX = b. Esta variável representa a variável b do sistema linear. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00007">7</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00028">28</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 </div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="aa12b72318e043183d998c4e17dcc5de4"></a>
 <div class="memitem">
@@ -195,6 +236,77 @@ template&lt;class UsedType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construtor padrão da biblioteca modelos matemáticos. </p>
+<p>O construtor padrão da biblioteca de simulação permite que um objeto do tipo <a class="el" href="class_model.html" title="Classe abstrata que tratam todos os modelos matemáticos. ">Model</a> seja construído.</p>
+<p>Ex1:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="transferfunction_8h.html">src/simulationLibs/transferfunction.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model;</div>
+<div class="line">    <a class="code" href="class_transfer_function.html">TransferFunction&lt;double&gt;</a> TF(<span class="stringliteral">&quot;0,1&quot;</span>,<span class="stringliteral">&quot;1,2,1&quot;</span>,1,1);</div>
+<div class="line">    model = &amp;TF;</div>
+<div class="line">    model-&gt;print();</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">     +2</div>
+<div class="line">-------------</div>
+<div class="line"> s^2 + 2s + 1</div>
+</div><!-- fragment --><p>Ex2:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model;</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D;</div>
+<div class="line">                   A = <span class="stringliteral">&quot;1,0;-2,-1&quot;</span>;</div>
+<div class="line">                   B = <span class="stringliteral">&quot;0;1&quot;</span>;</div>
+<div class="line">                   C = <span class="stringliteral">&quot;0,1&quot;</span>;</div>
+<div class="line">                   D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line">    <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a> SS(A,B,C,D);</div>
+<div class="line"></div>
+<div class="line">    model = &amp;SS;</div>
+<div class="line">    model-&gt;print();</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">A =</div>
+<div class="line">    1.000  0.000</div>
+<div class="line">   -2.000 -1.000</div>
+<div class="line"></div>
+<div class="line">B =</div>
+<div class="line">    0.000</div>
+<div class="line">    1.000</div>
+<div class="line"></div>
+<div class="line">C =</div>
+<div class="line">    0.000  1.000</div>
+<div class="line"></div>
+<div class="line"></div>
+<div class="line">D =</div>
+<div class="line">    0.000</div>
+</div><!-- fragment --><p>Ex3:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="simfunction_8h.html">src/simulationLibs/simfunction.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">double</span> funcaoMatematica(<span class="keywordtype">double</span> x)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> pow(x,2)*exp(4*x+5)*(cos(3*x) + sin(3*x));</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model;</div>
+<div class="line">    <a class="code" href="classsim_function.html">simFunction&lt;double&gt;</a> F(funcaoMatematica);</div>
+<div class="line"></div>
+<div class="line">    model = &amp;F;</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(0,M_PI/10,M_PI/15).print();</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">0.000</div>
+<div class="line">21.016</div>
+</div><!-- fragment --><p>Ver também: </p><dl class="section see"><dt>Veja também</dt><dd>print(); </dd></dl>
 
 </div>
 </div>
@@ -215,6 +327,31 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Método que realiza a derivada de uma função de maneira numérica. </p>
+<p>A responsabilidade deste método é retornar a derivada do modelo instanciado.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="simfunction_8h.html">src/simulationLibs/simfunction.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">double</span> funcaoMatematica(<span class="keywordtype">double</span> x)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> pow(x,2)*exp(4*x+5)*(cos(3*x) + sin(3*x));</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model;</div>
+<div class="line">    <a class="code" href="classsim_function.html">simFunction&lt;double&gt;</a> F(funcaoMatematica);</div>
+<div class="line"></div>
+<div class="line">    model = &amp;F;</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63">setStep</a>(1e-10);</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a7c1e7d2c2c2372e5b54e4ebbfd1f4e12">setInstance</a>(model);</div>
+<div class="line">    std::cout &lt;&lt; model-&gt;<a class="code" href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315">diff</a>(1) &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">-68767.4</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a7c1e7d2c2c2372e5b54e4ebbfd1f4e12" title="Método que insere na variável instance uma instância do objeto do tipo model. ">setInstance()</a>, <a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63" title="Método que insere na variável step um valor determinado. ">setStep()</a>; </p>
+
 </div>
 </div>
 <a class="anchor" id="ae114fadcc2d82dd8c335a09650325da5"></a>
@@ -231,6 +368,37 @@ template&lt;class UsedType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Método que retorna as variável Input os valores de entrada do um modelo, ou função. </p>
+<p>A responsabilidade deste método é permitir que o usuário tenha acesso aos valores de entradas externamente ao objeto.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D,u;</div>
+<div class="line">    A = <span class="stringliteral">&quot;1.81,-0.8187;1,0&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;0.125;0&quot;</span>;</div>
+<div class="line">    C = <span class="stringliteral">&quot;0.03743,0.03502&quot;</span>;</div>
+<div class="line">    D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line">    u = <span class="stringliteral">&quot;1,1,1,1,1,1,1,1&quot;</span>;</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = <span class="keyword">new</span> <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a>(A,B,C,D,0.1);</div>
+<div class="line"></div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7">setIO</a>(~u,~model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(u));</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#ae114fadcc2d82dd8c335a09650325da5">getInputMatrix</a>().<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63" title="Método que insere na variável step um valor determinado. ">setStep()</a>, <a class="el" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7" title="Método que insere nas variáveis Input e Output os valores de entrada e saída de um modelo...">setIO()</a>;, <a class="el" href="class_model.html#a92d41740a9681d0bb6b5608a29206c34" title="Método que retorna a variável Output, os valores de saída do um modelo, ou função. ">getOutputMatrix()</a>; </p>
 
 </div>
 </div>
@@ -249,6 +417,36 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Método cuja responsabilidade é retornar a <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> b do sistema linear AX = b. </p>
+<p>Algumas classes que herdam de model possuem uma implementação para montar um sistema linear. Essa montagem será importante para as bibliotecas de otimização.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="arx_8h.html">src/simulationLibs/arx.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;src/optimizationLibs/leastsquare.h&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D,u;</div>
+<div class="line">    A = <span class="stringliteral">&quot;-2,-1;1,0&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;1;0&quot;</span>;  C = <span class="stringliteral">&quot;0,1&quot;</span>;  D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line">    u = <span class="stringliteral">&quot;1,1,1,1&quot;</span>;</div>
+<div class="line">    <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a> SS(A,B,C,D);</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_a_r_x.html">ARX&lt;double&gt;</a> gz(2,2);</div>
+<div class="line">    gz.setLinearModel(~u,~SS.sim(u));</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = &amp;gz;</div>
+<div class="line"></div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a0823c5cfae6d575705258fdc82547025">getLinearEqualityB</a>().<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">0.000</div>
+<div class="line">0.005</div>
+<div class="line">0.018</div>
+<div class="line">0.037</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63" title="Método que insere na variável step um valor determinado. ">setStep()</a>, <a class="el" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7" title="Método que insere nas variáveis Input e Output os valores de entrada e saída de um modelo...">setIO()</a>, <a class="el" href="class_model.html#a92d41740a9681d0bb6b5608a29206c34" title="Método que retorna a variável Output, os valores de saída do um modelo, ou função. ">getOutputMatrix()</a>; </p>
+
 </div>
 </div>
 <a class="anchor" id="a30aec59cef1b0a4c2b3cb4e8212d1642"></a>
@@ -265,6 +463,36 @@ template&lt;class UsedType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Método cuja responsabilidade é retornar a <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> A do sistema linear AX = b. </p>
+<p>Algumas classes que herdam de model possuem uma implementação para montar um sistema linear. Essa montagem será importante para as bibliotecas de otimização.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="arx_8h.html">src/simulationLibs/arx.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;src/optimizationLibs/leastsquare.h&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D,u;</div>
+<div class="line">    A = <span class="stringliteral">&quot;-2,-1;1,0&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;1;0&quot;</span>;  C = <span class="stringliteral">&quot;0,1&quot;</span>;  D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line">    u = <span class="stringliteral">&quot;1,1,1,1&quot;</span>;</div>
+<div class="line">    <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a> SS(A,B,C,D);</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_a_r_x.html">ARX&lt;double&gt;</a> gz(2,2);</div>
+<div class="line">    gz.setLinearModel(~u,~SS.sim(u));</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = &amp;gz;</div>
+<div class="line"></div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a30aec59cef1b0a4c2b3cb4e8212d1642">getLinearMatrixA</a>().<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">-0.000  -0.000  0.000  0.000</div>
+<div class="line">-0.000  -0.000  1.000  0.000</div>
+<div class="line">-0.005  -0.000  1.000  1.000</div>
+<div class="line">-0.018  -0.005  1.000  1.000</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63" title="Método que insere na variável step um valor determinado. ">setStep()</a>, <a class="el" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7" title="Método que insere nas variáveis Input e Output os valores de entrada e saída de um modelo...">setIO()</a>, <a class="el" href="class_model.html#a92d41740a9681d0bb6b5608a29206c34" title="Método que retorna a variável Output, os valores de saída do um modelo, ou função. ">getOutputMatrix()</a>; </p>
 
 </div>
 </div>
@@ -283,6 +511,33 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Método cuja responsabilidade é retornar uma linha da <a class="el" href="class_matrix.html" title="Classe Matriz, com o intuito de realizar operações entre matrizes entre outras funções. ">Matrix</a> A do sistema linear AX = b. </p>
+<p>Algumas classes que herdam de model possuem uma implementação para montar um sistema linear. Essa montagem será importante para as bibliotecas de otimização. Neste caso, com apenas uma linha do sistema é possível utilizar algoritmos de otimização online.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="arx_8h.html">src/simulationLibs/arx.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;src/optimizationLibs/leastsquare.h&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D,u;</div>
+<div class="line">    A = <span class="stringliteral">&quot;-2,-1;1,0&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;1;0&quot;</span>;  C = <span class="stringliteral">&quot;0,1&quot;</span>;  D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line">    u = <span class="stringliteral">&quot;1,1,1,1&quot;</span>;</div>
+<div class="line">    <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a> SS(A,B,C,D);</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_a_r_x.html">ARX&lt;double&gt;</a> gz(2,2);</div>
+<div class="line">    gz.setLinearVectorPhi();</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = &amp;gz;</div>
+<div class="line"></div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a11ab9e4f0cfa75f2bb678e319d40bad9">getLinearVectorPhi</a>().<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">-0.000  -0.000  0.000  0.000</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63" title="Método que insere na variável step um valor determinado. ">setStep()</a>, <a class="el" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7" title="Método que insere nas variáveis Input e Output os valores de entrada e saída de um modelo...">setIO()</a>, <a class="el" href="class_model.html#a92d41740a9681d0bb6b5608a29206c34" title="Método que retorna a variável Output, os valores de saída do um modelo, ou função. ">getOutputMatrix()</a>; </p>
+
 </div>
 </div>
 <a class="anchor" id="a376157f1c86ab267b1330283926ee87a"></a>
@@ -299,6 +554,61 @@ template&lt;class UsedType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Método que retorna a variável ModelCoef, os coeficientes do modelo. </p>
+<p>ModelCoef é uma variável utilizada em algums modelos que herdam de model. Devido a sua grande aplicação e a necessidade de simular modelos de forma simples esta variável foi adicionada em model e não nas implementações particulares.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="arx_8h.html">src/simulationLibs/arx.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;src/optimizationLibs/leastsquare.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;src/simulationLibs/conversions.h&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keyword">using namespace </span>conversions;</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D,u;</div>
+<div class="line">    A = <span class="stringliteral">&quot;1.81,-0.8187;1,0&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;0.125;0&quot;</span>;</div>
+<div class="line">    C = <span class="stringliteral">&quot;0.03743,0.03502&quot;</span>;</div>
+<div class="line">    D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line">    u.<a class="code" href="class_matrix.html#a1e0fb9ec11443abd6862163823d69b4a">randU</a>(1,5);</div>
+<div class="line">    <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a> SS(A,B,C,D,0.1);</div>
+<div class="line">    SS.sim(u).print();</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_a_r_x.html">ARX&lt;double&gt;</a> gz(2,2);</div>
+<div class="line">    gz.setLinearModel(~u,~SS.sim(u));</div>
+<div class="line">    Optimization&lt;double&gt; *LS = <span class="keyword">new</span> LeastSquare&lt;double&gt;(&amp;gz);</div>
+<div class="line">    LS-&gt;Optimize();</div>
+<div class="line">    LS-&gt;getOptimizatedVariable().print();</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = <span class="keyword">new</span> <a class="code" href="class_a_r_x.html">ARX&lt;double&gt;</a>(2,2);</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#af9946deebc9e2f25f438e9a9bb2c08fe">setModelCoef</a>(LS-&gt;getOptimizatedVariable());</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(~u).print();</div>
+<div class="line"></div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a376157f1c86ab267b1330283926ee87a">getModelCoef</a>().<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">0.000  0.002  0.007  0.015  0.024</div>
+<div class="line"></div>
+<div class="line">-1.810</div>
+<div class="line"> 0.819</div>
+<div class="line"> 0.005</div>
+<div class="line"> 0.004</div>
+<div class="line"></div>
+<div class="line"> 0.000</div>
+<div class="line"> 0.002</div>
+<div class="line"> 0.007</div>
+<div class="line"> 0.015</div>
+<div class="line"> 0.024</div>
+<div class="line"></div>
+<div class="line">-1.810</div>
+<div class="line"> 0.819</div>
+<div class="line"> 0.005</div>
+<div class="line"> 0.004</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63" title="Método que insere na variável step um valor determinado. ">setStep()</a>, <a class="el" href="class_model.html#af9946deebc9e2f25f438e9a9bb2c08fe" title="Método que insere na variável ModelCoef os coeficientes do modelo que será simulado. ">setModelCoef()</a>, <a class="el" href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315" title="Método que realiza a derivada de uma função de maneira numérica. ">diff()</a>; </p>
 
 </div>
 </div>
@@ -317,6 +627,38 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Método que retorna a variável output, o valore de saída do modelo, ou função. </p>
+<p>A responsabilidade deste método é permitir que o usuário tenha acesso ao valor imediato de saida externamente ao objeto.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D,u;</div>
+<div class="line">    A = <span class="stringliteral">&quot;1.81,-0.8187;1,0&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;0.125;0&quot;</span>;</div>
+<div class="line">    C = <span class="stringliteral">&quot;0.03743,0.03502&quot;</span>;</div>
+<div class="line">    D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line">    u = <span class="stringliteral">&quot;1,1,1,1,1,1,1,1&quot;</span>;</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = <span class="keyword">new</span> <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a>(A,B,C,D,0.1);</div>
+<div class="line"></div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(u(1,1));</div>
+<div class="line">    std::cout &lt;&lt; model-&gt;<a class="code" href="class_model.html#ae8ba7295e08cf557088e55bf33007d55">getOutput</a>();</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">0.000</div>
+<div class="line">0.005</div>
+<div class="line">0.018</div>
+<div class="line">0.037</div>
+<div class="line">0.062</div>
+<div class="line">0.090</div>
+<div class="line">0.122</div>
+<div class="line">0.156</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63" title="Método que insere na variável step um valor determinado. ">setStep()</a>, <a class="el" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7" title="Método que insere nas variáveis Input e Output os valores de entrada e saída de um modelo...">setIO()</a>;, <a class="el" href="class_model.html#a92d41740a9681d0bb6b5608a29206c34" title="Método que retorna a variável Output, os valores de saída do um modelo, ou função. ">getOutputMatrix()</a>; </p>
+
 </div>
 </div>
 <a class="anchor" id="a92d41740a9681d0bb6b5608a29206c34"></a>
@@ -333,6 +675,37 @@ template&lt;class UsedType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Método que retorna a variável Output, os valores de saída do um modelo, ou função. </p>
+<p>A responsabilidade deste método é permitir que o usuário tenha acesso aos valores de saida externamente ao objeto.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D,u;</div>
+<div class="line">    A = <span class="stringliteral">&quot;1.81,-0.8187;1,0&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;0.125;0&quot;</span>;</div>
+<div class="line">    C = <span class="stringliteral">&quot;0.03743,0.03502&quot;</span>;</div>
+<div class="line">    D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line">    u = <span class="stringliteral">&quot;1,1,1,1,1,1,1,1&quot;</span>;</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = <span class="keyword">new</span> <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a>(A,B,C,D,0.1);</div>
+<div class="line"></div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7">setIO</a>(~u,~model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(u));</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a92d41740a9681d0bb6b5608a29206c34">getOutputMatrix</a>().<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">0.000</div>
+<div class="line">0.005</div>
+<div class="line">0.018</div>
+<div class="line">0.037</div>
+<div class="line">0.062</div>
+<div class="line">0.090</div>
+<div class="line">0.122</div>
+<div class="line">0.156</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63" title="Método que insere na variável step um valor determinado. ">setStep()</a>, <a class="el" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7" title="Método que insere nas variáveis Input e Output os valores de entrada e saída de um modelo...">setIO()</a>;, <a class="el" href="class_model.html#a92d41740a9681d0bb6b5608a29206c34" title="Método que retorna a variável Output, os valores de saída do um modelo, ou função. ">getOutputMatrix()</a>; </p>
 
 </div>
 </div>
@@ -351,6 +724,31 @@ template&lt;class UsedType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Método que insere na variável instance uma instância do objeto do tipo model. </p>
+<p>Método que insere na variável instance uma instância do objeto do tipo model, ou um ponteiro de um objeto que herde de model.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="simfunction_8h.html">src/simulationLibs/simfunction.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">double</span> funcaoMatematica(<span class="keywordtype">double</span> x)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> pow(x,2)*exp(4*x+5)*(cos(3*x) + sin(3*x));</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model;</div>
+<div class="line">    <a class="code" href="classsim_function.html">simFunction&lt;double&gt;</a> F(funcaoMatematica);</div>
+<div class="line"></div>
+<div class="line">    model = &amp;F;</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63">setStep</a>(1e-10);</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a7c1e7d2c2c2372e5b54e4ebbfd1f4e12">setInstance</a>(model);</div>
+<div class="line">    std::cout &lt;&lt; model-&gt;<a class="code" href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315">diff</a>(1) &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">-68767.4</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63" title="Método que insere na variável step um valor determinado. ">setStep()</a>;, <a class="el" href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315" title="Método que realiza a derivada de uma função de maneira numérica. ">diff()</a>; </p>
 
 </div>
 </div>
@@ -380,6 +778,37 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Método que insere nas variáveis Input e Output os valores de entrada e saída de um modelo, ou função. </p>
+<p>A responsabilidade deste método é permitir a alteração dos valores de entradas e saídas fora da função de simulação (<a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>).</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D,u;</div>
+<div class="line">    A = <span class="stringliteral">&quot;1.81,-0.8187;1,0&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;0.125;0&quot;</span>;</div>
+<div class="line">    C = <span class="stringliteral">&quot;0.03743,0.03502&quot;</span>;</div>
+<div class="line">    D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line">    u = <span class="stringliteral">&quot;1,1,1,1,1,1,1,1&quot;</span>;</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = <span class="keyword">new</span> <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a>(A,B,C,D,0.1);</div>
+<div class="line"></div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a7cd2a1db919315b7c223f82765cacab7">setIO</a>(~u,~model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(u));</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#ae114fadcc2d82dd8c335a09650325da5">getInputMatrix</a>().<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+<div class="line">1.000</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63" title="Método que insere na variável step um valor determinado. ">setStep()</a>, <a class="el" href="class_model.html#ae114fadcc2d82dd8c335a09650325da5" title="Método que retorna as variável Input os valores de entrada do um modelo, ou função. ">getInputMatrix()</a>, <a class="el" href="class_model.html#a92d41740a9681d0bb6b5608a29206c34" title="Método que retorna a variável Output, os valores de saída do um modelo, ou função. ">getOutputMatrix()</a>; </p>
+
 </div>
 </div>
 <a class="anchor" id="af9946deebc9e2f25f438e9a9bb2c08fe"></a>
@@ -398,6 +827,54 @@ template&lt;class UsedType&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Método que insere na variável ModelCoef os coeficientes do modelo que será simulado. </p>
+<p>ModelCoef é uma variável utilizada em algums modelos que herdam de model. Devido a sua grande aplicação e a necessidade de simular modelos de forma simples esta variável foi adicionada em model e não nas implementações particulares.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="arx_8h.html">src/simulationLibs/arx.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;src/optimizationLibs/leastsquare.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;src/simulationLibs/conversions.h&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keyword">using namespace </span>conversions;</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D,u;</div>
+<div class="line">    A = <span class="stringliteral">&quot;1.81,-0.8187;1,0&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;0.125;0&quot;</span>;</div>
+<div class="line">    C = <span class="stringliteral">&quot;0.03743,0.03502&quot;</span>;</div>
+<div class="line">    D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line">    u.<a class="code" href="class_matrix.html#a1e0fb9ec11443abd6862163823d69b4a">randU</a>(1,5);</div>
+<div class="line">    <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a> SS(A,B,C,D,0.1);</div>
+<div class="line">    SS.sim(u).print();</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_a_r_x.html">ARX&lt;double&gt;</a> gz(2,2);</div>
+<div class="line">    gz.setLinearModel(~u,~SS.sim(u));</div>
+<div class="line">    Optimization&lt;double&gt; *LS = <span class="keyword">new</span> LeastSquare&lt;double&gt;(&amp;gz);</div>
+<div class="line">    LS-&gt;Optimize();</div>
+<div class="line">    LS-&gt;getOptimizatedVariable().print();</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = <span class="keyword">new</span> <a class="code" href="class_a_r_x.html">ARX&lt;double&gt;</a>(2,2);</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#af9946deebc9e2f25f438e9a9bb2c08fe">setModelCoef</a>(LS-&gt;getOptimizatedVariable());</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(~u).print();</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">0.000  0.002  0.007  0.015  0.024</div>
+<div class="line"></div>
+<div class="line">-1.810</div>
+<div class="line"> 0.819</div>
+<div class="line"> 0.005</div>
+<div class="line"> 0.004</div>
+<div class="line"></div>
+<div class="line"> 0.000</div>
+<div class="line"> 0.002</div>
+<div class="line"> 0.007</div>
+<div class="line"> 0.015</div>
+<div class="line"> 0.024</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63" title="Método que insere na variável step um valor determinado. ">setStep()</a>;, <a class="el" href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315" title="Método que realiza a derivada de uma função de maneira numérica. ">diff()</a>; </p>
+
 </div>
 </div>
 <a class="anchor" id="a1c08a884d93ab0a9b1775f299f18ee63"></a>
@@ -415,6 +892,31 @@ template&lt;class UsedType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Método que insere na variável step um valor determinado. </p>
+<p>A variável step tem duas responsabilidades, a primeira é ser o passo para a geração de pontos na simulação e a segunda é ser o passo de derivação e integração.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="simfunction_8h.html">src/simulationLibs/simfunction.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">double</span> funcaoMatematica(<span class="keywordtype">double</span> x)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">return</span> pow(x,2)*exp(4*x+5)*(cos(3*x) + sin(3*x));</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model;</div>
+<div class="line">    <a class="code" href="classsim_function.html">simFunction&lt;double&gt;</a> F(funcaoMatematica);</div>
+<div class="line"></div>
+<div class="line">    model = &amp;F;</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a1c08a884d93ab0a9b1775f299f18ee63">setStep</a>(1e-10);</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a7c1e7d2c2c2372e5b54e4ebbfd1f4e12">setInstance</a>(model);</div>
+<div class="line">    std::cout &lt;&lt; model-&gt;<a class="code" href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315">diff</a>(1) &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">-68767.4</div>
+</div><!-- fragment --><p>Ver também: <a class="el" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d" title="Método cuja responsabilidade é simular os valores futuros da saída de um modelo. ">sim()</a>, <a class="el" href="class_model.html#a7c1e7d2c2c2372e5b54e4ebbfd1f4e12" title="Método que insere na variável instance uma instância do objeto do tipo model. ">setInstance()</a>, <a class="el" href="class_model.html#ade0ac98afcdcde9ee1faaf28bdf28315" title="Método que realiza a derivada de uma função de maneira numérica. ">diff()</a>; </p>
 
 </div>
 </div>
@@ -441,6 +943,27 @@ template&lt;class UsedType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Método cuja responsabilidade é simular os valores futuros da saída de um modelo. </p>
+<p>A responsabilidade deste método é retornar um escalar com o valor correspondente a simulação de um modelo qualquer. Devido a abstração, independentemente do tipo de modelo matemático utilizado a simulação será realizada da mesma maneira.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D;</div>
+<div class="line">    A = <span class="stringliteral">&quot;1,0;-2,-1&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;0;1&quot;</span>;  C = <span class="stringliteral">&quot;0,1&quot;</span>;  D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = <span class="keyword">new</span> <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a>(A,B,C,D);</div>
+<div class="line">    std::cout &lt;&lt; model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(1) &lt;&lt; std::endl;</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">0</div>
+</div><!-- fragment --><p>Ver também: </p><dl class="section see"><dt>Veja também</dt><dd>print(); </dd></dl>
 
 <p>Implementado por <a class="el" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">StateSpace&lt; UsedType &gt;</a>, <a class="el" href="class_transfer_function.html#ac63a261ef2f632979d882e214c5cf310">TransferFunction&lt; UsedType &gt;</a> e <a class="el" href="class_a_r_x.html#ac24c7295c6a63b8b4a4caa471793e25f">ARX&lt; UsedType &gt;</a>.</p>
 
@@ -480,6 +1003,8 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Método não implementado. </p>
+
 <p>Implementado por <a class="el" href="class_state_space.html#afd4d8609e8d427afa909a1e739f574e3">StateSpace&lt; UsedType &gt;</a>, <a class="el" href="class_transfer_function.html#abc79523ccd810b5ed044cfc5c024788b">TransferFunction&lt; UsedType &gt;</a> e <a class="el" href="class_a_r_x.html#a2eb8a9fce67300be98f719d88fe49824">ARX&lt; UsedType &gt;</a>.</p>
 
 </div>
@@ -507,6 +1032,26 @@ template&lt;class UsedType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Método cuja responsabilidade é simular os valores futuros da saída do modelo. </p>
+<p>A responsabilidade deste método é receber uma matriz (como sinal de entrada do modelo) e retornar uma matriz com a resposta do sistema para aquele conjunto de entradas determinadas.</p>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D,u;</div>
+<div class="line">    A = <span class="stringliteral">&quot;1,0;-2,-1&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;0;1&quot;</span>;  C = <span class="stringliteral">&quot;0,1&quot;</span>;  D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line">    u = <span class="stringliteral">&quot;1,1,1,1,1,1,1,1,1,1,1,1&quot;</span>;</div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = <span class="keyword">new</span> <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a>(A,B,C,D);</div>
+<div class="line"></div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(u).print();</div>
+<div class="line"></div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">0.000  0.095  0.181  0.259  0.330  0.393  0.451  0.503  0.551  0.593  0.632  0.667</div>
+</div><!-- fragment --><p>Ver também: </p><dl class="section see"><dt>Veja também</dt><dd>print(); </dd></dl>
 
 <p>Implementado por <a class="el" href="class_state_space.html#afbb931298a2c834b3685e43137d1fbf3">StateSpace&lt; UsedType &gt;</a>, <a class="el" href="class_transfer_function.html#a4f13399d7a3ae8da80882030760da148">TransferFunction&lt; UsedType &gt;</a> e <a class="el" href="class_a_r_x.html#a702c9b7a836d4d83d269906fd5586e1c">ARX&lt; UsedType &gt;</a>.</p>
 
@@ -545,6 +1090,8 @@ template&lt;class UsedType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Método não implementado. </p>
 
 <p>Implementado por <a class="el" href="class_state_space.html#affb34984ea27356182bc1812862073ee">StateSpace&lt; UsedType &gt;</a>, <a class="el" href="class_transfer_function.html#a2fba0da4ae65d869344a3d5a175027b5">TransferFunction&lt; UsedType &gt;</a> e <a class="el" href="class_a_r_x.html#ab72cbbc67ff0041621d954dd022f4ab9">ARX&lt; UsedType &gt;</a>.</p>
 
@@ -590,6 +1137,33 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Método cuja responsabilidade é simular os valores futuros da saída do modelo. </p>
+<p>A responsabilidade deste método é simularum modelo a partir de um sinal de entrada contido em um dado intervalo. Em que:</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lmin</td><td>é o limite mínimo da entrada </td></tr>
+    <tr><td class="paramname">lmax</td><td>é o limite máximo da entrada </td></tr>
+    <tr><td class="paramname">step</td><td>é o valor incremental da entrada</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Ex:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="model_8h.html">src/simulationLibs/model.h</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="statespace_8h.html">src/simulationLibs/statespace.h</a>&gt;</span></div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv)</div>
+<div class="line">{</div>
+<div class="line">    <a class="code" href="class_matrix.html">Matrix&lt;double&gt;</a> A,B,C,D;</div>
+<div class="line">    A = <span class="stringliteral">&quot;1,0;-2,-1&quot;</span>;</div>
+<div class="line">    B = <span class="stringliteral">&quot;0;1&quot;</span>;  C = <span class="stringliteral">&quot;0,1&quot;</span>;  D = <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"></div>
+<div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = <span class="keyword">new</span> <a class="code" href="class_state_space.html">StateSpace&lt;double&gt;</a>(A,B,C,D);</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(0,5,1).print();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Resultado:</p>
+<div class="fragment"><div class="line">0.000  0.000  0.095  0.276  0.536  0.865</div>
+</div><!-- fragment --><p>Ver também: </p><dl class="section see"><dt>Veja também</dt><dd>print(); </dd></dl>
+
 <p>Implementado por <a class="el" href="class_state_space.html#ab29212e32fdce034c65fe27bc5a6084b">StateSpace&lt; UsedType &gt;</a>, <a class="el" href="class_transfer_function.html#acbf59f50fdef6a5232b71e734ec0d99b">TransferFunction&lt; UsedType &gt;</a> e <a class="el" href="class_a_r_x.html#ad8d7eaacb74346a1be1ac729dccd4956">ARX&lt; UsedType &gt;</a>.</p>
 
 </div>
@@ -615,7 +1189,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00012">12</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00033">33</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -639,7 +1213,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00011">11</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00032">32</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -663,7 +1237,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00012">12</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00033">33</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -687,7 +1261,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00010">10</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00031">31</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -711,7 +1285,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00012">12</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00033">33</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -735,7 +1309,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00012">12</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00033">33</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -759,7 +1333,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00012">12</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00033">33</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -783,7 +1357,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00011">11</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00032">32</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -807,7 +1381,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00011">11</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00032">32</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -831,7 +1405,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00012">12</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00033">33</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -855,7 +1429,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00011">11</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00032">32</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -879,7 +1453,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00012">12</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00033">33</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -903,7 +1477,7 @@ template&lt;class UsedType&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="model_8h_source.html#l00011">11</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
+<p>Definição na linha <a class="el" href="model_8h_source.html#l00032">32</a> do arquivo <a class="el" href="model_8h_source.html">model.h</a>.</p>
 
 </div>
 </div>
@@ -913,7 +1487,7 @@ template&lt;class UsedType&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Domingo, 28 de Dezembro de 2014 22:50:20 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 29 de Dezembro de 2014 18:04:40 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
