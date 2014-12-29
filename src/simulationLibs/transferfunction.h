@@ -15,6 +15,7 @@ private:
     void c2dConversion();
 
 public:
+    TransferFunction();
     TransferFunction(unsigned rows, unsigned cols);
     TransferFunction(std::string num, std::string den,
                      unsigned rows  , unsigned cols);

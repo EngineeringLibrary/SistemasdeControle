@@ -27,6 +27,14 @@ void TransferFunction<UsedType>::c2d(UsedType sampleTime)
 }
 
 template <class UsedType>
+TransferFunction<UsedType>::TransferFunction()
+{
+    nRowsTF = 0;
+    nColsTF = 0;
+    sampleTime = 0.1;
+}
+
+template <class UsedType>
 TransferFunction<UsedType>::TransferFunction(std::string num, std::string den,
                                              unsigned rows  , unsigned cols)
 {
