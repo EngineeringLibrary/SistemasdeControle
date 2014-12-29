@@ -116,51 +116,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <a class="code" href="class_state_space.html#aa04793c97f5e89788b70bbf3b83f51d3">StateSpace</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> A, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> B,</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;               <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> C, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> D);</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_space.html#aeaa32a0d5d2537ee6d8a14950acb43b2">print</a>();</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_space.html#a41cf30a838b393851caed1059943c014">c2d</a>(UsedType SampleTime);</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_space.html#a6b573639ae37aaa5bc768cab3f98bfce">setInitialState</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> X0);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#ae5ad117d4fccdc6112976e924dd774ee">getA</a>();</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a486791121706d493efbdcf14c1b9fe9f">getB</a>();</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a754d43e54304a749c38834686f187f63">getC</a>();</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a03d5cfb387938e358939aed801f56359">getActualState</a>();</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a5a0d702a2615fdb14fdc2c9513dea013">getD</a>();</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    UsedType <a class="code" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">sim</a>(UsedType u);</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;    UsedType <a class="code" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">sim</a>(UsedType u, UsedType y);</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">sim</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> u);</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">sim</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> u, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> y);</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">sim</a>(UsedType lmim, UsedType <a class="code" href="class_model.html#a4d671bd41ec010c049bed0f3988d23d6">lmax</a>, UsedType <a class="code" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">step</a>);</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;};</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="preprocessor">#endif // STATESPACE_H</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <a class="code" href="class_state_space.html#aa04793c97f5e89788b70bbf3b83f51d3">StateSpace</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> A, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> B,</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;               <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> C, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> D);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_space.html#aeaa32a0d5d2537ee6d8a14950acb43b2">print</a>();</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_space.html#a41cf30a838b393851caed1059943c014">c2d</a>(UsedType SampleTime);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_state_space.html#a6b573639ae37aaa5bc768cab3f98bfce">setInitialState</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> X0);</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#ae5ad117d4fccdc6112976e924dd774ee">getA</a>();</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a486791121706d493efbdcf14c1b9fe9f">getB</a>();</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a754d43e54304a749c38834686f187f63">getC</a>();</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a03d5cfb387938e358939aed801f56359">getActualState</a>();</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a5a0d702a2615fdb14fdc2c9513dea013">getD</a>();</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    UsedType <a class="code" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">sim</a>(UsedType u);</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    UsedType <a class="code" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">sim</a>(UsedType u, UsedType y);</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">sim</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> u);</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">sim</a>(<a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> u, <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> y);</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <a class="code" href="class_matrix.html">Matrix&lt;UsedType&gt;</a> <a class="code" href="class_state_space.html#a02b6fe329444f36a5b6304337ec3e8cf">sim</a>(UsedType lmim, UsedType <a class="code" href="class_model.html#a4d671bd41ec010c049bed0f3988d23d6">lmax</a>, UsedType <a class="code" href="class_model.html#aff37aef61263d461fe7be2a3aef2c19c">step</a>);</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;};</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;<span class="preprocessor">#endif // STATESPACE_H</span></div>
 <div class="ttc" id="class_state_space_html_a18961611908e7489e224a971d52d4543"><div class="ttname"><a href="class_state_space.html#a18961611908e7489e224a971d52d4543">StateSpace::factorial</a></div><div class="ttdeci">UsedType factorial(unsigned n)</div><div class="ttdoc">Método para calcular o fatorial de um número. </div></div>
 <div class="ttc" id="class_state_space_html_ae5d8c7fa0e4c9f730426e8f38ebb573e"><div class="ttname"><a href="class_state_space.html#ae5d8c7fa0e4c9f730426e8f38ebb573e">StateSpace::B</a></div><div class="ttdeci">Matrix&lt; UsedType &gt; B</div><div class="ttdef"><b>Definition:</b> <a href="statespace_8h_source.html#l00033">statespace.h:33</a></div></div>
 <div class="ttc" id="transferfunction_8h_html"><div class="ttname"><a href="transferfunction_8h.html">transferfunction.h</a></div></div>
@@ -196,7 +195,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Domingo, 28 de Dezembro de 2014 22:30:35 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Domingo, 28 de Dezembro de 2014 22:50:03 para Sistema de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
