@@ -7,6 +7,7 @@
 #include <fstream>
 #include <ctime>
 #include <cstdlib>
+#include <complex>
 
 using namespace std;
 

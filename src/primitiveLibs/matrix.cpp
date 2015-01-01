@@ -780,7 +780,8 @@ Matrix<UsedType> Matrix<UsedType>::eigenvalues()//Encontra os Auto Valores da Ma
 
                    Q.eye(this->rows);
                    R.eye(this->rows);
-                   while (max > 0.00001)
+                   unsigned cont = 0;
+                   while (max > 1e-40 && cont < 3000)
                    {
                        for(unsigned i = 0; i < this->rows; i++ )
                            for(unsigned j = i+1; j<this->rows; j++)
@@ -804,11 +805,14 @@ Matrix<UsedType> Matrix<UsedType>::eigenvalues()//Encontra os Auto Valores da Ma
                                else if((A.Mat[i][j] < 0) && (-1*A.Mat[i][j]) < max)
                                    max = -1*(A.Mat[i][j]);
                            }
+                       cont++;
                     }
                    for(unsigned i = 0; i < this->rows; i++ )
                        for(unsigned j = 0; j< this->rows; j++)
                            if (i == j)
                                 autovlr.Mat[0][i] = A.Mat[i][j];
+                   Q.print();
+                   R.print();
        }
             else
                for(unsigned i = 0; i < this->rows; i++ )
@@ -1409,6 +1413,33 @@ template Matrix<float> round<float> (Matrix<float>);
 template Matrix<float> floor<float> (Matrix<float>);
 //-------------------------------------------------------------------------------//
 
-
+//template class Matrix<complex>;
+////template Matrix<complex> operator+<complex> (complex, Matrix<complex>);
+////template Matrix<complex> operator-<complex> (complex, Matrix<complex>);
+//template Matrix<complex> operator*<complex> (complex, Matrix<complex>);
+//template Matrix<complex> operator/<complex> (complex, Matrix<complex>);
+//template Matrix<complex> diff<complex> (Matrix<complex>, complex);
+////template complex max<complex> (Matrix<complex>);
+////template complex min<complex> (Matrix<complex>);
+//template complex norm<complex> (Matrix<complex>);
+//template Matrix<complex> abs<complex> (Matrix<complex>);
+//template Matrix<complex> cos<complex> (Matrix<complex>);
+//template Matrix<complex> sin<complex> (Matrix<complex>);
+//template Matrix<complex> tan<complex> (Matrix<complex>);
+//template Matrix<complex> acos<complex> (Matrix<complex>);
+//template Matrix<complex> asin<complex> (Matrix<complex>);
+//template Matrix<complex> atan<complex> (Matrix<complex>);
+//template Matrix<complex> cosh<complex> (Matrix<complex>);
+//template Matrix<complex> sinh<complex> (Matrix<complex>);
+//template Matrix<complex> tanh<complex> (Matrix<complex>);
+//template Matrix<complex> acosh<complex> (Matrix<complex>);
+//template Matrix<complex> asinh<complex> (Matrix<complex>);
+//template Matrix<complex> atanh<complex> (Matrix<complex>);
+//template Matrix<complex> exp<complex> (Matrix<complex>);
+//template Matrix<complex> log<complex> (Matrix<complex>);
+//template Matrix<complex> log10<complex> (Matrix<complex>);
+//template Matrix<complex> ceil<complex> (Matrix<complex>);
+//template Matrix<complex> round<complex> (Matrix<complex>);
+//template Matrix<complex> floor<complex> (Matrix<complex>);
 
 
