@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['system_20control',['System Control',['../index.html',1,'']]],
   ['sampletime',['sampleTime',['../class_transfer_function.html#a8f4abfd9a32e54f4df6d3f8845abb940',1,'TransferFunction::sampleTime()'],['../class_state_space.html#a1056d592a5a529152ed64ef306eebf8e',1,'StateSpace::SampleTime()']]],
   ['serial',['Serial',['../class_serial.html',1,'Serial'],['../class_serial.html#a3667c3137f2df94716b5193f9fb736ab',1,'Serial::Serial()'],['../class_serial.html#a580805013f1ee62de703a0d9e06b1beb',1,'Serial::Serial(const char *namedoor)']]],
   ['serverconnected',['ServerConnected',['../class_o_p_c_client.html#ac809ad934ea5c1f3d2e62bf9935fa131',1,'OPCClient']]],
@@ -49,6 +50,7 @@ var searchData=
   ['simulate',['simulate',['../classsim_function.html#a2e24670d97f9f463c8afad6d4b757e7a',1,'simFunction']]],
   ['sin',['sin',['../class_matrix.html#a2e339bd0cc0c2404d0ec090188ba7744',1,'Matrix']]],
   ['sinh',['sinh',['../class_matrix.html#af99b1ddd7dac8086b4530c6faf4119fe',1,'Matrix']]],
+  ['sistemasdecontrole_2eh',['SistemasDeControle.h',['../_sistemas_de_controle_8h.html',1,'']]],
   ['sizeden',['sizeDen',['../class_polynom.html#af46771583a9ae7f845e682baf6d2f301',1,'Polynom']]],
   ['sizenum',['sizeNum',['../class_polynom.html#af8bf879f47ffc4a8af747b002171ffe4',1,'Polynom']]],
   ['sqr',['sqr',['../class_matrix.html#a315bb5b19e5e685092fb22a3be679661',1,'Matrix']]],

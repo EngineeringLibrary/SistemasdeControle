@@ -7,7 +7,8 @@ var indexSectionsWithContent =
   4: "abcdefghiklmnopqrstuvxy",
   5: "f",
   6: "acdeflmnorst",
-  7: "p"
+  7: "p",
+  8: "s"
 };
 
 var indexSectionNames =
@@ -19,7 +20,8 @@ var indexSectionNames =
   4: "variables",
   5: "typedefs",
   6: "related",
-  7: "defines"
+  7: "defines",
+  8: "pages"
 };
 
 var indexSectionLabels =
@@ -31,6 +33,7 @@ var indexSectionLabels =
   4: "Variáveis",
   5: "Definições de Tipos",
   6: "Amigas",
-  7: "Definições e Macros"
+  7: "Definições e Macros",
+  8: "Páginas"
 };
 
