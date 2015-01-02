@@ -13,3 +13,5 @@
 \form#12:$\Phi$
 \form#13:$ Y(k) = \left [ \begin{matrix} y_1(k) \\ y_2(k) \\ \vdots \\ y_{qo}(k) \end{matrix}\right ] = \Theta \Phi = \left [ \begin{matrix} \theta_{1,1} & \cdots & \theta_{1,qo\,ny + qi\,nu -1} \\ \vdots & \ddots & \vdots \\ \theta_{qo,1} & \cdots & \theta_{qo,qo\,ny + qi\,nu -1} \end{matrix} \right ]\left [ \begin{matrix} y_1(k-1) \\ \vdots \\ y_1(k-ny) \\ \vdots \\ y_{qo}(k-1) \\ \vdots \\ y_{qo}(k-ny) \\ u_1(k-1-d) \\ \vdots \\ u_1(k-nu-d) \\ _{qi}(k-1-d) \\ \vdots \\ u_{qi}(k-nu-d) \end{matrix} \right ] $
 \form#14:$ Diagrama de Blocos do Modelo ARX. Fonte: Isermann (2011). $
+\form#15:$ Ex_1 $
+\form#16:$ Ex_2 $
