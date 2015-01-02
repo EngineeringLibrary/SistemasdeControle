@@ -1314,6 +1314,44 @@ UsedType norm(Matrix<UsedType> M1)
     return sqrt(sum);
 }
 
+template <class UsedType>
+void Matrix<UsedType>::QR(Matrix<UsedType>& Q, Matrix<UsedType>& R)
+{
+    UsedType tal, sigma, gama;
+
+    Q.eye(this->rows);
+    R = *this;
+
+    for(unsigned j = 0; j < R.cols; j++)
+        for(unsigned i = (R.rows - 1); i >= (j + 1); i--)
+        {
+            Matrix<UsedType> temp;
+
+            temp.eye(this->rows);
+
+            if(abs(R.Mat[i-1][j]) > abs(R.Mat[i][j]))
+            {
+                tal = R.Mat[i][j]/R.Mat[i-1][j];
+                gama = 1/(sqrt(1 + pow(tal, 2)));
+                sigma = tal*gama;
+            }
+            else
+            {
+                tal = R.Mat[i-1][j]/R.Mat[i][j];
+                sigma = 1/(sqrt(1 + pow(tal, 2)));
+                gama = sigma*tal;
+            }
+
+            temp.Mat[i][i] = gama;
+            temp.Mat[i][i - 1] = sigma;
+            temp.Mat[i - 1][i] = -sigma;
+            temp.Mat[i - 1][i - 1] = gama;
+
+            R = ~temp*R;
+            Q = Q*(temp);
+        }
+}
+
 //double operator ^(double num1, double num2)
 //{
 //    return pow(num1,num2);
