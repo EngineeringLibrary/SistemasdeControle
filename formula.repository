@@ -1,0 +1,15 @@
+\form#0:$ x^{n-1} $
+\form#1:$ A(z^{-1}) $
+\form#2:$ B(z^{-1}) $
+\form#3:$ A(z^{-1})= 1 + a_1z^-1 + a_2z^{-2} + ... + a_{n_a}z^{-n_a} $
+\form#4:$ B(z^{-1})= 1 + b_1z^-1 + b_2z^{-2} + ... + b_{n_b}z^{-n_b} $
+\form#5:$ y(k)=\frac{B(z^{-1})}{A(z^{-1})}u(k)+\frac{1}{A(z^{-1})}v(k) $
+\form#6:$ Y(k) = \left [ \begin{matrix} y_1(k) \\ y_2(k) \\ \vdots \\ y_{qo}(k) \end{matrix}\right ] = \Theta \Phi = \left [ \begin{matrix} \theta_{1,1} \, \cdots \, \theta_{1,qo\,ny + qi\,nu -1} \\ \vdots \, \ddots \, \vdots \\ \theta_{qo,1} \, \cdots \, \theta_{qo,qo\,ny + qi\,nu -1} \end{matrix} \right ]\left [ \begin{matrix} y_1(k-1) \\ \vdots \\ y_1(k-ny) \\ \vdots \\ y_{qo}(k-1) \\ \vdots \\ y_{qo}(k-ny) \\ u_1(k-1-d) \\ \vdots \\ u_1(k-nu-d) \\ _{qi}(k-1-d) \\ \vdots \\ u_{qi}(k-nu-d) \end{matrix} \right ] $
+\form#7:$ nu $
+\form#8:$ ny $
+\form#9:$ d $
+\form#10:$ qi $
+\form#11:$ qo $
+\form#12:$\Phi$
+\form#13:$ Y(k) = \left [ \begin{matrix} y_1(k) \\ y_2(k) \\ \vdots \\ y_{qo}(k) \end{matrix}\right ] = \Theta \Phi = \left [ \begin{matrix} \theta_{1,1} & \cdots & \theta_{1,qo\,ny + qi\,nu -1} \\ \vdots & \ddots & \vdots \\ \theta_{qo,1} & \cdots & \theta_{qo,qo\,ny + qi\,nu -1} \end{matrix} \right ]\left [ \begin{matrix} y_1(k-1) \\ \vdots \\ y_1(k-ny) \\ \vdots \\ y_{qo}(k-1) \\ \vdots \\ y_{qo}(k-ny) \\ u_1(k-1-d) \\ \vdots \\ u_1(k-nu-d) \\ _{qi}(k-1-d) \\ \vdots \\ u_{qi}(k-nu-d) \end{matrix} \right ] $
+\form#14:$ Diagrama de Blocos do Modelo ARX. Fonte: Isermann (2011). $
