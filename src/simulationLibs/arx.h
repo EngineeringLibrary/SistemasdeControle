@@ -1,7 +1,7 @@
 #ifndef ARX_H
 #define ARX_H
 #include <src/simulationLibs/model.h>
-//! Classe concreta para os modelos ARX (Modelos auto-recursivos com entradas exógenas).
+//! Classe concreta para os modelos ARX (Modelos AutoRecursivos com entradas exógenas).
 
 /*!
     Há diversas formas de representar modelos lineares. Uma das mais utilizadas é a forma de funções de transferência definida como a transformada da resposta ao impulso do sistema modelado, para condições iniciais nulas. Se a resposta ao impulso for contínua no tempo, então, utiliza-se a transformada de Laplace. Se a resposta ao impulso for discreta no tempo, a respectiva função de transferência é, por definição, a transformada Z (Aguirre, 2007).
@@ -62,18 +62,354 @@ private:
              qdtInputVar, qdtOutputVar, nSample,
              maxnInOut;
 public:
+
+//! Construtor da biblioteca de modelos ARX.
+
+/*!
+    O construtor da biblioteca de modelos ARX faz parte do bloco de classes que herdam de Model. Nele, todas as variáveis são setadas como mostrado a seguir:
+
+    \param maxnInOut                   É inicializado com o maior valor entre o número de atrasos na entrada e o número de atrasos na saída.
+    \param nInputpar                   É inicializado com os parâmetros setados pelo usuário.
+    \param nOutputpar                  É inicializado com os parâmetros setados pelo usuário.
+    \param delay                       É inicializado com os parâmetros setados pelo usuário. Caso não seja setado pelo usuário o seu valor será automaticamente iniciado com 0 (zero).
+    \param qdtInputVar                 É inicializado com os parâmetros setados pelo usuário. Caso não seja setado pelo usuário o seu valor será automaticamente iniciado com 1 (um).
+    \param qdtOutputVar                É inicializado com os parâmetros setados pelo usuário. Caso não seja setado pelo usuário o seu valor será automaticamente iniciado com 1 (um).
+    \param Input     (da classe model) É inicializado com zeros, em que Input será uma matriz de nInputpar linhas e qdtInputVar colunas.
+    \param Output    (da classe model) É inicializado com zeros, em que Output será uma matriz de nOutputpar linhas e qdtOutputVar colunas.
+    \param EstOutput (da classe model) É inicializado com zeros e o mesmo tamanho de Output.
+    \param nSample                     É inicializado com o valor de delay + maxnInOut + 1.
+
+    \f$ Ex_1 \f$:
+
+        \code
+            #include "src/simulationLibs/model.h"
+            #include <src/simulationLibs/arx.h>
+
+            int main(int argc, char *argv)
+            {
+                Matrix<double> In, syspar;
+                In = "1,1,1,1,1,1,1,1,1,1";
+                syspar = "-1.809674836071920;0.818730753077982;0.004678840160444;0.004377076845618";
+
+                ARX<double> gz(2,2); // Construtor recebendo 2 parâmetros
+
+                gz.setModelCoef(syspar);
+                gz.sim(~In).print();
+            }
+        \endcode
+
+    Resultado:
+        \code
+            0.000
+            0.005
+            0.018
+            0.037
+            0.062
+            0.090
+            0.122
+            0.156
+            0.191
+            0.228
+        \endcode
+
+    \f$ Ex_2 \f$:
+
+        \code
+            #include "src/simulationLibs/model.h"
+            #include <src/simulationLibs/arx.h>
+
+            int main(int argc, char *argv)
+            {
+                Matrix<double> In, syspar;
+                In = "1,1,1,1,1,1,1,1,1,1";
+                syspar = "-1.809674836071920;0.818730753077982;0.004678840160444;0.004377076845618";
+
+                Model<double> *gz = new ARX<double>(2,2); // Construtor recebendo 2 parâmetros
+
+                gz->setModelCoef(syspar);
+                gz->sim(~In).print();
+            }
+        \endcode
+
+    Resultado:
+        \code
+            0.000
+            0.005
+            0.018
+            0.037
+            0.062
+            0.090
+            0.122
+            0.156
+            0.191
+            0.228
+        \endcode
+
+    Ver também: \sa setModelCoef(), sim(), Matrix, Model, print();
+*/
+
     ARX(unsigned nInputpar , unsigned nOutputpar,
         unsigned delay = 0,
         unsigned qdtInputVar = 1, unsigned qdtOutputVar = 1);
 
+//! Método cuja responsabilidade é montar uma linha do sistema linear AX = b.
+
+/*!
+    Algumas classes que herdam de model possuem uma implementação para montar um sistema linear (No caso os modelos ARX, ARMAX, AR, MA, ARMA, FIR). Essa montagem será importante para as bibliotecas de otimização e possíveis simulações externas.
+
+    Para esse caso específico a linha do sistema linear é montada utilizando as estimativas e não os dados inseridos em Output.
+
+    Ex:
+
+        \code
+            #include <src/simulationLibs/statespace.h>
+            #include <src/simulationLibs/arx.h>
+            #include <src/optimizationLibs/leastsquare.h>
+
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D,u;
+                A = "-2,-1;1,0";
+                B = "1;0";  C = "0,1";  D = "0";
+                u = "1,1,1,1";
+                StateSpace<double> SS(A,B,C,D);
+
+                ARX<double> gz(2,2);
+                Model<double> *model = &gz;
+                model->setLinearVectorPhiEstimation();
+                model->getLinearVectorPhi().print();
+
+                    return 0;
+            }
+        \endcode
+
+    Resultado:
+
+        \code
+            -0.000  -0.000  0.000  0.000
+         \endcode
+
+    Ver também: sim(), setLinearModel(), Matrix, print(), getLinearVectorPhi();
+
+*/
     void setLinearVectorPhiEstimation();
+
+//! Método cuja responsabilidade é montar uma linha do sistema linear AX = b.
+
+/*!
+    Algumas classes que herdam de model possuem uma implementação para montar um sistema linear (No caso os modelos ARX, ARMAX, AR, MA, ARMA, FIR). Essa montagem será importante para as bibliotecas de otimização e possíveis simulações externas.
+
+    Para esse caso específico a linha do sistema linear é montada utilizando os valores reais e não os dados estimados e que são colocados na matriz EstOutput.
+
+    Ex:
+
+        \code
+            #include <src/simulationLibs/statespace.h>
+            #include <src/simulationLibs/arx.h>
+            #include <src/optimizationLibs/leastsquare.h>
+
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D,u;
+                A = "-2,-1;1,0";
+                B = "1;0";  C = "0,1";  D = "0";
+                u = "1,1,1,1";
+                StateSpace<double> SS(A,B,C,D);
+
+                ARX<double> gz(2,2);
+                Model<double> *model = &gz;
+                model->setLinearVectorPhi();
+                model->getLinearVectorPhi().print();
+
+                    return 0;
+            }
+        \endcode
+
+    Resultado:
+
+        \code
+            -0.000  -0.000  0.000  0.000
+         \endcode
+
+    Ver também: sim(), setLinearModel(), Matrix, print(), getLinearVectorPhi();
+
+*/
+
     void setLinearVectorPhi();
+
+//! Método cuja responsabilidade é montar o sistema linear AX = b.
+
+/*!
+    Algumas classes que herdam de model possuem uma implementação para montar um sistema linear (No caso os modelos ARX, ARMAX, AR, MA, ARMA, FIR). Essa montagem será importante para as bibliotecas de otimização e possíveis simulações externas.
+
+    Ex:
+
+        \code
+            #include <src/simulationLibs/statespace.h>
+            #include <src/simulationLibs/arx.h>
+            #include <src/optimizationLibs/leastsquare.h>
+
+            int main(int argc, char *argv)
+            {
+                Matrix<double> A,B,C,D,u;
+                A = "-2,-1;1,0";
+                B = "1;0";  C = "0,1";  D = "0";
+                u = "1,1,1,1";
+                StateSpace<double> SS(A,B,C,D);
+
+                ARX<double> gz(2,2);
+                gz.setLinearModel(~u,~SS.sim(u));
+                Model<double> *model = &gz;
+
+                model->getLinearMatrixA().print();
+
+                return 0;
+            }
+        \endcode
+
+    Resultado:
+
+        \code
+            -0.000  -0.000  0.000  0.000
+            -0.000  -0.000  1.000  0.000
+            -0.005  -0.000  1.000  1.000
+            -0.018  -0.005  1.000  1.000
+         \endcode
+
+    Ver também: sim(), setStep(), setIO(), getOutputMatrix();
+*/
+
     void setLinearModel(Matrix<UsedType> Input, Matrix<UsedType> Output);
 
+//! Método cuja responsabilidade é simular os valores futuros da saída de um modelo.
+
+/*!
+    A responsabilidade deste método é retornar um escalar com o valor correspondente a simulação de um modelo ARX.
+
+    Ex:
+
+        \code
+            #include "src/simulationLibs/model.h"
+            #include <src/simulationLibs/arx.h>
+
+            int main(int argc, char *argv)
+            {
+                Matrix<double> syspar;
+                syspar = "-1.809674836071920;0.818730753077982;0.004678840160444;0.004377076845618";
+
+                Model<double> *gz = new ARX<double>(2,2); // Construtor recebendo 2 parâmetros
+
+                gz->setModelCoef(syspar);
+                gz->sim(10).print();
+            }
+        \endcode
+
+    Resultado:
+        \code
+            0.000
+        \endcode
+
+    Ver também: \sa setModelCoef(), sim(), Matrix, Model, print();
+*/
+
     UsedType sim(UsedType input);
+
+//! Método cuja responsabilidade é simular os valores futuros da saída de um modelo a partir de duas entradas de dados, o Input (entrada exógena) e o Output (saída passada).
+
+/*!
+    A responsabilidade deste método é retornar um escalar com o valor correspondente a simulação de um modelo ARX.
+
+    Ex:
+
+        \code
+            #include "src/simulationLibs/model.h"
+            #include <src/simulationLibs/arx.h>
+
+            int main(int argc, char *argv)
+            {
+                Matrix<double> syspar;
+                syspar = "-1.809674836071920;0.818730753077982;0.004678840160444;0.004377076845618";
+
+                Model<double> *gz = new ARX<double>(2,2); // Construtor recebendo 2 parâmetros
+
+                gz->setModelCoef(syspar);
+
+                double temp = 0;
+                for(int i = 1; i < 10; i++)
+                {
+                    temp = gz->sim(1,temp);
+                    printf("%10.3f  \n", temp);
+                }
+                return 0;
+            }
+        \endcode
+
+    Resultado:
+        \code
+            0.005
+            0.018
+            0.037
+            0.062
+            0.090
+            0.122
+            0.156
+            0.191
+            0.228
+        \endcode
+
+    Ver também: \sa setModelCoef(), sim(), Matrix, Model, print();
+*/
+
     UsedType sim(UsedType input, UsedType output);
+
+//! Método cuja responsabilidade é simular os valores futuros da saída do modelo ARX.
+
+/*!
+    A responsabilidade deste método é receber uma matriz (como sinal de entrada do modelo) e retornar uma matriz com a resposta do sistema para aquele conjunto de entradas determinadas.
+
+    Ex:
+
+        \code
+            #include <src/simulationLibs/arx.h>
+
+            int main(int argc, char *argv)
+            {
+                Matrix<double> U, syspar;
+                U = "1;1;1;1;1;1;1;1;1;1";
+                syspar = "-1.809674836071920;0.818730753077982;0.004678840160444;0.004377076845618";
+
+                ARX<double> gz(2,2); // Construtor recebendo 2 parâmetros
+
+                gz.setModelCoef(syspar);
+                gz.sim(U).print();
+
+                return 0;
+            }
+        \endcode
+
+    Resultado:
+
+        \code
+            0.000
+            0.005
+            0.018
+            0.037
+            0.062
+            0.090
+            0.122
+            0.156
+            0.191
+            0.228
+        \endcode
+
+    Ver também: \sa print();
+*/
+
+
     Matrix<UsedType> sim(Matrix<UsedType> x);
+    //! Método não implementado
     Matrix<UsedType> sim(Matrix<UsedType> x, Matrix<UsedType> y);
+    //! Método não implementado
     Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
 };
 
