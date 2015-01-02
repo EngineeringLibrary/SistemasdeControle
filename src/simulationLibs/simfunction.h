@@ -13,6 +13,10 @@ public:
     simFunction(UsedType (*FunctionToCall)(UsedType));
 
     void print();
+    void setLinearVectorPhi();
+    void setLinearVectorPhiEstimation();
+    void setLinearModel(Matrix<UsedType> Input, Matrix<UsedType> Output);
+
     UsedType sim(UsedType input);
     UsedType sim(UsedType input, UsedType output);
     Matrix<UsedType> sim(Matrix<UsedType> x);

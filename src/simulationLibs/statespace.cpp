@@ -101,6 +101,25 @@ void StateSpace<UsedType>::print()
 }
 
 template <class UsedType>
+void StateSpace<UsedType>::setLinearModel(Matrix<UsedType> Input, Matrix<UsedType> Output)
+{
+
+}
+
+template <class UsedType>
+void StateSpace<UsedType>::setLinearVectorPhi()
+{
+
+}
+
+template <class UsedType>
+void StateSpace<UsedType>::setLinearVectorPhiEstimation()
+{
+
+}
+
+
+template <class UsedType>
 void StateSpace<UsedType>::setInitialState(Matrix<UsedType> X0)
 {
     this->initialState = X0;

@@ -27,6 +27,9 @@ public:
                UsedType SampleTime);
 
     void print();
+    void setLinearVectorPhi();
+    void setLinearVectorPhiEstimation();
+    void setLinearModel(Matrix<UsedType> Input, Matrix<UsedType> Output);
 
     void c2d(UsedType SampleTime);
     void setInitialState(Matrix<UsedType> X0);

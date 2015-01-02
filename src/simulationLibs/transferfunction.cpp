@@ -104,6 +104,24 @@ void TransferFunction<UsedType>::print()
         }
 }
 
+template <class UsedType>
+void TransferFunction<UsedType>::setLinearModel(Matrix<UsedType> Input, Matrix<UsedType> Output)
+{
+
+}
+
+template <class UsedType>
+void TransferFunction<UsedType>::setLinearVectorPhi()
+{
+
+}
+
+template <class UsedType>
+void TransferFunction<UsedType>::setLinearVectorPhiEstimation()
+{
+
+}
+
 
 template <class UsedType>
 void TransferFunction<UsedType>::setTF(Polynom<UsedType> **TF,

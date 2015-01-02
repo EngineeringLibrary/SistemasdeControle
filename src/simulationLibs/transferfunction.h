@@ -24,7 +24,12 @@ public:
     Polynom<UsedType> operator()(unsigned row, unsigned col);
     void operator()(unsigned row, unsigned col, Polynom<UsedType> P);
     void operator= (TransferFunction<UsedType> TF);
-    void print(); // Método Opcional
+
+    void print();
+    void setLinearVectorPhi();
+    void setLinearVectorPhiEstimation();
+    void setLinearModel(Matrix<UsedType> Input, Matrix<UsedType> Output);
+
 
     void setTF(Polynom<UsedType> **TF, unsigned rows, unsigned cols);
     Polynom<UsedType> **getTF();

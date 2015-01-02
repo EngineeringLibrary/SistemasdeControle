@@ -1,15 +1,19 @@
-#include "src/simulationLibs/model.h"
-#include <src/simulationLibs/statespace.h>
-#include <src/simulationLibs/conversions.h>
-
-using namespace conversions;
+#include <src/simulationLibs/arx.h>
 
 int main(int argc, char *argv)
 {
+    Matrix<double> U, syspar;
+    U = "1;1;1;1;1;1;1;1;1;1";
+    syspar = "-1.809674836071920;0.818730753077982;0.004678840160444;0.004377076845618";
 
-    Matrix<double> A;
-    A = "-1,-1;1,0";
-    A.eigenvalues().print();
+    ARX<double> gz(2,2); // Construtor recebendo 2 parâmetros
+
+    gz.setModelCoef(syspar);
+    gz.sim(U).print();
+
+//    Matrix<double> A;
+//    A = "-1,-1;1,0";
+//    A.eigenvalues().print();
 //    double R = 2.7, L = 0.004, K = 0.105, b = 9.3e-6, j = 1e-5;
 //    Matrix<double> A,B,C,D;
 //    A(1,1,-R/L);   A(1,2,-K/L);

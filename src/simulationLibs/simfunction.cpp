@@ -13,6 +13,24 @@ void simFunction<UsedType>::print()
 }
 
 template <class UsedType>
+void simFunction<UsedType>::setLinearModel(Matrix<UsedType> Input, Matrix<UsedType> Output)
+{
+
+}
+
+template <class UsedType>
+void simFunction<UsedType>::setLinearVectorPhi()
+{
+
+}
+
+template <class UsedType>
+void simFunction<UsedType>::setLinearVectorPhiEstimation()
+{
+
+}
+
+template <class UsedType>
 UsedType simFunction<UsedType>::sim(UsedType input)
 {
     input = ((*this->FunctionToCall)(input));

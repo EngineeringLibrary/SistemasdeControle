@@ -27,12 +27,16 @@ public:
     Matrix<UsedType> getLinearEqualityB();
     Matrix<UsedType> getLinearVectorPhi();
 
-    virtual void print()=0;
     virtual UsedType         sim(UsedType x) = 0;
     virtual UsedType         sim(UsedType x, UsedType y) = 0;
     virtual Matrix<UsedType> sim(Matrix<UsedType> x) = 0;
     virtual Matrix<UsedType> sim(Matrix<UsedType> x, Matrix<UsedType> y) = 0;
     virtual Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step) = 0;
+
+    virtual void print()=0;
+    virtual void setLinearVectorPhi() = 0;
+    virtual void setLinearVectorPhiEstimation()=0;
+    virtual void setLinearModel(Matrix<UsedType> Input, Matrix<UsedType> Output)=0;
 
 };
 

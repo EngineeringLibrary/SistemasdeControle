@@ -16,8 +16,8 @@ ARX<UsedType>::ARX(unsigned nInputpar , unsigned nOutputpar,
     this->delay        = delay;
 
     this->Input.zeros (nInputpar, qdtInputVar);
-    this->EstOutput = this->Input;
     this->Output.zeros(nOutputpar,qdtOutputVar);
+    this->EstOutput = this->Output;
     this->nSample = delay + maxnInOut + 1;
 }
 
