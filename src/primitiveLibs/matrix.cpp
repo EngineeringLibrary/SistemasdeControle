@@ -775,118 +775,76 @@ Matrix<UsedType> Matrix<UsedType>::eigenvalues()//Encontra os Auto Valores da Ma
        else
            if (!this->ind(*this))
            {
-               Matrix<UsedType> A, Q, R, I;
-               UsedType lastElement, lastElementBackup;
-               unsigned j = 0;
+               Matrix<UsedType> A;
+               unsigned k = 0;
 
                A = *this;
 
-               lastElement = A(A.rows, A.cols);
-               lastElementBackup = A(A.rows, A.cols);
-
                for(unsigned i = 0; i < 100; i++)
                {
-                   if(i >= (100/2))
+                   if((A.rows == 0) && (A.cols == 0))
                    {
-                        if((A.rows == 0) && (A.cols == 0))
-                            break;
-                        I.eye(A.rows);
-                        (A - I*lastElement).QR(Q, R);
-                        A = R*Q + lastElement*I;
-                        lastElement = A(A.rows - 1, A.cols - 1);
+                       break;
+                   }
+                   else
+                   {
+                       Matrix<UsedType> Ai, I, Q, R;
+                       UsedType sum = 0;
 
+                       I.eye(A.rows);
 
-                        (A - I*lastElement).QR(Q, R);
-                        A = R*Q + I*lastElement;
-                        lastElement = A(A.rows, A.cols);
-                    }
-                    else
-                    {
-                        Matrix<UsedType> Ai;
+                       (A - A.Mat[A.rows - 1][A.cols -1]*I).QR(Q, R);
 
-                        if((A.rows == 0) && (A.cols == 0))
-                            break;
+                       Ai = R*Q + A.Mat[A.rows - 1][A.cols -1]*I;
 
-                        I.eye(A.rows);
-                        Ai.eye(A.rows);
+                       for(unsigned j = 0; j < Ai.cols - 1; j++)
+                       {
+                            sum += abs(Ai.Mat[Ai.rows - 1][j]);
+                       }
 
-                        for(unsigned k = 0; k < A.rows; k++)
-                        {
-                            lastElement = A.Mat[k][k];
-                            Ai = Ai*(A - (I*lastElement));
-                        }
+                       if(sum < 1e-30)
+                       {
+                           Matrix<UsedType> temp;
 
-                        ((A - I*lastElement)*(A - I*lastElementBackup)).QR(Q, R);
-                        A = ~Q*A*Q;
-                    }
+                           autovlr.Mat[k][0] = Ai.Mat[Ai.rows - 1][Ai.cols - 1];
 
-                    UsedType sum = 0;
+                           temp = Ai;
+                           A.zeros(A.rows - 1, A.cols -1);
 
-                    for(unsigned i = 0; i < A.cols - 1; i++)
-                    {
-                        sum += abs(A.Mat[A.rows-1][i]);
-                    }
+                           for(unsigned m = 0; m < A.rows; m++)
+                            for(unsigned n = 0; n < A.cols; n++)
+                           {
+                               A.Mat[m][n] = temp.Mat[m][n];
+                           }
 
-                    if(sum < 0.000001)
-                    {
-                        Matrix<UsedType> temp;
+                           k++;
 
-                        temp = A;
+                           A.print();
+                       }
+                       else
+                       {
+                           A = Ai;
+                       }
+                   }
+               }
 
-                        autovlr.Mat[j][0] = A(A.rows, A.cols);
-
-                        A.zeros(A.rows - 1, A.cols - 1);
-
-                        for(unsigned i = 0; i < A.rows; i++)
-                            for(unsigned k = 0; k < A.cols; k++)
-                            {
-                                A.Mat[i][k] = temp.Mat[i][j];
-                            }
-
-                        j++;
-                    }
-
-                    sum = 0;
-
-                    for(unsigned i = 0; i < A.rows; i++)
-                    {
-                        sum += abs(A.Mat[0][i]);
-                    }
-
-                    if(sum < 0.000001)
-                    {
-                        Matrix<UsedType> temp;
-
-                        autovlr.Mat[j][0] = A(A.rows, A.cols);
-
-                        temp = A;
-
-                        A.zeros(A.rows - 1, A.cols - 1);
-
-                        for(unsigned i = 0; i < A.rows; i++)
-                            for(unsigned j = 0; j < A.cols; j++)
-                            {
-                                A.Mat[i][j] = temp.Mat[temp.rows - 1][temp.cols - 1];
-                            }
-
-                        j++;
-                    }
-
-                    if((A.rows == 0) && (A.cols == 0))
-                        break;
-                    }
-
-                if(!(((A.rows == 0) && (A.cols == 0))))
-                {
-                    autovlr.Mat[j + 1][0] = A.trace()/2;
-                    autovlr.Mat[j + 1][1] = sqrt(abs(A.Mat[0][1] * A.Mat[1][0]));
-                    autovlr.Mat[j + 2][0] = A.trace()/2;
-                    autovlr.Mat[j + 2][1] = -sqrt(abs(A.Mat[0][1] * A.Mat[1][0]));
-                }
+               if((A.rows != 0) && (A.cols != 0))
+               {
+                   for(unsigned i = 0; i < autovlr.rows; i++)
+                   {
+                       if((autovlr.Mat[i][0] == 0) && (autovlr.Mat[i+1][0] == 0))
+                       {
+                           autovlr.Mat[i][0] = A.trace()/2;
+                           autovlr.Mat[i][1] = -sqrt(abs(A.Mat[0][1] * A.Mat[1][0]));
+                           autovlr.Mat[i + 1][0] = A.trace()/2;
+                           autovlr.Mat[i + 1][1] = sqrt(abs(A.Mat[0][1] * A.Mat[1][0]));
+                       }
+                   }
+               }
             }
             else
                for(unsigned i = 0; i < this->rows; i++ )
-                   autovlr.Mat[0][i] = 1;
+                   autovlr.Mat[i][0] = 1;
       }
 
     catch (const char* msg)
