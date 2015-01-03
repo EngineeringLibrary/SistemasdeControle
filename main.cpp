@@ -1,15 +1,22 @@
-#include <src/simulationLibs/arx.h>
+#include "src/simulationLibs/statespace.h"
+#include "src/simulationLibs/arx.h"
+#include "src/optimizationLibs/optimization.h"
+#include "src/optimizationLibs/leastsquare.h"
 
 int main(int argc, char *argv)
 {
-    Matrix<double> U, syspar;
-    U = "1;1;1;1;1;1;1;1;1;1";
-    syspar = "-1.809674836071920;0.818730753077982;0.004678840160444;0.004377076845618";
+    Matrix<double> A,B,C,D,u;
+    A = "-2,-1;1,0";
+    B = "0;1";  C = "0,1";  D = "0";
+    u = "1,2,3,-1,-3,8,8,8,1,1,1,1,1";
+    StateSpace<double> SS(A,B,C,D);
 
-    ARX<double> gz(2,2); // Construtor recebendo 2 parâmetros
-
-    gz.setModelCoef(syspar);
-    gz.sim(U).print();
+    ARX<double> gz(2,2);
+    gz.setLinearModel(~u,~SS.sim(u));
+    Optimization<double> *LS = new LeastSquare<double>(&gz);
+    LS->Optimize();
+    LS->getOptimizatedVariable().print();
+    return 0;
 
 //    Matrix<double> A;
 //    A = "-1,-1;1,0";
