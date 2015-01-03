@@ -766,7 +766,7 @@ Matrix<UsedType> Matrix<UsedType>::pol()//Encontra os Índices do Polinômio Car
 template <class UsedType>
 Matrix<UsedType> Matrix<UsedType>::eigenvalues()//Encontra os Auto Valores da Matriz.
 {
-    Matrix<UsedType> autovlr(1, this->rows);
+    Matrix<UsedType> autovlr(this->rows, 2);
 
     try
     {
@@ -774,50 +774,119 @@ Matrix<UsedType> Matrix<UsedType>::eigenvalues()//Encontra os Auto Valores da Ma
            throw "A matrix não é quadrada";
        else
            if (!this->ind(*this))
-       {
-                   Matrix<UsedType> Q, temp, R, A = *this;
-                   UsedType max = 1000;
+           {
+               Matrix<UsedType> A, Q, R, I;
+               UsedType lastElement, lastElementBackup;
+               unsigned j = 0;
 
-                   Q.eye(this->rows);
-                   R.eye(this->rows);
-                   unsigned cont = 0;
-                   while (max > 1e-40 && cont < 3000)
+               A = *this;
+
+               lastElement = A(A.rows, A.cols);
+               lastElementBackup = A(A.rows, A.cols);
+
+               for(unsigned i = 0; i < 100; i++)
+               {
+                   if(i >= (100/2))
                    {
-                       for(unsigned i = 0; i < this->rows; i++ )
-                           for(unsigned j = i+1; j<this->rows; j++)
-                               {
-                                        temp.eye(this->rows);
-                                        if (A.Mat[i][j] != 0)
-                                        {
-                                            temp.Mat[i][i] = (A.Mat[i][i])/sqrt(pow(A.Mat[i][i],2) + pow(A.Mat[i][j],2));
-                                            temp.Mat[j][j] = temp.Mat[i][i];
-                                            temp.Mat[i][j] = (A.Mat[i][j])/sqrt(pow(A.Mat[i][i],2) + pow(A.Mat[i][j],2));
-                                            temp.Mat[j][i] = - temp.Mat[i][j];
-                                        }
-                                       R = temp*A;
-                                       A = R*(~temp);
-                           }
-                       for(unsigned i = 0; i < this->rows; i++ )
-                           for(unsigned j = i+1; j< this->rows; j++)
-                           {
-                               if ((A.Mat[i][j] > 0) && (A.Mat[i][j]) < max)
-                                   max = A.Mat[i][j];
-                               else if((A.Mat[i][j] < 0) && (-1*A.Mat[i][j]) < max)
-                                   max = -1*(A.Mat[i][j]);
-                           }
-                       cont++;
+                        if((A.rows == 0) && (A.cols == 0))
+                            break;
+                        I.eye(A.rows);
+                        (A - I*lastElement).QR(Q, R);
+                        A = R*Q + lastElement*I;
+                        lastElement = A(A.rows - 1, A.cols - 1);
+
+
+                        (A - I*lastElement).QR(Q, R);
+                        A = R*Q + I*lastElement;
+                        lastElement = A(A.rows, A.cols);
                     }
-                   for(unsigned i = 0; i < this->rows; i++ )
-                       for(unsigned j = 0; j< this->rows; j++)
-                           if (i == j)
-                                autovlr.Mat[0][i] = A.Mat[i][j];
-                   Q.print();
-                   R.print();
-       }
+                    else
+                    {
+                        Matrix<UsedType> Ai;
+
+                        if((A.rows == 0) && (A.cols == 0))
+                            break;
+
+                        I.eye(A.rows);
+                        Ai.eye(A.rows);
+
+                        for(unsigned k = 0; k < A.rows; k++)
+                        {
+                            lastElement = A.Mat[k][k];
+                            Ai = Ai*(A - (I*lastElement));
+                        }
+
+                        ((A - I*lastElement)*(A - I*lastElementBackup)).QR(Q, R);
+                        A = ~Q*A*Q;
+                    }
+
+                    UsedType sum = 0;
+
+                    for(unsigned i = 0; i < A.cols - 1; i++)
+                    {
+                        sum += abs(A.Mat[A.rows-1][i]);
+                    }
+
+                    if(sum < 0.000001)
+                    {
+                        Matrix<UsedType> temp;
+
+                        temp = A;
+
+                        autovlr.Mat[j][0] = A(A.rows, A.cols);
+
+                        A.zeros(A.rows - 1, A.cols - 1);
+
+                        for(unsigned i = 0; i < A.rows; i++)
+                            for(unsigned k = 0; k < A.cols; k++)
+                            {
+                                A.Mat[i][k] = temp.Mat[i][j];
+                            }
+
+                        j++;
+                    }
+
+                    sum = 0;
+
+                    for(unsigned i = 0; i < A.rows; i++)
+                    {
+                        sum += abs(A.Mat[0][i]);
+                    }
+
+                    if(sum < 0.000001)
+                    {
+                        Matrix<UsedType> temp;
+
+                        autovlr.Mat[j][0] = A(A.rows, A.cols);
+
+                        temp = A;
+
+                        A.zeros(A.rows - 1, A.cols - 1);
+
+                        for(unsigned i = 0; i < A.rows; i++)
+                            for(unsigned j = 0; j < A.cols; j++)
+                            {
+                                A.Mat[i][j] = temp.Mat[temp.rows - 1][temp.cols - 1];
+                            }
+
+                        j++;
+                    }
+
+                    if((A.rows == 0) && (A.cols == 0))
+                        break;
+                    }
+
+                if(!(((A.rows == 0) && (A.cols == 0))))
+                {
+                    autovlr.Mat[j + 1][0] = A.trace()/2;
+                    autovlr.Mat[j + 1][1] = sqrt(abs(A.Mat[0][1] * A.Mat[1][0]));
+                    autovlr.Mat[j + 2][0] = A.trace()/2;
+                    autovlr.Mat[j + 2][1] = -sqrt(abs(A.Mat[0][1] * A.Mat[1][0]));
+                }
+            }
             else
                for(unsigned i = 0; i < this->rows; i++ )
                    autovlr.Mat[0][i] = 1;
-
       }
 
     catch (const char* msg)
