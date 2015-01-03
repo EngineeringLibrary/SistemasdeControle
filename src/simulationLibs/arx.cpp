@@ -71,7 +71,7 @@ void ARX<UsedType>::setLinearModel(Matrix<UsedType> Input,
 {
     this->Input  = this->Input||Input;
     this->Output = this->Output||Output;
-    for(nSample = delay + maxnInOut + 1; nSample <= this->Input.getRows(); nSample++)
+    for(nSample = delay + maxnInOut + 1; nSample <= this->Output.getRows(); nSample++)
     {
 //        if(nSample == delay + maxnInOut + 1)
 //        {
