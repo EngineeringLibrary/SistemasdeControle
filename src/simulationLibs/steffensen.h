@@ -44,6 +44,17 @@ public:
                 return 0;
            }
         \endcode
+
+    Resultado:
+
+        \code
+            0.866874
+        \endcode
+
+    Ver também:
+
+    \sa fzero, newton, bisseccao, cordas;
+
 */
    steffensen(Model<UsedType> *f): FZero<UsedType>(f){}
 
