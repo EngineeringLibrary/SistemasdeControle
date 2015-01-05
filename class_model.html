@@ -579,12 +579,12 @@ template&lt;class UsedType&gt; </div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="class_a_r_x.html">ARX&lt;double&gt;</a> gz(2,2);</div>
 <div class="line">    gz.setLinearModel(~u,~SS.sim(u));</div>
-<div class="line">    Optimization&lt;double&gt; *LS = <span class="keyword">new</span> LeastSquare&lt;double&gt;(&amp;gz);</div>
-<div class="line">    LS-&gt;Optimize();</div>
-<div class="line">    LS-&gt;getOptimizatedVariable().print();</div>
+<div class="line">    <a class="code" href="class_optimization.html">Optimization&lt;double&gt;</a> *LS = <span class="keyword">new</span> LeastSquare&lt;double&gt;(&amp;gz);</div>
+<div class="line">    LS-&gt;<a class="code" href="class_optimization.html#a1ece927f88429f4c44530b840ab57a96">Optimize</a>();</div>
+<div class="line">    LS-&gt;<a class="code" href="class_optimization.html#a5fc47eccf0176ccd86df03f59445c25b">getOptimizatedVariable</a>().<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = <span class="keyword">new</span> <a class="code" href="class_a_r_x.html">ARX&lt;double&gt;</a>(2,2);</div>
-<div class="line">    model-&gt;<a class="code" href="class_model.html#af9946deebc9e2f25f438e9a9bb2c08fe">setModelCoef</a>(LS-&gt;getOptimizatedVariable());</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#af9946deebc9e2f25f438e9a9bb2c08fe">setModelCoef</a>(LS-&gt;<a class="code" href="class_optimization.html#a5fc47eccf0176ccd86df03f59445c25b">getOptimizatedVariable</a>());</div>
 <div class="line">    model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(~u).print();</div>
 <div class="line"></div>
 <div class="line">    model-&gt;<a class="code" href="class_model.html#a376157f1c86ab267b1330283926ee87a">getModelCoef</a>().<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
@@ -851,12 +851,12 @@ template&lt;class UsedType&gt; </div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="class_a_r_x.html">ARX&lt;double&gt;</a> gz(2,2);</div>
 <div class="line">    gz.setLinearModel(~u,~SS.sim(u));</div>
-<div class="line">    Optimization&lt;double&gt; *LS = <span class="keyword">new</span> LeastSquare&lt;double&gt;(&amp;gz);</div>
-<div class="line">    LS-&gt;Optimize();</div>
-<div class="line">    LS-&gt;getOptimizatedVariable().print();</div>
+<div class="line">    <a class="code" href="class_optimization.html">Optimization&lt;double&gt;</a> *LS = <span class="keyword">new</span> LeastSquare&lt;double&gt;(&amp;gz);</div>
+<div class="line">    LS-&gt;<a class="code" href="class_optimization.html#a1ece927f88429f4c44530b840ab57a96">Optimize</a>();</div>
+<div class="line">    LS-&gt;<a class="code" href="class_optimization.html#a5fc47eccf0176ccd86df03f59445c25b">getOptimizatedVariable</a>().<a class="code" href="class_matrix.html#a8be0b3971f4de1190a687ce5f096f99a">print</a>();</div>
 <div class="line"></div>
 <div class="line">    <a class="code" href="class_model.html">Model&lt;double&gt;</a> *model = <span class="keyword">new</span> <a class="code" href="class_a_r_x.html">ARX&lt;double&gt;</a>(2,2);</div>
-<div class="line">    model-&gt;<a class="code" href="class_model.html#af9946deebc9e2f25f438e9a9bb2c08fe">setModelCoef</a>(LS-&gt;getOptimizatedVariable());</div>
+<div class="line">    model-&gt;<a class="code" href="class_model.html#af9946deebc9e2f25f438e9a9bb2c08fe">setModelCoef</a>(LS-&gt;<a class="code" href="class_optimization.html#a5fc47eccf0176ccd86df03f59445c25b">getOptimizatedVariable</a>());</div>
 <div class="line">    model-&gt;<a class="code" href="class_model.html#a5c56d54e2f1e548e62c901aa443e662d">sim</a>(~u).print();</div>
 <div class="line"></div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
@@ -1488,7 +1488,7 @@ template&lt;class UsedType&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 2 de Janeiro de 2015 16:39:54 para Sistemas de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Domingo, 4 de Janeiro de 2015 22:50:00 para Sistemas de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

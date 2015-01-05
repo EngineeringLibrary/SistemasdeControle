@@ -7,6 +7,8 @@ var searchData=
   ['acosh',['acosh',['../class_matrix.html#a4a7eba8985cfbe0c586b9be768151ad3',1,'Matrix']]],
   ['ad',['Ad',['../class_state_space.html#a731abc32a2ecec7646e782516da12365',1,'StateSpace']]],
   ['add',['add',['../class_matrix.html#ace0929e1bfa81bcbd359ee3f96c0f4d8',1,'Matrix']]],
+  ['addrestrictionsequality',['AddRestrictionsEquality',['../class_optimization.html#a075e234f2e31f4515655d21f5a784dbb',1,'Optimization']]],
+  ['addrestrictionsinequality',['AddRestrictionsInequality',['../class_optimization.html#a511bb49147b4be2fdd3a06f3aa9d83f0',1,'Optimization']]],
   ['antreset',['antReset',['../class_p_i_d.html#a7bf4a091ca23d127c8e4167c6ac4c3b5',1,'PID']]],
   ['arx',['ARX',['../class_a_r_x.html',1,'ARX&lt; UsedType &gt;'],['../class_a_r_x.html#a66503d0cbead1d2639520b7094667ffe',1,'ARX::ARX()']]],
   ['arx_2eh',['arx.h',['../arx_8h.html',1,'']]],

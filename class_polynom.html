@@ -95,6 +95,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 </div><!--header-->
 <div class="contents">
 
+<p>Classe responsável por criar e efetuar operações com polinômios.  
+ <a href="class_polynom.html#details">Mais...</a></p>
+
 <p><code>#include &lt;<a class="el" href="polynom_8h_source.html">polynom.h</a>&gt;</code></p>
 <div class="dynheader">
 Diagrama de colaboração para Polynom&lt; TypeOfClass &gt;:</div>
@@ -105,67 +108,96 @@ Diagrama de colaboração para Polynom&lt; TypeOfClass &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
 <tr class="memitem:a9385d1cd152f3edda6c3d9fabd5ee714"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a9385d1cd152f3edda6c3d9fabd5ee714">Polynom</a> ()</td></tr>
+<tr class="memdesc:a9385d1cd152f3edda6c3d9fabd5ee714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão da biblioteca polynomio.  <a href="#a9385d1cd152f3edda6c3d9fabd5ee714">Mais...</a><br /></td></tr>
 <tr class="separator:a9385d1cd152f3edda6c3d9fabd5ee714"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8599887a4cd1ed52be870191ef6fa703"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a8599887a4cd1ed52be870191ef6fa703">Polynom</a> (int Num)</td></tr>
+<tr class="memdesc:a8599887a4cd1ed52be870191ef6fa703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que recebe como parâmetro um valor inteiro.  <a href="#a8599887a4cd1ed52be870191ef6fa703">Mais...</a><br /></td></tr>
 <tr class="separator:a8599887a4cd1ed52be870191ef6fa703"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44c35ae93ecdd6f978784ca642507e0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a44c35ae93ecdd6f978784ca642507e0e">Polynom</a> (int Num, int Den)</td></tr>
+<tr class="memdesc:a44c35ae93ecdd6f978784ca642507e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor recebe como parâmetro dois valores inteiros.  <a href="#a44c35ae93ecdd6f978784ca642507e0e">Mais...</a><br /></td></tr>
 <tr class="separator:a44c35ae93ecdd6f978784ca642507e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e6323738c6ad112ed6595ec9560517c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a7e6323738c6ad112ed6595ec9560517c">Polynom</a> (std::string Num)</td></tr>
+<tr class="memdesc:a7e6323738c6ad112ed6595ec9560517c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que recebe como parâmetro uma string.  <a href="#a7e6323738c6ad112ed6595ec9560517c">Mais...</a><br /></td></tr>
 <tr class="separator:a7e6323738c6ad112ed6595ec9560517c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ce083fa7e44f9a44bb7480435db7f32"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a9ce083fa7e44f9a44bb7480435db7f32">Polynom</a> (std::string Num, std::string Den)</td></tr>
+<tr class="memdesc:a9ce083fa7e44f9a44bb7480435db7f32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que recebe como parâmetro duas strings.  <a href="#a9ce083fa7e44f9a44bb7480435db7f32">Mais...</a><br /></td></tr>
 <tr class="separator:a9ce083fa7e44f9a44bb7480435db7f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9548632447296846ef6f458a375e3181"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a9548632447296846ef6f458a375e3181">Polynom</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; Num, <a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; Den)</td></tr>
+<tr class="memdesc:a9548632447296846ef6f458a375e3181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que recebe duas matrizes como parâmetro.  <a href="#a9548632447296846ef6f458a375e3181">Mais...</a><br /></td></tr>
 <tr class="separator:a9548632447296846ef6f458a375e3181"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4024baeeed368df0608049860b6fef74"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a4024baeeed368df0608049860b6fef74">Polynom</a> (const <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; &amp;CopyPolynom)</td></tr>
+<tr class="memdesc:a4024baeeed368df0608049860b6fef74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor de cópia da classe.  <a href="#a4024baeeed368df0608049860b6fef74">Mais...</a><br /></td></tr>
 <tr class="separator:a4024baeeed368df0608049860b6fef74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac63320040c062bee44970e1079dff03d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ac63320040c062bee44970e1079dff03d">~Polynom</a> ()</td></tr>
+<tr class="memdesc:ac63320040c062bee44970e1079dff03d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor padrão da classe.  <a href="#ac63320040c062bee44970e1079dff03d">Mais...</a><br /></td></tr>
 <tr class="separator:ac63320040c062bee44970e1079dff03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c29f5c0fe687aa153907a77c4c70971"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a4c29f5c0fe687aa153907a77c4c70971">operator+</a> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memdesc:a4c29f5c0fe687aa153907a77c4c70971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador + para a soma entre polinômios.  <a href="#a4c29f5c0fe687aa153907a77c4c70971">Mais...</a><br /></td></tr>
 <tr class="separator:a4c29f5c0fe687aa153907a77c4c70971"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeccc4cd47f6cfc929d892cc478866c45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#aeccc4cd47f6cfc929d892cc478866c45">operator+</a> (TypeOfClass scalar)</td></tr>
+<tr class="memdesc:aeccc4cd47f6cfc929d892cc478866c45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador + para a soma entre um polinômio e scalar.  <a href="#aeccc4cd47f6cfc929d892cc478866c45">Mais...</a><br /></td></tr>
 <tr class="separator:aeccc4cd47f6cfc929d892cc478866c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a3852abf46e5f15ffadaa5a345485f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a3a3852abf46e5f15ffadaa5a345485f4">operator-</a> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memdesc:a3a3852abf46e5f15ffadaa5a345485f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador - para a subtração entre polinômios.  <a href="#a3a3852abf46e5f15ffadaa5a345485f4">Mais...</a><br /></td></tr>
 <tr class="separator:a3a3852abf46e5f15ffadaa5a345485f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e33bc9a2bb768d1ba7527b903945d7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a1e33bc9a2bb768d1ba7527b903945d7a">operator-</a> (TypeOfClass scalar)</td></tr>
+<tr class="memdesc:a1e33bc9a2bb768d1ba7527b903945d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador - para a subtração entre polinômio e scalar.  <a href="#a1e33bc9a2bb768d1ba7527b903945d7a">Mais...</a><br /></td></tr>
 <tr class="separator:a1e33bc9a2bb768d1ba7527b903945d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30758012fb9ff4f04bbd907cbcdb4ae0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a30758012fb9ff4f04bbd907cbcdb4ae0">operator*</a> (TypeOfClass scalar)</td></tr>
+<tr class="memdesc:a30758012fb9ff4f04bbd907cbcdb4ae0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador * para a multiplicação entre polinômios.  <a href="#a30758012fb9ff4f04bbd907cbcdb4ae0">Mais...</a><br /></td></tr>
 <tr class="separator:a30758012fb9ff4f04bbd907cbcdb4ae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4103a2415e86fb37faf00c670e2f88c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ae4103a2415e86fb37faf00c670e2f88c">operator*</a> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memdesc:ae4103a2415e86fb37faf00c670e2f88c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador * para a multiplicação entre polinômio e scalar.  <a href="#ae4103a2415e86fb37faf00c670e2f88c">Mais...</a><br /></td></tr>
 <tr class="separator:ae4103a2415e86fb37faf00c670e2f88c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15cda48d64f2feda1ae700c15a5229e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a15cda48d64f2feda1ae700c15a5229e8">operator/</a> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memdesc:a15cda48d64f2feda1ae700c15a5229e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador / para a divisão entre polinômios.  <a href="#a15cda48d64f2feda1ae700c15a5229e8">Mais...</a><br /></td></tr>
 <tr class="separator:a15cda48d64f2feda1ae700c15a5229e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ef36aa8100e34e703e027ff1c62ed38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a8ef36aa8100e34e703e027ff1c62ed38">operator/</a> (TypeOfClass scalar)</td></tr>
+<tr class="memdesc:a8ef36aa8100e34e703e027ff1c62ed38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador / para a divisão entre polinômio e scalar.  <a href="#a8ef36aa8100e34e703e027ff1c62ed38">Mais...</a><br /></td></tr>
 <tr class="separator:a8ef36aa8100e34e703e027ff1c62ed38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a4f41e1aabc14cd7e7e92135abbe21e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a1a4f41e1aabc14cd7e7e92135abbe21e">operator=</a> (<a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memdesc:a1a4f41e1aabc14cd7e7e92135abbe21e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operador de atribuição entre polinômios.  <a href="#a1a4f41e1aabc14cd7e7e92135abbe21e">Mais...</a><br /></td></tr>
 <tr class="separator:a1a4f41e1aabc14cd7e7e92135abbe21e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a428b7c4b0fe1ffc576d40a9040be29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a1a428b7c4b0fe1ffc576d40a9040be29">operator^</a> (int scalar)</td></tr>
+<tr class="memdesc:a1a428b7c4b0fe1ffc576d40a9040be29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador ^ para obter a potenciação de polinômios.  <a href="#a1a428b7c4b0fe1ffc576d40a9040be29">Mais...</a><br /></td></tr>
 <tr class="separator:a1a428b7c4b0fe1ffc576d40a9040be29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15e2d194fabe8d6a9e0fcda9fd6237cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a15e2d194fabe8d6a9e0fcda9fd6237cb">setNum</a> (TypeOfClass *Num, int sizenum)</td></tr>
+<tr class="memdesc:a15e2d194fabe8d6a9e0fcda9fd6237cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserir um vetor de numerador ao polinômio.  <a href="#a15e2d194fabe8d6a9e0fcda9fd6237cb">Mais...</a><br /></td></tr>
 <tr class="separator:a15e2d194fabe8d6a9e0fcda9fd6237cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a279fd09569799e6940a9454c96641027"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a279fd09569799e6940a9454c96641027">setDen</a> (TypeOfClass *Den, int sizeden)</td></tr>
+<tr class="memdesc:a279fd09569799e6940a9454c96641027"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserir um vetor de denominador ao polinômio.  <a href="#a279fd09569799e6940a9454c96641027">Mais...</a><br /></td></tr>
 <tr class="separator:a279fd09569799e6940a9454c96641027"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a314d977344ac66806d49f28e6d27a525"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a314d977344ac66806d49f28e6d27a525">setVar</a> (char var)</td></tr>
 <tr class="separator:a314d977344ac66806d49f28e6d27a525"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e026a97228450f69e04102aa378e79c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a3e026a97228450f69e04102aa378e79c">getNum</a> ()</td></tr>
+<tr class="memdesc:a3e026a97228450f69e04102aa378e79c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o vetor com os valores do numerador.  <a href="#a3e026a97228450f69e04102aa378e79c">Mais...</a><br /></td></tr>
 <tr class="separator:a3e026a97228450f69e04102aa378e79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac052900df491e115a39e543153435035"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ac052900df491e115a39e543153435035">getDen</a> ()</td></tr>
+<tr class="memdesc:ac052900df491e115a39e543153435035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna o vetor com os valores do denominador.  <a href="#ac052900df491e115a39e543153435035">Mais...</a><br /></td></tr>
 <tr class="separator:ac052900df491e115a39e543153435035"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6c7ef73abea2d67e8919cf538e92217"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ad6c7ef73abea2d67e8919cf538e92217">print</a> ()</td></tr>
+<tr class="memdesc:ad6c7ef73abea2d67e8919cf538e92217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exibe o polinômio.  <a href="#ad6c7ef73abea2d67e8919cf538e92217">Mais...</a><br /></td></tr>
 <tr class="separator:ad6c7ef73abea2d67e8919cf538e92217"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Métodos Privados</h2></td></tr>
 <tr class="memitem:ab167990fe1e52cd84611a48f7e458235"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ab167990fe1e52cd84611a48f7e458235">init</a> (int NumSize)</td></tr>
+<tr class="memdesc:ab167990fe1e52cd84611a48f7e458235"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método de inicialização do polinômio.  <a href="#ab167990fe1e52cd84611a48f7e458235">Mais...</a><br /></td></tr>
 <tr class="separator:ab167990fe1e52cd84611a48f7e458235"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4831c193ec9ac42ecd75232bcf502d49"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a4831c193ec9ac42ecd75232bcf502d49">init</a> (int NumSize, int DenSize)</td></tr>
+<tr class="memdesc:a4831c193ec9ac42ecd75232bcf502d49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método de inicilização do polinômio.  <a href="#a4831c193ec9ac42ecd75232bcf502d49">Mais...</a><br /></td></tr>
 <tr class="separator:a4831c193ec9ac42ecd75232bcf502d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52a7f7d6ed4d51673d82ab11227af2b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a52a7f7d6ed4d51673d82ab11227af2b3">init</a> (std::string Num)</td></tr>
+<tr class="memdesc:a52a7f7d6ed4d51673d82ab11227af2b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método de inicialização de um polinômio usando carácteres.  <a href="#a52a7f7d6ed4d51673d82ab11227af2b3">Mais...</a><br /></td></tr>
 <tr class="separator:a52a7f7d6ed4d51673d82ab11227af2b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a386fc0566cde36536cb25448b46ae91f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a386fc0566cde36536cb25448b46ae91f">init</a> (std::string Num, string Den)</td></tr>
+<tr class="memdesc:a386fc0566cde36536cb25448b46ae91f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método de inicialização de um polinômio usando carácteres.  <a href="#a386fc0566cde36536cb25448b46ae91f">Mais...</a><br /></td></tr>
 <tr class="separator:a386fc0566cde36536cb25448b46ae91f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad909f355f6aa903ab79a5bc75367c90d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#ad909f355f6aa903ab79a5bc75367c90d">init</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; Num, <a class="el" href="class_matrix.html">Matrix</a>&lt; TypeOfClass &gt; Den)</td></tr>
+<tr class="memdesc:ad909f355f6aa903ab79a5bc75367c90d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método de inicialização de um polinômio usando matriz.  <a href="#ad909f355f6aa903ab79a5bc75367c90d">Mais...</a><br /></td></tr>
 <tr class="separator:ad909f355f6aa903ab79a5bc75367c90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e51895837e3a7582a559888547aac2a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a1e51895837e3a7582a559888547aac2a">VefDen</a> (TypeOfClass *den1, TypeOfClass *den2, int sizeden1, int sizeden2)</td></tr>
+<tr class="memdesc:a1e51895837e3a7582a559888547aac2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Método responsável por verificar se é possivel efetuar a soma dos polinômios.  <a href="#a1e51895837e3a7582a559888547aac2a">Mais...</a><br /></td></tr>
 <tr class="separator:a1e51895837e3a7582a559888547aac2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd7601bbf073163284a48068f5f4becb"><td class="memItemLeft" align="right" valign="top">TypeOfClass *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#abd7601bbf073163284a48068f5f4becb">initPointer</a> (int Size)</td></tr>
 <tr class="separator:abd7601bbf073163284a48068f5f4becb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,20 +224,36 @@ Atributos Privados</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Amigas</h2></td></tr>
 <tr class="memitem:aeba51d0a91379442deae8bb169eb6f1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#aeba51d0a91379442deae8bb169eb6f1b">operator+</a> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memdesc:aeba51d0a91379442deae8bb169eb6f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador+ para a soma entre escalar e polinômio.  <a href="#aeba51d0a91379442deae8bb169eb6f1b">Mais...</a><br /></td></tr>
 <tr class="separator:aeba51d0a91379442deae8bb169eb6f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a789f4f5de4a98f0aedd2aeb386e21009"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a789f4f5de4a98f0aedd2aeb386e21009">operator-</a> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memdesc:a789f4f5de4a98f0aedd2aeb386e21009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador- para a subtração entre escalar e polinômio.  <a href="#a789f4f5de4a98f0aedd2aeb386e21009">Mais...</a><br /></td></tr>
 <tr class="separator:a789f4f5de4a98f0aedd2aeb386e21009"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbe2906590ebb11e8d868078c1a0a3f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#adbe2906590ebb11e8d868078c1a0a3f6">operator*</a> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memdesc:adbe2906590ebb11e8d868078c1a0a3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador* para a multiplicação entre escalar e polinômio.  <a href="#adbe2906590ebb11e8d868078c1a0a3f6">Mais...</a><br /></td></tr>
 <tr class="separator:adbe2906590ebb11e8d868078c1a0a3f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1626c7da399106ef01636d21698dc2a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_polynom.html#a1626c7da399106ef01636d21698dc2a9">operator/</a> (TypeOfClass scalar, <a class="el" href="class_polynom.html">Polynom</a>&lt; TypeOfClass &gt; P)</td></tr>
+<tr class="memdesc:a1626c7da399106ef01636d21698dc2a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador/ para a divisão entre escalar e polinômio.  <a href="#a1626c7da399106ef01636d21698dc2a9">Mais...</a><br /></td></tr>
 <tr class="separator:a1626c7da399106ef01636d21698dc2a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
 <div class="textblock"><h3>template&lt;class TypeOfClass&gt;<br />
 class Polynom&lt; TypeOfClass &gt;</h3>
 
+<p>Classe responsável por criar e efetuar operações com polinômios. </p>
+<p>Classe que gerencia polinômios, tais como as suas operações e propriedades.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sizeNum</td><td></td></tr>
+    <tr><td class="paramname">sizeDen</td><td></td></tr>
+    <tr><td class="paramname">*num</td><td></td></tr>
+    <tr><td class="paramname">*den</td><td></td></tr>
+    <tr><td class="paramname">x</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00010">10</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00020">20</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
 </div><h2 class="groupheader">Construtores &amp; Destrutores</h2>
 <a class="anchor" id="a9385d1cd152f3edda6c3d9fabd5ee714"></a>
 <div class="memitem">
@@ -221,6 +269,10 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construtor padrão da biblioteca polynomio. </p>
+<p>O construtor padrão permite que um objeto do tipo <a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> seja criado.</p>
+<p><a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> </p>
 
 </div>
 </div>
@@ -239,6 +291,15 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construtor que recebe como parâmetro um valor inteiro. </p>
+<p>O construtor permite que um objeto do tipo <a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> seja criado com o valor do numerador.</p>
+<p><a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Num</td><td>È uma váriavel do tipo inteiro que recebe o valor do numerador. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -268,6 +329,16 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Construtor recebe como parâmetro dois valores inteiros. </p>
+<p>Inicializa um polinômio com os valores do numerador e denominador.</p>
+<p><a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Num</td><td>È uma váriavel do tipo inteiro que recebe o valor do numerador </td></tr>
+    <tr><td class="paramname">Den</td><td>È uma váriavel do tipo inteiro que recebe o valor do denominador </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a7e6323738c6ad112ed6595ec9560517c"></a>
@@ -285,6 +356,15 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construtor que recebe como parâmetro uma string. </p>
+<p>Inicializa um objeto do tipo <a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> convertendo uma string(valor númerico) em um valor inteiro para o numerador.</p>
+<p><a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Num</td><td>Cadeia de carácteres que define o valor do numerador. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -314,6 +394,16 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Construtor que recebe como parâmetro duas strings. </p>
+<p>Inicializa um objeto do tipo <a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> convertendo as strings(valores númericos) em dois valores inteiros para o numerador e denominador.</p>
+<p><a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Num</td><td>Cadeia de carácteres que define o valor do numerador. </td></tr>
+    <tr><td class="paramname">Den</td><td>Cadeia de carácteres que defina o valor do denominador. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a9548632447296846ef6f458a375e3181"></a>
@@ -342,6 +432,16 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Construtor que recebe duas matrizes como parâmetro. </p>
+<p>Inicializa um objeto do tipo <a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> usando matrizes como valores para o numerador e denominador.</p>
+<p><a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Num</td><td>Matriz com os valores do numerador. </td></tr>
+    <tr><td class="paramname">Den</td><td>Matriz com os valores do denominador. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a4024baeeed368df0608049860b6fef74"></a>
@@ -360,6 +460,15 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Construtor de cópia da classe. </p>
+<p>Construtor de cópia da classe, gerencia as aplicações de memória da classe.</p>
+<p><a class="el" href="class_polynom.html" title="Classe responsável por criar e efetuar operações com polinômios. ">Polynom</a> </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">CopyPolynom</td><td>Recebe como parâmetro uma cópia do polinômio. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="ac63320040c062bee44970e1079dff03d"></a>
@@ -376,6 +485,9 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destrutor padrão da classe. </p>
+<p>Libera todas as memórias alocadas durante a execução de objetos da classe. OBS: Este Destrutor não tem exemplo associado. Funciona implícitamente. </p>
 
 </div>
 </div>
@@ -395,6 +507,10 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Retorna o vetor com os valores do denominador. </p>
+<p>Função responsável por pegar o vetor de denominador do polinômio.</p>
+<p>getDen </p>
+
 </div>
 </div>
 <a class="anchor" id="a3e026a97228450f69e04102aa378e79c"></a>
@@ -411,6 +527,10 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retorna o vetor com os valores do numerador. </p>
+<p>Função responsável por pegar o vetor de numerador do polinômio.</p>
+<p>getNum </p>
 
 </div>
 </div>
@@ -437,6 +557,15 @@ template&lt;class TypeOfClass&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Método de inicialização do polinômio. </p>
+<p>Inicializa o polinômio com o tamanho do numerador.</p>
+<p>init </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">NumSize</td><td>Tamanho máximo do numerador. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -474,6 +603,16 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Método de inicilização do polinômio. </p>
+<p>Inicializa o polinômio com o tamanho do numerador e denominador.</p>
+<p>init </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">NumSize</td><td>Tamanho máximo do numerador. </td></tr>
+    <tr><td class="paramname">DenSize</td><td>Tamanho máximo do denominador. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a52a7f7d6ed4d51673d82ab11227af2b3"></a>
@@ -499,6 +638,15 @@ template&lt;class TypeOfClass&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Método de inicialização de um polinômio usando carácteres. </p>
+<p>Inicializa o polinômio com o tamanho do numerador sendo convertido de um carácter(númerica) para um valor inteiro.</p>
+<p>init </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Num</td><td>Carácter que define o tamanho do numerador. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -536,6 +684,16 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Método de inicialização de um polinômio usando carácteres. </p>
+<p>Inicializa o polinômio com o tamanho do numerador e denominador de dois carácteres(númericas) para dois valores inteiros.</p>
+<p>init </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Num</td><td>Carácter que define o tamanho do numerador. </td></tr>
+    <tr><td class="paramname">Den</td><td>Carácter que define o tamanho do denominador. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="ad909f355f6aa903ab79a5bc75367c90d"></a>
@@ -572,6 +730,16 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Método de inicialização de um polinômio usando matriz. </p>
+<p>Inicializa o polinômio com o tamanho do numerador e denominador sendo duas matrizes.</p>
+<p>init </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Num</td><td>Matriz de numerador. </td></tr>
+    <tr><td class="paramname">Den</td><td>Matriz de denominador. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="abd7601bbf073163284a48068f5f4becb"></a>
@@ -597,6 +765,14 @@ template&lt;class TypeOfClass&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p></p>
+<p>initPointer </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Size</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -646,6 +822,17 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p></p>
+<p>MultPoly </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value1</td><td></td></tr>
+    <tr><td class="paramname">value2</td><td></td></tr>
+    <tr><td class="paramname">SizeValue1</td><td></td></tr>
+    <tr><td class="paramname">SizeValue2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a30758012fb9ff4f04bbd907cbcdb4ae0"></a>
@@ -663,6 +850,15 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sobrecarga do operador * para a multiplicação entre polinômios. </p>
+<p>O método é uma sobrecarga do operador *. Ele simplifica a soma entre polinômios. O método realiza a soma de um polinõmio a direita(this) e um polinômio (P) a esquerda do operador *.</p>
+<p>operator * </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>É um scalar a ser multiplicado ao polinômio(this). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -682,6 +878,15 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sobrecarga do operador * para a multiplicação entre polinômio e scalar. </p>
+<p>O método é uma sobrecarga do operador *. Ele simplifica a soma entre polinômios. O método realiza a soma de um polinômio a direita(this) e um escalar (P) a esquerda do operador *.</p>
+<p>operator * </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">P</td><td>Polinômio a ser multiplicado com o polinômio this. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a4c29f5c0fe687aa153907a77c4c70971"></a>
@@ -699,6 +904,15 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sobrecarga do operador + para a soma entre polinômios. </p>
+<p>O método é uma sobrecarga do operador +. Ele simplifica a soma entre polinômios. O método realiza a soma de um polinômio a direita(this) e um polinômio (P) a esquerda do operador +.</p>
+<p>operator + </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">P</td><td>Polinômio a ser somado com o polinômio this. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -718,6 +932,15 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sobrecarga do operador + para a soma entre um polinômio e scalar. </p>
+<p>O método é uma sobrecarga do operador +. Ele simplifica a soma entre polinômios. O método realiza a soma de um polinômio a direita(this) e um escalar (P) a esquerda do operador +.</p>
+<p>operator + </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>É um escalar a ser somado ao polinômio(this). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a3a3852abf46e5f15ffadaa5a345485f4"></a>
@@ -735,6 +958,15 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sobrecarga do operador - para a subtração entre polinômios. </p>
+<p>O método é uma sobrecarga do operador -. Ele simplifica a soma entre polinômios. O método realiza a soma de um polinômio a direita(this) e um polinômio (P) a esquerda do operador -.</p>
+<p>operator - </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">P</td><td>Polinômio a ser subtraída com o polinômio this. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -754,6 +986,15 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sobrecarga do operador - para a subtração entre polinômio e scalar. </p>
+<p>O método é uma sobrecarga do operador -. Ele simplifica a soma entre polinômios. O método realiza a soma de um polinômio a direita(this) e um escalar (P) a esquerda do operador -.</p>
+<p>operator - </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>É um escalar a ser subtraido ao polinômio(this). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a15cda48d64f2feda1ae700c15a5229e8"></a>
@@ -771,6 +1012,15 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sobrecarga do operador / para a divisão entre polinômios. </p>
+<p>O método é uma sobrecarga do operador /. Ele simplifica a soma entre polinômios. O método realiza a soma de um polinômio a direita(this) e um polinômio (P) a esquerda do operador /.</p>
+<p>operator / </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">P</td><td>Polinômio a ser dividido com o polinômio this. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -790,6 +1040,15 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sobrecarga do operador / para a divisão entre polinômio e scalar. </p>
+<p>O método é uma sobrecarga do operador /. Ele simplifica a soma entre polinômios. O método realiza a soma de um polinmio a direita(this) e um escalar (P) a esquerda do operador /.</p>
+<p>operator / </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>É um escalar a ser dividido ao polinômio(this). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a1a4f41e1aabc14cd7e7e92135abbe21e"></a>
@@ -807,6 +1066,15 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Operador de atribuição entre polinômios. </p>
+<p>O método é uma sobrecarga do operador =. Ele permite que a operação de atribuição entre polinômios seja realizada. Ele armazena o valor do polinomio a direita do operador = no polinômio a esquerda.</p>
+<p>operator = </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">P</td><td>È um polinômio qualquer que está do lado direito da igualdade. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -826,6 +1094,15 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Sobrecarga do operador ^ para obter a potenciação de polinômios. </p>
+<p>O operador ^ foi sobrecarregado de tal forma a simplificar a operação de potenciação de polinômios, dado um polinômio e um escalar (à esquerda e à direita do operador ^ respectivamente)</p>
+<p>operator ^ </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Expoente cujo módulo significa a quantidade de vezes que a multiplicação entre o polinômio com ele mesmo será repetida. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="ad6c7ef73abea2d67e8919cf538e92217"></a>
@@ -842,6 +1119,10 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Exibe o polinômio. </p>
+<p>Esta função mostra na tela o valor do polinômio.</p>
+<p>print </p>
 
 </div>
 </div>
@@ -871,6 +1152,16 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Inserir um vetor de denominador ao polinômio. </p>
+<p>Vai inserir um vetor em um polinômio com os valores do denominador.</p>
+<p>setDen </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Den</td><td>Ponteiro simples que vai armazenar o vetor de denominador </td></tr>
+    <tr><td class="paramname">sizeden</td><td>Tamanho do vetor de numerador.. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a15e2d194fabe8d6a9e0fcda9fd6237cb"></a>
@@ -899,6 +1190,16 @@ template&lt;class TypeOfClass&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Inserir um vetor de numerador ao polinômio. </p>
+<p>Essa função vai inserir um vetor em um polinômio com os valores do numerador.</p>
+<p>setNum </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Num</td><td>Ponteiro simples que vai armazenar o vetor de numerador. </td></tr>
+    <tr><td class="paramname">sizenum</td><td>Tamanho do vetor de numerador. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a314d977344ac66806d49f28e6d27a525"></a>
@@ -916,6 +1217,14 @@ template&lt;class TypeOfClass&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p></p>
+<p>setVar </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">var</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -965,6 +1274,16 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p></p>
+<p>SubPoly </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value1</td><td></td></tr>
+    <tr><td class="paramname">value2</td><td></td></tr>
+    <tr><td class="paramname">SizeValue1</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="ab7c83cad6a4ef6ac085e83e1476c1f79"></a>
@@ -1012,6 +1331,17 @@ template&lt;class TypeOfClass&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p></p>
+<p>SumPoly </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value1</td><td></td></tr>
+    <tr><td class="paramname">value2</td><td></td></tr>
+    <tr><td class="paramname">SizeValue1</td><td></td></tr>
+    <tr><td class="paramname">SizeValue2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1061,6 +1391,18 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Método responsável por verificar se é possivel efetuar a soma dos polinômios. </p>
+<p>Verifica se é possivel a soma entre dois polinômios. È possivel qunando os denominadores forem iguais.</p>
+<p>VefDen </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">den1</td><td>Ponteiro que recebe o primeiro denominador. </td></tr>
+    <tr><td class="paramname">den2</td><td>ponteiro que recebe o segundo denominador. </td></tr>
+    <tr><td class="paramname">sizeden1</td><td>Tamanho do denominador. </td></tr>
+    <tr><td class="paramname">sizeden2</td><td>Tamanho do denominador. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Amigas e Funções Relacionadas</h2>
@@ -1098,7 +1440,17 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00055">55</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+<p>Sobrecarga do operador* para a multiplicação entre escalar e polinômio. </p>
+<p>O método é uma sobrecarga do operador *. Ele simplifica a multiplicação entre polinômios. O método realiza a soma de um escalar a direita(scalar) e um polinômio (P) a esquerda do operador *.</p>
+<p>operator * </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Escalar que vai multiplicar o pilinômio(P). </td></tr>
+    <tr><td class="paramname">P</td><td>Polinômio a ser multiplicado pelo escalar(scalar). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00428">428</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
 
 </div>
 </div>
@@ -1136,7 +1488,17 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00047">47</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+<p>Sobrecarga do operador+ para a soma entre escalar e polinômio. </p>
+<p>O método é uma sobrecarga do operador +. Ele simplifica a soma entre polinômios. O método realiza a soma de um escalar a direita(scalar) e um polinomio (P) a esquerda do operador +.</p>
+<p>operator + </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Escalar a ser somado ao polinômio (P). </td></tr>
+    <tr><td class="paramname">P</td><td>Polinômio a ser somado ao escalar(scalar). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00404">404</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
 
 </div>
 </div>
@@ -1174,7 +1536,17 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00051">51</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+<p>Sobrecarga do operador- para a subtração entre escalar e polinômio. </p>
+<p>O método é uma sobrecarga do operador -. Ele simplifica a subtração entre polinômios. O método realiza a soma de um escalar a direita(scalar) e um polinômio (P) a esquerda do operador -.</p>
+<p>operator - </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Escalar que vai subtrair o polinômio(P). </td></tr>
+    <tr><td class="paramname">P</td><td>Polinômio a ser subtraido pelo escalar(scalar). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00416">416</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
 
 </div>
 </div>
@@ -1212,7 +1584,17 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00059">59</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+<p>Sobrecarga do operador/ para a divisão entre escalar e polinômio. </p>
+<p>O método é uma sobrecarga do operador /. Ele simplifica a divisão entre polinômios. O método realiza a soma de um escalar a direita(scalar) e um polinômio (P) a esquerda do operador /.</p>
+<p>operator / </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scalar</td><td>Escalar que vai dividir o polinômio(P). </td></tr>
+    <tr><td class="paramname">P</td><td>Polinômio que vai ser dividido pelo escalar(scalar). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00440">440</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
 
 </div>
 </div>
@@ -1237,7 +1619,7 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00014">14</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00024">24</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
 
 </div>
 </div>
@@ -1261,7 +1643,7 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00014">14</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00024">24</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
 
 </div>
 </div>
@@ -1285,7 +1667,7 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00013">13</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00023">23</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
 
 </div>
 </div>
@@ -1309,7 +1691,7 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00013">13</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00023">23</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
 
 </div>
 </div>
@@ -1333,7 +1715,7 @@ template&lt;class TypeOfClass&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00015">15</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
+<p>Definição na linha <a class="el" href="polynom_8h_source.html#l00025">25</a> do arquivo <a class="el" href="polynom_8h_source.html">polynom.h</a>.</p>
 
 </div>
 </div>
@@ -1343,7 +1725,7 @@ template&lt;class TypeOfClass&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sexta, 2 de Janeiro de 2015 16:39:54 para Sistemas de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Domingo, 4 de Janeiro de 2015 22:50:00 para Sistemas de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>

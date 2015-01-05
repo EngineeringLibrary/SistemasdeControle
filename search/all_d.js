@@ -17,6 +17,10 @@ var searchData=
   ['operator_7c',['operator|',['../class_matrix.html#ae86ae0eb665ccc5859d5c58a776a096a',1,'Matrix']]],
   ['operator_7c_7c',['operator||',['../class_matrix.html#a46b586a01d469fa68db7e99a77037c9a',1,'Matrix']]],
   ['operator_7e',['operator~',['../class_matrix.html#ade0082aa33e180b7b0ff240c259d41fa',1,'Matrix']]],
+  ['optimizatedvariable',['OptimizatedVariable',['../class_optimization.html#afaa1b1a88155752e6a75f87484b53c3e',1,'Optimization']]],
+  ['optimization',['Optimization',['../class_optimization.html',1,'Optimization&lt; UsedType &gt;'],['../class_optimization.html#a57f578f49b325a65d8cb20263095e780',1,'Optimization::Optimization()']]],
+  ['optimization_2eh',['optimization.h',['../optimization_8h.html',1,'']]],
+  ['optimize',['Optimize',['../class_optimization.html#a1ece927f88429f4c44530b840ab57a96',1,'Optimization']]],
   ['output',['output',['../class_model.html#a1655ed1be7b0815382e2214acb16c65e',1,'Model::output()'],['../classsim_function.html#a50f32444a8b563679318596bc151016f',1,'simFunction::output()'],['../class_model.html#a46a4ef34d4c37af4fd8f1fd13eb4b634',1,'Model::Output()']]],
   ['outputcontrol',['OutputControl',['../class_p_i_d.html#a3041bd11fcb81058ad0a72c9fa7031f8',1,'PID']]]
 ];

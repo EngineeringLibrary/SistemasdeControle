@@ -3,8 +3,9 @@
 <area shape="rect" id="node3" href="$graphicproperties_8h.html" title="SistemasdeControle\l/src/graphicLibs/graphicproperties.h" alt="" coords="29,102,257,143"/>
 <area shape="rect" id="node4" href="$polynom_8h.html" title="SistemasdeControle\l/src/primitiveLibs/polynom.h" alt="" coords="445,102,627,143"/>
 <area shape="rect" id="node7" href="$model_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/model.h" alt="" coords="652,95,791,151"/>
-<area shape="rect" id="node9" href="$simfunction_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/simfunction.h" alt="" coords="281,95,420,151"/>
-<area shape="rect" id="node5" href="$transferfunction_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/transferfunction.h" alt="" coords="505,199,644,255"/>
-<area shape="rect" id="node6" href="$statespace_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/statespace.h" alt="" coords="559,303,697,359"/>
-<area shape="rect" id="node8" href="$arx_8h.html" title="SistemasdeControle\l/src/simulationLibs/arx.h" alt="" coords="719,206,883,247"/>
+<area shape="rect" id="node10" href="$simfunction_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/simfunction.h" alt="" coords="281,95,420,151"/>
+<area shape="rect" id="node5" href="$transferfunction_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/transferfunction.h" alt="" coords="495,199,633,255"/>
+<area shape="rect" id="node6" href="$statespace_8h.html" title="SistemasdeControle\l/src/simulationLibs\l/statespace.h" alt="" coords="523,303,661,359"/>
+<area shape="rect" id="node8" href="$optimization_8h.html" title="SistemasdeControle\l/src/optimizationLibs\l/optimization.h" alt="" coords="742,303,885,359"/>
+<area shape="rect" id="node9" href="$arx_8h.html" title="SistemasdeControle\l/src/simulationLibs/arx.h" alt="" coords="759,206,923,247"/>
 </map>

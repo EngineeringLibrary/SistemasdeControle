@@ -34,6 +34,8 @@ var searchData=
   ['setnumberofclicks',['setNumberOfClicks',['../classgraphic_properties.html#a18b142b9a4dba31881155b79afe896b7',1,'graphicProperties']]],
   ['setoutputdata',['SetOutputData',['../classsim_function.html#a8270dccc26698e35586a00d8f8817827',1,'simFunction']]],
   ['setparams',['setParams',['../class_p_i_d.html#a984d1f5b551ea2477ee07818ed32acf2',1,'PID']]],
+  ['setrestrictionsequality',['setRestrictionsEquality',['../class_optimization.html#a44f0044686fef359814fce744eb0e873',1,'Optimization']]],
+  ['setrestrictionsinequality',['setRestrictionsInequality',['../class_optimization.html#a8ef98d2a186d3cc3358b79a5787fd3b1',1,'Optimization']]],
   ['setsampletime',['setSampleTime',['../class_p_i_d.html#adf714d63b7d5d16125898b97b1cac602',1,'PID']]],
   ['setstep',['setStep',['../class_model.html#a1c08a884d93ab0a9b1775f299f18ee63',1,'Model']]],
   ['settf',['setTF',['../class_transfer_function.html#a6d83d09a607cbcb6f75412c35ff36fa5',1,'TransferFunction']]],

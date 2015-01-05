@@ -14,5 +14,7 @@ var searchData=
   ['operator_7c',['operator|',['../class_matrix.html#ae86ae0eb665ccc5859d5c58a776a096a',1,'Matrix']]],
   ['operator_7c_7c',['operator||',['../class_matrix.html#a46b586a01d469fa68db7e99a77037c9a',1,'Matrix']]],
   ['operator_7e',['operator~',['../class_matrix.html#ade0082aa33e180b7b0ff240c259d41fa',1,'Matrix']]],
+  ['optimization',['Optimization',['../class_optimization.html#a57f578f49b325a65d8cb20263095e780',1,'Optimization']]],
+  ['optimize',['Optimize',['../class_optimization.html#a1ece927f88429f4c44530b840ab57a96',1,'Optimization']]],
   ['outputcontrol',['OutputControl',['../class_p_i_d.html#a3041bd11fcb81058ad0a72c9fa7031f8',1,'PID']]]
 ];

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=latex 2014.11.28)  29 DEC 2014 18:04
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=latex 2014.11.28)  4 JAN 2015 22:50
 entering extended mode
 **_formulas.tex
 (C:\Users\lordcobisco\OneDrive\html\_formulas.tex
@@ -77,17 +77,23 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 5.
- [1
 
-]
-(C:\Users\lordcobisco\OneDrive\html\_formulas.aux) ) 
+! Undefined control sequence.
+l.5 $ R\,\Beta
+               = r $
+? 
+! Emergency stop.
+l.5 $ R\,\Beta
+               = r $
+End of file on the terminal!
+
+ 
 Here is how much of TeX's memory you used:
- 545 strings out of 493922
- 6846 string characters out of 3144880
+ 542 strings out of 493922
+ 6737 string characters out of 3144880
  54315 words of memory out of 3000000
  3903 multiletter control sequences out of 15000+200000
  3640 words of font info for 14 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 32i,4n,21p,218b,100s stack positions out of 5000i,500n,10000p,200000b,50000s
-
-Output written on _formulas.dvi (1 page, 340 bytes).
+ 32i,1n,21p,218b,54s stack positions out of 5000i,500n,10000p,200000b,50000s
+No pages of output.
