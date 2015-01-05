@@ -101,15 +101,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 Diagrama de Hierarquia para steffensen&lt; UsedType &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsteffensen__inherit__graph.png" border="0" usemap="#steffensen_3_01_used_type_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="steffensen_3_01_used_type_01_4_inherit__map" id="steffensen_3_01_used_type_01_4_inherit__map">
-</map>
 </div>
 <div class="dynheader">
 Diagrama de colaboração para steffensen&lt; UsedType &gt;:</div>
 <div class="dyncontent">
 <div class="center"><img src="classsteffensen__coll__graph.png" border="0" usemap="#steffensen_3_01_used_type_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="steffensen_3_01_used_type_01_4_coll__map" id="steffensen_3_01_used_type_01_4_coll__map">
-</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -167,10 +163,9 @@ template&lt;class UsedType &gt; </div>
 
 <p>função modelo a ser simulada. </p>
 <p>Construtor padrão da classe.</p>
-<pre class="fragment">    Instancia o objeto da classe steffensen recebendo uma função modelo.
-    \param f Função modelo a ser simulada.
-    Ex:
-</pre> <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="simfunction_8h.html">src/simulationLibs/simfunction.h</a>&quot;</span></div>
+<p>Instancia o objeto da classe steffensen recebendo uma função modelo. </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>Função modelo a ser simulada. Ex: <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="simfunction_8h.html">src/simulationLibs/simfunction.h</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="steffensen_8h.html">src/simulationLibs/steffensen.h</a>&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">double</span> func(<span class="keywordtype">double</span> x)</div>
@@ -187,8 +182,16 @@ template&lt;class UsedType &gt; </div>
 <div class="line">     cout &lt;&lt; a-&gt;zeroFind() &lt;&lt; endl;</div>
 <div class="line">     <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --> 
-<p>Definição na linha <a class="el" href="steffensen_8h_source.html#l00048">48</a> do arquivo <a class="el" href="steffensen_8h_source.html">steffensen.h</a>.</p>
+</div><!-- fragment --></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Resultado:</p>
+<div class="fragment"><div class="line">0.866874</div>
+</div><!-- fragment --><p>Ver também:</p>
+<dl class="section see"><dt>Veja também</dt><dd>fzero, newton, bisseccao, cordas; </dd></dl>
+
+<p>Definição na linha <a class="el" href="steffensen_8h_source.html#l00059">59</a> do arquivo <a class="el" href="steffensen_8h_source.html">steffensen.h</a>.</p>
 
 </div>
 </div>
@@ -307,7 +310,7 @@ template&lt;class UsedType &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Domingo, 4 de Janeiro de 2015 23:41:56 para Sistemas de Controle por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Segunda, 5 de Janeiro de 2015 00:18:20 para Sistemas de Controle por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9
 </small></address>
