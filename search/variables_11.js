@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sampletime',['sampleTime',['../class_transfer_function.html#a8f4abfd9a32e54f4df6d3f8845abb940',1,'TransferFunction::sampleTime()'],['../class_state_space.html#a1056d592a5a529152ed64ef306eebf8e',1,'StateSpace::SampleTime()']]],
+  ['sampletime',['SampleTime',['../class_state_space.html#a1056d592a5a529152ed64ef306eebf8e',1,'StateSpace::SampleTime()'],['../class_transfer_function.html#a8f4abfd9a32e54f4df6d3f8845abb940',1,'TransferFunction::sampleTime()']]],
   ['serverconnected',['ServerConnected',['../class_o_p_c_client.html#ac809ad934ea5c1f3d2e62bf9935fa131',1,'OPCClient']]],
   ['servername',['ServerName',['../class_o_p_c_client.html#a9bc5e06354e8914c0c7d1a9d8cb69f68',1,'OPCClient']]],
   ['sizeden',['sizeDen',['../class_polynom.html#af46771583a9ae7f845e682baf6d2f301',1,'Polynom']]],

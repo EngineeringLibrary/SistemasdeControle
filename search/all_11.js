@@ -1,7 +1,7 @@
 var searchData=
 [
   ['system_20control',['System Control',['../index.html',1,'']]],
-  ['sampletime',['sampleTime',['../class_transfer_function.html#a8f4abfd9a32e54f4df6d3f8845abb940',1,'TransferFunction::sampleTime()'],['../class_state_space.html#a1056d592a5a529152ed64ef306eebf8e',1,'StateSpace::SampleTime()']]],
+  ['sampletime',['SampleTime',['../class_state_space.html#a1056d592a5a529152ed64ef306eebf8e',1,'StateSpace::SampleTime()'],['../class_transfer_function.html#a8f4abfd9a32e54f4df6d3f8845abb940',1,'TransferFunction::sampleTime()']]],
   ['serial',['Serial',['../class_serial.html',1,'Serial'],['../class_serial.html#a3667c3137f2df94716b5193f9fb736ab',1,'Serial::Serial()'],['../class_serial.html#a580805013f1ee62de703a0d9e06b1beb',1,'Serial::Serial(const char *namedoor)']]],
   ['serverconnected',['ServerConnected',['../class_o_p_c_client.html#ac809ad934ea5c1f3d2e62bf9935fa131',1,'OPCClient']]],
   ['servername',['ServerName',['../class_o_p_c_client.html#a9bc5e06354e8914c0c7d1a9d8cb69f68',1,'OPCClient']]],
@@ -20,6 +20,7 @@ var searchData=
   ['setinitialstate',['setInitialState',['../class_state_space.html#a6b573639ae37aaa5bc768cab3f98bfce',1,'StateSpace']]],
   ['setinputdata',['SetInputData',['../classsim_function.html#a1c9b1d37601d12b9f6c87ac94bf9a986',1,'simFunction']]],
   ['setinstance',['setInstance',['../class_gl_view.html#ada8c8845b03456ca3e07765c12b82180',1,'GlView::setInstance()'],['../class_model.html#a7c1e7d2c2c2372e5b54e4ebbfd1f4e12',1,'Model::setInstance()']]],
+  ['setinterval',['setInterval',['../classsteffensen.html#aed7e006f1ba8904fa9177126c2331144',1,'steffensen']]],
   ['setio',['setIO',['../class_model.html#a7cd2a1db919315b7c223f82765cacab7',1,'Model']]],
   ['setlastmotionposition',['setLastMotionPosition',['../classgraphic_properties.html#a4145e9fe547ce415f66598fda40744fc',1,'graphicProperties']]],
   ['setlimits',['setLimits',['../classgraphic_properties.html#ad7abc1ef4cdc3d66d7fd9bc60e40e2af',1,'graphicProperties::setLimits()'],['../class_p_i_d.html#a3ed27364d4dfbc00359befd1023c6841',1,'PID::setLimits()']]],
@@ -62,6 +63,8 @@ var searchData=
   ['statespace',['StateSpace',['../class_state_space.html',1,'StateSpace&lt; UsedType &gt;'],['../class_state_space.html#aa04793c97f5e89788b70bbf3b83f51d3',1,'StateSpace::StateSpace()']]],
   ['statespace_2eh',['statespace.h',['../statespace_8h.html',1,'']]],
   ['std',['Std',['../class_matrix.html#a97c90a4a03d631d2ea9739431dafbedd',1,'Matrix']]],
+  ['steffensen',['steffensen',['../classsteffensen.html',1,'steffensen&lt; UsedType &gt;'],['../classsteffensen.html#af0c2410e1c19f68b816bc1e6ed8d651c',1,'steffensen::steffensen()']]],
+  ['steffensen_2eh',['steffensen.h',['../steffensen_8h.html',1,'']]],
   ['step',['Step',['../class_p_i_d.html#a1e4e9e676a5a0313a961df43ddb9bbdd',1,'PID::Step()'],['../class_model.html#aff37aef61263d461fe7be2a3aef2c19c',1,'Model::step()'],['../classsim_function.html#a39a2e5ad68abec4060846bd5455f871b',1,'simFunction::step()']]],
   ['subpoly',['SubPoly',['../class_polynom.html#a5feab54c3052de264197c263ba50d61e',1,'Polynom']]],
   ['sumpoly',['SumPoly',['../class_polynom.html#ab7c83cad6a4ef6ac085e83e1476c1f79',1,'Polynom']]]

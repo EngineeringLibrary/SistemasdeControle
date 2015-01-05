@@ -19,3 +19,5 @@
 \form#18:$R$
 \form#19:$r$
 \form#20:$Ex_1$
+\form#21:$g(x_n)$
+\form#22:$\frac{f(x_n + f(x_n)) - f(x_n)}{f(x_n)}$
