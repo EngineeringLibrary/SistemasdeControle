@@ -134,19 +134,20 @@ template <class UsedType>
 Matrix<UsedType> ARX<UsedType>::sim(Matrix<UsedType> Input)
 {
     Matrix<UsedType> y;
-
+    this->Input.zeros (nInputpar, qdtInputVar);
     this->Input = this->Input||Input;
-    this->nSample == this->delay + this->maxnInOut + 1;
+    this->nSample = this->delay + this->maxnInOut + 1;
     this->LinearVectorPhi.zeros(1, nInputpar*this->Input.getCols() + nOutputpar*this->Output.getCols());
 
     while(nSample <= this->Input.getRows())
     {
         this->setLinearVectorPhiEstimation();
         this->EstOutput.setLine(this->nSample,(this->LinearVectorPhi*this->ModelCoef));
-        y = y||(this->LinearVectorPhi*this->ModelCoef);;
+        y = y||(this->LinearVectorPhi*this->ModelCoef);
         this->nSample++;
 
     }
+    this->Input = Input;
     return y;
 }
 

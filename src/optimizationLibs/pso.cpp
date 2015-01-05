@@ -3,53 +3,61 @@
 #include <ctime>
 
 template <class UsedType>
-PSO<UsedType>::PSO()
+PSO<UsedType>::PSO(Model<UsedType> *model)
 {
-    this->varNum = 1;
+    this->model   = model;
+    this->varNum  = 1;
     this->PopSize = 80;
     this->GenSize = 2000;
-    this->phi1 = 1;
-    this->phi2 = 1;
-    this->omega = 1;
-    this->MinMax = false;
+    this->phi1    = 1;
+    this->phi2    = 1;
+    this->omega   = 1;
+    this->MinMax  = false;
 }
 
 template <class UsedType>
-PSO<UsedType>::PSO(int varNum, int PopSize, int GenSize)
+PSO<UsedType>::PSO(Model<UsedType> *model  , int varNum,
+                   int              PopSize, int GenSize)
 {
-
-    this->varNum = varNum;
+    this->model   = model;
+    this->varNum  = varNum;
     this->PopSize = PopSize;
     this->GenSize = GenSize;
-    this->phi1 = 1;
-    this->phi2 = 1;
-    this->omega = 1;
-    this->MinMax = false;
-
+    this->phi1    = 1;
+    this->phi2    = 1;
+    this->omega   = 1;
+    this->MinMax  = false;
 }
 
 template <class UsedType>
-PSO<UsedType>::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2)
+PSO<UsedType>::PSO(Model<UsedType> *model, int varNum,
+                   int    PopSize        , int GenSize,
+                   double phi1           , double phi2)
 {
-    this->varNum = varNum;
+    this->model   = model;
+    this->varNum  = varNum;
     this->PopSize = PopSize;
     this->GenSize = GenSize;
-    this->phi1 = phi1;
-    this->phi2 = phi2;
-    this->omega = 1;
-    this->MinMax = false;
+    this->phi1    = phi1;
+    this->phi2    = phi2;
+    this->omega   = 1;
+    this->MinMax  = false;
 }
 
 template <class UsedType>
-PSO<UsedType>::PSO(int varNum, int PopSize, int GenSize, double phi1, double phi2, double omega, bool MinMax)
+PSO<UsedType>::PSO(Model<UsedType> *model  , int    varNum ,
+                   int              PopSize, int    GenSize,
+                   double           phi1   , double phi2   ,
+                   double           omega  , bool   MinMax)
 {
-    this->varNum = varNum;
+    this->model   = model;
+    this->varNum  = varNum;
     this->PopSize = PopSize;
     this->GenSize = GenSize;
-    this->phi1 = phi1;
-    this->phi2 = phi2;
-    this->omega = omega;
-    this->MinMax = MinMax;
+    this->phi1    = phi1;
+    this->phi2    = phi2;
+    this->omega   = omega;
+    this->MinMax  = MinMax;
 }
 
 template <class UsedType>
@@ -79,12 +87,16 @@ template <class UsedType>
 Matrix<UsedType> PSO<UsedType>::Evaluation(Matrix<UsedType> Matrix2Evaluate)
 {
     Matrix<UsedType> ret(Matrix2Evaluate.getRows(), 1);
-
+    Matrix<UsedType> Y, Yest,Error;
     //TODO -> Tornar a função mais fléxivel.
 
     for(int i = 1; i <= Matrix2Evaluate.getRows(); i++)
     {
-      ret.add(i, 1, pow(Matrix2Evaluate.getLine(i)(1,1),2.0));
+      model->setModelCoef(~Matrix2Evaluate.getLine(i));
+      Y = model->getOutputMatrix();
+      Yest = model->sim(model->getInputMatrix());
+      Error =  Y-Yest ;
+      ret(i,1, ((~Error)*Error)(1,1));
     }
 
     return ret;
@@ -170,7 +182,7 @@ void PSO<UsedType>::FitnessUpdateMax()
 }
 
 template <class UsedType>
-Matrix<UsedType> PSO<UsedType>::Run()
+void PSO<UsedType>::Optimize()
 {
 //    clock_t start, stop;
 
@@ -193,8 +205,8 @@ Matrix<UsedType> PSO<UsedType>::Run()
 //        this->GGen = this->GGen||this->G; // função lenta
 //        this->GfitnessGen = this->GfitnessnTime||this->Gfitness; // função lenta
     }
-
-    return this->G;
+    this->OptimizatedVariable = this->G;
+//    return this->G;
 
 }
 
@@ -205,7 +217,7 @@ void PSO<UsedType>::Run(int nTimes)
     this->GfitnessnTime.init(nTimes, 1);
     for (int i = 1; i <= nTimes; i++)
     {
-        Run();
+        this->Optimize();
 //        this->GnTimes = this->GnTimes||this->G;
         this->GfitnessnTime.add(i, 1, this->Gfitness(1,1));
         this->RunTime.add(i, 1, this->Stime);
@@ -219,7 +231,7 @@ void PSO<UsedType>::Run(int nTimes)
 template <class UsedType>
 void PSO<UsedType>::setData(Matrix<UsedType> dataIn, Matrix<UsedType> dataOut)
 {
-    this->Model.addIO(dataIn, dataOut);
+    this->model->setIO(dataIn, dataOut);
 }
 
 template <class UsedType>

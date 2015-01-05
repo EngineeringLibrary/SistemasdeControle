@@ -2,22 +2,26 @@
 #include "src/simulationLibs/arx.h"
 #include "src/optimizationLibs/optimization.h"
 #include "src/optimizationLibs/leastsquare.h"
+#include "src/optimizationLibs/pso.h"
 
 int main(int argc, char *argv)
 {
     Matrix<double> u, syspar;
 
-    u = "1,2,3,-1,-3,8,8,8,1,1,1,1,1";
+    u = "1,1,1,1,1,1,1,1,1,1";
     syspar = "-1.809674836071920;0.818730753077982;0.004678840160444;0.004377076845618";
 
     Model<double> *gz = new ARX<double>(2,2);
     gz->setModelCoef(syspar);
     gz->sim(~u).print();
-    gz->setLinearModel(~u,gz->sim(~u));
+    gz->setIO(~u,gz->sim(~u));
+    Optimization<double> *P = new PSO<double>(gz,4,20,2000);
+    P->Optimize();
+    P->getOptimizatedVariable().print();
 
-    Optimization<double> *LS = new LeastSquare<double>(gz);
-    LS->Optimize();
-    LS->getOptimizatedVariable().print();
+    Model<double> *gz2 = new ARX<double>(2,2);
+    gz2->setModelCoef(~P->getOptimizatedVariable());
+    (gz->getOutputMatrix()|gz2->sim(~u)).print();
     return 0;
 
 //    Matrix<double> A;
