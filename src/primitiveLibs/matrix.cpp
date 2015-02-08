@@ -766,7 +766,7 @@ Matrix<UsedType> Matrix<UsedType>::pol()//Encontra os Índices do Polinômio Car
 template <class UsedType>
 Matrix<UsedType> Matrix<UsedType>::eigenvalues()//Encontra os Auto Valores da Matriz.
 {
-    Matrix<UsedType> autovlr(1, this->rows);
+    Matrix<UsedType> autovlr(this->rows, 2);
 
     try
     {
@@ -774,50 +774,77 @@ Matrix<UsedType> Matrix<UsedType>::eigenvalues()//Encontra os Auto Valores da Ma
            throw "A matrix não é quadrada";
        else
            if (!this->ind(*this))
-       {
-                   Matrix<UsedType> Q, temp, R, A = *this;
-                   UsedType max = 1000;
+           {
+               Matrix<UsedType> A;
+               unsigned k = 0;
 
-                   Q.eye(this->rows);
-                   R.eye(this->rows);
-                   unsigned cont = 0;
-                   while (max > 1e-40 && cont < 3000)
+               A = *this;
+
+               for(unsigned i = 0; i < 100; i++)
+               {
+                   if((A.rows == 0) && (A.cols == 0))
                    {
-                       for(unsigned i = 0; i < this->rows; i++ )
-                           for(unsigned j = i+1; j<this->rows; j++)
-                               {
-                                        temp.eye(this->rows);
-                                        if (A.Mat[i][j] != 0)
-                                        {
-                                            temp.Mat[i][i] = (A.Mat[i][i])/sqrt(pow(A.Mat[i][i],2) + pow(A.Mat[i][j],2));
-                                            temp.Mat[j][j] = temp.Mat[i][i];
-                                            temp.Mat[i][j] = (A.Mat[i][j])/sqrt(pow(A.Mat[i][i],2) + pow(A.Mat[i][j],2));
-                                            temp.Mat[j][i] = - temp.Mat[i][j];
-                                        }
-                                       R = temp*A;
-                                       A = R*(~temp);
-                           }
-                       for(unsigned i = 0; i < this->rows; i++ )
-                           for(unsigned j = i+1; j< this->rows; j++)
+                       break;
+                   }
+                   else
+                   {
+                       Matrix<UsedType> Ai, I, Q, R;
+                       UsedType sum = 0;
+
+                       I.eye(A.rows);
+
+                       (A - A.Mat[A.rows - 1][A.cols -1]*I).QR(Q, R);
+
+                       Ai = R*Q + A.Mat[A.rows - 1][A.cols -1]*I;
+
+                       for(unsigned j = 0; j < Ai.cols - 1; j++)
+                       {
+                            sum += abs(Ai.Mat[Ai.rows - 1][j]);
+                       }
+
+                       if(sum < 1e-30)
+                       {
+                           Matrix<UsedType> temp;
+
+                           autovlr.Mat[k][0] = Ai.Mat[Ai.rows - 1][Ai.cols - 1];
+
+                           temp = Ai;
+                           A.zeros(A.rows - 1, A.cols -1);
+
+                           for(unsigned m = 0; m < A.rows; m++)
+                            for(unsigned n = 0; n < A.cols; n++)
                            {
-                               if ((A.Mat[i][j] > 0) && (A.Mat[i][j]) < max)
-                                   max = A.Mat[i][j];
-                               else if((A.Mat[i][j] < 0) && (-1*A.Mat[i][j]) < max)
-                                   max = -1*(A.Mat[i][j]);
+                               A.Mat[m][n] = temp.Mat[m][n];
                            }
-                       cont++;
-                    }
-                   for(unsigned i = 0; i < this->rows; i++ )
-                       for(unsigned j = 0; j< this->rows; j++)
-                           if (i == j)
-                                autovlr.Mat[0][i] = A.Mat[i][j];
-                   Q.print();
-                   R.print();
-       }
+
+                           k++;
+
+                           A.print();
+                       }
+                       else
+                       {
+                           A = Ai;
+                       }
+                   }
+               }
+
+               if((A.rows != 0) && (A.cols != 0))
+               {
+                   for(unsigned i = 0; i < autovlr.rows; i++)
+                   {
+                       if((autovlr.Mat[i][0] == 0) && (autovlr.Mat[i+1][0] == 0))
+                       {
+                           autovlr.Mat[i][0] = A.trace()/2;
+                           autovlr.Mat[i][1] = -sqrt(abs(A.Mat[0][1] * A.Mat[1][0]));
+                           autovlr.Mat[i + 1][0] = A.trace()/2;
+                           autovlr.Mat[i + 1][1] = sqrt(abs(A.Mat[0][1] * A.Mat[1][0]));
+                       }
+                   }
+               }
+            }
             else
                for(unsigned i = 0; i < this->rows; i++ )
-                   autovlr.Mat[0][i] = 1;
-
+                   autovlr.Mat[i][0] = 1;
       }
 
     catch (const char* msg)
@@ -1312,6 +1339,44 @@ UsedType norm(Matrix<UsedType> M1)
             sum += pow(M1(i+1,j+1), 2);
 
     return sqrt(sum);
+}
+
+template <class UsedType>
+void Matrix<UsedType>::QR(Matrix<UsedType>& Q, Matrix<UsedType>& R)
+{
+    UsedType tal, sigma, gama;
+
+    Q.eye(this->rows);
+    R = *this;
+
+    for(unsigned j = 0; j < R.cols; j++)
+        for(unsigned i = (R.rows - 1); i >= (j + 1); i--)
+        {
+            Matrix<UsedType> temp;
+
+            temp.eye(this->rows);
+
+            if(abs(R.Mat[i-1][j]) > abs(R.Mat[i][j]))
+            {
+                tal = R.Mat[i][j]/R.Mat[i-1][j];
+                gama = 1/(sqrt(1 + pow(tal, 2)));
+                sigma = tal*gama;
+            }
+            else
+            {
+                tal = R.Mat[i-1][j]/R.Mat[i][j];
+                sigma = 1/(sqrt(1 + pow(tal, 2)));
+                gama = sigma*tal;
+            }
+
+            temp.Mat[i][i] = gama;
+            temp.Mat[i][i - 1] = sigma;
+            temp.Mat[i - 1][i] = -sigma;
+            temp.Mat[i - 1][i - 1] = gama;
+
+            R = ~temp*R;
+            Q = Q*(temp);
+        }
 }
 
 //double operator ^(double num1, double num2)

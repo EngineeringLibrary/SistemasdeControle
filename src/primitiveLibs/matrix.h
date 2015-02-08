@@ -50,6 +50,8 @@ public:
     UsedType max();//Retorna o maior valor de uma matriz
     UsedType min();//Retorna o menor valor de uma matriz
 
+    void QR (Matrix<UsedType>& Q, Matrix<UsedType>& R);
+
 
     Matrix Avarage();
     Matrix Variance();
