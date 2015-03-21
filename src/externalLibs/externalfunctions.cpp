@@ -1,4 +1,4 @@
-#include "externalfunctions.h"
+#include "SistemasdeControle/headers/externalLibs/externalfunctions.h"
 
 double random()
 {

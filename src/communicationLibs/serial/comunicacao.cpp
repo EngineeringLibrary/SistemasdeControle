@@ -2,7 +2,7 @@
 //#include <string.h>
 //#include <stdlib.h>
 #include <Windows.h>
-#include "comunicacao.h"
+#include "SistemasdeControle/headers/communicationLibs/serial/comunicacao.h"
 //#include <math.h>
 
 
