@@ -1,4 +1,4 @@
-#include "polynom.h"
+#include "SistemasdeControle/headers/primitiveLibs/polynom.h"
 
 template <class TypeOfClass>
 Polynom<TypeOfClass>::Polynom()
@@ -21,7 +21,7 @@ Polynom<TypeOfClass>::Polynom(std::string Num, std::string Den)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom(Matrix<TypeOfClass> Num, Matrix<TypeOfClass> Den)
+Polynom<TypeOfClass>::Polynom(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den)
 {
     init(Num,Den);
 }
@@ -47,10 +47,10 @@ Polynom<TypeOfClass>::Polynom(const Polynom<TypeOfClass> &CopyPolynom)
     this->sizeDen = CopyPolynom.sizeDen;
     this->x = CopyPolynom.x;
 
-    for(unsigned i = 0; i < this->sizeNum; i++)
+    for(unsigned i = 0; i < this->sizeNum; ++i)
         this->num[i] = CopyPolynom.num[i];
 
-    for(unsigned i = 0; i < this->sizeDen; i++)
+    for(unsigned i = 0; i < this->sizeDen; ++i)
         this->den[i] = CopyPolynom.den[i];
 }
 
@@ -96,12 +96,12 @@ void Polynom<TypeOfClass>::init(std::string Num)
 {
     using namespace std;
 
-    Matrix<TypeOfClass> tempNum;
+    LinAlg::Matrix<TypeOfClass> tempNum;
 
     tempNum = Num;
-    this->sizeNum = tempNum.getCols();
-    this->num = initPointer<TypeOfClass>(tempNum.getCols());
-    for (int i = 0; i < tempNum.getCols(); i++)
+    this->sizeNum = tempNum.getNumberOfColumns();
+    this->num = initPointer<TypeOfClass>(tempNum.getNumberOfColumns());
+    for (int i = 0; i < tempNum.getNumberOfColumns(); ++i)
         this->num[i] = (TypeOfClass) tempNum(1, i+1);
 
     this->sizeDen = 1;
@@ -116,35 +116,35 @@ void Polynom<TypeOfClass>::init(std::string Num, std::string Den)
 {
     using namespace std;
 
-    Matrix<TypeOfClass> tempNum, tempDen;
+    LinAlg::Matrix<TypeOfClass> tempNum, tempDen;
 
     tempNum = Num;
-    this->sizeNum = tempNum.getCols();
-    this->num = initPointer<TypeOfClass>(tempNum.getCols());
-    for (int i = 0; i < tempNum.getCols(); i++)
+    this->sizeNum = tempNum.getNumberOfColumns();
+    this->num = initPointer<TypeOfClass>(tempNum.getNumberOfColumns());
+    for (int i = 0; i < tempNum.getNumberOfColumns(); ++i)
         this->num[i] = (TypeOfClass) tempNum(1, i+1);
 
     tempDen = Den;
-    this->sizeDen = tempDen.getCols();
-    this->den = initPointer<TypeOfClass>(tempDen.getCols());
-    for (int i = 0; i < tempDen.getCols(); i++)
+    this->sizeDen = tempDen.getNumberOfColumns();
+    this->den = initPointer<TypeOfClass>(tempDen.getNumberOfColumns());
+    for (int i = 0; i < tempDen.getNumberOfColumns(); ++i)
         this->den[i] = (TypeOfClass) tempDen(1 , i+1);
     this->x = 's';
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(Matrix<TypeOfClass> Num, Matrix<TypeOfClass> Den)
+void Polynom<TypeOfClass>::init(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den)
 {
     using namespace std;
 
-    this->sizeNum = Num.getCols();
-    this->num = initPointer<TypeOfClass>(Num.getCols());
-    for (int i = 0; i < Num.getCols(); i++)
+    this->sizeNum = Num.getNumberOfColumns();
+    this->num = initPointer<TypeOfClass>(Num.getNumberOfColumns());
+    for (int i = 0; i < Num.getNumberOfColumns(); ++i)
         this->num[i] = (TypeOfClass) Num(1, i+1);
 
-    this->sizeDen = Den.getCols();
-    this->den = initPointer<TypeOfClass>(Den.getCols());
-    for (int i = 0; i < Den.getCols(); i++)
+    this->sizeDen = Den.getNumberOfColumns();
+    this->den = initPointer<TypeOfClass>(Den.getNumberOfColumns());
+    for (int i = 0; i < Den.getNumberOfColumns(); ++i)
         this->den[i] = (TypeOfClass) Den(1 , i+1);
     this->x = 's';
 }
@@ -202,7 +202,7 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator *(TypeOfClass scalar)
 {
     Polynom<TypeOfClass> ret;
 
-    for (int i = 0; i < this->sizeNum; i++)
+    for (int i = 0; i < this->sizeNum; ++i)
         this->num[i] = scalar*this->num[i];
 
     ret = *this;
@@ -258,7 +258,7 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator^(unsigned scalar)
     else if(scalar > 0)
     {
         ret = *this;
-        for (int i = 1; i < scalar; i++)
+        for (int i = 1; i < scalar; ++i)
             ret = ret*ret;
     }
     else
@@ -312,7 +312,7 @@ bool Polynom<TypeOfClass>::VefDen(TypeOfClass *den1, TypeOfClass *den2, unsigned
         vef = false;
     else
     {
-        for (unsigned i = 0; i < sizeden1; i++)
+        for (unsigned i = 0; i < sizeden1; ++i)
             if (den1[i] != den2[2])
             {
                 break;
@@ -329,17 +329,17 @@ void Polynom<TypeOfClass>::setNum(TypeOfClass *Num, unsigned sizenum)
     this->num = initPointer<TypeOfClass>(sizenum);
     this->sizeNum = sizenum;
 
-    for (unsigned i = 0; i < sizenum; i++)
+    for (unsigned i = 0; i < sizenum; ++i)
         this->num[i] = Num[i];
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::setNum(Matrix<TypeOfClass> Num)
+void Polynom<TypeOfClass>::setNum(LinAlg::Matrix<TypeOfClass> Num)
 {
-    this->num = initPointer<TypeOfClass>(Num.getCols());
-    this->sizeNum = Num.getCols();
+    this->num = initPointer<TypeOfClass>(Num.getNumberOfColumns());
+    this->sizeNum = Num.getNumberOfColumns();
 
-    for (unsigned i = 0; i < Num.getCols(); i++)
+    for (unsigned i = 0; i < Num.getNumberOfColumns(); ++i)
         this->num[i] = Num(1,i+1);
 }
 
@@ -349,17 +349,17 @@ void Polynom<TypeOfClass>::setDen(TypeOfClass *Den, unsigned sizeden)
     this->den = initPointer<TypeOfClass>(sizeden);
     this->sizeDen = sizeden;
 
-    for (unsigned i = 0; i < sizeden; i++)
+    for (unsigned i = 0; i < sizeden; ++i)
         this->den[i] = Den[i];
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::setDen(Matrix<TypeOfClass> Den)
+void Polynom<TypeOfClass>::setDen(LinAlg::Matrix<TypeOfClass> Den)
 {
-    this->den = initPointer<TypeOfClass>(Den.getCols());
-    this->sizeDen = Den.getCols();
+    this->den = initPointer<TypeOfClass>(Den.getNumberOfColumns());
+    this->sizeDen = Den.getNumberOfColumns();
 
-    for (unsigned i = 0; i < Den.getCols(); i++)
+    for (unsigned i = 0; i < Den.getNumberOfColumns(); ++i)
         this->den[i] = Den(1,i+1);
 }
 
@@ -370,12 +370,12 @@ void Polynom<TypeOfClass>::setVar(char var)
 }
 
 template <class TypeOfClass>
-Matrix<TypeOfClass> Polynom<TypeOfClass>::getNum()
+LinAlg::Matrix<TypeOfClass> Polynom<TypeOfClass>::getNum()
 {
-    Matrix<TypeOfClass> ret(1, this->sizeNum);
+    LinAlg::Matrix<TypeOfClass> ret(1, this->sizeNum);
 
-    for(unsigned i = 0; i < this->sizeNum; i++)
-        ret(1,i+1, this->num[i]);
+    for(unsigned i = 0; i < this->sizeNum; ++i)
+        ret(1,i+1) = this->num[i];
 
     return ret;
 }
@@ -387,12 +387,12 @@ unsigned Polynom<TypeOfClass>::getNumSize()
 }
 
 template <class TypeOfClass>
-Matrix<TypeOfClass> Polynom<TypeOfClass>::getDen()
+LinAlg::Matrix<TypeOfClass> Polynom<TypeOfClass>::getDen()
 {
-    Matrix<TypeOfClass> ret(1, this->sizeDen);
+    LinAlg::Matrix<TypeOfClass> ret(1, this->sizeDen);
 
-    for(unsigned i = 0; i < this->sizeDen; i++)
-        ret(1,i+1, this->den[i]);
+    for(unsigned i = 0; i < this->sizeDen; ++i)
+        ret(1,i+1) = this->den[i];
 
     return ret;
 }
@@ -417,7 +417,7 @@ void Polynom<TypeOfClass>::print()
 
         if(this->sizeDen == 0) {
             if(this->sizeNum >= 2) {
-                for(unsigned i = 0; i < this->sizeNum - 2; i++) {
+                for(unsigned i = 0; i < this->sizeNum - 2; ++i) {
                     if(this->num[i] != 0) {
                         if(this->num[i] != 1)
                             std::cout << this->num[i];
@@ -438,7 +438,7 @@ void Polynom<TypeOfClass>::print()
         }
         else {
             if(this->sizeNum >= 2) {
-                for(unsigned i = 0; i < this->sizeNum - 2; i++) {
+                for(unsigned i = 0; i < this->sizeNum - 2; ++i) {
                     if(this->num[i] != 0) {
                         if(this->num[i] != 1)
                             std::cout << this->num[i];
@@ -456,12 +456,12 @@ void Polynom<TypeOfClass>::print()
             if(this->num[this->sizeNum - 1] != 0)
                 std::cout << '+' << ' ' << this->num[this->sizeNum - 1] << '\n';
 
-            for(unsigned i = 0; i < maxSize; i++)
+            for(unsigned i = 0; i < maxSize; ++i)
                 std::cout << '-' << '-' << '-' << '-' << '-';
             std::cout << '\n';
 
             if(this->sizeDen >= 2) {
-                for(unsigned i = 0; i < this->sizeDen - 2; i++) {
+                for(unsigned i = 0; i < this->sizeDen - 2; ++i) {
                     if(this->den[i] != 0) {
                         if(this->den[i] != 1)
                             std::cout << this->den[i];

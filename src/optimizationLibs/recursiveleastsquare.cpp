@@ -1,4 +1,4 @@
-#include "recursiveleastsquare.h"
+#include "SistemasdeControle/headers/optimizationLibs/recursiveleastsquare.h"
 
 template <class UsedType>
 RecursiveLeastSquare<UsedType>::RecursiveLeastSquare(Model<UsedType> *model,
@@ -9,9 +9,9 @@ RecursiveLeastSquare<UsedType>::RecursiveLeastSquare(Model<UsedType> *model,
     this->p0     = p0;
     this->model  = model;
     this->lambda = lambda;
-    this->OptimizatedVariable.ones(1,this->model->getLinearVectorPhi().getCols());
+    this->OptimizatedVariable = LinAlg::Ones<UsedType>(1,this->model->getLinearVectorPhi().getNumberOfColumns());
     this->OptimizatedVariable = this->OptimizatedVariable/this->p0;
-    this->P.eye(this->model->getLinearVectorPhi().getCols());
+    this->P = LinAlg::Eye<UsedType>(this->model->getLinearVectorPhi().getNumberOfColumns());
     this->P = this->P*(this->p0);
 }
 

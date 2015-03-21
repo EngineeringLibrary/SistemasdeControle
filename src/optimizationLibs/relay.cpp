@@ -1,4 +1,4 @@
-#include "relay.h"
+#include "SistemasdeControle/headers/optimizationLibs/relay.h"
 
 Relay::Relay()
 {
@@ -6,8 +6,8 @@ Relay::Relay()
     this->Reference = 0;
     this->toleranceError = 0.01;
 
-    this->relayOutput.init(100,1);
-    this->systemOutput.init(100,1);
+    this->relayOutput = LinAlg::Zeros<double>(100,1);
+    this->systemOutput = LinAlg::Zeros<double>(100,1);
 
     this->kp = 1;
     this->ki = 1;
@@ -23,13 +23,13 @@ Relay::Relay()
 void Relay::relayCalc()
 {
     if((this->Error > this->toleranceError) && (this->Error > 0))
-       this->relayOutput(Sample, 1, this->peakRelayOutput);
+       this->relayOutput(Sample, 1) = this->peakRelayOutput;
     if((this->Error > this->toleranceError) && (this->Error < 0))
-       this->relayOutput(Sample, 1, -this->peakRelayOutput);
+       this->relayOutput(Sample, 1) = -this->peakRelayOutput;
     if((this->Error < this->toleranceError) && (this->relayOutput(this->Sample-1, 1) == this->peakRelayOutput))
-       this->relayOutput(Sample, 1, this->peakRelayOutput);
+       this->relayOutput(Sample, 1) = this->peakRelayOutput;
     if((this->Error < this->toleranceError) && (this->relayOutput(this->Sample-1, 1) == -this->peakRelayOutput))
-       this->relayOutput(Sample, 1, -this->peakRelayOutput);
+       this->relayOutput(Sample, 1) = -this->peakRelayOutput;
 }
 
 void Relay::setToleranceError(double tolerance)
@@ -45,7 +45,7 @@ void Relay::setReference(double ref)
 double Relay::relayLoop(double output)
 {
     this->Error = this->Reference - output;
-    this->systemOutput.add(this->Sample, 1, output);
+    this->systemOutput(this->Sample, 1) = output;
 
     relayCalc();
     return 0;

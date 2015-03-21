@@ -1,4 +1,4 @@
-#include "leastsquare.h"
+#include "SistemasdeControle/headers/optimizationLibs/leastsquare.h"
 
 template <class UsedType>
 LeastSquare<UsedType>::LeastSquare(Model<UsedType> *model)
@@ -9,8 +9,8 @@ LeastSquare<UsedType>::LeastSquare(Model<UsedType> *model)
 template <class UsedType>
 void LeastSquare<UsedType>::Optimize()
 {
-    Matrix<UsedType> A = this->model->getLinearMatrixA(),
-                     B = this->model->getLinearEqualityB();
+    LinAlg::Matrix<UsedType> A = this->model->getLinearMatrixA(),
+                             B = this->model->getLinearEqualityB();
     this->OptimizatedVariable = (((~A)*A)^-1)*(~A)*B;
 }
 

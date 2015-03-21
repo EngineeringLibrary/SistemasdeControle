@@ -1,4 +1,4 @@
-#include "optimization.h"
+#include "SistemasdeControle/headers/optimizationLibs/optimization.h"
 
 template <class UsedType>
 Optimization<UsedType>::Optimization()
@@ -6,7 +6,7 @@ Optimization<UsedType>::Optimization()
 }
 
 template <class UsedType>
-Matrix<UsedType> Optimization<UsedType>::getOptimizatedVariable()
+LinAlg::Matrix<UsedType> Optimization<UsedType>::getOptimizatedVariable()
 {
     return this->OptimizatedVariable;
 }

@@ -1,6 +1,5 @@
-#include "pso.h"
-//#include <cassert>
-#include <ctime>
+#include "SistemasdeControle/headers/optimizationLibs/pso.h"
+//#include <ctime>
 
 template <class UsedType>
 PSO<UsedType>::PSO(Model<UsedType> *model)
@@ -69,12 +68,12 @@ PSO<UsedType>::~PSO()
 template <class UsedType>
 void PSO<UsedType>::initAlgorithm()
 {
-    this->X.randU(this->PopSize, this->varNum);
+//    this->X.randU(this->PopSize, this->varNum);
 //    X.print();
     this->X = this->X*(4.0)-2.0;
-    this->V.randU(this->PopSize, this->varNum);
+//    this->V.randU(this->PopSize, this->varNum);
     this->P = this->X;
-    this->G.randU(1, this->varNum);
+//    this->G.randU(1, this->varNum);
     this->Xfitness = Evaluation(this->X);
 //    Xfitness.print();
     this->Gfitness = Evaluation(this->G);
@@ -84,19 +83,19 @@ void PSO<UsedType>::initAlgorithm()
 }
 
 template <class UsedType>
-Matrix<UsedType> PSO<UsedType>::Evaluation(Matrix<UsedType> Matrix2Evaluate)
+LinAlg::Matrix<UsedType> PSO<UsedType>::Evaluation(LinAlg::Matrix<UsedType> Matrix2Evaluate)
 {
-    Matrix<UsedType> ret(Matrix2Evaluate.getRows(), 1);
-    Matrix<UsedType> Y, Yest,Error;
+    LinAlg::Matrix<UsedType> ret(Matrix2Evaluate.getNumberOfRows(), 1);
+    LinAlg::Matrix<UsedType> Y, Yest,Error;
     //TODO -> Tornar a função mais fléxivel.
 
-    for(int i = 1; i <= Matrix2Evaluate.getRows(); i++)
+    for(unsigned i = 1; i <= Matrix2Evaluate.getNumberOfRows(); i++)
     {
-      model->setModelCoef(~Matrix2Evaluate.getLine(i));
+      model->setModelCoef(~Matrix2Evaluate.GetRow(i));
       Y = model->getOutputMatrix();
       Yest = model->sim(model->getInputMatrix());
       Error =  Y-Yest ;
-      ret(i,1, ((~Error)*Error)(1,1));
+      ret(i,1) = ((~Error)*Error)(1,1);
     }
 
     return ret;
@@ -111,7 +110,7 @@ void PSO<UsedType>::ParticleUpdate()
 template <class UsedType>
 void PSO<UsedType>::VelocityUpdate()
 {
-    srand((time(NULL)));
+//    srand((time(NULL)));
     double Rand1, Rand2;
 
 
@@ -120,7 +119,7 @@ void PSO<UsedType>::VelocityUpdate()
         {
             Rand1 = rand()*this->phi1/RAND_MAX;
             Rand2 = rand()*this->phi2/RAND_MAX;
-            this->V.add(i, j, (this->omega*this->V(i,j) + Rand1*(this->P(i,j) - this->X(i,j)) + Rand2*(this->G(1,j) - this->X(i,j))));
+            this->V(i, j) = (this->omega*this->V(i,j) + Rand1*(this->P(i,j) - this->X(i,j)) + Rand2*(this->G(1,j) - this->X(i,j)));
         }
 }
 
@@ -146,16 +145,16 @@ void PSO<UsedType>::FitnessUpdateMin()
   {
       if (this->Xfitness(i,1) < this->Pfitness(i,1))
       {
-          this->Pfitness.add(i,1, this->Xfitness(i,1));
+          this->Pfitness(i,1) = this->Xfitness(i,1);
           for(int j = 1; j <= this->varNum; j++)
-            this->P.add(i, j, this->X(i,j));
+            this->P(i, j) = this->X(i,j);
       }
 
       if (this->Pfitness(i,1) < this->Gfitness(1,1))
       {
-          this->Gfitness.add(1,1, this->Pfitness(i,1));
+          this->Gfitness(1,1) = this->Pfitness(i,1);
           for(int j = 1; j <= this->varNum; j++)
-            this->G.add(1, j, this->P(i,j));
+            this->G(1, j) = this->P(i,j);
       }
   }
 }
@@ -167,16 +166,16 @@ void PSO<UsedType>::FitnessUpdateMax()
     {
         if (this->Xfitness(i,1) > this->Pfitness(i,1))
         {
-            this->Pfitness.add(i,1, this->Xfitness(i,1));
+            this->Pfitness(i,1) = this->Xfitness(i,1);
             for(int j = 1; j <= this->varNum; j++)
-              this->P.add(i, j, this->X(i,j));
+              this->P(i, j) = this->X(i,j);
         }
 
         if (this->Pfitness(i,1) > this->Gfitness(1,1))
         {
-            this->Gfitness.add(1,1, this->Pfitness(i,1));
+            this->Gfitness(1,1) = this->Pfitness(i,1);
             for(int j = 1; j <= this->varNum; j++)
-                this->G.add(1, j, this->P(i,j));
+                this->G(1, j) = this->P(i,j);
         }
     }
 }
@@ -213,23 +212,23 @@ void PSO<UsedType>::Optimize()
 template <class UsedType>
 void PSO<UsedType>::Run(int nTimes)
 {
-    this->GnTimes.init(nTimes, this->G.getCols());
-    this->GfitnessnTime.init(nTimes, 1);
+    this->GnTimes = LinAlg::Zeros<UsedType>(nTimes, this->G.getNumberOfColumns());
+    this->GfitnessnTime = LinAlg::Zeros<UsedType>(nTimes, 1);
     for (int i = 1; i <= nTimes; i++)
     {
         this->Optimize();
 //        this->GnTimes = this->GnTimes||this->G;
-        this->GfitnessnTime.add(i, 1, this->Gfitness(1,1));
-        this->RunTime.add(i, 1, this->Stime);
-        this->Gfitness.print();
-        this->G.print();
+        this->GfitnessnTime(i, 1) = this->Gfitness(1,1);
+        this->RunTime(i, 1) = this->Stime;
+//        this->Gfitness.print();
+//        this->G.print();
     }
 
 //    this->GfitnessnTime.print();
 }
 
 template <class UsedType>
-void PSO<UsedType>::setData(Matrix<UsedType> dataIn, Matrix<UsedType> dataOut)
+void PSO<UsedType>::setData(LinAlg::Matrix<UsedType> dataIn, LinAlg::Matrix<UsedType> dataOut)
 {
     this->model->setIO(dataIn, dataOut);
 }
