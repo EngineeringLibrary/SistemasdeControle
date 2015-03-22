@@ -16,9 +16,10 @@ namespace LinAlg {
     class Matrix
     {
         public:
-            Matrix (std::string Mat);
+            Matrix (const char* Mat);
+            Matrix (std::string &Mat);
             Matrix (unsigned row, unsigned column);
-            Matrix (): rows(0), columns(0), mat(NULL){};
+            Matrix (): rows(0), columns(0), mat(NULL){}
             Matrix (const LinAlg::Matrix<Type>& otherMatrix);
             virtual ~Matrix ();
 

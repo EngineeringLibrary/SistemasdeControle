@@ -1,7 +1,13 @@
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
 
 template<typename Type>
-LinAlg::Matrix<Type>::Matrix (std::string Mat)
+LinAlg::Matrix<Type>::Matrix (const char* Mat)
+{
+    this->Init(std::string(Mat));
+}
+
+template<typename Type>
+LinAlg::Matrix<Type>::Matrix (std::string &Mat)
 {
     this->Init(Mat);
 }
