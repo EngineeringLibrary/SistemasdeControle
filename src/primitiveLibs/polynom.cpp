@@ -1,11 +1,68 @@
 #include "SistemasdeControle/headers/primitiveLibs/polynom.h"
 
 template <class TypeOfClass>
+void Polynom<TypeOfClass>::init(unsigned NumSize)
+{
+    this->num = initPointer<TypeOfClass>(NumSize);
+    this->den = initPointer<TypeOfClass>(0);
+    this->sizeNum = NumSize;
+    this->sizeDen = 1;
+    this->den[0] = 1;
+    this->x = 's';
+}
+
+template <class TypeOfClass>
+void Polynom<TypeOfClass>::init(unsigned NumSize, unsigned DenSize)
+{
+    this->num = initPointer<TypeOfClass>(NumSize);
+    this->den = initPointer<TypeOfClass>(DenSize);
+    this->sizeNum = NumSize;
+    this->sizeDen = DenSize;
+    this->x = 's';
+}
+
+template <class TypeOfClass>
+void Polynom<TypeOfClass>::init(LinAlg::Matrix<TypeOfClass> Num)
+{
+    this->sizeNum = Num.getNumberOfColumns();
+    this->num = initPointer<TypeOfClass>(Num.getNumberOfColumns());
+    for (int i = 0; i < Num.getNumberOfColumns(); ++i)
+        this->num[i] = (TypeOfClass) Num(1, i+1);
+
+    this->sizeDen = 1;
+    this->den = initPointer<TypeOfClass>(1);
+    this->den[0] = 1;
+    this->x = 's';
+
+}
+
+template <class TypeOfClass>
+void Polynom<TypeOfClass>::init(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den)
+{
+    this->sizeNum = Num.getNumberOfColumns();
+    this->num = initPointer<TypeOfClass>(Num.getNumberOfColumns());
+    for (int i = 0; i < Num.getNumberOfColumns(); ++i)
+        this->num[i] = (TypeOfClass) Num(1, i+1);
+
+    this->sizeDen = Den.getNumberOfColumns();
+    this->den = initPointer<TypeOfClass>(Den.getNumberOfColumns());
+    for (int i = 0; i < Den.getNumberOfColumns(); ++i)
+        this->den[i] = (TypeOfClass) Den(1 , i+1);
+    this->x = 's';
+}
+
+template <class TypeOfClass>
 Polynom<TypeOfClass>::Polynom()
 {
     this->sizeNum = 0;
     this->sizeDen = 0;
     this->x = 's';
+}
+
+template <class TypeOfClass>
+Polynom<TypeOfClass>::Polynom(unsigned Num)
+{
+    init(Num);
 }
 
 template <class TypeOfClass>
@@ -15,27 +72,15 @@ Polynom<TypeOfClass>::Polynom(unsigned Num, unsigned Den)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom(std::string Num, std::string Den)
+Polynom<TypeOfClass>::Polynom(LinAlg::Matrix<TypeOfClass> Num)
 {
-    init(Num, Den);
+    init(Num);
 }
 
 template <class TypeOfClass>
 Polynom<TypeOfClass>::Polynom(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den)
 {
     init(Num,Den);
-}
-
-template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom(std::string Num)
-{
-    init(Num);
-}
-
-template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom(unsigned Num)
-{
-    init(Num);
 }
 
 template <class TypeOfClass>
@@ -70,83 +115,23 @@ Polynom<TypeOfClass>::~Polynom()
     this->sizeDen = 0;
 }
 
-template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(unsigned NumSize)
+
+template<typename TypeOfClass>
+Polynom<TypeOfClass>& Polynom<TypeOfClass>::operator= (const Polynom<TypeOfClass>& OtherPolynom)
 {
-    this->num = initPointer<TypeOfClass>(NumSize);
-    this->den = initPointer<TypeOfClass>(0);
-    this->sizeNum = NumSize;
-    this->sizeDen = 1;
-    this->den[0] = 1;
-    this->x = 's';
+    this->setNum(OtherPolynom.num, OtherPolynom.sizeNum);
+    this->setDen(OtherPolynom.den, OtherPolynom.sizeDen);
+
+    return *this;
 }
 
-template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(unsigned NumSize, unsigned DenSize)
+template<typename TypeOfClass> template<typename OtherPolynomType>
+Polynom<TypeOfClass>& Polynom<TypeOfClass>::operator= (const Polynom<OtherPolynomType>& OtherPolynom)
 {
-    this->num = initPointer<TypeOfClass>(NumSize);
-    this->den = initPointer<TypeOfClass>(DenSize);
-    this->sizeNum = NumSize;
-    this->sizeDen = DenSize;
-    this->x = 's';
-}
+    this->setNum(OtherPolynom.num, OtherPolynom.sizeNum);
+    this->setDen(OtherPolynom.den, OtherPolynom.sizeDen);
 
-template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(std::string Num)
-{
-    using namespace std;
-
-    LinAlg::Matrix<TypeOfClass> tempNum;
-
-    tempNum = Num;
-    this->sizeNum = tempNum.getNumberOfColumns();
-    this->num = initPointer<TypeOfClass>(tempNum.getNumberOfColumns());
-    for (int i = 0; i < tempNum.getNumberOfColumns(); ++i)
-        this->num[i] = (TypeOfClass) tempNum(1, i+1);
-
-    this->sizeDen = 1;
-    this->den = initPointer<TypeOfClass>(1);
-    this->den[0] = 1;
-    this->x = 's';
-
-}
-
-template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(std::string Num, std::string Den)
-{
-    using namespace std;
-
-    LinAlg::Matrix<TypeOfClass> tempNum, tempDen;
-
-    tempNum = Num;
-    this->sizeNum = tempNum.getNumberOfColumns();
-    this->num = initPointer<TypeOfClass>(tempNum.getNumberOfColumns());
-    for (int i = 0; i < tempNum.getNumberOfColumns(); ++i)
-        this->num[i] = (TypeOfClass) tempNum(1, i+1);
-
-    tempDen = Den;
-    this->sizeDen = tempDen.getNumberOfColumns();
-    this->den = initPointer<TypeOfClass>(tempDen.getNumberOfColumns());
-    for (int i = 0; i < tempDen.getNumberOfColumns(); ++i)
-        this->den[i] = (TypeOfClass) tempDen(1 , i+1);
-    this->x = 's';
-}
-
-template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den)
-{
-    using namespace std;
-
-    this->sizeNum = Num.getNumberOfColumns();
-    this->num = initPointer<TypeOfClass>(Num.getNumberOfColumns());
-    for (int i = 0; i < Num.getNumberOfColumns(); ++i)
-        this->num[i] = (TypeOfClass) Num(1, i+1);
-
-    this->sizeDen = Den.getNumberOfColumns();
-    this->den = initPointer<TypeOfClass>(Den.getNumberOfColumns());
-    for (int i = 0; i < Den.getNumberOfColumns(); ++i)
-        this->den[i] = (TypeOfClass) Den(1 , i+1);
-    this->x = 's';
+    return *this;
 }
 
 template <class TypeOfClass>
@@ -220,13 +205,6 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator /(Polynom<TypeOfClass> P)
 
     return *this*ret;
 
-}
-
-template <class TypeOfClass>
-void Polynom<TypeOfClass>::operator =(Polynom<TypeOfClass> P)
-{
-    this->setDen(P.den, P.sizeDen);
-    this->setNum(P.num, P.sizeNum);
 }
 
 template <class TypeOfClass>

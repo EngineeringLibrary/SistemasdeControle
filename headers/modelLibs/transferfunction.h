@@ -17,6 +17,7 @@ private:
 public:
     TransferFunction();
     TransferFunction(unsigned rows, unsigned cols);
+    TransferFunction(LinAlg::Matrix<UsedType> numerators, LinAlg::Matrix<UsedType> denominators);
     TransferFunction(std::string num, std::string den,
                      unsigned rows  , unsigned cols);
 

@@ -18,8 +18,8 @@ private:
     void init(unsigned NumSize);
     void init(unsigned NumSize, unsigned DenSize);
 
-    void init(std::string Num);
-    void init(std::string Num, std::string Den);
+    void init(LinAlg::Matrix<TypeOfClass> Num);
+    void init(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den);
 
 
     bool VefDen(TypeOfClass *den1, TypeOfClass *den2, unsigned sizeden1, unsigned sizeden2);
@@ -30,16 +30,16 @@ public:
     Polynom(unsigned Num);
     Polynom(unsigned Num, unsigned Den);
 
-    Polynom(std::string Num);
-    Polynom(std::string Num, std::string Den);
-
+    Polynom(LinAlg::Matrix<TypeOfClass> Num);
     Polynom(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den);
 
     Polynom(const Polynom<TypeOfClass> &CopyPolynom);
 
     ~Polynom();
 
-    void init(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den);
+    Polynom<TypeOfClass>& operator= (const Polynom<TypeOfClass>& OtherPolynom);
+    template<typename OtherPolynomType>
+    Polynom<TypeOfClass>& operator= (const Polynom<OtherPolynomType>& OtherPolynom);
 
     Polynom<TypeOfClass> operator+(Polynom<TypeOfClass> P);
     Polynom<TypeOfClass> operator+(TypeOfClass scalar);
@@ -56,8 +56,6 @@ public:
     Polynom<TypeOfClass> operator/(Polynom<TypeOfClass> P);
     Polynom<TypeOfClass> operator/(TypeOfClass scalar);
     friend Polynom<TypeOfClass> operator/(TypeOfClass scalar, Polynom<TypeOfClass> P){return (P^-1)*scalar;}
-    void operator=(Polynom<TypeOfClass> P);
-
 
     Polynom<TypeOfClass> operator^(unsigned scalar);
 
@@ -67,6 +65,7 @@ public:
     void setDen(LinAlg::Matrix<TypeOfClass> Den);
 
     void setVar(char var);
+    char getVar(){return this->x;}
 
     LinAlg::Matrix<TypeOfClass> getNum();
     unsigned            getNumSize();
@@ -75,6 +74,7 @@ public:
 
     void print();
 };
+
 
 template <typename TypeOfClass>
 TypeOfClass* initPointer(unsigned Size)
@@ -157,52 +157,51 @@ LinAlg::Matrix<TypeOfClass> MultPoly(LinAlg::Matrix<TypeOfClass> value1,
     return ret;
 }
 
-template <class TypeOfClass>
-Polynom<TypeOfClass>** PolynomMatrix(unsigned rows, unsigned cols)
-{
-    Polynom<TypeOfClass> **Ret = new Polynom<TypeOfClass> *[rows];
-    for (unsigned i = 0; i < rows; i++)
-        Ret[i] = new Polynom<TypeOfClass> [cols];
+//template <class TypeOfClass>
+//Polynom<TypeOfClass>** PolynomMatrix(unsigned rows, unsigned cols)
+//{
+//    Polynom<TypeOfClass> **Ret = new Polynom<TypeOfClass> *[rows];
+//    for (unsigned i = 0; i < rows; i++)
+//        Ret[i] = new Polynom<TypeOfClass> [cols];
 
-    return Ret;
-}
+//    return Ret;
+//}
 
-template <class TypeOfClass>
-Polynom<TypeOfClass>** MMC(Polynom<TypeOfClass> **P,
-                         unsigned rows, unsigned cols)
-{
-    Polynom<TypeOfClass> **Ret = PolynomMatrix<TypeOfClass> (rows,cols);
+//template <class TypeOfClass>
+//LinAlg::Matrix< Polynom<TypeOfClass> > MMC(LinAlg::Matrix< Polynom<TypeOfClass> > P)
+//{
+//    LinAlg::Matrix< Polynom<TypeOfClass> > Ret(P.getNumberOfRows(),P.getNumberOfColumns());
 
 
-    for(unsigned k = 0; k < rows; k++)
-    {
-        for(unsigned l = 0; l < cols; l++)
-        {
-           LinAlg::Matrix<TypeOfClass> den = P[k][l].getDen();
-           LinAlg::Matrix<TypeOfClass> num = P[k][l].getNum();
+//    for(unsigned k = 1; k <= P.getNumberOfRows(); k++)
+//    {
+//        for(unsigned l = 1; l <= P.getNumberOfColumns(); l++)
+//        {
+//           LinAlg::Matrix<TypeOfClass> den = P(k,l).getDen();
+//           LinAlg::Matrix<TypeOfClass> num = P(k,l).getNum();
 
-            for(unsigned i = 0; i < rows; i++)
-                for(unsigned j = 0; j < cols; j++)
-                {
-                    if((i == k) && (j == l))
-                    {}
-                    else
-                    {
-                        den = MultPoly(den, P[i][j].getDen());
-//                        sizeDen = sizeDen + P[i][j].getDenSize() - 1;
+//            for(unsigned i = 0; i < rows; i++)
+//                for(unsigned j = 0; j < cols; j++)
+//                {
+//                    if((i == k) && (j == l))
+//                    {}
+//                    else
+//                    {
+//                        den = MultPoly(den, P[i][j].getDen());
+////                        sizeDen = sizeDen + P[i][j].getDenSize() - 1;
 
-                        num = MultPoly(num, P[i][j].getDen());
-//                        sizeNum = sizeNum + P[i][j].getDenSize() - 1;
-                    }
-                }
+//                        num = MultPoly(num, P[i][j].getDen());
+////                        sizeNum = sizeNum + P[i][j].getDenSize() - 1;
+//                    }
+//                }
 
-            Ret[k][l].setNum(num);
-            Ret[k][l].setDen(den);
-//            Ret[k][l].print();
-        }
-    }
-    return Ret;
-}
+//            Ret[k][l].setNum(num);
+//            Ret[k][l].setDen(den);
+////            Ret[k][l].print();
+//        }
+//    }
+//    return Ret;
+//}
 
 template <class TypeOfClass>
 void zeroPoleGain(Polynom<TypeOfClass> P,

@@ -35,6 +35,24 @@ TransferFunction<UsedType>::TransferFunction()
 }
 
 template <class UsedType>
+TransferFunction<UsedType>::TransferFunction(LinAlg::Matrix<UsedType> numerators,
+                                             LinAlg::Matrix<UsedType> denominators)
+{
+    nRowsTF = 1;
+    nColsTF = 1;
+    this->initTfNumber();
+    sampleTime = 0.1;
+
+    unsigned cont = 1;
+    for(unsigned i = 0; i < nRowsTF; i++)
+        for (unsigned j = 0; j < nColsTF; j++)
+        {
+//            this->TF[i][j].init(numerators.GetRow(cont), denominators.GetRow(cont));
+            cont++;
+        }
+}
+
+template <class UsedType>
 TransferFunction<UsedType>::TransferFunction(std::string num, std::string den,
                                              unsigned rows  , unsigned cols)
 {
@@ -48,7 +66,7 @@ TransferFunction<UsedType>::TransferFunction(std::string num, std::string den,
     for(unsigned i = 0; i < nRowsTF; i++)
         for (unsigned j = 0; j < nColsTF; j++)
         {
-            this->TF[i][j].init(Num.GetRow(cont), Den.GetColumn(cont));
+//            this->TF[i][j].init(Num.GetRow(cont), Den.GetColumn(cont));
             cont++;
         }
 }
@@ -123,35 +141,35 @@ void TransferFunction<UsedType>::setLinearVectorPhiEstimation()
 }
 
 
-template <class UsedType>
-void TransferFunction<UsedType>::setTF(Polynom<UsedType> **TF,
-                                       unsigned rows, unsigned cols)
-{
-    this->TF = PolynomMatrix<UsedType> (rows,cols);
-    nRowsTF = rows;
-    nColsTF = cols;
+//template <class UsedType>
+//void TransferFunction<UsedType>::setTF(Polynom<UsedType> **TF,
+//                                       unsigned rows, unsigned cols)
+//{
+//    this->TF = PolynomMatrix<UsedType> (rows,cols);
+//    nRowsTF = rows;
+//    nColsTF = cols;
 
-    for(unsigned i = 0; i < nRowsTF; i++)
-        for(unsigned j = 0; j < nColsTF; j++)
-        {
-            this->TF[i][j] = TF[i][j];
-        }
+//    for(unsigned i = 0; i < nRowsTF; i++)
+//        for(unsigned j = 0; j < nColsTF; j++)
+//        {
+//            this->TF[i][j] = TF[i][j];
+//        }
 
-}
+//}
 
-template <class UsedType>
-Polynom<UsedType>** TransferFunction<UsedType>::getTF()
-{
-    Polynom<UsedType> GerPol;
-    Polynom<UsedType> **Ret = PolynomMatrix<UsedType>(nRowsTF,nColsTF);
+//template <class UsedType>
+//Polynom<UsedType>** TransferFunction<UsedType>::getTF()
+//{
+//    Polynom<UsedType> GerPol;
+//    Polynom<UsedType> **Ret = PolynomMatrix<UsedType>(nRowsTF,nColsTF);
 
-    for(unsigned i = 0; i < nRowsTF; i++)
-        for(unsigned j = 0; j < nColsTF; j++)
-        {
-            Ret[i][j] = TF[i][j];
-        }
-    return Ret;
-}
+//    for(unsigned i = 0; i < nRowsTF; i++)
+//        for(unsigned j = 0; j < nColsTF; j++)
+//        {
+//            Ret[i][j] = TF[i][j];
+//        }
+//    return Ret;
+//}
 
 template <class UsedType>
 unsigned TransferFunction<UsedType>::getNRowsTF()
