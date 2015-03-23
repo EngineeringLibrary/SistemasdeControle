@@ -810,3 +810,4 @@ void LinAlg::Print(const Matrix<Type>& mat)
     std::cout << std::endl;
   }
 }
+

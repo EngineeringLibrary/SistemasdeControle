@@ -167,6 +167,7 @@ namespace LinAlg {
 
     template<typename Type>
     void Print (const LinAlg::Matrix<Type>& mat);
+
 }
 
 #include "SistemasdeControle/src/primitiveLibs/LinAlg/matrix.hpp"
