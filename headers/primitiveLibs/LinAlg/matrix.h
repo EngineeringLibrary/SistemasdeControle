@@ -79,7 +79,7 @@ namespace LinAlg {
 
             //Should be declared as friend.
             template<typename OtherMatrixType>
-            friend void swap (LinAlg::Matrix<Type>& lhs, LinAlg::Matrix<OtherMatrixType>& rhs) {lhs.swap(rhs);};            
+            friend void swap (LinAlg::Matrix<Type>& lhs, LinAlg::Matrix<OtherMatrixType>& rhs) {lhs.swap(rhs);}
 
         private:
             void Init (std::string Mat);

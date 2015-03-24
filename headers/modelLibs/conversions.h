@@ -20,8 +20,8 @@ namespace Conversions{
                 tempB = B.GetColumn(j);
                 tempC = C.GetRow(i);
 
-                TF(i,j, Polynom<UsedType>((LinAlg::CaracteristicPolynom(A - tempB*tempC) - LinAlg::CaracteristicPolynom(A)), LinAlg::CaracteristicPolynom(A)));
-                TF(i,j, TF(i,j) + D(i,j));
+//                TF(i,j, PolynomOperations::Polynom<UsedType>((LinAlg::CaracteristicPolynom(A - tempB*tempC) - LinAlg::CaracteristicPolynom(A)), LinAlg::CaracteristicPolynom(A)));
+//                TF(i,j, TF(i,j) + D(i,j));
             }
         }
         return TF;

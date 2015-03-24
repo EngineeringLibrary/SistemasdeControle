@@ -9,9 +9,8 @@ class TransferFunction : public Model<UsedType>
 private:
     bool isContinuous;
     UsedType sampleTime, timeSimulation;
-    unsigned nRowsTF, nColsTF;
-    Polynom<UsedType> **TF;
-    void initTfNumber();
+    LinAlg::Matrix< PolynomOperations::Polynom<UsedType> > TF;
+//    void initTfNumber();
     void c2dConversion();
 
 public:
@@ -22,8 +21,8 @@ public:
                      unsigned rows  , unsigned cols);
 
     void c2d(UsedType sampleTime);
-    Polynom<UsedType> operator()(unsigned row, unsigned col);
-    void operator()(unsigned row, unsigned col, Polynom<UsedType> P);
+    PolynomOperations::Polynom<UsedType>& operator()(unsigned row, unsigned col);
+    PolynomOperations::Polynom<UsedType>  operator()(unsigned row, unsigned col)const;
     void operator= (TransferFunction<UsedType> TF);
 
     void print();
@@ -32,8 +31,8 @@ public:
     void setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
 
 
-    void setTF(Polynom<UsedType> **TF, unsigned rows, unsigned cols);
-    Polynom<UsedType> **getTF();
+    void setTF(PolynomOperations::Polynom<UsedType> **TF, unsigned rows, unsigned cols);
+    PolynomOperations::Polynom<UsedType> **getTF();
     unsigned getNRowsTF();
     unsigned getNColsTF();
 

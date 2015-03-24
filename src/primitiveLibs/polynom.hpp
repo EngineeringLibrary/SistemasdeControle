@@ -1,7 +1,7 @@
 #include "SistemasdeControle/headers/primitiveLibs/polynom.h"
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(unsigned NumSize)
+void PolynomOperations::Polynom<TypeOfClass>::init(unsigned NumSize)
 {
     this->num = initPointer<TypeOfClass>(NumSize);
     this->den = initPointer<TypeOfClass>(0);
@@ -12,7 +12,7 @@ void Polynom<TypeOfClass>::init(unsigned NumSize)
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(unsigned NumSize, unsigned DenSize)
+void PolynomOperations::Polynom<TypeOfClass>::init(unsigned NumSize, unsigned DenSize)
 {
     this->num = initPointer<TypeOfClass>(NumSize);
     this->den = initPointer<TypeOfClass>(DenSize);
@@ -22,7 +22,7 @@ void Polynom<TypeOfClass>::init(unsigned NumSize, unsigned DenSize)
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(LinAlg::Matrix<TypeOfClass> Num)
+void PolynomOperations::Polynom<TypeOfClass>::init(LinAlg::Matrix<TypeOfClass> Num)
 {
     this->sizeNum = Num.getNumberOfColumns();
     this->num = initPointer<TypeOfClass>(Num.getNumberOfColumns());
@@ -37,7 +37,7 @@ void Polynom<TypeOfClass>::init(LinAlg::Matrix<TypeOfClass> Num)
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::init(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den)
+void PolynomOperations::Polynom<TypeOfClass>::init(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den)
 {
     this->sizeNum = Num.getNumberOfColumns();
     this->num = initPointer<TypeOfClass>(Num.getNumberOfColumns());
@@ -52,7 +52,7 @@ void Polynom<TypeOfClass>::init(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom()
+PolynomOperations::Polynom<TypeOfClass>::Polynom()
 {
     this->sizeNum = 0;
     this->sizeDen = 0;
@@ -60,31 +60,31 @@ Polynom<TypeOfClass>::Polynom()
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom(unsigned Num)
+PolynomOperations::Polynom<TypeOfClass>::Polynom(unsigned Num)
 {
     init(Num);
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom(unsigned Num, unsigned Den)
+PolynomOperations::Polynom<TypeOfClass>::Polynom(unsigned Num, unsigned Den)
 {
     init(Num, Den);
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom(LinAlg::Matrix<TypeOfClass> Num)
+PolynomOperations::Polynom<TypeOfClass>::Polynom(LinAlg::Matrix<TypeOfClass> Num)
 {
     init(Num);
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den)
+PolynomOperations::Polynom<TypeOfClass>::Polynom(LinAlg::Matrix<TypeOfClass> Num, LinAlg::Matrix<TypeOfClass> Den)
 {
     init(Num,Den);
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass>::Polynom(const Polynom<TypeOfClass> &CopyPolynom)
+PolynomOperations::Polynom<TypeOfClass>::Polynom(const PolynomOperations::Polynom<TypeOfClass> &CopyPolynom)
 {
     this->num = initPointer<TypeOfClass>(CopyPolynom.sizeNum);
     this->den = initPointer<TypeOfClass>(CopyPolynom.sizeDen);
@@ -100,7 +100,7 @@ Polynom<TypeOfClass>::Polynom(const Polynom<TypeOfClass> &CopyPolynom)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass>::~Polynom()
+PolynomOperations::Polynom<TypeOfClass>::~Polynom()
 {
     if(this->sizeNum != 0 && this->sizeDen != 0)
     {
@@ -117,7 +117,7 @@ Polynom<TypeOfClass>::~Polynom()
 
 
 template<typename TypeOfClass>
-Polynom<TypeOfClass>& Polynom<TypeOfClass>::operator= (const Polynom<TypeOfClass>& OtherPolynom)
+PolynomOperations::Polynom<TypeOfClass>& PolynomOperations::Polynom<TypeOfClass>::operator= (const PolynomOperations::Polynom<TypeOfClass>& OtherPolynom)
 {
     this->setNum(OtherPolynom.num, OtherPolynom.sizeNum);
     this->setDen(OtherPolynom.den, OtherPolynom.sizeDen);
@@ -126,7 +126,7 @@ Polynom<TypeOfClass>& Polynom<TypeOfClass>::operator= (const Polynom<TypeOfClass
 }
 
 template<typename TypeOfClass> template<typename OtherPolynomType>
-Polynom<TypeOfClass>& Polynom<TypeOfClass>::operator= (const Polynom<OtherPolynomType>& OtherPolynom)
+PolynomOperations::Polynom<TypeOfClass>& PolynomOperations::Polynom<TypeOfClass>::operator= (const PolynomOperations::Polynom<OtherPolynomType>& OtherPolynom)
 {
     this->setNum(OtherPolynom.num, OtherPolynom.sizeNum);
     this->setDen(OtherPolynom.den, OtherPolynom.sizeDen);
@@ -135,9 +135,9 @@ Polynom<TypeOfClass>& Polynom<TypeOfClass>::operator= (const Polynom<OtherPolyno
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass> Polynom<TypeOfClass>::operator +(Polynom<TypeOfClass> P)
+PolynomOperations::Polynom<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::operator +(PolynomOperations::Polynom<TypeOfClass> P)
 {
-    Polynom<TypeOfClass> ret;
+    PolynomOperations::Polynom<TypeOfClass> ret;
     int max;
 
    if(VefDen(this->den, P.den, this->sizeDen, P.sizeDen))
@@ -171,9 +171,9 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator +(Polynom<TypeOfClass> P)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass> Polynom<TypeOfClass>::operator -(Polynom<TypeOfClass> P)
+PolynomOperations::Polynom<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::operator -(PolynomOperations::Polynom<TypeOfClass> P)
 {
-    Polynom<TypeOfClass> ret;
+    PolynomOperations::Polynom<TypeOfClass> ret;
 
     P = (-1)*P;
 
@@ -183,9 +183,9 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator -(Polynom<TypeOfClass> P)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass> Polynom<TypeOfClass>::operator *(TypeOfClass scalar)
+PolynomOperations::Polynom<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::operator *(TypeOfClass scalar)
 {
-    Polynom<TypeOfClass> ret;
+    PolynomOperations::Polynom<TypeOfClass> ret;
 
     for (int i = 0; i < this->sizeNum; ++i)
         this->num[i] = scalar*this->num[i];
@@ -196,9 +196,9 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator *(TypeOfClass scalar)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass> Polynom<TypeOfClass>::operator /(Polynom<TypeOfClass> P)
+PolynomOperations::Polynom<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::operator /(PolynomOperations::Polynom<TypeOfClass> P)
 {
-    Polynom<TypeOfClass> ret;
+    PolynomOperations::Polynom<TypeOfClass> ret;
 
     ret.setDen(P.num, P.sizeNum);
     ret.setNum(P.den, P.sizeDen);
@@ -208,9 +208,9 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator /(Polynom<TypeOfClass> P)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass> Polynom<TypeOfClass>::operator *(Polynom<TypeOfClass> P)
+PolynomOperations::Polynom<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::operator *(PolynomOperations::Polynom<TypeOfClass> P)
 {
-    Polynom<TypeOfClass> ret;
+    PolynomOperations::Polynom<TypeOfClass> ret;
 
     ret.num = MultPoly(this->num, P.num, this->sizeNum, P.sizeNum);
     ret.den = MultPoly(this->den, P.den, this->sizeDen, P.sizeDen);
@@ -223,9 +223,9 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator *(Polynom<TypeOfClass> P)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass> Polynom<TypeOfClass>::operator^(unsigned scalar)
+PolynomOperations::Polynom<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::operator^(unsigned scalar)
 {
-    Polynom<TypeOfClass> ret;
+    PolynomOperations::Polynom<TypeOfClass> ret;
 
     if(scalar < 0)
     {
@@ -253,9 +253,9 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator^(unsigned scalar)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass> Polynom<TypeOfClass>::operator+(TypeOfClass scalar)
+PolynomOperations::Polynom<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::operator+(TypeOfClass scalar)
 {
-    Polynom<TypeOfClass> ret;
+    PolynomOperations::Polynom<TypeOfClass> ret;
 
     ret.setNum(this->den, this->sizeDen);
     ret.setDen(this->den, this->sizeDen);
@@ -265,9 +265,9 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator+(TypeOfClass scalar)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass> Polynom<TypeOfClass>::operator-(TypeOfClass scalar)
+PolynomOperations::Polynom<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::operator-(TypeOfClass scalar)
 {
-    Polynom<TypeOfClass> ret;
+    PolynomOperations::Polynom<TypeOfClass> ret;
 
     ret.setNum(this->den, this->sizeDen);
     ret.setDen(this->den, this->sizeDen);
@@ -276,13 +276,13 @@ Polynom<TypeOfClass> Polynom<TypeOfClass>::operator-(TypeOfClass scalar)
 }
 
 template <class TypeOfClass>
-Polynom<TypeOfClass> Polynom<TypeOfClass>::operator/(TypeOfClass scalar)
+PolynomOperations::Polynom<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::operator/(TypeOfClass scalar)
 {
     return *this*(1/scalar);
 }
 
 template <class TypeOfClass>
-bool Polynom<TypeOfClass>::VefDen(TypeOfClass *den1, TypeOfClass *den2, unsigned sizeden1, unsigned sizeden2)
+bool PolynomOperations::Polynom<TypeOfClass>::VefDen(TypeOfClass *den1, TypeOfClass *den2, unsigned sizeden1, unsigned sizeden2)
 {
     bool vef = true;
 
@@ -302,7 +302,7 @@ bool Polynom<TypeOfClass>::VefDen(TypeOfClass *den1, TypeOfClass *den2, unsigned
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::setNum(TypeOfClass *Num, unsigned sizenum)
+void PolynomOperations::Polynom<TypeOfClass>::setNum(TypeOfClass *Num, unsigned sizenum)
 {
     this->num = initPointer<TypeOfClass>(sizenum);
     this->sizeNum = sizenum;
@@ -312,7 +312,7 @@ void Polynom<TypeOfClass>::setNum(TypeOfClass *Num, unsigned sizenum)
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::setNum(LinAlg::Matrix<TypeOfClass> Num)
+void PolynomOperations::Polynom<TypeOfClass>::setNum(LinAlg::Matrix<TypeOfClass> Num)
 {
     this->num = initPointer<TypeOfClass>(Num.getNumberOfColumns());
     this->sizeNum = Num.getNumberOfColumns();
@@ -322,7 +322,7 @@ void Polynom<TypeOfClass>::setNum(LinAlg::Matrix<TypeOfClass> Num)
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::setDen(TypeOfClass *Den, unsigned sizeden)
+void PolynomOperations::Polynom<TypeOfClass>::setDen(TypeOfClass *Den, unsigned sizeden)
 {
     this->den = initPointer<TypeOfClass>(sizeden);
     this->sizeDen = sizeden;
@@ -332,7 +332,7 @@ void Polynom<TypeOfClass>::setDen(TypeOfClass *Den, unsigned sizeden)
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::setDen(LinAlg::Matrix<TypeOfClass> Den)
+void PolynomOperations::Polynom<TypeOfClass>::setDen(LinAlg::Matrix<TypeOfClass> Den)
 {
     this->den = initPointer<TypeOfClass>(Den.getNumberOfColumns());
     this->sizeDen = Den.getNumberOfColumns();
@@ -342,13 +342,13 @@ void Polynom<TypeOfClass>::setDen(LinAlg::Matrix<TypeOfClass> Den)
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::setVar(char var)
+void PolynomOperations::Polynom<TypeOfClass>::setVar(char var)
 {
     this->x = var;
 }
 
 template <class TypeOfClass>
-LinAlg::Matrix<TypeOfClass> Polynom<TypeOfClass>::getNum()
+LinAlg::Matrix<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::getNum() const
 {
     LinAlg::Matrix<TypeOfClass> ret(1, this->sizeNum);
 
@@ -359,13 +359,13 @@ LinAlg::Matrix<TypeOfClass> Polynom<TypeOfClass>::getNum()
 }
 
 template <class TypeOfClass>
-unsigned Polynom<TypeOfClass>::getNumSize()
+unsigned PolynomOperations::Polynom<TypeOfClass>::getNumSize() const
 {
     return sizeNum;
 }
 
 template <class TypeOfClass>
-LinAlg::Matrix<TypeOfClass> Polynom<TypeOfClass>::getDen()
+LinAlg::Matrix<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::getDen() const
 {
     LinAlg::Matrix<TypeOfClass> ret(1, this->sizeDen);
 
@@ -376,13 +376,13 @@ LinAlg::Matrix<TypeOfClass> Polynom<TypeOfClass>::getDen()
 }
 
 template <class TypeOfClass>
-unsigned Polynom<TypeOfClass>::getDenSize()
+unsigned PolynomOperations::Polynom<TypeOfClass>::getDenSize() const
 {
     return sizeDen;
 }
 
 template <class TypeOfClass>
-void Polynom<TypeOfClass>::print()
+void PolynomOperations::Polynom<TypeOfClass>::print()
 {
     if((this->sizeDen != 0)&&(this->sizeNum != 0))
     {
@@ -461,8 +461,90 @@ void Polynom<TypeOfClass>::print()
     }
 }
 
-template class Polynom <int>;
-template class Polynom <float>;
-template class Polynom <double>;
+template<typename TypeOfClass>
+std::ostream& PolynomOperations::operator<< (std::ostream& output, const PolynomOperations::Polynom<TypeOfClass>& Pol)
+{
+
+    if((Pol.getDenSize() != 0)&&(Pol.getNumSize() != 0))
+    {
+        unsigned maxSize;
+
+        if(Pol.getNumSize() > Pol.getDenSize())
+            maxSize = Pol.getNumSize();
+        else
+            maxSize = Pol.getDenSize();
+
+        if(Pol.getDenSize() == 0) {
+            if(Pol.getNumSize() >= 2) {
+                for(unsigned i = 0; i < Pol.getNumSize() - 2; ++i) {
+                    if(Pol.getNum()(1,i+1)!= 0) {
+                        if(Pol.getNum()(1,i+1)!= 1)
+                            output << Pol.getNum()(1,i+1);
+                        output << Pol.getVar() << '^' << Pol.getNumSize() - i - 1 << ' ';
+                        if(i != Pol.getNumSize() - 3)
+                            output << '+' << ' ';
+                    }
+                }
+                if(Pol.getNum()(1, Pol.getNumSize() - 1)  != 0) {
+                    if(Pol.getNum()(1,Pol.getNumSize() - 1) != 1)
+                            output << '+' << ' ' << Pol.getNum()(1, Pol.getNumSize() - 1);
+                    output << Pol.getVar() << ' ';
+                }
+            }
+            if(Pol.getNum()(1, Pol.getNumSize()) != 0)
+                output << '+' << ' ' << Pol.getNum()(1, Pol.getNumSize()) << '\n';
+
+        }
+        else {
+            if(Pol.getNumSize() >= 2) {
+                for(unsigned i = 0; i < Pol.getNumSize() - 2; ++i) {
+                    if(Pol.getNum()(1,i+1)!= 0) {
+                        if(Pol.getNum()(1,i+1)!= 1)
+                            output << Pol.getNum()(1, i+1);
+                        output << Pol.getVar() << '^' << Pol.getNumSize() - i - 1 << ' ';
+                        if( i != Pol.getNumSize() - 3)
+                           output << '+' << ' ';
+                    }
+                }
+                if(Pol.getNum()(1, Pol.getNumSize() - 1) != 0) {
+                    if(Pol.getNum()(1, Pol.getNumSize() - 1) != 1)
+                        output << Pol.getNum()(1, Pol.getNumSize() - 1);
+                    output << Pol.getVar() << ' ';
+                }
+            }
+            if(Pol.getNum()(1, Pol.getNumSize()) != 0)
+                output << '+' << ' ' << Pol.getNum()(1, Pol.getNumSize()) << '\n';
+
+            for(unsigned i = 0; i < maxSize; ++i)
+                output << '-' << '-' << '-' << '-' << '-';
+            output << '\n';
+
+            if(Pol.getDenSize() >= 2) {
+                for(unsigned i = 0; i < Pol.getDenSize() - 2; ++i) {
+                    if(Pol.getDen()(1, i + 1) != 0) {
+                        if(Pol.getDen()(1, i + 1) != 1)
+                            output << Pol.getDen()(1, i + 1);
+                        output << Pol.getVar() << '^' << Pol.getDenSize() - i - 1 << ' ';
+                        if(i != Pol.getDenSize() - 3)
+                           output << '+' << ' ';
+                    }
+                }
+                if(Pol.getDen()(1, Pol.getDenSize() - 1) != 0) {
+                    if(Pol.getDen()(1, Pol.getDenSize() - 1) != 1)
+                       output << '+' << ' ' << Pol.getDen()(1, Pol.getDenSize() - 1);
+                    output << Pol.getVar() << ' ';
+                }
+            }
+           if(Pol.getDen()(1, Pol.getDenSize()) != 0)
+               output << '+' << ' ' << Pol.getDen()(1, Pol.getDenSize());
+        }
+        output << '\n';
+    }
+    return output;
+}
+
+//template class PolynomOperations::Polynom <int>;
+//template class PolynomOperations::Polynom <float>;
+//template class PolynomOperations::Polynom <double>;
 
 
