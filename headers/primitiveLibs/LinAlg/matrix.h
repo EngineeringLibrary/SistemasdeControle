@@ -16,8 +16,9 @@ namespace LinAlg {
     class Matrix
     {
         public:
+            Matrix (unsigned value);
             Matrix (const char* Mat);
-            Matrix (std::string &Mat);
+            Matrix (const std::string &Mat);
             Matrix (unsigned row, unsigned column);
             Matrix (): rows(0), columns(0), mat(NULL){}
             Matrix (const LinAlg::Matrix<Type>& otherMatrix);
@@ -42,12 +43,16 @@ namespace LinAlg {
 
             LinAlg::Matrix<Type> operator() (unsigned* row_interval, unsigned column) const;
             LinAlg::Matrix<Type> operator() (unsigned  row, unsigned* column_interval) const;
-            LinAlg::Matrix<Type> operator() (unsigned* row_interval, unsigned* column_interval) const;
+            LinAlg::Matrix<Type>  operator() (unsigned* row_interval, unsigned* column_interval) const;
+
+//            Type& operator() (unsigned* row_interval, unsigned* column_interval);
 
             void operator= (std::string rhs);
             LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<Type>& otherMatrix);
             template<typename OtherMatrixType>
             LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<OtherMatrixType>& otherMatrix);
+
+            LinAlg::Matrix<Type>& operator= (const Type& mat) const;
 
             LinAlg::Matrix<Type>& operator+= (const Type& rhs /*scalar*/);
             template<typename RightType>
@@ -79,7 +84,7 @@ namespace LinAlg {
 
             //Should be declared as friend.
             template<typename OtherMatrixType>
-            friend void swap (LinAlg::Matrix<Type>& lhs, LinAlg::Matrix<OtherMatrixType>& rhs) {lhs.swap(rhs);}
+            friend void swap (LinAlg::Matrix<Type>& lhs, LinAlg::Matrix<OtherMatrixType>& rhs) {lhs.swap(rhs);};
 
         private:
             void Init (std::string Mat);
@@ -142,6 +147,9 @@ namespace LinAlg {
     bool operator!= (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs) {return !(lhs == rhs);}
 
     template<typename Type>
+    unsigned* operator> (const From& lhs, Type b);
+
+    template<typename Type>
     void Zeros (LinAlg::Matrix<Type>& Mat);
 
     template<typename Type>
@@ -167,7 +175,6 @@ namespace LinAlg {
 
     template<typename Type>
     void Print (const LinAlg::Matrix<Type>& mat);
-
 }
 
 #include "SistemasdeControle/src/primitiveLibs/LinAlg/matrix.hpp"

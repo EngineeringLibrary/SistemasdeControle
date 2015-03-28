@@ -1,9 +1,11 @@
 #ifndef __POLYNOM_H_INCLUDED
 #define __POLYNOM_H_INCLUDED
 
+#include <string>
+#include <iomanip>
 #include <cstdlib>
 #include <iostream>
-#include <string>
+#include <sstream>
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
 
 namespace PolynomOperations {
@@ -68,12 +70,19 @@ namespace PolynomOperations {
         char getVar()const{return this->x;}
 
         LinAlg::Matrix<TypeOfClass> getNum() const;
-        unsigned            getNumSize() const;
+        TypeOfClass* getNumPointer() const;
+        unsigned getNumSize() const;
         LinAlg::Matrix<TypeOfClass> getDen() const;
-        unsigned            getDenSize() const;
+        TypeOfClass* getDenPointer() const;
+        unsigned getDenSize() const;
 
-        void print();
+
     };
+
+    template<typename Type>
+    void printPol(std::string& output, const Type *num, unsigned numSize, char x);
+
+//    void linePrint(std::string& linesStr, unsigned amount);
 
     template<typename Type>
     std::ostream& operator<< (std::ostream& output, const PolynomOperations::Polynom<Type>& Pol);

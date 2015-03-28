@@ -1,13 +1,21 @@
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
 
 template<typename Type>
-LinAlg::Matrix<Type>::Matrix (const char* Mat)
+LinAlg::Matrix<Type>::Matrix (unsigned value)
 {
-    this->Init(std::string(Mat));
+    this->Init(1,1);
+    this->mat[0][0] = value;
 }
 
 template<typename Type>
-LinAlg::Matrix<Type>::Matrix (std::string &Mat)
+LinAlg::Matrix<Type>::Matrix (const char* Mat)
+{
+    std::string StrMat = Mat;
+    this->Init(StrMat);
+}
+
+template<typename Type>
+LinAlg::Matrix<Type>::Matrix (const std::string &Mat)
 {
     this->Init(Mat);
 }
@@ -347,12 +355,12 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(unsigned row, unsigned* c
         if(column_interval[0] < column_interval[1]){
             Ret.Init(1, column_interval[1] - column_interval[0] + 1);
             for(unsigned j = column_interval[0]; j <= column_interval[1]; ++j)
-                Ret.mat[row - 1][j - column_interval[0]] = this->mat[row - 1][j - 1];
+                Ret.mat[0][j - column_interval[0]] = this->mat[row - 1][j - 1];
 
         }else{
             Ret.Init(1, column_interval[0] - column_interval[1] + 1);
             for(unsigned j = column_interval[0]; j >= column_interval[1]; --j)
-                Ret.mat[row - 1][column_interval[0] - j] = this->mat[row - 1][j - 1];
+                Ret.mat[0][column_interval[0] - j] = this->mat[row - 1][j - 1];
         }
 
     return Ret;
@@ -366,17 +374,25 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(unsigned* row_interval, u
     if(row_interval[0] < row_interval[1]){
         Ret.Init(row_interval[1] - row_interval[0] + 1, 1);
         for(unsigned i = row_interval[0]; i <= row_interval[1]; ++i)
-            Ret.mat[i - row_interval[0]][column - 1] = this->mat[i - 1][column - 1];
+            Ret.mat[i - row_interval[0]][0] = this->mat[i - 1][column - 1];
     } else{
         unsigned aux = row_interval[0] - row_interval[1] + 1;
 
         Ret.Init(row_interval[0] - row_interval[1] + 1, 1);
         for(unsigned i = row_interval[0]; i >= row_interval[1]; --i)
-            Ret.mat[row_interval[0] - i][column - 1] = this->mat[i - 1][column - 1];
+            Ret.mat[row_interval[0] - i][0] = this->mat[i - 1][column - 1];
     }
 
     return Ret;
 }
+
+//template<typename Type>
+//Type** LinAlg::Matrix<Type>::operator() (unsigned* row_interval, unsigned* column_interval)
+//{
+//    LinAlg::Matrix<Type> ret(this->operator() (row_interval, column_interval));
+
+//    return ret.mat;
+//}
 
 template<typename Type>
 void LinAlg::Matrix<Type>::operator= (std::string Mat)
@@ -396,6 +412,18 @@ template<typename Type> template<typename OtherMatrixType>
 LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator= (const LinAlg::Matrix<OtherMatrixType>& rhs)
 {
     swap(rhs);
+
+    return *this;
+}
+
+template<typename Type>
+LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator =(const Type& mat) const
+{
+    using std::swap;
+
+    Type** temp(mat);
+
+    swap(this->mat, temp);
 
     return *this;
 }
@@ -628,6 +656,14 @@ bool LinAlg::operator== (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<T
 }
 
 template<typename Type>
+unsigned* LinAlg::operator> (const From& lhs, Type b){
+    unsigned* Interval = new unsigned[2];
+    Interval[0] = lhs.interval;
+    Interval[1] = b;
+    return Interval;
+}
+
+template<typename Type>
 void LinAlg::Zeros(Matrix<Type>& Mat)
 {
     for(unsigned i = 1; i <= Mat.getNumberOfRows(); i++)
@@ -730,10 +766,10 @@ Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
 template<typename Type>
 LinAlg::Matrix<Type> LinAlg::Cofactor(const LinAlg::Matrix<Type>& mat)
 {
-	unsigned rows = mat.getNumberOfRows(), columns = mat.getNumberOfColumns(), aux1, aux2;
-	LinAlg::Matrix<Type> temp(rows - 1, columns - 1), ret(rows, columns);
+    unsigned rows = mat.getNumberOfRows(), columns = mat.getNumberOfColumns(), aux1, aux2;
+    LinAlg::Matrix<Type> temp(rows - 1, columns - 1), ret(rows, columns);
 
-	if(rows != columns)
+    if(rows != columns)
     {
         LinAlg::Zeros(ret);
         std::cout << "Operacao disponivel somente para matrizes quadradas.";
@@ -810,4 +846,3 @@ void LinAlg::Print(const Matrix<Type>& mat)
     std::cout << std::endl;
   }
 }
-

@@ -200,3 +200,13 @@ LinAlg::Matrix<Type> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_g
 
     return ret;
 }
+
+//template<typename Type>
+//void LinAlg::Matrix<Type>::swapper::operator =(LinAlg::Matrix<Type>& matrix)
+//{
+//    using std::swap;
+
+//    LinAlg::Matrix<Type> tmp(matrix);
+
+//    swap(this->swaping, tmp.getMatPointer());
+//}

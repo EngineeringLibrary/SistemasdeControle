@@ -359,6 +359,12 @@ LinAlg::Matrix<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::getNum() co
 }
 
 template <class TypeOfClass>
+TypeOfClass* PolynomOperations::Polynom<TypeOfClass>::getNumPointer() const
+{
+    return num;
+}
+
+template <class TypeOfClass>
 unsigned PolynomOperations::Polynom<TypeOfClass>::getNumSize() const
 {
     return sizeNum;
@@ -376,175 +382,69 @@ LinAlg::Matrix<TypeOfClass> PolynomOperations::Polynom<TypeOfClass>::getDen() co
 }
 
 template <class TypeOfClass>
+TypeOfClass* PolynomOperations::Polynom<TypeOfClass>::getDenPointer() const
+{
+    return den;
+}
+
+template <class TypeOfClass>
 unsigned PolynomOperations::Polynom<TypeOfClass>::getDenSize() const
 {
     return sizeDen;
 }
 
-template <class TypeOfClass>
-void PolynomOperations::Polynom<TypeOfClass>::print()
+template<typename Type>
+void PolynomOperations::printPol(std::string& output, const Type *num, unsigned numSize, char x)
 {
-    if((this->sizeDen != 0)&&(this->sizeNum != 0))
-    {
-        unsigned maxSize;
+    if(numSize > 1){
+        if(num[0] > 1)
+            output += static_cast<std::ostringstream*>(&(std::ostringstream() << num[0]))->str() + x + '^' + static_cast<std::ostringstream*>(&(std::ostringstream() << numSize-1))->str() + ' ';
+        else if(num[0] == 1)
+            output += " " + x + '^' + static_cast<std::ostringstream*>(&(std::ostringstream() << numSize-1))->str() + ' ';
+        else if(num[0] < 0)
+            output += "- " + static_cast<std::ostringstream*>(&(std::ostringstream() << -num[0]))->str() + x + '^' + static_cast<std::ostringstream*>(&(std::ostringstream() << numSize-1))->str();
 
-        if(this->sizeNum > this->sizeDen)
-            maxSize = this->sizeNum;
-        else
-            maxSize = this->sizeDen;
-
-        if(this->sizeDen == 0) {
-            if(this->sizeNum >= 2) {
-                for(unsigned i = 0; i < this->sizeNum - 2; ++i) {
-                    if(this->num[i] != 0) {
-                        if(this->num[i] != 1)
-                            std::cout << this->num[i];
-                        std::cout << this->x << '^' << this->sizeNum - i - 1 << ' ';
-                        if(i != this->sizeNum - 3)
-                            std::cout << '+' << ' ';
-                    }
-                }
-                if(this->num[this->sizeNum - 2]  != 0) {
-                    if(this->num[this->sizeNum - 2] != 1)
-                            std::cout << '+' << ' ' << this->num[this->sizeNum - 2];
-                    std::cout << this->x << ' ';
-                }
-            }
-            if(this->num[this->sizeNum - 1] != 0)
-                std::cout << '+' << ' ' << this->num[this->sizeNum - 1] << '\n';
-
+        for(unsigned i = 1; i < numSize - 1; ++i)
+        {
+            if(num[i] > 0 || num[i] >1)
+                output += " + " + static_cast<std::ostringstream*>(&(std::ostringstream() << num[i]))->str() + x + '^' + static_cast<std::ostringstream*>(&(std::ostringstream() << numSize - i - 1))->str() + ' ';
+            else if(num[i] == 1)
+                output += " + " + x + '^' + static_cast<std::ostringstream*>(&(std::ostringstream() << numSize-i-1))->str() + ' ';
+            else if(num[i] < 0)
+                output += " - " + static_cast<std::ostringstream*>(&(std::ostringstream() << -num[i]))->str() + x + '^' + static_cast<std::ostringstream*>(&(std::ostringstream() << numSize - i - 1))->str() + ' ';
         }
-        else {
-            if(this->sizeNum >= 2) {
-                for(unsigned i = 0; i < this->sizeNum - 2; ++i) {
-                    if(this->num[i] != 0) {
-                        if(this->num[i] != 1)
-                            std::cout << this->num[i];
-                        std::cout << this->x << '^' << this->sizeNum - i - 1 << ' ';
-                        if( i != this->sizeNum - 3)
-                           std::cout << '+' << ' ';
-                    }
-                }
-                if(this->num[this->sizeNum - 2] != 0) {
-                    if(this->num[this->sizeNum - 2] != 1)
-                        std::cout << this->num[this->sizeNum - 2];
-                    std::cout << this->x << ' ';
-                }
-            }
-            if(this->num[this->sizeNum - 1] != 0)
-                std::cout << '+' << ' ' << this->num[this->sizeNum - 1] << '\n';
 
-            for(unsigned i = 0; i < maxSize; ++i)
-                std::cout << '-' << '-' << '-' << '-' << '-';
-            std::cout << '\n';
-
-            if(this->sizeDen >= 2) {
-                for(unsigned i = 0; i < this->sizeDen - 2; ++i) {
-                    if(this->den[i] != 0) {
-                        if(this->den[i] != 1)
-                            std::cout << this->den[i];
-                        std::cout << this->x << '^' << this->sizeDen - i - 1 << ' ';
-                        if(i != this->sizeDen - 3)
-                           std::cout << '+' << ' ';
-                    }
-                }
-                if(this->den[this->sizeDen - 2] != 0) {
-                    if(this->den[this->sizeDen - 2] != 1)
-                       std::cout << '+' << ' ' << this->den[this->sizeDen - 2];
-                    std::cout << this->x << ' ';
-                }
-            }
-           if(this->den[this->sizeDen - 1] != 0)
-               std::cout << '+' << ' ' << this->den[this->sizeDen - 1];
-        }
-        std::cout << '\n';
+        if(num[numSize - 1] > 0)
+            output + " + " + static_cast<std::ostringstream*>(&(std::ostringstream() << num[numSize - 1]))->str();
+        else if(num[numSize - 1] < 0)
+            output += " - " + static_cast<std::ostringstream*>(&(std::ostringstream() << -num[numSize - 1]))->str();
     }
+
+    else
+        output += static_cast<std::ostringstream*>(&(std::ostringstream() << num[0]))->str();
 }
+
+//template<typename Type>
+//void PolynomOperations::linePrint(std::string& linesStr, unsigned amount)
+//{
+//    for(unsigned i = 0; i < amount; ++i)
+//        linesStr += '-';
+//}
 
 template<typename TypeOfClass>
 std::ostream& PolynomOperations::operator<< (std::ostream& output, const PolynomOperations::Polynom<TypeOfClass>& Pol)
 {
+    std::string numStr, linesStr, denStr;
+    printPol(numStr, Pol.getNumPointer(),Pol.getNumSize(), Pol.getVar());
+    printPol(denStr, Pol.getDenPointer(),Pol.getDenSize(), Pol.getVar());
 
-    if((Pol.getDenSize() != 0)&&(Pol.getNumSize() != 0))
-    {
-        unsigned maxSize;
+    unsigned amount = numStr.length() > denStr.length() ? numStr.length() : denStr.length();
 
-        if(Pol.getNumSize() > Pol.getDenSize())
-            maxSize = Pol.getNumSize();
-        else
-            maxSize = Pol.getDenSize();
+    for(unsigned i = 0; i < amount; ++i)
+        linesStr += '-';
+//    PolynomOperations::linePrint(linesStr, amount);
 
-        if(Pol.getDenSize() == 0) {
-            if(Pol.getNumSize() >= 2) {
-                for(unsigned i = 0; i < Pol.getNumSize() - 2; ++i) {
-                    if(Pol.getNum()(1,i+1)!= 0) {
-                        if(Pol.getNum()(1,i+1)!= 1)
-                            output << Pol.getNum()(1,i+1);
-                        output << Pol.getVar() << '^' << Pol.getNumSize() - i - 1 << ' ';
-                        if(i != Pol.getNumSize() - 3)
-                            output << '+' << ' ';
-                    }
-                }
-                if(Pol.getNum()(1, Pol.getNumSize() - 1)  != 0) {
-                    if(Pol.getNum()(1,Pol.getNumSize() - 1) != 1)
-                            output << '+' << ' ' << Pol.getNum()(1, Pol.getNumSize() - 1);
-                    output << Pol.getVar() << ' ';
-                }
-            }
-            if(Pol.getNum()(1, Pol.getNumSize()) != 0)
-                output << '+' << ' ' << Pol.getNum()(1, Pol.getNumSize()) << '\n';
+    output << (numStr + "\n" + linesStr + "\n" + denStr);
 
-        }
-        else {
-            if(Pol.getNumSize() >= 2) {
-                for(unsigned i = 0; i < Pol.getNumSize() - 2; ++i) {
-                    if(Pol.getNum()(1,i+1)!= 0) {
-                        if(Pol.getNum()(1,i+1)!= 1)
-                            output << Pol.getNum()(1, i+1);
-                        output << Pol.getVar() << '^' << Pol.getNumSize() - i - 1 << ' ';
-                        if( i != Pol.getNumSize() - 3)
-                           output << '+' << ' ';
-                    }
-                }
-                if(Pol.getNum()(1, Pol.getNumSize() - 1) != 0) {
-                    if(Pol.getNum()(1, Pol.getNumSize() - 1) != 1)
-                        output << Pol.getNum()(1, Pol.getNumSize() - 1);
-                    output << Pol.getVar() << ' ';
-                }
-            }
-            if(Pol.getNum()(1, Pol.getNumSize()) != 0)
-                output << '+' << ' ' << Pol.getNum()(1, Pol.getNumSize()) << '\n';
-
-            for(unsigned i = 0; i < maxSize; ++i)
-                output << '-' << '-' << '-' << '-' << '-';
-            output << '\n';
-
-            if(Pol.getDenSize() >= 2) {
-                for(unsigned i = 0; i < Pol.getDenSize() - 2; ++i) {
-                    if(Pol.getDen()(1, i + 1) != 0) {
-                        if(Pol.getDen()(1, i + 1) != 1)
-                            output << Pol.getDen()(1, i + 1);
-                        output << Pol.getVar() << '^' << Pol.getDenSize() - i - 1 << ' ';
-                        if(i != Pol.getDenSize() - 3)
-                           output << '+' << ' ';
-                    }
-                }
-                if(Pol.getDen()(1, Pol.getDenSize() - 1) != 0) {
-                    if(Pol.getDen()(1, Pol.getDenSize() - 1) != 1)
-                       output << '+' << ' ' << Pol.getDen()(1, Pol.getDenSize() - 1);
-                    output << Pol.getVar() << ' ';
-                }
-            }
-           if(Pol.getDen()(1, Pol.getDenSize()) != 0)
-               output << '+' << ' ' << Pol.getDen()(1, Pol.getDenSize());
-        }
-        output << '\n';
-    }
     return output;
 }
-
-//template class PolynomOperations::Polynom <int>;
-//template class PolynomOperations::Polynom <float>;
-//template class PolynomOperations::Polynom <double>;
-
-
