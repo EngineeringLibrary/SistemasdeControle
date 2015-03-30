@@ -41,10 +41,9 @@ namespace LinAlg {
             Type& operator() (unsigned row, unsigned column);
             Type  operator() (unsigned  row, unsigned column) const;
 
-            LinAlg::Matrix<Type> operator() (unsigned* row_interval, unsigned column) const;
-            LinAlg::Matrix<Type> operator() (unsigned  row, unsigned* column_interval) const;
-            LinAlg::Matrix<Type>  operator() (unsigned* row_interval, unsigned* column_interval) const;
-
+            LinAlg::Matrix<Type>  operator() (unsigned* row_interval, unsigned column) const;
+            LinAlg::Matrix<Type>  operator() (unsigned  row, unsigned* column_interval) const;
+            LinAlg::Matrix<Type>& operator() (unsigned* row_interval, unsigned* column_interval) const;
 //            Type& operator() (unsigned* row_interval, unsigned* column_interval);
 
             void operator= (std::string rhs);
@@ -99,7 +98,11 @@ namespace LinAlg {
 
             unsigned rows, columns;
             Type** mat;
+            bool FlagDelete;
     };
+
+    template<typename Type>
+    void SetPointer(Type* left, Type* rigth);
 
     template<typename MatrixType, typename ScalarType>
     LinAlg::Matrix<MatrixType> operator+ (LinAlg::Matrix<MatrixType> lhs, const ScalarType& rhs) {return lhs += rhs;}
