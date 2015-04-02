@@ -16,9 +16,9 @@ namespace LinAlg {
     class Matrix
     {
         public:
-            Matrix (unsigned value);
-            Matrix (const char* Mat);
-            Matrix (const std::string &Mat);
+         //   Matrix (unsigned value);
+         //   Matrix (const std::string& Mat);
+            Matrix (const std::string& Mat);
             Matrix (unsigned row, unsigned column);
             Matrix (): rows(0), columns(0), mat(NULL){}
             Matrix (const LinAlg::Matrix<Type>& otherMatrix);
@@ -37,16 +37,17 @@ namespace LinAlg {
 
             bool isNull ();
             bool isSquare ();
+            bool isToUseAdress() const;
 
             Type& operator() (unsigned row, unsigned column);
             Type  operator() (unsigned  row, unsigned column) const;
 
-            LinAlg::Matrix<Type>  operator() (unsigned* row_interval, unsigned column) const;
-            LinAlg::Matrix<Type>  operator() (unsigned  row, unsigned* column_interval) const;
+            LinAlg::Matrix<Type>& operator() (unsigned* row_interval, unsigned column) const;
+            LinAlg::Matrix<Type>& operator() (unsigned  row, unsigned* column_interval) const;
             LinAlg::Matrix<Type>& operator() (unsigned* row_interval, unsigned* column_interval) const;
 //            Type& operator() (unsigned* row_interval, unsigned* column_interval);
 
-            void operator= (std::string rhs);
+            void operator= (const std::string& rhs);
             LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<Type>& otherMatrix);
             template<typename OtherMatrixType>
             LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<OtherMatrixType>& otherMatrix);
@@ -86,10 +87,11 @@ namespace LinAlg {
             friend void swap (LinAlg::Matrix<Type>& lhs, LinAlg::Matrix<OtherMatrixType>& rhs) {lhs.swap(rhs);};
 
         private:
-            void Init (std::string Mat);
+            void Init (const std::string& mat);
             void Init (unsigned row, unsigned column);
 
             void ReInit (unsigned row, unsigned column);
+            void InitPointer (unsigned row, unsigned column);
 
             void Add (unsigned& row, unsigned& column, Type& number);
 
@@ -98,11 +100,8 @@ namespace LinAlg {
 
             unsigned rows, columns;
             Type** mat;
-            bool FlagDelete;
+            bool useAdress;
     };
-
-    template<typename Type>
-    void SetPointer(Type* left, Type* rigth);
 
     template<typename MatrixType, typename ScalarType>
     LinAlg::Matrix<MatrixType> operator+ (LinAlg::Matrix<MatrixType> lhs, const ScalarType& rhs) {return lhs += rhs;}

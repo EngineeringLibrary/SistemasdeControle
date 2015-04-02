@@ -9,13 +9,13 @@ ARMAX<UsedType>::ARMAX()
 template <class UsedType>
 UsedType ARMAX<UsedType>::sim(UsedType input)
 {
-
+    return 0;
 }
 
 template <class UsedType>
 UsedType ARMAX<UsedType>::sim(UsedType x, UsedType y)
 {
-
+    return 0;
 }
 
 template <class UsedType>

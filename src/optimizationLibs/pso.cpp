@@ -183,30 +183,16 @@ void PSO<UsedType>::FitnessUpdateMax()
 template <class UsedType>
 void PSO<UsedType>::Optimize()
 {
-//    clock_t start, stop;
-
-
     initAlgorithm();
 
     for(int i = 0; i < this->GenSize; i++)
     {
         VelocityUpdate();
         ParticleUpdate();
-
-//        start = clock();
         this->Xfitness = Evaluation(this->X);
-//        stop = clock();
-//        this->Stime = (double) (stop-start)/CLOCKS_PER_SEC;
-//        cout << this->Stime << endl;
-
         FitnessUpdate();
-//        Gfitness.print();
-//        this->GGen = this->GGen||this->G; // função lenta
-//        this->GfitnessGen = this->GfitnessnTime||this->Gfitness; // função lenta
     }
     this->OptimizatedVariable = this->G;
-//    return this->G;
-
 }
 
 template <class UsedType>

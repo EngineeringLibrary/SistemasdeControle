@@ -1,39 +1,38 @@
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
 
-template<typename Type>
-LinAlg::Matrix<Type>::Matrix (unsigned value)
-{
-    this->Init(1,1);
-    this->FlagDelete = true;
-    this->mat[0][0] = value;
-}
+//template<typename Type>
+//LinAlg::Matrix<Type>::Matrix (unsigned value)
+//{
+//    this->Init(1,1);
+//    this->useAdress = false;
+//    this->mat[0][0] = value;
+//}
 
-template<typename Type>
-LinAlg::Matrix<Type>::Matrix (const char* Mat)
-{
-    this->FlagDelete = true;
-    std::string StrMat = Mat;
-    this->Init(StrMat);
-}
+//template<typename Type>
+//LinAlg::Matrix<Type>::Matrix (const std::string& Mat)
+//{
+//    //std::string StrMat = Mat;
+//    this->Init(Mat);
+//    this->useAdress = false;
+//}
 
 template<typename Type>
 LinAlg::Matrix<Type>::Matrix (const std::string &Mat)
 {
-    this->FlagDelete = true;
+    this->useAdress = false;
     this->Init(Mat);
 }
 
 template<typename Type>
 LinAlg::Matrix<Type>::Matrix (unsigned row, unsigned column)
 {
-    this->FlagDelete = true;
     this->Init(row, column);
+    this->useAdress = false;
 }
 
 template<typename Type>
 LinAlg::Matrix<Type>::Matrix (const LinAlg::Matrix<Type>& otherMatrix)
 {
-    this->FlagDelete = true;
     this->Init(otherMatrix.rows, otherMatrix.columns);
 
     for(unsigned i = 0; i < otherMatrix.rows; i++)
@@ -44,24 +43,24 @@ LinAlg::Matrix<Type>::Matrix (const LinAlg::Matrix<Type>& otherMatrix)
 template<typename Type>
 LinAlg::Matrix<Type>::~Matrix ()
 {
-    if(this->FlagDelete == true){
-        for(unsigned i = 0; i < this->rows; i++)
-            delete this->mat[i];
-        delete [] this->mat;
 
-        this->rows = 0;
-        this->columns = 0;
+    for(unsigned i = 0; i < this->rows; i++)
+        delete this->mat[i];
+    delete [] this->mat;
 
-        this->mat = NULL;
-    }
+    this->rows = 0;
+    this->columns = 0;
+
+    this->mat = NULL;
+
 }
 
 template<typename Type>
-void LinAlg::Matrix<Type>::Init (std::string Mat)
+void LinAlg::Matrix<Type>::Init (const std::string& mat)
 {
     unsigned commas = 1, semiColons = 1, row, column, lin = 0, col = 0;
     int posComma = 0, posSemiColon = 0;
-    std::string temp;
+    std::string temp, Mat(mat);
 
     for(unsigned i = 0; i < Mat.length(); i++)
     {
@@ -115,6 +114,8 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
 template<typename Type>
 void LinAlg::Matrix<Type>::Init (unsigned row, unsigned column)
 {
+    this->useAdress = false;
+
     if(row == 0)
         row = 1;
     if(column == 0)
@@ -133,6 +134,8 @@ void LinAlg::Matrix<Type>::Init (unsigned row, unsigned column)
 template<typename Type>
 void LinAlg::Matrix<Type>::ReInit (unsigned row, unsigned column)
 {
+    this->useAdress = false;
+
     LinAlg::Matrix<Type> temp(row, column);
 
     for(unsigned i = 0; i < this->rows; i++)
@@ -140,6 +143,17 @@ void LinAlg::Matrix<Type>::ReInit (unsigned row, unsigned column)
             temp.mat[i][j] = this->mat[i][j];
 
     *this = temp;
+}
+
+template<typename Type>
+void LinAlg::Matrix<Type>::InitPointer (unsigned row, unsigned column)
+{
+    this->useAdress = true;
+
+    this->rows = row;
+    this->columns = column;
+
+    this->mat = new Type*[row*column];
 }
 
 template<typename Type>
@@ -204,7 +218,6 @@ void LinAlg::Matrix<Type>::swap (const LinAlg::Matrix<OtherMatrixType>& otherMat
     swap (columns, temp.columns);
 
     swap (mat, temp.mat);
-    temp.FlagDelete = false;
 }
 
 template<typename Type>
@@ -239,6 +252,12 @@ bool LinAlg::Matrix<Type>::isSquare ()
         ret = true;
 
     return ret;
+}
+
+template<typename Type>
+bool LinAlg::Matrix<Type>::isToUseAdress() const
+{
+    return this->useAdress;
 }
 
 template<typename Type>
@@ -319,86 +338,106 @@ Type LinAlg::Matrix<Type>::operator() (unsigned row, unsigned column) const
 }
 
 template<typename Type>
-void LinAlg::SetPointer(Type* left, Type* rigth)
-{
-    *left = *rigth;
-}
-
-template<typename Type>
 LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator ()(unsigned* row_interval, unsigned* column_interval) const
 {
-    LinAlg::Matrix<Type> Ret;
+    LinAlg::Matrix<Type> *Ret = new LinAlg::Matrix<Type>[1];
+
+//    unsigned aux1 = column_interval[0], aux2 = column_interval[1];
 
     if(row_interval[0] < row_interval[1]){
         if(column_interval[0] < column_interval[1]){
-            Ret.Init(row_interval[1] - row_interval[0] + 1, column_interval[1] - column_interval[0] + 1);
-            for(unsigned i = row_interval[0]; i <= row_interval[1]; ++i)
-                for(unsigned j = column_interval[0]; j <= column_interval[1]; ++j)
-                    SetPointer(&Ret.mat[i - row_interval[0]][j - column_interval[0]], &this->mat[i-1][j-1]);
+
+            unsigned columns = (column_interval[1] - column_interval[0]) + 1;
+            unsigned rows    = (row_interval[1] - row_interval[0]) + 1;
+
+            Ret->InitPointer(rows, columns);
+            for(unsigned i = row_interval[0], n = 0; i <= row_interval[1]; ++i, ++n)
+                for(unsigned j = column_interval[0], m = 0; j <= column_interval[1]; ++j, ++m)
+                    Ret->mat[n*columns + m] = &this->mat[i-1][j-1];
 
         }else{
-            Ret.Init(row_interval[1] - row_interval[0] + 1, column_interval[0] - column_interval[1] + 1);
-            for(unsigned i = row_interval[0]; i <= row_interval[1]; ++i)
-                for(unsigned j = column_interval[0]; j >= column_interval[1]; --j)
-                    SetPointer(&Ret.mat[i - row_interval[0]][column_interval[0] - j], &this->mat[i-1][j - 1]);
+
+            unsigned columns = (column_interval[0] - column_interval[1]) + 1;
+            unsigned rows    = (row_interval[1] - row_interval[0]) + 1;
+
+            Ret->InitPointer(rows, columns);
+            for(unsigned i = row_interval[0], n = 0; i <= row_interval[1]; ++i, ++n)
+                for(unsigned j = column_interval[0], m = 0; j >= column_interval[1]; --j)
+                    Ret->mat[n*columns + m] = &this->mat[i-1][j - 1];
         }
 
     } else{
         if(column_interval[0] < column_interval[1]){
-            Ret.Init(row_interval[0] - row_interval[1] + 1, column_interval[1] - column_interval[0] + 1);
-            for(unsigned i = row_interval[0]; i >= row_interval[1]; --i)
-                for(unsigned j = column_interval[0]; j <= column_interval[1]; ++j)
-                    SetPointer(&Ret.mat[row_interval[0] - i][j - column_interval[0]], &this->mat[i-1][j-1]);
+
+            unsigned rows = (row_interval[0] - row_interval[1]) + 1;
+            unsigned columns = (column_interval[1] - column_interval[0]) + 1;
+
+            Ret->InitPointer(rows, columns);
+            for(unsigned i = row_interval[0], n = 0; i >= row_interval[1]; --i, ++n)
+                for(unsigned j = column_interval[0], m = 0; j <= column_interval[1]; ++j, ++m)
+                    Ret->mat[n*columns + m] = &this->mat[i-1][j-1];
         }else{
-            Ret.Init(row_interval[0] - row_interval[1] + 1, column_interval[0] - column_interval[1] + 1);
-            for(unsigned i = row_interval[0]; i >= row_interval[1]; --i)
-                for(unsigned j = column_interval[0]; j >= column_interval[1]; --j)
-                    SetPointer(&Ret.mat[row_interval[0] - i][column_interval[0] - j], &this->mat[i-1][j - 1]);
+
+            unsigned rows = (row_interval[0] - row_interval[1] + 1);
+            unsigned columns = (column_interval[0] - column_interval[1] + 1);
+
+            Ret->InitPointer(rows, columns);
+            for(unsigned i = row_interval[0], n = 0; i >= row_interval[1]; --i, ++n)
+                for(unsigned j = column_interval[0], m = 0; j >= column_interval[1]; --j, ++m)
+                        Ret->mat[n*columns + m] = &this->mat[i-1][j - 1];
         }
     }
 
-    Ret.FlagDelete = false;
-    return Ret;
+    return *Ret;
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(unsigned row, unsigned* column_interval)const
+LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator ()(unsigned row, unsigned* column_interval)const
 {
-    LinAlg::Matrix<Type> Ret;
+    LinAlg::Matrix<Type> *Ret = new LinAlg::Matrix<Type>[1];
 
 
-        if(column_interval[0] < column_interval[1]){
-            Ret.Init(1, column_interval[1] - column_interval[0] + 1);
-            for(unsigned j = column_interval[0]; j <= column_interval[1]; ++j)
-                Ret.mat[0][j - column_interval[0]] = this->mat[row - 1][j - 1];
+    if(column_interval[0] < column_interval[1]){
 
-        }else{
-            Ret.Init(1, column_interval[0] - column_interval[1] + 1);
-            for(unsigned j = column_interval[0]; j >= column_interval[1]; --j)
-                Ret.mat[0][column_interval[0] - j] = this->mat[row - 1][j - 1];
-        }
+        unsigned columns = column_interval[1] - column_interval[0] + 1;
 
-    return Ret;
+        Ret->InitPointer(1, columns);
+        for(unsigned j = column_interval[0], m = 0; j <= column_interval[1]; ++j, ++m)
+            Ret->mat[m] = &this->mat[row - 1][j - 1];
+
+    }else{
+
+        unsigned columns = column_interval[0] - column_interval[1] + 1;
+
+        Ret->InitPointer(1, columns);
+        for(unsigned j = column_interval[0], m = 0; j >= column_interval[1]; --j, ++m)
+            Ret->mat[m] = &this->mat[row - 1][j - 1];
+    }
+
+    return *Ret;
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(unsigned* row_interval, unsigned column)const
+LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator ()(unsigned* row_interval, unsigned column)const
 {
-    LinAlg::Matrix<Type> Ret;
+    LinAlg::Matrix<Type> *Ret = new LinAlg::Matrix<Type>[1];
 
     if(row_interval[0] < row_interval[1]){
-        Ret.Init(row_interval[1] - row_interval[0] + 1, 1);
-        for(unsigned i = row_interval[0]; i <= row_interval[1]; ++i)
-            Ret.mat[i - row_interval[0]][0] = this->mat[i - 1][column - 1];
-    } else{
-        unsigned aux = row_interval[0] - row_interval[1] + 1;
 
-        Ret.Init(row_interval[0] - row_interval[1] + 1, 1);
-        for(unsigned i = row_interval[0]; i >= row_interval[1]; --i)
-            Ret.mat[row_interval[0] - i][0] = this->mat[i - 1][column - 1];
+        unsigned rows = row_interval[1] - row_interval[0] + 1;
+
+        Ret->InitPointer(rows, 1);
+        for(unsigned i = row_interval[0], n = 0; i <= row_interval[1]; ++i, ++n)
+            Ret->mat[n] = &this->mat[i - 1][column - 1];
+    } else{
+        unsigned rows = row_interval[0] - row_interval[1] + 1;
+
+        Ret->InitPointer(rows, 1);
+        for(unsigned i = row_interval[0], n = 0; i >= row_interval[1]; --i, ++n)
+            Ret->mat[n] = &this->mat[i - 1][column - 1];
     }
 
-    return Ret;
+    return *Ret;
 }
 
 //template<typename Type>
@@ -410,7 +449,7 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(unsigned* row_interval, u
 //}
 
 template<typename Type>
-void LinAlg::Matrix<Type>::operator= (std::string Mat)
+void LinAlg::Matrix<Type>::operator= (const std::string& Mat)
 {
     this->Init(Mat);
 }
@@ -418,7 +457,15 @@ void LinAlg::Matrix<Type>::operator= (std::string Mat)
 template<typename Type>
 LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator= (const LinAlg::Matrix<Type>& rhs)
 {
-    swap(rhs);
+    if(this->useAdress)
+        for(unsigned i = 0; i < rhs.rows; ++i)
+        {
+            for(unsigned j = 0; j < rhs.columns; ++j){
+                this->mat[i*rhs.columns + j][0] = rhs.mat[i][j];
+            }
+        }
+    else
+        swap(rhs);
 
     return *this;
 }
@@ -627,14 +674,23 @@ LinAlg::Matrix<Type> LinAlg::operator~ (LinAlg::Matrix<Type> mat)
 template<typename Type>
 std::ostream& LinAlg::operator<< (std::ostream& output, const LinAlg::Matrix<Type>& mat)
 {
-    for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
-    {
-        for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)
-            output << std::setw(10) << std::setprecision(5) << std::fixed << mat(i, j) << ' ';
+    if(!mat.isToUseAdress()){
+        for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
+        {
+            for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)
+                output << std::setw(10) << std::setprecision(5) << std::fixed << mat(i, j) << ' ';
 
-        output << std::endl;
+            output << std::endl;
+        }
+    }else{
+        for(unsigned i = 0; i < mat.getNumberOfRows(); ++i)
+        {
+            for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+                output << std::setw(10) << std::setprecision(5) << std::fixed << mat(i*mat.getNumberOfColumns() + j, 1);
+
+            output << std::endl;
+        }
     }
-
     return output;
 }
 
