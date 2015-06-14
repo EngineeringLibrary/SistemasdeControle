@@ -26,10 +26,8 @@ public:
     void operator= (TransferFunction<UsedType> TF);
 
     void print();
-    void setLinearVectorPhi();
-    void setLinearVectorPhiEstimation();
+    void setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
     void setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
-
 
     void setTF(Polynom<UsedType> **TF, unsigned rows, unsigned cols);
     Polynom<UsedType> **getTF();

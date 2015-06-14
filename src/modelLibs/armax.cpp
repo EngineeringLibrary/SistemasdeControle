@@ -7,6 +7,24 @@ ARMAX<UsedType>::ARMAX()
 }
 
 template <class UsedType>
+void ARMAX<UsedType>::setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
+{
+
+}
+
+template <class UsedType>
+void ARMAX<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
+{
+
+}
+
+template <class UsedType>
+void ARMAX<UsedType>::print()
+{
+
+}
+
+template <class UsedType>
 UsedType ARMAX<UsedType>::sim(UsedType input)
 {
 

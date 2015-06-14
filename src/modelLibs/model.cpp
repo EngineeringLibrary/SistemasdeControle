@@ -55,9 +55,15 @@ UsedType Model<UsedType>::getOutput()
 }
 
 template <class UsedType>
-LinAlg::Matrix<UsedType> Model<UsedType>::getLinearVectorPhi()
+LinAlg::Matrix<UsedType> Model<UsedType>::getLinearVectorA()
 {
-    return this->LinearVectorPhi;
+    return this->LinearVectorA;
+}
+
+template <class UsedType>
+LinAlg::Matrix<UsedType> Model<UsedType>::getLinearEqualityVectorB()
+{
+    return this->LinearEqualityVectorB;
 }
 
 template <class UsedType>

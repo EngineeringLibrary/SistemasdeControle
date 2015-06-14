@@ -10,23 +10,40 @@ FIR<UsedType>::FIR(unsigned nUpar, unsigned delay, unsigned qdtVar)
     this->Input  = LinAlg::Zeros<UsedType>(qdtVar,1000);
 }
 
-template <class UsedType>
-void FIR<UsedType>::setOneStepLinSys(UsedType input)
-{
-    this->Input(1,cont) = input;
-    unsigned cont2 = 1;
+//template <class UsedType>
+//void FIR<UsedType>::setOneStepLinSys(UsedType input)
+//{
+//    this->Input(1,cont) = input;
+//    unsigned cont2 = 1;
 
-    for(unsigned j = cont - delay - 1; j >= cont-nUpar; j--)
-    {
-        this->LinearVectorPhi(1,cont2) = this->Input(1, j);
-    }
+//    for(unsigned j = cont - delay - 1; j >= cont-nUpar; j--)
+//    {
+//        this->LinearVectorA(1,cont2) = this->Input(1, j);
+//    }
+//}
+
+template <class UsedType>
+void FIR<UsedType>::setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
+{
+
 }
 
+template <class UsedType>
+void FIR<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
+{
+
+}
+
+template <class UsedType>
+void FIR<UsedType>::print()
+{
+
+}
 
 template <class UsedType>
 UsedType FIR<UsedType>::sim(UsedType input)
 {
-    return (this->LinearVectorPhi*this->ModelCoef)(1,1);
+    return (this->LinearVectorA*this->ModelCoef)(1,1);
 }
 
 template <class UsedType>

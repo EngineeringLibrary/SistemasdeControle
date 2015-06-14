@@ -12,15 +12,14 @@ private:
 public:
     simFunction(UsedType (*FunctionToCall)(UsedType));
 
-    void print();
-    void setLinearVectorPhi();
-    void setLinearVectorPhiEstimation();
+    void setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
     void setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
 
+    void print();
     UsedType sim(UsedType input);
     UsedType sim(UsedType input, UsedType output);
-    LinAlg::Matrix<UsedType> sim(LinAlg::Matrix<UsedType> x);
-    LinAlg::Matrix<UsedType> sim(LinAlg::Matrix<UsedType> X, LinAlg::Matrix<UsedType> Y);
+    LinAlg::Matrix<UsedType> sim(LinAlg::Matrix<UsedType> Input);
+    LinAlg::Matrix<UsedType> sim(LinAlg::Matrix<UsedType> x, LinAlg::Matrix<UsedType> y);
     LinAlg::Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
 
     typedef UsedType(*FunctionCall)(UsedType);

@@ -111,17 +111,10 @@ void TransferFunction<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input, 
 }
 
 template <class UsedType>
-void TransferFunction<UsedType>::setLinearVectorPhi()
+void TransferFunction<UsedType>::setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
 {
 
 }
-
-template <class UsedType>
-void TransferFunction<UsedType>::setLinearVectorPhiEstimation()
-{
-
-}
-
 
 template <class UsedType>
 void TransferFunction<UsedType>::setTF(Polynom<UsedType> **TF,

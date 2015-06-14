@@ -101,13 +101,7 @@ void StateSpace<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg
 }
 
 template <class UsedType>
-void StateSpace<UsedType>::setLinearVectorPhi()
-{
-
-}
-
-template <class UsedType>
-void StateSpace<UsedType>::setLinearVectorPhiEstimation()
+void StateSpace<UsedType>::setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
 {
 
 }
@@ -126,7 +120,7 @@ UsedType StateSpace<UsedType>::sim(UsedType u)
     if(this->Continuous)
         this->c2dConversion();
 
-    X = initialState;
+//    X = initialState;
     LinAlg::Matrix<UsedType> Xi1 = Ad*X+Bd*u;
     LinAlg::Matrix<UsedType> y  = C*X+D*u;
     X = Xi1;
@@ -137,7 +131,7 @@ UsedType StateSpace<UsedType>::sim(UsedType u)
 template <class UsedType>
 UsedType StateSpace<UsedType>::sim(UsedType u, UsedType y)
 {
-
+    return 0;
 }
 
 template <class UsedType>
@@ -182,6 +176,42 @@ LinAlg::Matrix<UsedType> StateSpace<UsedType>::sim(UsedType lmim, UsedType lmax,
     }
 
     return y;
+}
+
+template <class UsedType>
+bool StateSpace<UsedType>::isControlable()
+{
+    LinAlg::Matrix<UsedType> Qc;
+    for (unsigned i = 0; i < A.getNumberOfColumns(); ++i){
+        Qc = Qc|((A^i)*B);
+    }
+    std::cout << (B) << ((A)*B) << Qc;
+    return (LinAlg::Determinant(Qc) != 0);
+}
+
+template <class UsedType>
+bool StateSpace<UsedType>::isObservable()
+{
+    LinAlg::Matrix<UsedType> Qo;
+    for (unsigned i = 0; i < A.getNumberOfColumns(); ++i){
+        Qo = Qo||(C*(A^i));
+    }
+    std::cout << Qo;
+    return (LinAlg::Determinant(Qo) != 0);
+}
+
+template <class UsedType>
+void StateSpace<UsedType>::SetObserverParameter(LinAlg::Matrix<UsedType> L)
+{
+    this->L = L;
+}
+
+template <class UsedType>
+LinAlg::Matrix<UsedType> StateSpace<UsedType>::Observer(LinAlg::Matrix<UsedType> U, LinAlg::Matrix<UsedType> Y)
+{
+    this->c2dConversion();
+    X = Ad*X + Bd*U + L*(Y - C*X);
+    return X;
 }
 
 template <class UsedType>

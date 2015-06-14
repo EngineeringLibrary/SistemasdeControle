@@ -14,8 +14,7 @@ public:
         unsigned delay = 0,
         unsigned qdtInputVar = 1, unsigned qdtOutputVar = 1);
 
-    void setLinearVectorPhiEstimation();
-    void setLinearVectorPhi();
+    void setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
     void setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
 
     void print();
