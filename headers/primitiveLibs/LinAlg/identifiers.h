@@ -22,6 +22,17 @@ namespace Identifiers{
             return ret;
         }
 
+        unsigned* operator > (unsigned b){
+            unsigned* ret = new unsigned[2];
+            ret[0] = this->interval;
+            ret[1] = b;
+            return ret;
+        }
+
+        unsigned operator- (unsigned b){
+            return this->interval - b;
+        }
+
         from operator --(int){
             return *this;
         }

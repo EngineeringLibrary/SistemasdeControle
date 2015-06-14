@@ -44,9 +44,10 @@ void ARX<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input,
     this->Output = this->Output||Output;
     for(nSample = delay + maxnInOut + 1; nSample <= this->Output.getNumberOfRows(); nSample++)
     {
-//            this->setLinearVector();
-//            this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorPhi;
-            this->LinearEqualityB = this->LinearEqualityB || this->Output.GetRow(nSample);
+        from sample = nSample, var = 1;
+        this->setLinearVector(this->Input(var --> this->qdtInputVar, sample --> (sample - this->nInputpar)), this->Output(nSample, var-->this->nOutputpar ));
+        this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorA;
+        this->LinearEqualityB = this->LinearEqualityB || this->LinearEqualityVectorB;
     }
 }
 
