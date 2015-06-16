@@ -352,7 +352,7 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(unsigned row, unsigned* c
     LinAlg::Matrix<Type> Ret;
 
 
-        if(column_interval[0] < column_interval[1]){
+        if(column_interval[0] <= column_interval[1]){
             Ret.Init(1, column_interval[1] - column_interval[0] + 1);
             for(unsigned j = column_interval[0]; j <= column_interval[1]; ++j)
                 Ret.mat[0][j - column_interval[0]] = this->mat[row - 1][j - 1];
@@ -540,6 +540,12 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator| (LinAlg::Matrix<RightType> 
     }
 
     return ret;
+}
+
+template<typename Type> template<typename RightType>
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator| (RightType rhs)
+{
+    return ((*this)|LinAlg::Matrix<RightType>(rhs));
 }
 
 template<typename Type> template<typename RightType>

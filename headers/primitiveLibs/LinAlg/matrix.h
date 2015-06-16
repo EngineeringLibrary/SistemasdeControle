@@ -72,6 +72,8 @@ namespace LinAlg {
             template<typename RightType>
             LinAlg::Matrix<Type> operator| (LinAlg::Matrix<RightType> rhs);
             template<typename RightType>
+            LinAlg::Matrix<Type> operator| (RightType rhs);
+            template<typename RightType>
             LinAlg::Matrix<Type> operator|| (LinAlg::Matrix<RightType> rhs);
 
             template<typename OtherMatrixType>

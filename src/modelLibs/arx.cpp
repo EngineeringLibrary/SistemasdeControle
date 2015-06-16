@@ -19,33 +19,41 @@ ARX<UsedType>::ARX(unsigned nInputpar , unsigned nOutputpar,
     this->Output = LinAlg::Zeros<UsedType>(nOutputpar,qdtOutputVar);
     this->EstOutput = this->Output;
     this->nSample = delay + maxnInOut + 1;
+    this->OutputLinearVector = LinAlg::Zeros<UsedType>(this->qdtOutputVar, this->delay + this->nOutputpar + 1);
+    this->InputLinearVector  = LinAlg::Zeros<UsedType>(this->qdtInputVar, this->nInputpar);
 }
-
+// Nesta função será avaliada a quantidade de saídas pelo número de linhas das matrizes
+// Neste caso Input e Output se forem escalares corresponderão ao próximo valor
+// a ser colocado no vetor de saídas ou entradas e sor uma matriz corresponderá
+// a um conjunto de variáveis no instante de tempo pedido
 template <class UsedType>
 void ARX<UsedType>::setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
 {
+    this->InputLinearVector =  Input | this->InputLinearVector(from(1) --> this->qdtInputVar, from(1) --> this->nInputpar - 1);
+    this->OutputLinearVector =  Output | this->OutputLinearVector(from(1) --> this->qdtOutputVar, from(1) --> this->nOutputpar + this->delay);
+
     LinAlg::Matrix<UsedType> Temp;
-    this->LinearVectorA = Temp;
-    from a = 2, b = 1;
+
     for(unsigned i = 1; i <= Output.getNumberOfRows(); ++i)
-        this->LinearVectorA = this->LinearVectorA|-Output(1,a-->this->nOutputpar+1);
+        Temp = Temp | -this->OutputLinearVector(i, from(2 + this->delay) --> this->delay + this->nOutputpar + 1);
 
     for(unsigned i = 1; i <= Input.getNumberOfRows(); ++i)
-            this->LinearVectorA = this->LinearVectorA|Input;
+        Temp = Temp | this->InputLinearVector(i, from(1) --> this->nInputpar);
 
-    this->LinearEqualityVectorB = ~Output(b-->Output.getNumberOfRows(),1);
+    this->LinearVectorA = Temp;
+    this->LinearEqualityVectorB = ~Output;
 }
 
 template <class UsedType>
 void ARX<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input,
                                    LinAlg::Matrix<UsedType> Output)
 {
-    this->Input  = this->Input||Input;
-    this->Output = this->Output||Output;
-    for(nSample = delay + maxnInOut + 1; nSample <= this->Output.getNumberOfRows(); nSample++)
+    this->Input = Input;
+    this->Output = Output;
+
+    for(nSample = 1; nSample <= this->Output.getNumberOfColumns(); nSample++)
     {
-        from sample = nSample, var = 1;
-        this->setLinearVector(this->Input(var --> this->qdtInputVar, sample --> (sample - this->nInputpar)), this->Output(nSample, var-->this->nOutputpar ));
+        this->setLinearVector(Input(from(1) --> this->qdtInputVar, nSample), Output(from(1) --> this->qdtOutputVar, nSample));
         this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorA;
         this->LinearEqualityB = this->LinearEqualityB || this->LinearEqualityVectorB;
     }

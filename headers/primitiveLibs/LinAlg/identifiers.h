@@ -33,6 +33,14 @@ namespace Identifiers{
             return this->interval - b;
         }
 
+        unsigned operator+ (unsigned b){
+            return this->interval + b;
+        }
+
+        void operator = (unsigned b){
+            this->interval = b;
+        }
+
         from operator --(int){
             return *this;
         }

@@ -11,7 +11,7 @@ protected:
     UsedType         input,output,    lmin,lmax,     step;
     LinAlg::Matrix<UsedType> Input,Output,    EstOutput,     ModelCoef,
                      LinearVectorA, LinearEqualityVectorB, LinearMatrixA,
-                     LinearEqualityB;
+                     LinearEqualityB, InputLinearVector, OutputLinearVector;
 public:
     Model();
     UsedType diff(UsedType x);
