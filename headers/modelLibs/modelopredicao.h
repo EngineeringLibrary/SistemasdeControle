@@ -1,9 +1,9 @@
 #ifndef MODELOPREDICAO_H
 #define MODELOPREDICAO_H
-#include "C:/Users/hbarbosa/Documents/GitHub/SistemasdeControle-master/headers/modelLibs/model.h"
-#include "C:/Users/hbarbosa/Documents/GitHub/SistemasdeControle-master/headers/modelLibs/statespace.h"
-#include "C:/Users/hbarbosa/Documents/GitHub/CodigosSoftware/SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
-#include "Model/modelointegrativo.h"
+#include "SistemasdeControle/headers/modelLibs/model.h"
+#include "SistemasdeControle/headers/modelLibs/statespace.h"
+#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#include "SistemasdeControle/headers/modelLibs/modelointegrativo.h"
 
 template <class Type>
 class ModeloPredicao: public Model<Type>

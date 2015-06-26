@@ -2,9 +2,6 @@
 #define IDENTIFIERS_H
 
 namespace Identifiers{
-
-
-
     struct to{
         to(unsigned interval) : interval(interval) {}
 

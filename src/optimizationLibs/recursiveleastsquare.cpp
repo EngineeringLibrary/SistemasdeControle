@@ -9,9 +9,9 @@ RecursiveLeastSquare<UsedType>::RecursiveLeastSquare(Model<UsedType> *model,
     this->p0     = p0;
     this->model  = model;
     this->lambda = lambda;
-    this->OptimizatedVariable = LinAlg::Ones<UsedType>(1,this->model->getLinearVectorPhi().getNumberOfColumns());
+//    this->OptimizatedVariable = LinAlg::Ones<UsedType>(1,this->model->getLinearVectorPhi().getNumberOfColumns());
     this->OptimizatedVariable = this->OptimizatedVariable/this->p0;
-    this->P = LinAlg::Eye<UsedType>(this->model->getLinearVectorPhi().getNumberOfColumns());
+//    this->P = LinAlg::Eye<UsedType>(this->model->getLinearVectorPhi().getNumberOfColumns());
     this->P = this->P*(this->p0);
 }
 
@@ -24,7 +24,7 @@ void RecursiveLeastSquare<UsedType>::Iteration()
 
 //    for(int i = (this->nu + this->ny + 1); i <= this->size; i++)
 //    {
-        this->phi = this->model->getLinearVectorPhi();
+//        this->phi = this->model->getLinearVectorPhi();
         K = (P*~phi)/(((phi*P)*~phi) + (lambda));
         P = (P - (K*(phi*P)))/lambda;
         //this->Error.add(i,1, Model.getOutput()(i,1) - this->A*this->Theta);

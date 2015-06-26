@@ -1,4 +1,4 @@
-#include "modelopredicao.h"
+#include "SistemasdeControle/headers/modelLibs/modelopredicao.h"
 
 template <class Type>
 ModeloPredicao<Type>::ModeloPredicao( ModeloIntegrativo<Type> MI,
@@ -19,8 +19,8 @@ ModeloPredicao<Type>::ModeloPredicao( ModeloIntegrativo<Type> MI,
 
         for(unsigned j = 0; j <= this->HorizontePredicaoMin - 1; ++j)
         {
-            LinAlg::Matrix<Type> Btemp = LinAlg::Zeros(j*MI.getB().getNumberOfRows()),
-                                                       LinAlg::Zeros(j*MI.getB().getNumberOfColumns());
+            LinAlg::Matrix<Type> Btemp = LinAlg::Zeros(j*MI.getB().getNumberOfRows(),
+                                                       LinAlg::Zeros<Type>(j*MI.getB().getNumberOfColumns()));
 
             for(unsigned i = this->HorizontePredicaoMin - 1 + j;  i <= this->HorizontePredicaoMax - 1; ++i)
             {

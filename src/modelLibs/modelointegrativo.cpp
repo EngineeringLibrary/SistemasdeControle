@@ -1,4 +1,4 @@
-#include "modelointegrativo.h"
+#include "SistemasdeControle/headers/modelLibs/modelointegrativo.h"
 
 template <class Type>
 ModeloIntegrativo<Type>::ModeloIntegrativo(StateSpace<Type> SS)
