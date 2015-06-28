@@ -19,7 +19,7 @@ ARX<UsedType>::ARX(unsigned nInputpar , unsigned nOutputpar,
     this->Output = LinAlg::Zeros<UsedType>(nOutputpar,qdtOutputVar);
     this->EstOutput = this->Output;
     this->nSample = delay + maxnInOut + 1;
-    this->OutputLinearVector = LinAlg::Zeros<UsedType>(this->qdtOutputVar, this->delay + this->nOutputpar + 1);
+    this->OutputLinearVector = LinAlg::Zeros<UsedType>(this->qdtOutputVar, this->delay + this->nOutputpar);
     this->InputLinearVector  = LinAlg::Zeros<UsedType>(this->qdtInputVar, this->nInputpar);
 }
 // Nesta função será avaliada a quantidade de saídas pelo número de linhas das matrizes
@@ -27,25 +27,27 @@ ARX<UsedType>::ARX(unsigned nInputpar , unsigned nOutputpar,
 // a ser colocado no vetor de saídas ou entradas e sor uma matriz corresponderá
 // a um conjunto de variáveis no instante de tempo pedido
 template <class UsedType>
-void ARX<UsedType>::setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
+void ARX<UsedType>::setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> PastOutput)
 {
     if(1 < this->nInputpar)
         this->InputLinearVector =  Input | this->InputLinearVector(from(1) --> this->qdtInputVar, from(1) --> this->nInputpar - 1);
     else
         this->InputLinearVector =  Input;
 
-    this->OutputLinearVector =  Output | this->OutputLinearVector(from(1) --> this->qdtOutputVar, from(1) --> this->nOutputpar + this->delay);
+    if(1 < this->nOutputpar)
+        this->OutputLinearVector =  PastOutput | this->OutputLinearVector(from(1) --> this->qdtOutputVar, from(1) --> this->nOutputpar + this->delay - 1);
+    else
+        this->OutputLinearVector =  PastOutput;
 
     LinAlg::Matrix<UsedType> TempLinearVector;
 
-    for(unsigned i = 1; i <= Output.getNumberOfRows(); ++i)
-        TempLinearVector = TempLinearVector | -this->OutputLinearVector(i, from(2 + this->delay) --> this->delay + this->nOutputpar + 1);
+    for(unsigned i = 1; i <= PastOutput.getNumberOfRows(); ++i)
+        TempLinearVector = TempLinearVector | -this->OutputLinearVector(i, from(1 + this->delay) --> this->delay + this->nOutputpar);
 
     for(unsigned i = 1; i <= Input.getNumberOfRows(); ++i)
         TempLinearVector = TempLinearVector | this->InputLinearVector(i, from(1) --> this->nInputpar);
 
     this->LinearVectorA = TempLinearVector;
-    this->LinearEqualityVectorB = ~Output;
 }
 
 template <class UsedType>
@@ -59,7 +61,7 @@ void ARX<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input,
     {
         this->setLinearVector(Input(from(1) --> this->qdtInputVar, nSample), Output(from(1) --> this->qdtOutputVar, nSample));
         this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorA;
-        this->LinearEqualityB = this->LinearEqualityB || this->LinearEqualityVectorB;
+        this->LinearEqualityB = this->LinearEqualityB || Output(from(1) --> this->qdtOutputVar, nSample+1);
     }
 }
 
@@ -89,11 +91,12 @@ template <class UsedType>
 LinAlg::Matrix<UsedType> ARX<UsedType>::sim(LinAlg::Matrix<UsedType> Input)
 {
     this->Input  = Input;
-    this->Output = LinAlg::Zeros<UsedType>(1, this->qdtOutputVar);
+    LinAlg::Matrix<UsedType> TempOutput = LinAlg::Zeros<UsedType>(1, this->qdtOutputVar);
 
-    for(unsigned i = 1; i <= Input.getNumberOfColumns(); ++i){
-        this->setLinearVector(Input(from(1) --> Input.getNumberOfRows(), i), this->Output(from(1) --> this->Output.getNumberOfRows(), i));
-        this->Output = this->Output | this->LinearVectorA*this->ModelCoef;
+    for(unsigned i = 1; i < Input.getNumberOfColumns(); ++i){
+        this->setLinearVector(Input(from(1) --> Input.getNumberOfRows(), i),TempOutput);
+        TempOutput = this->LinearVectorA*this->ModelCoef;
+        this->Output = this->Output | TempOutput;
     }
     return this->Output;
 }
@@ -104,7 +107,7 @@ LinAlg::Matrix<UsedType> ARX<UsedType>::sim(LinAlg::Matrix<UsedType> Input, LinA
     this->Input  = Input;
     this->Output = LinAlg::Zeros<UsedType>(1, this->qdtOutputVar);
 
-    for(unsigned i = 1; i <= Input.getNumberOfColumns(); ++i){
+    for(unsigned i = 1; i < Input.getNumberOfColumns(); ++i){
         this->setLinearVector(Input(from(1) --> Input.getNumberOfRows(), i), Output(from(1) --> Output.getNumberOfRows(), i));
         this->Output = this->Output | this->LinearVectorA*this->ModelCoef;
     }
@@ -116,30 +119,6 @@ LinAlg::Matrix<UsedType> ARX<UsedType>::sim(UsedType lsim, UsedType lmax, UsedTy
 {
     return 0.0;
 }
-
-//template <class UsedType>
-//void Sim<UsedType>::SetArmaxOneStep()
-//{
-//    this->LinSysOneStep.zeros(1, this->nInPut*this->InPut.getNumberOfColumns() + this->nOutPut*this->OutPut.getNumberOfColumns() + this->nError);
-
-//    int cont = 1;
-//    for(int i = 1; i <= this->OutPut.getNumberOfColumns(); i++)
-//    {
-//        for(int j = 1; j <= this->nOutPut; j++)
-//        {
-//            this->LinSysOneStep.add(1, cont, -this->EstOutPut(this->nSample - j, i));
-//            cont++;
-//        }
-//    }
-//    for(int i = 1; i <= this->InPut.getNumberOfColumns(); i++)
-//    {
-//        for(int j = 1; j <= this->nInPut; j++)
-//        {
-//            this->LinSysOneStep.add(1, cont, this->InPut(this->nSample - j, i));
-//            cont++;
-//        }
-//    }
-//}
 
 //template class TransferFunction<int>;
 template class ARX<float>;
