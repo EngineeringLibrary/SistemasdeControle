@@ -3,6 +3,8 @@
 template <class UsedType>
 Model<UsedType>::Model()
 {
+    this->input = 0;
+    this->output = 0;
 }
 
 template <class UsedType>
