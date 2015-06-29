@@ -14,7 +14,7 @@ public:
         unsigned delay = 0,
         unsigned qdtInputVar = 1, unsigned qdtOutputVar = 1);
 
-    void setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
+    void setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> PastOutput);
     void setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
 
     void print();
