@@ -3,7 +3,7 @@
 template <class UsedType>
 ARX<UsedType>::ARX(unsigned nInputpar , unsigned nOutputpar,
                    unsigned delay,
-                   unsigned qdtInputVar, unsigned qdtOutputVar)
+                   unsigned qdtInputVar, unsigned qdtOutputVar, float sampleTime)
 {
     this->maxnInOut    = nInputpar;
     if( nOutputpar > nInputpar)
@@ -14,7 +14,9 @@ ARX<UsedType>::ARX(unsigned nInputpar , unsigned nOutputpar,
     this->nOutputpar   = nOutputpar;
     this->qdtOutputVar = qdtOutputVar;
     this->delay        = delay;
+    this->sampleTime   = sampleTime;
 
+    this->ModelCoef = LinAlg::Zeros<UsedType>(nInputpar*qdtInputVar + nOutputpar*qdtOutputVar, 1);
     this->Input = LinAlg::Zeros<UsedType>(nInputpar, qdtInputVar);
     this->Output = LinAlg::Zeros<UsedType>(nOutputpar,qdtOutputVar);
     this->EstOutput = this->Output;
@@ -22,6 +24,25 @@ ARX<UsedType>::ARX(unsigned nInputpar , unsigned nOutputpar,
     this->OutputLinearVector = LinAlg::Zeros<UsedType>(this->qdtOutputVar, this->delay + this->nOutputpar);
     this->InputLinearVector  = LinAlg::Zeros<UsedType>(this->qdtInputVar, this->nInputpar);
 }
+
+template <class UsedType>
+ARX<UsedType>::ARX(const ARX<UsedType>& OtherArxModel){
+    this->delay                 = OtherArxModel.delay;
+    this->EstOutput             = OtherArxModel.EstOutput;
+    this->Input                 = OtherArxModel.Input;
+    this->input                 = OtherArxModel.input;
+    this->InputLinearVector     = OtherArxModel.InputLinearVector;
+    this->instance              = OtherArxModel.instance;
+    this->LinearEqualityB       = OtherArxModel.LinearEqualityB;
+    this->LinearEqualityVectorB = OtherArxModel.LinearEqualityVectorB;
+    this->LinearMatrixA         = OtherArxModel.LinearMatrixA;
+    this->LinearVectorA         = OtherArxModel.LinearVectorA;
+    this->lmax                  = OtherArxModel.lmax;
+    this->lmin                  = OtherArxModel.lmin;
+    this->maxnInOut             = OtherArxModel.maxnInOut;
+
+}
+
 // Nesta função será avaliada a quantidade de saídas pelo número de linhas das matrizes
 // Neste caso Input e Output se forem escalares corresponderão ao próximo valor
 // a ser colocado no vetor de saídas ou entradas e sor uma matriz corresponderá
@@ -57,7 +78,7 @@ void ARX<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input,
     this->Input = Input;
     this->Output = Output;
 
-    for(nSample = 1; nSample <= this->Output.getNumberOfColumns(); ++nSample)
+    for(nSample = 1; nSample < this->Output.getNumberOfColumns(); ++nSample)
     {
         this->setLinearVector(Input(from(1) --> this->qdtInputVar, nSample), Output(from(1) --> this->qdtOutputVar, nSample));
         this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorA;
@@ -94,7 +115,7 @@ LinAlg::Matrix<UsedType> ARX<UsedType>::sim(LinAlg::Matrix<UsedType> Input)
     LinAlg::Matrix<UsedType> TempOutput = LinAlg::Zeros<UsedType>(1, this->qdtOutputVar);
 
     for(unsigned i = 1; i < Input.getNumberOfColumns(); ++i){
-        this->setLinearVector(Input(from(1) --> Input.getNumberOfRows(), i),TempOutput);
+        this->setLinearVector(Input.GetColumn(i),TempOutput);
         TempOutput = this->LinearVectorA*this->ModelCoef;
         this->Output = this->Output | TempOutput;
     }
@@ -118,6 +139,31 @@ template <class UsedType>
 LinAlg::Matrix<UsedType> ARX<UsedType>::sim(UsedType lsim, UsedType lmax, UsedType step)
 {
     return 0.0;
+}
+
+template <class UsedType>
+unsigned ARX<UsedType>::getNumberOfInputDelays(){
+    return this->nInputpar;
+}
+
+template <class UsedType>
+unsigned ARX<UsedType>::getNumberOfInputs(){
+    return this->qdtInputVar;
+}
+
+template <class UsedType>
+unsigned ARX<UsedType>::getNumberOfOutputDelays(){
+    return this->nOutputpar;
+}
+
+template <class UsedType>
+unsigned ARX<UsedType>::getNumberOfOutputs(){
+    return this->qdtOutputVar;
+}
+
+template <class UsedType>
+float ARX<UsedType>::getSampleTime(){
+    return this->sampleTime;
 }
 
 //template class TransferFunction<int>;

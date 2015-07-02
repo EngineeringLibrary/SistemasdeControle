@@ -1,6 +1,7 @@
 #ifndef TRANSFERFUNCTION_H
 #define TRANSFERFUNCTION_H
 #include "SistemasdeControle/headers/modelLibs/model.h"
+#include "SistemasdeControle/headers/modelLibs/arx.h"
 #include "SistemasdeControle/headers/primitiveLibs/polynom.h"
 
 template <class UsedType>
@@ -16,6 +17,7 @@ private:
 
 public:
     TransferFunction();
+    TransferFunction(ARX<UsedType> gz);
     TransferFunction(unsigned rows, unsigned cols);
     TransferFunction(std::string num, std::string den,
                      unsigned rows  , unsigned cols);

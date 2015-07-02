@@ -491,7 +491,11 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator/= (const Type& rhs)
 template<typename Type> template<typename RightType>
 LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator/= (const LinAlg::Matrix<RightType>& rhs)
 {
-    return *this *= LinAlg::Inverse<RightType>(rhs);
+
+    if(rhs.rows == 1 && rhs.columns == 1)
+        return  *this /= rhs.mat[0][0];
+    else
+        return *this *= LinAlg::Inverse<RightType>(rhs);
 }
 
 template<typename Type>
