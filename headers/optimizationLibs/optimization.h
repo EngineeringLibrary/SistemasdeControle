@@ -13,15 +13,12 @@ protected:
     LinAlg::Matrix<UsedType> OptimizatedVariable; //Error;
     Model<UsedType> *model;
 
-//    void initRLS(int nu, int ny, unsigned long int  p0);
-//    void setData(Matrix<UsedType> in, Matrix<UsedType> out);
-
 public:
     Optimization();
 
     LinAlg::Matrix<UsedType> getOptimizatedVariable();
-    virtual void Optimize()=0;
-//    void RLS(int nu, int ny, unsigned long int p0, Matrix<UsedType> in, Matrix<UsedType> out);
+    virtual void Optimize(LinAlg::Matrix<UsedType> Input,
+                          LinAlg::Matrix<UsedType> Output)=0;
 };
 
 #endif // OPTIMIZATION_H

@@ -10,7 +10,8 @@ protected:
     Model<UsedType> *instance;
     UsedType         input,output,    lmin,lmax,     step;
     LinAlg::Matrix<UsedType> Input,Output,    EstOutput,     ModelCoef,
-                     LinearVectorPhi, LinearMatrixA, LinearEqualityB;
+                     LinearVectorA, LinearEqualityVectorB, LinearMatrixA,
+                     LinearEqualityB, InputLinearVector, OutputLinearVector;
 public:
     Model();
     UsedType diff(UsedType x);
@@ -25,7 +26,8 @@ public:
     LinAlg::Matrix<UsedType> getOutputMatrix();
     LinAlg::Matrix<UsedType> getLinearMatrixA();
     LinAlg::Matrix<UsedType> getLinearEqualityB();
-    LinAlg::Matrix<UsedType> getLinearVectorPhi();
+    LinAlg::Matrix<UsedType> getLinearVectorA();
+    LinAlg::Matrix<UsedType> getLinearEqualityVectorB();
 
     virtual UsedType         sim(UsedType x) = 0;
     virtual UsedType         sim(UsedType x, UsedType y) = 0;
@@ -34,8 +36,7 @@ public:
     virtual LinAlg::Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step) = 0;
 
     virtual void print()=0;
-    virtual void setLinearVectorPhi() = 0;
-    virtual void setLinearVectorPhiEstimation()=0;
+    virtual void setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output) = 0;
     virtual void setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)=0;
 
 };

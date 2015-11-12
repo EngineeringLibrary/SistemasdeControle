@@ -7,8 +7,10 @@ LeastSquare<UsedType>::LeastSquare(Model<UsedType> *model)
 }
 
 template <class UsedType>
-void LeastSquare<UsedType>::Optimize()
+void LeastSquare<UsedType>::Optimize(LinAlg::Matrix<UsedType> Input,
+                                     LinAlg::Matrix<UsedType> Output)
 {
+    this->model->setLinearModel(Input,Output);
     LinAlg::Matrix<UsedType> A = this->model->getLinearMatrixA(),
                              B = this->model->getLinearEqualityB();
     this->OptimizatedVariable = (((~A)*A)^-1)*(~A)*B;

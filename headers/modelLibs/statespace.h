@@ -11,7 +11,7 @@ private:
     bool Continuous;
     unsigned nDiscretization;
     UsedType SampleTime, TimeSimulation;
-    LinAlg::Matrix<UsedType> A, B, C, D, Ad, Bd, X, initialState;
+    LinAlg::Matrix<UsedType> A, B, C, D, Ad, Bd, X, L, initialState;
 
 
     UsedType factorial(unsigned n);
@@ -27,9 +27,10 @@ public:
                LinAlg::Matrix<UsedType> C , LinAlg::Matrix<UsedType> D,
                UsedType SampleTime);
 
+
+
     void print();
-    void setLinearVectorPhi();
-    void setLinearVectorPhiEstimation();
+    void setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
     void setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
 
     void c2d(UsedType SampleTime);
@@ -46,6 +47,11 @@ public:
     LinAlg::Matrix<UsedType> sim(LinAlg::Matrix<UsedType> u);
     LinAlg::Matrix<UsedType> sim(LinAlg::Matrix<UsedType> u, LinAlg::Matrix<UsedType> y);
     LinAlg::Matrix<UsedType> sim(UsedType lmim, UsedType lmax, UsedType step);
+
+    bool isObservable();
+    bool isControlable();
+    void SetObserverParameter(LinAlg::Matrix<UsedType> L);
+    LinAlg::Matrix<UsedType> Observer(LinAlg::Matrix<UsedType> U, LinAlg::Matrix<UsedType> Y);
 };
 
 #endif // STATESPACE_H

@@ -19,13 +19,7 @@ void simFunction<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input, LinAl
 }
 
 template <class UsedType>
-void simFunction<UsedType>::setLinearVectorPhi()
-{
-
-}
-
-template <class UsedType>
-void simFunction<UsedType>::setLinearVectorPhiEstimation()
+void simFunction<UsedType>::setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
 {
 
 }

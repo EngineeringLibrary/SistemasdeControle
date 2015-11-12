@@ -12,11 +12,13 @@ class FIR : public Model<UsedType>
 public:
     FIR(unsigned nUpar, unsigned delay=0, unsigned qdtVar=1);
 
-    void setSysPar(LinAlg::Matrix<UsedType> SysPar);
+    void setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
+    void setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
 
+    void print();
     UsedType sim(UsedType input);
-    UsedType sim(UsedType x, UsedType y);
-    LinAlg::Matrix<UsedType> sim(LinAlg::Matrix<UsedType> x);
+    UsedType sim(UsedType input, UsedType output);
+    LinAlg::Matrix<UsedType> sim(LinAlg::Matrix<UsedType> Input);
     LinAlg::Matrix<UsedType> sim(LinAlg::Matrix<UsedType> x, LinAlg::Matrix<UsedType> y);
     LinAlg::Matrix<UsedType> sim(UsedType lsim, UsedType lmax, UsedType step);
 };

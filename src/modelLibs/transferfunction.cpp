@@ -35,6 +35,23 @@ TransferFunction<UsedType>::TransferFunction()
 }
 
 template <class UsedType>
+TransferFunction<UsedType>::TransferFunction(ARX<UsedType> gz)
+{
+    LinAlg::Matrix<UsedType> gzParmeters = gz.getModelCoef();
+    this->nColsTF = gz.getNumberOfInputs();
+    this->nRowsTF = gz.getNumberOfOutputs();
+    this->initTfNumber();
+    this->sampleTime = gz.getSampleTime();
+
+    for(unsigned i = 0; i < this->nRowsTF; i++)
+        for (unsigned j = 0; j < this->nColsTF; j++)
+        {
+            unsigned posTemp = 1 + i*(gz.getNumberOfInputDelays() + gz.getNumberOfOutputDelays());
+            this->TF[i][j].init(gzParmeters(from(posTemp) --> posTemp + gz.getNumberOfOutputDelays() - 1,i+1), gzParmeters(from(posTemp + gz.getNumberOfOutputDelays()) --> posTemp + gz.getNumberOfOutputDelays() + gz.getNumberOfInputDelays(),i+1));
+        }
+}
+
+template <class UsedType>
 TransferFunction<UsedType>::TransferFunction(std::string num, std::string den,
                                              unsigned rows  , unsigned cols)
 {
@@ -111,17 +128,10 @@ void TransferFunction<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input, 
 }
 
 template <class UsedType>
-void TransferFunction<UsedType>::setLinearVectorPhi()
+void TransferFunction<UsedType>::setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
 {
 
 }
-
-template <class UsedType>
-void TransferFunction<UsedType>::setLinearVectorPhiEstimation()
-{
-
-}
-
 
 template <class UsedType>
 void TransferFunction<UsedType>::setTF(Polynom<UsedType> **TF,

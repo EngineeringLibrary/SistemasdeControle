@@ -6,6 +6,24 @@ MA<UsedType>::MA()
 }
 
 template <class UsedType>
+void MA<UsedType>::setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
+{
+
+}
+
+template <class UsedType>
+void MA<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
+{
+
+}
+
+template <class UsedType>
+void MA<UsedType>::print()
+{
+
+}
+
+template <class UsedType>
 UsedType MA<UsedType>::sim(UsedType input)
 {
 

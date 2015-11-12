@@ -8,7 +8,7 @@ class LeastSquare: public Optimization<UsedType>
 public:
     LeastSquare(Model<UsedType> *model);
 
-    void Optimize();
+    void Optimize(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
 };
 
 #endif // LEASTSQUARE_H

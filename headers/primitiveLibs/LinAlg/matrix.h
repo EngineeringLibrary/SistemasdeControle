@@ -16,6 +16,8 @@ namespace LinAlg {
     class Matrix
     {
         public:
+            Matrix (Type Number);
+            Matrix (const char* Mat);
             Matrix (std::string Mat);
             Matrix (unsigned row, unsigned column);
             Matrix (): rows(0), columns(0), mat(NULL){};
@@ -43,7 +45,7 @@ namespace LinAlg {
             LinAlg::Matrix<Type> operator() (unsigned  row, unsigned* column_interval) const;
             LinAlg::Matrix<Type> operator() (unsigned* row_interval, unsigned* column_interval) const;
 
-            void operator= (std::string rhs);
+            void operator= (const char* rhs);
             LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<Type>& otherMatrix);
             template<typename OtherMatrixType>
             LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<OtherMatrixType>& otherMatrix);
@@ -55,7 +57,6 @@ namespace LinAlg {
             LinAlg::Matrix<Type>& operator-= (const Type& rhs /*scalar*/);
             template<typename RightType>
             LinAlg::Matrix<Type>& operator-= (const LinAlg::Matrix<RightType>& rhs);
-
 
             LinAlg::Matrix<Type>& operator*= (const Type& rhs /*scalar*/);
             template<typename RightType>
@@ -70,6 +71,8 @@ namespace LinAlg {
 
             template<typename RightType>
             LinAlg::Matrix<Type> operator| (LinAlg::Matrix<RightType> rhs);
+            template<typename RightType>
+            LinAlg::Matrix<Type> operator| (RightType rhs);
             template<typename RightType>
             LinAlg::Matrix<Type> operator|| (LinAlg::Matrix<RightType> rhs);
 
@@ -86,7 +89,7 @@ namespace LinAlg {
 
             void ReInit (unsigned row, unsigned column);
 
-            void Add (unsigned& row, unsigned& column, Type& number);
+            void Add (unsigned row, unsigned column, Type number);
 
             template<typename OtherMatrixType>
             bool CheckDimensions(const LinAlg::Matrix<OtherMatrixType>& rhs, unsigned operation);
@@ -128,7 +131,7 @@ namespace LinAlg {
     LinAlg::Matrix<Type> operator~ (LinAlg::Matrix<Type> mat);
 
     template<typename Type>
-    LinAlg::Matrix<Type> operator^ (LinAlg::Matrix<Type> lhs, double exp) {return lhs ^= exp;}
+    LinAlg::Matrix<Type> operator^ (LinAlg::Matrix<Type> lhs, int exp) {return lhs ^= exp;}
 
     template<typename Type>
     std::ostream& operator<< (std::ostream& output, const LinAlg::Matrix<Type>& mat);
