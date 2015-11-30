@@ -1,34 +1,40 @@
 #include "SistemasdeControle/headers/graphicLibs/plot.h"
 
 template<typename Type>
-plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, QMainWindow *MainWindow)
+plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, plotProperties properties)
 {
-    this->setPlotSize();
-    this->initPlot(MainWindow);
-    this->setxLabel("Matriz X de Dados");
-    this->setyLabel("Matriz Y de Dados");
-    this->setTitle("Primeiro teste com Grafico");
-    this->setFont();
+    this->properties.MainWindow    = properties.MainWindow;
+    this->properties.xLabel        = properties.xLabel;
+    this->properties.yLabel        = properties.yLabel;
+    this->properties.variablesName = properties.variablesName;
+    this->properties.font          = properties.font;
+    this->properties.title         = properties.title;
+    this->properties.windowSizeX   = properties.windowSizeX;
+    this->properties.windowSizeY   = properties.windowSizeY;
+    this->properties.windowPosX    = properties.windowPosX;
+    this->properties.windowPosY    = properties.windowPosY;
+
+    this->initPlot();
 
     // add title layout element:
     customPlot->plotLayout()->insertRow(0);
-    customPlot->plotLayout()->addElement(0, 0, new QCPPlotTitle(this->customPlot, this->title.c_str()));
+    customPlot->plotLayout()->addElement(0, 0, new QCPPlotTitle(this->customPlot, this->properties.title.c_str()));
 
     if(X.getNumberOfColumns() == Y.getNumberOfColumns() && X.getNumberOfRows() == Y.getNumberOfRows())
     {
-        this->rows = X.getNumberOfRows();
-        this->columns = X.getNumberOfColumns();
-        this->setLegend();
+        this->properties.rows = X.getNumberOfRows();
+        this->properties.columns = X.getNumberOfColumns();
+//        this->setLegend();
 
         QPen pen;
         // add graphs with different scatter styles:
-        for (unsigned i = 0; i < this->rows; ++i)
+        for (unsigned i = 0; i < this->properties.rows; ++i)
         {
           customPlot->addGraph();
           pen.setColor(QColor(qSin(i*0.3)*100+100, qSin(i*0.6+0.7)*100+100, qSin(i*0.4+0.6)*100+100));
           // generate data:
-          QVector<double> x(this->columns), y(this->columns);
-          for (unsigned k = 0; k < this->columns; ++k)
+          QVector<double> x(this->properties.columns), y(this->properties.columns);
+          for (unsigned k = 0; k < this->properties.columns; ++k)
           {
             x[k] = X(i+1,k+1);
             y[k] = Y(i+1,k+1);
@@ -38,8 +44,8 @@ plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, QMainWindow *Ma
           customPlot->graph()->setPen(pen);
           customPlot->graph()->setName("Grafico" + QString::number(i+1));
           customPlot->graph()->setLineStyle(QCPGraph::lsLine);
-          customPlot->xAxis->setLabel(this->xLabel.c_str());
-          customPlot->yAxis->setLabel(this->yLabel.c_str());
+          customPlot->xAxis->setLabel(this->properties.xLabel.c_str());
+          customPlot->yAxis->setLabel(this->properties.yLabel.c_str());
           // set scatter style:
         }
      }
@@ -47,60 +53,67 @@ plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, QMainWindow *Ma
 }
 
 template <typename Type>
-void plot<Type>::initPlot(QMainWindow *MainWindow)
+void plot<Type>::initPlot()
 {
-    centralWidget = new QWidget(MainWindow);
-    centralWidget->setGeometry(QRect(this->windowPosX, this->windowPosY, this->windowSizeX, this->windowSizeY));
-    customPlot = new QCustomPlot(centralWidget);
-    customPlot->setGeometry(QRect(this->windowPosX, this->windowPosY, this->windowSizeX, this->windowSizeY));
+//    this->setPlotSize();
+
+    centralWidget = new QWidget(this->properties.MainWindow);
+    centralWidget->setGeometry(QRect(this->properties.windowPosX, this->properties.windowPosY, this->properties.windowSizeX, this->properties.windowSizeY));
+    customPlot = new QCustomPlot(this->centralWidget);
+    customPlot->setGeometry(QRect(this->properties.windowPosX, this->properties.windowPosY, this->properties.windowSizeX, this->properties.windowSizeY));
+
+//    this->setxLabel();
+//    this->setyLabel();
+//    this->setTitle();
+//    this->setFont();
 }
 
-template <typename Type>
-void plot<Type>::setPlotSize(unsigned posX, unsigned posY, unsigned sizeX, unsigned sizeY)
-{
-    this->windowPosX = posX;
-    this->windowPosY = posY;
-    this->windowSizeX = sizeX;
-    this->windowSizeY = sizeY;
-}
+//template <typename Type>
+//void plot<Type>::setPlotSize()
+//{
+//    this->properties.windowPosX = posX;
+//    this->properties.windowPosY = posY;
+//    this->properties.windowSizeX = sizeX;
+//    this->properties.windowSizeY = sizeY;
+//}
 
-template <typename Type>
-void plot<Type>::setVariablesNames(std::string *varNames)
-{
-    this->variablesName = varNames;
-}
+//template <typename Type>
+//void plot<Type>::setVariablesNames()
+//{
+//    this->properties.variablesName = varNames;
+//}
 
-template <typename Type>
-void plot<Type>::setLegend()
-{
-    customPlot->legend->setVisible(true);
-    customPlot->legend->setFont(QFont(this->font.c_str(), 9));
-    customPlot->legend->setRowSpacing(-3);
-}
+//template <typename Type>
+//void plot<Type>::setLegend()
+//{
+//    customPlot->legend->setVisible(true);
+//    customPlot->legend->setFont(QFont(this->properties.font.c_str(), 9));
+//    customPlot->legend->setRowSpacing(-3);
+//}
 
-template <typename Type>
-void plot<Type>::setTitle(std::string title)
-{
-    this->title = title;
-}
+//template <typename Type>
+//void plot<Type>::setTitle()
+//{
+//    this->properties.title = title;
+//}
 
-template <typename Type>
-void plot<Type>::setxLabel(std::string xLabel)
-{
-    this->xLabel = xLabel;
-}
+//template <typename Type>
+//void plot<Type>::setxLabel()
+//{
+//    this->properties.xLabel = xLabel;
+//}
 
-template <typename Type>
-void plot<Type>::setyLabel(std::string yLabel)
-{
-    this->yLabel = yLabel;
-}
+//template <typename Type>
+//void plot<Type>::setyLabel()
+//{
+//    this->properties.yLabel = yLabel;
+//}
 
-template <typename Type>
-void plot<Type>::setFont(std::string font)
-{
-    this->font = font;
-}
+//template <typename Type>
+//void plot<Type>::setFont()
+//{
+//    this->properties.font = font;
+//}
 
 template class plot <int>;
 template class plot <float>;
