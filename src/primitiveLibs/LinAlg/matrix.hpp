@@ -696,6 +696,15 @@ LinAlg::Matrix<Type> LinAlg::Eye (unsigned dimension)
 }
 
 template<typename Type>
+LinAlg::Matrix<Type> LinAlg::LineVector (unsigned from, unsigned to, unsigned step)
+{
+    LinAlg::Matrix<Type> Ret(1,unsigned((to-from)/step));
+    for(unsigned i = 0; i < to; i+= step)
+            Ret(1,i+1) = i;
+    return Ret;
+}
+
+template<typename Type>
 void LinAlg::Ones(LinAlg::Matrix<Type>& mat)
 {
     for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
