@@ -641,6 +641,15 @@ std::istream& LinAlg::operator>> (std::istream& input, LinAlg::Matrix<Type>& mat
 }
 
 template<typename Type>
+std::string& LinAlg::operator<< (std::string& output, const LinAlg::Matrix<Type>& mat)
+{
+    std::stringstream ss;
+    ss << mat;
+    output = ss.str();
+    return output;
+}
+
+template<typename Type>
 bool LinAlg::operator== (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs)
 {
     bool ret = true;

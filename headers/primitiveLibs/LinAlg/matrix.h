@@ -5,7 +5,8 @@
 #include <string>
 #include <iomanip>
 #include <cstdlib>
-#include <iostream>
+#include <sstream>
+#include <iostream> 
 
 #include "identifiers.h"
 
@@ -20,7 +21,7 @@ namespace LinAlg {
             Matrix (const char* Mat);
             Matrix (std::string Mat);
             Matrix (unsigned row, unsigned column);
-            Matrix (): rows(0), columns(0), mat(NULL){};
+            Matrix (): rows(0), columns(0), mat(NULL){}
             Matrix (const LinAlg::Matrix<Type>& otherMatrix);
             virtual ~Matrix ();
 
@@ -137,6 +138,9 @@ namespace LinAlg {
     std::ostream& operator<< (std::ostream& output, const LinAlg::Matrix<Type>& mat);
     template<typename Type>
     std::istream& operator>> (std::istream& input, LinAlg::Matrix<Type>& mat);
+
+    template<typename Type>
+    std::string& operator<< (std::string& output, const LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
     bool operator== (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs);
