@@ -4,49 +4,56 @@
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
 
 namespace PolynomHandler {
-    template <class Type>
+    template <typename Type>
     class Polynom
     {
         public:
 
             Polynom(Type Num);//testada
             Polynom(LinAlg::Matrix<Type> Num); //testada
-            Polynom(const Polynom<Type> &CopyPolynom); //testada
+            Polynom(const PolynomHandler::Polynom<Type> &CopyPolynom); //testada
             Polynom(LinAlg::Matrix<Type> Num, LinAlg::Matrix<Type> Den);//testada
             Polynom(): x('x'), sizeDen(0), sizeNum(0), num(NULL), den(NULL){} //testada
             virtual ~Polynom(); //testada
 
-            void changeVar(char var);
-            LinAlg::Matrix<Type> getNum();
-            unsigned            getNumSize();
-            LinAlg::Matrix<Type> getDen();
-            unsigned            getDenSize();
-            char                getVar();
+            char                 getVar(); // testada
+            void                 changeVar(char var); //testada
 
-            void setNum(Type *Num, unsigned sizenum);
-            void setNum(LinAlg::Matrix<Type> Num);
-            void setDen(Type *Den, unsigned sizeden);
-            void setDen(LinAlg::Matrix<Type> Den);
+            unsigned             getNumSize(); // testada
+            unsigned             getDenSize(); // testada
 
-            Polynom<Type> operator+(Polynom<Type> P);
-            Polynom<Type> operator+(Type scalar);
-            friend Polynom<Type> operator+(Type scalar, Polynom<Type> P){return P+scalar;}
+            LinAlg::Matrix<Type> getNum(); //testada
+            LinAlg::Matrix<Type> getDen(); //testada
 
-            Polynom<Type> operator-(Polynom<Type> P);
-            Polynom<Type> operator-(Type scalar);
-            friend Polynom<Type> operator-(Type scalar, Polynom<Type> P){return (-1)*P+scalar;}
+            void setNum(Type *Num, unsigned sizenum);//testada
+            void setNum(LinAlg::Matrix<Type> Num); // testada
 
-            Polynom<Type> operator*(Type scalar);
-            Polynom<Type> operator*(Polynom<Type> P);
-            friend Polynom<Type> operator*(Type scalar, Polynom<Type> P){return P*scalar;}
+            void setDen(Type *Den, unsigned sizeden); //testada
+            void setDen(LinAlg::Matrix<Type> Den); // testada
 
-            Polynom<Type> operator/(Polynom<Type> P);
-            Polynom<Type> operator/(Type scalar);
-            friend Polynom<Type> operator/(Type scalar, Polynom<Type> P){return (P^-1)*scalar;}
-            void operator=(Polynom<Type> P);
+            PolynomHandler::Polynom<Type>& operator=  (const PolynomHandler::Polynom<Type>& OtherPolynom);//testada
+            template<typename OtherPolynomType>//testada
+            PolynomHandler::Polynom<Type>& operator=  (const PolynomHandler::Polynom<OtherPolynomType>& OtherPolynom);
+
+            PolynomHandler::Polynom<Type>& operator+= (const Type& rhs /*scalar*/);
+            template<typename RightType>
+            PolynomHandler::Polynom<Type>& operator+= (const PolynomHandler::Polynom<RightType>& rhs);
+//            friend Polynom<Type> operator+(Type scalar, Polynom<Type> P){return P+scalar;}
+
+//            Polynom<Type> operator-(Polynom<Type> P);
+//            Polynom<Type> operator-(Type scalar);
+//            friend Polynom<Type> operator-(Type scalar, Polynom<Type> P){return (-1)*P+scalar;}
+
+//            Polynom<Type> operator*(Type scalar);
+//            Polynom<Type> operator*(Polynom<Type> P);
+//            friend Polynom<Type> operator*(Type scalar, Polynom<Type> P){return P*scalar;}
+
+//            Polynom<Type> operator/(Polynom<Type> P);
+//            Polynom<Type> operator/(Type scalar);
+//            friend Polynom<Type> operator/(Type scalar, Polynom<Type> P){return (P^-1)*scalar;}
 
 
-            Polynom<Type> operator^(unsigned scalar);
+//            Polynom<Type> operator^(unsigned scalar);
 
 
 
@@ -60,75 +67,26 @@ namespace PolynomHandler {
             void init(LinAlg::Matrix<Type> Num);
             void init(unsigned NumSize, unsigned DenSize);
             void init(LinAlg::Matrix<Type> Num, LinAlg::Matrix<Type> Den);
-
-            Type* initPointer(unsigned Size);
-
-            bool VefDen(Type *den1, Type *den2, unsigned sizeden1, unsigned sizeden2);
-
     };
 
-    template<typename Type>
+    template<typename Type> // testado
     std::ostream& operator<< (std::ostream& output, PolynomHandler::Polynom<Type>& pol);
 
-    template<typename Type>
+    template<typename Type> // testada
     std::string& operator<< (std::string& output, PolynomHandler::Polynom<Type>& pol);
 
+    template<typename Type> // testada
+    bool VefDen(const Type *den1, const Type *den2, const unsigned sizeden1, const unsigned sizeden2);
 
-//    template <class Type>
-//    Type *SumPoly(Type *value1, Type *value2,
-//                         unsigned SizeValue1, unsigned SizeValue2)
-//    {
-//        Type *ret;
+    template<typename Type> // testada
+    Type* initPointer(const unsigned &Size);
 
-//        unsigned min = SizeValue1, max = SizeValue2;
+    template<typename Type> // testado
+    Type *SumPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
 
-//        if(min < SizeValue2)
-//        {
-//            min = SizeValue2;
-//            max = SizeValue1;
-//        }
 
-//        ret = initPointer<Type> (max);
-//        for (unsigned i = 1; i <= min; i++)
-//            ret[max - i] =  value1[SizeValue1 - i] + value2[SizeValue2 - i];
-
-//        return ret;
-//    }
-
-//    template <class Type>
-//    Type *SubPoly(Type *value1, Type *value2,
-//                         unsigned SizeValue1, unsigned SizeValue2)
-//    {
-//        Type *ret;
-
-//        unsigned min = SizeValue1, max = SizeValue2;
-
-//        if(min < SizeValue2)
-//        {
-//            min = SizeValue2;
-//            max = SizeValue1;
-//        }
-
-//        ret = initPointer<Type> (max);
-//        for (unsigned i = 1; i <= min; i++)
-//            ret[max - i] =  value1[SizeValue1 - i] - value2[SizeValue2 - i];
-
-//        return ret;
-//    }
-
-//    template <class Type>
-//    Type *MultPoly(Type *value1, Type *value2,
-//                          unsigned SizeValue1, unsigned SizeValue2)
-//    {
-//        Type *ret;
-
-//        ret = initPointer<Type> (SizeValue1+SizeValue2);
-//        for(unsigned i = 0; i < SizeValue1; i++)
-//            for(unsigned j = 0; j < SizeValue2; j++)
-//                ret[i+j] = ret[i+j] +  value1[i]*value2[j];
-
-//        return ret;
-//    }
+    template <class Type> // tastada
+    Type *MultPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
 
 //    template <class Type>
 //    LinAlg::Matrix<Type> MultPoly(LinAlg::Matrix<Type> value1,
