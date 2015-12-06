@@ -10,8 +10,6 @@ LinAlg::Matrix<Type>::Matrix (Type Number)
 template<typename Type>
 LinAlg::Matrix<Type>::Matrix (const char* Mat)
 {
-    this->rows = 0;
-    this->columns = 0;
     this->Init(Mat);
 }
 
@@ -19,8 +17,6 @@ LinAlg::Matrix<Type>::Matrix (const char* Mat)
 template<typename Type>
 LinAlg::Matrix<Type>::Matrix (std::string Mat)
 {
-    this->rows = 0;
-    this->columns = 0;
     this->Init(Mat);
 }
 
@@ -68,12 +64,6 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
             commas += 1;
     }
 
-//    if(semiColons == 1 && commas == 1)
-//    {
-//        std::cout << "Invalid String";
-//    }
-//    else
-//    {
     row = semiColons;
     column = (commas + semiColons - 1)/semiColons;
 
@@ -100,7 +90,8 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
             Type number;
 
             if(temp2 == "")
-                number = 0;
+//                number = 0;
+                break;
             else
                 number = (Type)atof(temp2.c_str());
 
@@ -113,7 +104,6 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
         col = 0;
         lin++;
     }
-//    }
 }
 
 template<typename Type>
@@ -641,15 +631,6 @@ std::istream& LinAlg::operator>> (std::istream& input, LinAlg::Matrix<Type>& mat
 }
 
 template<typename Type>
-std::string& LinAlg::operator<< (std::string& output, const LinAlg::Matrix<Type>& mat)
-{
-    std::stringstream ss;
-    ss << mat;
-    output = ss.str();
-    return output;
-}
-
-template<typename Type>
 bool LinAlg::operator== (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs)
 {
     bool ret = true;
@@ -701,15 +682,6 @@ LinAlg::Matrix<Type> LinAlg::Eye (unsigned dimension)
                     Ret(i, j) = 0;
             }
 
-    return Ret;
-}
-
-template<typename Type>
-LinAlg::Matrix<Type> LinAlg::LineVector (unsigned from, unsigned to, unsigned step)
-{
-    LinAlg::Matrix<Type> Ret(1,unsigned((to-from)/step));
-    for(unsigned i = 0; i < to; i+= step)
-            Ret(1,i+1) = i;
     return Ret;
 }
 
