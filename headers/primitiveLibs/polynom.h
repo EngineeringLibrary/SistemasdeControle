@@ -35,8 +35,8 @@ namespace PolynomHandler {
             template<typename OtherPolynomType>//testada
             PolynomHandler::Polynom<Type>& operator=  (const PolynomHandler::Polynom<OtherPolynomType>& OtherPolynom);
 
-            PolynomHandler::Polynom<Type>& operator+= (const Type& rhs /*scalar*/);
-            template<typename RightType>
+            PolynomHandler::Polynom<Type>& operator+= (const Type& rhs /*scalar*/); //testada
+            template<typename RightType> // com defeito
             PolynomHandler::Polynom<Type>& operator+= (const PolynomHandler::Polynom<RightType>& rhs);
 //            friend Polynom<Type> operator+(Type scalar, Polynom<Type> P){return P+scalar;}
 
@@ -78,15 +78,23 @@ namespace PolynomHandler {
     template<typename Type> // testada
     bool VefDen(const Type *den1, const Type *den2, const unsigned sizeden1, const unsigned sizeden2);
 
+    template <class Type>
+    bool isDivisible(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
+
     template<typename Type> // testada
     Type* initPointer(const unsigned &Size);
 
     template<typename Type> // testado
     Type *SumPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
 
-
-    template <class Type> // tastada
+    template <class Type> // com defeito
     Type *MultPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
+
+    template <class Type>
+    Type *DivPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
+
+    template <class Type>
+    Type *RootPoly(const Type *simplePolynom, const unsigned &simplePolynomSize);
 
 //    template <class Type>
 //    LinAlg::Matrix<Type> MultPoly(LinAlg::Matrix<Type> value1,
