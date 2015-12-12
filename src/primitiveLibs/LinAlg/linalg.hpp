@@ -182,14 +182,15 @@ LinAlg::Matrix<Type> LinAlg::Hess (const LinAlg::Matrix<Type>& matrix_to_reduce)
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_get_eigenvalues, unsigned iterations = 100)
+LinAlg::Matrix<Type> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_get_eigenvalues, unsigned iterations = 200)
 {
     LinAlg::Matrix<Type> ret(matrix_to_get_eigenvalues), temp = LinAlg::Eye<Type>(ret.getNumberOfRows());
 
     LinAlg::Balance(ret);
     ret = LinAlg::Hess(ret);
-
-    for(unsigned i = 0; i < iterations; i++)
+    Type R,IM;
+    Matrix<Type> Raizes(ret.getNumberOfColumns(),2);
+    for(unsigned i = 0; i < iterations; ++i)
     {
         LinAlg::Matrix<Type> Q, R;
 
@@ -198,5 +199,33 @@ LinAlg::Matrix<Type> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_g
         ret = R*Q;
     }
 
-    return ret;
+
+    for(unsigned i = 1; i <= ret.getNumberOfColumns(); ++i)
+    {
+        if(i+1 <= ret.getNumberOfColumns())
+            if(ret(i+1,i) <= 1e-10 && ret(i+1,i) >= -1e-10)
+            {
+                Raizes(i,1) = ret(i,i); Raizes(i,2) = 0;
+            }
+            else
+            {
+                R  = (ret(i,i) + ret(i+1,i+1))/2;
+                IM = ret(i+1,i)*ret(i,i+1);
+                if( IM > 0)
+                    IM = (sqrt(IM));
+                else
+                    IM = (sqrt(-IM));
+                Raizes(i,1)   = R;
+                Raizes(i,2)   = -IM;
+                Raizes(i+1,1) = R;
+                Raizes(i+1,2) = IM;
+                i++;
+            }
+         else
+        {
+            Raizes(i,1) = ret(i,i); Raizes(i,2) = 0;
+        }
+    }
+
+    return Raizes;
 }
