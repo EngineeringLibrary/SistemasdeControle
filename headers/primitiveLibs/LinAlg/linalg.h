@@ -16,7 +16,7 @@ namespace LinAlg {
     Type Trace (const LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
-    Type CaracteristicPolynom (const LinAlg::Matrix<Type>& mat);
+    LinAlg::Matrix<Type> CaracteristicPolynom (const LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
     void QR_Factorization (const LinAlg::Matrix<Type>& input_matrix,

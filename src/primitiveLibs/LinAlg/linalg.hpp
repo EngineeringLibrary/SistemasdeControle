@@ -70,8 +70,30 @@ Type LinAlg::Trace (const LinAlg::Matrix<Type>& mat)
 }
 
 template<typename Type>
-Type LinAlg::CaracteristicPolynom (const LinAlg::Matrix<Type>& mat)
+LinAlg::Matrix<Type> LinAlg::CaracteristicPolynom (const LinAlg::Matrix<Type>& mat)
 {
+    unsigned n = mat.getNumberOfColumns();
+    Matrix<Type> z = EigenValues(mat);
+    Matrix<Type> zi = EigenValues(mat);
+    Matrix<Type> ret(1,n+1);
+    std::complex<Type> *tempPoly = new std::complex<Type> [2];
+    tempPoly[0] = 1;
+    tempPoly[1] = std::complex<Type>(-z(1,1),-z(1,2));
+    std::complex<Type> * tempPolyEigenvalue = new std::complex<Type>[2];
+
+    unsigned sizeTempPoly = 2;
+    tempPolyEigenvalue[0] = 1;
+    for(unsigned i = 2; i <= n ; ++i)
+    {
+        tempPolyEigenvalue[1] = std::complex<Type>(-z(i,1),-z(i,2));//apos o templade entre (real,imaginario) atribuição
+        tempPoly = LinAlg::MultPoly(tempPoly,tempPolyEigenvalue,sizeTempPoly,2);
+        sizeTempPoly++;
+    }
+    for(unsigned i = 0; i < sizeTempPoly ; ++i)
+    {
+        ret(1,i+1) = tempPoly[i].real();
+    }
+    return ret;
 
 }
 
