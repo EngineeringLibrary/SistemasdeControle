@@ -251,3 +251,18 @@ LinAlg::Matrix<Type> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_g
 
     return Raizes;
 }
+
+template <class Type>
+Type *LinAlg::MultPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const  unsigned  &rhsSize)
+{
+    Type *ret;
+
+    ret = (Type*)calloc((lhsSize+rhsSize+1),(lhsSize+rhsSize+1)*sizeof(Type*));
+    for(unsigned i = 0; i < lhsSize; ++i)
+        for(unsigned j = 0; j < rhsSize; ++j)
+        {
+            ret[i+j] = ret[i+j] +  lhs[i]*rhs[j];
+        }
+
+    return ret;
+}

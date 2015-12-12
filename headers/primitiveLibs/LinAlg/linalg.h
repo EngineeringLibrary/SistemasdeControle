@@ -40,6 +40,8 @@ namespace LinAlg {
    template <typename Type>
     LinAlg::Matrix<Type> EigenValues(const LinAlg::Matrix<Type>& matrix_to_get_eigenvalues, unsigned iterations = 100);
     
+    template <typename Type>
+    Type *MultPoly(const Type *lhs, const Type  *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
 }
 
 #include "SistemasdeControle/src/primitiveLibs/LinAlg/linalg.hpp"
