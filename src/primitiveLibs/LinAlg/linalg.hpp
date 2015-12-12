@@ -1,4 +1,6 @@
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
+#include "SistemasdeControle/headers/primitiveLibs/LinAlg/identifiers.h"
+#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
 
 template <typename Type>
 void LinAlg::Balance (LinAlg::Matrix<Type> &matrix_to_balance)
@@ -94,7 +96,6 @@ LinAlg::Matrix<Type> LinAlg::CaracteristicPolynom (const LinAlg::Matrix<Type>& m
         ret(1,i+1) = tempPoly[i].real();
     }
     return ret;
-
 }
 
 template<typename Type>
@@ -266,3 +267,4 @@ Type *LinAlg::MultPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize
 
     return ret;
 }
+

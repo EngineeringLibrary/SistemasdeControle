@@ -724,10 +724,10 @@ Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
 template<typename Type>
 LinAlg::Matrix<Type> LinAlg::Cofactor(const LinAlg::Matrix<Type>& mat)
 {
-	unsigned rows = mat.getNumberOfRows(), columns = mat.getNumberOfColumns(), aux1, aux2;
-	LinAlg::Matrix<Type> temp(rows - 1, columns - 1), ret(rows, columns);
+    unsigned rows = mat.getNumberOfRows(), columns = mat.getNumberOfColumns(), aux1, aux2;
+    LinAlg::Matrix<Type> temp(rows - 1, columns - 1), ret(rows, columns);
 
-	if(rows != columns)
+    if(rows != columns)
     {
         LinAlg::Zeros(ret);
         std::cout << "Operacao disponivel somente para matrizes quadradas.";
