@@ -1,4 +1,6 @@
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
+#include "SistemasdeControle/headers/primitiveLibs/LinAlg/identifiers.h"
+#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
 
 template <typename Type>
 void LinAlg::Balance (LinAlg::Matrix<Type> &matrix_to_balance)
@@ -71,9 +73,30 @@ Type LinAlg::Trace (const LinAlg::Matrix<Type>& mat)
 }
 
 template<typename Type>
-Type LinAlg::CaracteristicPolynom (const LinAlg::Matrix<Type>& mat)
+LinAlg::Matrix<Type> LinAlg::CaracteristicPolynom (const LinAlg::Matrix<Type>& mat)
 {
+    unsigned n = mat.getNumberOfColumns();
+    Matrix<Type> z = EigenValues(mat);
+    Matrix<Type> zi = EigenValues(mat);
+    Matrix<Type> ret(1,n+1);
+    std::complex<Type> *tempPoly = new std::complex<Type> [2];
+    tempPoly[0] = 1;
+    tempPoly[1] = std::complex<Type>(-z(1,1),-z(1,2));
+    std::complex<Type> * tempPolyEigenvalue = new std::complex<Type>[2];
 
+    unsigned sizeTempPoly = 2;
+    tempPolyEigenvalue[0] = 1;
+    for(unsigned i = 2; i <= n ; ++i)
+    {
+        tempPolyEigenvalue[1] = std::complex<Type>(-z(i,1),-z(i,2));//apos o templade entre (real,imaginario) atribuição
+        tempPoly = LinAlg::MultPoly(tempPoly,tempPolyEigenvalue,sizeTempPoly,2);
+        sizeTempPoly++;
+    }
+    for(unsigned i = 0; i < sizeTempPoly ; ++i)
+    {
+        ret(1,i+1) = tempPoly[i].real();
+    }
+    return ret;
 }
 
 template<typename Type>
@@ -189,8 +212,9 @@ LinAlg::Matrix<OtherType> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix
 
     LinAlg::Balance(ret);
     ret = LinAlg::Hess(ret);
-
-    for(unsigned i = 0; i < iterations; i++)
+    Type R,IM;
+    Matrix<Type> Raizes(ret.getNumberOfColumns(),2);
+    for(unsigned i = 0; i < iterations; ++i)
     {
         LinAlg::Matrix<Type> Q, R;
 
@@ -199,5 +223,49 @@ LinAlg::Matrix<OtherType> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix
         ret = R*Q;
     }
 
+
+    for(unsigned i = 1; i <= ret.getNumberOfColumns(); ++i)
+    {
+        if(i+1 <= ret.getNumberOfColumns())
+            if(ret(i+1,i) <= 1e-10 && ret(i+1,i) >= -1e-10)
+            {
+                Raizes(i,1) = ret(i,i); Raizes(i,2) = 0;
+            }
+            else
+            {
+                R  = (ret(i,i) + ret(i+1,i+1))/2;
+                IM = ret(i+1,i)*ret(i,i+1);
+                if( IM > 0)
+                    IM = (sqrt(IM));
+                else
+                    IM = (sqrt(-IM));
+                Raizes(i,1)   = R;
+                Raizes(i,2)   = -IM;
+                Raizes(i+1,1) = R;
+                Raizes(i+1,2) = IM;
+                i++;
+            }
+         else
+        {
+            Raizes(i,1) = ret(i,i); Raizes(i,2) = 0;
+        }
+    }
+
+    return Raizes;
+}
+
+template <class Type>
+Type *LinAlg::MultPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const  unsigned  &rhsSize)
+{
+    Type *ret;
+
+    ret = (Type*)calloc((lhsSize+rhsSize+1),(lhsSize+rhsSize+1)*sizeof(Type*));
+    for(unsigned i = 0; i < lhsSize; ++i)
+        for(unsigned j = 0; j < rhsSize; ++j)
+        {
+            ret[i+j] = ret[i+j] +  lhs[i]*rhs[j];
+        }
+
     return ret;
 }
+

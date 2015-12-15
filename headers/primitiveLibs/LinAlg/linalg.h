@@ -4,7 +4,7 @@
 #define SWAP
 
 #include "matrix.h"
-
+#include <complex>//numeros complexos
 #include <cfloat>
 
 namespace LinAlg {
@@ -16,7 +16,7 @@ namespace LinAlg {
     Type Trace (const LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
-    Type CaracteristicPolynom (const LinAlg::Matrix<Type>& mat);
+    LinAlg::Matrix<Type> CaracteristicPolynom (const LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
     void QR_Factorization (const LinAlg::Matrix<Type>& input_matrix,
@@ -32,13 +32,15 @@ namespace LinAlg {
     template<typename Type>
     LinAlg::Matrix<Type> Hessemberg_Form (const LinAlg::Matrix<Type>& matrix_to_reduce);
 
-
     //Simplified away to call Hessemberg_Form.
     template<typename Type>
     LinAlg::Matrix<Type> Hess (const LinAlg::Matrix<Type>& matrix_to_reduce);
 
-    template <typename Type>
+   template <typename Type>
     LinAlg::Matrix<Type> EigenValues(const LinAlg::Matrix<Type>& matrix_to_get_eigenvalues, unsigned iterations = 100);
+    
+    template <typename Type>
+    Type *MultPoly(const Type *lhs, const Type  *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
 }
 
 #include "SistemasdeControle/src/primitiveLibs/LinAlg/linalg.hpp"
