@@ -85,7 +85,7 @@ LinAlg::Matrix<Type> PolynomHandler::Polynom<Type>::getNum()
     return ret;
 }
 
-template <typename Type>
+template <typename Type> // testada
 LinAlg::Matrix<Type> PolynomHandler::Polynom<Type>::getDen()
 {
     LinAlg::Matrix<Type> ret(1, this->sizeDen);
@@ -176,7 +176,7 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
     return *this;
 }
 
-template <typename Type> template<typename RightType>//Testada
+template <typename Type> template<typename RightType>//com defeito
 PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const PolynomHandler::Polynom<RightType>& rhs)
 {
     unsigned max = this->sizeNum;
@@ -591,6 +591,12 @@ bool PolynomHandler::VefDen(const Type *den1, const Type *den2, const unsigned s
 }
 
 template <typename Type>
+bool PolynomHandler::isDivisible(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize)
+{
+
+}
+
+template <typename Type>
 Type* PolynomHandler::initPointer(const unsigned &Size)
 {
     Type *ret;
@@ -622,7 +628,7 @@ Type* PolynomHandler::SumPoly(const Type *lhs, const Type *rhs, const unsigned &
     return ret;
 }
 
-template <class Type> // testada
+template <class Type> // verificar
 Type *PolynomHandler::MultPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize)
 {
     Type *ret;
@@ -634,3 +640,22 @@ Type *PolynomHandler::MultPoly(const Type *lhs, const Type *rhs, const unsigned 
 
     return ret;
 }
+
+template <class Type>
+Type * PolynomHandler::RootPoly(const Type *simplePolynom, const unsigned &simplePolynomSize)
+{
+
+}
+
+//template <class Type>
+//Type *PolynomHandler::DivPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize)
+//{
+//    Type *ret;
+
+//    ret = initPointer<Type> (lhsSize - rhsSize);
+//    for(unsigned i = 0; i < lhsSize; ++i)
+//        for(unsigned j = 0; j < rhsSize; ++j)
+//            ret[i+j] = ret[i+j] +  lhs[i]*rhs[j];
+
+//    return ret;
+//}

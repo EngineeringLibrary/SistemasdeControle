@@ -16,6 +16,7 @@ void LinAlg::Balance (LinAlg::Matrix<Type> &matrix_to_balance)
             r = c = 0.0;
             for(unsigned j = 1; j <= matrix_to_balance.getNumberOfColumns(); j++)
                 if( j != i)
+
                 {
                     c += std::fabs(matrix_to_balance(j, i));
                     r += std::fabs(matrix_to_balance(i, j));
@@ -204,8 +205,8 @@ LinAlg::Matrix<Type> LinAlg::Hess (const LinAlg::Matrix<Type>& matrix_to_reduce)
     return LinAlg::Hessemberg_Form(matrix_to_reduce);
 }
 
-template <typename Type>
-LinAlg::Matrix<Type> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_get_eigenvalues, unsigned iterations = 200)
+template <typename Type> template <typename OtherType>
+LinAlg::Matrix<OtherType> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_get_eigenvalues, unsigned iterations = 100)
 {
     LinAlg::Matrix<Type> ret(matrix_to_get_eigenvalues), temp = LinAlg::Eye<Type>(ret.getNumberOfRows());
 
