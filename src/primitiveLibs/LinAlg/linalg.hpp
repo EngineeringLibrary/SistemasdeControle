@@ -16,7 +16,6 @@ void LinAlg::Balance (LinAlg::Matrix<Type> &matrix_to_balance)
             r = c = 0.0;
             for(unsigned j = 1; j <= matrix_to_balance.getNumberOfColumns(); j++)
                 if( j != i)
-
                 {
                     c += std::fabs(matrix_to_balance(j, i));
                     r += std::fabs(matrix_to_balance(i, j));
@@ -91,12 +90,14 @@ LinAlg::Matrix<Type> LinAlg::CaracteristicPolynom (const LinAlg::Matrix<Type>& m
         tempPolyEigenvalue[1] = std::complex<Type>(-z(i,1),-z(i,2));//apos o templade entre (real,imaginario) atribuição
         tempPoly = LinAlg::MultPoly(tempPoly,tempPolyEigenvalue,sizeTempPoly,2);
         sizeTempPoly++;
+
     }
     for(unsigned i = 0; i < sizeTempPoly ; ++i)
     {
         ret(1,i+1) = tempPoly[i].real();
     }
     return ret;
+
 }
 
 template<typename Type>
@@ -205,22 +206,22 @@ LinAlg::Matrix<Type> LinAlg::Hess (const LinAlg::Matrix<Type>& matrix_to_reduce)
     return LinAlg::Hessemberg_Form(matrix_to_reduce);
 }
 
-template <typename Type> template <typename OtherType>
-LinAlg::Matrix<OtherType> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_get_eigenvalues, unsigned iterations = 100)
+template<typename Type>
+LinAlg::Matrix<Type> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_get_eigenvalues, unsigned iterations)
 {
     LinAlg::Matrix<Type> ret(matrix_to_get_eigenvalues), temp = LinAlg::Eye<Type>(ret.getNumberOfRows());
 
     LinAlg::Balance(ret);
     ret = LinAlg::Hess(ret);
     Type R,IM;
-    Matrix<Type> Raizes(ret.getNumberOfColumns(),2);
+    LinAlg::Matrix<Type> Raizes(ret.getNumberOfColumns(),2);
     for(unsigned i = 0; i < iterations; ++i)
     {
         LinAlg::Matrix<Type> Q, R;
 
-        LinAlg::QR(ret, Q, R);
+        LinAlg::QR(ret - ret(ret.getNumberOfColumns(),ret.getNumberOfColumns())*temp, Q, R);
 
-        ret = R*Q;
+        ret = R*Q + ret(ret.getNumberOfColumns(),ret.getNumberOfColumns())*temp;
     }
 
 
