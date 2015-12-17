@@ -642,11 +642,55 @@ Type *PolynomHandler::MultPoly(const Type *lhs, const Type *rhs, const unsigned 
 }
 
 template <class Type>
-Type * PolynomHandler::RootPoly(const Type *simplePolynom, const unsigned &simplePolynomSize)
+Type *PolynomHandler::polydiv(const Type *num,const Type *den,const unsigned &numSize,const unsigned &denSize)
 {
+    LinAlg::Matrix<Type> poly_num = Roots(num, numSize);
+    LinAlg::Matrix<Type> poly_den = Roots(den, denSize);
+    LinAlg::Matrix<Type> AltoVn(numSize+1,2);//auto valor de poly_num
+    LinAlg::Matrix<Type> AltoVd(denSize+1,2);//auto valor de poly_den
+    Type poliVn[numSize];//vetores depois de comparada
+    Type poliVd[denSize];//vetores depois de comparada
 
+    Type *ret[numSize+denSize];
+//    std::cout << poly_num << std::endl;
+//    std::cout << poly_den << std::endl;
+
+//    AltoVn = LinAlg::EigenValues(poly_num);
+//    AltoVd = LinAlg::EigenValues(poly_den);
+
+    std::cout<<AltoVn ;
+    std::cout<<AltoVd ;
+    for (unsigned i = 0;i<numSize;i++)
+    {
+        if(AltoVn(i+1,1) != AltoVd(i+1, 1)){
+           poliVn[i]=AltoVn(i+1,1);
+        }
+        if(AltoVn(i+1,2)!= AltoVd(i+1,2)){
+            poliVd[i+1]=AltoVn(i+1,2);
+        }
+    }
+    int tam1=(poly_den.getNumberOfColumns()*poly_den.getNumberOfRows());
+    int tam2=(poly_num.getNumberOfColumns()*poly_num.getNumberOfRows());
+    for(unsigned i = 0;i<tam1+tam2;i++){
+        poliVd[i]=AltoVd(i+1,1);
+        poliVd[i+1]=AltoVd(i+1,2);
+    }
+   ret=PolynomHandler::MultPoly<Type>(poliVn,poliVd,tam1,tam2);
+   return ret;
 }
 
+template<class Type>
+LinAlg::Matrix<Type> PolynomHandler::Roots(const Type *num,const Type &numSize)
+{
+    LinAlg::Matrix<Type> poly_num(1,numSize-1);
+    for(unsigned j = 1; j < numSize; ++j)
+    {
+        poly_num(1,j) = -num[j]/num[0];
+    }
+    LinAlg::Matrix<Type>rootNum = poly_num||(LinAlg::Eye<Type> (numSize-2) | LinAlg::Zeros<Type> (numSize-2,1));
+
+    return rootNum;
+}
 //template <class Type>
 //Type *PolynomHandler::DivPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize)
 //{

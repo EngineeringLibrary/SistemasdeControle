@@ -206,15 +206,15 @@ LinAlg::Matrix<Type> LinAlg::Hess (const LinAlg::Matrix<Type>& matrix_to_reduce)
     return LinAlg::Hessemberg_Form(matrix_to_reduce);
 }
 
-template<typename Type>
-LinAlg::Matrix<Type> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_get_eigenvalues, unsigned iterations)
+template <typename Type>
+LinAlg::Matrix<Type> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_get_eigenvalues, unsigned iterations )//sincronizado
 {
     LinAlg::Matrix<Type> ret(matrix_to_get_eigenvalues), temp = LinAlg::Eye<Type>(ret.getNumberOfRows());
 
     LinAlg::Balance(ret);
     ret = LinAlg::Hess(ret);
     Type R,IM;
-    LinAlg::Matrix<Type> Raizes(ret.getNumberOfColumns(),2);
+    Matrix<Type> Raizes(ret.getNumberOfColumns(),2);
     for(unsigned i = 0; i < iterations; ++i)
     {
         LinAlg::Matrix<Type> Q, R;
