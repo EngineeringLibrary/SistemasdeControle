@@ -68,7 +68,7 @@ namespace LinAlg {
             template<typename RightType>
             LinAlg::Matrix<Type>& operator/= (const LinAlg::Matrix<RightType>& rhs);
 
-            LinAlg::Matrix<Type>& operator^= (double exp);
+            LinAlg::Matrix<Type>& operator^= (const int &exp);
 
             template<typename RightType>
             LinAlg::Matrix<Type> operator| (LinAlg::Matrix<RightType> rhs);

@@ -510,7 +510,7 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator/= (const LinAlg::Matrix<Rig
 }
 
 template<typename Type>
-LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator^= (double exp)
+LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator^= (const int &exp)
 {
     LinAlg::Matrix<Type> temp = LinAlg::Eye<Type>(this->rows);
 

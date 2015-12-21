@@ -37,24 +37,22 @@ namespace PolynomHandler {
             PolynomHandler::Polynom<Type>& operator=  (const PolynomHandler::Polynom<OtherPolynomType>& OtherPolynom);
 
             PolynomHandler::Polynom<Type>& operator+= (const Type& rhs /*scalar*/); //testada
-            template<typename RightType> // com defeito
+            template<typename RightType> //testada
             PolynomHandler::Polynom<Type>& operator+= (const PolynomHandler::Polynom<RightType>& rhs);
-//            friend Polynom<Type> operator+(Type scalar, Polynom<Type> P){return P+scalar;}
 
-//            Polynom<Type> operator-(Polynom<Type> P);
-//            Polynom<Type> operator-(Type scalar);
-//            friend Polynom<Type> operator-(Type scalar, Polynom<Type> P){return (-1)*P+scalar;}
+            PolynomHandler::Polynom<Type>& operator-= (const Type& rhs /*scalar*/); // testada
+            template<typename RightType>
+            PolynomHandler::Polynom<Type>& operator-= (const PolynomHandler::Polynom<RightType>& rhs);
 
-//            Polynom<Type> operator*(Type scalar);
-//            Polynom<Type> operator*(Polynom<Type> P);
-//            friend Polynom<Type> operator*(Type scalar, Polynom<Type> P){return P*scalar;}
+            PolynomHandler::Polynom<Type>& operator*= (const Type& rhs /*scalar*/); // testada
+//            template<typename RightType>
+//            PolynomHandler::Polynom<Type>& operator*= (const PolynomHandler::Polynom<RightType>& rhs);
 
-//            Polynom<Type> operator/(Polynom<Type> P);
-//            Polynom<Type> operator/(Type scalar);
-//            friend Polynom<Type> operator/(Type scalar, Polynom<Type> P){return (P^-1)*scalar;}
+//            PolynomHandler::Polynom<Type>& operator/= (const Type& rhs /*scalar*/);
+//            template<typename RightType>
+//            PolynomHandler::Polynom<Type>& operator/= (const PolynomHandler::Polynom<RightType>& rhs);
 
-
-//            Polynom<Type> operator^(unsigned scalar);
+//            Polynom<Type> &operator^= (const unsigned &scalar);
 
 
 
@@ -68,6 +66,7 @@ namespace PolynomHandler {
             void init(LinAlg::Matrix<Type> Num);
             void init(unsigned NumSize, unsigned DenSize);
             void init(LinAlg::Matrix<Type> Num, LinAlg::Matrix<Type> Den);
+            bool isZero();
     };
 
     template<typename Type> // testado

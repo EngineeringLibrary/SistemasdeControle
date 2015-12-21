@@ -173,10 +173,16 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
     }
     this->sizeNum = max;
 
+    if(isZero())
+    {
+        free(this->den);
+        this->den = NULL;
+        this->sizeDen = 0;
+    }
     return *this;
 }
 
-template <typename Type> template<typename RightType>//com defeito
+template <typename Type> template<typename RightType>//testada
 PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const PolynomHandler::Polynom<RightType>& rhs)
 {
     PolynomHandler::Polynom<Type> ret;
@@ -197,7 +203,7 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
    else
    {
        ret.num = SumPoly(MultPoly(rhs.den, this->num, rhs.sizeDen, this->sizeNum),MultPoly(rhs.num, this->den, rhs.sizeNum, this->sizeDen), (rhs.sizeDen + this->sizeNum - 1),(rhs.sizeNum + this->sizeDen - 1));
-       ret.den = MultPoly(this->den, rhs.den, this->sizeDen, rhs.sizeNum);
+       ret.den = MultPoly(this->den, rhs.den, this->sizeDen, rhs.sizeDen);
 
        max = (rhs.sizeDen + this->sizeNum - 1);
 
@@ -208,69 +214,53 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
        ret.sizeDen = this->sizeDen + rhs.sizeDen - 1;
    }
    *this = ret;
+   if(isZero())
+   {
+       free(this->den);
+       this->den = NULL;
+       this->sizeDen = 0;
+   }
    return *this;
 }
 
-//template <typename Type>
-//PolynomHandler::Polynom<Type> PolynomHandler::Polynom<Type>::operator +(PolynomHandler::Polynom<Type> P)
-//{
-//    PolynomHandler::Polynom<Type> ret;
-//    unsigned max;
+template <typename Type> //Testada
+PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator-= (const Type& rhs)
+{
+    *this *= -1;
+    *this += rhs;
+    *this *= -1;
+    if(isZero())
+    {
+        free(this->den);
+        this->den = NULL;
+        this->sizeDen = 0;
+    }
+    return *this;
+}
 
-//   if(VefDen(this->den, P.den, this->sizeDen, P.sizeDen))
-//   {
-//       ret.num = SumPoly(this->num, P.num, this->sizeNum, P.sizeNum);
-//       ret.setDen(P.den, P.sizeDen);
+template <typename Type> template<typename RightType>
+PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator-= (const PolynomHandler::Polynom<RightType>& rhs)
+{
+    *this *= -1;
+    *this += rhs;
+    *this *= -1;
+    if(isZero())
+    {
+        free(this->den);
+        this->den = NULL;
+        this->sizeDen = 0;
+    }
+    return *this;
+}
 
-//       max = this->sizeNum;
+template <typename Type>
+PolynomHandler::Polynom<Type> &PolynomHandler::Polynom<Type>::operator*= (const Type& rhs /*scalar*/)
+{
+    for (unsigned i = 0; i < this->sizeNum; ++i)
+        this->num[i] = rhs*this->num[i];
 
-//       if (max < P.sizeNum)
-//           max = P.sizeNum;
-
-//       ret.sizeNum = max;
-//   }
-//   else
-//   {
-//       ret.num = SumPoly(MultPoly(P.den, this->num, P.sizeDen, this->sizeNum),MultPoly(P.num, this->den, P.sizeNum, this->sizeDen), (P.sizeDen + this->sizeNum - 1),(P.sizeNum + this->sizeDen - 1));
-//       ret.den = MultPoly(this->den, P.den, this->sizeDen, P.sizeNum);
-
-//       max = (P.sizeDen + this->sizeNum - 1);
-
-//       if(max < (P.sizeNum + this->sizeDen - 1))
-//           max = (P.sizeNum + this->sizeDen - 1);
-
-//       ret.sizeNum = max;
-//       ret.sizeDen = this->sizeDen + P.sizeDen - 1;
-//   }
-
-//   return ret;
-
-//}
-
-//template <typename Type>
-//PolynomHandler::Polynom<Type> PolynomHandler::Polynom<Type>::operator -(PolynomHandler::Polynom<Type> P)
-//{
-//    PolynomHandler::Polynom<Type> ret;
-
-//    P = (-1)*P;
-
-//    ret = *this+P;
-
-//    return ret;
-//}
-
-//template <typename Type>
-//PolynomHandler::Polynom<Type> PolynomHandler::Polynom<Type>::operator *(Type scalar)
-//{
-//    PolynomHandler::Polynom<Type> ret;
-
-//    for (unsigned i = 0; i < this->sizeNum; ++i)
-//        this->num[i] = scalar*this->num[i];
-
-//    ret = *this;
-
-//    return ret;
-//}
+    return *this;
+}
 
 //template <typename Type>
 //PolynomHandler::Polynom<Type> PolynomHandler::Polynom<Type>::operator /(PolynomHandler::Polynom<Type> P)
@@ -403,6 +393,15 @@ void PolynomHandler::Polynom<Type>::init(LinAlg::Matrix<Type> Num, LinAlg::Matri
     this->x = 'x';
 }
 
+template <typename Type>
+bool PolynomHandler::Polynom<Type>::isZero()
+{
+    for(unsigned i = 0; i < this->sizeNum; ++i)
+        if(this->num[i] != 0)
+            return 0;
+
+    return 1;
+}
 
 template <typename Type>
 void PolynomHandler::Polynom<Type>::print()
