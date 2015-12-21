@@ -15,8 +15,8 @@ PolynomHandler::Polynom<Type>::Polynom(LinAlg::Matrix<Type> Num)
 template <typename Type> //testada
 PolynomHandler::Polynom<Type>::Polynom(const PolynomHandler::Polynom<Type> &CopyPolynom)
 {
-    this->num = initPointer(CopyPolynom.sizeNum);
-    this->den = initPointer(CopyPolynom.sizeDen);
+    this->num = PolynomHandler::initPointer<Type>(CopyPolynom.sizeNum);
+    this->den = PolynomHandler::initPointer<Type>(CopyPolynom.sizeDen);
     this->sizeNum = CopyPolynom.sizeNum;
     this->sizeDen = CopyPolynom.sizeDen;
     this->x = CopyPolynom.x;
@@ -37,7 +37,7 @@ PolynomHandler::Polynom<Type>::Polynom(LinAlg::Matrix<Type> Num, LinAlg::Matrix<
 template <typename Type> // testada
 PolynomHandler::Polynom<Type>::~Polynom()
 {
-    if(this->sizeNum != 0 )
+    if(this->sizeNum != 0)
         delete (this->num);
 
     if(this->sizeDen != 0)
@@ -63,13 +63,13 @@ void PolynomHandler::Polynom<Type>::changeVar(char var)
 }
 
 template <typename Type> //testada
-unsigned PolynomHandler::Polynom<Type>::getNumSize()
+unsigned PolynomHandler::Polynom<Type>::getNumSize() const
 {
     return this->sizeNum;
 }
 
 template <typename Type> //testada
-unsigned PolynomHandler::Polynom<Type>::getDenSize()
+unsigned PolynomHandler::Polynom<Type>::getDenSize() const
 {
     return this->sizeDen;
 }
@@ -179,30 +179,35 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
 template <typename Type> template<typename RightType>//com defeito
 PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const PolynomHandler::Polynom<RightType>& rhs)
 {
-    unsigned max = this->sizeNum;
+    PolynomHandler::Polynom<Type> ret;
+    unsigned max;
 
    if(VefDen(this->den, rhs.den, this->sizeDen, rhs.sizeDen))
    {
-       this->num = SumPoly(this->num, rhs.num, this->sizeNum, rhs.sizeNum);
+       ret.num = SumPoly(this->num, rhs.num, this->sizeNum, rhs.sizeNum);
+       ret.setDen(rhs.den, rhs.sizeDen);
+
+       max = this->sizeNum;
+
        if (max < rhs.sizeNum)
            max = rhs.sizeNum;
 
-       this->sizeNum = max;
+       ret.sizeNum = max;
    }
    else
    {
-       this->num = SumPoly(MultPoly(rhs.den, this->num, rhs.sizeDen, this->sizeNum),MultPoly(rhs.num, this->den, rhs.sizeNum, this->sizeDen), (rhs.sizeDen + this->sizeNum - 1),(rhs.sizeNum + this->sizeDen - 1));
-       this->den = MultPoly(this->den, rhs.den, this->sizeDen, rhs.sizeNum);
+       ret.num = SumPoly(MultPoly(rhs.den, this->num, rhs.sizeDen, this->sizeNum),MultPoly(rhs.num, this->den, rhs.sizeNum, this->sizeDen), (rhs.sizeDen + this->sizeNum - 1),(rhs.sizeNum + this->sizeDen - 1));
+       ret.den = MultPoly(this->den, rhs.den, this->sizeDen, rhs.sizeNum);
 
        max = (rhs.sizeDen + this->sizeNum - 1);
 
        if(max < (rhs.sizeNum + this->sizeDen - 1))
            max = (rhs.sizeNum + this->sizeDen - 1);
 
-       this->sizeNum = max;
-       this->sizeDen = this->sizeDen + rhs.sizeDen - 1;
+       ret.sizeNum = max;
+       ret.sizeDen = this->sizeDen + rhs.sizeDen - 1;
    }
-
+   *this = ret;
    return *this;
 }
 
@@ -571,7 +576,7 @@ std::string& PolynomHandler::operator<< (std::string& output, PolynomHandler::Po
 }
 
 template <typename Type>
-bool PolynomHandler::VefDen(const Type *den1, const Type *den2, const unsigned sizeden1, const unsigned sizeden2)
+bool PolynomHandler::VefDen(const Type *den1, const Type *den2, const unsigned &sizeden1, const unsigned &sizeden2)
 {
     bool vef = true;
 
@@ -599,12 +604,7 @@ bool PolynomHandler::isDivisible(const Type *lhs, const Type *rhs, const unsigne
 template <typename Type>
 Type* PolynomHandler::initPointer(const unsigned &Size)
 {
-    Type *ret;
-    //ret = new Type[Size];
-
-    ret = (Type*)calloc((Size+1),(Size+1)*sizeof(Type*));
-
-    return ret;
+    return (Type*)calloc((Size+1),(Size+1)*sizeof(Type*));
 }
 
 template <typename Type> //testada
@@ -633,54 +633,71 @@ Type *PolynomHandler::MultPoly(const Type *lhs, const Type *rhs, const unsigned 
 {
     Type *ret;
 
-    ret = initPointer<Type> (lhsSize+rhsSize);
+    ret = (Type*)calloc((lhsSize+rhsSize+1),(lhsSize+rhsSize+1)*sizeof(Type*));
     for(unsigned i = 0; i < lhsSize; ++i)
         for(unsigned j = 0; j < rhsSize; ++j)
+        {
             ret[i+j] = ret[i+j] +  lhs[i]*rhs[j];
+        }
 
     return ret;
 }
 
-template <class Type>
-Type *PolynomHandler::polydiv(const Type *num,const Type *den,const unsigned &numSize,const unsigned &denSize)
+template <class Type> // com defeito
+LinAlg::Matrix<Type> PolynomHandler::MultPoly(const LinAlg::Matrix<Type> &lhs, const LinAlg::Matrix<Type> &rhs)
 {
-    LinAlg::Matrix<Type> poly_num = Roots(num, numSize);
-    LinAlg::Matrix<Type> poly_den = Roots(den, denSize);
-    LinAlg::Matrix<Type> AltoVn(numSize+1,2);//auto valor de poly_num
-    LinAlg::Matrix<Type> AltoVd(denSize+1,2);//auto valor de poly_den
-    Type poliVn[numSize];//vetores depois de comparada
-    Type poliVd[denSize];//vetores depois de comparada
+    unsigned lhsSize = lhs.getNumberOfColumns();
+    unsigned rhsSize = rhs.getNumberOfColumns();
+    LinAlg::Matrix<Type>ret(1,lhsSize+rhsSize+1);
 
-    Type *ret[numSize+denSize];
-//    std::cout << poly_num << std::endl;
-//    std::cout << poly_den << std::endl;
-
-//    AltoVn = LinAlg::EigenValues(poly_num);
-//    AltoVd = LinAlg::EigenValues(poly_den);
-
-    std::cout<<AltoVn ;
-    std::cout<<AltoVd ;
-    for (unsigned i = 0;i<numSize;i++)
-    {
-        if(AltoVn(i+1,1) != AltoVd(i+1, 1)){
-           poliVn[i]=AltoVn(i+1,1);
+    for(unsigned i = 0; i < lhsSize; ++i)
+        for(unsigned j = 0; j < rhsSize; ++j)
+        {
+            ret(1,i+j+1) = ret(1,i+j+1) +  lhs(1,i+1)*rhs(1,j+1);
         }
-        if(AltoVn(i+1,2)!= AltoVd(i+1,2)){
-            poliVd[i+1]=AltoVn(i+1,2);
+
+    return ret;
+}
+
+template <class Type>//falta testar
+PolynomHandler::Polynom<Type> PolynomHandler::simplify(const Type *num,const Type *den,const unsigned &numSize,const unsigned &denSize)
+{
+    LinAlg::Matrix<Type> numRoots = Roots<Type>(num, numSize);
+    LinAlg::Matrix<Type> denRoots = Roots<Type>(den, denSize);
+    unsigned equalRootsCount = 0;
+
+    for(unsigned i = 1; i <= numRoots.getNumberOfRows(); ++i)
+          if(PolynomHandler::rootsContainRoot(numRoots(i,1),denRoots))
+              ++equalRootsCount;
+
+    LinAlg::Matrix<Type>  newNumRoots(numSize - equalRootsCount,2);
+    LinAlg::Matrix<Type>  newDenRoots(denSize - equalRootsCount,2);
+
+    unsigned cont = 1;
+    for(unsigned i = 1; i <= numRoots.getNumberOfRows(); ++i)
+        if(!PolynomHandler::rootsContainRoot(numRoots(i,1),denRoots))
+        {
+            newNumRoots(cont,1) = numRoots(i,1);
+            newNumRoots(cont,2) = numRoots(i,2);
+            cont++;
         }
-    }
-    int tam1=(poly_den.getNumberOfColumns()*poly_den.getNumberOfRows());
-    int tam2=(poly_num.getNumberOfColumns()*poly_num.getNumberOfRows());
-    for(unsigned i = 0;i<tam1+tam2;i++){
-        poliVd[i]=AltoVd(i+1,1);
-        poliVd[i+1]=AltoVd(i+1,2);
-    }
-   ret=PolynomHandler::MultPoly<Type>(poliVn,poliVd,tam1,tam2);
-   return ret;
+
+    cont = 1;
+    for(unsigned i = 1; i <= denRoots.getNumberOfRows(); ++i)
+        if(!PolynomHandler::rootsContainRoot(denRoots(1,i),numRoots))
+        {
+            newDenRoots(cont,1) = denRoots(i,1);
+            newDenRoots(cont,2) = denRoots(i,2);
+            cont++;
+        }
+
+    return Polynom<Type>(Root2Poly(newNumRoots),Root2Poly(newDenRoots));
+
+//   return ret;
 }
 
 template<class Type>
-LinAlg::Matrix<Type> PolynomHandler::Roots(const Type *num,const Type &numSize)
+LinAlg::Matrix<Type> PolynomHandler::Roots(const Type *num,const unsigned &numSize)
 {
     LinAlg::Matrix<Type> poly_num(1,numSize-1);
     for(unsigned j = 1; j < numSize; ++j)
@@ -691,15 +708,39 @@ LinAlg::Matrix<Type> PolynomHandler::Roots(const Type *num,const Type &numSize)
 
     return rootNum;
 }
-//template <class Type>
-//Type *PolynomHandler::DivPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize)
-//{
-//    Type *ret;
 
-//    ret = initPointer<Type> (lhsSize - rhsSize);
-//    for(unsigned i = 0; i < lhsSize; ++i)
-//        for(unsigned j = 0; j < rhsSize; ++j)
-//            ret[i+j] = ret[i+j] +  lhs[i]*rhs[j];
+template <typename Type>
+LinAlg::Matrix<Type> PolynomHandler::Root2Poly(const LinAlg::Matrix<Type> &root)
+{
+    unsigned n = root.getNumberOfRows();
+    LinAlg::Matrix<Type> ret(1,n+1);
+    std::complex<Type> *tempPoly = new std::complex<Type> [2];
+    tempPoly[0] = 1;
+    tempPoly[1] = std::complex<Type>(-root(1,1),-root(1,2));
+    std::complex<Type> * tempRoot = new std::complex<Type>[2];
 
-//    return ret;
-//}
+    unsigned sizeTempPoly = 2;
+    tempRoot[0] = 1;
+    for(unsigned i = 2; i <= n ; ++i)
+    {
+        tempRoot[1] = std::complex<Type>(-root(i,1),-root(i,2));//apos o templade entre (real,imaginario) atribuição
+        tempPoly = PolynomHandler::MultPoly(tempPoly,tempRoot,sizeTempPoly,2);
+        sizeTempPoly++;
+    }
+    for(unsigned i = 0; i < sizeTempPoly; ++i)
+    {
+        ret(1,i+1) = tempPoly[i].real();
+    }
+    return ret;
+}
+
+template <typename Type>
+bool PolynomHandler::rootsContainRoot(const Type &root, const LinAlg::Matrix<Type> &roots)
+{
+    for(unsigned i = 1; i <= roots.getNumberOfRows(); ++i)
+    {
+        if(root == roots(1,i))
+            return 1;
+    }
+    return 0;
+}

@@ -2,6 +2,7 @@
 #define __POLYNOM_H_INCLUDED
 
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#include <complex>
 
 namespace PolynomHandler {
     template <typename Type>
@@ -19,8 +20,8 @@ namespace PolynomHandler {
             char                 getVar(); // testada
             void                 changeVar(char var); //testada
 
-            unsigned             getNumSize(); // testada
-            unsigned             getDenSize(); // testada
+            unsigned             getNumSize() const; // testada
+            unsigned             getDenSize() const; // testada
 
             LinAlg::Matrix<Type> getNum(); //testada
             LinAlg::Matrix<Type> getDen(); //testada
@@ -76,7 +77,7 @@ namespace PolynomHandler {
     std::string& operator<< (std::string& output, PolynomHandler::Polynom<Type>& pol);
 
     template<typename Type> // testada
-    bool VefDen(const Type *den1, const Type *den2, const unsigned sizeden1, const unsigned sizeden2);
+    bool VefDen(const Type *den1, const Type *den2, const unsigned &sizeden1, const unsigned &sizeden2);
 
     template <class Type>
     bool isDivisible(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
@@ -90,11 +91,21 @@ namespace PolynomHandler {
     template <class Type> // com defeito
     Type *MultPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
 
+    template <class Type> // com defeito
+    LinAlg::Matrix<Type> MultPoly(const LinAlg::Matrix<Type> &lhs, const LinAlg::Matrix<Type> &rhs);
+
+
     template <typename Type>
-    Type *polydiv(const Type *num,const Type *den,const unsigned &numSize,const unsigned &denSize);//sincronizado
+    Polynom<Type> simplify(const Type *num,const Type *den,const unsigned &numSize,const unsigned &denSize);//sincronizado
 
     template <typename Type>
     LinAlg::Matrix<Type> Roots(const Type *num,const unsigned &numSize);//sincronizado
+
+    template <typename Type>
+    LinAlg::Matrix<Type> Root2Poly(const LinAlg::Matrix<Type> &root);
+
+    template <typename Type>
+    bool rootsContainRoot(const Type &root, const LinAlg::Matrix<Type> &roots);
 
 
 //    template <class Type>
