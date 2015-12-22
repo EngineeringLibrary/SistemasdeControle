@@ -616,7 +616,7 @@ LinAlg::Matrix<Type> LinAlg::operator~ (LinAlg::Matrix<Type> mat)
 }
 
 template<typename Type>
-std::ostream& LinAlg::operator<< (std::ostream& output, const LinAlg::Matrix<Type>& mat)
+std::ostream& LinAlg::operator<< (std::ostream& output, const LinAlg::Matrix<Type> mat)
 {
     for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
     {
@@ -641,7 +641,7 @@ std::istream& LinAlg::operator>> (std::istream& input, LinAlg::Matrix<Type>& mat
 }
 
 template<typename Type>
-std::string& LinAlg::operator<< (std::string& output, const LinAlg::Matrix<Type>& mat)
+std::string& LinAlg::operator<< (std::string& output, const LinAlg::Matrix<Type> mat)
 {
     std::stringstream ss;
     ss << mat;
