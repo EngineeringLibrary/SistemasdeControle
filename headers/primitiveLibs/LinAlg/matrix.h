@@ -68,7 +68,7 @@ namespace LinAlg {
             template<typename RightType>
             LinAlg::Matrix<Type>& operator/= (const LinAlg::Matrix<RightType>& rhs);
 
-            LinAlg::Matrix<Type>& operator^= (double exp);
+            LinAlg::Matrix<Type>& operator^= (const int &exp);
 
             template<typename RightType>
             LinAlg::Matrix<Type> operator| (LinAlg::Matrix<RightType> rhs);
@@ -135,12 +135,12 @@ namespace LinAlg {
     LinAlg::Matrix<Type> operator^ (LinAlg::Matrix<Type> lhs, int exp) {return lhs ^= exp;}
 
     template<typename Type>
-    std::ostream& operator<< (std::ostream& output, const LinAlg::Matrix<Type>& mat);
+    std::ostream& operator<< (std::ostream& output, const LinAlg::Matrix<Type> mat);
     template<typename Type>
     std::istream& operator>> (std::istream& input, LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
-    std::string& operator<< (std::string& output, const LinAlg::Matrix<Type>& mat);
+    std::string& operator<< (std::string& output, const LinAlg::Matrix<Type> mat);
 
     template<typename Type>
     bool operator== (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs);
