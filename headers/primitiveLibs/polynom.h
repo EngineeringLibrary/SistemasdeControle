@@ -136,8 +136,8 @@ namespace PolynomHandler {
     template <typename Type>
     bool rootsContainRoot(const Type &root, const LinAlg::Matrix<Type> &roots);
 
-//    template <class Type>
-//    LinAlg::Matrix<Type> MMC(LinAlg::Matrix<PolynomHandler::Polynom<Type> &polynomToGetMMC);
+    template <class Type>
+    LinAlg::Matrix<Type> MMC(LinAlg::Matrix< PolynomHandler::Polynom<Type> > &polynomToGetMMC);
 //    {
 //        Polynom<Type> **Ret = PolynomMatrix<Type> (rows,cols);
 
