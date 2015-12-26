@@ -6,12 +6,12 @@
 namespace Conversions{
 
     template <class UsedType>
-    TransferFunction<UsedType> ss2tf(StateSpace<UsedType> SS)
+    ModelHandler::TransferFunction<UsedType> ss2tf(ModelHandler::StateSpace<UsedType> SS)
     {
         LinAlg::Matrix<UsedType> A = SS.getA(), B = SS.getB(), tempB,
                          C = SS.getC(), D = SS.getD(), tempC;
 
-        TransferFunction<UsedType> TF(C.getNumberOfRows(),B.getNumberOfColumns());
+        ModelHandler::TransferFunction<UsedType> TF(C.getNumberOfRows(),B.getNumberOfColumns());
 
         for(unsigned i = 1; i <= C.getNumberOfRows(); i++)
         {
@@ -20,7 +20,7 @@ namespace Conversions{
                 tempB = B.GetColumn(j);
                 tempC = C.GetRow(i);
 
-                TF(i,j, Polynom<UsedType>((LinAlg::CaracteristicPolynom(A - tempB*tempC) - LinAlg::CaracteristicPolynom(A)), LinAlg::CaracteristicPolynom(A)));
+                TF(i,j, PolynomHandler::Polynom<UsedType>((LinAlg::CaracteristicPolynom(A - tempB*tempC) - LinAlg::CaracteristicPolynom(A)), LinAlg::CaracteristicPolynom(A)));
                 TF(i,j, TF(i,j) + D(i,j));
             }
         }
@@ -28,7 +28,7 @@ namespace Conversions{
     }
 
     template <class UsedType>
-    StateSpace<UsedType> tf2ss(TransferFunction<UsedType> TF)
+    ModelHandler::StateSpace<UsedType> tf2ss(ModelHandler::TransferFunction<UsedType> TF)
     {
         LinAlg::Matrix<UsedType> A, B, C, D;
 //        TF.setTF(MMC(TF.getTF(),TF.getNRowsTF(),TF.getNColsTF()),
@@ -81,7 +81,7 @@ namespace Conversions{
                 }
             }
 
-        return StateSpace<UsedType>(A,B,C,D);
+        return ModelHandler::StateSpace<UsedType>(A,B,C,D);
     }
 
 }
