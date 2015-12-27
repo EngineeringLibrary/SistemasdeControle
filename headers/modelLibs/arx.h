@@ -26,7 +26,7 @@ namespace ModelHandler {
 
         float getSampleTime();
 
-        std::ostream& print();
+        std::string print();
         Type sim(Type input);
         Type sim(Type input, Type output);
         LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> Input);

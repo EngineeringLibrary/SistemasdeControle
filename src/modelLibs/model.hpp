@@ -96,3 +96,15 @@ void ModelHandler::Model<Type>::operator= (ModelHandler::Model<Type>* InheritedM
     this->InheritedModel = InheritedModel;
 }
 
+template<typename Type>
+std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::Model<Type> *model)
+{
+    output << model->print();
+    return output;
+}
+
+template<typename Type>
+std::string& ModelHandler::operator<< (std::string& output, ModelHandler::Model<Type> *model)
+{
+    return model->print();
+}

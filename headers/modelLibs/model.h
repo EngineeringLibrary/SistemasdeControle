@@ -9,7 +9,7 @@ namespace ModelHandler {
     {
     public:
         Model(ModelHandler::Model<Type>* InheritedModel);
-        Model(): InheritedModel{NULL}, input{0}, output{0}, step{1}{}
+        Model(): InheritedModel(NULL), input(0), output(0), step(1){}
         virtual ~Model();
 
         Type diff(Type x);
@@ -34,7 +34,7 @@ namespace ModelHandler {
         virtual LinAlg::Matrix<Type> sim(Type lsim, Type lmax, Type step) = 0;
         virtual LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> x, LinAlg::Matrix<Type> y) = 0;
 
-        virtual std::ostream& print()=0;
+        virtual std::string print()=0;
         virtual void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output) = 0;
         virtual void setLinearModel(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)=0;
 
@@ -50,9 +50,9 @@ namespace ModelHandler {
     };
 
     template<typename Type> // implementar
-    std::ostream& operator<< (std::ostream& output, const ModelHandler::Model<Type> *model);
+    std::ostream& operator<< (std::ostream& output, ModelHandler::Model<Type> *model);
     template<typename Type> // implementar
-    std::string&  operator<< (std::string& output,  const ModelHandler::Model<Type> *model);
+    std::string&  operator<< (std::string& output,  ModelHandler::Model<Type> *model);
 
     template<typename Type> // implementar
     void sim(const ModelHandler::Model<Type> *model, Type x);

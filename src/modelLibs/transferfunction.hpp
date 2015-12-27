@@ -22,6 +22,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(ARX<Type> gz)
 template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned cols)
 {
+    this->var            = 's';
     this->sampleTime     = 0.1;
     this->isContinuous   = 1;
     this->timeSimulation = 10;
@@ -105,17 +106,51 @@ ModelHandler::TransferFunction<Type>& ModelHandler::TransferFunction<Type>::oper
 }
 
 template <typename Type>
-std::ostream& ModelHandler::TransferFunction<Type>::print()
-{
-//    for(unsigned i = 0; i < nRowsTF; i++)
-//        for(unsigned j = 0; j < nColsTF; j++)
-//        {
-//            if(isContinuous)
-//                this->TF[i][j].setVar('s');
-//            else
-//                this->TF[i][j].setVar('z');
-//            this->TF[i][j].print();
-//        }
+std::string ModelHandler::TransferFunction<Type>::print()
+{    
+    unsigned rows = this->TF.getNumberOfRows(), columns = this->TF.getNumberOfColumns();
+    std::string polyNum[rows][columns];
+    std::string polyDen[rows][columns];
+    std::string numSpace[rows][columns], denSpace[rows][columns], midLine[rows][columns];
+    unsigned maxSize[rows][columns];
+    std::string output;
+    for(unsigned i = 1; i <= rows; ++i)
+    {
+        for(unsigned j = 1; j <= columns; ++j)
+            polyNum[i-1][j-1] = PolynomHandler::printSmallPolynom(this->TF(i,j).getNum(),this->var);
+
+        for(unsigned j = 1; j <= columns; ++j)
+            polyDen[i-1][j-1] = PolynomHandler::printSmallPolynom(this->TF(i,j).getDen(),this->var);
+
+        for(unsigned j = 0; j < columns; ++j)
+        {
+            maxSize[i-1][j] = polyNum[i-1][j].length();
+            if(maxSize[i-1][j] < polyDen[i-1][j].length())
+                maxSize[i-1][j] = polyDen[i-1][j].length();
+            maxSize[i-1][j] += 6;
+
+            for(unsigned k = 0; k < unsigned(abs((maxSize[i-1][j] - polyNum[i-1][j].length())/2)); ++k)
+                numSpace[i-1][j] += ' ';
+            for(unsigned k = 0; k < maxSize[i-1][j]; ++k)
+                midLine[i-1][j] += '-';
+            for(unsigned k = 0; k < unsigned(abs((maxSize[i-1][j] - polyDen[i-1][j].length())/2)); ++k)
+                denSpace[i-1][j] += ' ';
+        }
+
+        for(unsigned j = 0; j < columns; ++j)
+            output += numSpace[i-1][j] + polyNum[i-1][j] + numSpace[i-1][j] + "      ";
+        output += '\n';
+
+        for(unsigned j = 0; j < columns; ++j)
+            output += midLine[i-1][j] + "      ";
+        output += '\n';
+
+        for(unsigned j = 0; j < columns; ++j)
+            output += denSpace[i-1][j] + polyDen[i-1][j] + denSpace[i-1][j] + "      ";
+        output += '\n'; output += '\n';
+    }
+
+    return output;
 }
 
 template <typename Type>
@@ -152,5 +187,19 @@ void ModelHandler::TransferFunction<Type>::c2dConversion()
 {
     ModelHandler::StateSpace<Type> SS = Conversions::tf2ss(*this);
     SS.c2d(this->sampleTime);
+    this->var = 'z';
     *this = Conversions::ss2tf(SS);
+}
+
+template<typename Type>
+std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::TransferFunction<Type> TF)
+{
+    output << TF.print();
+    return output;
+}
+
+template<typename Type>
+std::string& ModelHandler::operator<< (std::string& output, ModelHandler::TransferFunction<Type> TF)
+{
+    return TF.print();
 }

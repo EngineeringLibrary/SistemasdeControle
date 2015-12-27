@@ -1,0 +1,16 @@
+#include <SistemasdeControle/headers/modelLibs/transferfunction.h>
+
+int main()
+{
+    PolynomHandler::Polynom<double> A("1","1,2,1"), B("1","1,1");
+    ModelHandler::TransferFunction<double> TF(1,2);
+    TF(1,1) = A;
+    TF(1,2) = B;
+
+    ModelHandler::TransferFunction<int> TF2;
+
+    TF2 = TF;
+    std::cout << TF2(1,1) << TF2(1,2) << '\n';
+
+    return 0;
+}
