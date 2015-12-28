@@ -185,10 +185,10 @@ LinAlg::Matrix<Type> ModelHandler::TransferFunction<Type>::sim(Type lsim, Type l
 template <typename Type>
 void ModelHandler::TransferFunction<Type>::c2dConversion()
 {
-    ModelHandler::StateSpace<Type> SS = Conversions::tf2ss(*this);
-    SS.c2d(this->sampleTime);
+//    ModelHandler::StateSpace<Type> SS = Conversions::tf2ss(*this);
+//    SS.c2d(this->sampleTime);
     this->var = 'z';
-    *this = Conversions::ss2tf(SS);
+//    *this = Conversions::ss2tf(SS);
 }
 
 template<typename Type>
@@ -201,5 +201,6 @@ std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::Tran
 template<typename Type>
 std::string& ModelHandler::operator<< (std::string& output, ModelHandler::TransferFunction<Type> TF)
 {
-    return TF.print();
+    output += TF.print();
+    return output;
 }

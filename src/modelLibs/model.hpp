@@ -1,26 +1,18 @@
 #include "SistemasdeControle/headers/modelLibs/model.h"
 
-template <typename Type>
-ModelHandler::Model<Type>::Model(ModelHandler::Model<Type>* InheritedModel)
-{
-    this->step     = 1;
-    this->input    = 0;
-    this->output   = 0;
+//template <typename Type>
+//ModelHandler::Model<Type>::Model(ModelHandler::Model<Type>* InheritedModel)
+//{
+//    this->step     = 1;
+//    this->input    = 0;
+//    this->output   = 0;
 
-    this->InheritedModel = InheritedModel;
-}
+//    this->InheritedModel = InheritedModel;
+//}
 
 template<typename Type>
 ModelHandler::Model<Type>::~Model()
 {
-    delete this->InheritedModel;
-    this->InheritedModel = NULL;
-}
-
-template <typename Type>
-Type ModelHandler::Model<Type>::diff(Type x)
-{
-    return (InheritedModel->sim(x+step)-InheritedModel->sim(x))/step;
 }
 
 template <typename Type>
@@ -43,58 +35,64 @@ void ModelHandler::Model<Type>::setIO(LinAlg::Matrix<Type> in, LinAlg::Matrix<Ty
 }
 
 template <typename Type>
-Type ModelHandler::Model<Type>::getOutput()
+Type ModelHandler::Model<Type>::getOutput() const
 {
     return this->output;
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> ModelHandler::Model<Type>::getModelCoef()
+Type ModelHandler::Model<Type>::getStep() const
+{
+    return this->step;
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::Model<Type>::getModelCoef() const
 {
     return this->ModelCoef;
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> ModelHandler::Model<Type>::getInputMatrix()
+LinAlg::Matrix<Type> ModelHandler::Model<Type>::getInputMatrix() const
 {
     return this->Input;
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> ModelHandler::Model<Type>::getOutputMatrix()
+LinAlg::Matrix<Type> ModelHandler::Model<Type>::getOutputMatrix() const
 {
     return this->Output;
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> ModelHandler::Model<Type>::getLinearVectorA()
+LinAlg::Matrix<Type> ModelHandler::Model<Type>::getLinearVectorA() const
 {
     return this->LinearVectorA;
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> ModelHandler::Model<Type>::getLinearMatrixA()
+LinAlg::Matrix<Type> ModelHandler::Model<Type>::getLinearMatrixA() const
 {
     return this->LinearMatrixA;
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> ModelHandler::Model<Type>::getLinearEqualityB()
+LinAlg::Matrix<Type> ModelHandler::Model<Type>::getLinearEqualityB() const
 {
     return this->LinearEqualityB;
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> ModelHandler::Model<Type>::getLinearEqualityVectorB()
+LinAlg::Matrix<Type> ModelHandler::Model<Type>::getLinearEqualityVectorB() const
 {
     return this->LinearEqualityVectorB;
 }
 
-template <typename Type>
-void ModelHandler::Model<Type>::operator= (ModelHandler::Model<Type>* InheritedModel)
-{
-    this->InheritedModel = InheritedModel;
-}
+//template <typename Type>
+//void ModelHandler::Model<Type>::operator= (ModelHandler::Model<Type>* InheritedModel)
+//{
+//    this->InheritedModel = InheritedModel;
+//}
 
 template<typename Type>
 std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::Model<Type> *model)
@@ -107,4 +105,10 @@ template<typename Type>
 std::string& ModelHandler::operator<< (std::string& output, ModelHandler::Model<Type> *model)
 {
     return model->print();
+}
+
+template <typename Type>
+Type ModelHandler::diff(const ModelHandler::Model<Type> *model, Type x)
+{
+    return (model->sim(x + model->getStep()) - model->sim(x))/model->getStep();
 }

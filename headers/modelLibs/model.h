@@ -8,30 +8,30 @@ namespace ModelHandler {
     class Model
     {
     public:
-        Model(ModelHandler::Model<Type>* InheritedModel);
-        Model(): InheritedModel(NULL), input(0), output(0), step(1){}
+//        Model(ModelHandler::Model<Type>* InheritedModel);
+        Model(): input(0), output(0), step(1){}
         virtual ~Model();
 
-        Type diff(Type x);
         void setStep(Type step);
         void setModelCoef(LinAlg::Matrix<Type> coef);
         void setIO(LinAlg::Matrix<Type> in, LinAlg::Matrix<Type> out);
 
-        Type getOutput();
-        LinAlg::Matrix<Type> getModelCoef();
-        LinAlg::Matrix<Type> getInputMatrix();
-        LinAlg::Matrix<Type> getOutputMatrix();
-        LinAlg::Matrix<Type> getLinearVectorA();
-        LinAlg::Matrix<Type> getLinearMatrixA();
-        LinAlg::Matrix<Type> getLinearEqualityB();
-        LinAlg::Matrix<Type> getLinearEqualityVectorB();
+        Type getStep() const;
+        Type getOutput() const;
+        LinAlg::Matrix<Type> getModelCoef() const;
+        LinAlg::Matrix<Type> getInputMatrix() const;
+        LinAlg::Matrix<Type> getOutputMatrix() const;
+        LinAlg::Matrix<Type> getLinearVectorA() const;
+        LinAlg::Matrix<Type> getLinearMatrixA() const;
+        LinAlg::Matrix<Type> getLinearEqualityB() const;
+        LinAlg::Matrix<Type> getLinearEqualityVectorB() const;
 
-        void operator= (ModelHandler::Model<Type>* InheritedModel); // implementar
+//        void operator= (ModelHandler::Model<Type>* InheritedModel); // implementar
 
         virtual Type         sim(Type x) = 0;
         virtual Type         sim(Type x, Type y) = 0;
         virtual LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> x) = 0;
-        virtual LinAlg::Matrix<Type> sim(Type lsim, Type lmax, Type step) = 0;
+        virtual LinAlg::Matrix<Type> sim(Type lmin, Type lmax, Type step) = 0;
         virtual LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> x, LinAlg::Matrix<Type> y) = 0;
 
         virtual std::string print()=0;
@@ -40,8 +40,6 @@ namespace ModelHandler {
 
     protected:
 //        virtual bool isFunction() = 0;
-
-        Model<Type> *InheritedModel;
         Type                 input,    output,      lmin,lmax,            step;
         LinAlg::Matrix<Type> Input,    Output,      EstOutput,       ModelCoef,
                          LinearVectorA,   LinearEqualityVectorB, LinearMatrixA,
@@ -55,16 +53,18 @@ namespace ModelHandler {
     std::string&  operator<< (std::string& output,  ModelHandler::Model<Type> *model);
 
     template<typename Type> // implementar
-    void sim(const ModelHandler::Model<Type> *model, Type x);
+    Type sim(const ModelHandler::Model<Type> *model, Type x);
     template<typename Type> // implementar
-    void sim(const ModelHandler::Model<Type> *model, Type x, Type y);
+    Type sim(const ModelHandler::Model<Type> *model, Type x, Type y);
     template<typename Type> // implementar
-    void sim(const ModelHandler::Model<Type> *model, LinAlg::Matrix<Type> X);
+    LinAlg::Matrix<Type> sim(const ModelHandler::Model<Type> *model, LinAlg::Matrix<Type> X);
     template<typename Type> // implementar
-    void sim(const ModelHandler::Model<Type> *model, Type lsim, Type lmax, Type step);
+    LinAlg::Matrix<Type> sim(const ModelHandler::Model<Type> *model, Type lsim, Type lmax, Type step);
     template<typename Type> // implementar
-    void sim(const ModelHandler::Model<Type> *model, LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y);
+    LinAlg::Matrix<Type> sim(const ModelHandler::Model<Type> *model, LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y);
 
+    template <typename Type>
+    Type diff(const ModelHandler::Model<Type> *model, Type x);
 }
 
 #include "SistemasdeControle/src/modelLibs/model.hpp"

@@ -270,3 +270,42 @@ Type *LinAlg::MultPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize
     return ret;
 }
 
+template <typename Type>
+Type LinAlg::max(const LinAlg::Matrix<Type> &mat)
+{
+    Type maxValue = mat(1,1);
+
+    for(unsigned i = 1; i < mat.getNumberOfRows(); ++i)
+        for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+            if(maxValue < mat(i,j))
+                maxValue = mat(i,j);
+
+    return maxValue;
+}
+
+template <typename Type>
+Type LinAlg::min(const LinAlg::Matrix<Type> &mat)
+{
+    Type minValue = mat(1,1);
+
+    for(unsigned i = 1; i < mat.getNumberOfRows(); ++i)
+        for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+            if(minValue > mat(i,j))
+                minValue = mat(i,j);
+
+    return minValue;
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> LinAlg::abs(const LinAlg::Matrix<Type> &mat)
+{
+    LinAlg::Matrix<Type> ret = LinAlg::Zeros<Type>(mat.getNumberOfRows(), mat.getNumberOfColumns());
+    for(unsigned i = 1; i < mat.getNumberOfRows(); ++i)
+        for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+            if(mat(i,j) > 0)
+                ret(i,j) = mat(i,j);
+            else
+                ret(i,j) = -mat(i,j);
+
+    return ret;
+}

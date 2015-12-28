@@ -1,41 +1,8 @@
 #include "SistemasdeControle/headers/modelLibs/statespace.h"
 
-template <class UsedType>
-void StateSpace<UsedType>::c2dConversion()
-{
-    this->Ad = LinAlg::Zeros<UsedType>(this->A.getNumberOfRows(), this->A.getNumberOfColumns());
-    for(int i = 0; i < nDiscretization; i++)
-        Ad = Ad + (1/factorial(i))*(A^i)*(pow(SampleTime, i));
-    Bd = (A^-1)*(Ad - (Ad^0))*B;
-}
-
-template <class UsedType>
-void StateSpace<UsedType>::d2cConversion()
-{
-    LinAlg::Matrix<UsedType> Mat, E, Temp, Root, I, ZeroVector, IAd;
-
-    Mat = LinAlg::EigenValues(Ad);
-    IAd = LinAlg::Eye<UsedType> (Ad.getNumberOfRows());
-    for(int j = 1; j < nDiscretization; j++)
-        E( 1, j + 1) = pow(this->SampleTime, j)/factorial(j);
-
-    I = LinAlg::Eye<UsedType> (E.getNumberOfColumns()-2);
-    ZeroVector = LinAlg::Zeros<UsedType> ( E.getNumberOfColumns()-2, 1);
-
-    for (unsigned i = 0; i < Mat.getNumberOfRows(); i++)
-    {
-        E( 1, 1) = 1 - Mat(1, i+1);
-        Temp = E||(I|ZeroVector);
-        Root = LinAlg::EigenValues(Temp);
-//        UsedType autovalor = max(abs(Root));
-//        A( i+1, i+1) = autovalor;
-    }
-    B = (((A^-1)*(Ad - IAd))^-1)*Bd;
-}
-
-template <class UsedType>
-StateSpace<UsedType>::StateSpace(LinAlg::Matrix<UsedType> A, LinAlg::Matrix<UsedType> B,
-                                 LinAlg::Matrix<UsedType> C, LinAlg::Matrix<UsedType> D)
+template <typename Type>
+ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> B,
+                                 LinAlg::Matrix<Type> C, LinAlg::Matrix<Type> D)
 {
     this->A                  =    A;
     this->B                  =    B;
@@ -44,16 +11,16 @@ StateSpace<UsedType>::StateSpace(LinAlg::Matrix<UsedType> A, LinAlg::Matrix<Used
     this->Continuous         = true;
     this->SampleTime         =  0.1;
     this->TimeSimulation     =   10;
-    this->nDiscretization    =    4;
+    this->nDiscretization    =    6;
 
-    this->initialState = LinAlg::Zeros<UsedType> (A.getNumberOfRows(),B.getNumberOfColumns());
+    this->initialState = LinAlg::Zeros<Type> (A.getNumberOfRows(),B.getNumberOfColumns());
     this->X = this->initialState;
 }
 
-template <class UsedType>
-StateSpace<UsedType>::StateSpace(LinAlg::Matrix<UsedType> Ad, LinAlg::Matrix<UsedType> Bd,
-                                 LinAlg::Matrix<UsedType> C , LinAlg::Matrix<UsedType> D ,
-                                 UsedType SampleTime)
+template <typename Type>
+ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> Ad, LinAlg::Matrix<Type> Bd,
+                                 LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D ,
+                                 Type SampleTime)
 {
     this->Ad                 =    Ad;
     this->Bd                 =    Bd;
@@ -62,89 +29,140 @@ StateSpace<UsedType>::StateSpace(LinAlg::Matrix<UsedType> Ad, LinAlg::Matrix<Use
     this->Continuous         = false;
     this->SampleTime         = SampleTime;
     this->TimeSimulation     =   10;
-    this->nDiscretization    =    4;
+    this->nDiscretization    =    6;
 
-    this->initialState = LinAlg::Zeros<UsedType>(Ad.getNumberOfRows(),Bd.getNumberOfColumns());
+    this->initialState = LinAlg::Zeros<Type>(Ad.getNumberOfRows(),Bd.getNumberOfColumns());
     this->X = this->initialState;
 }
 
-template <class UsedType>
-void StateSpace<UsedType>::c2d(UsedType SampleTime)
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getA() const
+{
+    if(this->Continuous)
+        return this->A;
+    else
+        return this->Ad;
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getB() const
+{
+    if(this->Continuous)
+        return this->B;
+    else
+        return this->Bd;
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getC() const
+{
+    return this->C;
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getD() const
+{
+    return this->D;
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getActualState() const
+{
+    return X;
+}
+
+template <typename Type>
+void ModelHandler::StateSpace<Type>::setSampleTime(double SampleTime)
 {
     this->SampleTime = SampleTime;
-    this->c2dConversion();
-    this->Continuous = false;
 }
 
-template <class UsedType>
-void StateSpace<UsedType>::print()
+template <typename Type>
+void ModelHandler::StateSpace<Type>::setContinuous(bool Continuous)
 {
-    if(this->Continuous == true){
-        std::cout << "The Continuous Model is: " << std::endl;
-        std::cout << std::endl << "A = " << std::endl << A << std::endl;
-        std::cout << std::endl << "B = " << std::endl << B << std::endl;
-
-    }else{
-        std::cout << "The Discrete Model is: " << std::endl;
-        std::cout << std::endl << "A = " << std::endl << Ad << std::endl;
-        std::cout << std::endl << "B = " << std::endl << Bd << std::endl;
-    }
-
-    std::cout << std::endl << "C = "<< std::endl << C << std::endl;
-    std::cout << std::endl << "D = "<< std::endl << D << std::endl;
+    this->Continuous = Continuous;
 }
 
-template <class UsedType>
-void StateSpace<UsedType>::setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
-{
-
-}
-
-template <class UsedType>
-void StateSpace<UsedType>::setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
-{
-
-}
-
-
-template <class UsedType>
-void StateSpace<UsedType>::setInitialState(LinAlg::Matrix<UsedType> X0)
+template <typename Type>
+void ModelHandler::StateSpace<Type>::setInitialState(LinAlg::Matrix<Type> X0)
 {
     this->initialState = X0;
     this->X = X0;
 }
 
-template <class UsedType>
-UsedType StateSpace<UsedType>::sim(UsedType u)
+template <typename Type>
+void ModelHandler::StateSpace<Type>::setLinearModel(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
+{
+
+}
+
+template <typename Type>
+void ModelHandler::StateSpace<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
+{
+
+}
+
+template <typename Type>
+void ModelHandler::StateSpace<Type>::SetObserverParameter(LinAlg::Matrix<Type> L)
+{
+    this->L = L;
+}
+
+template <typename Type>
+bool ModelHandler::StateSpace<Type>::isObservable()
+{
+    LinAlg::Matrix<Type> Qo;
+    for (unsigned i = 0; i < A.getNumberOfColumns(); ++i){
+        Qo = Qo||(C*(A^i));
+    }
+    std::cout << Qo;
+    return (LinAlg::Determinant(Qo) != 0);
+}
+
+template <typename Type>
+bool ModelHandler::StateSpace<Type>::isControlable()
+{
+    LinAlg::Matrix<Type> Qc;
+    for (unsigned i = 0; i < A.getNumberOfColumns(); ++i){
+        Qc = Qc|((A^i)*B);
+    }
+    std::cout << (B) << ((A)*B) << Qc;
+    return (LinAlg::Determinant(Qc) != 0);
+}
+
+template <typename Type>
+Type ModelHandler::StateSpace<Type>::sim(Type u)
 {
     if(this->Continuous)
         this->c2dConversion();
 
 //    X = initialState;
-    LinAlg::Matrix<UsedType> Xi1 = Ad*X+Bd*u;
-    LinAlg::Matrix<UsedType> y  = C*X+D*u;
+    LinAlg::Matrix<Type> Xi1 = Ad*X+Bd*u;
+    LinAlg::Matrix<Type> y  = C*X+D*u;
     X = Xi1;
 
     return y(1,1);
 }
 
-template <class UsedType>
-UsedType StateSpace<UsedType>::sim(UsedType u, UsedType y)
+template <typename Type>
+Type ModelHandler::StateSpace<Type>::sim(Type u, Type y)
 {
+    y = u;
+    u = y;
     return 0;
 }
 
-template <class UsedType>
-LinAlg::Matrix<UsedType> StateSpace<UsedType>::sim(LinAlg::Matrix<UsedType> u)
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::sim(LinAlg::Matrix<Type> u)
 {
     if(this->Continuous)
         this->c2dConversion();
 
-    LinAlg::Matrix<UsedType> y;
+    LinAlg::Matrix<Type> y;
     X = initialState;
     for(unsigned i = 0; i < u.getNumberOfColumns(); i++)
     {
-        LinAlg::Matrix<UsedType> Xi1 = Ad*X+Bd*u.GetColumn(i+1);
+        LinAlg::Matrix<Type> Xi1 = Ad*X+Bd*u.GetColumn(i+1);
         y = y|(C*X + D*u.GetColumn(i+1));
         X = Xi1;
     }
@@ -152,24 +170,25 @@ LinAlg::Matrix<UsedType> StateSpace<UsedType>::sim(LinAlg::Matrix<UsedType> u)
     return y;
 }
 
-template <class UsedType>
-LinAlg::Matrix<UsedType> StateSpace<UsedType>::sim(LinAlg::Matrix<UsedType> u, LinAlg::Matrix<UsedType> y)
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::sim(LinAlg::Matrix<Type> u, LinAlg::Matrix<Type> y)
 {
-
+    u = y;
+    return LinAlg::Matrix<Type>(0.0);
 }
 
-template <class UsedType>
-LinAlg::Matrix<UsedType> StateSpace<UsedType>::sim(UsedType lmim, UsedType lmax, UsedType step)
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::sim(Type lmin, Type lmax, Type step)
 {
     if(this->Continuous)
         this->c2dConversion();
 
-    LinAlg::Matrix<UsedType> y;
+    LinAlg::Matrix<Type> y;
     X = initialState;
     unsigned cont = 1;
-    for(UsedType i = lmim; i <= lmax; i+= step)
+    for(Type i = lmin; i <= lmax; i+= step)
     {
-        LinAlg::Matrix<UsedType> Xi1 = Ad*X+Bd*i;
+        LinAlg::Matrix<Type> Xi1 = Ad*X+Bd*i;
         y = y|(C*X+D*i);
         X = Xi1;
         cont++;
@@ -178,82 +197,32 @@ LinAlg::Matrix<UsedType> StateSpace<UsedType>::sim(UsedType lmim, UsedType lmax,
     return y;
 }
 
-template <class UsedType>
-bool StateSpace<UsedType>::isControlable()
+template <typename Type>
+std::string ModelHandler::StateSpace<Type>::print()
 {
-    LinAlg::Matrix<UsedType> Qc;
-    for (unsigned i = 0; i < A.getNumberOfColumns(); ++i){
-        Qc = Qc|((A^i)*B);
+    std::string output;
+
+    if(this->Continuous == true){
+        output += "The Continuous Model is: \n\nA = \n";
+        output << this->A; output += "\n\nB = \n";
+        output << this->B; output += "\n\nC = \n";
+
+    }else{
+        output += "The Discrete Model is: \n\nA = \n";
+        output << this->Ad; output += "\n\nB = \n";
+        output << this->Bd; output += "\n\nC = \n";
     }
-    std::cout << (B) << ((A)*B) << Qc;
-    return (LinAlg::Determinant(Qc) != 0);
+
+    output << this->C; output += "\n\nD = \n";
+    output << this->D; output += '\n';
+
+    return output;
 }
 
-template <class UsedType>
-bool StateSpace<UsedType>::isObservable()
+template <typename Type>
+Type ModelHandler::StateSpace<Type>::factorial(unsigned n)
 {
-    LinAlg::Matrix<UsedType> Qo;
-    for (unsigned i = 0; i < A.getNumberOfColumns(); ++i){
-        Qo = Qo||(C*(A^i));
-    }
-    std::cout << Qo;
-    return (LinAlg::Determinant(Qo) != 0);
-}
-
-template <class UsedType>
-void StateSpace<UsedType>::SetObserverParameter(LinAlg::Matrix<UsedType> L)
-{
-    this->L = L;
-}
-
-template <class UsedType>
-LinAlg::Matrix<UsedType> StateSpace<UsedType>::Observer(LinAlg::Matrix<UsedType> U, LinAlg::Matrix<UsedType> Y)
-{
-    this->c2dConversion();
-    X = Ad*X + Bd*U + L*(Y - C*X);
-    return X;
-}
-
-template <class UsedType>
-LinAlg::Matrix<UsedType> StateSpace<UsedType>::getA()
-{
-    if(this->Continuous)
-        return this->A;
-    else
-        return this->Ad;
-}
-
-template <class UsedType>
-LinAlg::Matrix<UsedType> StateSpace<UsedType>::getB()
-{
-    if(this->Continuous)
-        return this->B;
-    else
-        return this->Bd;
-}
-
-template <class UsedType>
-LinAlg::Matrix<UsedType> StateSpace<UsedType>::getC()
-{
-    return this->C;
-}
-
-template <class UsedType>
-LinAlg::Matrix<UsedType> StateSpace<UsedType>::getD()
-{
-    return this->D;
-}
-
-template <class UsedType>
-LinAlg::Matrix<UsedType> StateSpace<UsedType>::getActualState()
-{
-    return X;
-}
-
-template <class UsedType>
-UsedType StateSpace<UsedType>::factorial(unsigned n)
-{
-    UsedType retval = 1;
+    Type retval = 1;
 
     for (int i = n; i > 1; --i)
         retval *= i;
@@ -261,5 +230,124 @@ UsedType StateSpace<UsedType>::factorial(unsigned n)
     return retval;
 }
 
-template class StateSpace<float>;
-template class StateSpace<double>;
+template <typename Type>
+void ModelHandler::StateSpace<Type>::c2dConversion()
+{
+//Pade
+//    unsigned Nsize = nDiscretization, Dsize = nDiscretization;
+//    LinAlg::Matrix<Type> Npq = LinAlg::Zeros<Type>(this->A.getNumberOfRows(), this->A.getNumberOfColumns());
+//    LinAlg::Matrix<Type> Dpq = LinAlg::Zeros<Type>(this->A.getNumberOfRows(), this->A.getNumberOfColumns());
+//
+//    unsigned factor =  (unsigned)(LinAlg::max(LinAlg::abs(LinAlg::EigenValues(A))));
+//
+//    for(unsigned n = 0; n < Nsize; ++n)
+//        Npq += ((factorial(Nsize + Dsize - n)*factorial(Nsize)/(factorial(Nsize + Dsize)*factorial(n)*(Nsize - n))))*((A*SampleTime/factor)^n);
+
+//    for(unsigned n = 0; n < Dsize; ++n)
+//        Dpq += ((factorial(Nsize + Dsize - n)*factorial(Dsize)/(factorial(Nsize + Dsize)*factorial(n)*(Dsize - n))))*((-A*SampleTime/factor)^n);
+
+//    Ad = ((Dpq^-1)*Npq)^factor;
+
+//Taylor
+    this->Ad = LinAlg::Zeros<Type>(this->A.getNumberOfRows(), this->A.getNumberOfColumns());
+
+    unsigned factor =  (unsigned)(LinAlg::max(LinAlg::abs(LinAlg::EigenValues(A))));
+
+    //taylor
+    for(unsigned i = 0; i < nDiscretization; ++i)
+        Ad += (1/factorial(i))*((A*SampleTime/factor)^i);
+
+    Ad ^= factor;
+    Bd = (A^-1)*(Ad - (Ad^0))*B;
+}
+
+template <typename Type>
+void ModelHandler::StateSpace<Type>::d2cConversion()
+{
+    LinAlg::Matrix<Type> Mat, E, Temp, Root, I, ZeroVector, IAd;
+
+    Mat = LinAlg::EigenValues(Ad);
+    IAd = LinAlg::Eye<Type> (Ad.getNumberOfRows());
+    for(int j = 1; j < nDiscretization; j++)
+        E( 1, j + 1) = pow(this->SampleTime, j)/factorial(j);
+
+    I = LinAlg::Eye<Type> (E.getNumberOfColumns()-2);
+    ZeroVector = LinAlg::Zeros<Type> ( E.getNumberOfColumns()-2, 1);
+
+    for (unsigned i = 0; i < Mat.getNumberOfRows(); i++)
+    {
+        E( 1, 1) = 1 - Mat(1, i+1);
+        Temp = E||(I|ZeroVector);
+        Root = LinAlg::EigenValues(Temp);
+//        Type autovalor = max(abs(Root));
+//        A( i+1, i+1) = autovalor;
+    }
+    B = (((A^-1)*(Ad - IAd))^-1)*Bd;
+}
+
+
+
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::Observer(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y)
+{
+    this->c2dConversion();
+    X = Ad*X + Bd*U + L*(Y - C*X);
+    return X;
+}
+
+
+template<typename Type>
+std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::StateSpace<Type> SS)
+{
+    output << SS.print();
+    return output;
+}
+
+template<typename Type>
+std::string& ModelHandler::operator<< (std::string& output, ModelHandler::StateSpace<Type> SS)
+{
+    output += SS.print();
+    return output;
+}
+
+template<typename Type>
+Type ModelHandler::sim(ModelHandler::StateSpace<Type> &SS, Type u)
+{
+    return SS.sim(u);
+}
+
+template<typename Type>
+Type ModelHandler::sim(ModelHandler::StateSpace<Type> &SS, Type u, Type y)
+{
+    return SS.sim(u,y);
+}
+
+template<typename Type>
+LinAlg::Matrix<Type> ModelHandler::sim(ModelHandler::StateSpace<Type> &SS, LinAlg::Matrix<Type> u)
+{
+    return SS.sim(u);
+}
+
+template<typename Type>
+LinAlg::Matrix<Type> ModelHandler::sim(ModelHandler::StateSpace<Type> &SS, Type lmin, Type lmax, Type step)
+{
+    return SS.sim(lmin, lmax, step);
+}
+
+template<typename Type>
+LinAlg::Matrix<Type> ModelHandler::sim(ModelHandler::StateSpace<Type> &SS, LinAlg::Matrix<Type> u, LinAlg::Matrix<Type> y)
+{
+    return SS.sim(u,y);
+}
+
+template <typename Type>
+ModelHandler::StateSpace<Type> ModelHandler::c2d(const ModelHandler::StateSpace<Type> &SS, Type SampleTime)
+{
+    ModelHandler::StateSpace<Type> ret = SS;
+    ret.setSampleTime(SampleTime);
+    ret.c2dConversion();
+    ret.setContinuous(false);
+    return ret;
+}
+
+

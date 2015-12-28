@@ -1,60 +1,72 @@
 #ifndef STATESPACE_H
 #define STATESPACE_H
-#include "SistemasdeControle/headers/modelLibs/model.h"
+
 #include "SistemasdeControle/headers/modelLibs/transferfunction.h"
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
 
 namespace ModelHandler {
-    template <class UsedType>
-    class StateSpace : public Model<UsedType>
+    template <typename Type>
+    class StateSpace : public Model<Type>
     {
-    private:
-        bool Continuous;
-        unsigned nDiscretization;
-        UsedType SampleTime, TimeSimulation;
-        LinAlg::Matrix<UsedType> A, B, C, D, Ad, Bd, X, L, initialState;
-
-
-        UsedType factorial(unsigned n);
-
-        void c2dConversion();
-        void d2cConversion();
-
     public:
+        StateSpace(LinAlg::Matrix<Type> A , LinAlg::Matrix<Type> B,
+                   LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D); //ok
+        StateSpace(LinAlg::Matrix<Type> Ad, LinAlg::Matrix<Type> Bd,
+                   LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D,
+                   Type SampleTime); //ok
 
-        StateSpace(LinAlg::Matrix<UsedType> A , LinAlg::Matrix<UsedType> B,
-                   LinAlg::Matrix<UsedType> C , LinAlg::Matrix<UsedType> D);
-        StateSpace(LinAlg::Matrix<UsedType> Ad, LinAlg::Matrix<UsedType> Bd,
-                   LinAlg::Matrix<UsedType> C , LinAlg::Matrix<UsedType> D,
-                   UsedType SampleTime);
+        LinAlg::Matrix<Type> getA() const; //ok
+        LinAlg::Matrix<Type> getB() const; //ok
+        LinAlg::Matrix<Type> getC() const; //ok
+        LinAlg::Matrix<Type> getD() const; //ok
+        LinAlg::Matrix<Type> getActualState() const; //ok
 
-
-
-        void print();
-        void setLinearVector(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
-        void setLinearModel(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
-
-        void c2d(UsedType SampleTime);
-        void setInitialState(LinAlg::Matrix<UsedType> X0);
-
-        LinAlg::Matrix<UsedType> getA();
-        LinAlg::Matrix<UsedType> getB();
-        LinAlg::Matrix<UsedType> getC();
-        LinAlg::Matrix<UsedType> getD();
-        LinAlg::Matrix<UsedType> getActualState();
-
-        UsedType sim(UsedType u);
-        UsedType sim(UsedType u, UsedType y);
-        LinAlg::Matrix<UsedType> sim(LinAlg::Matrix<UsedType> u);
-        LinAlg::Matrix<UsedType> sim(LinAlg::Matrix<UsedType> u, LinAlg::Matrix<UsedType> y);
-        LinAlg::Matrix<UsedType> sim(UsedType lmim, UsedType lmax, UsedType step);
+        void setContinuous(bool Continuous); //ok
+        void setSampleTime(double SampleTime); //ok
+        void setInitialState(LinAlg::Matrix<Type> X0); //ok
+        void setLinearModel(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
+        void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
+        void SetObserverParameter(LinAlg::Matrix<Type> L);//ok
 
         bool isObservable();
         bool isControlable();
-        void SetObserverParameter(LinAlg::Matrix<UsedType> L);
-        LinAlg::Matrix<UsedType> Observer(LinAlg::Matrix<UsedType> U, LinAlg::Matrix<UsedType> Y);
+
+        Type sim(Type u); //ok
+        Type sim(Type u, Type y); // não é usado
+        LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> u); //ok
+        LinAlg::Matrix<Type> sim(Type lmin, Type lmax, Type step); //ok
+        LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> u, LinAlg::Matrix<Type> y); // não é usado
+
+        void c2dConversion(); //ok
+        void d2cConversion();
+        std::string print(); //ok
+
+    private:
+        Type factorial(unsigned n); // ok
+
+        LinAlg::Matrix<Type> Observer(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y);
+
+        bool Continuous;
+        unsigned nDiscretization;
+        Type SampleTime, TimeSimulation;
+        LinAlg::Matrix<Type> A, B, C, D, Ad, Bd, X, L, initialState;
     };
+
+    template<typename Type> // ok
+    std::ostream& operator<< (std::ostream& output, ModelHandler::StateSpace<Type> SS);
+    template<typename Type> //ok
+    std::string&  operator<< (std::string& output,  ModelHandler::StateSpace<Type> SS);
+
+    template<typename Type> // ok
+    Type sim(ModelHandler::StateSpace<Type> &SS, Type u);
+    template<typename Type> // ok
+    LinAlg::Matrix<Type> sim(ModelHandler::StateSpace<Type> &SS, LinAlg::Matrix<Type> u);
+    template<typename Type> //ok
+    LinAlg::Matrix<Type> sim(ModelHandler::StateSpace<Type> &SS, Type lmin, Type lmax, Type step);
+
+    template<typename Type> //ok
+    ModelHandler::StateSpace<Type> c2d(const ModelHandler::StateSpace<Type> &SS, Type SampleTime);
 }
 
-
+#include "SistemasdeControle/src/modelLibs/statespace.hpp"
 #endif // STATESPACE_H
