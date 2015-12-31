@@ -6,25 +6,22 @@ namespace ModelHandler {
     template <class Type>
     class ARX : public Model<Type>
     {
-    private:
-        unsigned nInputpar  , nOutputpar  , delay,
-                 qdtInputVar, qdtOutputVar, nSample,
-                 maxnInOut,sampleTime;
     public:
         ARX(unsigned nInputpar , unsigned nOutputpar,
             unsigned delay = 0,
-            unsigned qdtInputVar = 1, unsigned qdtOutputVar = 1, float sampleTime = 0.1);
+            unsigned qdtInputVar = 1, unsigned qdtOutputVar = 1,
+            double sampleTime = 0.1);
         ARX(const ARX<Type>& OtherArxModel);
-
-        void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput);
-        void setLinearModel (LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
 
         unsigned getNumberOfInputs();
         unsigned getNumberOfOutputs();
         unsigned getNumberOfInputDelays();
         unsigned getNumberOfOutputDelays();
 
-        float getSampleTime();
+        double getSampleTime();
+
+        void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput);
+        void setLinearModel (LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
 
         std::string print();
         Type sim(Type input);
@@ -32,7 +29,13 @@ namespace ModelHandler {
         LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> Input);
         LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
         LinAlg::Matrix<Type> sim(Type lsim, Type lmax, Type step);
+
+    private:
+        unsigned nInputpar  , nOutputpar  , delay,
+                 qdtInputVar, qdtOutputVar, nSample,
+                 maxnInOut,sampleTime;
     };
 }
 
+#include "SistemasdeControle/src/modelLibs/arx.hpp"
 #endif // ARX_H

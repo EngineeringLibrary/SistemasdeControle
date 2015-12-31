@@ -1,15 +1,13 @@
 #include "SistemasdeControle/headers/optimizationLibs/optimization.h"
 
 template <class UsedType>
-Optimization<UsedType>::Optimization()
+OptimizationHandler::Optimization<UsedType>::Optimization()
 {
 }
 
 template <class UsedType>
-LinAlg::Matrix<UsedType> Optimization<UsedType>::getOptimizatedVariable()
+LinAlg::Matrix<UsedType> OptimizationHandler::Optimization<UsedType>::getOptimizatedVariable() const
 {
     return this->OptimizatedVariable;
 }
 
-template class Optimization<float>;
-template class Optimization<double>;

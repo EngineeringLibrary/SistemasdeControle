@@ -2,13 +2,18 @@
 #define LEASTSQUARE_H
 #include "SistemasdeControle/headers/optimizationLibs/optimization.h"
 
-template <class UsedType>
-class LeastSquare: public Optimization<UsedType>
-{
-public:
-    LeastSquare(Model<UsedType> *model);
+namespace OptimizationHandler{
 
-    void Optimize(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output);
-};
+    template <class Type>
+    class LeastSquare: public Optimization<Type>
+    {
+    public:
+        LeastSquare(ModelHandler::Model<Type> *model);
 
+        void Optimize();
+        void Optimize(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
+    };
+}
+
+#include "SistemasdeControle/src/optimizationLibs/leastsquare.hpp"
 #endif // LEASTSQUARE_H

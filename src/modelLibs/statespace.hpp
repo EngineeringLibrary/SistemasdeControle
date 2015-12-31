@@ -227,12 +227,12 @@ std::string ModelHandler::StateSpace<Type>::print()
     std::string output;
 
     if(this->Continuous == true){
-        output += "The Continuous Model is: \n\nA = \n";
+        output += "The Continuous State Space Model is: \n\nA = \n";
         output << this->A; output += "\n\nB = \n";
         output << this->B; output += "\n\nC = \n";
 
     }else{
-        output += "The Discrete Model is: \n\nA = \n";
+        output += "The Discrete State Space Model is: \n\nA = \n";
         output << this->Ad; output += "\n\nB = \n";
         output << this->Bd; output += "\n\nC = \n";
     }

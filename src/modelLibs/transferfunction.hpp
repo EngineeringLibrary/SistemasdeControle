@@ -21,7 +21,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Pol
     this->TF(1,1)        = TFSISO;
     this->var            = 's';
     this->sampleTime     = 0.1;
-    this->isContinuous   = 1;
+    this->Continuous   = 1;
     this->timeSimulation = 10;
 }
 
@@ -29,6 +29,12 @@ template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF)
 {
     this->TF = TF;
+}
+
+template <typename Type>
+bool ModelHandler::TransferFunction<Type>::isContinuous() const
+{
+    return this->Continuous;
 }
 
 template <typename Type>
@@ -41,6 +47,18 @@ template <typename Type>
 unsigned ModelHandler::TransferFunction<Type>::getNumberOfColumns() const
 {
     return this->TF.getNumberOfColumns();
+}
+
+template <typename Type>
+double ModelHandler::TransferFunction<Type>::getSampleTime() const
+{
+    return this->sampleTime;
+}
+
+template <typename Type>
+void ModelHandler::TransferFunction<Type>::setContinuous(const bool &continuous)
+{
+    this->Continuous = continuous;
 }
 
 template <typename Type>
@@ -196,13 +214,34 @@ void ModelHandler::TransferFunction<Type>::c2dConversion()
 template<typename Type>
 std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::TransferFunction<Type> TF)
 {
-    output << TF.print();
+    if(TF.isContinuous())
+    {
+        output << "The continuous transfer function is:\n\n";
+        output << TF.print();
+    }
+    else
+    {
+        output << "The discrete transfer function is:\n\n";
+        output << TF.print() << "\n";
+        output << "The sample time is: " << TF.getSampleTime();
+    }
     return output;
 }
 
 template<typename Type>
 std::string& ModelHandler::operator<< (std::string& output, ModelHandler::TransferFunction<Type> TF)
 {
-    output += TF.print();
+    if(TF.isContinuous())
+    {
+        output += "The continuous transfer function model is:\n\n";
+        output += TF.print();
+    }
+    else
+    {
+        output += "The discrete transfer function model is:\n\n";
+        output += TF.print() + "\n";
+        output += "The sample time is: " + TF.getSampleTime();
+    }
+
     return output;
 }

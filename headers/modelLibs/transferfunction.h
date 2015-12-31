@@ -11,12 +11,15 @@ namespace ModelHandler {
         TransferFunction(unsigned rows, unsigned cols); // ok
         TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO); // OK
         TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF); // OK
-        TransferFunction(): var('s'), isContinuous(1), sampleTime(0.1), timeSimulation(10) {} // ok
+        TransferFunction(): var('s'), Continuous(1), sampleTime(0.1), timeSimulation(10) {} // ok
 //        virtual ~TransferFunction(); // ok
 
+        bool isContinuous() const;
         unsigned getNumberOfRows() const; // OK
         unsigned getNumberOfColumns() const; // OK
+        double getSampleTime() const;
 
+        void setContinuous(const bool &continuous); //ok
 //        void setSampleTime(double sampleTime);
 //        void setIsContinuous(bool isContinuous);
 //        void setTimeSimulation(double timeSimulation);
@@ -48,7 +51,7 @@ namespace ModelHandler {
         void c2dConversion();
 
         char var;
-        bool isContinuous;
+        bool Continuous;
         double sampleTime, timeSimulation;
         LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF;
     };
