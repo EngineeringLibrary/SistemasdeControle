@@ -1,14 +1,13 @@
 #ifndef STATESPACE_H
 #define STATESPACE_H
-
-#include "SistemasdeControle/headers/modelLibs/transferfunction.h"
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
+#include "SistemasdeControle/headers/modelLibs/model.h"
 
 namespace ModelHandler {
     template <typename Type>
     class StateSpace : public Model<Type>
     {
     public:
+        StateSpace(){}
         StateSpace(LinAlg::Matrix<Type> A , LinAlg::Matrix<Type> B,
                    LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D); //ok
         StateSpace(LinAlg::Matrix<Type> Ad, LinAlg::Matrix<Type> Bd,
@@ -21,6 +20,10 @@ namespace ModelHandler {
         LinAlg::Matrix<Type> getD() const; //ok
         LinAlg::Matrix<Type> getActualState() const; //ok
 
+        void setA(LinAlg::Matrix<Type> A); //ok
+        void setB(LinAlg::Matrix<Type> B); //ok
+        void setC(LinAlg::Matrix<Type> C); //ok
+        void setD(LinAlg::Matrix<Type> D); //ok
         void setContinuous(bool Continuous); //ok
         void setSampleTime(double SampleTime); //ok
         void setInitialState(LinAlg::Matrix<Type> X0); //ok
@@ -66,6 +69,8 @@ namespace ModelHandler {
 
     template<typename Type> //ok
     ModelHandler::StateSpace<Type> c2d(const ModelHandler::StateSpace<Type> &SS, Type SampleTime);
+    template<typename Type> //ok
+    ModelHandler::StateSpace<Type> d2c(const ModelHandler::StateSpace<Type> &discreteSS);
 }
 
 #include "SistemasdeControle/src/modelLibs/statespace.hpp"

@@ -2,6 +2,8 @@
 #define MODEL_H
 #include <cfloat>
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
+#include "SistemasdeControle/headers/primitiveLibs/polynom.h"
 
 namespace ModelHandler {
     template <typename Type>
@@ -68,4 +70,5 @@ namespace ModelHandler {
 }
 
 #include "SistemasdeControle/src/modelLibs/model.hpp"
+
 #endif // MODEL_H

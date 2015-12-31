@@ -72,6 +72,30 @@ LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getActualState() const
 }
 
 template <typename Type>
+void ModelHandler::StateSpace<Type>::setA(LinAlg::Matrix<Type> A)
+{
+    this->A = A;
+}
+
+template <typename Type>
+void ModelHandler::StateSpace<Type>::setB(LinAlg::Matrix<Type> B)
+{
+    this->B = B;
+}
+
+template <typename Type>
+void ModelHandler::StateSpace<Type>::setC(LinAlg::Matrix<Type> C)
+{
+    this->C = C;
+}
+
+template <typename Type>
+void ModelHandler::StateSpace<Type>::setD(LinAlg::Matrix<Type> D)
+{
+    this->D = D;
+}
+
+template <typename Type>
 void ModelHandler::StateSpace<Type>::setSampleTime(double SampleTime)
 {
     this->SampleTime = SampleTime;
@@ -264,28 +288,11 @@ void ModelHandler::StateSpace<Type>::c2dConversion()
 template <typename Type>
 void ModelHandler::StateSpace<Type>::d2cConversion()
 {
-    LinAlg::Matrix<Type> Mat, E, Temp, Root, I, ZeroVector, IAd;
+    LinAlg::Matrix<Type> I = LinAlg::Eye<Type> (Ad.getNumberOfRows());
 
-    Mat = LinAlg::EigenValues(Ad);
-    IAd = LinAlg::Eye<Type> (Ad.getNumberOfRows());
-    for(int j = 1; j < nDiscretization; j++)
-        E( 1, j + 1) = pow(this->SampleTime, j)/factorial(j);
-
-    I = LinAlg::Eye<Type> (E.getNumberOfColumns()-2);
-    ZeroVector = LinAlg::Zeros<Type> ( E.getNumberOfColumns()-2, 1);
-
-    for (unsigned i = 0; i < Mat.getNumberOfRows(); i++)
-    {
-        E( 1, 1) = 1 - Mat(1, i+1);
-        Temp = E||(I|ZeroVector);
-        Root = LinAlg::EigenValues(Temp);
-//        Type autovalor = max(abs(Root));
-//        A( i+1, i+1) = autovalor;
-    }
-    B = (((A^-1)*(Ad - IAd))^-1)*Bd;
+    A = (Ad - I)/SampleTime;
+    B = (((A^-1)*(Ad - I))^-1)*Bd;
 }
-
-
 
 template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::Observer(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y)
@@ -294,7 +301,6 @@ LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::Observer(LinAlg::Matrix<Typ
     X = Ad*X + Bd*U + L*(Y - C*X);
     return X;
 }
-
 
 template<typename Type>
 std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::StateSpace<Type> SS)
@@ -350,4 +356,11 @@ ModelHandler::StateSpace<Type> ModelHandler::c2d(const ModelHandler::StateSpace<
     return ret;
 }
 
-
+template <typename Type>
+ModelHandler::StateSpace<Type> ModelHandler::d2c(const ModelHandler::StateSpace<Type> &discreteSS)
+{
+    ModelHandler::StateSpace<Type> ret = discreteSS;
+    ret.d2cConversion();
+    ret.setContinuous(true);
+    return ret;
+}

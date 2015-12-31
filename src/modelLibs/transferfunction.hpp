@@ -3,23 +3,6 @@
 #include "SistemasdeControle/headers/modelLibs/conversions.h"
 
 template <typename Type>
-ModelHandler::TransferFunction<Type>::TransferFunction(ARX<Type> gz)
-{
-//    LinAlg::Matrix<Type> gzParmeters = gz.getModelCoef();
-//    this->nColsTF = gz.getNumberOfInputs();
-//    this->nRowsTF = gz.getNumberOfOutputs();
-//    this->initTfNumber();
-//    this->sampleTime = gz.getSampleTime();
-
-//    for(unsigned i = 0; i < this->nRowsTF; i++)
-//        for (unsigned j = 0; j < this->nColsTF; j++)
-//        {
-//            unsigned posTemp = 1 + i*(gz.getNumberOfInputDelays() + gz.getNumberOfOutputDelays());
-//            this->TF[i][j].init(gzParmeters(from(posTemp) --> posTemp + gz.getNumberOfOutputDelays() - 1,i+1), gzParmeters(from(posTemp + gz.getNumberOfOutputDelays()) --> posTemp + gz.getNumberOfOutputDelays() + gz.getNumberOfInputDelays(),i+1));
-//        }
-}
-
-template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned cols)
 {
     this->var            = 's';
@@ -28,6 +11,18 @@ ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned c
     this->timeSimulation = 10;
 
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(rows, cols);
+}
+
+template <typename Type>
+ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO)
+{
+    this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
+
+    this->TF(1,1)        = TFSISO;
+    this->var            = 's';
+    this->sampleTime     = 0.1;
+    this->isContinuous   = 1;
+    this->timeSimulation = 10;
 }
 
 template <typename Type>
@@ -79,6 +74,13 @@ template <typename Type>
 PolynomHandler::Polynom<Type> ModelHandler::TransferFunction<Type>::operator ()(unsigned row, unsigned column) const
 {
     return this->TF(row, column);
+}
+
+
+template <typename Type>
+void ModelHandler::TransferFunction<Type>::operator= (const PolynomHandler::Polynom<Type> &rhs)
+{
+    this->TF(1,1) = rhs;
 }
 
 template <typename Type>

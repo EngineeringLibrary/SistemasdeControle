@@ -1,12 +1,5 @@
-#ifndef CONVERSIONS_H
-#define CONVERSIONS_H
-#include "SistemasdeControle/headers/modelLibs/statespace.h"
-#include "SistemasdeControle/headers/modelLibs/transferfunction.h"
-
-namespace Conversions{
-
-//    template <class UsedType>
-//    ModelHandler::TransferFunction<UsedType> ss2tf(ModelHandler::StateSpace<UsedType> SS)
+//    template <typename Type>
+//    ModeTransferFunction<Type> ss2tf(const ModelHandler::StateSpace<Type> &SS);
 //    {
 //        LinAlg::Matrix<UsedType> A = SS.getA(), B = SS.getB(), tempB,
 //                         C = SS.getC(), D = SS.getD(), tempC;
@@ -20,15 +13,15 @@ namespace Conversions{
 //                tempB = B.GetColumn(j);
 //                tempC = C.GetRow(i);
 
-//                TF(i,j, PolynomHandler::Polynom<UsedType>((LinAlg::CaracteristicPolynom(A - tempB*tempC) - LinAlg::CaracteristicPolynom(A)), LinAlg::CaracteristicPolynom(A)));
+//
 //                TF(i,j, TF(i,j) + D(i,j));
 //            }
 //        }
 //        return TF;
 //    }
 
-//    template <class UsedType>
-//    ModelHandler::StateSpace<UsedType> tf2ss(ModelHandler::TransferFunction<UsedType> TF)
+//    template <typename Type>
+//    StateSpace<Type> tf2ss(const ModelHandler::TransferFunction<Type> &TF);
 //    {
 //        LinAlg::Matrix<UsedType> A, B, C, D;
 ////        TF.setTF(MMC(TF.getTF(),TF.getNRowsTF(),TF.getNColsTF()),
@@ -84,7 +77,47 @@ namespace Conversions{
 //        return ModelHandler::StateSpace<UsedType>(A,B,C,D);
 //    }
 
+//}
+
+//template <typename Type>
+//ModelHandler::TransferFunction<Type>::TransferFunction(ARX<Type> gz)
+//{
+//    LinAlg::Matrix<Type> gzParmeters = gz.getModelCoef();
+//    this->nColsTF = gz.getNumberOfInputs();
+//    this->nRowsTF = gz.getNumberOfOutputs();
+//    this->initTfNumber();
+//    this->sampleTime = gz.getSampleTime();
+
+//    for(unsigned i = 0; i < this->nRowsTF; i++)
+//        for (unsigned j = 0; j < this->nColsTF; j++)
+//        {
+//            unsigned posTemp = 1 + i*(gz.getNumberOfInputDelays() + gz.getNumberOfOutputDelays());
+//            this->TF[i][j].init(gzParmeters(from(posTemp) --> posTemp + gz.getNumberOfOutputDelays() - 1,i+1), gzParmeters(from(posTemp + gz.getNumberOfOutputDelays()) --> posTemp + gz.getNumberOfOutputDelays() + gz.getNumberOfInputDelays(),i+1));
+//        }
+//}
+
+#ifndef CONVERSIONS_H
+#define CONVERSIONS_H
+
+#include "SistemasdeControle/headers/modelLibs/model.h"
+#include "SistemasdeControle/headers/modelLibs/arx.h"
+#include "SistemasdeControle/headers/modelLibs/statespace.h"
+#include "SistemasdeControle/headers/modelLibs/transferfunction.h"
+
+namespace ModelHandler{
+
+    template <typename Type>
+    TransferFunction<Type> ss2tf(const StateSpace<Type> &SS);
+    template <typename Type>
+    TransferFunction<Type> ss2tfSISO(const StateSpace<Type> &SS);
+
+    template <typename Type>
+    StateSpace<Type> tf2ss(const TransferFunction<Type> &TF);
+    template <typename Type>
+    StateSpace<Type> tf2ssSISO(const TransferFunction<Type> &TF);
+
 }
 
-
+#include "SistemasdeControle/src/modelLibs/conversions.hpp"
 #endif // CONVERSIONS_H
+

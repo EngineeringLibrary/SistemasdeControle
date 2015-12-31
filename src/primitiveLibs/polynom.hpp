@@ -3,13 +3,13 @@
 template <typename Type> // testada
 PolynomHandler::Polynom<Type>::Polynom(Type Num)
 {
-    init(Num);
+    init(Num,1);
 }
 
 template <typename Type> //testada
 PolynomHandler::Polynom<Type>::Polynom(LinAlg::Matrix<Type> Num)
 {
-    init(Num);
+    init(Num,LinAlg::Matrix<Type>(1.0));
 }
 
 template <typename Type> //testada
@@ -38,10 +38,10 @@ template <typename Type> // testada
 PolynomHandler::Polynom<Type>::~Polynom()
 {
     if(this->sizeNum != 0)
-        delete (this->num);
+        free (this->num);
 
     if(this->sizeDen != 0)
-        delete (this->den);
+        free (this->den);
 
     this->num = NULL;
     this->den = NULL;
@@ -51,7 +51,7 @@ PolynomHandler::Polynom<Type>::~Polynom()
 }
 
 template <typename Type> //testada
-char PolynomHandler::Polynom<Type>::getVar()
+char PolynomHandler::Polynom<Type>::getVar() const
 {
     return this->x;
 }
@@ -451,7 +451,7 @@ std::string PolynomHandler::printSmallPolynom(const LinAlg::Matrix<Type> &rhs, c
         else if((rhs(1,i) != -1 && rhs(1,i) < 0)|| ((i == Size) && (rhs(1,i) < 0)))
             ret << -rhs(1,i);
 
-        if(Size-i > 0)
+        if(Size-i > 0 && rhs(1,i) != 0)
         {
             ret << variable;
             if(i != Size-1)

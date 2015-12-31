@@ -1,16 +1,15 @@
 #ifndef TRANSFERFUNCTION_H
 #define TRANSFERFUNCTION_H
 #include "SistemasdeControle/headers/modelLibs/model.h"
-#include "SistemasdeControle/headers/modelLibs/arx.h"
-#include "SistemasdeControle/headers/primitiveLibs/polynom.h"
+#include "SistemasdeControle/headers/modelLibs/statespace.h"
 
 namespace ModelHandler {
     template <typename Type>
     class TransferFunction : public Model<Type>
     {
     public:
-        TransferFunction(ARX<Type> gz); // não feito
         TransferFunction(unsigned rows, unsigned cols); // ok
+        TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO); // OK
         TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF); // OK
         TransferFunction(): var('s'), isContinuous(1), sampleTime(0.1), timeSimulation(10) {} // ok
 //        virtual ~TransferFunction(); // ok
@@ -30,7 +29,7 @@ namespace ModelHandler {
         PolynomHandler::Polynom<Type>& operator()(unsigned row, unsigned column); // ok
         PolynomHandler::Polynom<Type>  operator()(unsigned row, unsigned column) const; // ok
 
-//        void operator= (TransferFunction<Type> rhs);
+        void operator= (const PolynomHandler::Polynom<Type> &rhs);
         TransferFunction<Type>& operator= (const TransferFunction<Type>& otherTransferFunction); //ok
         template<typename OtherTransferFunctionType> // não funciona
         TransferFunction<Type>& operator= (const TransferFunction<OtherTransferFunctionType>& otherTransferFunction);

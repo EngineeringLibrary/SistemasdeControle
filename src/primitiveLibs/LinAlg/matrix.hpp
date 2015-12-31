@@ -621,7 +621,7 @@ std::ostream& LinAlg::operator<< (std::ostream& output, const LinAlg::Matrix<Typ
     for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
     {
         for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)
-            output << std::setw(10) << std::setprecision(5) << std::fixed << mat(i, j) << ' ';
+            output << std::setw(2*coutPrecision+1) << std::setprecision(coutPrecision) << std::fixed << mat(i, j) << ' ';
 
         output << std::endl;
     }

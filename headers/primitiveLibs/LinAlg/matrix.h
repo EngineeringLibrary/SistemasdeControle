@@ -13,6 +13,7 @@
 using namespace Identifiers;
 
 namespace LinAlg {
+    unsigned coutPrecision = 5;
     template<typename Type>
     class Matrix
     {
