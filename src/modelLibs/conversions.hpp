@@ -19,7 +19,35 @@ ModelHandler::TransferFunction<Type> ModelHandler::ss2tfSISO(const ModelHandler:
     Matrix<Type> D = SS.getD();
 
     TransferFunction<Type> TF = Polynom<Type>(CaracteristicPolynom(A - B*C) - CaracteristicPolynom(A), CaracteristicPolynom(A));
+    if(!SS.isContinuous())
+    {
+        TF.setContinuous(SS.isContinuous());
+        TF.setSampleTime(SS.getSampleTime());
+    }
+    return TF;
+}
 
+template <typename Type>
+ModelHandler::TransferFunction<Type> ModelHandler::arx2tf(const ARX<Type> &Arx)
+{
+    unsigned nuPar  = Arx.getNumberOfInputs();
+    unsigned nyPar  = Arx.getNumberOfOutputs();
+    unsigned nu     = Arx.getNumberOfInputDelays();
+    unsigned ny     = Arx.getNumberOfOutputDelays();
+
+    LinAlg::Matrix<Type> ArxParameters = Arx.getModelCoef();
+    ModelHandler::TransferFunction<double> TF(nyPar, nuPar);
+
+    for(unsigned i = 1; i <= nyPar; ++i)
+    {
+        for(unsigned j = 1; j <= nuPar; ++j)
+        {
+            TF(i,j) = PolynomHandler::Polynom<Type>
+            ( ~ArxParameters(from( nyPar*ny + (j-1)*nu + 1) --> nyPar*ny + j*nu, i), LinAlg::Matrix<Type>(1)|
+              ~ArxParameters(from((j-1)*ny + 1)             --> j*ny,i            ) );
+        }
+    }
+    TF.setContinuous(false);
     return TF;
 }
 
@@ -112,5 +140,12 @@ ModelHandler::StateSpace<Type> ModelHandler::tf2ssSISO(const ModelHandler::Trans
     for (unsigned i = 1; i <= A.getNumberOfColumns(); ++i)
         C(1,i) = C(1,i) - (TF(1,1).getDen()(1, TFdenCols + 2 - i))* D(1,1);
 
-    return ModelHandler::StateSpace<Type>(A,B,C,D);
+    ModelHandler::StateSpace<Type> SS(A,B,C,D);
+    if(!SS.isContinuous())
+    {
+        SS.setContinuous(TF.isContinuous());
+        SS.setSampleTime(TF.getSampleTime());
+    }
+
+    return SS;
 }

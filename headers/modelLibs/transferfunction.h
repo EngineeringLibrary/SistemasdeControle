@@ -15,12 +15,13 @@ namespace ModelHandler {
 //        virtual ~TransferFunction(); // ok
 
         bool isContinuous() const;
+        double getSampleTime() const;
         unsigned getNumberOfRows() const; // OK
         unsigned getNumberOfColumns() const; // OK
-        double getSampleTime() const;
+        unsigned getNumberOfVariables(){}
 
         void setContinuous(const bool &continuous); //ok
-//        void setSampleTime(double sampleTime);
+        void setSampleTime(const double &sampleTime);//ok
 //        void setIsContinuous(bool isContinuous);
 //        void setTimeSimulation(double timeSimulation);
 //        void setTransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF);

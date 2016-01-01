@@ -36,6 +36,18 @@ ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> Ad, LinAlg::Matr
 }
 
 template <typename Type>
+bool ModelHandler::StateSpace<Type>::isContinuous() const
+{
+    return this->Continuous;
+}
+
+template <typename Type>
+double ModelHandler::StateSpace<Type>::getSampleTime() const
+{
+    return this->SampleTime;
+}
+
+template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getA() const
 {
     if(this->Continuous)
@@ -133,7 +145,7 @@ void ModelHandler::StateSpace<Type>::SetObserverParameter(LinAlg::Matrix<Type> L
 }
 
 template <typename Type>
-bool ModelHandler::StateSpace<Type>::isObservable()
+bool ModelHandler::StateSpace<Type>::isObservable() const
 {
     LinAlg::Matrix<Type> Qo;
     for (unsigned i = 0; i < A.getNumberOfColumns(); ++i){
@@ -144,7 +156,7 @@ bool ModelHandler::StateSpace<Type>::isObservable()
 }
 
 template <typename Type>
-bool ModelHandler::StateSpace<Type>::isControlable()
+bool ModelHandler::StateSpace<Type>::isControlable() const
 {
     LinAlg::Matrix<Type> Qc;
     for (unsigned i = 0; i < A.getNumberOfColumns(); ++i){

@@ -7,7 +7,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned c
 {
     this->var            = 's';
     this->sampleTime     = 0.1;
-    this->isContinuous   = 1;
+    this->Continuous   = 1;
     this->timeSimulation = 10;
 
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(rows, cols);
@@ -59,6 +59,12 @@ template <typename Type>
 void ModelHandler::TransferFunction<Type>::setContinuous(const bool &continuous)
 {
     this->Continuous = continuous;
+}
+
+template <typename Type>
+void ModelHandler::TransferFunction<Type>::setSampleTime(const double &sampleTime)
+{
+    this->sampleTime = sampleTime;
 }
 
 template <typename Type>

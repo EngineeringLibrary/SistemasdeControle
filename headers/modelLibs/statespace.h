@@ -14,11 +14,14 @@ namespace ModelHandler {
                    LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D,
                    Type SampleTime); //ok
 
+        double getSampleTime() const; // ok
         LinAlg::Matrix<Type> getA() const; //ok
         LinAlg::Matrix<Type> getB() const; //ok
         LinAlg::Matrix<Type> getC() const; //ok
         LinAlg::Matrix<Type> getD() const; //ok
         LinAlg::Matrix<Type> getActualState() const; //ok
+
+        unsigned getNumberOfVariables(){}
 
         void setA(LinAlg::Matrix<Type> A); //ok
         void setB(LinAlg::Matrix<Type> B); //ok
@@ -31,8 +34,9 @@ namespace ModelHandler {
         void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
         void SetObserverParameter(LinAlg::Matrix<Type> L);//ok
 
-        bool isObservable();
-        bool isControlable();
+        bool isContinuous()  const;
+        bool isObservable()  const;
+        bool isControlable() const;
 
         Type sim(Type u); //ok
         Type sim(Type u, Type y); // não é usado

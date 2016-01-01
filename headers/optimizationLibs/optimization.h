@@ -12,13 +12,11 @@ namespace OptimizationHandler {
     public:
         Optimization();
 
-        LinAlg::Matrix<Type> getOptimizatedVariable() const;
         virtual void Optimize()=0;
         virtual void Optimize(LinAlg::Matrix<Type> Input,
                               LinAlg::Matrix<Type> Output)=0;
 
     protected:
-        LinAlg::Matrix<Type> OptimizatedVariable; //Error;
         ModelHandler::Model<Type> *model;
     };
 }

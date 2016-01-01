@@ -5,9 +5,4 @@ OptimizationHandler::Optimization<UsedType>::Optimization()
 {
 }
 
-template <class UsedType>
-LinAlg::Matrix<UsedType> OptimizationHandler::Optimization<UsedType>::getOptimizatedVariable() const
-{
-    return this->OptimizatedVariable;
-}
 

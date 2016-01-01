@@ -1,36 +1,31 @@
 #include "SistemasdeControle/headers/optimizationLibs/recursiveleastsquare.h"
 
-template <class UsedType>
-RecursiveLeastSquare<UsedType>::RecursiveLeastSquare(Model<UsedType> *model,
-                                                     UsedType p0,
-                                                     UsedType lambda)
+template <class Type>
+OptimizationHandler::RecursiveLeastSquare<Type>::RecursiveLeastSquare(ModelHandler::Model<Type> *model,
+                                                     Type p0,
+                                                     Type lambda)
 {
     this->p0     = p0;
     this->model  = model;
     this->lambda = lambda;    
-    this->firstTimeFlag = false;
+    this->firstTimeFlag = false;    
+    this->model->setModelCoef(LinAlg::Ones<Type>(this->model->getNumberOfVariables(), 1)/this->p0);
+    this->P = LinAlg::Eye<Type>(this->model->getNumberOfVariables())*(this->p0);
 }
 
-template <class UsedType>
-void RecursiveLeastSquare<UsedType>::Optimize(LinAlg::Matrix<UsedType> Input, LinAlg::Matrix<UsedType> Output)
+template <class Type>
+void OptimizationHandler::RecursiveLeastSquare<Type>::Optimize()
 {
-    LinAlg::Matrix<UsedType> PastOutput = Output.GetColumn(1);
-    Output = Output.GetColumn(2);
+}
 
-    this->model->setLinearVector(Input, PastOutput);
-    if(!this->firstTimeFlag)
-    {
-        this->firstTimeFlag = true;
-        this->OptimizatedVariable = LinAlg::Ones<UsedType>(this->model->getLinearVectorA().getNumberOfColumns(), Output.getNumberOfRows())/this->p0;
-        this->P = LinAlg::Eye<UsedType>(this->model->getLinearVectorA().getNumberOfColumns())*(this->p0);
-    }
+template <class Type>
+void OptimizationHandler::RecursiveLeastSquare<Type>::Optimize(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
+{
+    this->model->setLinearVector(Input, Output(from(1)-->Output.getNumberOfRows(),1));
 
-    LinAlg::Matrix<UsedType> phi = this->model->getLinearVectorA();
-    E = Output - phi*this->OptimizatedVariable;
+    LinAlg::Matrix<Type> phi = this->model->getLinearVectorA();
+    E = Output(from(1)-->Output.getNumberOfRows(),2) - phi*this->model->getModelCoef();
     K = (P*~phi)/(((phi*P)*~phi) + lambda);
-    this->OptimizatedVariable = this->OptimizatedVariable + K*E;
+    this->model->setModelCoef(this->model->getModelCoef() + K*E);
     P = (P - (K*(phi*P)))/lambda;
 }
-
-template class RecursiveLeastSquare<float>;
-template class RecursiveLeastSquare<double>;

@@ -13,15 +13,17 @@ namespace ModelHandler {
             double sampleTime = 0.1);
         ARX(const ARX<Type>& OtherArxModel);
 
-        unsigned getNumberOfInputs();
-        unsigned getNumberOfOutputs();
-        unsigned getNumberOfInputDelays();
-        unsigned getNumberOfOutputDelays();
+        unsigned getNumberOfInputs() const;
+        unsigned getNumberOfOutputs() const;
+        unsigned getNumberOfInputDelays() const;
+        unsigned getNumberOfOutputDelays() const;
 
-        double getSampleTime();
+        double getSampleTime() const;
+        unsigned getNumberOfVariables();
 
         void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput);
         void setLinearModel (LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
+
 
         std::string print();
         Type sim(Type input);

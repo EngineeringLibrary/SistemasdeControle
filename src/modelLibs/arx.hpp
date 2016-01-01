@@ -136,27 +136,31 @@ LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(Type lsim, Type lmax, Type ste
 }
 
 template <class Type>
-unsigned ModelHandler::ARX<Type>::getNumberOfInputDelays(){
+unsigned ModelHandler::ARX<Type>::getNumberOfInputDelays() const{
     return this->nInputpar;
 }
 
 template <class Type>
-unsigned ModelHandler::ARX<Type>::getNumberOfInputs(){
+unsigned ModelHandler::ARX<Type>::getNumberOfInputs()const {
     return this->qdtInputVar;
 }
 
 template <class Type>
-unsigned ModelHandler::ARX<Type>::getNumberOfOutputDelays(){
+unsigned ModelHandler::ARX<Type>::getNumberOfOutputDelays() const {
     return this->nOutputpar;
 }
 
 template <class Type>
-unsigned ModelHandler::ARX<Type>::getNumberOfOutputs(){
+unsigned ModelHandler::ARX<Type>::getNumberOfOutputs() const {
     return this->qdtOutputVar;
 }
 
 template <class Type>
-double ModelHandler::ARX<Type>::getSampleTime(){
+double ModelHandler::ARX<Type>::getSampleTime() const {
     return this->sampleTime;
 }
 
+template <class Type>
+unsigned ModelHandler::ARX<Type>::getNumberOfVariables(){
+    return this->qdtInputVar*this->nInputpar + this->qdtOutputVar*this->nOutputpar;
+}
