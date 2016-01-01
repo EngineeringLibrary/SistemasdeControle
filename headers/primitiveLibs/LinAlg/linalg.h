@@ -41,6 +41,15 @@ namespace LinAlg {
     
     template <typename Type>
     Type *MultPoly(const Type *lhs, const Type  *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
+
+    template <typename Type>
+    Type max(const LinAlg::Matrix<Type> &mat);
+
+    template <typename Type>
+    Type min(const LinAlg::Matrix<Type> &mat);
+
+    template <typename Type>
+    LinAlg::Matrix<Type> abs(const LinAlg::Matrix<Type> &mat);
 }
 
 #include "SistemasdeControle/src/primitiveLibs/LinAlg/linalg.hpp"

@@ -17,7 +17,7 @@ namespace PolynomHandler {
             Polynom(): x('x'), num(NULL), den(NULL), sizeNum(0), sizeDen(0){} //testada
             virtual ~Polynom(); //testada
 
-            char                 getVar(); // testada
+            char                 getVar() const; // testada
             void                 changeVar(char var); //testada
 
             unsigned             getNumSize() const; // testada
@@ -31,6 +31,7 @@ namespace PolynomHandler {
 
             void setDen(Type *Den, unsigned sizeden); //testada
             void setDen(LinAlg::Matrix<Type> Den); // testada
+
 
             PolynomHandler::Polynom<Type>& operator=  (const PolynomHandler::Polynom<Type>& OtherPolynom);//testada
             template<typename OtherPolynomType>//testada

@@ -13,6 +13,7 @@
 using namespace Identifiers;
 
 namespace LinAlg {
+    unsigned coutPrecision = 3;
     template<typename Type>
     class Matrix
     {
@@ -28,8 +29,8 @@ namespace LinAlg {
             unsigned getNumberOfRows () const;
             unsigned getNumberOfColumns () const;
 
-            LinAlg::Matrix<Type> GetRow (unsigned number_of_the_row);
-            LinAlg::Matrix<Type> GetColumn (unsigned number_of_the_column);
+            LinAlg::Matrix<Type> GetRow (const unsigned &number_of_the_row) const;
+            LinAlg::Matrix<Type> GetColumn (const unsigned &number_of_the_column) const;
 
             void SwapRows (unsigned row_to_be_swapped, unsigned  row_to_take_place);
             void SwapColumns (unsigned column_to_be_swapped, unsigned column_to_take_place);
@@ -47,7 +48,7 @@ namespace LinAlg {
             LinAlg::Matrix<Type> operator() (unsigned* row_interval, unsigned* column_interval) const;
 
             void operator= (const char* rhs);
-            LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<Type>& otherMatrix);
+            LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<Type>& otherMatrix) const;
             template<typename OtherMatrixType>
             LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<OtherMatrixType>& otherMatrix);
 
@@ -68,7 +69,7 @@ namespace LinAlg {
             template<typename RightType>
             LinAlg::Matrix<Type>& operator/= (const LinAlg::Matrix<RightType>& rhs);
 
-            LinAlg::Matrix<Type>& operator^= (const int &exp);
+            LinAlg::Matrix<Type>& operator^= (int exp);
 
             template<typename RightType>
             LinAlg::Matrix<Type> operator| (LinAlg::Matrix<RightType> rhs);

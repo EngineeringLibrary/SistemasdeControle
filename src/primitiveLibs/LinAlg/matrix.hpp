@@ -245,7 +245,7 @@ bool LinAlg::Matrix<Type>::isSquare ()
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::GetRow (unsigned number_of_the_row)
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::GetRow (const unsigned &number_of_the_row) const
 {
     LinAlg::Matrix<Type> ret(1, this->columns);
 
@@ -256,7 +256,7 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::GetRow (unsigned number_of_the_row)
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::GetColumn (unsigned number_of_the_column)
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::GetColumn (const unsigned &number_of_the_column) const
 {
     LinAlg::Matrix<Type> ret(this->rows, 1);
 
@@ -404,7 +404,7 @@ void LinAlg::Matrix<Type>::operator= (const char* Mat)
 }
 
 template<typename Type>
-LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator= (const LinAlg::Matrix<Type>& rhs)
+LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator= (const LinAlg::Matrix<Type>& rhs) const
 {
     if(rhs.rows !=0 || rhs.columns !=0)
         swap(rhs);
@@ -510,7 +510,7 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator/= (const LinAlg::Matrix<Rig
 }
 
 template<typename Type>
-LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator^= (const int &exp)
+LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator^= (int exp)
 {
     LinAlg::Matrix<Type> temp = LinAlg::Eye<Type>(this->rows);
 
@@ -520,7 +520,7 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator^= (const int &exp)
         exp *= -1;
     }
 
-    for(unsigned i = 0; i < exp; ++i) {
+    for(int i = 0; i < exp; ++i) {
         temp *= *this;
     }
 
@@ -621,7 +621,7 @@ std::ostream& LinAlg::operator<< (std::ostream& output, const LinAlg::Matrix<Typ
     for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
     {
         for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)
-            output << std::setw(10) << std::setprecision(5) << std::fixed << mat(i, j) << ' ';
+            output << std::setw(2*coutPrecision+1) << std::setprecision(coutPrecision) << std::fixed << mat(i, j) << ' ';
 
         output << std::endl;
     }
@@ -645,7 +645,7 @@ std::string& LinAlg::operator<< (std::string& output, const LinAlg::Matrix<Type>
 {
     std::stringstream ss;
     ss << mat;
-    output = ss.str();
+    output += ss.str();
     return output;
 }
 
