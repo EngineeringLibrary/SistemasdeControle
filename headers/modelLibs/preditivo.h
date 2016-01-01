@@ -4,8 +4,8 @@
 #include "SistemasdeControle/headers/modelLibs/model.h"
 #include "SistemasdeControle/headers/modelLibs/statespace.h"
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
-#include "SistemasdeControle/headers/modelLibs/modelointegrativo.h"
-#include "SistemasdeControle/headers/modelLibs/modelopredicao.h"
+#include "SistemasdeControle/headers/modelLibs/integrativemodel.h"
+#include "SistemasdeControle/headers/modelLibs/predictionmodel.h"
 
 template <class Type>
 class Preditivo
