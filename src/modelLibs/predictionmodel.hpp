@@ -19,16 +19,15 @@ ModelHandler::PredictionModel<Type>::PredictionModel(
         for(unsigned i = this->HorizontePredicaoMin; i <= this->HorizontePredicaoMax; ++i)
             this->Ad = (this->Ad || IM.getA()^i);
 
-        for(unsigned j = 0; j <= this->HorizontePredicaoMin - 1; ++j)
+        for(unsigned j = 0; j <= this->HorizonteControle - 1; ++j)
         {
             LinAlg::Matrix<Type> Btemp = LinAlg::Zeros<Type>(j*IM.getB().getNumberOfRows(),
                                                                IM.getB().getNumberOfColumns());
 
             for(unsigned i = this->HorizontePredicaoMin - 1 + j;  i <= this->HorizontePredicaoMax - 1; ++i)
-            {
                 Btemp = (Btemp || (IM.getA()^i)*IM.getB());
-            }
-            this->B = (this->B | Btemp);
+
+            this->Bd = (this->Bd | Btemp);
         }
 
         LinAlg::Matrix<Type> zerosC = LinAlg::Zeros<Type>(IM.getC().getNumberOfRows(), IM.getC().getNumberOfColumns());

@@ -27,7 +27,14 @@ LinAlg::Matrix<Type>::Matrix (std::string Mat)
 template<typename Type>
 LinAlg::Matrix<Type>::Matrix (unsigned row, unsigned column)
 {
-    this->Init(row, column);
+    if(row == 0 || column == 0)
+    {
+        this->rows = 0; this->columns = 0;
+    }
+    else
+    {
+        this->Init(row, column);
+    }
 }
 
 template<typename Type>
@@ -621,7 +628,10 @@ std::ostream& LinAlg::operator<< (std::ostream& output, const LinAlg::Matrix<Typ
     for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
     {
         for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)
-            output << std::setw(2*coutPrecision+1) << std::setprecision(coutPrecision) << std::fixed << mat(i, j) << ' ';
+            if(mat(i, j) != 0)
+                output << std::setw(2*coutPrecision+1) << std::setprecision(coutPrecision) << std::fixed << mat(i, j) << ' ';
+            else
+                output << std::setw(2*coutPrecision+1) << std::setprecision(0) << std::fixed << mat(i, j) << ' ';
 
         output << std::endl;
     }
