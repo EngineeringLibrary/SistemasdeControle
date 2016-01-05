@@ -11,6 +11,7 @@ namespace ModelHandler {
     class PredictionModel: public ModelHandler::Model<Type>
     {
     public:
+        PredictionModel(){}
         PredictionModel(ModelHandler::IntegrativeModel<Type> MI,
                        unsigned HorizontePredicaoMin, unsigned HorizontePredicaoMax, unsigned HorizonteControle);
         PredictionModel(LinAlg::Matrix<Type> A , LinAlg::Matrix<Type> B,
@@ -18,6 +19,8 @@ namespace ModelHandler {
         PredictionModel(LinAlg::Matrix<Type> Ad, LinAlg::Matrix<Type> Bd,
                           LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D,
                           Type SampleTime);
+
+//        ModelHandler::PredictionModel<Type>& operator= (const ModelHandler::PredictionModel<Type>& otherPredictionModel) const;
 
         LinAlg::Matrix<Type> getA() const;
         LinAlg::Matrix<Type> getB() const;

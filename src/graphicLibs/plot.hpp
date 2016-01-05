@@ -1,14 +1,14 @@
 #include "SistemasdeControle/headers/graphicLibs/plot.h"
 
 template<typename Type>
-plot<Type>::plot(QMainWindow *MainWindow)
+PlotHandler::plot<Type>::plot(QMainWindow *MainWindow)
 {
     this->properties.setWindow(MainWindow);
     this->realTimePlotInit();
 }
 
 template<typename Type>
-plot<Type>::plot(unsigned ySubplot, unsigned xSubplot, QMainWindow *MainWindow)
+PlotHandler::plot<Type>::plot(unsigned ySubplot, unsigned xSubplot, QMainWindow *MainWindow)
 {
     this->properties.setWindow(MainWindow);
     this->properties.setPlotSize(this->properties.windowSizeX*(xSubplot-1),this->properties.windowSizeY*(ySubplot-1),this->properties.windowSizeX, this->properties.windowSizeY);
@@ -16,7 +16,7 @@ plot<Type>::plot(unsigned ySubplot, unsigned xSubplot, QMainWindow *MainWindow)
 }
 
 template<typename Type>
-plot<Type>::plot(unsigned ySubplot, unsigned xSubplot, plotProperties properties)
+PlotHandler::plot<Type>::plot(unsigned ySubplot, unsigned xSubplot, plotProperties properties)
 {
     this->properties = properties;
     this->properties.setPlotSize(this->properties.windowSizeX*(xSubplot-1),this->properties.windowSizeY*(ySubplot-1),this->properties.windowSizeX, this->properties.windowSizeY);
@@ -25,7 +25,7 @@ plot<Type>::plot(unsigned ySubplot, unsigned xSubplot, plotProperties properties
 }
 
 template<typename Type>
-plot<Type>::plot(LinAlg::Matrix<Type> X, QMainWindow *MainWindow)
+PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, QMainWindow *MainWindow)
 {
     LinAlg::Matrix<Type> Y = LinAlg::LineVector<Type>(0,X.getNumberOfColumns());
     this->properties.setWindow(MainWindow);
@@ -33,21 +33,21 @@ plot<Type>::plot(LinAlg::Matrix<Type> X, QMainWindow *MainWindow)
 }
 
 template<typename Type>
-plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, plotProperties properties)
+PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, plotProperties properties)
 {
     this->properties = properties;
     this->generalPlot(X,Y);
 }
 
 template<typename Type>
-plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, QMainWindow *MainWindow)
+PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, QMainWindow *MainWindow)
 {
     this->properties.setWindow(MainWindow);
     this->generalPlot(X,Y);
 }
 
 template<typename Type>
-plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, unsigned ySubplot, unsigned xSubplot, QMainWindow *MainWindow)
+PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, unsigned ySubplot, unsigned xSubplot, QMainWindow *MainWindow)
 {
     this->properties.setWindow(MainWindow);
     this->properties.setPlotSize(this->properties.windowSizeX*(xSubplot-1),this->properties.windowSizeY*(ySubplot-1),this->properties.windowSizeX, this->properties.windowSizeY);
@@ -55,7 +55,7 @@ plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, unsigned ySubpl
 }
 
 template<typename Type>
-plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, unsigned ySubplot, unsigned xSubplot, plotProperties properties)
+PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, unsigned ySubplot, unsigned xSubplot, plotProperties properties)
 {
     this->properties = properties;
     this->properties.setPlotSize(this->properties.windowSizeX*(xSubplot-1),this->properties.windowSizeY*(ySubplot-1),this->properties.windowSizeX, this->properties.windowSizeY);
@@ -63,7 +63,7 @@ plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, unsigned ySubpl
 }
 
 template <typename Type>
-void plot<Type>::generalPlot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y)
+void PlotHandler::plot<Type>::generalPlot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y)
 {
     centralWidget = new QWidget(this->properties.MainWindow);
     centralWidget->setGeometry(QRect(this->properties.windowPosX, this->properties.windowPosY, this->properties.windowSizeX, this->properties.windowSizeY));
@@ -116,7 +116,7 @@ void plot<Type>::generalPlot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y)
 }
 
 template <typename Type>
-void plot<Type>::generalPlot(LinAlg::Matrix<Type> X)
+void PlotHandler::plot<Type>::generalPlot(LinAlg::Matrix<Type> X)
 {
     centralWidget = new QWidget(this->properties.MainWindow);
     centralWidget->setGeometry(QRect(this->properties.windowPosX, this->properties.windowPosY, this->properties.windowSizeX, this->properties.windowSizeY));
@@ -167,7 +167,7 @@ void plot<Type>::generalPlot(LinAlg::Matrix<Type> X)
 }
 
 template <typename Type>
-void plot<Type>::realTimeDataUpdate(double i, double j)
+void PlotHandler::plot<Type>::realTimeDataUpdate(double i, double j)
 {
 //    double key = QDateTime::currentDateTime().toMSecsSinceEpoch()/1000.0;
     customPlot->graph(0)->addData(i, j);
@@ -179,7 +179,7 @@ void plot<Type>::realTimeDataUpdate(double i, double j)
 }
 
 template <typename Type>
-void plot<Type>::realTimePlotInit()
+void PlotHandler::plot<Type>::realTimePlotInit()
 {
     centralWidget = new QWidget(this->properties.MainWindow);
     centralWidget->setGeometry(QRect(this->properties.windowPosX, this->properties.windowPosY, this->properties.windowSizeX, this->properties.windowSizeY));
@@ -212,6 +212,3 @@ void plot<Type>::realTimePlotInit()
 
 }
 
-template class plot <int>;
-template class plot <float>;
-template class plot <double>;

@@ -10,13 +10,15 @@ namespace ModelHandler {
     class IntegrativeModel: public ModelHandler::Model<Type>
     {
     public:
-
+        IntegrativeModel(){}
         IntegrativeModel(LinAlg::Matrix<Type> A , LinAlg::Matrix<Type> B,
                           LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D);
         IntegrativeModel(LinAlg::Matrix<Type> Ad, LinAlg::Matrix<Type> Bd,
                           LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D,
                           Type SampleTime);
         IntegrativeModel(ModelHandler::StateSpace<Type> &SS);
+
+//        ModelHandler::IntegrativeModel<Type>& operator= (const ModelHandler::IntegrativeModel<Type>& otherIntegrativeModel) const;
 
         LinAlg::Matrix<Type> getA() const;
         LinAlg::Matrix<Type> getB() const;

@@ -60,6 +60,38 @@ ModelHandler::IntegrativeModel<Type>::IntegrativeModel(ModelHandler::StateSpace<
     this->SampleTime = SS.getSampleTime();
 }
 
+//template <class Type>
+//ModelHandler::IntegrativeModel<Type>& ModelHandler::IntegrativeModel<Type>::operator= (const ModelHandler::IntegrativeModel<Type>& otherIntegrativeModel) const
+//{
+//    this->A = otherIntegrativeModel.A;
+//    this->Ad = otherIntegrativeModel.Ad;
+//    this->B = otherIntegrativeModel.B;
+//    this->Bd = otherIntegrativeModel.Bd;
+//    this->C = otherIntegrativeModel.C;
+//    this->D = otherIntegrativeModel.D;
+//    this->Continuous = otherIntegrativeModel.Continuous;
+//    this->EstOutput = otherIntegrativeModel.EstOutput;
+//    this->initialState = otherIntegrativeModel.initialState;
+//    this->Input = otherIntegrativeModel.Input;
+//    this->input = otherIntegrativeModel.input;
+//    this->InputLinearVector = otherIntegrativeModel.InputLinearVector;
+//    this->LinearEqualityB = otherIntegrativeModel.LinearEqualityB;
+//    this->LinearEqualityVectorB = otherIntegrativeModel.LinearEqualityVectorB;
+//    this->LinearMatrixA = otherIntegrativeModel.LinearMatrixA;
+//    this->LinearVectorA = otherIntegrativeModel.LinearVectorA;
+//    this->lmax = otherIntegrativeModel.lmax;
+//    this->lmin = otherIntegrativeModel.lmin;
+//    this->ModelCoef = otherIntegrativeModel.ModelCoef;
+//    this->nDiscretization = otherIntegrativeModel.nDiscretization;
+//    this->Output = otherIntegrativeModel.Output;
+//    this->output = otherIntegrativeModel.output;
+//    this->OutputLinearVector = otherIntegrativeModel.OutputLinearVector;
+//    this->SampleTime = otherIntegrativeModel.SampleTime;
+//    this->step = otherIntegrativeModel.step;
+//    this->TimeSimulation = otherIntegrativeModel.TimeSimulation;
+//    this->X = otherIntegrativeModel.X;
+//}
+
 template <class Type>
 LinAlg::Matrix<Type> ModelHandler::IntegrativeModel<Type>::getA() const
 {

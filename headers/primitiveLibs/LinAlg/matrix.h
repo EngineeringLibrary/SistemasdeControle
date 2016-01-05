@@ -13,7 +13,7 @@
 using namespace Identifiers;
 
 namespace LinAlg {
-    unsigned coutPrecision = 3;
+//    unsigned coutPrecision = 3; //tá com bug na interface
     template<typename Type>
     class Matrix
     {

@@ -237,17 +237,8 @@ std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::Tran
 template<typename Type>
 std::string& ModelHandler::operator<< (std::string& output, ModelHandler::TransferFunction<Type> TF)
 {
-    if(TF.isContinuous())
-    {
-        output += "The continuous transfer function model is:\n\n";
-        output += TF.print();
-    }
-    else
-    {
-        output += "The discrete transfer function model is:\n\n";
-        output += TF.print() + "\n";
-        output += "The sample time is: " + TF.getSampleTime();
-    }
-
+    std::stringstream ss;
+    ss << TF;
+    output += ss.str();
     return output;
 }

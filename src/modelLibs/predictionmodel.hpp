@@ -52,6 +52,41 @@ ModelHandler::PredictionModel<Type>::PredictionModel(
     this->D = IM.getD();
 }
 
+//template <class Type>
+//ModelHandler::PredictionModel<Type>& ModelHandler::PredictionModel<Type>::operator= (const ModelHandler::PredictionModel<Type>& otherPredictionModel) const
+//{
+//    this->A = otherPredictionModel.A;
+//    this->Ad = otherPredictionModel.Ad;
+//    this->B = otherPredictionModel.B;
+//    this->Bd = otherPredictionModel.Bd;
+//    this->C = otherPredictionModel.C;
+//    this->D = otherPredictionModel.D;
+//    this->Continuous = otherPredictionModel.Continuous;
+//    this->EstOutput = otherPredictionModel.EstOutput;
+//    this->HorizonteControle = otherPredictionModel.HorizonteControle;
+//    this->HorizontePredicaoMax = otherPredictionModel.HorizontePredicaoMax;
+//    this->HorizontePredicaoMin = otherPredictionModel.HorizontePredicaoMin;
+//    this->initialState = otherPredictionModel.initialState;
+//    this->Input = otherPredictionModel.Input;
+//    this->input = otherPredictionModel.input;
+//    this->InputLinearVector = otherPredictionModel.InputLinearVector;
+//    this->LinearEqualityB = otherPredictionModel.LinearEqualityB;
+//    this->LinearEqualityVectorB = otherPredictionModel.LinearEqualityVectorB;
+//    this->LinearMatrixA = otherPredictionModel.LinearMatrixA;
+//    this->LinearVectorA = otherPredictionModel.LinearVectorA;
+//    this->lmax = otherPredictionModel.lmax;
+//    this->lmin = otherPredictionModel.lmin;
+//    this->ModelCoef = otherPredictionModel.ModelCoef;
+//    this->nDiscretization = otherPredictionModel.nDiscretization;
+//    this->Output = otherPredictionModel.Output;
+//    this->output = otherPredictionModel.output;
+//    this->OutputLinearVector = otherPredictionModel.OutputLinearVector;
+//    this->SampleTime = otherPredictionModel.SampleTime;
+//    this->step = otherPredictionModel.step;
+//    this->TimeSimulation = otherPredictionModel.TimeSimulation;
+//    this->X = otherPredictionModel.X;
+//}
+
 template <class Type>
 LinAlg::Matrix<Type> ModelHandler::PredictionModel<Type>::getA() const
 {
