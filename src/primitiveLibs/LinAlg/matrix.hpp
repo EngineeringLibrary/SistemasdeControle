@@ -67,7 +67,7 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
     int posComma = 0, posSemiColon = 0;
     std::string temp;
 
-    for(unsigned i = 0; i < Mat.length(); i++)
+    for(unsigned i = 0; i < Mat.length(); ++i)
     {
         if(Mat[i] == ';')
             semiColons += 1;
