@@ -9,7 +9,8 @@
 
 namespace PlotHandler {
     struct plotProperties{
-        QMainWindow *MainWindow;
+
+        QWidget *PlotFrame;
         std::string xLabel, yLabel, *variablesName, font, title;
         unsigned rows, columns, windowSizeX, windowSizeY, windowPosX, windowPosY;
         bool xLabelFlag, yLabelFlag, variablesNameFlag, fontFlag, titleFlag, windowFlag, sizeWindowwindowFlag;
@@ -78,10 +79,10 @@ namespace PlotHandler {
             this->font     = font;
             this->fontFlag = 1;
         }
-        void setWindow(QMainWindow *MainWindow)
+        void setPlotFrame(QWidget *Frame)
         {
             this->windowFlag = 1;
-            this->MainWindow = MainWindow;
+            this->PlotFrame = Frame;
         }
     };
 
@@ -89,7 +90,6 @@ namespace PlotHandler {
     class plot
     {
         QTimer          *dataTimer;
-        QWidget         *centralWidget;
         QCustomPlot     *customPlot;
         plotProperties   properties;
 
@@ -102,13 +102,13 @@ namespace PlotHandler {
 
     public:
         // COlocar os labels do plot em tempo real
-        plot(QMainWindow *MainWindow);
-        plot(unsigned ySubplot, unsigned xSubplot, QMainWindow *MainWindow);
+        plot(QWidget *PlotFrame);
+        plot(unsigned ySubplot, unsigned xSubplot, QWidget *PlotFrame);
         plot(unsigned ySubplot, unsigned xSubplot, plotProperties properties);
-        plot(LinAlg::Matrix<Type> X, QMainWindow *MainWindow); //precisa ajeitar
-        plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, QMainWindow *MainWindow);
+        plot(LinAlg::Matrix<Type> X, QWidget *PlotFrame); //precisa ajeitar
+        plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, QWidget *PlotFrame);
         plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, plotProperties properties);
-        plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, unsigned ySubplot, unsigned xSubplot, QMainWindow *MainWindow);
+        plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, unsigned ySubplot, unsigned xSubplot, QWidget *PlotFrame);
         plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, unsigned ySubplot, unsigned xSubplot, plotProperties properties);
     };
 }
