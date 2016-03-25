@@ -38,6 +38,8 @@ namespace ModelHandler {
 
         virtual std::string print()=0;
         virtual unsigned getNumberOfVariables()=0;
+        virtual unsigned getNumberOfInputs() const = 0;
+        virtual unsigned getNumberOfOutputs() const = 0;
         virtual void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output) = 0;
         virtual void setLinearModel(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)=0;
 

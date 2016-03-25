@@ -742,6 +742,18 @@ LinAlg::Matrix<Type> LinAlg::Ones(unsigned rows, unsigned columns)
 }
 
 template<typename Type>
+LinAlg::Matrix<Type> LinAlg::Random(unsigned rows, unsigned columns)
+{
+    LinAlg::Matrix<Type> mat(rows, columns);
+
+    for(unsigned i = 1; i <= rows; ++i)
+        for(unsigned j = 1; j <= columns; ++j)
+            mat(i, j) = (Type)(((double)(rand()%100))/100.0);
+
+    return mat;
+}
+
+template<typename Type>
 Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
 {
     Type determinant = 0;

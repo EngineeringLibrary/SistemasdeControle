@@ -2,6 +2,7 @@
 #define MATRIX_H
 
 #include <cmath>
+#include <time.h>
 #include <string>
 #include <iomanip>
 #include <cstdlib>
@@ -165,6 +166,9 @@ namespace LinAlg {
 
     template<typename Type>
     LinAlg::Matrix<Type> Ones (unsigned rows, unsigned columns);
+
+    template<typename Type>
+    LinAlg::Matrix<Type> Random (unsigned rows, unsigned columns);
 
     template<typename Type>
     Type Determinant (const LinAlg::Matrix<Type>& mat);

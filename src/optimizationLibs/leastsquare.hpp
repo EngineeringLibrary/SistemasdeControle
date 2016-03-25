@@ -21,5 +21,7 @@ void OptimizationHandler::LeastSquare<Type>::Optimize(LinAlg::Matrix<Type> Input
     this->model->setLinearModel(Input,Output);
     LinAlg::Matrix<Type> A = this->model->getLinearMatrixA(),
                          B = this->model->getLinearEqualityB();
+//    std::cout << LinAlg::Determinant((~A)*A);
+//    std::cout << ((~A)*B);
     this->model->setModelCoef((((~A)*A)^-1)*(~A)*B);
 }

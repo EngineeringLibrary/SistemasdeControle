@@ -11,7 +11,7 @@ namespace OptimizationHandler {
         LinAlg::Matrix<Type> P, K, E;
     public:
         RecursiveLeastSquare(ModelHandler::Model<Type> *model,
-                             Type p0 = 1e6,
+                             Type p0 = 1e12,
                              Type lambda = 1);
 
         void Iteration();
