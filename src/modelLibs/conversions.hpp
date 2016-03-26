@@ -36,7 +36,7 @@ ModelHandler::TransferFunction<Type> ModelHandler::arx2tf(const ARX<Type> &Arx, 
     unsigned ny     = Arx.getNumberOfOutputDelays();
 
     LinAlg::Matrix<Type> ArxParameters = Arx.getModelCoef();
-    ModelHandler::TransferFunction<double> TF(nyPar, nuPar);
+    ModelHandler::TransferFunction<Type> TF(nyPar, nuPar);
 
     for(unsigned i = 1; i <= nyPar; ++i)
     {
@@ -50,6 +50,69 @@ ModelHandler::TransferFunction<Type> ModelHandler::arx2tf(const ARX<Type> &Arx, 
     TF.setContinuous(false);
     TF.setSampleTime(sampleTime);
     return TF;
+}
+
+template <typename Type>
+ModelHandler::StateSpace<Type> ModelHandler::arx2SS(const ARX<Type> &Arx)
+{
+    LinAlg::Matrix<Type> Temp;
+    LinAlg::Matrix<Type> ArxParameters = Arx.getModelCoef();
+
+    double sampleTime = Arx.getSampleTime();
+    unsigned nuPar    = Arx.getNumberOfInputs();
+    unsigned nyPar    = Arx.getNumberOfOutputs();
+//    unsigned nArxPar  = Arx.getNumberOfVariables();
+    unsigned nu       = Arx.getNumberOfInputDelays();
+    unsigned ny       = Arx.getNumberOfOutputDelays();
+
+    LinAlg::Matrix<Type> A;//(nyPar*ny, nyPar*ny);
+    LinAlg::Matrix<Type> B;//(nyPar*ny, nuPar);
+    LinAlg::Matrix<Type> C(nyPar, nyPar*ny);
+    LinAlg::Matrix<Type> D(nyPar, nuPar);
+
+//    std::cout << ArxParameters;//dispensável
+
+    for(unsigned i = 1; i <= nyPar; ++i)
+    {
+        Temp = LinAlg::Zeros<Type>(nyPar*ny, 1);
+        unsigned row = 1;
+        for(unsigned j = 1; j <= nyPar; ++j)
+            for(unsigned k = 1; k <= ny; ++k){
+                Temp(row,1) = -ArxParameters((i-1)*ny + k, j);
+                ++row;
+            }
+//        std::cout << Temp;
+        A = A|Temp|(LinAlg::Zeros<Type>((i - 1)*ny, ny - 1)                        ||
+                    LinAlg::Eye<Type>(ny-1)                                        ||
+                    LinAlg::Zeros<Type>(nyPar*ny - (i - 1)*ny - (ny - 1), ny - 1));
+//        std::cout << A;
+    }
+
+    for(unsigned i = 1; i <= nuPar; ++i)
+    {
+        Temp = LinAlg::Zeros<Type>(nyPar*ny, 1);
+        unsigned row = 1;
+        for(unsigned j = 1; j <= nyPar; ++j)
+            for(unsigned k = 1; k <= nu; ++k){
+                Temp(row,1) = ArxParameters((i-1)*nu + k + nyPar*ny, j);
+                ++row;
+            }
+//        std::cout << Temp;
+        B = B|Temp;
+//        std::cout << B;
+    }
+
+    for(unsigned i = 1; i <= nyPar; ++i)
+    {
+        for(unsigned j = 1; j <= nyPar*ny; ++j)
+        {
+            if(j == (i-1)*ny + 1)
+                C(i,j) = 1;
+        }
+    }
+//    std::cout << C;
+
+    return StateSpace<Type>(A,B,C,D,sampleTime);
 }
 
 template <typename Type>

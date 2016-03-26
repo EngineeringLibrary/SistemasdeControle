@@ -26,6 +26,8 @@ namespace ModelHandler {
         LinAlg::Matrix<Type> getD() const;
 
         unsigned getNumberOfVariables(){}
+        unsigned getNumberOfInputs() const {}
+        unsigned getNumberOfOutputs() const {}
 
         void setContinuous(bool Continuous);
         void setSampleTime(double SampleTime);

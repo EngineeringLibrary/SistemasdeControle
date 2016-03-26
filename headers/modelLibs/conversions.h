@@ -113,6 +113,9 @@ namespace ModelHandler{
 
     template <typename Type>
     TransferFunction<Type> arx2tf(const ARX<Type> &Arx, double sampleTime = 0);
+    template <typename Type>
+    StateSpace<Type> arx2SS(const ARX<Type> &Arx);
+
 
     template <typename Type>
     StateSpace<Type> tf2ss(const TransferFunction<Type> &TF);

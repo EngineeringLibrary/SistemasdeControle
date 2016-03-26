@@ -50,9 +50,12 @@ LinAlg::Matrix<Type>::Matrix (const LinAlg::Matrix<Type>& otherMatrix)
 template<typename Type>
 LinAlg::Matrix<Type>::~Matrix ()
 {
-    for(unsigned i = 0; i < this->rows; i++)
-        delete this->mat[i];
-    delete [] this->mat;
+    if(columns != 0 || rows != 0)
+    {
+        for(unsigned i = 0; i < this->rows; i++)
+            delete this->mat[i];
+        delete [] this->mat;
+    }
 
     this->rows = 0;
     this->columns = 0;
@@ -786,7 +789,7 @@ Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
                         aux2++;
                     }
 
-                    if(aux2 == rows -1)
+                    if(aux2 == rows - 1)
                     {
                         aux1++;
                         aux2 = 0;
@@ -844,7 +847,7 @@ LinAlg::Matrix<Type> LinAlg::Cofactor(const LinAlg::Matrix<Type>& mat)
                     }
                 }
 
-                ret(i, j) = pow(-1, i + j)*LinAlg::Determinant(temp);
+                ret(i, j) = pow(-1, i + j)*LinAlg::Determinant<Type>(temp);
             }
     }
 

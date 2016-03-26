@@ -196,12 +196,11 @@ LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::sim(LinAlg::Matrix<Type> u)
 
     LinAlg::Matrix<Type> y;
     X = initialState;
-    for(unsigned i = 0; i < u.getNumberOfColumns(); ++i)
+    for(unsigned i = 0; i < u.getNumberOfColumns(); i++)
     {
         LinAlg::Matrix<Type> Xi1 = Ad*X+Bd*u.GetColumn(i+1);
         y = y|(C*X + D*u.GetColumn(i+1));
         X = Xi1;
-//        std::cout << X << std::endl;
     }
 
     return y;

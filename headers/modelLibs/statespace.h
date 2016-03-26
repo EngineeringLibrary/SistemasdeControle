@@ -21,7 +21,9 @@ namespace ModelHandler {
         LinAlg::Matrix<Type> getD() const; //ok
         LinAlg::Matrix<Type> getActualState() const; //ok
 
-        unsigned getNumberOfVariables(){}
+        unsigned getNumberOfVariables() {}
+        unsigned getNumberOfInputs() const {}
+        unsigned getNumberOfOutputs() const {}
 
         void setA(LinAlg::Matrix<Type> A); //ok
         void setB(LinAlg::Matrix<Type> B); //ok
