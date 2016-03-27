@@ -18,11 +18,11 @@ namespace ControlHandler{
 
     public:
         ModelPredictiveControl(){}
-        ModelPredictiveControl(ModelHandler::StateSpace<Type>       SS,
-                               ModelHandler::IntegrativeModel<Type> SSI,
-                               ModelHandler::PredictionModel <Type> SSP,
-                               LinAlg::Matrix<Type> Q, LinAlg::Matrix<Type> R,
-                               LinAlg::Matrix<Type> W);
+        ModelPredictiveControl(const ModelHandler::StateSpace<Type>       &SS,
+                               const ModelHandler::IntegrativeModel<Type> &SSI,
+                               const ModelHandler::PredictionModel <Type> &SSP,
+                               const LinAlg::Matrix<Type> &Q, const LinAlg::Matrix<Type> &R,
+                               const LinAlg::Matrix<Type> &W);
 
         void setReference(LinAlg::Matrix<Type> W);
         void setErrorWeight(LinAlg::Matrix<Type> Q);

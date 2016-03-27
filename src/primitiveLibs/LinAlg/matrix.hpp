@@ -868,7 +868,7 @@ LinAlg::Matrix<Type> LinAlg::Inverse(const LinAlg::Matrix<Type>& mat)
     else
     {
         ret = LinAlg::Cofactor(mat);
-        ret = (~ret)/LinAlg::Determinant(mat);
+        ret = (~ret)/determinant;
     }
 
     return ret;

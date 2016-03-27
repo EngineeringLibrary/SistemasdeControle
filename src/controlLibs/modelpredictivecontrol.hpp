@@ -1,7 +1,12 @@
 #include "SistemasdeControle/headers/controlLibs/modelpredictivecontrol.h"
 
 template<typename Type>
-ControlHandler::ModelPredictiveControl<Type>::ModelPredictiveControl(ModelHandler::StateSpace<Type> SS, ModelHandler::IntegrativeModel<Type> SSI, ModelHandler::PredictionModel<Type> SSP, LinAlg::Matrix<Type> Q, LinAlg::Matrix<Type> R, LinAlg::Matrix<Type> W)
+ControlHandler::ModelPredictiveControl<Type>::
+       ModelPredictiveControl(const ModelHandler::StateSpace<Type>       &SS,
+             const ModelHandler::IntegrativeModel<Type> &SSI,
+             const ModelHandler::PredictionModel <Type> &SSP,
+             const LinAlg::Matrix<Type> &Q, const LinAlg::Matrix<Type> &R,
+             const LinAlg::Matrix<Type> &W)
 {
     this->W  = W;
     this->Q = Q;
@@ -15,7 +20,7 @@ ControlHandler::ModelPredictiveControl<Type>::ModelPredictiveControl(ModelHandle
     this->SSI = SSI;
     this->SSP = SSP;
     this->K = (((~SSP.getB())*(~SSP.getC())*Q*SSP.getC()*SSP.getB()+R )^-1)*(~SSP.getB())*(~SSP.getC())*(~Q);
-    this->U  = LinAlg::Zeros<Type>(SSI.getC().getNumberOfRows(),1);
+    this->U  = LinAlg::Zeros<Type>(SSI.getB().getNumberOfColumns(),1);
 }
 
 template<typename Type>
@@ -92,8 +97,9 @@ LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControl
     LinAlg::Matrix<Type> X = ((X_input - SSd.getActualState()) || this->SSd.getC()*X_input);
     SSd.setInitialState(X_input);
 
+//    std::cout << SSP.getC()*SSP.getA()*X;
     LinAlg::Matrix<Type> du = this->K*(this->W - SSP.getC()*SSP.getA()*X);
-    this->U = this->U + du(from(1)-->du.getNumberOfColumns(),1);
+    this->U = this->U + du(from(1)-->SSd.getB().getNumberOfColumns(),1);
 
     return this->U;
 }

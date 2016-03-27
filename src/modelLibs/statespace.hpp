@@ -195,7 +195,8 @@ LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::sim(LinAlg::Matrix<Type> u)
         this->c2dConversion();
 
     LinAlg::Matrix<Type> y;
-    X = initialState;
+//    if()
+//    X = initialState;
     for(unsigned i = 0; i < u.getNumberOfColumns(); ++i)
     {
         LinAlg::Matrix<Type> Xi1 = Ad*X+Bd*u.GetColumn(i+1);
