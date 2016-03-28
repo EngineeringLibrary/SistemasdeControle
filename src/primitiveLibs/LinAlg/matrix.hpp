@@ -108,11 +108,12 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
 
             std::string temp2 = temp.substr(0, posComma);
             Type number;
+            std::stringstream ss(temp2);
 
             if(temp2 == "")
                 number = 0;
             else
-                number = (Type)atof(temp2.c_str());
+                ss >> number;
 
             this->mat[lin][col] =  number;
             temp.erase(0, posComma + 1);
