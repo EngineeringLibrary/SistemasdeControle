@@ -19,6 +19,8 @@ namespace ModelHandler {
         unsigned getNumberOfRows() const; // OK
         unsigned getNumberOfColumns() const; // OK
         unsigned getNumberOfVariables(){}
+        unsigned getNumberOfInputs() const {}
+        unsigned getNumberOfOutputs() const {}
 
         void setContinuous(const bool &continuous); //ok
         void setSampleTime(const double &sampleTime);//ok

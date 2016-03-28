@@ -28,7 +28,7 @@ ModelHandler::TransferFunction<Type> ModelHandler::ss2tfSISO(const ModelHandler:
 }
 
 template <typename Type>
-ModelHandler::TransferFunction<Type> ModelHandler::arx2tf(const ARX<Type> &Arx)
+ModelHandler::TransferFunction<Type> ModelHandler::arx2tf(const ARX<Type> &Arx, double sampleTime)
 {
     unsigned nuPar  = Arx.getNumberOfInputs();
     unsigned nyPar  = Arx.getNumberOfOutputs();
@@ -36,7 +36,7 @@ ModelHandler::TransferFunction<Type> ModelHandler::arx2tf(const ARX<Type> &Arx)
     unsigned ny     = Arx.getNumberOfOutputDelays();
 
     LinAlg::Matrix<Type> ArxParameters = Arx.getModelCoef();
-    ModelHandler::TransferFunction<double> TF(nyPar, nuPar);
+    ModelHandler::TransferFunction<Type> TF(nyPar, nuPar);
 
     for(unsigned i = 1; i <= nyPar; ++i)
     {
@@ -48,7 +48,71 @@ ModelHandler::TransferFunction<Type> ModelHandler::arx2tf(const ARX<Type> &Arx)
         }
     }
     TF.setContinuous(false);
+    TF.setSampleTime(sampleTime);
     return TF;
+}
+
+template <typename Type>
+ModelHandler::StateSpace<Type> ModelHandler::arx2SS(const ARX<Type> &Arx)
+{
+    LinAlg::Matrix<Type> Temp;
+    LinAlg::Matrix<Type> ArxParameters = Arx.getModelCoef();
+
+    double sampleTime = Arx.getSampleTime();
+    unsigned nuPar    = Arx.getNumberOfInputs();
+    unsigned nyPar    = Arx.getNumberOfOutputs();
+//    unsigned nArxPar  = Arx.getNumberOfVariables();
+    unsigned nu       = Arx.getNumberOfInputDelays();
+    unsigned ny       = Arx.getNumberOfOutputDelays();
+
+    LinAlg::Matrix<Type> A;//(nyPar*ny, nyPar*ny);
+    LinAlg::Matrix<Type> B;//(nyPar*ny, nuPar);
+    LinAlg::Matrix<Type> C(nyPar, nyPar*ny);
+    LinAlg::Matrix<Type> D(nyPar, nuPar);
+
+//    std::cout << ArxParameters;//dispensável
+
+    for(unsigned i = 1; i <= nyPar; ++i)
+    {
+        Temp = LinAlg::Zeros<Type>(nyPar*ny, 1);
+        unsigned row = 1;
+        for(unsigned j = 1; j <= nyPar; ++j)
+            for(unsigned k = 1; k <= ny; ++k){
+                Temp(row,1) = -ArxParameters((i-1)*ny + k, j);
+                ++row;
+            }
+//        std::cout << Temp;
+        A = A|Temp|(LinAlg::Zeros<Type>((i - 1)*ny, ny - 1)                        ||
+                    LinAlg::Eye<Type>(ny-1)                                        ||
+                    LinAlg::Zeros<Type>(nyPar*ny - (i - 1)*ny - (ny - 1), ny - 1));
+//        std::cout << A;
+    }
+
+    for(unsigned i = 1; i <= nuPar; ++i)
+    {
+        Temp = LinAlg::Zeros<Type>(nyPar*ny, 1);
+        unsigned row = 1;
+        for(unsigned j = 1; j <= nyPar; ++j)
+            for(unsigned k = 1; k <= nu; ++k){
+                Temp(row,1) = ArxParameters((i-1)*nu + k + nyPar*ny, j);
+                ++row;
+            }
+//        std::cout << Temp;
+        B = B|Temp;
+//        std::cout << B;
+    }
+
+    for(unsigned i = 1; i <= nyPar; ++i)
+    {
+        for(unsigned j = 1; j <= nyPar*ny; ++j)
+        {
+            if(j == (i-1)*ny + 1)
+                C(i,j) = 1;
+        }
+    }
+//    std::cout << C;
+
+    return StateSpace<Type>(A,B,C,D,sampleTime);
 }
 
 template <typename Type>
@@ -129,7 +193,7 @@ ModelHandler::StateSpace<Type> ModelHandler::tf2ssSISO(const ModelHandler::Trans
     LinAlg::Matrix<Type> A = (ZeroVector|I)||den;
     LinAlg::Matrix<Type> B = LinAlg::Zeros<Type>(A.getNumberOfRows() - 1, 1)||LinAlg::Matrix<Type>(1);
 
-    LinAlg::Matrix<Type> D(0,0);
+    LinAlg::Matrix<Type> D(1,1);
     if(TF(1,1).getNumSize() == TF(1,1).getDenSize())
         D(1,1) = TF(1,1).getNum()(1,1);
 
@@ -140,12 +204,11 @@ ModelHandler::StateSpace<Type> ModelHandler::tf2ssSISO(const ModelHandler::Trans
     for (unsigned i = 1; i <= A.getNumberOfColumns(); ++i)
         C(1,i) = C(1,i) - (TF(1,1).getDen()(1, TFdenCols + 2 - i))* D(1,1);
 
-    ModelHandler::StateSpace<Type> SS(A,B,C,D);
-    if(!SS.isContinuous())
+
+    if(!TF.isContinuous())
     {
-        SS.setContinuous(TF.isContinuous());
-        SS.setSampleTime(TF.getSampleTime());
+        return ModelHandler::StateSpace<Type>(A,B,C,D,TF.getSampleTime());
     }
 
-    return SS;
+    return ModelHandler::StateSpace<Type>(A,B,C,D);
 }

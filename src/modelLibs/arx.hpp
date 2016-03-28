@@ -54,13 +54,16 @@ void ModelHandler::ARX<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg
     this->InputLinearVector  =  Input     |this->InputLinearVector (from(1)-->this->qdtInputVar, from(1)-->this->nInputpar -1);
     this->OutputLinearVector =  PastOutput|this->OutputLinearVector(from(1)-->this->qdtOutputVar,from(1)-->this->nOutputpar-1);
 
-    LinAlg::Matrix<Type> TempLinearVector;
+    LinAlg::Matrix<Type> TempLinearVector;//, TotalLinearVector;
 
     for(unsigned i = 1; i <= PastOutput.getNumberOfRows(); ++i)
         TempLinearVector = TempLinearVector | -this->OutputLinearVector(i, from(1 + this->delay) --> this->delay + this->nOutputpar);
 
     for(unsigned i = 1; i <= Input.getNumberOfRows(); ++i)
         TempLinearVector = TempLinearVector | this->InputLinearVector(i, from(1) --> this->nInputpar);
+
+//    for(unsigned i = 1; i <= PastOutput.getNumberOfRows(); ++i)
+//        TotalLinearVector = TotalLinearVector||TempLinearVector;
 
     this->LinearVectorA = TempLinearVector;
 }
@@ -76,7 +79,7 @@ void ModelHandler::ARX<Type>::setLinearModel(LinAlg::Matrix<Type> Input,
     {
         this->setLinearVector(Input(from(1) --> this->qdtInputVar, nSample), Output(from(1) --> this->qdtOutputVar, nSample));
         this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorA;
-        this->LinearEqualityB = this->LinearEqualityB || Output(from(1) --> this->qdtOutputVar, nSample+1);
+        this->LinearEqualityB = this->LinearEqualityB || ~Output(from(1) --> this->qdtOutputVar, nSample+1);
     }
 }
 
@@ -106,11 +109,11 @@ template <class Type>
 LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input)
 {
     this->Input  = Input;
-    LinAlg::Matrix<Type> TempOutput = LinAlg::Zeros<Type>(1, this->qdtOutputVar);
+    LinAlg::Matrix<Type> TempOutput = LinAlg::Zeros<Type>(this->qdtOutputVar,1);
 
     for(unsigned i = 1; i < Input.getNumberOfColumns(); ++i){
         this->setLinearVector(Input.GetColumn(i),TempOutput);
-        TempOutput = this->LinearVectorA*this->ModelCoef;
+        TempOutput = ~(this->LinearVectorA*this->ModelCoef);
         this->Output = this->Output | TempOutput;
     }
     return this->Output;

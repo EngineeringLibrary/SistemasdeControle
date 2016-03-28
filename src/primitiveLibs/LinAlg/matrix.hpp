@@ -27,7 +27,14 @@ LinAlg::Matrix<Type>::Matrix (std::string Mat)
 template<typename Type>
 LinAlg::Matrix<Type>::Matrix (unsigned row, unsigned column)
 {
-    this->Init(row, column);
+    if(row == 0 || column == 0)
+    {
+        this->rows = 0; this->columns = 0;
+    }
+    else
+    {
+        this->Init(row, column);
+    }
 }
 
 template<typename Type>
@@ -43,9 +50,12 @@ LinAlg::Matrix<Type>::Matrix (const LinAlg::Matrix<Type>& otherMatrix)
 template<typename Type>
 LinAlg::Matrix<Type>::~Matrix ()
 {
-    for(unsigned i = 0; i < this->rows; i++)
-        delete this->mat[i];
-    delete [] this->mat;
+    if(columns != 0 || rows != 0)
+    {
+        for(unsigned i = 0; i < this->rows; i++)
+            delete this->mat[i];
+        delete [] this->mat;
+    }
 
     this->rows = 0;
     this->columns = 0;
@@ -60,7 +70,7 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
     int posComma = 0, posSemiColon = 0;
     std::string temp;
 
-    for(unsigned i = 0; i < Mat.length(); i++)
+    for(unsigned i = 0; i < Mat.length(); ++i)
     {
         if(Mat[i] == ';')
             semiColons += 1;
@@ -98,11 +108,12 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
 
             std::string temp2 = temp.substr(0, posComma);
             Type number;
+            std::stringstream ss(temp2);
 
             if(temp2 == "")
                 number = 0;
             else
-                number = (Type)atof(temp2.c_str());
+                ss >> number;
 
             this->mat[lin][col] =  number;
             temp.erase(0, posComma + 1);
@@ -621,7 +632,10 @@ std::ostream& LinAlg::operator<< (std::ostream& output, const LinAlg::Matrix<Typ
     for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
     {
         for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)
-            output << std::setw(2*coutPrecision+1) << std::setprecision(coutPrecision) << std::fixed << mat(i, j) << ' ';
+            if(mat(i, j) != 0)
+                output << std::setw(2*3+1) << std::setprecision(3) << std::fixed << mat(i, j) << ' ';
+            else
+                output << std::setw(2*3+1) << std::setprecision(0) << std::fixed << mat(i, j) << ' ';
 
         output << std::endl;
     }
@@ -732,6 +746,18 @@ LinAlg::Matrix<Type> LinAlg::Ones(unsigned rows, unsigned columns)
 }
 
 template<typename Type>
+LinAlg::Matrix<Type> LinAlg::Random(unsigned rows, unsigned columns)
+{
+    LinAlg::Matrix<Type> mat(rows, columns);
+
+    for(unsigned i = 1; i <= rows; ++i)
+        for(unsigned j = 1; j <= columns; ++j)
+            mat(i, j) = (Type)(((double)(rand()%100))/100.0);
+
+    return mat;
+}
+
+template<typename Type>
 Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
 {
     Type determinant = 0;
@@ -764,7 +790,7 @@ Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
                         aux2++;
                     }
 
-                    if(aux2 == rows -1)
+                    if(aux2 == rows - 1)
                     {
                         aux1++;
                         aux2 = 0;
@@ -822,7 +848,7 @@ LinAlg::Matrix<Type> LinAlg::Cofactor(const LinAlg::Matrix<Type>& mat)
                     }
                 }
 
-                ret(i, j) = pow(-1, i + j)*LinAlg::Determinant(temp);
+                ret(i, j) = pow(-1, i + j)*LinAlg::Determinant<Type>(temp);
             }
     }
 
@@ -843,7 +869,7 @@ LinAlg::Matrix<Type> LinAlg::Inverse(const LinAlg::Matrix<Type>& mat)
     else
     {
         ret = LinAlg::Cofactor(mat);
-        ret = (~ret)/LinAlg::Determinant(mat);
+        ret = (~ret)/determinant;
     }
 
     return ret;

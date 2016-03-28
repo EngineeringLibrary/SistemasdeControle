@@ -2,6 +2,7 @@
 #define MATRIX_H
 
 #include <cmath>
+#include <time.h>
 #include <string>
 #include <iomanip>
 #include <cstdlib>
@@ -13,7 +14,7 @@
 using namespace Identifiers;
 
 namespace LinAlg {
-    unsigned coutPrecision = 3;
+//    unsigned coutPrecision = 3; //tá com bug na interface
     template<typename Type>
     class Matrix
     {
@@ -165,6 +166,9 @@ namespace LinAlg {
 
     template<typename Type>
     LinAlg::Matrix<Type> Ones (unsigned rows, unsigned columns);
+
+    template<typename Type>
+    LinAlg::Matrix<Type> Random (unsigned rows, unsigned columns);
 
     template<typename Type>
     Type Determinant (const LinAlg::Matrix<Type>& mat);
