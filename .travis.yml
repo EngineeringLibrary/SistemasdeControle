@@ -4,3 +4,6 @@ language: cpp
 compiler:
   - clang
   - gcc
+script:
+  - cmake --build
+  - ./bin/foo
