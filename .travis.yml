@@ -4,6 +4,7 @@ language: cpp
 compiler:
   - clang
   - gcc
+install: make get-deps
+  - ./configure && make && make test
 script:
   - cmake --build
-  - ./bin/foo
