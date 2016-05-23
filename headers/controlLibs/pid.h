@@ -30,4 +30,5 @@ public:
 
 };
 
+#include <SistemasdeControle/src/controlLibs/pid.hpp>
 #endif // PID_H
