@@ -64,6 +64,34 @@ LinAlg::Matrix<Type>::~Matrix ()
 }
 
 template<typename Type>
+void LinAlg::Matrix<Type>::removeRow(unsigned row)
+{
+    if(this->rows == 1)
+    {
+        this->rows = 0;
+        this->columns = 0;
+    }
+    else
+    {
+        LinAlg::Matrix<Type> Temp;
+        for(unsigned i = 0; i < this->rows; ++i)
+                if(i != row-1)
+                    Temp = Temp||this->GetRow(i+1);
+        *this = Temp;
+    }
+}
+
+template<typename Type>
+void LinAlg::Matrix<Type>::removeColumn(unsigned column)
+{
+    LinAlg::Matrix<Type> Temp(this->rows,this->columns-1);
+    for(unsigned i = 0; i < this->columns; ++i)
+            if(i != column-1)
+                Temp = Temp|this->GetColumn(i+1);
+    *this = Temp;
+}
+
+template<typename Type>
 void LinAlg::Matrix<Type>::Init (std::string Mat)
 {
     unsigned commas = 1, semiColons = 1, row, column, lin = 0, col = 0;

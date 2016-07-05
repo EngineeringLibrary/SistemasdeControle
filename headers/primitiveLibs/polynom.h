@@ -2,6 +2,7 @@
 #define __POLYNOM_H_INCLUDED
 
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
 #include <complex>
 
 namespace PolynomHandler {
@@ -10,10 +11,10 @@ namespace PolynomHandler {
     {
         public:
 
-            Polynom(Type Num);//testada
-            Polynom(LinAlg::Matrix<Type> Num); //testada
+            Polynom(const Type &Num);//testada
+            Polynom(const LinAlg::Matrix<Type> &Num); //testada
             Polynom(const PolynomHandler::Polynom<Type> &CopyPolynom); //testada
-            Polynom(LinAlg::Matrix<Type> Num, LinAlg::Matrix<Type> Den);//testada
+            Polynom(const LinAlg::Matrix<Type> &Num, const LinAlg::Matrix<Type> &Den);//testada
             Polynom(): x('x'), num(NULL), den(NULL), sizeNum(0), sizeDen(0){} //testada
             virtual ~Polynom(); //testada
 
@@ -23,14 +24,14 @@ namespace PolynomHandler {
             unsigned             getNumSize() const; // testada
             unsigned             getDenSize() const; // testada
 
-            LinAlg::Matrix<Type> getNum(); //testada
-            LinAlg::Matrix<Type> getDen(); //testada
+            LinAlg::Matrix<Type> getNum() const; //testada
+            LinAlg::Matrix<Type> getDen() const; //testada
 
-            void setNum(Type *Num, unsigned sizenum);//testada
-            void setNum(LinAlg::Matrix<Type> Num); // testada
+            void setNum(const Type *Num, const unsigned sizenum);//testada
+            void setNum(const LinAlg::Matrix<Type> &Num); // testada
 
-            void setDen(Type *Den, unsigned sizeden); //testada
-            void setDen(LinAlg::Matrix<Type> Den); // testada
+            void setDen(const Type *Den, const unsigned sizeden); //testada
+            void setDen(const LinAlg::Matrix<Type> &Den); // testada
 
 
             PolynomHandler::Polynom<Type>& operator=  (const PolynomHandler::Polynom<Type>& OtherPolynom);//testada
@@ -60,12 +61,8 @@ namespace PolynomHandler {
             Type *num, *den;
             unsigned sizeNum, sizeDen;
 
-            void init(Type Num); //ok
-            void init(LinAlg::Matrix<Type> Num);
-            void init(unsigned NumSize, unsigned DenSize);
-            void init(LinAlg::Matrix<Type> Num, LinAlg::Matrix<Type> Den);
-
             bool isZero();
+            void init(const LinAlg::Matrix<Type> &Num, const LinAlg::Matrix<Type> &Den);
     };
 
     template<typename PolynomType, typename ScalarType>
@@ -112,9 +109,6 @@ namespace PolynomHandler {
 //    template <class Type>
 //    bool isDivisible(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
 
-    template<typename Type> // testada
-    Type* initPointer(const unsigned &Size);
-
     template<typename Type> // testado
     Type *SumPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
 
@@ -126,10 +120,10 @@ namespace PolynomHandler {
 
 
     template <typename Type>
-    Polynom<Type> simplify(const Type *num,const Type *den,const unsigned &numSize,const unsigned &denSize);//sincronizado
+    Polynom<Type> simplify(const PolynomHandler::Polynom<Type> &P);//sincronizado
 
     template <typename Type>
-    LinAlg::Matrix<Type> Roots(const Type *num,const unsigned &numSize);//sincronizado
+    LinAlg::Matrix<Type> Roots(const LinAlg::Matrix<Type> &smallPoly);//sincronizado
 
     template <typename Type>
     LinAlg::Matrix<Type> Root2Poly(const LinAlg::Matrix<Type> &root);

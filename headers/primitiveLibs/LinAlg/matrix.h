@@ -27,6 +27,9 @@ namespace LinAlg {
             Matrix (const LinAlg::Matrix<Type>& otherMatrix);
             virtual ~Matrix ();
 
+            void removeRow(unsigned row);
+            void removeColumn(unsigned column);
+
             unsigned getNumberOfRows () const;
             unsigned getNumberOfColumns () const;
 
