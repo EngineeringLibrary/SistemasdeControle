@@ -16,7 +16,7 @@ namespace PolynomHandler {
             Polynom(const PolynomHandler::Polynom<Type> &CopyPolynom); //testada
             Polynom(const LinAlg::Matrix<Type> &Num, const LinAlg::Matrix<Type> &Den);//testada
             Polynom(): x('x'), num(NULL), den(NULL), sizeNum(0), sizeDen(0){} //testada
-            virtual ~Polynom(); //testada
+            ~Polynom(); //testada
 
             char                 getVar() const; // testada
             void                 changeVar(char var); //testada

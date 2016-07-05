@@ -53,8 +53,8 @@ LinAlg::Matrix<Type>::~Matrix ()
     if(columns != 0 || rows != 0)
     {
         for(unsigned i = 0; i < this->rows; i++)
-            delete this->mat[i];
-        delete [] this->mat;
+            delete[] this->mat[i];
+        delete this->mat;
     }
 
     this->rows = 0;
@@ -166,11 +166,11 @@ void LinAlg::Matrix<Type>::Init (unsigned row, unsigned column)
     this->rows = row;
     this->columns = column;
 
-    this->mat = new Type*[row];
+    this->mat = new Type*[row]();
     for(unsigned i = 0; i < row; i++)
-        this->mat[i] = new Type[column];
+        this->mat[i] = new Type[column]();
 
-    LinAlg::Zeros(*this);
+//    LinAlg::Zeros(*this);
 }
 
 template<typename Type>
@@ -454,7 +454,8 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator= (const LinAlg::Matrix<Type
 template<typename Type> template<typename OtherMatrixType>
 LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator= (const LinAlg::Matrix<OtherMatrixType>& rhs)
 {
-    swap(rhs);
+    if(rhs.rows !=0 || rhs.columns !=0)
+        swap(rhs);
 
     return *this;
 }
@@ -717,7 +718,8 @@ void LinAlg::Zeros(Matrix<Type>& Mat)
 {
     for(unsigned i = 1; i <= Mat.getNumberOfRows(); i++)
         for(unsigned j = 1; j <= Mat.getNumberOfColumns(); j++)
-            Mat(i, j) = 0;
+            if(typeid(Mat(i, j)) == typeid(double) || typeid(Mat(i, j)) == typeid(unsigned) || typeid(Mat(i, j)) == typeid(float) || typeid(Mat(i, j)) == typeid(int))
+                Mat(i, j) = 0;
 }
 
 template<typename Type>

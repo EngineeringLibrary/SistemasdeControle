@@ -9,7 +9,7 @@ namespace ModelHandler {
     {
     public:
         TransferFunction(unsigned rows, unsigned cols); // ok
-        TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO); // OK
+        TransferFunction(PolynomHandler::Polynom<Type> TFSISO); // OK
         TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF); // OK
         TransferFunction(): var('s'), Continuous(1), sampleTime(0.1), timeSimulation(10) {} // ok
 //        virtual ~TransferFunction(); // ok

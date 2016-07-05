@@ -539,16 +539,21 @@ LinAlg::Matrix<Type> PolynomHandler::Roots(const LinAlg::Matrix<Type> &smallPoly
     //const Type *num;
     if(smallPoly.getNumberOfColumns() == 0)
         return 1;
-    unsigned numSize = smallPoly.getNumberOfColumns();
-    LinAlg::Matrix<Type> poly_Monic(1,numSize-1);
-    for(unsigned j = 2; j <= numSize; ++j)
+    else if(smallPoly.getNumberOfColumns() == 2)
+        return -smallPoly(1,2)/smallPoly(1,1);
+    else
     {
-        poly_Monic(1,j-1) = -smallPoly(1,j)/smallPoly(1,1);
+        unsigned numSize = smallPoly.getNumberOfColumns();
+        LinAlg::Matrix<Type> poly_Monic(1,numSize-1);
+        for(unsigned j = 2; j <= numSize; ++j)
+        {
+            poly_Monic(1,j-1) = -smallPoly(1,j)/smallPoly(1,1);
+        }
+
+        LinAlg::Matrix<Type>root = poly_Monic||(LinAlg::Eye<Type> (numSize-2) | LinAlg::Zeros<Type> (numSize-2,1));
+
+        return LinAlg::EigenValues(root);
     }
-
-    LinAlg::Matrix<Type>root = poly_Monic||(LinAlg::Eye<Type> (numSize-2) | LinAlg::Zeros<Type> (numSize-2,1));
-
-    return LinAlg::EigenValues(root);
 }
 
 template <typename Type>

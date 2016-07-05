@@ -14,7 +14,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned c
 }
 
 template <typename Type>
-ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO)
+ModelHandler::TransferFunction<Type>::TransferFunction(PolynomHandler::Polynom<Type> TFSISO)
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
 

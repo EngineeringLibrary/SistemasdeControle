@@ -1,4 +1,4 @@
-#include "SistemasdeControle/headers/optimizationLibs/pid.h"
+#include "SistemasdeControle/headers/controlLibs/pid.h"
 
 template<typename UsedType>
 PID<UsedType>::PID()

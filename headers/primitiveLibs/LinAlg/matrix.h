@@ -8,6 +8,8 @@
 #include <cstdlib>
 #include <sstream>
 #include <iostream> 
+#include <typeinfo>
+#include <algorithm>
 
 #include "identifiers.h"
 
