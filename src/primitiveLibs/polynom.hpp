@@ -3,7 +3,7 @@
 template <typename Type> // testada
 PolynomHandler::Polynom<Type>::Polynom(Type Num)
 {
-    init(Num,1);
+    init(LinAlg::Matrix<Type>(Num),LinAlg::Matrix<Type>(1.0));
 }
 
 template <typename Type> //testada
@@ -15,8 +15,8 @@ PolynomHandler::Polynom<Type>::Polynom(LinAlg::Matrix<Type> Num)
 template <typename Type> //testada
 PolynomHandler::Polynom<Type>::Polynom(const PolynomHandler::Polynom<Type> &CopyPolynom)
 {
-    this->num = PolynomHandler::initPointer<Type>(CopyPolynom.sizeNum);
-    this->den = PolynomHandler::initPointer<Type>(CopyPolynom.sizeDen);
+    this->num = new Type[CopyPolynom.sizeNum];
+    this->den = new Type[CopyPolynom.sizeDen];
     this->sizeNum = CopyPolynom.sizeNum;
     this->sizeDen = CopyPolynom.sizeDen;
     this->x = CopyPolynom.x;
@@ -38,10 +38,10 @@ template <typename Type> // testada
 PolynomHandler::Polynom<Type>::~Polynom()
 {
     if(this->sizeNum != 0)
-        free (this->num);
+        delete this->num;
 
     if(this->sizeDen != 0)
-        free (this->den);
+        delete this->den;
 
     this->num = NULL;
     this->den = NULL;
@@ -99,7 +99,7 @@ LinAlg::Matrix<Type> PolynomHandler::Polynom<Type>::getDen()
 template <typename Type> // testada
 void PolynomHandler::Polynom<Type>::setNum(Type *Num, unsigned sizenum)
 {
-    this->num = initPointer<Type>(sizenum);
+    this->num = new Type[sizenum];
     this->sizeNum = sizenum;
 
     for (unsigned i = 0; i < sizenum; ++i)
@@ -109,7 +109,7 @@ void PolynomHandler::Polynom<Type>::setNum(Type *Num, unsigned sizenum)
 template <typename Type> //testada
 void PolynomHandler::Polynom<Type>::setNum(LinAlg::Matrix<Type> Num)
 {
-    this->num = initPointer<Type>(Num.getNumberOfColumns());
+    this->num = new Type[Num.getNumberOfColumns()];
     this->sizeNum = Num.getNumberOfColumns();
 
     for (unsigned i = 0; i < Num.getNumberOfColumns(); ++i)
@@ -119,7 +119,7 @@ void PolynomHandler::Polynom<Type>::setNum(LinAlg::Matrix<Type> Num)
 template <typename Type> //testada
 void PolynomHandler::Polynom<Type>::setDen(Type *Den, unsigned sizeden)
 {
-    this->den = initPointer<Type>(sizeden);
+    this->den = new Type[sizeden];
     this->sizeDen = sizeden;
 
     for (unsigned i = 0; i < sizeden; ++i)
@@ -129,7 +129,7 @@ void PolynomHandler::Polynom<Type>::setDen(Type *Den, unsigned sizeden)
 template <typename Type> // testada
 void PolynomHandler::Polynom<Type>::setDen(LinAlg::Matrix<Type> Den)
 {
-    this->den = initPointer<Type>(Den.getNumberOfColumns());
+    this->den = new Type[Den.getNumberOfColumns()];
     this->sizeDen = Den.getNumberOfColumns();
 
     for (unsigned i = 0; i < Den.getNumberOfColumns(); ++i)
@@ -174,7 +174,7 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
 
     if(isZero())
     {
-        free(this->den);
+        delete(this->den);
         this->den = NULL;
         this->sizeDen = 0;
     }
@@ -215,7 +215,7 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
    *this = ret;
    if(isZero())
    {
-       free(this->den);
+       delete(this->den);
        this->den = NULL;
        this->sizeDen = 0;
    }
@@ -230,7 +230,7 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator-= (const 
     *this *= -1;
     if(isZero())
     {
-        free(this->den);
+        delete(this->den);
         this->den = NULL;
         this->sizeDen = 0;
     }
@@ -245,7 +245,7 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator-= (const 
     *this *= -1;
     if(isZero())
     {
-        free(this->den);
+        delete(this->den);
         this->den = NULL;
         this->sizeDen = 0;
     }
@@ -311,9 +311,9 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator^= (const 
     }
     else
     {
-        ret.num = initPointer<Type>(1);
+        ret.num = new Type[1];
         ret.num[0] = 1;
-        ret.den = initPointer<Type>(1);
+        ret.den = new Type[1];
         ret.den[0] = 1;
         ret.sizeNum = 1;
         ret.sizeDen = 1;
@@ -324,55 +324,19 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator^= (const 
 }
 
 template <typename Type>
-void PolynomHandler::Polynom<Type>::init(Type Num)
-{
-    this->num = initPointer<Type>(1);
-    this->den = initPointer<Type>(0);
-    this->sizeNum = 1;
-    this->sizeDen = 1;
-    this->num[0] = Num;
-    this->den[0] = 1;
-    this->x = 'x';
-}
-
-template <typename Type>
-void PolynomHandler::Polynom<Type>::init(unsigned NumSize, unsigned DenSize)
-{
-    this->num = initPointer<Type>(NumSize);
-    this->den = initPointer<Type>(DenSize);
-    this->sizeNum = NumSize;
-    this->sizeDen = DenSize;
-    this->x = 'x';
-}
-
-template <typename Type>
-void PolynomHandler::Polynom<Type>::init(LinAlg::Matrix<Type> Num)
-{
-    this->sizeNum = Num.getNumberOfColumns();
-    this->num = initPointer(Num.getNumberOfColumns());
-    for (unsigned i = 0; i < Num.getNumberOfColumns(); ++i)
-        this->num[i] = (Type) Num(1, i+1);
-
-    this->sizeDen = 1;
-    this->den = initPointer<Type>(1);
-    this->den[0] = 1;
-    this->x = 'x';
-
-}
-
-template <typename Type>
 void PolynomHandler::Polynom<Type>::init(LinAlg::Matrix<Type> Num, LinAlg::Matrix<Type> Den)
-
 {
     using namespace std;
 
     this->sizeNum = Num.getNumberOfColumns();
-    this->num = initPointer<Type>(Num.getNumberOfColumns());
+    //this->num = initPointer<Type>(Num.getNumberOfColumns());
+    this->num = new Type[Num.getNumberOfColumns()];
     for (unsigned i = 0; i < Num.getNumberOfColumns(); ++i)
         this->num[i] = (Type) Num(1, i+1);
 
     this->sizeDen = Den.getNumberOfColumns();
-    this->den = initPointer<Type>(Den.getNumberOfColumns());
+    //this->den = initPointer<Type>(Den.getNumberOfColumns());
+    this->den = new Type[Den.getNumberOfColumns()];
     for (unsigned i = 0; i < Den.getNumberOfColumns(); ++i)
         this->den[i] = (Type) Den(1 , i+1);
     this->x = 'x';
