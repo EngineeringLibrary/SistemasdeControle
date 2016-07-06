@@ -7,14 +7,26 @@ ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned c
 {
     this->var            = 's';
     this->sampleTime     = 0.1;
-    this->Continuous   = 1;
+    this->Continuous     = 1;
     this->timeSimulation = 10;
 
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(rows, cols);
 }
 
 template <typename Type>
-ModelHandler::TransferFunction<Type>::TransferFunction(PolynomHandler::Polynom<Type> TFSISO)
+ModelHandler::TransferFunction<Type>::TransferFunction(const LinAlg::Matrix<Type> &numPol, const LinAlg::Matrix<Type> &denPol)
+{
+    this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
+
+    this->TF(1,1)        = PolynomHandler::Polynom<Type>(numPol,denPol);
+    this->var            = 's';
+    this->Continuous     = 1;
+    this->sampleTime     = 0.1;
+    this->timeSimulation = 10;
+}
+
+template <typename Type>
+ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO)
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
 
@@ -29,6 +41,10 @@ template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF)
 {
     this->TF = TF;
+    this->var            = 's';
+    this->sampleTime     = 0.1;
+    this->Continuous   = 1;
+    this->timeSimulation = 10;
 }
 
 template <typename Type>

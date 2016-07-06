@@ -19,6 +19,11 @@ namespace LinAlg {
     LinAlg::Matrix<Type> CaracteristicPolynom (const LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
+    void QR_Factorization_ModifiedGramSchmidt (LinAlg::Matrix<Type> input_matrix,
+                           LinAlg::Matrix<Type>& output_Q_matrix,
+                           LinAlg::Matrix<Type>& output_R_matrix);
+
+    template<typename Type>
     void QR_Factorization (const LinAlg::Matrix<Type>& input_matrix,
                            LinAlg::Matrix<Type>& output_Q_matrix,
                            LinAlg::Matrix<Type>& output_R_matrix);
@@ -37,8 +42,13 @@ namespace LinAlg {
     LinAlg::Matrix<Type> Hess (const LinAlg::Matrix<Type>& matrix_to_reduce);
 
     template <typename Type>
-    LinAlg::Matrix<Type> EigenValues(const LinAlg::Matrix<Type>& matrix_to_get_eigenvalues, unsigned iterations = 100);
-    
+    LinAlg::Matrix<Type> EigenValues(const LinAlg::Matrix<Type>& matrix_to_get_eigenvalues, unsigned iterations = 10000);
+    template <typename Type>
+    LinAlg::Matrix<Type> EigenValues_LU(const LinAlg::Matrix<Type>& matrix_to_get_eigenvalues, unsigned iterations = 100);
+
+    template <typename Type>
+    void LU_Factorization(LinAlg::Matrix<Type> &L_input_matrix, LinAlg::Matrix<Type> &U);
+
     template <typename Type>
     Type *MultPoly(const Type *lhs, const Type  *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
 

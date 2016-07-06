@@ -9,9 +9,10 @@ namespace ModelHandler {
     {
     public:
         TransferFunction(unsigned rows, unsigned cols); // ok
-        TransferFunction(PolynomHandler::Polynom<Type> TFSISO); // OK
+        TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO); // OK
         TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF); // OK
         TransferFunction(): var('s'), Continuous(1), sampleTime(0.1), timeSimulation(10) {} // ok
+        TransferFunction(const LinAlg::Matrix<Type> &numPol, const LinAlg::Matrix<Type> &denPol); // OK
 //        virtual ~TransferFunction(); // ok
 
         bool isContinuous() const;
@@ -40,6 +41,22 @@ namespace ModelHandler {
         template<typename OtherTransferFunctionType> // não funciona
         TransferFunction<Type>& operator= (const TransferFunction<OtherTransferFunctionType>& otherTransferFunction);
 
+        TransferFunction<Type> operator+= (const Type& rhs /*scalar*/){ return TransferFunction<Type>(this->TF += rhs);} //testada
+        template<typename RightType> //testada
+        TransferFunction<Type> operator+= (const TransferFunction<RightType>& rhs){return TransferFunction<Type>(this->TF += rhs.TF);}
+
+        TransferFunction<Type> operator-= (const Type& rhs /*scalar*/){return TransferFunction<Type>(this->TF -= rhs);} // testada
+        template<typename RightType>
+        TransferFunction<Type> operator-= (const TransferFunction<RightType>& rhs){return TransferFunction<Type>(this->TF -= rhs.TF);}
+
+        TransferFunction<Type> operator*= (const Type& rhs /*scalar*/){return TransferFunction<Type>(this->TF *= rhs);} // testada
+        template<typename RightType>
+        TransferFunction<Type> operator*= (const TransferFunction<RightType>& rhs){return TransferFunction<Type>(this->TF *= rhs.TF);}
+
+        TransferFunction<Type> operator/= (const Type& rhs /*scalar*/){return TransferFunction<Type>(this->TF /= rhs);}
+        template<typename RightType>
+        TransferFunction<Type> operator/= (const TransferFunction<RightType>& rhs){return TransferFunction<Type>(this->TF /= rhs.TF);}
+
 
         Type sim(Type input);
         Type sim(Type x, Type y);
@@ -59,11 +76,38 @@ namespace ModelHandler {
         LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF;
     };
 
+    template<typename PolynomType, typename ScalarType>
+    TransferFunction<PolynomType> operator+ (TransferFunction<PolynomType> lhs, const ScalarType& rhs) {return lhs += rhs;}
+    template<typename PolynomType, typename ScalarType>
+    TransferFunction<PolynomType> operator+ (const ScalarType& lhs, TransferFunction<PolynomType> rhs) {return rhs += lhs;}
+    template<typename LeftType, typename RightType>
+    TransferFunction<LeftType> operator+ (TransferFunction<LeftType> lhs, const TransferFunction<RightType>& rhs) {return lhs += rhs;}
+
+    template<typename PolynomType, typename ScalarType>
+    TransferFunction<PolynomType> operator- (TransferFunction<PolynomType> lhs, const ScalarType& rhs) {return lhs -= rhs;}
+    template<typename PolynomType, typename ScalarType>
+    TransferFunction<PolynomType> operator- (const ScalarType& lhs, TransferFunction<PolynomType> rhs) {return -1*(rhs -= lhs);}
+    template<typename LeftType, typename RightType>
+    TransferFunction<LeftType> operator- (TransferFunction<LeftType> lhs, const TransferFunction<RightType>& rhs) {return lhs -= rhs;}
+
+    template<typename PolynomType, typename ScalarType>
+    TransferFunction<PolynomType>  operator* (TransferFunction<PolynomType>  lhs, const ScalarType& rhs) {return lhs *= rhs;}
+    template<typename PolynomType, typename ScalarType>
+    TransferFunction<PolynomType>  operator* (const ScalarType& lhs, TransferFunction<PolynomType>  rhs) {return rhs *= lhs;}
+    template<typename LeftType, typename RightType>
+    TransferFunction<LeftType> operator* (TransferFunction<LeftType> lhs, const TransferFunction<RightType>& rhs) {return lhs *= rhs;}
+
+    template<typename PolynomType, typename ScalarType>
+    TransferFunction<PolynomType> operator/ (TransferFunction<PolynomType> lhs, const ScalarType& rhs) {return lhs /= rhs;}
+//    template<typename PolynomType, typename ScalarType>
+//    TransferFunction<PolynomType> operator/ (ScalarType rhs, TransferFunction<PolynomType> lhs) {return rhs /= lhs;}
+//    template<typename LeftType, typename RightType>
+//    TransferFunction<LeftType> operator/ (TransferFunction<LeftType> lhs, const TransferFunction<RightType>& rhs) {return lhs /= rhs;}
+
     template<typename Type> // ok
     std::ostream& operator<< (std::ostream& output, ModelHandler::TransferFunction<Type> TF);
     template<typename Type> //ok
     std::string&  operator<< (std::string& output,  ModelHandler::TransferFunction<Type> TF);
-
 }
 
 #include "SistemasdeControle/src/modelLibs/transferfunction.hpp"

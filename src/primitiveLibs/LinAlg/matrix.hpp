@@ -84,11 +84,19 @@ void LinAlg::Matrix<Type>::removeRow(unsigned row)
 template<typename Type>
 void LinAlg::Matrix<Type>::removeColumn(unsigned column)
 {
-    LinAlg::Matrix<Type> Temp(this->rows,this->columns-1);
-    for(unsigned i = 0; i < this->columns; ++i)
-            if(i != column-1)
-                Temp = Temp|this->GetColumn(i+1);
-    *this = Temp;
+    if(this->columns == 1)
+    {
+        this->rows = 0;
+        this->columns = 0;
+    }
+    else
+    {
+        LinAlg::Matrix<Type> Temp;
+        for(unsigned i = 0; i < this->columns; ++i)
+                if(i != column-1)
+                   Temp = Temp|this->GetColumn(i+1);
+        *this = Temp;
+    }
 }
 
 template<typename Type>
@@ -486,7 +494,7 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator+= (const LinAlg::Matrix<Rig
 template<typename Type>
 LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator-= (const Type& rhs /*scalar*/)
 {
-    return *this += -rhs;
+    return *this += -1*rhs;
 }
 
 
@@ -512,8 +520,14 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator*= (const LinAlg::Matrix<Rig
 
     if ((this->rows == 1) && (this->columns == 1))
     {
-        *this = this->mat[0][0] * rhs;
+        LinAlg::Matrix<RightType> Temp = rhs;
+        for(unsigned i = 1; i <= rhs.getNumberOfRows(); ++i)
+            for(unsigned j = 1; j <= rhs.getNumberOfColumns(); ++j)
+                Temp(i,j) = rhs(i,j) * this->mat[0][0];
+        *this = Temp;
+//        std::cout << ' ';
     }
+
     else if(CheckDimensions(rhs, 1))
     {
         Type temp;
@@ -658,6 +672,10 @@ LinAlg::Matrix<Type> LinAlg::operator~ (LinAlg::Matrix<Type> mat)
 template<typename Type>
 std::ostream& LinAlg::operator<< (std::ostream& output, const LinAlg::Matrix<Type> mat)
 {
+    if(mat.getNumberOfColumns() == 0){
+        return output;
+    }
+
     for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
     {
         for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)

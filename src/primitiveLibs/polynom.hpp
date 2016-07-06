@@ -172,12 +172,13 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
     }
     this->sizeNum = max;
 
-    if(isZero())
-    {
-        delete(this->den);
-        this->den = NULL;
-        this->sizeDen = 0;
-    }
+//    if(isZero())
+//    {
+//        delete(this->den);
+//        this->den = NULL;
+//        this->sizeDen = 0;
+//    }
+    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -215,12 +216,13 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
    }
 
    *this = ret;
-   if(isZero())
-   {
-       delete(this->den);
-       this->den = NULL;
-       this->sizeDen = 0;
-   }
+//   if(isZero())
+//   {
+//       delete(this->den);
+//       this->den = NULL;
+//       this->sizeDen = 0;
+//   }
+   *this = PolynomHandler::simplify(*this);
    return *this;
 }
 
@@ -230,12 +232,13 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator-= (const 
     *this *= -1;
     *this += rhs;
     *this *= -1;
-    if(isZero())
-    {
-        delete(this->den);
-        this->den = NULL;
-        this->sizeDen = 0;
-    }
+//    if(isZero())
+//    {
+//        delete(this->den);
+//        this->den = NULL;
+//        this->sizeDen = 0;
+//    }
+    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -243,14 +246,18 @@ template <typename Type> template<typename RightType>
 PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator-= (const PolynomHandler::Polynom<RightType>& rhs)
 {
     *this *= -1;
+//    std::cout << (*this);
     *this += rhs;
+//    std::cout << (*this);
     *this *= -1;
-    if(isZero())
-    {
-        delete(this->den);
-        this->den = NULL;
-        this->sizeDen = 0;
-    }
+//    std::cout << (*this);
+//    if(isZero())
+//    {
+//        delete(this->den);
+//        this->den = NULL;
+//        this->sizeDen = 0;
+//    }
+    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -260,6 +267,7 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator*= (const 
     for (unsigned i = 0; i < this->sizeNum; ++i)
         this->num[i] = rhs*this->num[i];
 
+    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -270,6 +278,7 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator*= (const 
     this->den = MultPoly(this->den, rhs.den, this->sizeDen, rhs.sizeDen);
     this->sizeNum = this->sizeNum + rhs.sizeNum - 1;
     this->sizeDen = this->sizeDen + rhs.sizeDen - 1;
+    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -277,6 +286,7 @@ template <typename Type>
 PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator/= (const Type& rhs /*scalar*/)
 {
     *this *= (1/rhs);
+    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -288,6 +298,7 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator/= (const 
     ret.setDen(rhs.num, rhs.sizeNum);
     ret.setNum(rhs.den, rhs.sizeDen);
     *this *= ret;
+    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -323,7 +334,7 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator^= (const 
         ret.sizeDen = 1;
     }
     *this = ret;
-
+    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -348,10 +359,13 @@ void PolynomHandler::Polynom<Type>::init(const LinAlg::Matrix<Type> &Num, const 
 template <typename Type>
 bool PolynomHandler::Polynom<Type>::isZero()
 {
+    unsigned counter = 0;
     for(unsigned i = 0; i < this->sizeNum; ++i)
         if(this->num[i] != 0)
-            return 0;
+            counter++;
 
+    if(counter == this->sizeNum)
+        return 0;
     return 1;
 }
 
@@ -414,9 +428,9 @@ std::string PolynomHandler::printSmallPolynom(const LinAlg::Matrix<Type> &rhs, c
         }
 
         if(((rhs(1,i) != 1) && (rhs(1,i) > 0)) || ((i == Size) && (rhs(1,i) > 0)))
-            ret << rhs(1,i);
+            ret << std::setw(2*3+1) << std::setprecision(3) << std::fixed << rhs(1,i);
         else if((rhs(1,i) != -1 && rhs(1,i) < 0)|| ((i == Size) && (rhs(1,i) < 0)))
-            ret << -rhs(1,i);
+            ret << std::setw(2*3+1) << std::setprecision(3) << std::fixed << -rhs(1,i);
 
         if(Size-i > 0 && rhs(1,i) != 0)
         {
@@ -517,32 +531,84 @@ PolynomHandler::Polynom<Type> PolynomHandler::simplify(const PolynomHandler::Pol
     LinAlg::Matrix<Type> den = P.getDen();
 
     LinAlg::Matrix<Type> numRoots = Roots<Type>(num);
+//    std::cout << num << numRoots;
     LinAlg::Matrix<Type> denRoots = Roots<Type>(den);
-
+//    std::cout << den << denRoots;
     unsigned counter = 0;
-    for(unsigned i = 1; i <= numRoots.getNumberOfRows(); ++i)
+    for(unsigned i = 1; i <= numRoots.getNumberOfRows(); ++i){
         for(unsigned j = 1; j <= denRoots.getNumberOfRows(); ++j)
-            if(fabs(denRoots(j,1) - numRoots(i-counter,1)) < 0.001 && fabs(denRoots(j,2) - numRoots(i-counter,2)) < 0.001)
+            if(fabs(denRoots(j,1) - numRoots(i-counter,1)) < 0.05 && fabs(denRoots(j,2) - numRoots(i-counter,2)) < 0.05)
             {
                 numRoots.removeRow(i - counter);
                 denRoots.removeRow(j);
                 ++counter;
                 break;
             }
+        if(i == numRoots.getNumberOfRows() && counter == 0)
+            return Polynom<Type>(num,den);
 
-    return Polynom<Type>(Root2Poly(numRoots),Root2Poly(denRoots));
+    }
+
+    LinAlg::Matrix<Type> numPol = Root2Poly(numRoots);
+    if(numPol.getNumberOfColumns() == 0)
+        numPol = LinAlg::Matrix<Type>(num(1,1));
+    else
+        numPol *= num(1,1);
+    LinAlg::Matrix<Type> denPol = Root2Poly(denRoots);
+//    std::cout << denRoots;
+    if(denPol.getNumberOfColumns() == 0)
+        denPol = LinAlg::Matrix<Type>(den(1,1));
+    else
+        denPol *= den(1,1);
+    return Polynom<Type>(numPol,denPol);
 }
 
 template<class Type>
-LinAlg::Matrix<Type> PolynomHandler::Roots(const LinAlg::Matrix<Type> &smallPoly)
-{
+LinAlg::Matrix<Type> PolynomHandler::Roots(LinAlg::Matrix<Type> smallPoly)
+{   
+    unsigned zeroRoots;
+    for(zeroRoots = 0; zeroRoots < smallPoly.getNumberOfColumns(); ++zeroRoots){
+        if(smallPoly(1,smallPoly.getNumberOfColumns() - zeroRoots) == 0){
+            smallPoly.removeColumn(smallPoly.getNumberOfColumns() - zeroRoots);
+        }
+        else
+            break;
+    }
+    for(unsigned i = 1; i < smallPoly.getNumberOfColumns(); ++i){
+        if(smallPoly(1,i) == 0)
+            smallPoly.removeColumn(1);
+        else
+            break;
+    }
+
     //const Type *num;
-    if(smallPoly.getNumberOfColumns() == 0)
-        return 1;
-    else if(smallPoly.getNumberOfColumns() == 2)
-        return -smallPoly(1,2)/smallPoly(1,1);
+    if(smallPoly.getNumberOfColumns() <= 1)
+        return LinAlg::Matrix<Type>();
+    else if(smallPoly.getNumberOfColumns() == 2){
+        LinAlg::Matrix<Type> root(1,2);
+        root(1,1) = -smallPoly(1,2)/smallPoly(1,1);
+        return root;
+    }
+    else if(smallPoly.getNumberOfColumns() == 3){
+        LinAlg::Matrix<Type> mat(2,2);
+        double a = smallPoly(1,1),b = smallPoly(1,2),c = smallPoly(1,3);
+        double delt = (b*b) - 4 * c * a;
+
+        if(delt < 0){
+            mat(1,1) = -b / 2 * a;
+            mat(1,2) = sqrt(-delt) / 2 * a;
+            mat(2,1) = -b / 2 * a;
+            mat(2,2) = -sqrt(-delt) / 2 * a;
+        }else{
+           mat(1,1) = (-b + sqrt(delt)) / 2 * a;
+           mat(2,1) = (-b - sqrt(delt)) / 2 * a;
+        }
+
+        return LinAlg::Zeros<Type>(zeroRoots,2)||mat;
+    }
     else
     {
+        LinAlg::Matrix<Type>root;
         unsigned numSize = smallPoly.getNumberOfColumns();
         LinAlg::Matrix<Type> poly_Monic(1,numSize-1);
         for(unsigned j = 2; j <= numSize; ++j)
@@ -550,15 +616,18 @@ LinAlg::Matrix<Type> PolynomHandler::Roots(const LinAlg::Matrix<Type> &smallPoly
             poly_Monic(1,j-1) = -smallPoly(1,j)/smallPoly(1,1);
         }
 
-        LinAlg::Matrix<Type>root = poly_Monic||(LinAlg::Eye<Type> (numSize-2) | LinAlg::Zeros<Type> (numSize-2,1));
-
-        return LinAlg::EigenValues(root);
+        root = poly_Monic||(LinAlg::Eye<Type> (numSize-2) | LinAlg::Zeros<Type> (numSize-2,1));
+//        std::cout << "roots" << LinAlg::EigenValues(root);
+        return LinAlg::Zeros<Type>(zeroRoots,2)||LinAlg::EigenValues(root);
     }
 }
 
 template <typename Type>
 LinAlg::Matrix<Type> PolynomHandler::Root2Poly(const LinAlg::Matrix<Type> &root)
 {
+    if(root.getNumberOfColumns() == 0)
+        return LinAlg::Matrix<Type>();
+
     unsigned n = root.getNumberOfRows();
     LinAlg::Matrix<Type> ret(1,n+1);
     std::complex<Type> *tempPoly = new std::complex<Type> [2]();

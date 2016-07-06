@@ -75,7 +75,7 @@ namespace PolynomHandler {
     template<typename PolynomType, typename ScalarType>
     PolynomHandler::Polynom<PolynomType> operator- (PolynomHandler::Polynom<PolynomType> lhs, const ScalarType& rhs) {return lhs -= rhs;}
     template<typename PolynomType, typename ScalarType>
-    PolynomHandler::Polynom<PolynomType> operator- (const ScalarType& lhs, PolynomHandler::Polynom<PolynomType> rhs) {return -rhs -= -lhs;}
+    PolynomHandler::Polynom<PolynomType> operator- (const ScalarType& lhs, PolynomHandler::Polynom<PolynomType> rhs) {return -1*(rhs -= lhs);}
     template<typename LeftType, typename RightType>
     PolynomHandler::Polynom<LeftType> operator- (PolynomHandler::Polynom<LeftType> lhs, const PolynomHandler::Polynom<RightType>& rhs) {return lhs -= rhs;}
 
@@ -86,6 +86,13 @@ namespace PolynomHandler {
     template<typename LeftType, typename RightType>
     PolynomHandler::Polynom<LeftType> operator* (PolynomHandler::Polynom<LeftType> lhs, const PolynomHandler::Polynom<RightType>& rhs) {return lhs *= rhs;}
 
+    template<typename ScalarType, typename PolynomType>
+    PolynomHandler::Polynom<PolynomType> operator/ (ScalarType lhs, PolynomHandler::Polynom<PolynomType> rhs) {
+        LinAlg::Matrix<PolynomType> num = rhs.getNum(), den = rhs.getDen();
+        rhs.setNum(den);
+        rhs.setDen(num);
+        return rhs *= lhs;
+    }
     template<typename PolynomType, typename ScalarType>
     PolynomHandler::Polynom<PolynomType> operator/ (PolynomHandler::Polynom<PolynomType> lhs, const ScalarType& rhs) {return lhs /= rhs;}
     template<typename LeftType, typename RightType>
@@ -123,7 +130,7 @@ namespace PolynomHandler {
     Polynom<Type> simplify(const PolynomHandler::Polynom<Type> &P);//sincronizado
 
     template <typename Type>
-    LinAlg::Matrix<Type> Roots(const LinAlg::Matrix<Type> &smallPoly);//sincronizado
+    LinAlg::Matrix<Type> Roots(LinAlg::Matrix<Type> smallPoly);//sincronizado
 
     template <typename Type>
     LinAlg::Matrix<Type> Root2Poly(const LinAlg::Matrix<Type> &root);
