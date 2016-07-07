@@ -166,17 +166,18 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
 template<typename Type>
 void LinAlg::Matrix<Type>::Init (unsigned row, unsigned column)
 {
-    if(row == 0)
-        row = 1;
-    if(column == 0)
-        column = 1;
+    if(row == 0  && column == 0){
+        this->rows = 0;
+        this->columns = 0;
+    }
+    else{
+        this->rows = row;
+        this->columns = column;
 
-    this->rows = row;
-    this->columns = column;
-
-    this->mat = new Type*[row]();
-    for(unsigned i = 0; i < row; i++)
-        this->mat[i] = new Type[column]();
+        this->mat = new Type*[row]();
+        for(unsigned i = 0; i < row; i++)
+            this->mat[i] = new Type[column]();
+    }
 
 //    LinAlg::Zeros(*this);
 }

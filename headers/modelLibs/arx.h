@@ -7,7 +7,7 @@ namespace ModelHandler {
     class ARX : public Model<Type>
     {
     public:
-        ARX(unsigned nInputpar , unsigned nOutputpar,
+        ARX(unsigned nOutputpar, unsigned nInputpar,
             unsigned delay = 0,
             unsigned qdtInputVar = 1, unsigned qdtOutputVar = 1,
             double sampleTime = 0.1);

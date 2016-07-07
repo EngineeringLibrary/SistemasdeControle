@@ -1,7 +1,7 @@
 #include "SistemasdeControle/headers/modelLibs/arx.h"
 
 template <class Type>
-ModelHandler::ARX<Type>::ARX(unsigned nInputpar , unsigned nOutputpar,
+ModelHandler::ARX<Type>::ARX(unsigned nOutputpar,unsigned nInputpar,
                              unsigned delay,
                              unsigned qdtInputVar, unsigned qdtOutputVar,
                              double sampleTime)
@@ -51,19 +51,18 @@ ModelHandler::ARX<Type>::ARX(const ModelHandler::ARX<Type>& OtherArxModel){
 template <class Type>
 void ModelHandler::ARX<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput)
 {
-    this->InputLinearVector  =  Input     |this->InputLinearVector (from(1)-->this->qdtInputVar, from(1)-->this->nInputpar -1);
-    this->OutputLinearVector =  PastOutput|this->OutputLinearVector(from(1)-->this->qdtOutputVar,from(1)-->this->nOutputpar-1);
+    this->InputLinearVector.removeColumn(this->InputLinearVector.getNumberOfColumns());
+    this->OutputLinearVector.removeColumn(this->OutputLinearVector.getNumberOfColumns());
+    this->InputLinearVector  =  Input|this->InputLinearVector;
+    this->OutputLinearVector =  PastOutput|this->OutputLinearVector;
 
-    LinAlg::Matrix<Type> TempLinearVector;//, TotalLinearVector;
+    LinAlg::Matrix<Type> TempLinearVector;
 
     for(unsigned i = 1; i <= PastOutput.getNumberOfRows(); ++i)
-        TempLinearVector = TempLinearVector | -this->OutputLinearVector(i, from(1 + this->delay) --> this->delay + this->nOutputpar);
+        TempLinearVector = TempLinearVector | -this->OutputLinearVector.GetRow(i);
 
     for(unsigned i = 1; i <= Input.getNumberOfRows(); ++i)
-        TempLinearVector = TempLinearVector | this->InputLinearVector(i, from(1) --> this->nInputpar);
-
-//    for(unsigned i = 1; i <= PastOutput.getNumberOfRows(); ++i)
-//        TotalLinearVector = TotalLinearVector||TempLinearVector;
+        TempLinearVector = TempLinearVector | this->InputLinearVector.GetRow(i);
 
     this->LinearVectorA = TempLinearVector;
 }
@@ -113,6 +112,7 @@ LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input)
 
     for(unsigned i = 1; i < Input.getNumberOfColumns(); ++i){
         this->setLinearVector(Input.GetColumn(i),TempOutput);
+//        std::cout << this->LinearVectorA;
         TempOutput = ~(this->LinearVectorA*this->ModelCoef);
         this->Output = this->Output | TempOutput;
     }
