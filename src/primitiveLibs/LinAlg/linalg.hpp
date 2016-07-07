@@ -264,20 +264,20 @@ LinAlg::Matrix<Type> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_g
 {
     LinAlg::Matrix<Type> ret = matrix_to_get_eigenvalues, temp = LinAlg::Eye<Type>(ret.getNumberOfRows());
 
-//    LinAlg::Balance(ret);
+    LinAlg::Balance(ret);
 //    ret = LinAlg::Hess(ret);
     Type R,IM;
-    Matrix<Type> Raizes(ret.getNumberOfColumns(),2), EigenVector = LinAlg::Eye<Type>(matrix_to_get_eigenvalues.getNumberOfRows());
+    Matrix<Type> Raizes(ret.getNumberOfColumns(),2);// EigenVector = LinAlg::Eye<Type>(matrix_to_get_eigenvalues.getNumberOfRows());
     for(unsigned i = 0; i < iterations; ++i)
     {
         LinAlg::Matrix<Type> Q, R;
 
-//        LinAlg::QR(ret - ret(ret.getNumberOfColumns(),ret.getNumberOfColumns())*temp, Q, R);
-        LinAlg::QR(ret, Q, R);
+        LinAlg::QR(ret - ret(ret.getNumberOfColumns(),ret.getNumberOfColumns())*temp, Q, R);
+//        LinAlg::QR(ret, Q, R);
 //        EigenVector *= Q;
-        ret = R*Q;
+//        ret = R*Q;
 //        std::cout << ret;
-//        ret = R*Q + ret(ret.getNumberOfColumns(),ret.getNumberOfColumns())*temp;
+        ret = R*Q + ret(ret.getNumberOfColumns(),ret.getNumberOfColumns())*temp;
     }
 
 //    std::cout << EigenVector;
@@ -317,11 +317,31 @@ LinAlg::Matrix<Type> LinAlg::EigenValues_LU(const LinAlg::Matrix<Type> &matrix_t
     LinAlg::Matrix<Type> L,U = matrix_to_get_eigenvalues;
     LinAlg::LU_Factorization(L,U);
 
-    for(unsigned i = 0; i <= iterations; ++i){
+    for(unsigned i = 0; i <= iterations; ++i)
+    {
         LinAlg::LU_Factorization(U * L,U);
     }
     return U * L;
 }
+
+template <typename Type>
+LinAlg::Matrix<Type> LinAlg::EigenVector(const LinAlg::Matrix<Type> &matrix_to_get_eigenvector, unsigned iterations)
+{//Por enquanto somente para matrizes simetricas, porque so encontra autovetores reais
+    srand(time(NULL));
+    LinAlg::Matrix<Type> W = LinAlg::Random<Type>(matrix_to_get_eigenvector.getNumberOfRows(), matrix_to_get_eigenvector.getNumberOfColumns())
+                       , Q, R;
+    LinAlg::QR(W,Q,R);
+
+    for(unsigned i = 0; i < iterations; ++i)
+    {
+        W = matrix_to_get_eigenvector * Q;
+        LinAlg::QR(W,Q,R);
+    }
+//    std::cout << (Q^-1)* matrix_to_get_eigenvector *Q
+//              << (W^-1)* matrix_to_get_eigenvector *W;
+    return Q;
+}
+
 
 template <class Type>
 Type *LinAlg::MultPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize, const  unsigned  &rhsSize)
@@ -374,6 +394,17 @@ LinAlg::Matrix<Type> LinAlg::abs(const LinAlg::Matrix<Type> &mat)
                 ret(i,j) = mat(i,j);
             else
                 ret(i,j) = -mat(i,j);
+
+    return ret;
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> LinAlg::sqrtMatrix(const LinAlg::Matrix<Type> &mat)
+{
+    LinAlg::Matrix<Type> ret = LinAlg::Zeros<Type>(mat.getNumberOfRows(), mat.getNumberOfColumns());
+    for(unsigned i = 1; i < mat.getNumberOfRows(); ++i)
+        for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+                ret(i,j) = sqrt(mat(i,j));
 
     return ret;
 }

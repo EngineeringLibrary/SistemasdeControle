@@ -6,6 +6,7 @@
 #include "matrix.h"
 #include <complex>//numeros complexos
 #include <cfloat>
+#include <cmath>
 
 namespace LinAlg {
     //Not a linear algebra method. This is a computer to method to guarantee a matrix precision.
@@ -46,6 +47,9 @@ namespace LinAlg {
     template <typename Type>
     LinAlg::Matrix<Type> EigenValues_LU(const LinAlg::Matrix<Type>& matrix_to_get_eigenvalues, unsigned iterations = 100);
 
+    template <typename Type>//Por enquanto somente para matrizes simetricas, porque so encontra autovetores reais
+    LinAlg::Matrix<Type> EigenVector(const LinAlg::Matrix<Type> &matrix_to_get_eigenvector, unsigned iterations = 100);
+
     template <typename Type>
     void LU_Factorization(LinAlg::Matrix<Type> &L_input_matrix, LinAlg::Matrix<Type> &U);
 
@@ -60,6 +64,9 @@ namespace LinAlg {
 
     template <typename Type>
     LinAlg::Matrix<Type> abs(const LinAlg::Matrix<Type> &mat);
+
+    template <typename Type>
+    LinAlg::Matrix<Type> sqrtMatrix(const LinAlg::Matrix<Type> &mat);
 }
 
 #include "SistemasdeControle/src/primitiveLibs/LinAlg/linalg.hpp"
