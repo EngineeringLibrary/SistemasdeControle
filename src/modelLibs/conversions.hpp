@@ -3,7 +3,16 @@
 template <typename Type>
 ModelHandler::TransferFunction<Type> ModelHandler::ss2tf(const ModelHandler::StateSpace<Type> &SS)
 {
-
+    ModelHandler::TransferFunction<Type> TF(SS.getC().getNumberOfRows(), SS.getB().getNumberOfColumns(),SS.getSampleTime());
+    for(unsigned i = 1; i <= TF.getNumberOfRows(); ++i){
+        for(unsigned j = 1; j <= TF.getNumberOfColumns(); ++j){
+            ModelHandler::StateSpace<Type> SStemp(SS.getA(),SS.getB().GetColumn(j), SS.getC().GetRow(i), SS.getD().GetRow(i),SS.getSampleTime());
+            TF(i,j) = ModelHandler::ss2tfSISO(SStemp)(1,1);
+//            std::cout << TF << SStemp;
+        }
+    }
+    TF.setContinuous(SS.isContinuous());
+    return TF;
 }
 
 template <typename Type>
@@ -18,10 +27,11 @@ ModelHandler::TransferFunction<Type> ModelHandler::ss2tfSISO(const ModelHandler:
     Matrix<Type> C = SS.getC();
     Matrix<Type> D = SS.getD();
 
+    std::cout << CaracteristicPolynom(A - B*C) - CaracteristicPolynom(A);
     TransferFunction<Type> TF = Polynom<Type>(CaracteristicPolynom(A - B*C) - CaracteristicPolynom(A), CaracteristicPolynom(A));
+    TF.setContinuous(SS.isContinuous());
     if(!SS.isContinuous())
     {
-        TF.setContinuous(SS.isContinuous());
         TF.setSampleTime(SS.getSampleTime());
     }
     return TF;
@@ -211,4 +221,36 @@ ModelHandler::StateSpace<Type> ModelHandler::tf2ssSISO(const ModelHandler::Trans
     }
 
     return ModelHandler::StateSpace<Type>(A,B,C,D);
+}
+
+template <typename Type>
+ModelHandler::StateSpace<Type> ModelHandler::c2d(const ModelHandler::StateSpace<Type> &SS, Type SampleTime)
+{
+    ModelHandler::StateSpace<Type> ret = SS;
+    ret.setSampleTime(SampleTime);
+    ret.c2dConversion();
+    ret.setContinuous(false);
+    return ret;
+}
+
+template<typename Type>
+ModelHandler::TransferFunction<Type> ModelHandler::c2d(const TransferFunction<Type>& TF, Type sampleTime)
+{
+    StateSpace<Type> SS = tf2ss(TF);
+//    std::cout << SS;
+    SS = ModelHandler::c2d(SS, sampleTime);
+//    std::cout << SS;
+    TransferFunction<Type> TFr = ModelHandler::ss2tf(SS);
+    TFr.setContinuous(false);
+    return TFr;
+}
+
+
+template <typename Type>
+ModelHandler::StateSpace<Type> ModelHandler::d2c(const ModelHandler::StateSpace<Type> &discreteSS)
+{
+    ModelHandler::StateSpace<Type> ret = discreteSS;
+    ret.d2cConversion();
+    ret.setContinuous(true);
+    return ret;
 }

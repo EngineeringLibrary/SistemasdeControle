@@ -912,7 +912,9 @@ LinAlg::Matrix<Type> LinAlg::Inverse(const LinAlg::Matrix<Type>& mat)
 
     if(rows != columns)
         std::cout << "Operacao disponivel somente para matrizes quadradas.";
-    else if( determinant == 0)
+    else if(rows == 1 && columns == 1)
+        ret(1,1) = 1/ret(1,1);
+    else if( determinant == (0))
         std::cout << "Impossivel inverter, determinante igual a 0.";
     else
     {

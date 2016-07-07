@@ -406,9 +406,15 @@ std::string& PolynomHandler::operator<< (std::string& output, PolynomHandler::Po
 }
 
 template<typename Type>
-std::string PolynomHandler::printSmallPolynom(const LinAlg::Matrix<Type> &rhs, const char &variable)
+std::string PolynomHandler::printSmallPolynom(LinAlg::Matrix<Type> rhs, const char &variable)
 {
     std::ostringstream ret;
+    for(unsigned i = 1; i < rhs.getNumberOfColumns(); ++i){
+        if(rhs(1,i) == 0)
+            rhs.removeColumn(1);
+        else
+            break;
+    }
     const char plusSignal  = '+';
     const char minusSignal = '-';
     unsigned Size = rhs.getNumberOfColumns();

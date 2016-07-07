@@ -73,10 +73,6 @@ namespace ModelHandler {
     template<typename Type> //ok
     LinAlg::Matrix<Type> sim(ModelHandler::StateSpace<Type> &SS, Type lmin, Type lmax, Type step);
 
-    template<typename Type> //ok
-    ModelHandler::StateSpace<Type> c2d(const ModelHandler::StateSpace<Type> &SS, Type SampleTime);
-    template<typename Type> //ok
-    ModelHandler::StateSpace<Type> d2c(const ModelHandler::StateSpace<Type> &discreteSS);
 }
 
 #include "SistemasdeControle/src/modelLibs/statespace.hpp"

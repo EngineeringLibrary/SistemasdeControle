@@ -48,6 +48,51 @@ ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHa
 }
 
 template <typename Type>
+ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned cols, double sampleTime)
+{
+    this->var            = 'z';
+    this->sampleTime     = sampleTime;
+    this->Continuous     = 0;
+    this->timeSimulation = 10;
+
+    this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(rows, cols);
+}
+
+template <typename Type>
+ModelHandler::TransferFunction<Type>::TransferFunction(const LinAlg::Matrix<Type> &numPol, const LinAlg::Matrix<Type> &denPol, double sampleTime)
+{
+    this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
+
+    this->TF(1,1)        = PolynomHandler::Polynom<Type>(numPol,denPol);
+    this->var            = 'z';
+    this->Continuous     = 0;
+    this->sampleTime     = sampleTime;
+    this->timeSimulation = 10;
+}
+
+template <typename Type>
+ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO, double sampleTime)
+{
+    this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
+
+    this->TF(1,1)        = TFSISO;
+    this->var            = 'z';
+    this->sampleTime     = sampleTime;
+    this->Continuous     = 0;
+    this->timeSimulation = 10;
+}
+
+template <typename Type>
+ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF, double sampleTime)
+{
+    this->TF = TF;
+    this->var            = 'z';
+    this->sampleTime     = sampleTime;
+    this->Continuous     = 0;
+    this->timeSimulation = 10;
+}
+
+template <typename Type>
 bool ModelHandler::TransferFunction<Type>::isContinuous() const
 {
     return this->Continuous;
@@ -74,6 +119,11 @@ double ModelHandler::TransferFunction<Type>::getSampleTime() const
 template <typename Type>
 void ModelHandler::TransferFunction<Type>::setContinuous(const bool &continuous)
 {
+    if(continuous)
+        this->var = 's';
+    else
+        this->var = 'z';
+
     this->Continuous = continuous;
 }
 
@@ -95,13 +145,13 @@ void ModelHandler::TransferFunction<Type>::setLinearVector(LinAlg::Matrix<Type> 
 
 }
 
-template <typename Type>
-void ModelHandler::TransferFunction<Type>::c2d(Type sampleTime)
-{
-    this->sampleTime = sampleTime;
-    this->c2dConversion();
-    this->isContinuous = false;
-}
+//template <typename Type>
+//void ModelHandler::TransferFunction<Type>::c2d(Type sampleTime)
+//{
+//    this->sampleTime = sampleTime;
+//    this->c2dConversion();
+//    this->isContinuous = false;
+//}
 
 
 template <typename Type>
@@ -129,8 +179,9 @@ ModelHandler::TransferFunction<Type>& ModelHandler::TransferFunction<Type>::oper
     this->TF = otherTransferFunction.TF;
 
     this->sampleTime     = otherTransferFunction.sampleTime;
-    this->isContinuous   = otherTransferFunction.isContinuous;
+    this->Continuous   = otherTransferFunction.Continuous;
     this->timeSimulation = otherTransferFunction.timeSimulation;
+    this->var = otherTransferFunction.var;
 
     return *this;
 }
@@ -143,6 +194,7 @@ ModelHandler::TransferFunction<Type>& ModelHandler::TransferFunction<Type>::oper
     this->sampleTime     = otherTransferFunction.sampleTime;
     this->isContinuous   = otherTransferFunction.isContinuous;
     this->timeSimulation = otherTransferFunction.timeSimulation;
+    this->var = otherTransferFunction.var;
 
     return *this;
 }
@@ -196,42 +248,97 @@ std::string ModelHandler::TransferFunction<Type>::print()
 }
 
 template <typename Type>
+std::string ModelHandler::TransferFunction<Type>::ContinuosFirstOrderCaracteristics()
+{
+    std::ostringstream str;
+    Type tau;
+    if(this->TF.getNumberOfRows() == 1 && this->TF.getNumberOfColumns() == 1 && this->Continuous){
+       PolynomHandler::Polynom<Type> poly = this->TF(1,1);
+       if(poly.getNumSize() == 1 && poly.getDenSize() == 2){
+            str << "O ganho estatico e: " << poly.getNum()(1,poly.getNumSize()) / poly.getDen()(1,poly.getDenSize()) << std::endl;
+            tau = poly.getDen()(1,poly.getDenSize()-1) / poly.getDen()(1,poly.getDenSize());
+            str << "A constante de tempo e: " << tau << std::endl;
+            str << "Tempo de subida e: " << 2.2*tau << std::endl;
+            str << "Tempo de estabilizacao e: " << 3.9*tau << std::endl;
+       }
+    }
+    std::string ret = str.str();
+    return ret;
+}
+
+template <typename Type>
+std::string ModelHandler::TransferFunction<Type>::ContinuosSecondOrderCaracteristics()
+{
+    std::ostringstream str;
+    Type k, wn, qsi;
+    if(this->TF.getNumberOfRows() == 1 && this->TF.getNumberOfColumns() == 1 && this->Continuous){
+       PolynomHandler::Polynom<Type> poly = this->TF(1,1);
+       if(poly.getNumSize() == 1 && poly.getDenSize() == 3){
+
+            wn = sqrt(fabs(poly.getDen()(1,poly.getDenSize())));
+            qsi = poly.getDen()(1,poly.getDenSize()-1) / (wn * 2);
+            k = poly.getNum()(1,poly.getNumSize()) / (wn * wn);
+
+            str << "O ganho estatico e: " << k << std::endl;
+//            str << "A constante de tempo e: " << tau << std::endl;
+            str << "Tempo de subida e: " << 2.1/wn << std::endl;
+            str << "Tempo de estabilizacao a 2% e: " << 4/(qsi*wn) << std::endl;
+            str << "Tempo de estabilizacao a 5% e: " << 3/(qsi*wn) << std::endl;
+            str << "Sobressinal Maximo: " << exp(-qsi * M_PI / sqrt(1 - qsi * qsi)) << std::endl;
+            if(qsi > 0 && qsi < 1)
+                str << "Tempo de Pico e: " << M_PI / (wn * sqrt(1 - qsi * qsi)) << std::endl;
+       }
+    }
+    std::string ret = str.str();
+    return ret;
+}
+
+template <typename Type>
 Type ModelHandler::TransferFunction<Type>::sim(Type x)
 {
+    ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ss(*this);
+    SS.setInitialState(state);
+    x = SS.sim(x);
+    state = SS.getActualState();
+
     return x;
 }
 
 template <typename Type>
 Type ModelHandler::TransferFunction<Type>::sim(Type x, Type y)
 {
-    return x;
+    return x + y;
 }
 
 template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::TransferFunction<Type>::sim(LinAlg::Matrix<Type> x)
 {
-    return x;
+    ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ss(*this);
+
+    return SS.sim(x);
 }
 
 template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::TransferFunction<Type>::sim(LinAlg::Matrix<Type> x, LinAlg::Matrix<Type> y)
 {
-    return x;
+    return x + y;
 }
 
 template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::TransferFunction<Type>::sim(Type lsim, Type lmax, Type step)
 {
+    return lsim+lmax+step;
 }
 
-template <typename Type>
-void ModelHandler::TransferFunction<Type>::c2dConversion()
-{
-//    ModelHandler::StateSpace<Type> SS = Conversions::tf2ss(*this);
+//template <typename Type>// Passou a fazer parte de Conversions
+//void ModelHandler::TransferFunction<Type>::c2dConversion()
+//{
+//    ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ss(*this);
 //    SS.c2d(this->sampleTime);
-    this->var = 'z';
-//    *this = Conversions::ss2tf(SS);
-}
+//    this->var = 'z';
+//    *this = ModelHandler::ss2tf(SS);
+//}
+
 
 template<typename Type>
 std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::TransferFunction<Type> TF)

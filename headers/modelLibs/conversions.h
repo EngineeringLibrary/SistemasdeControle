@@ -122,7 +122,13 @@ namespace ModelHandler{
     template <typename Type>
     StateSpace<Type> tf2ssSISO(const TransferFunction<Type> &TF);
 
+    template<typename Type> //ok
+    ModelHandler::StateSpace<Type> c2d(const ModelHandler::StateSpace<Type> &SS, Type SampleTime);
+    template<typename Type>
+    TransferFunction<Type> c2d(const TransferFunction<Type>& TF, Type sampleTime);
 
+    template<typename Type> //ok
+    ModelHandler::StateSpace<Type> d2c(const ModelHandler::StateSpace<Type> &discreteSS);
 }
 
 #include "SistemasdeControle/src/modelLibs/conversions.hpp"

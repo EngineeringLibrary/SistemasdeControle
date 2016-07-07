@@ -289,12 +289,13 @@ void ModelHandler::StateSpace<Type>::c2dConversion()
 //Taylor
     this->Ad = LinAlg::Zeros<Type>(this->A.getNumberOfRows(), this->A.getNumberOfColumns());
 
-    unsigned factor =  (unsigned)(LinAlg::max(LinAlg::abs(LinAlg::EigenValues(A))));
+    unsigned factor =  (unsigned)(LinAlg::max(LinAlg::abs(A)));
 
     //taylor
-    for(unsigned i = 0; i < nDiscretization; ++i)
+    for(unsigned i = 0; i < nDiscretization; ++i){
         Ad += (1/factorial(i))*((A*SampleTime/factor)^i);
-
+//        std::cout << A <<"\n"<< Ad;
+    }
     Ad ^= factor;
     Bd = (A^-1)*(Ad - (Ad^0))*B;
 }
@@ -358,23 +359,4 @@ template<typename Type>
 LinAlg::Matrix<Type> ModelHandler::sim(ModelHandler::StateSpace<Type> &SS, LinAlg::Matrix<Type> u, LinAlg::Matrix<Type> y)
 {
     return SS.sim(u,y);
-}
-
-template <typename Type>
-ModelHandler::StateSpace<Type> ModelHandler::c2d(const ModelHandler::StateSpace<Type> &SS, Type SampleTime)
-{
-    ModelHandler::StateSpace<Type> ret = SS;
-    ret.setSampleTime(SampleTime);
-    ret.c2dConversion();
-    ret.setContinuous(false);
-    return ret;
-}
-
-template <typename Type>
-ModelHandler::StateSpace<Type> ModelHandler::d2c(const ModelHandler::StateSpace<Type> &discreteSS)
-{
-    ModelHandler::StateSpace<Type> ret = discreteSS;
-    ret.d2cConversion();
-    ret.setContinuous(true);
-    return ret;
 }

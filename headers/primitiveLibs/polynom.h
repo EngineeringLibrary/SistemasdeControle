@@ -108,7 +108,7 @@ namespace PolynomHandler {
     std::string& operator<< (std::string& output, PolynomHandler::Polynom<Type> rhs);
 
     template<typename Type>
-    std::string printSmallPolynom(const LinAlg::Matrix<Type> &rhs, const char &variable = 'x');
+    std::string printSmallPolynom(LinAlg::Matrix<Type> rhs, const char &variable = 'x');
 
     template<typename Type> // testada
     bool VefDen(const Type *den1, const Type *den2, const unsigned &sizeden1, const unsigned &sizeden2);

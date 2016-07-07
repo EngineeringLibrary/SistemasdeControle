@@ -272,12 +272,12 @@ LinAlg::Matrix<Type> LinAlg::EigenValues(const LinAlg::Matrix<Type> &matrix_to_g
     {
         LinAlg::Matrix<Type> Q, R;
 
-        LinAlg::QR(ret - ret(ret.getNumberOfColumns(),ret.getNumberOfColumns())*temp, Q, R);
-//        LinAlg::QR(ret, Q, R);
+//        LinAlg::QR(ret - ret(ret.getNumberOfColumns(),ret.getNumberOfColumns())*temp, Q, R);
+        LinAlg::QR(ret, Q, R);
 //        EigenVector *= Q;
-//        ret = R*Q;
+        ret = R*Q;
 //        std::cout << ret;
-        ret = R*Q + ret(ret.getNumberOfColumns(),ret.getNumberOfColumns())*temp;
+//        ret = R*Q + ret(ret.getNumberOfColumns(),ret.getNumberOfColumns())*temp;
     }
 
 //    std::cout << EigenVector;
