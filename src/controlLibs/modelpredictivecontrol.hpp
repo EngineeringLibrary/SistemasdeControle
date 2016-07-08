@@ -2,31 +2,61 @@
 
 template<typename Type>
 ControlHandler::ModelPredictiveControl<Type>::
-       ModelPredictiveControl(const ModelHandler::StateSpace<Type>       &SS,
-             const ModelHandler::IntegrativeModel<Type> &SSI,
-             const ModelHandler::PredictionModel <Type> &SSP,
-             const LinAlg::Matrix<Type> &Q, const LinAlg::Matrix<Type> &R,
-             const LinAlg::Matrix<Type> &W)
+       ModelPredictiveControl(const ModelHandler::StateSpace<Type> &SS,
+                              unsigned N1, unsigned N2, unsigned NU,
+                              Type Q, Type R, Type W)
 {
-    this->W  = W;
-    this->Q = Q;
-    this->R = R;
+    this->N1 = N1;
+    this->N2 = N2;
+    this->NU = NU;
+    LinAlg::Matrix<double> X  = LinAlg::Zeros<double>(SSd.getA().getNumberOfRows(),2);
+    LinAlg::Matrix<double> Y  = LinAlg::Zeros<double>((SSd.getC()*X).getNumberOfRows(),(SSd.getC()*X).getNumberOfColumns());
 
     if(SS.isContinuous())
         this->SSd = ModelHandler::c2d(SS,0.1);
     else
         this->SSd = SS;
+    this->SSdStateStimated = this->SSd;
 
-    this->SSI = SSI;
-    this->SSP = SSP;
-    this->K = (((~SSP.getB())*(~SSP.getC())*Q*SSP.getC()*SSP.getB()+R )^-1)*(~SSP.getB())*(~SSP.getC())*(~Q);
+    this->SSI = new ModelHandler::IntegrativeModel<double>(SSd);
+    this->SSP = new ModelHandler::PredictionModel<double>(SSd,N1,N2,NU);
+    this->Q = Q*LinAlg::Eye<double>((SSP->getC()*SSP->getB()).getNumberOfRows());
+    this->R = R*LinAlg::Eye<double>(NU*SSd.getB().getNumberOfColumns());
+    this->W = W*LinAlg::Ones<double>((SSP->getC()*SSP->getA()*(X||Y)).getNumberOfRows(),1);
     this->U  = LinAlg::Zeros<Type>(SSI.getB().getNumberOfColumns(),1);
+    this->K = (((~SSP.getB())*(~SSP.getC())*this->Q*SSP.getC()*SSP.getB()+this->R )^-1)*(~SSP.getB())*(~SSP.getC())*(~this->Q);
+}
+
+template<typename Type>
+ControlHandler::ModelPredictiveControl<Type>::
+       ModelPredictiveControl(const ModelHandler::ARX<Type> &gz,
+                              unsigned N1, unsigned N2, unsigned NU,
+                              Type Q, Type R, Type W)
+{
+    this->N1 = N1;
+    this->N2 = N2;
+    this->NU = NU;
+
+    this->SSd = ModelHandler::arx2SS<double>(gz);
+    LinAlg::Matrix<double> X  = LinAlg::Zeros<double>(SSd.getA().getNumberOfRows(),2);
+    LinAlg::Matrix<double> Y  = LinAlg::Zeros<double>((SSd.getC()*X).getNumberOfRows(),(SSd.getC()*X).getNumberOfColumns());
+    this->SSdStateStimated = this->SSd;
+
+    this->SSI = ModelHandler::IntegrativeModel<double>(this->SSd);
+    this->SSP = ModelHandler::PredictionModel<double>(this->SSd,N1,N2,NU);
+    this->Q = Q*LinAlg::Eye<double>((SSP.getC()*SSP.getB()).getNumberOfRows());
+    this->R = R*LinAlg::Eye<double>(NU*SSd.getB().getNumberOfColumns());
+    this->W = W*LinAlg::Ones<double>((SSP.getC()*SSP.getA()*(X||Y)).getNumberOfRows(),1);
+    this->U  = LinAlg::Zeros<Type>(SSI.getB().getNumberOfColumns(),1);
+    this->K = (((~SSP.getB())*(~SSP.getC())*this->Q*SSP.getC()*SSP.getB()+this->R )^-1)*(~SSP.getB())*(~SSP.getC())*(~this->Q);
 }
 
 template<typename Type>
 void ControlHandler::ModelPredictiveControl<Type>::setReference(LinAlg::Matrix<Type> W)
 {
-    this->W = W;
+    for(unsigned i = 1; i <= this->W.getNumberOfRows(); i += this->SSd.getC().getNumberOfRows())
+            for(unsigned j = 0; j < this->SSd.getC().getNumberOfRows(); ++j)
+                this->W(i+j,  1)  = W(j+1,1);
 }
 
 template<typename Type>
@@ -48,21 +78,30 @@ void ControlHandler::ModelPredictiveControl<Type>::setControlWeight(LinAlg::Matr
 }
 
 template<typename Type>
-void ControlHandler::ModelPredictiveControl<Type>::setNewModel(ModelHandler::StateSpace<Type> SS, ModelHandler::IntegrativeModel<Type> SSI, ModelHandler::PredictionModel<Type> SSP, LinAlg::Matrix<Type> Q, LinAlg::Matrix<Type> R, LinAlg::Matrix<Type> W)
+void ControlHandler::ModelPredictiveControl<Type>::setNewModel(ModelHandler::ARX<Type> gz)
 {
-    this->W  = W;
-    this->Q = Q;
-    this->R = R;
+    LinAlg::Matrix<Type> X = this->SSd.getActualState(), Xss = SSdStateStimated.getActualState();
+    this->SSd = ModelHandler::arx2SS(gz);
+    this->SSI = ModelHandler::IntegrativeModel<double>(SSd);
+    this->SSP = ModelHandler::PredictionModel<double>(SSd,N1,N2,NU);
+    this->SSdStateStimated = this->SSd;
+    this->SSd.setInitialState(X);
+    this->SSdStateStimated.setInitialState(Xss);
 
-    SS.setInitialState(this->SSd.getActualState());
+    this->K = (((~SSP.getB())*(~SSP.getC())*this->Q*SSP.getC()*SSP.getB()+this->R )^-1)*(~SSP.getB())*(~SSP.getC())*(~this->Q);
+}
+
+template<typename Type>
+void ControlHandler::ModelPredictiveControl<Type>::setNewModel(ModelHandler::StateSpace<Type> SS)
+{
+//    SS.setInitialState(this->SSd.getActualState());
     if(SS.isContinuous())
         this->SSd = ModelHandler::c2d(SS,0.1);
     else
         this->SSd = SS;
-    this->SSd.setInitialState(SS.getActualState());
-
-    this->SSI = SSI;
-    this->SSP = SSP;
+//    this->SSd.setInitialState(SS.getActualState());
+    this->SSI = new ModelHandler::IntegrativeModel<double>(SSd);
+    this->SSP = new ModelHandler::PredictionModel<double>(SSd,N1,N2,NU);
 
     this->K = (((~SSP.getB())*(~SSP.getC())*Q*SSP.getC()*SSP.getB()+R )^-1)*(~SSP.getB())*(~SSP.getC())*(~Q);
 }
@@ -92,14 +131,23 @@ LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::getControlWei
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControlCalc(LinAlg::Matrix<Type> X_input)
+LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::getControlerGain() const
 {
+    return K;
+}
+
+template<typename Type>
+//LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControlCalc(LinAlg::Matrix<Type> X_input)
+LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControlCalc(LinAlg::Matrix<Type> Y)
+{
+    LinAlg::Matrix<Type> X_input = this->SSdStateStimated.Observer(this->U(1,1),Y(1,1));
+
     LinAlg::Matrix<Type> X = ((X_input - SSd.getActualState()) || this->SSd.getC()*X_input);
     SSd.setInitialState(X_input);
 
 //    std::cout << SSP.getC()*SSP.getA()*X;
     LinAlg::Matrix<Type> du = this->K*(this->W - SSP.getC()*SSP.getA()*X);
-    this->U = this->U + du(from(1)-->SSd.getB().getNumberOfColumns(),1);
+    this->U = this->U + ((du.GetRow(1)));
 
     return this->U;
 }

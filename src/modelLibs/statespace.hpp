@@ -34,6 +34,27 @@ ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> Ad, LinAlg::Matr
     this->initialState = LinAlg::Zeros<Type>(Ad.getNumberOfRows(),1);
     this->X = this->initialState;
 }
+template <typename Type>
+ModelHandler::StateSpace<Type>& ModelHandler::StateSpace<Type>::operator= (const ModelHandler::StateSpace<Type>& otherStateSpaceFunction)
+{
+    this->A  = otherStateSpaceFunction.A;
+    this->B  = otherStateSpaceFunction.B;
+    this->C  = otherStateSpaceFunction.C;
+    this->D  = otherStateSpaceFunction.D;
+    this->X  = otherStateSpaceFunction.X;
+    this->L  = otherStateSpaceFunction.L;
+    this->Ad = otherStateSpaceFunction.Ad;
+    this->Bd = otherStateSpaceFunction.Bd;
+
+    this->Continuous   = otherStateSpaceFunction.Continuous;
+    this->SampleTime   = otherStateSpaceFunction.SampleTime;
+    this->initialState = otherStateSpaceFunction.initialState;
+
+    this->TimeSimulation  = otherStateSpaceFunction.TimeSimulation;
+    this->nDiscretization = otherStateSpaceFunction.nDiscretization;
+
+    return *this;
+}
 
 template <typename Type>
 bool ModelHandler::StateSpace<Type>::isContinuous() const
@@ -148,10 +169,14 @@ template <typename Type>
 bool ModelHandler::StateSpace<Type>::isObservable() const
 {
     LinAlg::Matrix<Type> Qo;
-    for (unsigned i = 0; i < A.getNumberOfColumns(); ++i){
-        Qo = Qo||(C*(A^i));
-    }
-    std::cout << Qo;
+    if(this->Continuous)
+        for (unsigned i = 0; i < A.getNumberOfColumns(); ++i)
+            Qo = Qo||(C*(A^i));
+    else
+        for (unsigned i = 0; i < Ad.getNumberOfColumns(); ++i)
+            Qo = Qo||(C*(Ad^i));
+
+//    std::cout << Qo;
     return (LinAlg::Determinant(Qo) != 0);
 }
 
@@ -159,10 +184,14 @@ template <typename Type>
 bool ModelHandler::StateSpace<Type>::isControlable() const
 {
     LinAlg::Matrix<Type> Qc;
-    for (unsigned i = 0; i < A.getNumberOfColumns(); ++i){
-        Qc = Qc|((A^i)*B);
-    }
-    std::cout << (B) << ((A)*B) << Qc;
+    if(this->Continuous)
+        for (unsigned i = 0; i < A.getNumberOfColumns(); ++i)
+            Qc = Qc|((A^i)*B);
+    else
+        for (unsigned i = 0; i < Ad.getNumberOfColumns(); ++i)
+            Qc = Qc|((Ad^i)*Bd);
+
+//    std::cout << (B) << ((A)*B) << Qc;
     return (LinAlg::Determinant(Qc) != 0);
 }
 
@@ -312,7 +341,13 @@ void ModelHandler::StateSpace<Type>::d2cConversion()
 template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::Observer(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y)
 {
-    this->c2dConversion();
+    if(this->Continuous)
+        this->c2dConversion();
+    LinAlg::Matrix<Type> Qo;
+    for (unsigned i = 0; i < Ad.getNumberOfColumns(); ++i)
+        Qo = Qo||(C*(Ad^i));
+    this->L = 0.2*LinAlg::Ones<Type>(this->X.getNumberOfRows(),1);
+
     X = Ad*X + Bd*U + L*(Y - C*X);
     return X;
 }

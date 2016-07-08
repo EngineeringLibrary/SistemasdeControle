@@ -19,11 +19,13 @@ ModelHandler::ARX<Type>::ARX(unsigned nOutputpar,unsigned nInputpar,
 
     this->ModelCoef = LinAlg::Zeros<Type>(nInputpar*qdtInputVar + nOutputpar*qdtOutputVar, 1);
     this->Input = LinAlg::Zeros<Type>(qdtInputVar, nInputpar);
-    this->Output = LinAlg::Zeros<Type>(qdtOutputVar, nOutputpar);
+    this->Output = LinAlg::Zeros<Type>(qdtOutputVar, 1);
+//    this->Output = LinAlg::Zeros<Type>(qdtOutputVar, nOutputpar);
     this->EstOutput = this->Output;
     this->nSample = delay + maxnInOut + 1;
     this->OutputLinearVector = LinAlg::Zeros<Type>(this->qdtOutputVar, this->delay + this->nOutputpar);
     this->InputLinearVector  = LinAlg::Zeros<Type>(this->qdtInputVar, this->nInputpar);
+//    this->InputLinearVector  = LinAlg::Zeros<Type>(this->qdtInputVar, this->nInputpar+1);
 }
 
 template <class Type>
@@ -33,7 +35,7 @@ ModelHandler::ARX<Type>::ARX(const ModelHandler::ARX<Type>& OtherArxModel){
     this->Input                 = OtherArxModel.Input;
     this->input                 = OtherArxModel.input;
     this->InputLinearVector     = OtherArxModel.InputLinearVector;
-    this->instance              = OtherArxModel.instance;
+//    this->instance              = OtherArxModel.instance;
     this->LinearEqualityB       = OtherArxModel.LinearEqualityB;
     this->LinearEqualityVectorB = OtherArxModel.LinearEqualityVectorB;
     this->LinearMatrixA         = OtherArxModel.LinearMatrixA;
@@ -55,7 +57,8 @@ void ModelHandler::ARX<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg
     this->OutputLinearVector.removeColumn(this->OutputLinearVector.getNumberOfColumns());
     this->InputLinearVector  =  Input|this->InputLinearVector;
     this->OutputLinearVector =  PastOutput|this->OutputLinearVector;
-
+//    LinAlg::Matrix<Type> InputLinearVector = this->InputLinearVector;
+//    InputLinearVector.removeColumn(1);
     LinAlg::Matrix<Type> TempLinearVector;
 
     for(unsigned i = 1; i <= PastOutput.getNumberOfRows(); ++i)
@@ -65,6 +68,7 @@ void ModelHandler::ARX<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg
         TempLinearVector = TempLinearVector | this->InputLinearVector.GetRow(i);
 
     this->LinearVectorA = TempLinearVector;
+//    std::cout << TempLinearVector;
 }
 
 template <class Type>
@@ -74,11 +78,12 @@ void ModelHandler::ARX<Type>::setLinearModel(LinAlg::Matrix<Type> Input,
     this->Input = Input;
     this->Output = Output;
 
-    for(nSample = 1; nSample < this->Output.getNumberOfColumns(); ++nSample)
+    for(nSample = 1; nSample < this->Output.getNumberOfColumns()-1; ++nSample)
     {
-        this->setLinearVector(Input(from(1) --> this->qdtInputVar, nSample), Output(from(1) --> this->qdtOutputVar, nSample));
+        this->setLinearVector( Input.GetColumn(nSample), Output.GetColumn(nSample+1));
+//        std::cout << ~Output.GetColumn(nSample) << " " << this->LinearVectorA;
         this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorA;
-        this->LinearEqualityB = this->LinearEqualityB || ~Output(from(1) --> this->qdtOutputVar, nSample+1);
+        this->LinearEqualityB = this->LinearEqualityB || ~Output.GetColumn(nSample+2);
     }
 }
 
@@ -101,7 +106,7 @@ Type ModelHandler::ARX<Type>::sim(Type input, Type output)
 template <class Type>
 std::string ModelHandler::ARX<Type>::print()
 {
-
+    return "função não implementada";
 }
 
 template <class Type>
@@ -122,13 +127,13 @@ LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input)
 template <class Type>
 LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
 {
-    this->Input  = Input;
-    this->Output = LinAlg::Zeros<Type>(1, this->qdtOutputVar);
+//    this->Input  = Input;
+//    this->Output = LinAlg::Zeros<Type>(1, this->qdtOutputVar);
 
-    for(unsigned i = 1; i < Input.getNumberOfColumns(); ++i){
-        this->setLinearVector(Input(from(1) --> Input.getNumberOfRows(), i), Output(from(1) --> Output.getNumberOfRows(), i));
-        this->Output = this->Output | this->LinearVectorA*this->ModelCoef;
-    }
+//    for(unsigned i = 1; i < Input.getNumberOfColumns(); ++i){
+//        this->setLinearVector(Input(from(1) --> Input.getNumberOfRows(), i), Output(from(1) --> Output.getNumberOfRows(), i));
+//        this->Output = this->Output | this->LinearVectorA*this->ModelCoef;
+//    }
     return this->Output;
 }
 

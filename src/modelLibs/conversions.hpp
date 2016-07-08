@@ -230,6 +230,7 @@ ModelHandler::StateSpace<Type> ModelHandler::c2d(const ModelHandler::StateSpace<
     ret.setSampleTime(SampleTime);
     ret.c2dConversion();
     ret.setContinuous(false);
+    ret.setInitialState(SS.getActualState());
     return ret;
 }
 

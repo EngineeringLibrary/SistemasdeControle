@@ -14,6 +14,8 @@ namespace ModelHandler {
                    LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D,
                    Type SampleTime); //ok
 
+        StateSpace<Type>& operator= (const StateSpace<Type>& otherStateSpaceFunction); //ok
+
         double getSampleTime() const; // ok
         LinAlg::Matrix<Type> getA() const; //ok
         LinAlg::Matrix<Type> getB() const; //ok
@@ -39,6 +41,7 @@ namespace ModelHandler {
         bool isContinuous()  const;
         bool isObservable()  const;
         bool isControlable() const;
+        LinAlg::Matrix<Type> Observer(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y);
 
         Type sim(Type u); //ok
         Type sim(Type u, Type y); // não é usado
@@ -53,7 +56,6 @@ namespace ModelHandler {
     private:
         Type factorial(unsigned n); // ok
 
-        LinAlg::Matrix<Type> Observer(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y);
 
         bool Continuous;
         unsigned nDiscretization;
