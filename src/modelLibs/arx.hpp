@@ -26,11 +26,17 @@ ModelHandler::ARX<Type>::ARX(unsigned nOutputpar,unsigned nInputpar,
     this->OutputLinearVector = LinAlg::Zeros<Type>(this->qdtOutputVar, this->delay + this->nOutputpar);
     this->InputLinearVector  = LinAlg::Zeros<Type>(this->qdtInputVar, this->nInputpar);
 //    this->InputLinearVector  = LinAlg::Zeros<Type>(this->qdtInputVar, this->nInputpar+1);
+    this->LinearVectorA = LinAlg::Zeros<Type>(this->qdtOutputVar, this->nInputpar+this->delay + this->nOutputpar);
 }
 
 template <class Type>
 ModelHandler::ARX<Type>::ARX(const ModelHandler::ARX<Type>& OtherArxModel){
     this->delay                 = OtherArxModel.delay;
+    this->nInputpar             = OtherArxModel.nInputpar;
+    this->qdtInputVar           = OtherArxModel.qdtInputVar;
+    this->nOutputpar            = OtherArxModel.nOutputpar;
+    this->qdtOutputVar          = OtherArxModel.qdtOutputVar;
+    this->sampleTime            = OtherArxModel.sampleTime;
     this->EstOutput             = OtherArxModel.EstOutput;
     this->Input                 = OtherArxModel.Input;
     this->input                 = OtherArxModel.input;

@@ -12,6 +12,7 @@ ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> A, LinAlg::Matri
     this->SampleTime         =  0.1;
     this->TimeSimulation     =   10;
     this->nDiscretization    =    6;
+    this->firstTimeKalmanObserver = 0;
 
     this->initialState = LinAlg::Zeros<Type> (A.getNumberOfRows(),1);
     this->X = this->initialState;
@@ -29,6 +30,7 @@ ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> Ad, LinAlg::Matr
     this->Continuous         = false;
     this->SampleTime         = SampleTime;
     this->TimeSimulation     =   10;
+    this->firstTimeKalmanObserver = 0;
     this->nDiscretization    =    6;
 
     this->initialState = LinAlg::Zeros<Type>(Ad.getNumberOfRows(),1);
@@ -45,6 +47,8 @@ ModelHandler::StateSpace<Type>& ModelHandler::StateSpace<Type>::operator= (const
     this->L  = otherStateSpaceFunction.L;
     this->Ad = otherStateSpaceFunction.Ad;
     this->Bd = otherStateSpaceFunction.Bd;
+    this->P = otherStateSpaceFunction.P;
+    this->firstTimeKalmanObserver = 0;
 
     this->Continuous   = otherStateSpaceFunction.Continuous;
     this->SampleTime   = otherStateSpaceFunction.SampleTime;
@@ -349,6 +353,39 @@ LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::Observer(LinAlg::Matrix<Typ
     this->L = 0.2*LinAlg::Ones<Type>(this->X.getNumberOfRows(),1);
 
     X = Ad*X + Bd*U + L*(Y - C*X);
+    return X;
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::KalmanFilterObserver(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y)
+{
+    if(this->Continuous)
+        this->c2dConversion();
+//    if(!firstTimeKalmanObserver)
+//    P = LinAlg::Zeros<Type>(Ad.getNumberOfRows(),Ad.getNumberOfColumns());
+    P = LinAlg::Eye<Type>(Ad.getNumberOfRows());
+    LinAlg::Matrix<Type> Q = 10*LinAlg::Eye<Type>(Ad.getNumberOfRows());
+    Type R = 1;
+
+//    std::cout << Ad*P*(~Ad)<< std::endl
+//              << Ad*P*(~C) << std::endl
+//              << C*P*(~C) << std::endl
+//              << ((R + C*P*(~C))^-1) << std::endl
+//              << C*P*Ad <<  std::endl
+//              << P << std::endl;
+
+    for(unsigned i = 0; i < P.getNumberOfColumns(); ++i)
+        P = Q + Ad*P*(~Ad) - Ad*P*(~C)*((R + C*P*(~C))^-1)*C*P*Ad;
+
+//    std::cout << Ad*P*(~C) << std::endl
+//              << C*P*(~C) << std::endl
+//              << ((R + C*P*(~C))^-1) << std::endl;
+    L = Ad*P*(~C)*((R + C*P*(~C))^-1);
+
+//              std::cout << L <<  std::endl
+//              << P << std::endl;
+
+    X = ( Ad - L*C )*X + Bd*U(1,1) + L*Y(1,1);
     return X;
 }
 

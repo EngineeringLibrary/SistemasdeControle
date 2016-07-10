@@ -10,8 +10,8 @@ OptimizationHandler::RecursiveLeastSquare<Type>::RecursiveLeastSquare(ModelHandl
     this->model  = model;
     this->lambda = lambda;    
     this->firstTimeFlag = false;
-//    this->model->setModelCoef(LinAlg::Ones<Type>(this->model->getNumberOfVariables(), this->model->getNumberOfOutputs())/this->p0);
-    this->model->setModelCoef(LinAlg::Random<double>(this->model->getNumberOfVariables(), this->model->getNumberOfOutputs())/this->p0);
+    this->model->setModelCoef(LinAlg::Ones<Type>(this->model->getNumberOfVariables(), this->model->getNumberOfOutputs())/this->p0);
+//    this->model->setModelCoef(LinAlg::Random<double>(this->model->getNumberOfVariables(), this->model->getNumberOfOutputs())/this->p0);
     this->P = LinAlg::Eye<Type>(this->model->getNumberOfVariables())*(this->p0);
 
     this->Input  = LinAlg::Zeros<Type>(this->model->getNumberOfInputs(), 2);

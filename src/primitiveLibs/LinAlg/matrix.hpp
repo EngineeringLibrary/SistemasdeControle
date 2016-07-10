@@ -571,8 +571,12 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator^= (int exp)
 
     if(exp < 0)
     {
-        *this = LinAlg::Inverse(*this);
-        exp *= -1;
+        if(this->rows == 1 && this->columns == 1)
+            this->mat[0][0] = 1/this->mat[0][0];
+        else{
+            *this = LinAlg::Inverse(*this);
+            exp *= -1;
+        }
     }
 
     for(int i = 0; i < exp; ++i) {

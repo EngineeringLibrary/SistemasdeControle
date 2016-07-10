@@ -42,6 +42,7 @@ namespace ModelHandler {
         bool isObservable()  const;
         bool isControlable() const;
         LinAlg::Matrix<Type> Observer(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y);
+        LinAlg::Matrix<Type> KalmanFilterObserver(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y);
 
         Type sim(Type u); //ok
         Type sim(Type u, Type y); // não é usado
@@ -57,10 +58,10 @@ namespace ModelHandler {
         Type factorial(unsigned n); // ok
 
 
-        bool Continuous;
+        bool Continuous,firstTimeKalmanObserver;
         unsigned nDiscretization;
         Type SampleTime, TimeSimulation;
-        LinAlg::Matrix<Type> A, B, C, D, Ad, Bd, X, L, initialState;
+        LinAlg::Matrix<Type> A, B, C, D, Ad, Bd, X, L, initialState,P;
     };
 
     template<typename Type> // ok

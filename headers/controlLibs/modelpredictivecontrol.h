@@ -15,7 +15,7 @@ namespace ControlHandler{
         ModelHandler::PredictionModel<Type> SSP;
         ModelHandler::IntegrativeModel<Type> SSI;
         LinAlg::Matrix<Type> K, W, Q, R, U;
-        Type N1,N2,NU;
+        Type N1,N2,NU, lMax, lMin;
 
     public:
         ModelPredictiveControl(){}
@@ -26,12 +26,13 @@ namespace ControlHandler{
                                unsigned N1, unsigned N2, unsigned NU,
                                Type Q, Type R, Type W);
 
+        void setLimits(Type max, Type min);
         void setReference(LinAlg::Matrix<Type> W);
         void setErrorWeight(LinAlg::Matrix<Type> Q);
         void setControlWeight(LinAlg::Matrix<Type> R);
         void setInitialState(LinAlg::Matrix<Type> X0);
 
-        void setNewModel(ModelHandler::ARX<Type> gz);
+        void setNewModel(const ModelHandler::ARX<Type> &gz);
         void setNewModel(ModelHandler::StateSpace<Type> SS);
 
         LinAlg::Matrix<Type> getReference() const;
@@ -40,7 +41,7 @@ namespace ControlHandler{
         LinAlg::Matrix<Type> getControlWeight() const;
         LinAlg::Matrix<Type> getControlerGain() const;
 
-        LinAlg::Matrix<Type> OutputControlCalc(LinAlg::Matrix<Type> Y);
+        LinAlg::Matrix<Type> OutputControlCalc(const ModelHandler::ARX<Type> &gz);
 //        LinAlg::Matrix<Type> OutputControlCalc(LinAlg::Matrix<Type> X_input);
         LinAlg::Matrix<Type> OutputControlCalc(LinAlg::Matrix<Type> X_input, LinAlg::Matrix<Type> W);
         LinAlg::Matrix<Type> OutputControlCalc(LinAlg::Matrix<Type> X_input, LinAlg::Matrix<Type> Q, LinAlg::Matrix<Type> R, LinAlg::Matrix<Type> W);
