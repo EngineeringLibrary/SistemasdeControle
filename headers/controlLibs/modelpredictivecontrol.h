@@ -32,6 +32,8 @@ namespace ControlHandler{
         void setControlWeight(LinAlg::Matrix<Type> R);
         void setInitialState(LinAlg::Matrix<Type> X0);
 
+        void LimitControlOutput();
+
         void setNewModel(const ModelHandler::ARX<Type> &gz);
         void setNewModel(ModelHandler::StateSpace<Type> SS);
 
@@ -41,8 +43,8 @@ namespace ControlHandler{
         LinAlg::Matrix<Type> getControlWeight() const;
         LinAlg::Matrix<Type> getControlerGain() const;
 
+        LinAlg::Matrix<Type> OutputControlCalc(const LinAlg::Matrix<Type> &X_input);
         LinAlg::Matrix<Type> OutputControlCalc(const ModelHandler::ARX<Type> &gz);
-//        LinAlg::Matrix<Type> OutputControlCalc(LinAlg::Matrix<Type> X_input);
         LinAlg::Matrix<Type> OutputControlCalc(LinAlg::Matrix<Type> X_input, LinAlg::Matrix<Type> W);
         LinAlg::Matrix<Type> OutputControlCalc(LinAlg::Matrix<Type> X_input, LinAlg::Matrix<Type> Q, LinAlg::Matrix<Type> R, LinAlg::Matrix<Type> W);
 

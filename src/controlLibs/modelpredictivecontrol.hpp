@@ -154,7 +154,6 @@ LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::getControlerG
 }
 
 template<typename Type>
-//LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControlCalc(LinAlg::Matrix<Type> X_input)
 LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControlCalc(const ModelHandler::ARX<Type>& gz)
 {
     this->setNewModel(gz);
@@ -166,14 +165,35 @@ LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControl
 
     LinAlg::Matrix<Type> du = this->K*(this->W - SSP.getC()*SSP.getA()*X);
     this->U = this->U + ((du.GetRow(1)));
+    LimitControlOutput();
 
+    return this->U;
+}
+
+
+template<typename Type>
+LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControlCalc(LinAlg::Matrix<Type> X_input)
+{
+    LinAlg::Matrix<Type> X_input = SSd.getActualState();
+    LinAlg::Matrix<Type> X = ((X_input - X_state)|| this->SSd.getC()*X_input);
+
+    SSd.setInitialState(X_input);
+
+    LinAlg::Matrix<Type> du = this->K*(this->W - SSP.getC()*SSP.getA()*X);
+    this->U = this->U + ((du.GetRow(1)));
+    LimitControlOutput();
+
+    return this->U;
+}
+
+template<typename Type>
+void ControlHandler::ModelPredictiveControl<Type>::LimitControlOutput()
+{
     for(unsigned i = 1; i <= this->U.getNumberOfRows(); ++i)
         if(this->U(i,1) > lMax)
             this->U(i,1) = lMax;
         else if(this->U(i,1) < lMin)
             this->U(i,1) = lMin;
-
-    return this->U;
 }
 
 template<typename Type>
