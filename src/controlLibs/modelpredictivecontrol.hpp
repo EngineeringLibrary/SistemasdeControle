@@ -172,9 +172,9 @@ LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControl
 
 
 template<typename Type>
-LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControlCalc(LinAlg::Matrix<Type> X_input)
+LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControlCalc(const LinAlg::Matrix<Type> &X_input)
 {
-    LinAlg::Matrix<Type> X_input = SSd.getActualState();
+    LinAlg::Matrix<Type> X_state = SSd.getActualState();
     LinAlg::Matrix<Type> X = ((X_input - X_state)|| this->SSd.getC()*X_input);
 
     SSd.setInitialState(X_input);

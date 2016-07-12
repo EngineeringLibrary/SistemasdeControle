@@ -446,6 +446,52 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(unsigned* row_interval, u
 }
 
 template<typename Type>
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(unsigned* row_interval, LinAlg::Matrix<Type> columns)const
+{
+    LinAlg::Matrix<Type> Ret;
+
+    if(row_interval[0] < row_interval[1]){
+        Ret.Init(row_interval[1] - row_interval[0] + 1, columns.getNumberOfColumns());
+        for(unsigned i = row_interval[0]; i <= row_interval[1]; ++i)
+            for(unsigned j = 1; j <= columns.getNumberOfColumns(); ++j)
+                Ret.mat[i - row_interval[0]][j-1] = this->mat[i - 1][columns(1,j) - 1];
+    } else{
+        unsigned aux = row_interval[0] - row_interval[1] + 1;
+
+        Ret.Init(row_interval[0] - row_interval[1] + 1, columns.getNumberOfColumns());
+        for(unsigned i = row_interval[0]; i >= row_interval[1]; --i)
+            for(unsigned j = 1; j <= columns.getNumberOfColumns(); ++j)
+                Ret.mat[row_interval[0] - i][j-1] = this->mat[i - 1][columns(1,j) - 1];
+    }
+
+    return Ret;
+}
+
+template<typename Type>
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(unsigned row, LinAlg::Matrix<Type> columns)const
+{
+    LinAlg::Matrix<Type> Ret;
+
+    Ret.Init(1, columns.getNumberOfColumns());
+    for(unsigned j = 1; j <= columns.getNumberOfColumns(); ++j)
+        Ret.mat[row-1][j-1] = this->mat[row - 1][columns(1,j) - 1];
+
+    return Ret;
+}
+
+template<typename Type>
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(LinAlg::Matrix<Type> rows, unsigned column)const
+{
+    LinAlg::Matrix<Type> Ret;
+
+    Ret.Init(rows.getNumberOfColumns(), 1);
+    for(unsigned j = 1; j <= rows.getNumberOfColumns(); ++j)
+        Ret.mat[j-1][column-1] = this->mat[rows(1,j) - 1][column - 1];
+
+    return Ret;
+}
+
+template<typename Type>
 void LinAlg::Matrix<Type>::operator= (const char* Mat)
 {
     this->Init(Mat);
@@ -588,6 +634,49 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator^= (int exp)
     return *this;
 }
 
+template <typename Type>
+LinAlg::Matrix<Type> LinAlg::divPoint(const LinAlg::Matrix<Type> &A, const LinAlg::Matrix<Type> &B)
+{
+    LinAlg::Matrix<Type> ret = A;
+    if(A.getNumberOfColumns() == B.getNumberOfColumns() && A.getNumberOfRows() == B.getNumberOfRows())
+        for(unsigned i = 1; i <= A.getNumberOfRows(); ++i)
+            for(unsigned j = 1; j <= A.getNumberOfColumns(); ++j)
+                ret(i,j) = A(i,j)/B(i,j);
+    else
+        std::cout << "A dimensao das matrizes esta incorreta";
+
+    return ret;
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> LinAlg::sortColumnVector(const LinAlg::Matrix<Type> &columnVector)
+{
+    LinAlg::Matrix<Type> ret = columnVector;
+    for(unsigned i = 1; i <= columnVector.getNumberOfColumns(); ++i)
+        for(unsigned j = i+1; j <= columnVector.getNumberOfColumns(); ++j)
+            if(ret(1,i) > columnVector(1,j)){
+                Type aux = ret(1,i);
+                ret(1,i) = columnVector(1,j);
+                columnVector(1,j) = aux;
+            }
+    return ret;
+}
+
+template <typename Type>
+unsigned LinAlg::lineOfMinValue(const LinAlg::Matrix<Type> &mat) // lembrar de implementar
+{
+    unsigned minIndice = 1;
+    Type minValue = mat(1,1);
+    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+            if(minValue < mat(i,j))
+            {
+                minValue = mat(i,j);
+                minIndice = i;
+            }
+    return minIndice;
+}
+
 template<typename Type> template<typename RightType>
 LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator| (LinAlg::Matrix<RightType> rhs)
 {
@@ -715,26 +804,26 @@ std::string& LinAlg::operator<< (std::string& output, const LinAlg::Matrix<Type>
     return output;
 }
 
-template<typename Type>
-bool LinAlg::operator== (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs)
-{
-    bool ret = true;
+//template<typename Type>
+//bool LinAlg::operator== (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs)
+//{
+//    bool ret = true;
 
-    if((lhs.getNumberOfRows() == rhs.getNumberOfRows()) && (lhs.getNumberOfColumns() && rhs.getNumberOfColumns()))
-    {
-        for(unsigned i = 1; i <= lhs.getNumberOfRows(); i++)
-            for(unsigned j = 1; j <= lhs.getNumberOfColumns(); j++)
-                if(!(lhs(i, j) == rhs(i, j)))
-                {
-                    ret = false;
-                    break;
-                }
-    }
-    else
-        ret = false;
+//    if((lhs.getNumberOfRows() == rhs.getNumberOfRows()) && (lhs.getNumberOfColumns() && rhs.getNumberOfColumns()))
+//    {
+//        for(unsigned i = 1; i <= lhs.getNumberOfRows(); i++)
+//            for(unsigned j = 1; j <= lhs.getNumberOfColumns(); j++)
+//                if(!(lhs(i, j) == rhs(i, j)))
+//                {
+//                    ret = false;
+//                    break;
+//                }
+//    }
+//    else
+//        ret = false;
 
-    return ret;
-}
+//    return ret;
+//}
 
 template<typename Type>
 void LinAlg::Zeros(Matrix<Type>& Mat)
@@ -772,11 +861,15 @@ LinAlg::Matrix<Type> LinAlg::Eye (unsigned dimension)
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::LineVector (unsigned from, unsigned to, unsigned step)
+LinAlg::Matrix<Type> LinAlg::LineVector (Type from, Type to, Type step)
 {
     LinAlg::Matrix<Type> Ret(1,unsigned((to-from)/step));
-    for(unsigned i = 0; i < to; i+= step)
-            Ret(1,i+1) = i;
+    unsigned j;
+    for(Type i = from; i < to; i+= step)
+    {
+        Ret(1,j) = i;
+        ++j;
+    }
     return Ret;
 }
 

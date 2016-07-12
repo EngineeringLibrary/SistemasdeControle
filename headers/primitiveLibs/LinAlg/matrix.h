@@ -52,6 +52,9 @@ namespace LinAlg {
             LinAlg::Matrix<Type> operator() (unsigned* row_interval, unsigned column) const;
             LinAlg::Matrix<Type> operator() (unsigned  row, unsigned* column_interval) const;
             LinAlg::Matrix<Type> operator() (unsigned* row_interval, unsigned* column_interval) const;
+            LinAlg::Matrix<Type> operator() (unsigned* row_interval, LinAlg::Matrix<Type> columns) const;
+            LinAlg::Matrix<Type> operator() (unsigned  row, LinAlg::Matrix<Type> columns) const;
+            LinAlg::Matrix<Type> operator() (LinAlg::Matrix<Type> rows, unsigned  column) const;
 
             void operator= (const char* rhs);
             LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<Type>& otherMatrix) const;
@@ -149,10 +152,19 @@ namespace LinAlg {
     template<typename Type>
     std::string& operator<< (std::string& output, const LinAlg::Matrix<Type> mat);
 
-    template<typename Type>
-    bool operator== (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs);
+//    template<typename Type>
+//    bool operator== (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs);
     template<typename Type>
     bool operator!= (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs) {return !(lhs == rhs);}
+
+    template <typename Type>
+    LinAlg::Matrix<Type> divPoint(const LinAlg::Matrix<Type> &A, const LinAlg::Matrix<Type> &B);
+
+    template <typename Type>
+    LinAlg::Matrix<Type> sortColumnVector(const LinAlg::Matrix<Type> &columnVector);
+
+    template <typename Type>
+    unsigned lineOfMinValue(const LinAlg::Matrix<Type> &mat);
 
     template<typename Type>
     void Zeros (LinAlg::Matrix<Type>& Mat);
