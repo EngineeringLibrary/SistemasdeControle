@@ -20,6 +20,9 @@ namespace LinAlg {
     LinAlg::Matrix<Type> CaracteristicPolynom (const LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
+    LinAlg::Matrix<Type> inv_numeric(LinAlg::Matrix<Type> mat);
+
+    template<typename Type>
     void QR_Factorization_ModifiedGramSchmidt (LinAlg::Matrix<Type> input_matrix,
                            LinAlg::Matrix<Type>& output_Q_matrix,
                            LinAlg::Matrix<Type>& output_R_matrix);

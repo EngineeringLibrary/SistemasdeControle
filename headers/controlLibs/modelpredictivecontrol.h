@@ -1,6 +1,7 @@
 #ifndef PREDITIVO_H
 #define PREDITIVO_H
 
+#include "SistemasdeControle/headers/restrictedOptimization/activeset.h"
 #include "SistemasdeControle/headers/modelLibs/model.h"
 #include "SistemasdeControle/headers/modelLibs/statespace.h"
 #include "SistemasdeControle/headers/modelLibs/conversions.h"
@@ -15,10 +16,19 @@ namespace ControlHandler{
         ModelHandler::PredictionModel<Type> SSP;
         ModelHandler::IntegrativeModel<Type> SSI;
         LinAlg::Matrix<Type> K, W, Q, R, U;
-        Type N1,N2,NU, lMax, lMin;
+        Type N1,N2,NU, uMax, uMin, duMax, duMin, yMax, yMin;
+        restrictedOptimizationHandler::QuadProg<Type> *QP;
+
+        void setOptimizationConstraints(Type duMax, Type duMin, Type yMax,
+                                        Type yMin, Type uMax, Type uMin,
+                                        const LinAlg::Matrix<Type> &uk1,
+                                        const LinAlg::Matrix<Type> &A,
+                                        const LinAlg::Matrix<Type> &B,
+                                        const LinAlg::Matrix<Type> &C,
+                                        const LinAlg::Matrix<Type> &X0);
 
     public:
-        ModelPredictiveControl(){}
+        ModelPredictiveControl(){this->QP = NULL;}
         ModelPredictiveControl(const ModelHandler::StateSpace<Type> &SS,
                                unsigned N1, unsigned N2, unsigned NU,
                                Type Q, Type R, Type W);
@@ -26,11 +36,13 @@ namespace ControlHandler{
                                unsigned N1, unsigned N2, unsigned NU,
                                Type Q, Type R, Type W);
 
-        void setLimits(Type max, Type min);
+        void setLimits(Type Umax, Type Umin);
+        void setLimits(Type duMax, Type duMin, Type yMax, Type yMin, Type uMax, Type uMin);
         void setReference(LinAlg::Matrix<Type> W);
         void setErrorWeight(LinAlg::Matrix<Type> Q);
         void setControlWeight(LinAlg::Matrix<Type> R);
         void setInitialState(LinAlg::Matrix<Type> X0);
+        void setOptimizationAlgorithm2QuadProg(restrictedOptimizationHandler::QuadProg<Type> *QP){this->QP = QP;}
 
         void LimitControlOutput();
 

@@ -5,23 +5,21 @@
 namespace restrictedOptimizationHandler{
 
     template <typename Type>
-    class simplex : public linProg
+    class simplex : public linProg<Type>
     {
     public:
-        simplex();
+        simplex(){}
         void optimize();
     private:
         Type cost;
-        LinAlg::Matrix<Type> set;
         void simplexOptimization(const LinAlg::Matrix<Type> &c,
                                  const LinAlg::Matrix<Type> &A,
                                  const LinAlg::Matrix<Type> &b,
-                                 const LinAlg::Matrix<Type> &B,
-                                 const LinAlg::Matrix<Type> &N);
+                                 LinAlg::Matrix<Type> &B,
+                                 LinAlg::Matrix<Type> &N);
         LinAlg::Matrix<Type> EscalSimplex(LinAlg::Matrix<Type> A, unsigned index);
-
     };
 }
 
-#include "SistemasdeControle/headers/restrictedOptimization/simplex.hpp"
+#include "SistemasdeControle/src/restrictedOptimization/simplex.hpp"
 #endif // SIMPLEX_H

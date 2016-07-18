@@ -9,8 +9,8 @@ ControlHandler::ModelPredictiveControl<Type>::
     this->N1 = N1;
     this->N2 = N2;
     this->NU = NU;
-    LinAlg::Matrix<double> X  = LinAlg::Zeros<double>(SSd.getA().getNumberOfRows(),2);
-    LinAlg::Matrix<double> Y  = LinAlg::Zeros<double>((SSd.getC()*X).getNumberOfRows(),(SSd.getC()*X).getNumberOfColumns());
+    LinAlg::Matrix<Type> X  = LinAlg::Zeros<Type>(SSd.getA().getNumberOfRows(),2);
+    LinAlg::Matrix<Type> Y  = LinAlg::Zeros<Type>((SSd.getC()*X).getNumberOfRows(),(SSd.getC()*X).getNumberOfColumns());
 
     if(SS.isContinuous())
         this->SSd = ModelHandler::c2d(SS,0.1);
@@ -18,15 +18,16 @@ ControlHandler::ModelPredictiveControl<Type>::
         this->SSd = SS;
     this->SSdStateStimated = this->SSd;
 
-    this->SSI = new ModelHandler::IntegrativeModel<double>(SSd);
-    this->SSP = new ModelHandler::PredictionModel<double>(SSd,N1,N2,NU);
-    this->Q = Q*LinAlg::Eye<double>((SSP->getC()*SSP->getB()).getNumberOfRows());
-    this->R = R*LinAlg::Eye<double>(NU*SSd.getB().getNumberOfColumns());
-    this->W = W*LinAlg::Ones<double>((SSP->getC()*SSP->getA()*(X||Y)).getNumberOfRows(),1);
+    this->SSI = new ModelHandler::IntegrativeModel<Type>(SSd);
+    this->SSP = new ModelHandler::PredictionModel<Type>(SSd,N1,N2,NU);
+    this->Q = Q*LinAlg::Eye<Type>((SSP->getC()*SSP->getB()).getNumberOfRows());
+    this->R = R*LinAlg::Eye<Type>(NU*SSd.getB().getNumberOfColumns());
+    this->W = W*LinAlg::Ones<Type>((SSP->getC()*SSP->getA()*(X||Y)).getNumberOfRows(),1);
     this->U  = LinAlg::Zeros<Type>(SSI.getB().getNumberOfColumns(),1);
     this->K = (((~SSP.getB())*(~SSP.getC())*this->Q*SSP.getC()*SSP.getB()+this->R )^-1)*(~SSP.getB())*(~SSP.getC())*(~this->Q);
     this->lMax = 50;
     this->lMin = -this->lMax;
+    this->QP = NULL;
 }
 
 template<typename Type>
@@ -39,26 +40,85 @@ ControlHandler::ModelPredictiveControl<Type>::
     this->N2 = N2;
     this->NU = NU;
 
-    this->SSd = ModelHandler::arx2SS<double>(gz);
-    LinAlg::Matrix<double> X  = LinAlg::Zeros<double>(SSd.getA().getNumberOfRows(),2);
-    LinAlg::Matrix<double> Y  = LinAlg::Zeros<double>((SSd.getC()*X).getNumberOfRows(),(SSd.getC()*X).getNumberOfColumns());
+    this->SSd = ModelHandler::arx2SS<Type>(gz);
+    LinAlg::Matrix<Type> X  = LinAlg::Zeros<Type>(SSd.getA().getNumberOfRows(),2);
+    LinAlg::Matrix<Type> Y  = LinAlg::Zeros<Type>((SSd.getC()*X).getNumberOfRows(),(SSd.getC()*X).getNumberOfColumns());
     this->SSdStateStimated = this->SSd;
 
-    this->SSI = ModelHandler::IntegrativeModel<double>(this->SSd);
-    this->SSP = ModelHandler::PredictionModel<double>(this->SSd,N1,N2,NU);
-    this->Q = Q*LinAlg::Eye<double>((SSP.getC()*SSP.getB()).getNumberOfRows());
-    this->R = R*LinAlg::Eye<double>(NU*SSd.getB().getNumberOfColumns());
-    this->W = W*LinAlg::Ones<double>((SSP.getC()*SSP.getA()*(X||Y)).getNumberOfRows(),1);
+    this->SSI = ModelHandler::IntegrativeModel<Type>(this->SSd);
+    this->SSP = ModelHandler::PredictionModel<Type>(this->SSd,N1,N2,NU);
+    this->Q = Q*LinAlg::Eye<Type>((SSP.getC()*SSP.getB()).getNumberOfRows());
+    this->R = R*LinAlg::Eye<Type>(NU*SSd.getB().getNumberOfColumns());
+    this->W = W*LinAlg::Ones<Type>((SSP.getC()*SSP.getA()*(X||Y)).getNumberOfRows(),1);
     this->U  = LinAlg::Zeros<Type>(SSI.getB().getNumberOfColumns(),1);
     this->K = (((~SSP.getB())*(~SSP.getC())*this->Q*SSP.getC()*SSP.getB()+this->R )^-1)*(~SSP.getB())*(~SSP.getC())*(~this->Q);
-    this->lMax = 50;
-    this->lMin = -this->lMax;
+    this->uMax = 50;
+    this->uMin = -this->uMax;
+    this->QP = NULL;
 }
 
 template<typename Type>
-void ControlHandler::ModelPredictiveControl<Type>::setLimits(Type max, Type min)
+void ControlHandler::ModelPredictiveControl<Type>::setLimits(Type Umax, Type Umin)
 {
-    this->lMax = max; this->lMin = min;
+    this->uMax = Umax; this->uMin = Umin;
+}
+
+template<typename Type>
+void ControlHandler::ModelPredictiveControl<Type>::setLimits(Type duMax, Type duMin,
+                                                             Type yMax, Type yMin,
+                                                             Type uMax, Type uMin)
+{
+    this->duMax = duMax; this->duMin = duMin;
+    this->uMax = uMax;   this->uMin = uMin;
+    this->yMax = yMax;   this->yMin = yMin;
+}
+
+template<typename Type>
+void ControlHandler::ModelPredictiveControl<Type>::setOptimizationConstraints(Type duMax, Type duMin, Type yMax,
+                                                                              Type yMin, Type uMax, Type uMin,
+                                                                              const LinAlg::Matrix<Type> &uk1,
+                                                                              const LinAlg::Matrix<Type> &A,
+                                                                              const LinAlg::Matrix<Type> &B,
+                                                                              const LinAlg::Matrix<Type> &C,
+                                                                              const LinAlg::Matrix<Type> &X0)
+{
+    if(this->QP)
+    {
+        LinAlg::Matrix<Type> Fdu = LinAlg::Eye<Type>(B.getNumberOfColumns());
+        LinAlg::Matrix<Type> Gdu = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*duMax;
+        LinAlg::Matrix<Type> Fy  = LinAlg::Eye<Type>(C.getNumberOfRows());
+        LinAlg::Matrix<Type> Gy  = LinAlg::Ones<Type>(C.getNumberOfRows(),1)*yMax;
+        LinAlg::Matrix<Type> Fu  = LinAlg::Eye<Type>(B.getNumberOfColumns());
+        LinAlg::Matrix<Type> Gu  = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*uMax;
+        LinAlg::Matrix<Type> Mtemp1;
+        for (unsigned i = 1; i <= B.getNumberOfColumns(); ++i)
+           Mtemp1 = Mtemp1 ||
+                    LinAlg::Ones<Type>(1,i) | LinAlg::Zeros<Type>(1,B.getNumberOfColumns()-i);
+
+        LinAlg::Matrix<Type> L   = LinAlg::Ones<Type>(B.getNumberOfColumns(),1);
+
+        LinAlg::Matrix<Type> Fp = Fdu || Fy*C*B || Fu*Mtemp1;
+        LinAlg::Matrix<Type> Gp = Gdu || Gy-Fy*C*A*X0 || Gu-Fu*L*uk1;
+
+        LinAlg::Matrix<Type> Fdun = LinAlg::Eye<Type>(B.getNumberOfColumns());
+        LinAlg::Matrix<Type> Gdun = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*duMin;
+        LinAlg::Matrix<Type> Fyn  = LinAlg::Eye<Type>(C.getNumberOfRows());
+        LinAlg::Matrix<Type> Gyn  = LinAlg::Ones<Type>(C.getNumberOfRows(),1)*yMin;
+        LinAlg::Matrix<Type> Fun  = LinAlg::Eye<Type>(B.getNumberOfColumns());
+        LinAlg::Matrix<Type> Gun  = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*uMin;
+        LinAlg::Matrix<Type> Mtemp2;
+
+        for (unsigned i = 1; i <= B.getNumberOfColumns(); ++i)
+           Mtemp2 = Mtemp2 || LinAlg::Ones<Type>(1,i) | LinAlg::Zeros<Type>(1,B.getNumberOfColumns()-i);
+
+        L   = LinAlg::Ones<Type>(B.getNumberOfColumns(),1);
+
+        LinAlg::Matrix<Type> Fn = Fdun || Fyn*C*B || Fun*Mtemp2;
+        LinAlg::Matrix<Type> Gn = Gdun || Gyn-Fyn*C*A*X0 || Gun-Fun*L*uk1;
+        this->QP->setRestrictions(MatrixRestrictionHandler::MatrixEquality<Type>(), Fn >= Gn, Fp <= Gp);
+    }
+    else
+        std::cout << "O otimizador nao foi setado\n";
 }
 
 template<typename Type>
@@ -102,8 +162,8 @@ void ControlHandler::ModelPredictiveControl<Type>::setNewModel(const ModelHandle
 //    std::cout << X << gzState;
     SSdStateStimated.setInitialState(X);
     SSdStateStimated.sim(this->U);
-    this->SSI = ModelHandler::IntegrativeModel<double>(SSdStateStimated);
-    this->SSP = ModelHandler::PredictionModel<double>(SSdStateStimated,N1,N2,NU);
+    this->SSI = ModelHandler::IntegrativeModel<Type>(SSdStateStimated);
+    this->SSP = ModelHandler::PredictionModel<Type>(SSdStateStimated,N1,N2,NU);
 
     this->K = (((~SSP.getB())*(~SSP.getC())*this->Q*SSP.getC()*SSP.getB()+this->R )^-1)*(~SSP.getB())*(~SSP.getC())*(~this->Q);
 }
@@ -162,8 +222,18 @@ LinAlg::Matrix<Type> ControlHandler::ModelPredictiveControl<Type>::OutputControl
     LinAlg::Matrix<Type> X = ((X_input - X_state)|| this->SSd.getC()*X_input);
 
     SSd.setInitialState(X_input);
-
-    LinAlg::Matrix<Type> du = this->K*(this->W - SSP.getC()*SSP.getA()*X);
+    LinAlg::Matrix<Type> du;
+    if(!this->QP)
+        du = this->K*(this->W - SSP.getC()*SSP.getA()*X);
+    else
+    {
+        this->setOptimizationConstraints(duMax,duMin,yMax,yMin,uMax,uMin,U,SSP.getA(),SSP.getB(),SSP.getC(),X);
+//        std::cout << 2*((~SSP.getB())*(~SSP.getC())*Q*SSP.getC()*SSP.getB()+R) << "\n";
+//        std::cout << 2*(~SSP.getB())*(~SSP.getC())*(~Q)*(SSP.getC()*SSP.getA()*X-W) << "\n";
+        this->QP->setfunction2Optimize(2*((~SSP.getB())*(~SSP.getC())*Q*SSP.getC()*SSP.getB()+R),2*(~SSP.getB())*(~SSP.getC())*(~Q)*(SSP.getC()*SSP.getA()*X-W));
+        QP->optimize();
+        du = QP->getOptimizatedValue();
+    }
     this->U = this->U + ((du.GetRow(1)));
     LimitControlOutput();
 
@@ -190,10 +260,10 @@ template<typename Type>
 void ControlHandler::ModelPredictiveControl<Type>::LimitControlOutput()
 {
     for(unsigned i = 1; i <= this->U.getNumberOfRows(); ++i)
-        if(this->U(i,1) > lMax)
-            this->U(i,1) = lMax;
-        else if(this->U(i,1) < lMin)
-            this->U(i,1) = lMin;
+        if(this->U(i,1) > uMax)
+            this->U(i,1) = uMax;
+        else if(this->U(i,1) < uMin)
+            this->U(i,1) = uMin;
 }
 
 template<typename Type>

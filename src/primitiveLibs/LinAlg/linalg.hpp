@@ -101,6 +101,65 @@ LinAlg::Matrix<Type> LinAlg::CaracteristicPolynom (const LinAlg::Matrix<Type>& m
 }
 
 template<typename Type>
+LinAlg::Matrix<Type> LinAlg::inv_numeric(LinAlg::Matrix<Type> mat)
+{
+    LinAlg::Matrix<Type> Id;
+
+//    try
+//    {
+        if (mat.getNumberOfColumns() != mat.getNumberOfRows())
+            std::cout << "A matriz nao e quadrada\n";
+//            throw "A matriz nao e quadrada";
+        else
+        {
+            Id = LinAlg::Eye<Type>(mat.getNumberOfRows());
+
+            for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+                for(unsigned j = i+1; j <= mat.getNumberOfRows(); ++j)
+                {
+                    Type m = mat(j,i)/mat(i,i);
+                    for(int k = 1; k <= mat.getNumberOfRows(); ++k)
+                    {
+                        mat(j,k) = mat(j,k)-m*mat(i,k);
+                        Id(j,k) = Id(j,k)-m*Id(i,k);
+                    }
+                }
+
+            for(unsigned i = mat.getNumberOfRows(); i > 1; --i)
+                for(unsigned j = i - 1; j >= 1; --j)
+                {
+//                    std::cout << "\n\n\n" << mat(j,i) << ',' << mat(i,i)<< "\n\n\n";
+                    Type m = mat(j,i)/mat(i,i);
+                    for(unsigned k = 1; k <= mat.getNumberOfRows(); ++k)
+                    {
+                        mat(j,k) = mat(j,k)-m*mat(i,k);
+                        Id(j,k) = Id(j,k)-m*Id(i,k);
+                    }
+                }
+
+            for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+            {
+                Type m = 1/mat(i,i);
+                for(unsigned j = 1; j <= mat.getNumberOfRows(); ++j)
+                {
+                     mat(i,j) = m*mat(i,j);
+                     Id(i,j) = m*Id(i,j);
+                }
+
+            }
+        }
+//    }
+
+//    catch (const char* msg)
+//    {
+//        cerr<<msg<<endl;
+//    }
+
+    return Id;
+}
+
+
+template<typename Type>
 void LinAlg::QR_Factorization_ModifiedGramSchmidt (LinAlg::Matrix<Type> input_matrix,
                                             LinAlg::Matrix<Type>& output_Q_matrix,
                                             LinAlg::Matrix<Type>& output_R_matrix)

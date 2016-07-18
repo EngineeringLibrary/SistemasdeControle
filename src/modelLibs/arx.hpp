@@ -63,8 +63,6 @@ void ModelHandler::ARX<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg
     this->OutputLinearVector.removeColumn(this->OutputLinearVector.getNumberOfColumns());
     this->InputLinearVector  =  Input|this->InputLinearVector;
     this->OutputLinearVector =  PastOutput|this->OutputLinearVector;
-//    LinAlg::Matrix<Type> InputLinearVector = this->InputLinearVector;
-//    InputLinearVector.removeColumn(1);
     LinAlg::Matrix<Type> TempLinearVector;
 
     for(unsigned i = 1; i <= PastOutput.getNumberOfRows(); ++i)
