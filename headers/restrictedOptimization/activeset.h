@@ -8,7 +8,7 @@ namespace restrictedOptimizationHandler{
     class activeSet : public QuadProg <Type>
     {
     public:
-        activeSet();
+        activeSet(){this->tol = 1e-2;}
         void optimize();
     private:
         Type cost;
@@ -29,6 +29,11 @@ namespace restrictedOptimizationHandler{
                  LinAlg::Matrix<Type> b,
                  LinAlg::Matrix<Type> &x,
                  LinAlg::Matrix<Type> &v);
+
+        void RKKT(LinAlg::Matrix<Type> A,
+                  LinAlg::Matrix<Type> b,
+                  LinAlg::Matrix<Type> &P,
+                  LinAlg::Matrix<Type> &x);
     };
 }
 

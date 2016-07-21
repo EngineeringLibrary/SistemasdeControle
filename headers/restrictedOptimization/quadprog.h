@@ -26,6 +26,8 @@ namespace restrictedOptimizationHandler{
         LinAlg::Matrix<Type> getSet() const {return this->set;}
         LinAlg::Matrix<Type> getOptimizatedValue() const {return this->x;}
 
+        Type getTolerance() const {return this->tol;}
+
         MatrixRestrictionHandler::MatrixEquality<Type> getMatrixEquality()const {return E;}
         MatrixRestrictionHandler::MatrixNegativeInequality<Type> getMatrixNegativeInequality()const {return N;}
         MatrixRestrictionHandler::MatrixPositiveInequality<Type> getMatrixPositiveInequality()const {return P;}

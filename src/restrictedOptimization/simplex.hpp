@@ -55,6 +55,7 @@ void restrictedOptimizationHandler::simplex<Type>::simplexOptimization(const Lin
     LinAlg::Matrix<Type> Ab = A(from(1)-->A.getNumberOfRows(),B);
 //    std::cout << N << "\n";
     LinAlg::Matrix<Type> Abinv = LinAlg::inv_numeric(Ab);
+//    LinAlg::Matrix<Type> Abinv = (Ab^-1);
     LinAlg::Matrix<Type> xb;
 //    %% Verifique o vetor dos custos reduzidos
     for(unsigned terminate = 1; terminate <= 100; ++terminate)

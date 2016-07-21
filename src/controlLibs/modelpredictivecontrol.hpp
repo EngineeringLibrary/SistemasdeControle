@@ -85,11 +85,14 @@ void ControlHandler::ModelPredictiveControl<Type>::setOptimizationConstraints(Ty
     if(this->QP)
     {
         LinAlg::Matrix<Type> Fdu = LinAlg::Eye<Type>(B.getNumberOfColumns());
-        LinAlg::Matrix<Type> Gdu = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*duMax;
+        LinAlg::Matrix<Type> Gdu = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*(duMax - this->QP->getTolerance());
+//        LinAlg::Matrix<Type> Gdu = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*(duMax);
         LinAlg::Matrix<Type> Fy  = LinAlg::Eye<Type>(C.getNumberOfRows());
-        LinAlg::Matrix<Type> Gy  = LinAlg::Ones<Type>(C.getNumberOfRows(),1)*yMax;
+        LinAlg::Matrix<Type> Gy  = LinAlg::Ones<Type>(C.getNumberOfRows(),1)*(yMax - this->QP->getTolerance());
+//        LinAlg::Matrix<Type> Gy  = LinAlg::Ones<Type>(C.getNumberOfRows(),1)*(yMax);
         LinAlg::Matrix<Type> Fu  = LinAlg::Eye<Type>(B.getNumberOfColumns());
-        LinAlg::Matrix<Type> Gu  = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*uMax;
+        LinAlg::Matrix<Type> Gu  = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*(uMax - this->QP->getTolerance());
+//        LinAlg::Matrix<Type> Gu  = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*(uMax);
         LinAlg::Matrix<Type> Mtemp1;
         for (unsigned i = 1; i <= B.getNumberOfColumns(); ++i)
            Mtemp1 = Mtemp1 ||
@@ -101,11 +104,14 @@ void ControlHandler::ModelPredictiveControl<Type>::setOptimizationConstraints(Ty
         LinAlg::Matrix<Type> Gp = Gdu || Gy-Fy*C*A*X0 || Gu-Fu*L*uk1;
 
         LinAlg::Matrix<Type> Fdun = LinAlg::Eye<Type>(B.getNumberOfColumns());
-        LinAlg::Matrix<Type> Gdun = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*duMin;
+        LinAlg::Matrix<Type> Gdun = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*(duMin + this->QP->getTolerance());
+//        LinAlg::Matrix<Type> Gdun = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*(duMin);
         LinAlg::Matrix<Type> Fyn  = LinAlg::Eye<Type>(C.getNumberOfRows());
-        LinAlg::Matrix<Type> Gyn  = LinAlg::Ones<Type>(C.getNumberOfRows(),1)*yMin;
+        LinAlg::Matrix<Type> Gyn  = LinAlg::Ones<Type>(C.getNumberOfRows(),1)*(yMin + this->QP->getTolerance());
+//        LinAlg::Matrix<Type> Gyn  = LinAlg::Ones<Type>(C.getNumberOfRows(),1)*(yMin);
         LinAlg::Matrix<Type> Fun  = LinAlg::Eye<Type>(B.getNumberOfColumns());
-        LinAlg::Matrix<Type> Gun  = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*uMin;
+        LinAlg::Matrix<Type> Gun  = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*(uMin + this->QP->getTolerance());
+//        LinAlg::Matrix<Type> Gun  = LinAlg::Ones<Type>(B.getNumberOfColumns(),1)*(uMin);
         LinAlg::Matrix<Type> Mtemp2;
 
         for (unsigned i = 1; i <= B.getNumberOfColumns(); ++i)
