@@ -7,6 +7,7 @@
 #include "SistemasdeControle/headers/modelLibs/conversions.h"
 #include "SistemasdeControle/headers/modelLibs/integrativemodel.h"
 #include "SistemasdeControle/headers/modelLibs/predictionmodel.h"
+#include "SistemasdeControle/headers/restrictedOptimization/recursiveactiveset.h"
 
 namespace ControlHandler{
     template <class Type>
