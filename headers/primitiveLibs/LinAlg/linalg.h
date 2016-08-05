@@ -70,6 +70,9 @@ namespace LinAlg {
 
     template <typename Type>
     LinAlg::Matrix<Type> sqrtMatrix(const LinAlg::Matrix<Type> &mat);
+
+    template <typename Type>
+    LinAlg::Matrix<Type> mean(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn);
 }
 
 #include "SistemasdeControle/src/primitiveLibs/LinAlg/linalg.hpp"

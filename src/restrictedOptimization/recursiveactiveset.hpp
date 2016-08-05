@@ -9,15 +9,17 @@ void restrictedOptimizationHandler::RecursiveActiveSet<Type>::optimize()
     this->x = (((~this->QuadMat)*this->QuadMat)^-1)*(~this->QuadMat)*-this->LinMat; // Solução de mínimos quadrados do problema
     LinAlg::Matrix<Type> Cov = LinAlg::Eye<Type>(A0.getNumberOfColumns())*1e8; // Matriz de covariância do mínimos quadrados recursivo
 
+//    std::cout << this->x << "\n";
     while(1)// Esse while roda enquanto existirem restrições que não são obedecidas.
     {
         LinAlg::Matrix<Type> S = this->activeRestrictions(A0,b0,this->tol); // verifica quais restrições não estão sendo obedecidas caso não exista retorna uma matriz 0X0
         if(S.getNumberOfColumns() == 0)// verifica se todas as restrições foram obedecidas
             break;// se sim, sai do loop
-
+//        std::cout << S << "\n";
         LinAlg::Matrix<Type> A = A0(S,from(1)-->A0.getNumberOfColumns());// seleciona a restrição que não foi obedecida
         LinAlg::Matrix<Type> b = b0(S,1);// seleciona a restrição que não foi obedecida
         this->RKKT(A,b,Cov,this->x);// faz a solução x ser "puxada" para dentro do conjunto de restrições
+//        std::cout << this->x << "\n";
     }
     /*
      * Suposta explicação (Ainda não tenho comprovações matemáticas)
