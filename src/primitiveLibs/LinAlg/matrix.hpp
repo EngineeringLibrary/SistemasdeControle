@@ -929,11 +929,38 @@ std::ostream& LinAlg::operator<< (std::ostream& output, const LinAlg::Matrix<Typ
     {
         for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)
             if(mat(i, j) != 0)
-                output << std::setw(2*3+1) << std::setprecision(3) << std::fixed << mat(i, j) << ' ';
+                output << std::setw(2*coutPrecision+1) << std::setprecision(coutPrecision) << std::fixed << mat(i, j) << ' ';
             else
-                output << std::setw(2*3+1) << std::setprecision(0) << std::fixed << mat(i, j) << ' ';
+                output << std::setw(2*coutPrecision+1) << std::setprecision(0) << std::fixed << mat(i, j) << ' ';
 
         output << std::endl;
+    }
+
+    return output;
+}
+
+template<typename Type>
+std::ostream& LinAlg::operator<<= (std::ostream& output, const LinAlg::Matrix<Type> mat)
+{
+    if(mat.getNumberOfColumns() == 0){
+        return output;
+    }
+
+    for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
+    {
+        for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)
+        {
+            if(mat(i, j) != 0)
+                output << std::setw(2*coutPrecision+1) << std::setprecision(coutPrecision) << std::fixed << mat(i, j);
+            else
+                output << std::setw(2*coutPrecision+1) << std::setprecision(0) << std::fixed << mat(i, j);
+
+            if(j != mat.getNumberOfColumns())
+                output << ',';
+        }
+
+        if(i != mat.getNumberOfRows())
+            output << ';';
     }
 
     return output;
@@ -955,6 +982,15 @@ std::string& LinAlg::operator<< (std::string& output, const LinAlg::Matrix<Type>
 {
     std::stringstream ss;
     ss << mat;
+    output += ss.str();
+    return output;
+}
+
+template<typename Type>
+std::string& LinAlg::operator<<= (std::string& output, const LinAlg::Matrix<Type> mat)
+{
+    std::stringstream ss;
+    ss <<= mat;
     output += ss.str();
     return output;
 }

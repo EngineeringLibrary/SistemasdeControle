@@ -16,7 +16,9 @@
 using namespace Identifiers;
 
 namespace LinAlg {
-//    unsigned coutPrecision = 3; //tá com bug na interface
+    #ifndef coutPrecision
+        #define coutPrecision 3
+    #endif
     template<typename Type>
     class Matrix
     {
@@ -152,10 +154,15 @@ namespace LinAlg {
     template<typename Type>
     std::ostream& operator<< (std::ostream& output, const LinAlg::Matrix<Type> mat);
     template<typename Type>
+    std::ostream& operator<<= (std::ostream& output, const LinAlg::Matrix<Type> mat);
+    template<typename Type>
     std::istream& operator>> (std::istream& input, LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
     std::string& operator<< (std::string& output, const LinAlg::Matrix<Type> mat);
+
+    template<typename Type>
+    std::string& operator<<= (std::string& output, const LinAlg::Matrix<Type> mat);
 
 //    template<typename Type>
 //    bool operator== (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs);
