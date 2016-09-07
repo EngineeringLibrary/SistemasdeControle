@@ -104,6 +104,7 @@ ModelHandler::StateSpace<Type> ModelHandler::arx2SS(const ARX<Type> &Arx)
         unsigned row = 1;
         for(unsigned j = 1; j <= nyPar; ++j)
             for(unsigned k = 1; k <= nu; ++k){
+//                std::cout << ArxParameters << std::cout;
                 Temp(row,1) = ArxParameters((i-1)*nu + k + nyPar*ny, j);
                 ++row;
             }
@@ -184,6 +185,7 @@ ModelHandler::StateSpace<Type> ModelHandler::tf2ss(const ModelHandler::TransferF
             SS.setD((Dtemp|ZeroDireita) || (ZeroAbaixo|SS.getD()));
         }
     }
+
     return SS;
 }
 

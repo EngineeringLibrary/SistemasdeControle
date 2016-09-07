@@ -1,6 +1,7 @@
 #ifndef SIMPLEX_H
 #define SIMPLEX_H
 #include "SistemasdeControle/headers/restrictedOptimization/linprog.h"
+#include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
 
 namespace restrictedOptimizationHandler{
 

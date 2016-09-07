@@ -296,10 +296,10 @@ std::string ModelHandler::TransferFunction<Type>::ContinuosSecondOrderCaracteris
 template <typename Type>
 Type ModelHandler::TransferFunction<Type>::sim(Type x)
 {
-    ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ss(*this);
-    SS.setInitialState(state);
-    x = SS.sim(x);
-    state = SS.getActualState();
+//    ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ss(*this);
+//    SS.setInitialState(state);
+//    x = SS.sim(x);
+//    state = SS.getActualState();
 
     return x;
 }
@@ -313,9 +313,9 @@ Type ModelHandler::TransferFunction<Type>::sim(Type x, Type y)
 template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::TransferFunction<Type>::sim(LinAlg::Matrix<Type> x)
 {
-    ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ss(*this);
+//    ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ss(*this);
 
-    return SS.sim(x);
+//    return SS.sim(x);
 }
 
 template <typename Type>

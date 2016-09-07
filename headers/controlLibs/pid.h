@@ -3,32 +3,29 @@
 
 #include <cmath>
 
+namespace ControlHandler{
+    template <typename Type>
+    class PID
+    {
+    private:
+        bool checkUpLim, checkLowLim;
+        Type Error, pastError, integralError, derivativeError, Step, kp, ki, kd, upperLimit, lowerLimit, PIDout;
 
-template <typename UsedType>
-class PID
-{
-private:
+        void antReset();
 
-    bool checkUpLim, checkLowLim;
-    UsedType Error, pastError, integralError, derivativeError, Step, kp, ki, kd, upperLimit, lowerLimit, PIDout;
+        void intError();
+        void difError();
 
-    void antReset();
+    public:
+        PID();
 
-    void intError();
-    void difError();
+        void setSampleTime(Type Time);
+        void setLimits(Type upperLimit, Type lowerLimit);
+        void setParams(Type kp, Type ki, Type kd);
 
+        Type OutputControl(Type Reference, Type SignalInput);
+    };
+}
 
-
-public:
-    PID();
-
-    void setSampleTime(UsedType Time);
-    void setLimits(UsedType upperLimit, UsedType lowerLimit);
-    void setParams(UsedType kp, UsedType ki, UsedType kd);
-
-    UsedType OutputControl(UsedType Reference, UsedType SignalInput);
-
-};
-
-#include <SistemasdeControle/src/controlLibs/pid.hpp>
+#include "SistemasdeControle/src/controlLibs/pid.hpp"
 #endif // PID_H

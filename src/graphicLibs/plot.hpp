@@ -27,7 +27,7 @@ PlotHandler::plot<Type>::plot(unsigned ySubplot, unsigned xSubplot, plotProperti
 template<typename Type>
 PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, QWidget *PlotFrame)
 {
-    LinAlg::Matrix<Type> Y = LinAlg::LineVector<Type>(0,X.getNumberOfColumns());
+    LinAlg::Matrix<Type> Y = LinAlg::LineVector<Type>(0,X.getNumberOfColumns()-1);
     this->properties.setPlotFrame(PlotFrame);
     this->generalPlot(Y,X);
 }

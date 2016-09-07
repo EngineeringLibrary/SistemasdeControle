@@ -1,7 +1,7 @@
 #include "SistemasdeControle/headers/controlLibs/pid.h"
 
-template<typename UsedType>
-PID<UsedType>::PID()
+template<typename Type>
+ControlHandler::PID<Type>::PID()
 {
     this->kd = 0;
     this->ki = 0;
@@ -12,13 +12,13 @@ PID<UsedType>::PID()
     this->pastError = 0;
     this->integralError = 0;
 
-    this->Step = 0;
-    this->upperLimit = 2000;
-    this->lowerLimit = -2000;
+    this->Step = 0.1;
+    this->upperLimit = 200;
+    this->lowerLimit = -200;
 }
 
-template<typename UsedType>
-void PID<UsedType>::antReset()
+template<typename Type>
+void ControlHandler::PID<Type>::antReset()
 {
     if(this->PIDout >= this->upperLimit)
     {
@@ -37,8 +37,8 @@ void PID<UsedType>::antReset()
         this->checkLowLim = false;
 }
 
-template<typename UsedType>
-void PID<UsedType>::intError()
+template<typename Type>
+void ControlHandler::PID<Type>::intError()
 {
     antReset();
 
@@ -46,36 +46,36 @@ void PID<UsedType>::intError()
         this->integralError += this->Error*this->Step;
 }
 
-template<typename UsedType>
-void PID<UsedType>::difError()
+template<typename Type>
+void ControlHandler::PID<Type>::difError()
 {
     this->derivativeError = ((this->Error - this->pastError)/this->Step);
     this->pastError = this->Error;
 }
 
-template<typename UsedType>
-void PID<UsedType>::setLimits(UsedType upperLimit, UsedType lowerLimit)
+template<typename Type>
+void ControlHandler::PID<Type>::setLimits(Type upperLimit, Type lowerLimit)
 {
     this->upperLimit = upperLimit;
     this->lowerLimit = lowerLimit;
 }
 
-template<typename UsedType>
-void PID<UsedType>::setSampleTime(UsedType Time)
+template<typename Type>
+void ControlHandler::PID<Type>::setSampleTime(Type Time)
 {
     this->Step = Time;
 }
 
-template<typename UsedType>
-void PID<UsedType>::setParams(UsedType kp, UsedType ki, UsedType kd)
+template<typename Type>
+void ControlHandler::PID<Type>::setParams(Type kp, Type ki, Type kd)
 {
     this->kp = kp;
     this->ki = ki;
     this->kd = kd;
 }
 
-template<typename UsedType>
-UsedType PID<UsedType>::OutputControl(UsedType Reference, UsedType SignalInput)
+template<typename Type>
+Type ControlHandler::PID<Type>::OutputControl(Type Reference, Type SignalInput)
 {
     this->Error = Reference - SignalInput;
 

@@ -17,9 +17,9 @@ ModelHandler::ARX<Type>::ARX(unsigned nOutputpar,unsigned nInputpar,
     this->delay        = delay;
     this->sampleTime   = sampleTime;
 
-    this->ModelCoef = LinAlg::Zeros<Type>(nInputpar*qdtInputVar + nOutputpar*qdtOutputVar, 1);
+    this->ModelCoef = LinAlg::Zeros<Type>(nInputpar*qdtInputVar + nOutputpar*qdtOutputVar, qdtOutputVar);
     this->Input = LinAlg::Zeros<Type>(qdtInputVar, nInputpar);
-    this->Output = LinAlg::Zeros<Type>(qdtOutputVar, 1);
+    this->Output = LinAlg::Zeros<Type>(qdtOutputVar, nOutputpar);
 //    this->Output = LinAlg::Zeros<Type>(qdtOutputVar, nOutputpar);
     this->EstOutput = this->Output;
     this->nSample = delay + maxnInOut + 1;
@@ -65,10 +65,11 @@ void ModelHandler::ARX<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg
     this->OutputLinearVector =  PastOutput|this->OutputLinearVector;
     LinAlg::Matrix<Type> TempLinearVector;
 
-    for(unsigned i = 1; i <= PastOutput.getNumberOfRows(); ++i)
+
+    for(unsigned i = 1; i <= this->OutputLinearVector.getNumberOfRows(); ++i)
         TempLinearVector = TempLinearVector | -this->OutputLinearVector.GetRow(i);
 
-    for(unsigned i = 1; i <= Input.getNumberOfRows(); ++i)
+    for(unsigned i = 1; i <= this->InputLinearVector.getNumberOfRows(); ++i)
         TempLinearVector = TempLinearVector | this->InputLinearVector.GetRow(i);
 
     this->LinearVectorA = TempLinearVector;
