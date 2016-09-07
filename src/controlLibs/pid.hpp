@@ -75,6 +75,14 @@ void ControlHandler::PID<Type>::setParams(Type kp, Type ki, Type kd)
 }
 
 template<typename Type>
+void ControlHandler::PID<Type>::setParams(const LinAlg::Matrix<Type> &PIDsParameters)
+{
+    this->kp = PIDsParameters(1,1);
+    this->ki = PIDsParameters(1,2);
+    this->kd = PIDsParameters(1,3);
+}
+
+template<typename Type>
 Type ControlHandler::PID<Type>::OutputControl(Type Reference, Type SignalInput)
 {
     this->Error = Reference - SignalInput;

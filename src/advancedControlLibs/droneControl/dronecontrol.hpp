@@ -1,48 +1,122 @@
-#include "SistemasdeControle/headers/advancedModelLibs/droneModel/dronemodel.h"
+#include "SistemasdeControle/headers/advancedControlLibs/droneControl/dronecontrol.h"
 
-template <class Type>
-ModelHandler::droneModel<Type>::droneModel()
+template <typename Type>
+ControlHandler::DroneControl<Type>::DroneControl(unsigned predictionHorizon,
+                                                 unsigned errorWeigth,
+                                                 unsigned controlHorizon,
+                                                 unsigned controlWeigth,
+                                                 const ModelHandler::ARX<Type> *gz,
+                                                 bool isAdaptive)
 {
-    X_pp = 0; Y_pp = 0; Z_pp = 0; X_p = 0; Y_p = 0; Z_p = 0; X = 0; Y = 0; Z = 0;
-    phi_pp = 0; theta_pp = 0; psi_pp = 0; phi_p = 0; theta_p = 0; psi_p = 0;
-    phi = 0, theta = 0, psi = 0;
-    mass = 2.2; gravity = 9.8; Inertia_xx = 16.76337;  // valores padrão baseados no artigo
-    Inertia_yy = 16.76337; Inertia_zz = 23.1447; // valores padrão baseados no artigo
-    this->setStep(0.1);
+    this->N1 = 1;
+    this->gz = gz;
+    this->Q = errorWeigth;
+    this->R =controlWeigth;
+    this->NU = controlHorizon;
+    this->N2 = predictionHorizon;
+    this->isAdaptive = isAdaptive;
+    this->Output = LinAlg::Zeros<Type>(6,1);
+    this->Input  = LinAlg::Zeros<Type>(4,1);
+    this->localReference = LinAlg::Zeros<Type>(4,1);
+
+    Input(1,1) += (9.8*2.2);
+    mpcInput  = LinAlg::Zeros<Type>(4,1);
+    this->drone = new ModelHandler::droneModel<Type>();
+    ModelPredictiveControl<Type> MPC = new ModelPredictiveControl<Type>(*(this->gz),
+                                                                        this->N1,
+                                                                        this->N2,
+                                                                        this->NU,
+                                                                        this->Q,
+                                                                        this->R,0);
+    MPC.setReference("0;0;0;0");
+
+    OptimizationHandler::RecursiveLeastSquare<Type> RLS = new OptimizationHandler::RecursiveLeastSquare<Type>(gz,1e3,0.999);
 }
 
-template <class Type>
-LinAlg::Matrix<Type> ModelHandler::droneModel<Type>::sim(LinAlg::Matrix<Type> x){
-    Type u1 = x(1,1), u2 = x(2,1), u3 = x(3,1), u4 = x(4,1);
+template <typename Type>
+ControlHandler::DroneControl<Type>::DroneControl(const LinAlg::Matrix<Type> &PIDsParameters)
+{
+    this->gz = 0;
 
-    X_pp     = ((sin(psi)*sin(phi) + cos(psi)*cos(phi)*sin(theta))/mass)*u1;
-    Y_pp     = ((-cos(psi)*sin(phi) + sin(theta)*sin(psi)*cos(phi))/mass)*u1;
-    Z_pp     = (cos(theta)*cos(phi)/mass)*u1 - gravity; //+ (rand()%100-50)/10;
+    for(unsigned i = 0; i < 2; ++i)
+        advancedPID[i].setParams(PIDsParameters.GetRow(i+1));
 
-    phi_pp   = (u2 - (Inertia_zz - Inertia_yy)*theta_p*psi_p)/Inertia_xx;
-    theta_pp = (u3 - (Inertia_xx - Inertia_zz)*phi_p*psi_p)/Inertia_yy;
-    psi_pp   = u4/Inertia_zz;
+    for(unsigned i = 2; i < 6; ++i)
+        PID[i-2].setParams(PIDsParameters.GetRow(i+1));
 
-    X_p += this->step*X_pp;
-    Y_p += this->step*Y_pp;
-    Z_p += this->step*Z_pp;
+    Output = LinAlg::Zeros<Type>(6,1);
+    Input  = LinAlg::Zeros<Type>(4,1);
+    this->localReference = LinAlg::Zeros<Type>(4,1);
 
-    X   += this->step*X_p;
-    Y   += this->step*Y_p;
-    Z   += this->step*Z_p;
+    Input(1,1) += (9.8*2.2);
 
-    phi_p   += this->step*phi_pp;
-    psi_p   += this->step*psi_pp;
-    theta_p += this->step*theta_pp;
-
-    phi     += this->step*phi_p;
-    psi     += this->step*psi_p;
-    theta   += this->step*theta_p;
-
-    LinAlg::Matrix<Type> ret(6,1);
-    ret(1,1) = X; ret(2,1) = Y; ret(3,1) = Z;
-    ret(4,1) = phi; ret(6,1) = psi; ret(5,1) = theta;
-
-    return ret;
+    this->drone = new ModelHandler::droneModel<Type>();
 }
 
+template <typename Type>
+void ControlHandler::DroneControl<Type>::OutputControlCalc(const LinAlg::Matrix<Type> &Reference)
+{
+    if(this->gz == 0)
+    {
+        this->Input(1,1) = this->PID[0].OutputControl(Reference(1,1),this->Output(3,1)) + (9.8 * 2.2);
+        this->Input(2,1) = this->PID[1].OutputControl(Reference(2,1),this->Output(4,1));
+        this->Input(3,1) = this->PID[2].OutputControl(Reference(3,1),this->Output(5,1));
+        this->Input(4,1) = this->PID[3].OutputControl(Reference(4,1),this->Output(6,1));
+    }else{
+        this->MPC->setReference(Reference);
+
+        if(this->isAdaptive)
+            this->RLS->Optimize(mpcInput, Output("3,4,5,6",1));
+        else
+            this->gz->setLinearVector(mpcInput, Output("3,4,5,6",1));
+
+        this->mpcInput = this->MPC->OutputControlCalc(*(this->gz));
+        this->Input(1,1) = this->mpcInput(1,1) + (9.8*2.2);
+        this->Input(2,1) = this->mpcInput(2,1);
+        this->Input(3,1) = this->mpcInput(3,1);
+        this->Input(4,1) = this->mpcInput(4,1);
+    }
+}
+
+template <typename Type>
+void ControlHandler::DroneControl<Type>::DroneControlSimulated(const LinAlg::Matrix<Type> &Reference)
+{
+    if(fabs(Reference(1,1) - this->Output(1,1)) >= 0.0001 && Reference(3,1) != 0)
+    {
+        localReference(1,1) = Reference(3,1);
+        localReference(2,1) = 0;
+        localReference(3,1) = this->advancedPID[0].OutputControl(Reference(1,1),this->Output(1,1));
+        localReference(4,1) = 0;
+        this->OutputControlCalc(localReference);
+        this->Output = drone->sim(Input);
+    }else if(fabs(Reference(1,1) - this->Output(1,1)) >= 0.0001){
+        localReference(1,1) = 1;
+        localReference(2,1) = 0;
+        localReference(3,1) = this->advancedPID[0].OutputControl(Reference(1,1),this->Output(1,1));
+        localReference(4,1) = 0;
+        this->OutputControlCalc(localReference);
+        this->Output = drone->sim(Input);
+    }else if(fabs(Reference(2,1) - this->Output(2,1)) >= 0.0001 && Reference(3,1) != 0){
+        localReference(1,1) = Reference(3,1);
+        localReference(2,1) = this->advancedPID[1].OutputControl(-Reference(2,1),-this->Output(2,1));
+        localReference(3,1) = 0;
+        localReference(4,1) = 0;
+        this->OutputControlCalc(localReference);
+        this->Output = drone->sim(Input);
+    }else if(fabs(Reference(2,1) - this->Output(2,1)) >= 0.0001){
+        localReference(1,1) = 1;
+        localReference(2,1) = this->advancedPID[1].OutputControl(-Reference(2,1),-this->Output(2,1));
+        localReference(3,1) = 0;
+        localReference(4,1) = 0;
+//        std::cout << localReference << std::endl;
+        this->OutputControlCalc(localReference);
+        this->Output = drone->sim(Input);
+    }else{
+        localReference(1,1) = Reference(3,1);
+        localReference(2,1) = 0;
+        localReference(3,1) = 0;
+        localReference(4,1) = 0;
+        this->OutputControlCalc(localReference);
+        this->Output = drone->sim(Input);
+    }
+}
