@@ -162,14 +162,10 @@ void ControlHandler::ModelPredictiveControl<Type>::setNewModel(const ModelHandle
     LinAlg::Matrix<Type> X = this->SSd.getActualState()/*, Xss = SSdStateStimated.getActualState()*/;
     this->SSdStateStimated = ModelHandler::arx2SS(gz);
     LinAlg::Matrix<Type> gzState = gz.getLinearVectorA();
-    unsigned j = 1;
 
     for(unsigned i = 1; i <= X.getNumberOfRows(); i += gz.getNumberOfOutputDelays())
-    {
         X(i, 1) = -gzState(1,i);
-//        ++j;
-    }
-//    std::cout << X << gzState;
+
     SSdStateStimated.setInitialState(X);
     SSdStateStimated.sim(this->U);
     this->SSI = ModelHandler::IntegrativeModel<Type>(SSdStateStimated);

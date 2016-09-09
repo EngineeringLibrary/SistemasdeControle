@@ -26,7 +26,7 @@ namespace ControlHandler{
         LinAlg::Matrix<Type> getOutput()const { return this->Output;}
 
         void DroneControlSimulated(const LinAlg::Matrix<Type> &Reference);
-        LinAlg::Matrix<Type> OutputControlCalc(const LinAlg::Matrix<Type> &Input, const LinAlg::Matrix<Type> &Output, const LinAlg::Matrix<Type> &Reference);
+        LinAlg::Matrix<Type> OutputControlCalc(const LinAlg::Matrix<Type> &Output, const LinAlg::Matrix<Type> &Reference);
 
     private:
         bool isAdaptive;

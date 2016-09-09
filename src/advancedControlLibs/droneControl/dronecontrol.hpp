@@ -81,42 +81,30 @@ void ControlHandler::DroneControl<Type>::OutputControlCalc(const LinAlg::Matrix<
 template <typename Type>
 void ControlHandler::DroneControl<Type>::DroneControlSimulated(const LinAlg::Matrix<Type> &Reference)
 {
-    if(fabs(Reference(1,1) - this->Output(1,1)) >= 0.0001 && Reference(3,1) != 0)
-    {
-        localReference(1,1) = Reference(3,1);
-        localReference(2,1) = 0;
-        localReference(3,1) = this->advancedPID[0].OutputControl(Reference(1,1),this->Output(1,1));
-        localReference(4,1) = 0;
-        this->OutputControlCalc(localReference);
-        this->Output = drone->sim(Input);
-    }else if(fabs(Reference(1,1) - this->Output(1,1)) >= 0.0001){
-        localReference(1,1) = 1;
-        localReference(2,1) = 0;
-        localReference(3,1) = this->advancedPID[0].OutputControl(Reference(1,1),this->Output(1,1));
-        localReference(4,1) = 0;
-        this->OutputControlCalc(localReference);
-        this->Output = drone->sim(Input);
-    }else if(fabs(Reference(2,1) - this->Output(2,1)) >= 0.0001 && Reference(3,1) != 0){
+    localReference = LinAlg::Zeros<Type>(4,1);
+    if(Reference(3,1) != 0){
         localReference(1,1) = Reference(3,1);
         localReference(2,1) = this->advancedPID[1].OutputControl(-Reference(2,1),-this->Output(2,1));
-        localReference(3,1) = 0;
-        localReference(4,1) = 0;
-        this->OutputControlCalc(localReference);
-        this->Output = drone->sim(Input);
-    }else if(fabs(Reference(2,1) - this->Output(2,1)) >= 0.0001){
-        localReference(1,1) = 1;
-        localReference(2,1) = this->advancedPID[1].OutputControl(-Reference(2,1),-this->Output(2,1));
-        localReference(3,1) = 0;
-        localReference(4,1) = 0;
-//        std::cout << localReference << std::endl;
-        this->OutputControlCalc(localReference);
-        this->Output = drone->sim(Input);
-    }else{
-        localReference(1,1) = Reference(3,1);
-        localReference(2,1) = 0;
-        localReference(3,1) = 0;
-        localReference(4,1) = 0;
-        this->OutputControlCalc(localReference);
-        this->Output = drone->sim(Input);
+        localReference(3,1) = this->advancedPID[0].OutputControl(Reference(1,1),this->Output(1,1));
+//        localReference(4,1) = 0;
     }
+
+    this->OutputControlCalc(localReference);
+    this->Output = drone->sim(Input);
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> ControlHandler::DroneControl<Type>::OutputControlCalc(const LinAlg::Matrix<Type> &Output,
+                                                                           const LinAlg::Matrix<Type> &Reference)
+{
+    localReference = LinAlg::Zeros<Type>(4,1);
+    if(Reference(3,1) != 0){
+        localReference(1,1) = Reference(3,1);
+        localReference(2,1) = this->advancedPID[1].OutputControl(-Reference(2,1),-Output(2,1));
+        localReference(3,1) = this->advancedPID[0].OutputControl(Reference(1,1),Output(1,1));
+//        localReference(4,1) = 0;
+    }
+
+
+    return localReference;
 }

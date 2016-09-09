@@ -8,6 +8,7 @@ ModelHandler::droneModel<Type>::droneModel()
     phi = 0, theta = 0, psi = 0;
     mass = 2.2; gravity = 9.8; Inertia_xx = 16.76337;  // valores padrão baseados no artigo
     Inertia_yy = 16.76337; Inertia_zz = 23.1447; // valores padrão baseados no artigo
+    srand(time(NULL));
     this->setStep(0.1);
 }
 
@@ -17,7 +18,7 @@ LinAlg::Matrix<Type> ModelHandler::droneModel<Type>::sim(LinAlg::Matrix<Type> x)
 
     X_pp     = ((sin(psi)*sin(phi) + cos(psi)*cos(phi)*sin(theta))/mass)*u1;
     Y_pp     = ((-cos(psi)*sin(phi) + sin(theta)*sin(psi)*cos(phi))/mass)*u1;
-    Z_pp     = (cos(theta)*cos(phi)/mass)*u1 - gravity; //+ (rand()%100-50)/10;
+    Z_pp     = (cos(theta)*cos(phi)/mass)*u1 - gravity;
 
     phi_pp   = (u2 - (Inertia_zz - Inertia_yy)*theta_p*psi_p)/Inertia_xx;
     theta_pp = (u3 - (Inertia_xx - Inertia_zz)*phi_p*psi_p)/Inertia_yy;
@@ -40,8 +41,8 @@ LinAlg::Matrix<Type> ModelHandler::droneModel<Type>::sim(LinAlg::Matrix<Type> x)
     theta   += this->step*theta_p;
 
     LinAlg::Matrix<Type> ret(6,1);
-    ret(1,1) = X; ret(2,1) = Y; ret(3,1) = Z;
-    ret(4,1) = phi; ret(6,1) = psi; ret(5,1) = theta;
+    ret(1,1) = X + Type(rand()%100-50)/4000;   ret(2,1) = Y + Type(rand()%100-50)/4000; ret(3,1) = Z + Type(rand()%100-50)/4000;
+    ret(4,1) = phi + Type(rand()%100-50)/4000; ret(6,1) = psi + Type(rand()%100-50)/4000; ret(5,1) = theta + Type(rand()%100-50)/4000;
 
     return ret;
 }
