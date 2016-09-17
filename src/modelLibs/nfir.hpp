@@ -1,12 +1,13 @@
-#include "SistemasdeControle/headers/modelLibs/fir.h"
+#include "SistemasdeControle/headers/modelLibs/nfir.h"
 
 template <class Type>
-ModelHandler::FIR<Type>::FIR(unsigned nInputpar,
+ModelHandler::NFIR<Type>::NFIR(unsigned nInputpar, unsigned degree,
                              unsigned delay,
                              unsigned qdtInputVar, unsigned qdtOutputVar,
                              double sampleTime)
 {
     this->delay        = delay;
+    this->degree       = degree;
     this->nInputpar    = nInputpar;
     this->sampleTime   = sampleTime;
     this->qdtInputVar  = qdtInputVar;
@@ -22,22 +23,23 @@ ModelHandler::FIR<Type>::FIR(unsigned nInputpar,
 }
 
 template <class Type>
-ModelHandler::FIR<Type>::FIR(const ModelHandler::FIR<Type>& OtherFIRModel){
-    this->delay                 = OtherFIRModel.delay;
-    this->nInputpar             = OtherFIRModel.nInputpar;
-    this->qdtInputVar           = OtherFIRModel.qdtInputVar;
-    this->qdtOutputVar          = OtherFIRModel.qdtOutputVar;
-    this->sampleTime            = OtherFIRModel.sampleTime;
-    this->EstOutput             = OtherFIRModel.EstOutput;
-    this->Input                 = OtherFIRModel.Input;
-    this->input                 = OtherFIRModel.input;
-    this->InputLinearVector     = OtherFIRModel.InputLinearVector;
-    this->LinearEqualityB       = OtherFIRModel.LinearEqualityB;
-    this->LinearEqualityVectorB = OtherFIRModel.LinearEqualityVectorB;
-    this->LinearMatrixA         = OtherFIRModel.LinearMatrixA;
-    this->LinearVectorA         = OtherFIRModel.LinearVectorA;
-    this->lmax                  = OtherFIRModel.lmax;
-    this->lmin                  = OtherFIRModel.lmin;
+ModelHandler::NFIR<Type>::NFIR(const ModelHandler::NFIR<Type>& OtherNFIRModel){
+    this->delay                 = OtherNFIRModel.delay;
+    this->degree                = OtherNFIRModel.degree;
+    this->nInputpar             = OtherNFIRModel.nInputpar;
+    this->qdtInputVar           = OtherNFIRModel.qdtInputVar;
+    this->qdtOutputVar          = OtherNFIRModel.qdtOutputVar;
+    this->sampleTime            = OtherNFIRModel.sampleTime;
+    this->EstOutput             = OtherNFIRModel.EstOutput;
+    this->Input                 = OtherNFIRModel.Input;
+    this->input                 = OtherNFIRModel.input;
+    this->InputLinearVector     = OtherNFIRModel.InputLinearVector;
+    this->LinearEqualityB       = OtherNFIRModel.LinearEqualityB;
+    this->LinearEqualityVectorB = OtherNFIRModel.LinearEqualityVectorB;
+    this->LinearMatrixA         = OtherNFIRModel.LinearMatrixA;
+    this->LinearVectorA         = OtherNFIRModel.LinearVectorA;
+    this->lmax                  = OtherNFIRModel.lmax;
+    this->lmin                  = OtherNFIRModel.lmin;
 }
 
 // Neste caso Input e Output se forem escalares corresponderão ao próximo valor
@@ -45,20 +47,22 @@ ModelHandler::FIR<Type>::FIR(const ModelHandler::FIR<Type>& OtherFIRModel){
 // a um conjunto de variáveis no instante de tempo pedido
 //Saida = nº de linhas
 template <class Type>
-void ModelHandler::FIR<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput)
+void ModelHandler::NFIR<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput)
 {
     this->InputLinearVector.removeColumn(this->InputLinearVector.getNumberOfColumns());
     this->InputLinearVector  =  Input|this->InputLinearVector;
-    LinAlg::Matrix<Type> TempLinearVector;
+    LinAlg::Matrix<Type> TempLinearVector1, TempLinearVector;
 
     for(unsigned i = 1; i <= this->InputLinearVector.getNumberOfRows(); ++i)
-        TempLinearVector = TempLinearVector | this->InputLinearVector.GetRow(i);
+        TempLinearVector1 = TempLinearVector1 | this->InputLinearVector.GetRow(i);
 
+    for(unsigned j = 1; j <= this->degree; ++j)
+        TempLinearVector = TempLinearVector| LinAlg::powMatrix(TempLinearVector1, Type(this->degree));
     this->LinearVectorA = TempLinearVector;
 }
 
 template <class Type>
-void ModelHandler::FIR<Type>::setLinearModel(LinAlg::Matrix<Type> Input,
+void ModelHandler::NFIR<Type>::setLinearModel(LinAlg::Matrix<Type> Input,
                                    LinAlg::Matrix<Type> Output)
 {
     this->Input = Input;
@@ -74,7 +78,7 @@ void ModelHandler::FIR<Type>::setLinearModel(LinAlg::Matrix<Type> Input,
 }
 
 template <class Type>
-Type ModelHandler::FIR<Type>::sim(Type input)
+Type ModelHandler::NFIR<Type>::sim(Type input)
 {
     this->setLinearVector(input,0.0);
     this->output = (this->LinearVectorA*this->ModelCoef)(1,1);
@@ -82,7 +86,7 @@ Type ModelHandler::FIR<Type>::sim(Type input)
 }
 
 template <class Type>
-Type ModelHandler::FIR<Type>::sim(Type input, Type output)
+Type ModelHandler::NFIR<Type>::sim(Type input, Type output)
 {
     this->setLinearVector(input, output);
     this->output = (this->LinearVectorA*this->ModelCoef)(1,1);
@@ -90,13 +94,13 @@ Type ModelHandler::FIR<Type>::sim(Type input, Type output)
 }
 
 template <class Type>
-std::string ModelHandler::FIR<Type>::print()
+std::string ModelHandler::NFIR<Type>::print()
 {
     return "função não implementada";
 }
 
 template <class Type>
-LinAlg::Matrix<Type> ModelHandler::FIR<Type>::sim(LinAlg::Matrix<Type> Input)
+LinAlg::Matrix<Type> ModelHandler::NFIR<Type>::sim(LinAlg::Matrix<Type> Input)
 {
     this->Input  = Input;
     LinAlg::Matrix<Type> TempOutput;
@@ -110,51 +114,50 @@ LinAlg::Matrix<Type> ModelHandler::FIR<Type>::sim(LinAlg::Matrix<Type> Input)
 }
 
 template <class Type>
-LinAlg::Matrix<Type> ModelHandler::FIR<Type>::sim(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
+LinAlg::Matrix<Type> ModelHandler::NFIR<Type>::sim(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
 {
-    this->Input  = Input;
-    LinAlg::Matrix<Type> TempOutput;
+//    this->Input  = Input;
+//    this->Output = LinAlg::Zeros<Type>(1, this->qdtOutputVar);
 
-    for(unsigned i = 1; i <= Input.getNumberOfColumns(); ++i){
-        this->setLinearVector(Input.GetColumn(i),Output);
-        TempOutput = TempOutput|~(this->LinearVectorA*this->ModelCoef);
-    }
-    this->Output = TempOutput;
+//    for(unsigned i = 1; i < Input.getNumberOfColumns(); ++i){
+//        this->setLinearVector(Input(from(1) --> Input.getNumberOfRows(), i), Output(from(1) --> Output.getNumberOfRows(), i));
+//        this->Output = this->Output | this->LinearVectorA*this->ModelCoef;
+//    }
     return this->Output;
 }
 
 template <class Type>
-LinAlg::Matrix<Type> ModelHandler::FIR<Type>::sim(Type lsim, Type lmax, Type step)
+LinAlg::Matrix<Type> ModelHandler::NFIR<Type>::sim(Type lsim, Type lmax, Type step)
 {
     return 0.0;
 }
 
 template <class Type>
-unsigned ModelHandler::FIR<Type>::getNumberOfInputDelays() const{
+unsigned ModelHandler::NFIR<Type>::getNumberOfInputDelays() const{
     return this->nInputpar;
 }
 
 template <class Type>
-unsigned ModelHandler::FIR<Type>::getNumberOfInputs()const {
+unsigned ModelHandler::NFIR<Type>::getNumberOfInputs()const {
     return this->qdtInputVar;
 }
 
 template <class Type>
-unsigned ModelHandler::FIR<Type>::getNumberOfOutputDelays() const {
+unsigned ModelHandler::NFIR<Type>::getNumberOfOutputDelays() const {
     return 0;
 }
 
 template <class Type>
-unsigned ModelHandler::FIR<Type>::getNumberOfOutputs() const {
+unsigned ModelHandler::NFIR<Type>::getNumberOfOutputs() const {
     return this->qdtOutputVar;
 }
 
 template <class Type>
-double ModelHandler::FIR<Type>::getSampleTime() const {
+double ModelHandler::NFIR<Type>::getSampleTime() const {
     return this->sampleTime;
 }
 
 template <class Type>
-unsigned ModelHandler::FIR<Type>::getNumberOfVariables(){
-    return this->qdtInputVar*this->nInputpar;
+unsigned ModelHandler::NFIR<Type>::getNumberOfVariables(){
+    return this->qdtInputVar*this->nInputpar*this->degree;
 }

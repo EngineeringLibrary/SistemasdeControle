@@ -35,6 +35,7 @@ void OptimizationHandler::RecursiveLeastSquare<Type>::Optimize(LinAlg::Matrix<Ty
 
 
     LinAlg::Matrix<Type> phi = this->model->getLinearVectorA();
+    std::cout << "\n";
     E = this->Output.GetColumn(1) - ~(phi*this->model->getModelCoef());
     K = (P*~phi)/(((phi*P)*~phi) + lambda);
     LinAlg::Matrix<Type> KxE;

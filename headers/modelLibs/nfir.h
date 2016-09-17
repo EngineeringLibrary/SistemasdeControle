@@ -1,19 +1,19 @@
-#ifndef FIR_H
-#define FIR_H
+#ifndef NFIR_H
+#define NFIR_H
 #include "SistemasdeControle/headers/modelLibs/model.h"
 
 #include "SistemasdeControle/headers/modelLibs/model.h"
 
 namespace ModelHandler {
     template <class Type>
-    class FIR : public Model<Type>
+    class NFIR : public Model<Type>
     {
     public:
-        FIR(unsigned nInputpar = 1,
+        NFIR(unsigned nInputpar = 1, unsigned degree = 1,
             unsigned delay = 0,
             unsigned qdtInputVar = 1, unsigned qdtOutputVar = 1,
             double sampleTime = 0.1);
-        FIR(const FIR<Type>& OtherFIRModel);
+        NFIR(const NFIR<Type>& OtherNFIRModel);
 
         unsigned getNumberOfInputs() const;
         unsigned getNumberOfOutputs() const;
@@ -35,11 +35,11 @@ namespace ModelHandler {
         LinAlg::Matrix<Type> sim(Type lsim, Type lmax, Type step);
 
     private:
-        unsigned nInputpar, delay,
+        unsigned nInputpar, delay, degree,
                  qdtInputVar, qdtOutputVar, nSample,
                  sampleTime;
     };
 }
 
-#include "SistemasdeControle/src/modelLibs/fir.hpp"
-#endif // FIR_H
+#include "SistemasdeControle/src/modelLibs/nfir.hpp"
+#endif // NFIR_H

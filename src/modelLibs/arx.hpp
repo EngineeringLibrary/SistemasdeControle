@@ -121,24 +121,24 @@ LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input)
     LinAlg::Matrix<Type> TempOutput = LinAlg::Zeros<Type>(this->qdtOutputVar,1);
 
     for(unsigned i = 1; i < Input.getNumberOfColumns(); ++i){
-        this->setLinearVector(Input.GetColumn(i),TempOutput);
-//        std::cout << this->LinearVectorA;
-        TempOutput = ~(this->LinearVectorA*this->ModelCoef);
-        this->Output = this->Output | TempOutput;
+        this->setLinearVector(Input.GetColumn(i),TempOutput.GetColumn(i));
+        TempOutput = TempOutput | ~(this->LinearVectorA*this->ModelCoef);
     }
+    this->Output = TempOutput;
     return this->Output;
 }
 
 template <class Type>
 LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
 {
-//    this->Input  = Input;
-//    this->Output = LinAlg::Zeros<Type>(1, this->qdtOutputVar);
+    this->Input  = Input;
+    LinAlg::Matrix<Type> TempOutput = LinAlg::Zeros<Type>(this->qdtOutputVar,1);
 
-//    for(unsigned i = 1; i < Input.getNumberOfColumns(); ++i){
-//        this->setLinearVector(Input(from(1) --> Input.getNumberOfRows(), i), Output(from(1) --> Output.getNumberOfRows(), i));
-//        this->Output = this->Output | this->LinearVectorA*this->ModelCoef;
-//    }
+    for(unsigned i = 1; i <= Input.getNumberOfColumns(); ++i){
+        this->setLinearVector(Input.GetColumn(i),Output.GetColumn(i));
+        TempOutput = TempOutput | ~(this->LinearVectorA*this->ModelCoef);
+    }
+    this->Output = TempOutput;
     return this->Output;
 }
 

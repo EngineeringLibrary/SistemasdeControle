@@ -422,7 +422,7 @@ Type LinAlg::max(const LinAlg::Matrix<Type> &mat)
 {
     Type maxValue = mat(1,1);
 
-    for(unsigned i = 1; i < mat.getNumberOfRows(); ++i)
+    for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
         for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
             if(maxValue < mat(i,j))
                 maxValue = mat(i,j);
@@ -435,7 +435,7 @@ Type LinAlg::min(const LinAlg::Matrix<Type> &mat)
 {
     Type minValue = mat(1,1);
 
-    for(unsigned i = 1; i < mat.getNumberOfRows(); ++i)
+    for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
         for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
             if(minValue > mat(i,j))
                 minValue = mat(i,j);
@@ -447,7 +447,7 @@ template <typename Type>
 LinAlg::Matrix<Type> LinAlg::abs(const LinAlg::Matrix<Type> &mat)
 {
     LinAlg::Matrix<Type> ret = LinAlg::Zeros<Type>(mat.getNumberOfRows(), mat.getNumberOfColumns());
-    for(unsigned i = 1; i < mat.getNumberOfRows(); ++i)
+    for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
         for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
             if(mat(i,j) > 0)
                 ret(i,j) = mat(i,j);
@@ -461,9 +461,20 @@ template <typename Type>
 LinAlg::Matrix<Type> LinAlg::sqrtMatrix(const LinAlg::Matrix<Type> &mat)
 {
     LinAlg::Matrix<Type> ret = LinAlg::Zeros<Type>(mat.getNumberOfRows(), mat.getNumberOfColumns());
-    for(unsigned i = 1; i < mat.getNumberOfRows(); ++i)
+    for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
         for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
                 ret(i,j) = sqrt(mat(i,j));
+
+    return ret;
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> LinAlg::powMatrix(const LinAlg::Matrix<Type> &mat, const Type &potence)
+{
+    LinAlg::Matrix<Type> ret = mat;
+    for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+        for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+                ret(i,j) = pow(mat(i,j),potence);
 
     return ret;
 }
