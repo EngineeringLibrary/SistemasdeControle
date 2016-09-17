@@ -111,8 +111,11 @@ void TCPClient::readData()
     socket.read(buffer, sizeChar);
     this->bytesReaded.clear();
 
-    for(unsigned i = 0; i < sizeChar; ++i)
-        this->bytesReaded.append(buffer[i]);
+    for(unsigned i = 0; i < sizeChar; ++i){
+        this->bytesReaded.append(QString::number((int) buffer[i]));
+        if(i < sizeChar-1)
+            this->bytesReaded.append(", ");
+    }
 
     emit this->hasReadData();
 }

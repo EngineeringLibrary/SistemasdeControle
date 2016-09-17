@@ -41,8 +41,8 @@ LinAlg::Matrix<Type> ModelHandler::droneModel<Type>::sim(LinAlg::Matrix<Type> x)
     theta   += this->step*theta_p;
 
     LinAlg::Matrix<Type> ret(6,1);
-    ret(1,1) = X + Type(rand()%100-50)/4000;   ret(2,1) = Y + Type(rand()%100-50)/4000; ret(3,1) = Z + Type(rand()%100-50)/4000;
-    ret(4,1) = phi + Type(rand()%100-50)/4000; ret(6,1) = psi + Type(rand()%100-50)/4000; ret(5,1) = theta + Type(rand()%100-50)/4000;
+    ret(1,1) = X + Type(rand()%100-50)/40000;   ret(2,1) = Y + Type(rand()%100-50)/40000; ret(3,1) = Z + Type(rand()%100-50)/40000;
+    ret(4,1) = phi + Type(rand()%100-50)/40000; ret(6,1) = psi + Type(rand()%100-50)/40000; ret(5,1) = theta + Type(rand()%100-50)/40000;
 
     return ret;
 }
