@@ -1,4 +1,4 @@
-#include "SistemasdeControle/headers/AdvancedLinALg/PCA.h"
+#include "SistemasdeControle/headers/advancedLinALg/PCA.h"
 
 template <typename Type>
 LinAlg::PCA<Type>::PCA(LinAlg::Matrix<Type> data, const unsigned &reducedDimensionQuantities)
