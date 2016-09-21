@@ -1,11 +1,18 @@
 #include "SistemasdeControle/headers/advancedApplication/datarecognition/movingmask.h"
 
 template <typename Type>
-AdvancedApplication::movingMask<Type>::movingMask(const unsigned &quantidadeVariaveis, const unsigned &tamanho)
+AdvancedApplication::movingMask<Type>::movingMask(const unsigned &quantidadeVariaveis, const unsigned &tamanho, ModelHandler::Model<Type> *model)
 {
     this->quantidadeVariaveis =  quantidadeVariaveis;
     this->tamanho = tamanho;
     this->data2Register = LinAlg::Matrix<unsigned>(quantidadeVariaveis*tamanho,1);
+
+    if(model){
+        this->model = model;
+        this->RLS = new OptimizationHandler::RecursiveLeastSquare<Type>(this->model);
+    }else{
+        this->model = NULL;
+    }
 }
 
 template <typename Type>
@@ -55,4 +62,32 @@ Type AdvancedApplication::movingMask<Type>::dataRecognition(const LinAlg::Matrix
             match++;
 
     return(Type(match))/Type(j);
+}
+template <typename Type>
+void AdvancedApplication::movingMask<Type>::filterOptimization(LinAlg::Matrix<Type> data2beFiltered)
+{
+    if(this->filterMatrix.isNull()){
+        this->filterMatrix = LinAlg::Zeros<Type>(data2beFiltered.getNumberOfRows(),1);
+        this->filterCounter = 0;
+    }
+
+    this->filterCounter++;
+    this->filterMatrix = this->filterMatrix + data2beFiltered;
+    this->RLS->Optimize(data2beFiltered, this->filterMatrix/filterCounter);
+
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> AdvancedApplication::movingMask<Type>::getFilterParameters() const
+{
+    return model->getModelCoef();
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> AdvancedApplication::movingMask<Type>::getFilteredData(LinAlg::Matrix<Type> data2beFiltered) const
+{
+    if(!this->wasDataOptimized)
+        return this->model->sim(data2beFiltered);
+
+    return this->model->getLinearVectorA()*model->getModelCoef();
 }
