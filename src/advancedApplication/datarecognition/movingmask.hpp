@@ -7,11 +7,11 @@ AdvancedApplication::movingMask<Type>::movingMask(const unsigned &quantidadeVari
     this->tamanho = tamanho;
     this->data2Register = LinAlg::Matrix<unsigned>(quantidadeVariaveis*tamanho,1);
 
-    if(model){
-        this->model = model;
-        this->RLS = new OptimizationHandler::RecursiveLeastSquare<Type>(this->model);
-    }else{
-        this->model = NULL;
+    this->recognitionModel = NULL;
+    this->filterModel = model;
+    if(this->filterModel){
+        this->filterModel = model;
+        this->RLSFilter = new OptimizationHandler::RecursiveLeastSquare<Type>(this->filterModel);
     }
 }
 
@@ -26,6 +26,13 @@ void AdvancedApplication::movingMask<Type>::dataRecognitionStart(const unsigned 
 template <typename Type>
 void AdvancedApplication::movingMask<Type>::operator <<(const LinAlg::Matrix<Type> &inputData)
 {
+    if(counter >= unsigned(tamanho/quantidadeVariaveis))
+    {
+        counter = 0;
+        this->data2Register = LinAlg::Matrix<unsigned>(quantidadeVariaveis*tamanho,1);
+    }
+    counter++;
+
     for(unsigned i = inputData.getNumberOfRows()+1; i <= this->data2Register.getNumberOfRows(); ++i )
         this->data2Register(i-inputData.getNumberOfRows(),1) = this->data2Register(i,1);
     unsigned j = 1;
@@ -34,6 +41,33 @@ void AdvancedApplication::movingMask<Type>::operator <<(const LinAlg::Matrix<Typ
         this->data2Register(i,1) = inputData(j,1);
         ++j;
     }
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> AdvancedApplication::movingMask<Type>::dataRecognition()
+{
+    return this->recognitionModel->sim(this->data2Register);
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> AdvancedApplication::movingMask<Type>::getRecognitionModel() const
+{
+    return this->recognitionModel->getModelCoef();
+}
+
+template <typename Type>
+void AdvancedApplication::movingMask<Type>::setRecognitionModel(ModelHandler::Model<Type> *recognitionModel)
+{
+    this->recognitionModel = recognitionModel;
+    this->RLSRecognition = new OptimizationHandler::RecursiveLeastSquare<Type>(recognitionModel);
+}
+
+template <typename Type>
+void AdvancedApplication::movingMask<Type>::optimizeRecognitionModel(LinAlg::Matrix<Type> dataOutput)
+{
+    this->RLSRecognition->Optimize(this->data2Register, dataOutput);
+    this->data2Register = LinAlg::Zeros<Type>(this->data2Register.getNumberOfRows(),this->data2Register.getNumberOfColumns());
+    counter = 0;
 }
 
 template <typename Type>
@@ -46,12 +80,6 @@ Type AdvancedApplication::movingMask<Type>::dataRecognition(const LinAlg::Matrix
         TempRegister(j,1) = this->data2Register(i,1);
         ++j;
     }
-    if(counter > unsigned(defaultData.getNumberOfRows()/quantidadeVariaveis))
-    {
-        counter = 0;
-        this->data2Register = LinAlg::Matrix<unsigned>(quantidadeVariaveis*tamanho,1);
-    }
-    counter++;
 
 //    std::cout << (TempRegister|defaultData|(TempRegister-defaultData)) << "\n\n";
 //    std::cout << (((~(TempRegister-defaultData))*(TempRegister-defaultData))(1,1)) << "\n\n";
@@ -73,21 +101,21 @@ void AdvancedApplication::movingMask<Type>::filterOptimization(LinAlg::Matrix<Ty
 
     this->filterCounter++;
     this->filterMatrix = this->filterMatrix + data2beFiltered;
-    this->RLS->Optimize(data2beFiltered, this->filterMatrix/filterCounter);
+    this->RLSFilter->Optimize(data2beFiltered, this->filterMatrix/filterCounter);
 
 }
 
 template <typename Type>
 LinAlg::Matrix<Type> AdvancedApplication::movingMask<Type>::getFilterParameters() const
 {
-    return model->getModelCoef();
+    return filterModel->getModelCoef();
 }
 
 template <typename Type>
 LinAlg::Matrix<Type> AdvancedApplication::movingMask<Type>::getFilteredData(LinAlg::Matrix<Type> data2beFiltered) const
 {
     if(!this->wasDataOptimized)
-        return this->model->sim(data2beFiltered);
+        return this->filterModel->sim(data2beFiltered);
 
-    return this->model->getLinearVectorA()*model->getModelCoef();
+    return this->filterModel->getLinearVectorA()*filterModel->getModelCoef();
 }

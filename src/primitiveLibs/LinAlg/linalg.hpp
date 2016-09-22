@@ -507,3 +507,30 @@ LinAlg::mean(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn)
 
     return ret;
 }
+
+template <typename Type>
+LinAlg::Matrix<Type>
+LinAlg::sum(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn)
+{
+    unsigned row = 1, column = 2;
+    LinAlg::Matrix<Type> ret;
+
+    if(rowColumn == column)
+    {
+        ret = Zeros<Type>(mat.getNumberOfRows(),1);
+
+        for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+            for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+                ret(i,1) += mat(i,j);
+    }
+    else if(rowColumn == row)
+    {
+        ret = Zeros<Type>(1,mat.getNumberOfColumns());
+
+        for(unsigned i = 1; i <= mat.getNumberOfColumns(); ++i)
+            for(unsigned j = 1; j <= mat.getNumberOfRows(); ++j)
+                ret(1,i) += mat(i,j);
+    }
+
+    return ret;
+}

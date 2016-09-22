@@ -77,6 +77,9 @@ namespace LinAlg {
     template <typename Type>
     LinAlg::Matrix<Type> mean(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn);
 
+    template <typename Type>
+    LinAlg::Matrix<Type> sum(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn);
+
 
 }
 

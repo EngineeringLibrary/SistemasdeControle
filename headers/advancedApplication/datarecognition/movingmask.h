@@ -18,14 +18,21 @@ namespace AdvancedApplication {
 
         void dataRecognitionStart(const unsigned &quantidadeVariaveis, const unsigned &tamanho);
         void operator << (const LinAlg::Matrix<Type> &inputData);
+
+        LinAlg::Matrix<Type> dataRecognition();
         Type dataRecognition(const LinAlg::Matrix<Type> &defaultData, Type tolerance = 1000);
         void filterOptimization(LinAlg::Matrix<Type> data2beFiltered);
+
         LinAlg::Matrix<Type> getFilterParameters() const;
+        LinAlg::Matrix<Type> getRecognitionModel() const;
         LinAlg::Matrix<Type> getFilteredData(LinAlg::Matrix<Type> data2beFiltered) const;
 
+        void setRecognitionModel(ModelHandler::Model<Type> *recognitionModel);
+        void optimizeRecognitionModel(LinAlg::Matrix<Type> dataOutput);
+
     private:
-        ModelHandler::Model<Type> *model;
-        OptimizationHandler::Optimization<Type> *RLS;
+        ModelHandler::Model<Type> *filterModel, *recognitionModel;
+        OptimizationHandler::Optimization<Type> *RLSFilter, *RLSRecognition;
         LinAlg::Matrix<Type> data2Register, filterMatrix;
         Type quantidadeVariaveis, tamanho;
         unsigned counter, filterCounter;
