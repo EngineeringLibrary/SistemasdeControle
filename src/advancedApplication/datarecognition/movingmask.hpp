@@ -26,12 +26,12 @@ void AdvancedApplication::movingMask<Type>::dataRecognitionStart(const unsigned 
 template <typename Type>
 void AdvancedApplication::movingMask<Type>::operator <<(const LinAlg::Matrix<Type> &inputData)
 {
-    if(counter >= unsigned(tamanho/quantidadeVariaveis))
-    {
-        counter = 0;
-        this->data2Register = LinAlg::Matrix<unsigned>(quantidadeVariaveis*tamanho,1);
-    }
-    counter++;
+//    if(counter >= unsigned(quantidadeVariaveis/tamanho))
+//    {
+//        counter = 0;
+//        this->data2Register = LinAlg::Matrix<unsigned>(quantidadeVariaveis*tamanho,1);
+//    }
+//    counter+=inputData.getNumberOfRows();
 
     for(unsigned i = inputData.getNumberOfRows()+1; i <= this->data2Register.getNumberOfRows(); ++i )
         this->data2Register(i-inputData.getNumberOfRows(),1) = this->data2Register(i,1);
@@ -59,7 +59,7 @@ template <typename Type>
 void AdvancedApplication::movingMask<Type>::setRecognitionModel(ModelHandler::Model<Type> *recognitionModel)
 {
     this->recognitionModel = recognitionModel;
-    this->RLSRecognition = new OptimizationHandler::RecursiveLeastSquare<Type>(recognitionModel);
+    this->RLSRecognition = new OptimizationHandler::RecursiveLeastSquare<Type>(recognitionModel,1e10);
 }
 
 template <typename Type>

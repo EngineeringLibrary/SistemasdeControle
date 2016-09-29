@@ -26,10 +26,10 @@ void OptimizationHandler::RecursiveLeastSquare<Type>::Optimize()
 template <class Type>
 void OptimizationHandler::RecursiveLeastSquare<Type>::Optimize(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
 {
-    this->Input.removeColumn(this->Input.getNumberOfColumns());
-    this->Output.removeColumn(this->Output.getNumberOfColumns());
     this->Input = Input|this->Input;
     this->Output = Output|this->Output;
+    this->Input.removeColumn(this->Input.getNumberOfColumns());
+    this->Output.removeColumn(this->Output.getNumberOfColumns());
     this->model->setLinearVector(this->Input.GetColumn(1),
                                  this->Output.GetColumn(2));
 
