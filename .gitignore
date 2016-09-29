@@ -2,7 +2,6 @@ main.cpp
 main.cpp
 untitled1/untitled1.pro
 untitled1/untitled1.pro.user
-*.pro
 *.user
 *.o
 *.Release
