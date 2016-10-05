@@ -16,6 +16,12 @@ AdvancedApplication::movingMask<Type>::movingMask(const unsigned &quantidadeVari
 }
 
 template <typename Type>
+void AdvancedApplication::movingMask<Type>::dataRecognitionRestart()
+{
+    this->data2Register = -100*LinAlg::Random<unsigned>(quantidadeVariaveis*tamanho,1);
+}
+
+template <typename Type>
 void AdvancedApplication::movingMask<Type>::dataRecognitionStart(const unsigned &quantidadeVariaveis, const unsigned &tamanho)
 {
     this->quantidadeVariaveis =  quantidadeVariaveis;
@@ -26,12 +32,12 @@ void AdvancedApplication::movingMask<Type>::dataRecognitionStart(const unsigned 
 template <typename Type>
 void AdvancedApplication::movingMask<Type>::operator <<(const LinAlg::Matrix<Type> &inputData)
 {
-//    if(counter >= unsigned(quantidadeVariaveis/tamanho))
+//    if(counter >= unsigned(tamanho))
 //    {
 //        counter = 0;
 //        this->data2Register = LinAlg::Matrix<unsigned>(quantidadeVariaveis*tamanho,1);
 //    }
-//    counter+=inputData.getNumberOfRows();
+//    counter++;
 
     for(unsigned i = inputData.getNumberOfRows()+1; i <= this->data2Register.getNumberOfRows(); ++i )
         this->data2Register(i-inputData.getNumberOfRows(),1) = this->data2Register(i,1);
@@ -59,7 +65,7 @@ template <typename Type>
 void AdvancedApplication::movingMask<Type>::setRecognitionModel(ModelHandler::Model<Type> *recognitionModel)
 {
     this->recognitionModel = recognitionModel;
-    this->RLSRecognition = new OptimizationHandler::RecursiveLeastSquare<Type>(recognitionModel,1e10);
+    this->RLSRecognition = new OptimizationHandler::RecursiveLeastSquare<Type>(recognitionModel,1e12);
 }
 
 template <typename Type>
@@ -118,4 +124,10 @@ LinAlg::Matrix<Type> AdvancedApplication::movingMask<Type>::getFilteredData(LinA
         return this->filterModel->sim(data2beFiltered);
 
     return this->filterModel->getLinearVectorA()*filterModel->getModelCoef();
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> AdvancedApplication::movingMask<Type>::getData() const
+{
+    return this->data2Register;
 }

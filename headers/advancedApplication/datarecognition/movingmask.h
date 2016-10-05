@@ -17,6 +17,7 @@ namespace AdvancedApplication {
         movingMask(const unsigned &quantidadeVariaveis , const unsigned &tamanho, ModelHandler::Model<Type> *model = 0);
 
         void dataRecognitionStart(const unsigned &quantidadeVariaveis, const unsigned &tamanho);
+        void dataRecognitionRestart();
         void operator << (const LinAlg::Matrix<Type> &inputData);
 
         LinAlg::Matrix<Type> dataRecognition();
@@ -26,6 +27,7 @@ namespace AdvancedApplication {
         LinAlg::Matrix<Type> getFilterParameters() const;
         LinAlg::Matrix<Type> getRecognitionModel() const;
         LinAlg::Matrix<Type> getFilteredData(LinAlg::Matrix<Type> data2beFiltered) const;
+        LinAlg::Matrix<Type> getData() const;
 
         void setRecognitionModel(ModelHandler::Model<Type> *recognitionModel);
         void optimizeRecognitionModel(LinAlg::Matrix<Type> dataOutput);

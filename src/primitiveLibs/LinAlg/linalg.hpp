@@ -486,7 +486,7 @@ LinAlg::mean(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn)
     unsigned row = 1, column = 2;
     LinAlg::Matrix<Type> ret;
 
-    if(rowColumn == column)
+    if(rowColumn == row)
     {
         unsigned length = mat.getNumberOfColumns();
         ret = Zeros<Type>(mat.getNumberOfRows(),1);
@@ -495,14 +495,14 @@ LinAlg::mean(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn)
             for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
                 ret(i,1) += mat(i,j)/length;
     }
-    else if(rowColumn == row)
+    else if(rowColumn == column)
     {
         unsigned length = mat.getNumberOfRows();
         ret = Zeros<Type>(1,mat.getNumberOfColumns());
 
         for(unsigned i = 1; i <= mat.getNumberOfColumns(); ++i)
             for(unsigned j = 1; j <= mat.getNumberOfRows(); ++j)
-                ret(1,i) += mat(i,j)/length;
+                ret(1,i) += mat(j,i)/length;
     }
 
     return ret;

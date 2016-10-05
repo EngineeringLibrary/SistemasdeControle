@@ -679,6 +679,19 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator>= (const Type& rhs)
 }
 
 template <typename Type>
+void LinAlg::Matrix<Type>::operator<< (const LinAlg::Matrix<Type>& mat)
+{
+    for(unsigned i = mat.getNumberOfRows()+1; i <= this->getNumberOfRows(); ++i )
+        this->operator ()(i-mat.getNumberOfRows(),1) = this->operator ()(i,1);
+    unsigned j = 1;
+    for(unsigned i = this->getNumberOfRows()-mat.getNumberOfRows()+1; i <= this->getNumberOfRows(); ++i)
+    {
+        this->operator ()(i,1) = mat(j,1);
+        ++j;
+    }
+}
+
+template <typename Type>
 LinAlg::Matrix<Type> LinAlg::divPoint(const LinAlg::Matrix<Type> &A, const LinAlg::Matrix<Type> &B)
 {
     LinAlg::Matrix<Type> ret = A;

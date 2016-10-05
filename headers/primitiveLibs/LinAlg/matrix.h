@@ -94,6 +94,8 @@ namespace LinAlg {
             template<typename RightType>
             LinAlg::Matrix<Type> operator|| (LinAlg::Matrix<RightType> rhs);
 
+            void operator<< (const LinAlg::Matrix<Type>& mat);
+
             template<typename OtherMatrixType>
             void swap (const LinAlg::Matrix<OtherMatrixType>& otherMatrix);
 
