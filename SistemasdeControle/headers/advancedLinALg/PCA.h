@@ -22,5 +22,5 @@ namespace LinAlg {
     };
 }
 
-#include "SistemasdeControle/src/AdvancedLinALg/PCA.hpp"
+#include "SistemasdeControle/src/advancedLinALg/PCA.hpp"
 #endif // PCA_H
