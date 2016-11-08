@@ -1,6 +1,2 @@
-#include "recursiveactiveset.h"
+#include "SistemasdeControle/headers/restrictedOptimization/recursiveactiveset.h"
 
-RecursiveActiveSet::RecursiveActiveSet()
-{
-
-}

@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/EngineeringLibrary/SistemasdeControle.svg?branch=master)]
+![Build Status](https://travis-ci.org/EngineeringLibrary/SistemasdeControle.svg?branch=master)
 
 WorkSpace
 =========
