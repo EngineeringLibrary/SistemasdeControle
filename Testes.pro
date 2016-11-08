@@ -18,5 +18,3 @@ TEMPLATE = app
 SOURCES += tst_testestest.cpp
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
-HEADERS += \
-    Teste/SistemasdeControle/primitiveLibs/LinAlg/test_construtor_matrix.h
