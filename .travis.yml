@@ -14,4 +14,3 @@ script:
   - qmake -project
   - qmake Testes.pro
   - make
-  - Testes
