@@ -53,7 +53,7 @@ void TestesTest::construtorMatrixTypeDouble()
         LinAlg::Matrix<double> A(1.1);
     }
     LinAlg::Matrix<double> A(1.1);
-    QVERIFY2(A.getNumberOfColumns() == 1 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(A.getNumberOfColumns() == 2 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
     QVERIFY2(A(1,1) == 1.1, "Falhou ao comparar o elemento da matriz com valor double");
     QVERIFY2(sizeof(A(1,1)) == sizeof(double), "Falhou ao comparar o tipo do elemento da matriz com valor double");
 }

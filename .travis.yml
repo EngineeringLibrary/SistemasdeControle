@@ -14,7 +14,4 @@ script:
   - qmake "CONFIG+=test" Testes.pro
   - make
   - ./tst_testestest
-  - rm Makefile Testes *.o 
-  - qmake "CONFIG+=debug" Testes.pro
-  - make
-  - ./tst_testestest
+  
