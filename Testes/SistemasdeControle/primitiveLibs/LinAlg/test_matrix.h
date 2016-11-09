@@ -117,4 +117,17 @@ void TestesTest::construtorNULLMatrix()
     QVERIFY2(A.getNumberOfColumns() == 0 && A.getNumberOfRows() == 0, "Falhou ao testar o tamanho da matriz");
 }
 
+void TestesTest::copyconstrutor()
+{
+    LinAlg::Matrix<double> A = "1,2;3,4";
+    QBENCHMARK {
+        LinAlg::Matrix<double> B(A);
+    }
+    LinAlg::Matrix<double> B(A);
+    QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(B(1,1) == 1.0 && B(1,2) == 2.0 &&
+             B(2,1) == 3.0 && B(2,2) == 4.0
+             , "Falhou ao comparar todos os elementos da matriz com valor double");
+}
+
 #endif // TESTMATRIXIMPLEMENTACAO_H

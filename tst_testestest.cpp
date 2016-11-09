@@ -20,6 +20,7 @@ private Q_SLOTS:
     void construtorMatrixTypeStringAndDouble();
     void construtorSizedVoidMatrix();
     void construtorNULLMatrix();
+    void copyconstrutor();
 };
 
 #include "Testes/SistemasdeControle/primitiveLibs/LinAlg/test_matrix.h"
