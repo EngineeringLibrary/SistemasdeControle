@@ -11,7 +11,11 @@ install:
 script:
   - source /opt/qt57/bin/qt57-env.sh
   - /opt/qt57/bin/qmake
-  - qmake -project
-  - qmake Testes.pro
+  - qmake "CONFIG+=test" Testes.pro
   - make
-  - ./Testes/Testes
+  - ./Testes
+  - rm Makefile Testes *.o 
+  - qmake "CONFIG+=debug" Testes.pro
+  - make
+  - ./Testes
+
