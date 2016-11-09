@@ -13,5 +13,6 @@ script:
   - /opt/qt57/bin/qmake
   - qmake "CONFIG+=debug" Testes.pro
   - make
-  - /debug/tst_testestest
+  - cd..
+  - dir
 
