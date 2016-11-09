@@ -1,4 +1,3 @@
-#include <QString>
 #include <QtTest>
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
 
@@ -17,7 +16,7 @@ private Q_SLOTS:
     void construtorMatrixTypeFloat();
     void construtorMatrixTypeDouble();
     void construtorMatrixTypeLongDouble();
-//    void construtorMatrixTypeCString();
+    void construtorMatrixTypeCStringAndDouble();
 //    void construtorMatrixTypeString();
 //    void construtorSizedVoidMatrix();
 };

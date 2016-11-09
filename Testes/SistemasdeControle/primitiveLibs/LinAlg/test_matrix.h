@@ -1,6 +1,7 @@
 #ifndef TESTMATRIXIMPLEMENTACAO_H
 #define TESTMATRIXIMPLEMENTACAO_H
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#include <QtTest>
 //#include "tst_testestest.cpp"
 
 void TestesTest::construtorMatrixTypeChar()
@@ -53,7 +54,7 @@ void TestesTest::construtorMatrixTypeDouble()
         LinAlg::Matrix<double> A(1.1);
     }
     LinAlg::Matrix<double> A(1.1);
-    QVERIFY2(A.getNumberOfColumns() == 2 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(A.getNumberOfColumns() == 1 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
     QVERIFY2(A(1,1) == 1.1, "Falhou ao comparar o elemento da matriz com valor double");
     QVERIFY2(sizeof(A(1,1)) == sizeof(double), "Falhou ao comparar o tipo do elemento da matriz com valor double");
 }
@@ -68,4 +69,17 @@ void TestesTest::construtorMatrixTypeLongDouble()
     QVERIFY2(A(1,1) == 1.1, "Falhou ao comparar o elemento da matriz com valor long double");
     QVERIFY2(sizeof(A(1,1)) == sizeof(long double), "Falhou ao comparar o tipo do elemento da matriz com valor long double");
 }
+
+void TestesTest::construtorMatrixTypeCStringAndDouble()
+{
+    QBENCHMARK {
+        LinAlg::Matrix<double> A("1,2,3,4;5,6,7,8");
+    }
+    LinAlg::Matrix<double> A("1,2,3,4;5,6,7,8");
+    QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(A(1,1) == 1.0 && A(1,2) == 2.0 && A(1,3) == 3.0 && A(1,4) == 4.0 &&
+             A(2,1) == 5.0 && A(2,2) == 6.0 && A(2,3) == 7.0 && A(2,4) == 8.0
+             , "Falhou ao comparar todos os elementos da matriz com valor double");
+}
+
 #endif // TESTMATRIXIMPLEMENTACAO_H
