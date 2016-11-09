@@ -15,8 +15,7 @@ CONFIG   -= app_bundle
 TEMPLATE = app
 
 
-SOURCES += tst_testestest.cpp \
-    SistemasdeControle/headers/restrictedOptimization/recursiveactiveset.cpp
+SOURCES += tst_testestest.cpp
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 HEADERS += \
@@ -112,5 +111,7 @@ HEADERS += \
     SistemasdeControle/src/zeroFunctionLib/fzero.hpp \
     SistemasdeControle/src/zeroFunctionLib/newton.hpp \
     SistemasdeControle/src/zeroFunctionLib/secant.hpp \
-    SistemasdeControle/src/zeroFunctionLib/steffensen.hpp
+    SistemasdeControle/src/zeroFunctionLib/steffensen.hpp \
+    Testes/SistemasdeControle/primitiveLibs/LinAlg/test_matrix.h \
+    tst_testestest.h
 
