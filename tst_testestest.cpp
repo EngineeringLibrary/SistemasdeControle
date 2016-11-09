@@ -17,9 +17,9 @@ private Q_SLOTS:
     void construtorMatrixTypeFloat();
     void construtorMatrixTypeDouble();
     void construtorMatrixTypeLongDouble();
-    void construtorMatrixTypeCString();
-    void construtorMatrixTypeString();
-    void construtorSizedVoidMatrix();
+//    void construtorMatrixTypeCString();
+//    void construtorMatrixTypeString();
+//    void construtorSizedVoidMatrix();
 };
 
 #include "Testes/SistemasdeControle/primitiveLibs/LinAlg/test_matrix.h"
