@@ -17,5 +17,5 @@ script:
   - rm Makefile Testes *.o 
   - qmake "CONFIG+=debug" Testes.pro
   - make
-  - ./Testes
+  - dir
 
