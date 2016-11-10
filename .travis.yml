@@ -10,7 +10,7 @@ install:
 
 script:
   - source /opt/qt57/bin/qt57-env.sh
-  - qmake "CONFIG+=test" Testes/SistemasdeControle/primitiveLibs/LinAlg/matrix/matrix.pro
+  - qmake "CONFIG+=test" Testes/primitiveLibs/LinAlg/matrix/matrix.pro
   - make
   - ./tst_matrixtest
   
