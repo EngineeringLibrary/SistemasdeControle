@@ -1,7 +1,7 @@
 #include <QString>
 #include <QtTest>
 #define testMatrix
-#include "../../../../../headers/primitiveLibs/LinAlg/matrix.h"
+#include "../../../../headers/primitiveLibs/LinAlg/matrix.h"
 
 class MatrixTest : public QObject
 {
