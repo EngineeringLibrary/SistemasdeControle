@@ -238,6 +238,10 @@ namespace LinAlg {
     void Print (const LinAlg::Matrix<Type>& mat);
 }
 
-#include "SistemasdeControle/src/primitiveLibs/LinAlg/matrix.hpp"
+    #ifdef testMatrix
+        #include "../../../../../SistemasdeControle/src/primitiveLibs/LinAlg/matrix.hpp"
+    #else
+        #include "SistemasdeControle/src/primitiveLibs/LinAlg/matrix.hpp"
+    #endif
 
 #endif // MATRIX_H

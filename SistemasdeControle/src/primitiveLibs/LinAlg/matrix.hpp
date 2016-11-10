@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#ifdef testMatrix
+    #include "../../../../../SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#else
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#endif
 
 template<typename Type>
 LinAlg::Matrix<Type>::Matrix (Type Number)
