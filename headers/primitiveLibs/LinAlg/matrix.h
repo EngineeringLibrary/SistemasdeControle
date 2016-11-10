@@ -239,7 +239,7 @@ namespace LinAlg {
 }
 
     #ifdef testMatrix
-        #include "../../../../../src/primitiveLibs/LinAlg/matrix.hpp"
+        #include "../../../../src/primitiveLibs/LinAlg/matrix.hpp"
     #else
         #include "SistemasdeControle/src/primitiveLibs/LinAlg/matrix.hpp"
     #endif
