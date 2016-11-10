@@ -12,7 +12,7 @@ script:
   - source /opt/qt57/bin/qt57-env.sh
   - /opt/qt57/bin/qmake
   - dir
-  - qmake "CONFIG+=test" /Testes/SistemasdeControle/primitiveLibs/LinAlg/matrix/matrixTestes.pro
+  - qmake "CONFIG+=test" /Testes/SistemasdeControle/primitiveLibs/LinAlg/matrix/matrix.pro
   - make
   - ./tst_matrixtest
   
