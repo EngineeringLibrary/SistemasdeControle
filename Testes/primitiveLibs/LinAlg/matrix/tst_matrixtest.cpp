@@ -40,6 +40,10 @@ private Q_SLOTS:
     void swapColumnsDouble ();
     void lengthDouble ();
     void sizeDouble ();
+    void isNullDouble ();
+    void isSquareDouble ();
+    void operatorParenthesisInputTwoUnsignedDouble ();
+    void operatorParenthesisInputTwoUnsignedOutputConstDouble ();
 
 };
 
@@ -366,6 +370,49 @@ void MatrixTest::sizeDouble()
     QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
     QVERIFY2(B(1,1) == 3 && B(1,2) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
+
+void MatrixTest::isNullDouble ()
+{
+    std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
+    LinAlg::Matrix<double> A = str,B;
+    QBENCHMARK {
+        A.isNull();
+        B.isNull();
+    }
+    QVERIFY2(B.isNull(), "Matriz deveria ser vazia");
+    QVERIFY2(!A.isNull(), "Matriz não deveria ser vazia");
+}
+
+void MatrixTest::isSquareDouble ()
+{
+    LinAlg::Matrix<double> A = LinAlg::Zeros<double>(1,5), B = LinAlg::Zeros<double>(5,5);
+    QBENCHMARK {
+        A.isSquare();
+        B.isSquare();
+    }
+    QVERIFY2(B.isSquare(), "Matriz deveria ser quadrada");
+    QVERIFY2(!A.isSquare(), "Matriz não deveria ser quadrada");
+}
+
+void MatrixTest::operatorParenthesisInputTwoUnsignedDouble ()
+{
+    LinAlg::Matrix<double> A = LinAlg::Zeros<double>(1,5);
+    QBENCHMARK {
+        A(1,1) = 2.0;
+    }
+    A(1,1) = 2.0;
+    QVERIFY2(A(1,1) == 2.0, "Atribuição não realizada com sucesso");
+}
+
+void MatrixTest::operatorParenthesisInputTwoUnsignedOutputConstDouble ()
+{
+    LinAlg::Matrix<double> A = LinAlg::Zeros<double>(1,5);
+    QBENCHMARK {
+        A(1,1) == 0.0;
+    }
+    QVERIFY2(A(1,1) == 0.0, "Acesso ao elemento da matriz não realizado com sucesso");
+}
+
 QTEST_APPLESS_MAIN(MatrixTest)
 
 #include "tst_matrixtest.moc"

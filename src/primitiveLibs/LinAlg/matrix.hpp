@@ -359,7 +359,7 @@ void LinAlg::Matrix<Type>::swapColumns (unsigned column_to_be_swapped, unsigned 
 }
 
 template <typename Type>
-unsigned LinAlg::Matrix<Type>::length ()
+unsigned LinAlg::Matrix<Type>::length () const
 {
     unsigned ret;
 
@@ -372,7 +372,7 @@ unsigned LinAlg::Matrix<Type>::length ()
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::size ()
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::size () const
 {
     LinAlg::Matrix<Type> ret(1,2);
 

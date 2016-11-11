@@ -45,8 +45,8 @@ namespace LinAlg {
             void swapRows (unsigned row_to_be_swapped, unsigned  row_to_take_place);
             void swapColumns (unsigned column_to_be_swapped, unsigned column_to_take_place);
 
-            unsigned length ();
-            LinAlg::Matrix<Type> size ();
+            unsigned length () const;
+            LinAlg::Matrix<Type> size () const;
 
             bool isNull ();
             bool isSquare ();
