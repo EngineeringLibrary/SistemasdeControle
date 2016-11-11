@@ -29,6 +29,8 @@ namespace LinAlg {
             Matrix (unsigned row, unsigned column);
             Matrix (): rows(0), columns(0), mat(NULL){}
             Matrix (const LinAlg::Matrix<Type>& otherMatrix);
+            template<typename OtherMatrixType>
+            Matrix (const LinAlg::Matrix<OtherMatrixType>& otherMatrix);
             virtual ~Matrix ();
 
             void removeRow(unsigned row);

@@ -51,6 +51,16 @@ LinAlg::Matrix<Type>::Matrix (const LinAlg::Matrix<Type>& otherMatrix)
             this->mat[i][j] = otherMatrix.mat[i][j];
 }
 
+template<typename Type> template<typename OtherMatrixType>
+LinAlg::Matrix<Type>::Matrix (const LinAlg::Matrix<OtherMatrixType>& otherMatrix)
+{
+    this->Init(otherMatrix.getNumberOfRows(), otherMatrix.getNumberOfColumns());
+
+    for(unsigned i = 0; i < otherMatrix.getNumberOfRows(); i++)
+        for(unsigned j = 0; j < otherMatrix.getNumberOfColumns(); j++)
+            this->mat[i][j] = (Type)otherMatrix(i+1,j+1);
+}
+
 template<typename Type>
 LinAlg::Matrix<Type>::~Matrix ()
 {

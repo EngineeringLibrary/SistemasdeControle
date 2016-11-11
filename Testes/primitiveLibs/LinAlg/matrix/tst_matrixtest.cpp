@@ -11,20 +11,27 @@ public:
     MatrixTest(){}
 
 private Q_SLOTS:
-    void construtorMatrixTypeInt();
-    void construtorMatrixTypeChar();
-    void construtorMatrixTypeShort();
-    void construtorMatrixTypeFloat();
-    void construtorMatrixTypeDouble();
-    void construtorMatrixTypeLongDouble();
-    void construtorMatrixTypeCStringAndDouble();
-    void construtorMatrixTypeStringAndDouble();
-    void construtorSizedVoidMatrix();
-    void construtorNULLMatrix();
-    void copyconstrutor();
+    void constructorMatrixTypeInt();
+    void constructorMatrixTypeChar();
+    void constructorMatrixTypeShort();
+    void constructorMatrixTypeFloat();
+
+    //Testes utilizando o tipo Double
+    void constructorMatrixTypeDouble();
+    void constructorMatrixTypeLongDouble();
+    void constructorMatrixTypeCStringAndDouble();
+    void constructorMatrixTypeStringAndDouble();
+    void constructorSizedVoidMatrixDouble();
+    void constructorNULLMatrixDouble();
+    void copyconstructorDouble();
+    void copyconstructorOtherTypeDoubleAndInt();
+    void destructorDouble();
+    void removeRowDoubleFirstTest();
+    void removeRowDoubleSecondTest();
+    void removeRowDoubleThirdTest();
 };
 
-void MatrixTest::construtorMatrixTypeChar()
+void MatrixTest::constructorMatrixTypeChar()
 {
     QBENCHMARK {
         LinAlg::Matrix<char> A('a');
@@ -35,7 +42,7 @@ void MatrixTest::construtorMatrixTypeChar()
     QVERIFY2(sizeof(A(1,1)) == sizeof(char), "Falhou ao comparar o tipo do elemento da matriz com valor char");
 }
 
-void MatrixTest::construtorMatrixTypeShort()
+void MatrixTest::constructorMatrixTypeShort()
 {
     QBENCHMARK {
         LinAlg::Matrix<short> A(1);
@@ -46,7 +53,7 @@ void MatrixTest::construtorMatrixTypeShort()
     QVERIFY2(sizeof(A(1,1)) == sizeof(short), "Falhou ao comparar o tipo do elemento da matriz com valor short");
 }
 
-void MatrixTest::construtorMatrixTypeInt()
+void MatrixTest::constructorMatrixTypeInt()
 {
     QBENCHMARK {
         LinAlg::Matrix<int> A(1);
@@ -57,7 +64,7 @@ void MatrixTest::construtorMatrixTypeInt()
     QVERIFY2(sizeof(A(1,1)) == sizeof(int), "Falhou ao comparar o tipo do elemento da matriz com valor inteiro");
 }
 
-void MatrixTest::construtorMatrixTypeFloat()
+void MatrixTest::constructorMatrixTypeFloat()
 {
     QBENCHMARK {
         LinAlg::Matrix<float> A(1.5);
@@ -68,7 +75,7 @@ void MatrixTest::construtorMatrixTypeFloat()
     QVERIFY2(sizeof(A(1,1)) == sizeof(float), "Falhou ao comparar o tipo do elemento da matriz com valor float");
 }
 
-void MatrixTest::construtorMatrixTypeDouble()
+void MatrixTest::constructorMatrixTypeDouble()
 {
     QBENCHMARK {
         LinAlg::Matrix<double> A(1.1);
@@ -79,7 +86,7 @@ void MatrixTest::construtorMatrixTypeDouble()
     QVERIFY2(sizeof(A(1,1)) == sizeof(double), "Falhou ao comparar o tipo do elemento da matriz com valor double");
 }
 
-void MatrixTest::construtorMatrixTypeLongDouble()
+void MatrixTest::constructorMatrixTypeLongDouble()
 {
     QBENCHMARK {
         LinAlg::Matrix<long double> A(1.1);
@@ -90,7 +97,7 @@ void MatrixTest::construtorMatrixTypeLongDouble()
     QVERIFY2(sizeof(A(1,1)) == sizeof(long double), "Falhou ao comparar o tipo do elemento da matriz com valor long double");
 }
 
-void MatrixTest::construtorMatrixTypeCStringAndDouble()
+void MatrixTest::constructorMatrixTypeCStringAndDouble()
 {
     QBENCHMARK {
         LinAlg::Matrix<double> A("1,2,3,4;5,6,7,8");
@@ -102,7 +109,7 @@ void MatrixTest::construtorMatrixTypeCStringAndDouble()
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
-void MatrixTest::construtorMatrixTypeStringAndDouble()
+void MatrixTest::constructorMatrixTypeStringAndDouble()
 {
     std::string str = "1,2,3,4;5,6,7,8";
     QBENCHMARK {
@@ -115,7 +122,7 @@ void MatrixTest::construtorMatrixTypeStringAndDouble()
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
-void MatrixTest::construtorSizedVoidMatrix()
+void MatrixTest::constructorSizedVoidMatrixDouble()
 {
     QBENCHMARK {
         LinAlg::Matrix<double> A(3,3);
@@ -128,7 +135,7 @@ void MatrixTest::construtorSizedVoidMatrix()
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
-void MatrixTest::construtorNULLMatrix()
+void MatrixTest::constructorNULLMatrixDouble()
 {
     QBENCHMARK {
         LinAlg::Matrix<double> A;
@@ -137,7 +144,7 @@ void MatrixTest::construtorNULLMatrix()
     QVERIFY2(A.getNumberOfColumns() == 0 && A.getNumberOfRows() == 0, "Falhou ao testar o tamanho da matriz");
 }
 
-void MatrixTest::copyconstrutor()
+void MatrixTest::copyconstructorDouble()
 {
     LinAlg::Matrix<double> A = "1,2;3,4";
     QBENCHMARK {
@@ -147,6 +154,66 @@ void MatrixTest::copyconstrutor()
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
     QVERIFY2(B(1,1) == 1.0 && B(1,2) == 2.0 &&
              B(2,1) == 3.0 && B(2,2) == 4.0
+             , "Falhou ao comparar todos os elementos da matriz com valor double");
+}
+
+void MatrixTest::copyconstructorOtherTypeDoubleAndInt()
+{
+    LinAlg::Matrix<int> A = "1,2;3,4";
+    QBENCHMARK {
+        LinAlg::Matrix<double> B(A);
+    }
+    LinAlg::Matrix<double> B(A);
+    QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(B(1,1) == 1.0 && B(1,2) == 2.0 &&
+             B(2,1) == 3.0 && B(2,2) == 4.0
+             , "Falhou ao comparar todos os elementos da matriz com valor double");
+}
+
+void MatrixTest::destructorDouble()
+{
+    LinAlg::Matrix<int> A = "1,2;3,4";
+    QBENCHMARK {
+        A.~Matrix();
+    }
+    QVERIFY2(A.getNumberOfColumns() == 0 && A.getNumberOfRows() == 0, "Falhou ao testar o tamanho da matriz");
+}
+
+void MatrixTest::removeRowDoubleFirstTest()
+{
+    std::string str = "1,2,3,4";
+    LinAlg::Matrix<double> A;
+    QBENCHMARK {
+        A = str.c_str();
+        A.removeRow(1);
+    }
+    QVERIFY2(A.getNumberOfColumns() == 0 && A.getNumberOfRows() == 0, "Falhou ao testar o tamanho da matriz");
+}
+
+void MatrixTest::removeRowDoubleSecondTest()
+{
+    std::string str = "1,2,3,4;5,6,7,8";
+    LinAlg::Matrix<double> A;
+    QBENCHMARK {
+        A = str.c_str();
+        A.removeRow(1);
+    }
+    QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(A(1,1) == 5.0 && A(1,2) == 6.0 && A(1,3) == 7.0 && A(1,4) == 8.0
+             , "Falhou ao comparar todos os elementos da matriz com valor double");
+}
+
+void MatrixTest::removeRowDoubleThirdTest()
+{
+    std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
+    LinAlg::Matrix<double> A;
+    QBENCHMARK {
+        A = str.c_str();
+        A.removeRow(2);
+    }
+    QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(A(1,1) == 1.0 && A(1,2) == 2.0 && A(1,3) == 3.0 && A(1,4) == 4.0 &&
+             A(2,1) == 9.0 && A(2,2) == 10.0 && A(2,3) == 11.0 && A(2,4) == 12.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
