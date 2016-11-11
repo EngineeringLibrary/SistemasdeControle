@@ -33,8 +33,8 @@ namespace LinAlg {
             Matrix (const LinAlg::Matrix<OtherMatrixType>& otherMatrix);
             virtual ~Matrix ();
 
-            void removeRow(unsigned row);
-            void removeColumn(unsigned column);
+            void removeRow (unsigned row);
+            void removeColumn (unsigned column);
 
             unsigned getNumberOfRows () const;
             unsigned getNumberOfColumns () const;

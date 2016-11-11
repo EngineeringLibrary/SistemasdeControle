@@ -17,21 +17,23 @@ private Q_SLOTS:
     void constructorMatrixTypeFloat();
 
     //Testes utilizando o tipo Double
-    void constructorMatrixTypeDouble();
-    void constructorMatrixTypeLongDouble();
-    void constructorMatrixTypeCStringAndDouble();
-    void constructorMatrixTypeStringAndDouble();
-    void constructorSizedVoidMatrixDouble();
-    void constructorNULLMatrixDouble();
-    void copyconstructorDouble();
-    void copyconstructorOtherTypeDoubleAndInt();
-    void destructorDouble();
-    void removeRowDoubleFirstTest();
-    void removeRowDoubleSecondTest();
-    void removeRowDoubleThirdTest();
-    void removeColumnDoubleFirstTest();
-    void removeColumnDoubleSecondTest();
-    void removeColumnDoubleThirdTest();
+    void constructorMatrixTypeDouble ();
+    void constructorMatrixTypeLongDouble ();
+    void constructorMatrixTypeCStringAndDouble ();
+    void constructorMatrixTypeStringAndDouble ();
+    void constructorSizedVoidMatrixDouble ();
+    void constructorNULLMatrixDouble ();
+    void copyconstructorDouble ();
+    void copyconstructorOtherTypeDoubleAndInt ();
+    void destructorDouble ();
+    void removeRowDoubleFirstTest ();
+    void removeRowDoubleSecondTest ();
+    void removeRowDoubleThirdTest ();
+    void removeColumnDoubleFirstTest ();
+    void removeColumnDoubleSecondTest ();
+    void removeColumnDoubleThirdTest ();
+    void getNumberOfRowsDouble ();
+    void getNumberOfColumnsDouble ();
 };
 
 void MatrixTest::constructorMatrixTypeChar()
@@ -256,6 +258,28 @@ void MatrixTest::removeColumnDoubleThirdTest()
     QVERIFY2(A(1,1) == 1.0 && A(2,1) == 2.0 && A(3,1) == 3.0 && A(4,1) == 4.0 &&
              A(1,2) == 9.0 && A(2,2) == 10.0 && A(3,2) == 11.0 && A(4,2) == 12.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
+}
+
+void MatrixTest::getNumberOfRowsDouble()
+{
+    std::string str = "1;2;3;4;5;6;7;8;9;0";
+    LinAlg::Matrix<double> A;
+    A = str.c_str();
+    QBENCHMARK {
+        A.getNumberOfRows();
+    }
+    QVERIFY2(A.getNumberOfColumns() == 1 && A.getNumberOfRows() == 10, "Falhou ao testar o tamanho da matriz");
+}
+
+void MatrixTest::getNumberOfColumnsDouble()
+{
+    std::string str = "1,2,3,4,5,6,7,8,9,0";
+    LinAlg::Matrix<double> A;
+    A = str.c_str();
+    QBENCHMARK {
+        A.getNumberOfColumns();
+    }
+    QVERIFY2(A.getNumberOfColumns() == 10 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
 }
 
 QTEST_APPLESS_MAIN(MatrixTest)
