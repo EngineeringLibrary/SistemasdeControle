@@ -39,13 +39,14 @@ namespace LinAlg {
             unsigned getNumberOfRows () const;
             unsigned getNumberOfColumns () const;
 
-            LinAlg::Matrix<Type> GetRow (const unsigned &number_of_the_row) const;
-            LinAlg::Matrix<Type> GetColumn (const unsigned &number_of_the_column) const;
+            LinAlg::Matrix<Type> getRow (const unsigned &number_of_the_row) const;
+            LinAlg::Matrix<Type> getColumn (const unsigned &number_of_the_column) const;
 
-            void SwapRows (unsigned row_to_be_swapped, unsigned  row_to_take_place);
-            void SwapColumns (unsigned column_to_be_swapped, unsigned column_to_take_place);
+            void swapRows (unsigned row_to_be_swapped, unsigned  row_to_take_place);
+            void swapColumns (unsigned column_to_be_swapped, unsigned column_to_take_place);
 
-            unsigned Size ();
+            unsigned length ();
+            LinAlg::Matrix<Type> size ();
 
             bool isNull ();
             bool isSquare ();
