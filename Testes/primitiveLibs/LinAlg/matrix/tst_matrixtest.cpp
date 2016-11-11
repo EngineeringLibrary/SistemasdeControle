@@ -29,6 +29,9 @@ private Q_SLOTS:
     void removeRowDoubleFirstTest();
     void removeRowDoubleSecondTest();
     void removeRowDoubleThirdTest();
+    void removeColumnDoubleFirstTest();
+    void removeColumnDoubleSecondTest();
+    void removeColumnDoubleThirdTest();
 };
 
 void MatrixTest::constructorMatrixTypeChar()
@@ -214,6 +217,44 @@ void MatrixTest::removeRowDoubleThirdTest()
     QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
     QVERIFY2(A(1,1) == 1.0 && A(1,2) == 2.0 && A(1,3) == 3.0 && A(1,4) == 4.0 &&
              A(2,1) == 9.0 && A(2,2) == 10.0 && A(2,3) == 11.0 && A(2,4) == 12.0
+             , "Falhou ao comparar todos os elementos da matriz com valor double");
+}
+
+void MatrixTest::removeColumnDoubleFirstTest()
+{
+    std::string str = "1;2;3;4";
+    LinAlg::Matrix<double> A;
+    QBENCHMARK {
+        A = str.c_str();
+        A.removeColumn(1);
+    }
+    QVERIFY2(A.getNumberOfColumns() == 0 && A.getNumberOfRows() == 0, "Falhou ao testar o tamanho da matriz");
+}
+
+void MatrixTest::removeColumnDoubleSecondTest()
+{
+    std::string str = "1,5;2,6;3,7;4,8";
+    LinAlg::Matrix<double> A;
+    QBENCHMARK {
+        A = str.c_str();
+        A.removeColumn(1);
+    }
+    QVERIFY2(A.getNumberOfColumns() == 1 && A.getNumberOfRows() == 4, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(A(1,1) == 5.0 && A(2,1) == 6.0 && A(3,1) == 7.0 && A(4,1) == 8.0
+             , "Falhou ao comparar todos os elementos da matriz com valor double");
+}
+
+void MatrixTest::removeColumnDoubleThirdTest()
+{
+    std::string str = "1,5,9;2,6,10;3,7,11;4,8,12";
+    LinAlg::Matrix<double> A;
+    QBENCHMARK {
+        A = str.c_str();
+        A.removeColumn(2);
+    }
+    QVERIFY2(A.getNumberOfColumns() == 2 && A.getNumberOfRows() == 4, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(A(1,1) == 1.0 && A(2,1) == 2.0 && A(3,1) == 3.0 && A(4,1) == 4.0 &&
+             A(1,2) == 9.0 && A(2,2) == 10.0 && A(3,2) == 11.0 && A(4,2) == 12.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
