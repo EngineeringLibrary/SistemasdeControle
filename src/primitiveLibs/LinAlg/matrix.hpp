@@ -503,11 +503,12 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(LinAlg::Matrix<Type> rows
             for(unsigned j = column_interval[0]; j <= column_interval[1]; ++j)
                 Ret.mat[i-1][j - column_interval[0]] = this->mat[unsigned(rows(1,i)) - 1][j - 1];
     } else{
-        Ret.Init(1, column_interval[0] - column_interval[1] + 1);
+        Ret.Init(rows.getNumberOfColumns(), column_interval[0] - column_interval[1] + 1);
         for(unsigned i = 1; i <= rows.getNumberOfColumns(); ++i)
             for(unsigned j = column_interval[0]; j >= column_interval[1]; --j)
                 Ret.mat[i-1][column_interval[0] - j] = this->mat[unsigned(rows(1,i)) - 1][j - 1];
     }
+
 
     return Ret;
 }
