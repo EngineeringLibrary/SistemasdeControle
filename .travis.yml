@@ -16,5 +16,5 @@ script:
   - ./tst_matrixtest
 
 after_success:
-- cpp-coveralls -e /usr/include
+- cpp-coveralls
   
