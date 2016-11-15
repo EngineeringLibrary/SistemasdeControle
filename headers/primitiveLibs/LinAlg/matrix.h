@@ -61,6 +61,7 @@ namespace LinAlg {
             LinAlg::Matrix<Type> operator() (LinAlg::Matrix<Type> rows, unsigned* column_interval) const;
             LinAlg::Matrix<Type> operator() (unsigned  row, LinAlg::Matrix<Type> columns) const;
             LinAlg::Matrix<Type> operator() (LinAlg::Matrix<Type> rows, unsigned  column) const;
+            LinAlg::Matrix<Type> operator() (LinAlg::Matrix<Type> rows, LinAlg::Matrix<Type> column) const;
 
 
             void operator= (const char* rhs);

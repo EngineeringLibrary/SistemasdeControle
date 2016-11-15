@@ -519,7 +519,7 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(unsigned row, LinAlg::Mat
 
     Ret.Init(1, columns.getNumberOfColumns());
     for(unsigned j = 1; j <= columns.getNumberOfColumns(); ++j)
-        Ret.mat[row-1][j-1] = this->mat[row - 1][unsigned(columns(1,j)) - 1];
+        Ret.mat[0][j-1] = this->mat[row - 1][unsigned(columns(1,j)) - 1];
 
     return Ret;
 }
@@ -530,10 +530,21 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(LinAlg::Matrix<Type> rows
     LinAlg::Matrix<Type> Ret;
 
     Ret.Init(rows.getNumberOfColumns(), 1);
-    for(unsigned j = 1; j <= rows.getNumberOfColumns(); ++j){
-//        std::cout << rows(1,j) << "\n\n";
-        Ret.mat[j-1][column-1] = this->mat[unsigned(rows(1,j)) - 1][column - 1];
-    }
+    for(unsigned j = 1; j <= rows.getNumberOfColumns(); ++j)
+        Ret.mat[j-1][0] = this->mat[unsigned(rows(1,j)) - 1][column - 1];
+
+    return Ret;
+}
+
+template<typename Type>
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(LinAlg::Matrix<Type> rows, LinAlg::Matrix<Type> column)const
+{
+    LinAlg::Matrix<Type> Ret;
+
+    Ret.Init(rows.getNumberOfColumns(), column.getNumberOfColumns());
+    for(unsigned i = 1; i <= rows.getNumberOfColumns(); ++i)
+        for(unsigned j = 1; j <= column.getNumberOfColumns(); ++j)
+            Ret.mat[i-1][j-1] = this->mat[unsigned(rows(1,i)) - 1][unsigned(column(1,j)) - 1];
 
     return Ret;
 }
