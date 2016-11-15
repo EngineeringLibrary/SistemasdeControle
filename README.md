@@ -1,5 +1,7 @@
 ![Build Status](https://travis-ci.org/EngineeringLibrary/SistemasdeControle.svg?branch=master)
 
+![Coverage Status](https://coveralls.io/repos/github/EngineeringLibrary/SistemasdeControle/badge.svg)
+
 WorkSpace
 =========
 
