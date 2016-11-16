@@ -694,25 +694,58 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator^= (int exp)
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator<= (const Type& rhs)
+LinAlg::Matrix<bool> LinAlg::Matrix<Type>::operator== (const Type& rhs)
 {
-    LinAlg::Matrix<Type> ret(this->rows,this->columns);
+    LinAlg::Matrix<bool> ret = *this;
     for(unsigned i = 1; i <= this->rows; ++i)
         for(unsigned j = 1; j <= this->columns; ++j)
-            if(this->mat[i-1][j-1] <= rhs)
-                this->mat[i-1][j-1] = 1;
-    return *this;
+            ret(i,j) = this->mat[i-1][j-1] == rhs;
+
+    return ret;
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator>= (const Type& rhs)
+LinAlg::Matrix<bool> LinAlg::Matrix<Type>::operator<= (const Type& rhs)
 {
-    LinAlg::Matrix<Type> ret(this->rows,this->columns);
+    LinAlg::Matrix<bool> ret = *this;
     for(unsigned i = 1; i <= this->rows; ++i)
         for(unsigned j = 1; j <= this->columns; ++j)
-            if(this->mat[i-1][j-1] >= rhs)
-                this->mat[i-1][j-1] = 1;
-    return *this;
+            ret(i,j) = this->mat[i-1][j-1] <= rhs;
+
+    return ret;
+}
+
+template<typename Type>
+LinAlg::Matrix<bool> LinAlg::Matrix<Type>::operator>= (const Type& rhs)
+{
+    LinAlg::Matrix<bool> ret = *this;
+    for(unsigned i = 1; i <= this->rows; ++i)
+        for(unsigned j = 1; j <= this->columns; ++j)
+            ret(i,j) = this->mat[i-1][j-1] >= rhs;
+
+    return ret;
+}
+
+template<typename Type>
+LinAlg::Matrix<bool> LinAlg::Matrix<Type>::operator< (const Type& rhs)
+{
+    LinAlg::Matrix<bool> ret = *this;
+    for(unsigned i = 1; i <= this->rows; ++i)
+        for(unsigned j = 1; j <= this->columns; ++j)
+            ret(i,j) = this->mat[i-1][j-1] < rhs;
+
+    return ret;
+}
+
+template<typename Type>
+LinAlg::Matrix<bool> LinAlg::Matrix<Type>::operator> (const Type& rhs)
+{
+    LinAlg::Matrix<bool> ret = *this;
+    for(unsigned i = 1; i <= this->rows; ++i)
+        for(unsigned j = 1; j <= this->columns; ++j)
+            ret(i,j) = this->mat[i-1][j-1] > rhs;
+
+    return ret;
 }
 
 template <typename Type>
@@ -942,6 +975,12 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator|| (LinAlg::Matrix<RightType>
     }
 
     return ret;
+}
+
+template<typename Type> template<typename RightType>
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator|| (RightType rhs)
+{
+    return ((*this)||LinAlg::Matrix<RightType>(rhs));
 }
 
 template<typename Type>

@@ -88,8 +88,11 @@ namespace LinAlg {
 
             LinAlg::Matrix<Type>& operator^= (int exp);
 
-            LinAlg::Matrix<Type> operator<= (const Type& rhs /*scalar*/);
-            LinAlg::Matrix<Type> operator>= (const Type& rhs /*scalar*/);
+            LinAlg::Matrix<bool> operator== (const Type& rhs /*scalar*/);
+            LinAlg::Matrix<bool> operator<= (const Type& rhs /*scalar*/);
+            LinAlg::Matrix<bool> operator>= (const Type& rhs /*scalar*/);
+            LinAlg::Matrix<bool> operator<  (const Type& rhs /*scalar*/);
+            LinAlg::Matrix<bool> operator>  (const Type& rhs /*scalar*/);
 
             template<typename RightType>
             LinAlg::Matrix<Type> operator| (LinAlg::Matrix<RightType> rhs);
@@ -97,6 +100,8 @@ namespace LinAlg {
             LinAlg::Matrix<Type> operator| (RightType rhs);
             template<typename RightType>
             LinAlg::Matrix<Type> operator|| (LinAlg::Matrix<RightType> rhs);
+            template<typename RightType>
+            LinAlg::Matrix<Type> operator|| (RightType rhs);
 
             void operator<< (const LinAlg::Matrix<Type>& mat);
 
