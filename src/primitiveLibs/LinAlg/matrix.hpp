@@ -460,7 +460,7 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(unsigned* row_interval, u
         for(unsigned i = row_interval[0]; i <= row_interval[1]; ++i)
             Ret.mat[i - row_interval[0]][0] = this->mat[i - 1][column - 1];
     } else{
-        unsigned aux = row_interval[0] - row_interval[1] + 1;
+//        unsigned aux = row_interval[0] - row_interval[1] + 1;
 
         Ret.Init(row_interval[0] - row_interval[1] + 1, 1);
         for(unsigned i = row_interval[0]; i >= row_interval[1]; --i)
