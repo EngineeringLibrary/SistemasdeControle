@@ -711,8 +711,7 @@ void MatrixTest::operatorAtributionMatrixMoreThanTwoParametersPointerDouble ()
     QVERIFY2(&E != &B, "Falhou ao comparar os endereços da matriz com valor double");
 
     QVERIFY2(F.getNumberOfColumns() == 2 && F.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(F(1,1) == C(1,1) && F(1,2) == C(1,2) &&
-             F(1,3) == C(1,3) && F(1,4) == C(1,4), "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(F(1,1) == C(1,1) && F(1,2) == C(1,2), "Falhou ao comparar todos os elementos da matriz com valor double");
     QVERIFY2(&F != &C, "Falhou ao comparar os endereços da matriz com valor double");
 }
 
