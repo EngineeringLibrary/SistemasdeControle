@@ -689,8 +689,8 @@ template<typename Type> template<typename RightType>
 LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator/= (const LinAlg::Matrix<RightType>& rhs)
 {
 
-    if(rhs.rows == 1 && rhs.columns == 1)
-        return  *this /= rhs.mat[0][0];
+    if(rhs.getNumberOfRows() == 1 && rhs.getNumberOfColumns() == 1)
+        return  *this /= rhs(1,1);
     else
         return *this *= LinAlg::Inverse<RightType>(rhs);
 }
@@ -1131,22 +1131,20 @@ std::string& LinAlg::operator<<= (std::string& output, const LinAlg::Matrix<Type
 //    return ret;
 //}
 
-template<typename Type>
-void LinAlg::Zeros(Matrix<Type>& Mat)
-{
-    for(unsigned i = 1; i <= Mat.getNumberOfRows(); i++)
-        for(unsigned j = 1; j <= Mat.getNumberOfColumns(); j++)
-            if(typeid(Mat(i, j)) == typeid(double) || typeid(Mat(i, j)) == typeid(unsigned) || typeid(Mat(i, j)) == typeid(float) || typeid(Mat(i, j)) == typeid(int))
-                Mat(i, j) = 0;
-}
+//template<typename Type>
+//void LinAlg::Zeros(Matrix<Type>& Mat)
+//{
+//    for(unsigned i = 1; i <= Mat.getNumberOfRows(); i++)
+//        for(unsigned j = 1; j <= Mat.getNumberOfColumns(); j++)
+//            if(typeid(Mat(i, j)) == typeid(double) || typeid(Mat(i, j)) == typeid(unsigned) || typeid(Mat(i, j)) == typeid(float) || typeid(Mat(i, j)) == typeid(int))
+//                Mat(i, j) = 0;
+//}
 
 template<typename Type>
 LinAlg::Matrix<Type> LinAlg::Zeros (unsigned rows, unsigned columns)
 {
+    return LinAlg::Matrix<Type>(rows, columns);
 
-    LinAlg::Matrix<Type> Ret(rows, columns);
-
-    return Ret;
 }
 
 template<typename Type>
@@ -1179,20 +1177,22 @@ LinAlg::Matrix<Type> LinAlg::LineVector (Type from, Type to, Type step)
     return Ret;
 }
 
-template<typename Type>
-void LinAlg::Ones(LinAlg::Matrix<Type>& mat)
-{
-    for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
-        for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)
-            mat(i, j) = 1;
-}
+//template<typename Type>
+//void LinAlg::Ones(LinAlg::Matrix<Type>& mat)
+//{
+//    for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
+//        for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)
+//            mat(i, j) = 1;
+//}
 
 template<typename Type>
 LinAlg::Matrix<Type> LinAlg::Ones(unsigned rows, unsigned columns)
 {
     LinAlg::Matrix<Type> temp(rows, columns);
 
-    LinAlg::Ones(temp);
+    for(unsigned i = 1; i <= temp.getNumberOfRows(); i++)
+        for(unsigned j = 1; j <= temp.getNumberOfColumns(); j++)
+            temp(i, j) = 1;
 
     return temp;
 }
@@ -1265,7 +1265,7 @@ LinAlg::Matrix<Type> LinAlg::Cofactor(const LinAlg::Matrix<Type>& mat)
 
     if(rows != columns)
     {
-        LinAlg::Zeros(ret);
+        ret = LinAlg::Zeros<Type>(0,0);
         std::cout << "Operacao disponivel somente para matrizes quadradas.";
     }
     else if(rows == 2)

@@ -221,8 +221,8 @@ namespace LinAlg {
     template <typename Type>
     LinAlg::Matrix<Type> sumOfColumnsElements(const LinAlg::Matrix<Type> &mat);
 
-    template<typename Type>
-    void Zeros (LinAlg::Matrix<Type>& Mat);
+//    template<typename Type>
+//    void Zeros (LinAlg::Matrix<Type>& Mat);
 
     template<typename Type>
     LinAlg::Matrix<Type> Zeros (unsigned rows, unsigned columns);
@@ -233,8 +233,8 @@ namespace LinAlg {
     template<typename Type>
     LinAlg::Matrix<Type> LineVector (Type from, Type to, Type step = 1);
 
-    template<typename Type>
-    void Ones (LinAlg::Matrix<Type> & mat);
+//    template<typename Type>
+//    void Ones (LinAlg::Matrix<Type> & mat);
 
     template<typename Type>
     LinAlg::Matrix<Type> Ones (unsigned rows, unsigned columns);
