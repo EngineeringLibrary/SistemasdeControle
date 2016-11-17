@@ -4,6 +4,7 @@ dist: trusty
 before_install:
   - sudo add-apt-repository --yes ppa:beineri/opt-qt57-trusty
   - sudo apt-get update -qq
+  - sudo apt-get install libudunits2-dev lcov python-yaml
   - sudo pip install cpp-coveralls
 
 install:
@@ -16,5 +17,4 @@ script:
   - ./tst_matrixtest
 
 after_success:
-- cpp-coveralls -e Testes/primitiveLibs/LinAlg/matrix/
-  
+- cpp-coveralls  

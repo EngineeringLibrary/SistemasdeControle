@@ -565,6 +565,13 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator= (const LinAlg::Matrix<Type
     return *this;
 }
 
+template<typename Type> template<typename MatrixLeftType>
+void LinAlg::Matrix<Type>::operator= (LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* > *rhs)
+{
+    for(unsigned i = 1; i <= this->getNumberOfColumns(); ++i )
+        *((*this)(1,i)) = *((*rhs)(1,i));
+}
+
 template<typename Type> template<typename OtherMatrixType>
 LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator= (const LinAlg::Matrix<OtherMatrixType>& rhs)
 {
@@ -572,6 +579,25 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator= (const LinAlg::Matrix<Othe
         swap(rhs);
 
     return *this;
+}
+
+template<typename MatrixLeftType, typename MatrixRigthType>
+LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* LinAlg::operator, (LinAlg::Matrix<MatrixLeftType> &lhs, LinAlg::Matrix<MatrixRigthType> &rhs)
+{
+    LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* > *A = new LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >(1,2);
+    (*A)(1,1) = &lhs;
+    (*A)(1,2) = &rhs;
+    return A;
+}
+
+template<typename MatrixLeftType, typename MatrixRigthType>
+LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* LinAlg::operator, (LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* lhs, LinAlg::Matrix<MatrixRigthType> &rhs)
+{
+    LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* > *A = new LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >(1,(*lhs).getNumberOfColumns()+1);
+    for(unsigned i = 1; i <= (*lhs).getNumberOfColumns(); ++i)
+        (*A)(1,i) = (*lhs)(1,i);
+    (*A)(1,(*lhs).getNumberOfColumns()+1) = &rhs;
+    return A;
 }
 
 template<typename Type>
