@@ -15,10 +15,10 @@ private Q_SLOTS:
     void constructorMatrixTypeChar();
     void constructorMatrixTypeShort();
     void constructorMatrixTypeFloat();
+    void constructorMatrixTypeLongDouble ();
 
     //Testes utilizando o tipo Double
     void constructorMatrixTypeDouble ();
-    void constructorMatrixTypeLongDouble ();
     void constructorMatrixTypeCStringAndDouble ();
     void constructorMatrixTypeStringAndDouble ();
     void constructorSizedVoidMatrixDouble ();
