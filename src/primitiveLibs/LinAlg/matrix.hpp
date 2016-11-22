@@ -802,144 +802,267 @@ LinAlg::Matrix<Type> LinAlg::divPoint(const LinAlg::Matrix<Type> &A, const LinAl
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> LinAlg::sortColumnVector(const LinAlg::Matrix<Type> &columnVector)
+LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::sort(const LinAlg::Matrix<Type> &vector)
 {
-    LinAlg::Matrix<Type> ret = columnVector;
-    for(unsigned i = 1; i <= ret.getNumberOfColumns(); ++i)
-        for(unsigned j = i+1; j <= ret.getNumberOfColumns(); ++j)
-            if(ret(1,i) > ret(1,j)){
-                Type aux = ret(1,i);
-                ret(1,i) = ret(1,j);
-                ret(1,j) = aux;
-            }
-    return ret;
+    LinAlg::Matrix<Type> reorderedMatrix = vector;
+    LinAlg::Matrix<Type> indices;
+    if(vector.getNumberOfColumns() > 1 && vector.getNumberOfRows() == 1)
+    {
+        indices = LineVector<Type>(1, vector.getNumberOfColumns());
+        for(unsigned i = 1; i <= reorderedMatrix.getNumberOfColumns(); ++i)
+            for(unsigned j = i+1; j <= reorderedMatrix.getNumberOfColumns(); ++j)
+                if(reorderedMatrix(1,i) > reorderedMatrix(1,j)){
+                    Type aux = reorderedMatrix(1,i);
+                    reorderedMatrix(1,i) = reorderedMatrix(1,j);
+                    reorderedMatrix(1,j) = aux;
+                    aux = indices(1,i);
+                    indices(1,i) = indices(1,j);
+                    indices(1,j) = aux;
+                }
+    }
+    else if(vector.getNumberOfColumns() == 1 && vector.getNumberOfRows() >= 1)
+    {
+        indices = ~LineVector<Type>(1, vector.getNumberOfRows());
+        for(unsigned i = 1; i <= reorderedMatrix.getNumberOfRows(); ++i)
+            for(unsigned j = i+1; j <= reorderedMatrix.getNumberOfRows(); ++j)
+                if(reorderedMatrix(i,1) > reorderedMatrix(j,1)){
+                    Type aux = reorderedMatrix(i,1);
+                    reorderedMatrix(i,1) = reorderedMatrix(j,1);
+                    reorderedMatrix(j,1) = aux;
+                    aux = indices(i,1);
+                    indices(i,1) = indices(j,1);
+                    indices(j,1) = aux;
+                }
+    }
+    else
+    {
+        std::cout << "Não foi possível organizar os índices! "
+                     "Deveria ter apenas uma linha ou uma coluna!!"
+                  << std::endl;
+    }
+    LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
+    (*A)(1,1) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*A)(1,2) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*((*A)(1,1))) = reorderedMatrix;
+    (*((*A)(1,2))) = indices;
+    return A;
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> LinAlg::sortColumnVectorIndices(const LinAlg::Matrix<Type> &columnVector)
+LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::min(const LinAlg::Matrix<Type> &vector)
 {
-    LinAlg::Matrix<Type> reorderedColum = columnVector;
-    LinAlg::Matrix<Type> indices = LineVector<Type>(1,columnVector.getNumberOfColumns());
-    for(unsigned i = 1; i <= reorderedColum.getNumberOfColumns(); ++i)
-        for(unsigned j = i+1; j <= reorderedColum.getNumberOfColumns(); ++j)
-            if(reorderedColum(1,i) > reorderedColum(1,j)){
-                Type aux = reorderedColum(1,i);
-                reorderedColum(1,i) = reorderedColum(1,j);
-                reorderedColum(1,j) = aux;
-                aux = indices(1,i);
-                indices(1,i) = indices(1,j);
-                indices(1,j) = aux;
-            }
-    return indices;
-}
+    LinAlg::Matrix<Type> minMatrix, minIndiceMatrix;
+    if(vector.getNumberOfRows() > 1)
+    {
+        minMatrix = LinAlg::Zeros<Type>(1, vector.getNumberOfColumns());
+        minIndiceMatrix = LinAlg::Ones<Type>(1, vector.getNumberOfColumns());
 
-template <typename Type>
-unsigned LinAlg::lineOfMinValue(const LinAlg::Matrix<Type> &mat)
-{
-    unsigned minIndice = 1;
-    Type minValue = mat(1,1);
-    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
-        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
-            if(minValue > mat(i,j))
+        for (unsigned i = 1; i <= vector.getNumberOfColumns(); ++i)
+        {
+            minMatrix(1,i) = vector(1,i);
+            for (unsigned j = 1; j <= vector.getNumberOfRows(); ++j)
+                if(minMatrix(1,i) > vector(j,i))
+                {
+                    minMatrix(1,i) = vector(j,i);
+                    minIndiceMatrix(1,i) = j;
+                }
+        }
+    }
+    else if(vector.getNumberOfRows() == 1)
+    {
+        minMatrix = LinAlg::Zeros<Type>(1,1);
+        minIndiceMatrix = LinAlg::Ones<Type>(1,1);
+        minMatrix(1,1) = vector(1,1);
+        for (unsigned j = 1; j <= vector.getNumberOfColumns(); ++j)
+            if(minMatrix(1,1) > vector(1,j))
             {
-                minValue = mat(i,j);
-                minIndice = i;
+                minMatrix(1,1) = vector(1,j);
+                minIndiceMatrix(1,1) = j;
             }
-    return minIndice;
+    }
+
+
+    LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
+    (*A)(1,1) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*A)(1,2) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*((*A)(1,1))) = minMatrix;
+    (*((*A)(1,2))) = minIndiceMatrix;
+    return A;
 }
 
 template <typename Type>
-unsigned LinAlg::columnOfMinValue(const LinAlg::Matrix<Type> &mat)
+LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::max(const LinAlg::Matrix<Type> &vector)
 {
-    unsigned minIndice = 1;
-    Type minValue = mat(1,1);
-    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
-        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
-            if(minValue > mat(i,j))
+    LinAlg::Matrix<Type> maxMatrix, maxIndiceMatrix;
+    if(vector.getNumberOfRows() > 1)
+    {
+        maxMatrix = LinAlg::Zeros<Type>(1, vector.getNumberOfColumns());
+        maxIndiceMatrix = LinAlg::Ones<Type>(1, vector.getNumberOfColumns());
+
+        for (unsigned i = 1; i <= vector.getNumberOfColumns(); ++i)
+        {
+            maxMatrix(1,i) = vector(1,i);
+            for (unsigned j = 1; j <= vector.getNumberOfRows(); ++j)
+                if(maxMatrix(1,i) < vector(j,i))
+                {
+                    maxMatrix(1,i) = vector(j,i);
+                    maxIndiceMatrix(1,i) = j;
+                }
+        }
+    }
+    else if(vector.getNumberOfRows() == 1)
+    {
+        maxMatrix = LinAlg::Zeros<Type>(1,1);
+        maxIndiceMatrix = LinAlg::Ones<Type>(1,1);
+        maxMatrix(1,1) = vector(1,1);
+        for (unsigned j = 1; j <= vector.getNumberOfColumns(); ++j)
+            if(maxMatrix(1,1) < vector(1,j))
             {
-                minValue = mat(i,j);
-                minIndice = j;
+                maxMatrix(1,1) = vector(1,j);
+                maxIndiceMatrix(1,1) = j;
             }
-    return minIndice;
+    }
+
+
+    LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
+    (*A)(1,1) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*A)(1,2) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*((*A)(1,1))) = maxMatrix;
+    (*((*A)(1,2))) = maxIndiceMatrix;
+    return A;
 }
 
 template <typename Type>
-Type LinAlg::MinValue(const LinAlg::Matrix<Type> &mat)
+LinAlg::Matrix<Type> LinAlg::sum(const LinAlg::Matrix<Type> &mat, const bool &rowColResult)
 {
-    Type minValue = mat(1,1);
-    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
-        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
-            if(minValue > mat(i,j))
-                minValue = mat(i,j);
+    if(!rowColResult)
+    {
+        LinAlg::Matrix<Type> sum(1,mat.getNumberOfColumns());
 
-    return minValue;
+        for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+            for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+                sum(1,j) += mat(i,j);
+
+        return sum;
+    }
+    else
+    {
+        LinAlg::Matrix<Type> sum(mat.getNumberOfRows(),1);
+
+        for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+            for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+                sum(i,1) += mat(i,j);
+
+        return sum;
+    }
 }
+//template <typename Type>
+//unsigned LinAlg::lineOfMinValue(const LinAlg::Matrix<Type> &mat)
+//{
+//    unsigned minIndice = 1;
+//    Type minValue = mat(1,1);
+//    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+//            if(minValue > mat(i,j))
+//            {
+//                minValue = mat(i,j);
+//                minIndice = i;
+//            }
+//    return minIndice;
+//}
 
-template <typename Type>
-unsigned LinAlg::lineOfMaxValue(const LinAlg::Matrix<Type> &mat)
-{
-    unsigned maxIndice = 1;
-    Type maxValue = mat(1,1);
-    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
-        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
-            if(maxValue < mat(i,j))
-            {
-                maxValue = mat(i,j);
-                maxIndice = i;
-            }
-    return maxIndice;
-}
+//template <typename Type>
+//unsigned LinAlg::columnOfMinValue(const LinAlg::Matrix<Type> &mat)
+//{
+//    unsigned minIndice = 1;
+//    Type minValue = mat(1,1);
+//    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+//            if(minValue > mat(i,j))
+//            {
+//                minValue = mat(i,j);
+//                minIndice = j;
+//            }
+//    return minIndice;
+//}
 
-template <typename Type>
-unsigned LinAlg::columnOfMaxValue(const LinAlg::Matrix<Type> &mat)
-{
-    unsigned maxIndice = 1;
-    Type maxValue = mat(1,1);
-    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
-        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
-            if(maxValue < mat(i,j))
-            {
-                maxValue = mat(i,j);
-                maxIndice = j;
-            }
-    return maxIndice;
-}
+//template <typename Type>
+//Type LinAlg::MinValue(const LinAlg::Matrix<Type> &mat)
+//{
+//    Type minValue = mat(1,1);
+//    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+//            if(minValue > mat(i,j))
+//                minValue = mat(i,j);
 
-template <typename Type>
-Type LinAlg::MaxValue(const LinAlg::Matrix<Type> &mat)
-{
-    Type maxValue = mat(1,1);
-    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
-        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
-            if(maxValue < mat(i,j))
-                maxValue = mat(i,j);
+//    return minValue;
+//}
 
-    return maxValue;
-}
+//template <typename Type>
+//unsigned LinAlg::lineOfMaxValue(const LinAlg::Matrix<Type> &mat)
+//{
+//    unsigned maxIndice = 1;
+//    Type maxValue = mat(1,1);
+//    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+//            if(maxValue < mat(i,j))
+//            {
+//                maxValue = mat(i,j);
+//                maxIndice = i;
+//            }
+//    return maxIndice;
+//}
 
-template <typename Type>
-LinAlg::Matrix<Type> LinAlg::sumOfRowsElements(const LinAlg::Matrix<Type> &mat) // lembrar de implementar
-{
-    LinAlg::Matrix<Type> sum(mat.getNumberOfRows(),1);
+//template <typename Type>
+//unsigned LinAlg::columnOfMaxValue(const LinAlg::Matrix<Type> &mat)
+//{
+//    unsigned maxIndice = 1;
+//    Type maxValue = mat(1,1);
+//    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+//            if(maxValue < mat(i,j))
+//            {
+//                maxValue = mat(i,j);
+//                maxIndice = j;
+//            }
+//    return maxIndice;
+//}
 
-    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
-        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
-            sum(i,1) += mat(i,j);
+//template <typename Type>
+//Type LinAlg::MaxValue(const LinAlg::Matrix<Type> &mat)
+//{
+//    Type maxValue = mat(1,1);
+//    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+//            if(maxValue < mat(i,j))
+//                maxValue = mat(i,j);
 
-    return sum;
-}
+//    return maxValue;
+//}
 
-template <typename Type>
-LinAlg::Matrix<Type> LinAlg::sumOfColumnsElements(const LinAlg::Matrix<Type> &mat) // lembrar de implementar
-{
-    LinAlg::Matrix<Type> sum(1,mat.getNumberOfColumns());
+//template <typename Type>
+//LinAlg::Matrix<Type> LinAlg::sumOfRowsElements(const LinAlg::Matrix<Type> &mat) // lembrar de implementar
+//{
+//    LinAlg::Matrix<Type> sum(mat.getNumberOfRows(),1);
 
-    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
-        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
-            sum(1,j) += mat(i,j);
+//    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+//            sum(i,1) += mat(i,j);
 
-    return sum;
-}
+//    return sum;
+//}
+
+//template <typename Type>
+//LinAlg::Matrix<Type> LinAlg::sumOfColumnsElements(const LinAlg::Matrix<Type> &mat) // lembrar de implementar
+//{
+//    LinAlg::Matrix<Type> sum(1,mat.getNumberOfColumns());
+
+//    for (unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+//            sum(1,j) += mat(i,j);
+
+//    return sum;
+//}
 
 template<typename Type> template<typename RightType>
 LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator| (LinAlg::Matrix<RightType> rhs)
@@ -1169,11 +1292,18 @@ LinAlg::Matrix<Type> LinAlg::LineVector (Type from, Type to, Type step)
 {
     LinAlg::Matrix<Type> Ret(1,unsigned((to-from)/step) + 1);
     unsigned j = 1;
-    for(Type i = from; i <= to; i+= step)
-    {
-        Ret(1,j) = i;
-        ++j;
-    }
+    if(step > 0)
+        for(Type i = from; i <= to; i+= step)
+        {
+            Ret(1,j) = i;
+            ++j;
+        }
+    else
+        for(Type i = from; i >= to; i+= step)
+        {
+            Ret(1,j) = i;
+            ++j;
+        }
     return Ret;
 }
 

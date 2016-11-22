@@ -192,34 +192,40 @@ namespace LinAlg {
     LinAlg::Matrix<Type> divPoint(const LinAlg::Matrix<Type> &A, const LinAlg::Matrix<Type> &B);
 
     template <typename Type>
-    LinAlg::Matrix<Type> sortColumnVector(const LinAlg::Matrix<Type> &columnVector);
+    LinAlg::Matrix< LinAlg::Matrix<Type>* >* sort(const LinAlg::Matrix<Type> &vector);
 
     template <typename Type>
-    LinAlg::Matrix<Type> sortColumnVectorIndices(const LinAlg::Matrix<Type> &columnVector);
+    LinAlg::Matrix< LinAlg::Matrix<Type>* >* min(const LinAlg::Matrix<Type> &vector);
 
     template <typename Type>
-    unsigned lineOfMinValue(const LinAlg::Matrix<Type> &mat);
+    LinAlg::Matrix< LinAlg::Matrix<Type>* >* max(const LinAlg::Matrix<Type> &vector);
 
     template <typename Type>
-    unsigned columnOfMinValue(const LinAlg::Matrix<Type> &mat);
+    LinAlg::Matrix<Type> sum(const LinAlg::Matrix<Type> &vector, const bool &rowCol = 0);
 
-    template <typename Type>
-    Type MinValue(const LinAlg::Matrix<Type> &mat);
+//    template <typename Type>
+//    unsigned lineOfMinValue(const LinAlg::Matrix<Type> &mat);
 
-    template <typename Type>
-    unsigned lineOfMaxValue(const LinAlg::Matrix<Type> &mat);
+//    template <typename Type>
+//    unsigned columnOfMinValue(const LinAlg::Matrix<Type> &mat);
 
-    template <typename Type>
-    unsigned columnOfMaxValue(const LinAlg::Matrix<Type> &mat);
+//    template <typename Type>
+//    Type MinValue(const LinAlg::Matrix<Type> &mat);
 
-    template <typename Type>
-    Type MaxValue(const LinAlg::Matrix<Type> &mat);
+//    template <typename Type>
+//    unsigned lineOfMaxValue(const LinAlg::Matrix<Type> &mat);
 
-    template <typename Type>
-    LinAlg::Matrix<Type> sumOfRowsElements(const LinAlg::Matrix<Type> &mat);
+//    template <typename Type>
+//    unsigned columnOfMaxValue(const LinAlg::Matrix<Type> &mat);
 
-    template <typename Type>
-    LinAlg::Matrix<Type> sumOfColumnsElements(const LinAlg::Matrix<Type> &mat);
+//    template <typename Type>
+//    Type MaxValue(const LinAlg::Matrix<Type> &mat);
+
+//    template <typename Type>
+//    LinAlg::Matrix<Type> sumOfRowsElements(const LinAlg::Matrix<Type> &mat);
+
+//    template <typename Type>
+//    LinAlg::Matrix<Type> sumOfColumnsElements(const LinAlg::Matrix<Type> &mat);
 
 //    template<typename Type>
 //    void Zeros (LinAlg::Matrix<Type>& Mat);
