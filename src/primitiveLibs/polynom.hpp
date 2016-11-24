@@ -164,6 +164,7 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator= (const P
 {
     this->setDen(OtherPolynom.den, OtherPolynom.sizeDen);
     this->setNum(OtherPolynom.num, OtherPolynom.sizeNum);
+    this->x = OtherPolynom.x;
 
     return *this;
 }
@@ -171,8 +172,9 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator= (const P
 template <typename Type> template<typename OtherPolynomType> // testada
 PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator= (const PolynomHandler::Polynom<OtherPolynomType>& OtherPolynom)
 {
-    this->setDen(OtherPolynom.den, OtherPolynom.sizeDen);
-    this->setNum(OtherPolynom.num, OtherPolynom.sizeNum);
+    this->setDen(OtherPolynom.getDen());
+    this->setNum(OtherPolynom.getNum());
+    this->changeVar(OtherPolynom.getVar());
 
     return *this;
 }
@@ -180,6 +182,9 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator= (const P
 template <typename Type> //Testada
 PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const Type& scalar)
 {
+    if(scalar == 0)
+        return *this;
+
     PolynomHandler::Polynom<Type> ret(scalar);
     ret.setNum(this->den, this->sizeDen);
     ret.setDen(this->den, this->sizeDen);
@@ -195,13 +200,6 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
     }
     this->sizeNum = max;
 
-//    if(isZero())
-//    {
-//        delete(this->den);
-//        this->den = NULL;
-//        this->sizeDen = 0;
-//    }
-    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
