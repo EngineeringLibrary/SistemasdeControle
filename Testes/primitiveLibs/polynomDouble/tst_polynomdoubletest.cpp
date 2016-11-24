@@ -1,6 +1,5 @@
 #include <QString>
 #include <QtTest>
-#define testMatrix
 #define testPolynom
 #include "../../../headers/primitiveLibs/polynom.h"
 
