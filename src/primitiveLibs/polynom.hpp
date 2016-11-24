@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/primitiveLibs/polynom.h"
+#ifdef testPolynom
+    #include "../../../headers/primitiveLibs/polynom.h"
+#else
+    #include "SistemasdeControle/headers/primitiveLibs/polynom.h"
+#endif
 
 template <typename Type> // testada
 PolynomHandler::Polynom<Type>::Polynom(const Type &Num)
@@ -26,6 +30,25 @@ PolynomHandler::Polynom<Type>::Polynom(const PolynomHandler::Polynom<Type> &Copy
 
     for(unsigned i = 0; i < this->sizeDen; ++i)
         this->den[i] = CopyPolynom.den[i];
+}
+
+template <typename Type> template<typename OtherPolynomType>//testada
+PolynomHandler::Polynom<Type>::Polynom(const PolynomHandler::Polynom<OtherPolynomType>& otherPolynom)
+{
+    this->num = new Type[otherPolynom.getNumSize()]();
+    this->den = new Type[otherPolynom.getDenSize()]();
+    this->sizeNum = otherPolynom.getNumSize();
+    this->sizeDen = otherPolynom.getDenSize();
+    this->x = otherPolynom.getVar();
+
+    LinAlg::Matrix<OtherPolynomType> NUM = otherPolynom.getNum();
+    LinAlg::Matrix<OtherPolynomType> DEN = otherPolynom.getDen();
+
+    for(unsigned i = 0; i < this->sizeNum; ++i)
+        this->num[i] = (Type)NUM(1,i+1);
+
+    for(unsigned i = 0; i < this->sizeDen; ++i)
+        this->den[i] = (Type)DEN(1,i+1);
 }
 
 template <typename Type> // testada

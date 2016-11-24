@@ -264,7 +264,11 @@ namespace LinAlg {
     #ifdef testMatrix
         #include "../../../../src/primitiveLibs/LinAlg/matrix.hpp"
     #else
-        #include "SistemasdeControle/src/primitiveLibs/LinAlg/matrix.hpp"
+        #ifdef testPolynom
+            #include "../../../src/primitiveLibs/LinAlg/matrix.hpp"
+        #else
+            #include "SistemasdeControle/src/primitiveLibs/LinAlg/matrix.hpp"
+        #endif
     #endif
 
 #endif // MATRIX_H

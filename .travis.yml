@@ -18,6 +18,9 @@ script:
   - qmake "CONFIG+=test" Testes/primitiveLibs/LinAlg/MatrixLongDouble/MatrixLongDouble.pro
   - make
   - ./tst_matrixlongdoubletest
+  - qmake "CONFIG+=test" Testes/primitiveLibs/polynomDouble/polynomDouble.pro
+  - make
+  - ./tst_polynomdoubletest
 
 after_success:
 - cpp-coveralls  

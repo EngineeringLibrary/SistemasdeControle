@@ -1,8 +1,8 @@
 #ifndef __POLYNOM_H_INCLUDED
 #define __POLYNOM_H_INCLUDED
 
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
+#include "LinAlg/matrix.h"
+#include "LinAlg/linalg.h"
 #include <complex>
 
 namespace PolynomHandler {
@@ -14,6 +14,8 @@ namespace PolynomHandler {
             Polynom(const Type &Num);//testada
             Polynom(const LinAlg::Matrix<Type> &Num); //testada
             Polynom(const PolynomHandler::Polynom<Type> &CopyPolynom); //testada
+            template<typename OtherPolynomType>
+            Polynom (const PolynomHandler::Polynom<OtherPolynomType>& otherPolynom);
             Polynom(const LinAlg::Matrix<Type> &Num, const LinAlg::Matrix<Type> &Den);//testada
             Polynom(): x('x'), num(NULL), den(NULL), sizeNum(0), sizeDen(0){} //testada
             ~Polynom(); //testada
@@ -176,6 +178,15 @@ namespace PolynomHandler {
 
 }
 
-#include "SistemasdeControle/src/primitiveLibs/polynom.hpp"
+#ifdef testMatrix
+    #include "../../../../src/primitiveLibs/polynom.hpp"
+#else
+    #ifdef testPolynom
+        #include "../../../src/primitiveLibs/polynom.hpp"
+    #else
+        #include "SistemasdeControle/src/primitiveLibs/polynom.hpp"
+    #endif
+#endif
+
 
 #endif // POLYNOM_H

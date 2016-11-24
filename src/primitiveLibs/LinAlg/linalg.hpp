@@ -1,6 +1,8 @@
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/identifiers.h"
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#ifdef testPolynom
+    #include "../../../headers/primitiveLibs/LinAlg/linalg.h"
+#else
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
+#endif
 
 template <typename Type>
 void LinAlg::Balance (LinAlg::Matrix<Type> &matrix_to_balance)
@@ -417,31 +419,31 @@ Type *LinAlg::MultPoly(const Type *lhs, const Type *rhs, const unsigned &lhsSize
     return ret;
 }
 
-template <typename Type>
-Type LinAlg::max(const LinAlg::Matrix<Type> &mat)
-{
-    Type maxValue = mat(1,1);
+//template <typename Type>
+//Type LinAlg::max(const LinAlg::Matrix<Type> &mat)
+//{
+//    Type maxValue = mat(1,1);
 
-    for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
-        for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
-            if(maxValue < mat(i,j))
-                maxValue = mat(i,j);
+//    for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+//            if(maxValue < mat(i,j))
+//                maxValue = mat(i,j);
 
-    return maxValue;
-}
+//    return maxValue;
+//}
 
-template <typename Type>
-Type LinAlg::min(const LinAlg::Matrix<Type> &mat)
-{
-    Type minValue = mat(1,1);
+//template <typename Type>
+//Type LinAlg::min(const LinAlg::Matrix<Type> &mat)
+//{
+//    Type minValue = mat(1,1);
 
-    for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
-        for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
-            if(minValue > mat(i,j))
-                minValue = mat(i,j);
+//    for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+//            if(minValue > mat(i,j))
+//                minValue = mat(i,j);
 
-    return minValue;
-}
+//    return minValue;
+//}
 
 template <typename Type>
 LinAlg::Matrix<Type> LinAlg::abs(const LinAlg::Matrix<Type> &mat)
@@ -508,29 +510,29 @@ LinAlg::mean(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn)
     return ret;
 }
 
-template <typename Type>
-LinAlg::Matrix<Type>
-LinAlg::sum(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn)
-{
-    unsigned row = 1, column = 2;
-    LinAlg::Matrix<Type> ret;
+//template <typename Type>
+//LinAlg::Matrix<Type>
+//LinAlg::sum(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn)
+//{
+//    unsigned row = 1, column = 2;
+//    LinAlg::Matrix<Type> ret;
 
-    if(rowColumn == column)
-    {
-        ret = Zeros<Type>(mat.getNumberOfRows(),1);
+//    if(rowColumn == column)
+//    {
+//        ret = Zeros<Type>(mat.getNumberOfRows(),1);
 
-        for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
-            for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
-                ret(i,1) += mat(i,j);
-    }
-    else if(rowColumn == row)
-    {
-        ret = Zeros<Type>(1,mat.getNumberOfColumns());
+//        for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
+//            for(unsigned j = 1; j <= mat.getNumberOfColumns(); ++j)
+//                ret(i,1) += mat(i,j);
+//    }
+//    else if(rowColumn == row)
+//    {
+//        ret = Zeros<Type>(1,mat.getNumberOfColumns());
 
-        for(unsigned i = 1; i <= mat.getNumberOfColumns(); ++i)
-            for(unsigned j = 1; j <= mat.getNumberOfRows(); ++j)
-                ret(1,i) += mat(i,j);
-    }
+//        for(unsigned i = 1; i <= mat.getNumberOfColumns(); ++i)
+//            for(unsigned j = 1; j <= mat.getNumberOfRows(); ++j)
+//                ret(1,i) += mat(i,j);
+//    }
 
-    return ret;
-}
+//    return ret;
+//}

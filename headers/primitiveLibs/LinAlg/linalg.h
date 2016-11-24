@@ -59,11 +59,11 @@ namespace LinAlg {
     template <typename Type>
     Type *MultPoly(const Type *lhs, const Type  *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
 
-    template <typename Type>
-    Type max(const LinAlg::Matrix<Type> &mat);
+//    template <typename Type>
+//    Type max(const LinAlg::Matrix<Type> &mat);
 
-    template <typename Type>
-    Type min(const LinAlg::Matrix<Type> &mat);
+//    template <typename Type>
+//    Type min(const LinAlg::Matrix<Type> &mat);
 
     template <typename Type>
     LinAlg::Matrix<Type> abs(const LinAlg::Matrix<Type> &mat);
@@ -77,13 +77,21 @@ namespace LinAlg {
     template <typename Type>
     LinAlg::Matrix<Type> mean(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn);
 
-    template <typename Type>
-    LinAlg::Matrix<Type> sum(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn);
+//    template <typename Type>
+//    LinAlg::Matrix<Type> sum(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn);
 
 
 }
 
-#include "SistemasdeControle/src/primitiveLibs/LinAlg/linalg.hpp"
+#ifdef testMatrix
+    #include "../../../../src/primitiveLibs/LinAlg/linalg.hpp"
+#else
+    #ifdef testPolynom
+        #include "../../../src/primitiveLibs/LinAlg/linalg.hpp"
+    #else
+        #include "SistemasdeControle/src/primitiveLibs/LinAlg/linalg.hpp"
+    #endif
+#endif
 
 #endif // LINALG_H
 
