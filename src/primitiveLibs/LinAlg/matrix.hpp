@@ -1,7 +1,11 @@
 #ifdef testMatrix
     #include "../../../../headers/primitiveLibs/LinAlg/matrix.h"
 #else
-    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+    #ifdef testPolynom
+        #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
+    #else
+        #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+    #endif
 #endif
 
 template<typename Type>
