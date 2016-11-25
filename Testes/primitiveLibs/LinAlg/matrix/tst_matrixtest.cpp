@@ -60,6 +60,7 @@ private Q_SLOTS:
     void operatorParenthesisInputUnsignedAndMatrixInvertedAccessDouble ();
     void operatorParenthesisInputMatrixAndUnsignedInvertedAccessDouble ();
     void operatorParenthesisInputMatrixAndMatrixInvertedAccessDouble ();
+   
     void operatorAtributionMatrixPointerDouble ();
     void operatorAtributionMatrixMoreThanTwoParametersPointerDouble ();
     void operatorAtributionDoubleReturningVoid ();
