@@ -49,8 +49,13 @@ private Q_SLOTS:
     void operatorSumAccumulatorPolynomDoubleCase2 ();
 
 
-    void operatorSubtractionAccumulatorScalarDouble ();
-    void operatorSubtractionAccumulatorPolynomDouble ();
+    void operatorSubtractionAccumulatorScalarDoubleCase1 ();
+    void operatorSubtractionAccumulatorScalarDoubleCase2 ();
+    void operatorSubtractionAccumulatorScalarDoubleCase3 ();
+    void operatorSubtractionAccumulatorScalarDoubleCase4 ();
+    void operatorSubtractionAccumulatorScalarDoubleCase5 ();
+    void operatorSubtractionAccumulatorPolynomDoubleCase1 ();
+    void operatorSubtractionAccumulatorPolynomDoubleCase2 ();
     void operatorMultiplicationAccumulatorScalarDouble ();
     void operatorMultiplicationAccumulatorPolynomDouble ();
     void operatorDivisionAccumulatorScalarDouble ();
@@ -494,8 +499,129 @@ void PolynomDoubleTest::operatorSumAccumulatorPolynomDoubleCase2 ()
     QVERIFY2(A.getVar() == 'x', "Falhou ao testar variável do Polinomio");
 }
 
-void PolynomDoubleTest::operatorSubtractionAccumulatorScalarDouble (){}
-void PolynomDoubleTest::operatorSubtractionAccumulatorPolynomDouble (){}
+
+
+
+void PolynomDoubleTest::operatorSubtractionAccumulatorScalarDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> A("1","1,1");
+    QBENCHMARK {
+        A -= 0;
+    }
+    QVERIFY2(A.getNum().getNumberOfColumns() == 1 && A.getDen().getNumberOfColumns() == 2,
+             "Falhou ao testar o tamanho dos numerador e denominador do Polinomio");
+    QVERIFY2(A.getNum()(1,1) == 1,
+             "Falhou ao testar os valores do numerador do Polinomio");
+    QVERIFY2(A.getDen()(1,1) == 1 && A.getDen()(1,2) == 1,
+             "Falhou ao testar os valores do denominador do Polinomio");
+    QVERIFY2(A.getVar() == 'x', "Falhou ao testar variável do Polinomio");
+}
+
+void PolynomDoubleTest::operatorSubtractionAccumulatorScalarDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> A("1","1,1");
+    QBENCHMARK {
+        A.setNum("1");
+        A.setDen("1,1");
+        A -= 1;
+    }
+    QVERIFY2(A.getNum().getNumberOfColumns() == 2 && A.getDen().getNumberOfColumns() == 2,
+             "Falhou ao testar o tamanho dos numerador e denominador do Polinomio");
+    QVERIFY2(A.getNum()(1,1) == -1 && A.getNum()(1,2) == 0,
+             "Falhou ao testar os valores do numerador do Polinomio");
+    QVERIFY2(A.getDen()(1,1) == 1 && A.getDen()(1,2) == 1,
+             "Falhou ao testar os valores do denominador do Polinomio");
+    QVERIFY2(A.getVar() == 'x', "Falhou ao testar variável do Polinomio");
+}
+
+void PolynomDoubleTest::operatorSubtractionAccumulatorScalarDoubleCase3 ()
+{
+    PolynomHandler::Polynom<double> A("1,1","1,1");
+    QBENCHMARK {
+        A.setNum("1,1");
+        A.setDen("1,1");
+        A -= 1;
+    }
+    QVERIFY2(A.getNum().getNumberOfColumns() == 2 && A.getDen().getNumberOfColumns() == 2,
+             "Falhou ao testar o tamanho dos numerador e denominador do Polinomio");
+    QVERIFY2(A.getNum()(1,1) == 0 && A.getNum()(1,2) == 0,
+             "Falhou ao testar os valores do numerador do Polinomio");
+//    QVERIFY2(A.getDen()(1,1) == 1 && A.getDen()(1,2) == 1,
+//             "Falhou ao testar os valores do denominador do Polinomio");
+    QVERIFY2(A.getVar() == 'x', "Falhou ao testar variável do Polinomio");
+}
+
+void PolynomDoubleTest::operatorSubtractionAccumulatorScalarDoubleCase4 ()
+{
+    PolynomHandler::Polynom<double> A("1,1","1,2,1");
+    QBENCHMARK {
+        A.setNum("1,1");
+        A.setDen("1,2,1");
+        A -= 1;
+    }
+    QVERIFY2(A.getNum().getNumberOfColumns() == 3 && A.getDen().getNumberOfColumns() == 3,
+             "Falhou ao testar o tamanho dos numerador e denominador do Polinomio");
+    QVERIFY2(A.getNum()(1,1) == -1 && A.getNum()(1,2) == -1 && A.getNum()(1,3) == 0,
+             "Falhou ao testar os valores do numerador do Polinomio");
+    QVERIFY2(A.getDen()(1,1) == 1 && A.getDen()(1,2) == 2 && A.getDen()(1,3) == 1,
+             "Falhou ao testar os valores do denominador do Polinomio");
+    QVERIFY2(A.getVar() == 'x', "Falhou ao testar variável do Polinomio");
+}
+
+void PolynomDoubleTest::operatorSubtractionAccumulatorScalarDoubleCase5 ()
+{
+    PolynomHandler::Polynom<double> A("1","1,1");
+    QBENCHMARK {
+        A.setNum("1");
+        A.setDen("1,1");
+        A -= 1;
+        A -= 1;
+    }
+    QVERIFY2(A.getNum().getNumberOfColumns() == 2 && A.getDen().getNumberOfColumns() == 2,
+             "Falhou ao testar o tamanho dos numerador e denominador do Polinomio");
+    QVERIFY2(A.getNum()(1,1) == -2 && A.getNum()(1,2) == -1,
+             "Falhou ao testar os valores do numerador do Polinomio");
+    QVERIFY2(A.getDen()(1,1) == 1 && A.getDen()(1,2) == 1,
+             "Falhou ao testar os valores do denominador do Polinomio");
+    QVERIFY2(A.getVar() == 'x', "Falhou ao testar variável do Polinomio");
+}
+
+void PolynomDoubleTest::operatorSubtractionAccumulatorPolynomDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> A("1","1,1"), B("1","1,2");
+    QBENCHMARK {
+        A.setNum("1");
+        A.setDen("1,1");
+        A -= B;
+    }
+    QVERIFY2(A.getNum().getNumberOfColumns() == 2 && A.getDen().getNumberOfColumns() == 3,
+             "Falhou ao testar o tamanho dos numerador e denominador do Polinomio");
+    QVERIFY2(A.getNum()(1,1) == 0 && A.getNum()(1,2) == 1,
+             "Falhou ao testar os valores do numerador do Polinomio");
+    QVERIFY2(A.getDen()(1,1) == 1 && A.getDen()(1,2) == 3 && A.getDen()(1,3) == 2,
+             "Falhou ao testar os valores do denominador do Polinomio");
+    QVERIFY2(A.getVar() == 'x', "Falhou ao testar variável do Polinomio");
+}
+
+void PolynomDoubleTest::operatorSubtractionAccumulatorPolynomDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> A("1","1,1"), B("1","1,2");
+    QBENCHMARK {
+        A.setNum("1");
+        A.setDen("1,1");
+        A -= B;
+        A -= B;
+    }
+    QVERIFY2(A.getNum().getNumberOfColumns() == 3 && A.getDen().getNumberOfColumns() == 4,
+             "Falhou ao testar o tamanho dos numerador e denominador do Polinomio");
+    QVERIFY2(A.getNum()(1,1) == -1 && A.getNum()(1,2) == -2 && A.getNum()(1,3) == 0,
+             "Falhou ao testar os valores do numerador do Polinomio");
+    QVERIFY2(A.getDen()(1,1) == 1 && A.getDen()(1,2) == 5 && A.getDen()(1,3) == 8 && A.getDen()(1,4) == 4,
+             "Falhou ao testar os valores do denominador do Polinomio");
+    QVERIFY2(A.getVar() == 'x', "Falhou ao testar variável do Polinomio");
+}
+
+
 void PolynomDoubleTest::operatorMultiplicationAccumulatorScalarDouble (){}
 void PolynomDoubleTest::operatorMultiplicationAccumulatorPolynomDouble (){}
 void PolynomDoubleTest::operatorDivisionAccumulatorScalarDouble (){}

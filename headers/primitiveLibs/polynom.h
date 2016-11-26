@@ -103,6 +103,9 @@ namespace PolynomHandler {
     template<typename PolynomType>
     PolynomHandler::Polynom<PolynomType> operator^ (PolynomHandler::Polynom<PolynomType> lhs, int exp) {return lhs ^= exp;}
 
+    template<typename PolynomType>
+    PolynomHandler::Polynom<PolynomType> operator- (PolynomHandler::Polynom<PolynomType> rhs);
+
     template<typename Type> // testado
     std::ostream& operator<< (std::ostream& output, PolynomHandler::Polynom<Type> rhs);
 

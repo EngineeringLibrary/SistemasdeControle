@@ -223,7 +223,6 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
    }
    else
    {
-//       std::cout << rhs << (*this);
        ret.num = SumPoly(MultPoly(rhs.den, this->num, rhs.sizeDen, this->sizeNum),MultPoly(rhs.num, this->den, rhs.sizeNum, this->sizeDen), (rhs.sizeDen + this->sizeNum - 1),(rhs.sizeNum + this->sizeDen - 1));
        ret.den = MultPoly(this->den, rhs.den, this->sizeDen, rhs.sizeDen);
 
@@ -237,48 +236,23 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator+= (const 
    }
 
    *this = ret;
-//   if(isZero())
-//   {
-//       delete(this->den);
-//       this->den = NULL;
-//       this->sizeDen = 0;
-//   }
-   *this = PolynomHandler::simplify(*this);
    return *this;
 }
 
 template <typename Type> //Testada
 PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator-= (const Type& rhs)
 {
-    *this *= -1;
-    *this += rhs;
-    *this *= -1;
-//    if(isZero())
-//    {
-//        delete(this->den);
-//        this->den = NULL;
-//        this->sizeDen = 0;
-//    }
-    *this = PolynomHandler::simplify(*this);
+    if(rhs == 0)
+        return *this;
+
+    *this += (-rhs);
     return *this;
 }
 
 template <typename Type> template<typename RightType>
 PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator-= (const PolynomHandler::Polynom<RightType>& rhs)
 {
-    *this *= -1;
-//    std::cout << (*this);
-    *this += rhs;
-//    std::cout << (*this);
-    *this *= -1;
-//    std::cout << (*this);
-//    if(isZero())
-//    {
-//        delete(this->den);
-//        this->den = NULL;
-//        this->sizeDen = 0;
-//    }
-    *this = PolynomHandler::simplify(*this);
+    *this += (-rhs);
     return *this;
 }
 
@@ -288,7 +262,6 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator*= (const 
     for (unsigned i = 0; i < this->sizeNum; ++i)
         this->num[i] = rhs*this->num[i];
 
-    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -299,7 +272,6 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator*= (const 
     this->den = MultPoly(this->den, rhs.den, this->sizeDen, rhs.sizeDen);
     this->sizeNum = this->sizeNum + rhs.sizeNum - 1;
     this->sizeDen = this->sizeDen + rhs.sizeDen - 1;
-    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -307,7 +279,6 @@ template <typename Type>
 PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator/= (const Type& rhs /*scalar*/)
 {
     *this *= (1/rhs);
-    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -319,7 +290,6 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator/= (const 
     ret.setDen(rhs.num, rhs.sizeNum);
     ret.setNum(rhs.den, rhs.sizeDen);
     *this *= ret;
-    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -355,7 +325,6 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator^= (const 
         ret.sizeDen = 1;
     }
     *this = ret;
-    *this = PolynomHandler::simplify(*this);
     return *this;
 }
 
@@ -388,6 +357,13 @@ bool PolynomHandler::Polynom<Type>::isZero()
     if(counter == this->sizeNum)
         return 0;
     return 1;
+}
+
+template<typename PolynomType>
+PolynomHandler::Polynom<PolynomType> PolynomHandler::operator- (PolynomHandler::Polynom<PolynomType> rhs)
+{
+    rhs.setNum(-rhs.getNum());
+    return rhs;
 }
 
 template <typename PolynomType>
