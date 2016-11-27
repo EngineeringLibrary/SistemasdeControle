@@ -49,10 +49,9 @@ private Q_SLOTS:
     void opetatorParenthesisInputUnsignedAndMAtriLongDoubl();
     void operatorParenthesisInputMatrixAndMatrixLongDouble();
     void operatorParenthesisInputMatrixAndMatrixLongDouble();
-    void operatorParenthesisInputFromToAndUsignedInvertAccessLongDouble();
+    void operatorParenthesisInputFromToAndUnsignedInvertAccessLongDouble();
     void operatorParenthesisInputUnsiginedAndFromToInvertedAccessLongDouble();
     void operatorParenthesisInputFromToAndFromToInvertedAccessLongDouble();
-
     void operatorParenthesisInputFromToAndUnsignedInvertAccessLongDouble();
     void operatorParenthesisInputMatrixAndFromToInvertedAccessLongDouble();
     void operatorPatenthesisInputUnsignedAndMatrixInvertedAccessLongDouble();
