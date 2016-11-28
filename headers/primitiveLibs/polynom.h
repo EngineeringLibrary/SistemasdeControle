@@ -56,7 +56,7 @@ namespace PolynomHandler {
             template<typename RightType>
             PolynomHandler::Polynom<Type>& operator/= (const PolynomHandler::Polynom<RightType>& rhs);
 
-            Polynom<Type>& operator^= (const int &scalar);
+            Polynom<Type>& operator^= (int scalar);
 
         private:
             char x;

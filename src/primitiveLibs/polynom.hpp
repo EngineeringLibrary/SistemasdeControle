@@ -294,9 +294,9 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator/= (const 
 }
 
 template <typename Type>
-PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator^= (const int &exp)
+PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator^= (int exp)
 {
-    PolynomHandler::Polynom<Type> ret;
+    PolynomHandler::Polynom<Type> ret, temp;
 
     if(exp != 0)
     {
@@ -304,15 +304,15 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator^= (const 
         {
             ret.setNum(this->den, this->sizeDen);
             ret.setDen(this->num, this->sizeNum);
+            exp = -exp;
         }
         else
         {
             ret = *this;
         }
-//        std::cout << ret*ret;
+        temp = ret;
         for (int i = 1; i < exp; ++i){
-            ret *= ret;
-            std::cout << ret;
+            ret *= temp;
         }
     }
     else
