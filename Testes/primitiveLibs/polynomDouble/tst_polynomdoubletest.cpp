@@ -141,8 +141,8 @@ private Q_SLOTS:
 //    std::string& operator<< (std::string& output, PolynomHandler::Polynom<Type> rhs);
     void VefDen ();
     void SumPoly ();
-    void MultPoly ();
-    void MultPoly ();
+    void MultPolyPointer ();
+    void MultPolyMatrix ();
     void simplify ();
     void Roots ();
     void Root2Poly ();
@@ -1877,8 +1877,8 @@ void PolynomDoubleTest::printSmallPolynomCase25()
 
 void PolynomDoubleTest::VefDen (){}
 void PolynomDoubleTest::SumPoly (){}
-void PolynomDoubleTest::MultPoly (){}
-void PolynomDoubleTest::MultPoly (){}
+void PolynomDoubleTest::MultPolyMatrix (){}
+void PolynomDoubleTest::MultPolyPointer (){}
 void PolynomDoubleTest::simplify (){}
 void PolynomDoubleTest::Roots (){}
 void PolynomDoubleTest::Root2Poly (){}

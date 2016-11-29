@@ -18,8 +18,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_PolynomDoubleTest_t {
-    QByteArrayData data[128];
-    char stringdata0[4028];
+    QByteArrayData data[129];
+    char stringdata0[4050];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -151,11 +151,12 @@ QT_MOC_LITERAL(119, 3914, 23), // "printSmallPolynomCase24"
 QT_MOC_LITERAL(120, 3938, 23), // "printSmallPolynomCase25"
 QT_MOC_LITERAL(121, 3962, 6), // "VefDen"
 QT_MOC_LITERAL(122, 3969, 7), // "SumPoly"
-QT_MOC_LITERAL(123, 3977, 8), // "MultPoly"
-QT_MOC_LITERAL(124, 3986, 8), // "simplify"
-QT_MOC_LITERAL(125, 3995, 5), // "Roots"
-QT_MOC_LITERAL(126, 4001, 9), // "Root2Poly"
-QT_MOC_LITERAL(127, 4011, 16) // "rootsContainRoot"
+QT_MOC_LITERAL(123, 3977, 15), // "MultPolyPointer"
+QT_MOC_LITERAL(124, 3993, 14), // "MultPolyMatrix"
+QT_MOC_LITERAL(125, 4008, 8), // "simplify"
+QT_MOC_LITERAL(126, 4017, 5), // "Roots"
+QT_MOC_LITERAL(127, 4023, 9), // "Root2Poly"
+QT_MOC_LITERAL(128, 4033, 16) // "rootsContainRoot"
 
     },
     "PolynomDoubleTest\0constructorPolynomEscalarDouble\0"
@@ -257,8 +258,9 @@ QT_MOC_LITERAL(127, 4011, 16) // "rootsContainRoot"
     "printSmallPolynomCase20\0printSmallPolynomCase21\0"
     "printSmallPolynomCase22\0printSmallPolynomCase23\0"
     "printSmallPolynomCase24\0printSmallPolynomCase25\0"
-    "VefDen\0SumPoly\0MultPoly\0simplify\0Roots\0"
-    "Root2Poly\0rootsContainRoot"
+    "VefDen\0SumPoly\0MultPolyPointer\0"
+    "MultPolyMatrix\0simplify\0Roots\0Root2Poly\0"
+    "rootsContainRoot"
 };
 #undef QT_MOC_LITERAL
 
@@ -398,11 +400,11 @@ static const uint qt_meta_data_PolynomDoubleTest[] = {
      121,    0,  768,    2, 0x08 /* Private */,
      122,    0,  769,    2, 0x08 /* Private */,
      123,    0,  770,    2, 0x08 /* Private */,
-     123,    0,  771,    2, 0x08 /* Private */,
-     124,    0,  772,    2, 0x08 /* Private */,
-     125,    0,  773,    2, 0x08 /* Private */,
-     126,    0,  774,    2, 0x08 /* Private */,
-     127,    0,  775,    2, 0x08 /* Private */,
+     124,    0,  771,    2, 0x08 /* Private */,
+     125,    0,  772,    2, 0x08 /* Private */,
+     126,    0,  773,    2, 0x08 /* Private */,
+     127,    0,  774,    2, 0x08 /* Private */,
+     128,    0,  775,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -663,8 +665,8 @@ void PolynomDoubleTest::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         case 118: _t->printSmallPolynomCase25(); break;
         case 119: _t->VefDen(); break;
         case 120: _t->SumPoly(); break;
-        case 121: _t->MultPoly(); break;
-        case 122: _t->MultPoly(); break;
+        case 121: _t->MultPolyPointer(); break;
+        case 122: _t->MultPolyMatrix(); break;
         case 123: _t->simplify(); break;
         case 124: _t->Roots(); break;
         case 125: _t->Root2Poly(); break;
