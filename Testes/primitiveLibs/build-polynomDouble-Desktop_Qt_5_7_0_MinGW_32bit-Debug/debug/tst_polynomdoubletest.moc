@@ -149,13 +149,13 @@ QT_MOC_LITERAL(117, 3866, 23), // "printSmallPolynomCase22"
 QT_MOC_LITERAL(118, 3890, 23), // "printSmallPolynomCase23"
 QT_MOC_LITERAL(119, 3914, 23), // "printSmallPolynomCase24"
 QT_MOC_LITERAL(120, 3938, 23), // "printSmallPolynomCase25"
-QT_MOC_LITERAL(121, 3962, 6), // "VefDen"
-QT_MOC_LITERAL(122, 3969, 7), // "SumPoly"
-QT_MOC_LITERAL(123, 3977, 15), // "MultPolyPointer"
-QT_MOC_LITERAL(124, 3993, 14), // "MultPolyMatrix"
+QT_MOC_LITERAL(121, 3962, 6), // "vefDen"
+QT_MOC_LITERAL(122, 3969, 7), // "sumPoly"
+QT_MOC_LITERAL(123, 3977, 15), // "multPolyPointer"
+QT_MOC_LITERAL(124, 3993, 14), // "multPolyMatrix"
 QT_MOC_LITERAL(125, 4008, 8), // "simplify"
-QT_MOC_LITERAL(126, 4017, 5), // "Roots"
-QT_MOC_LITERAL(127, 4023, 9), // "Root2Poly"
+QT_MOC_LITERAL(126, 4017, 5), // "roots"
+QT_MOC_LITERAL(127, 4023, 9), // "root2Poly"
 QT_MOC_LITERAL(128, 4033, 16) // "rootsContainRoot"
 
     },
@@ -258,8 +258,8 @@ QT_MOC_LITERAL(128, 4033, 16) // "rootsContainRoot"
     "printSmallPolynomCase20\0printSmallPolynomCase21\0"
     "printSmallPolynomCase22\0printSmallPolynomCase23\0"
     "printSmallPolynomCase24\0printSmallPolynomCase25\0"
-    "VefDen\0SumPoly\0MultPolyPointer\0"
-    "MultPolyMatrix\0simplify\0Roots\0Root2Poly\0"
+    "vefDen\0sumPoly\0multPolyPointer\0"
+    "multPolyMatrix\0simplify\0roots\0root2Poly\0"
     "rootsContainRoot"
 };
 #undef QT_MOC_LITERAL
@@ -663,13 +663,13 @@ void PolynomDoubleTest::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         case 116: _t->printSmallPolynomCase23(); break;
         case 117: _t->printSmallPolynomCase24(); break;
         case 118: _t->printSmallPolynomCase25(); break;
-        case 119: _t->VefDen(); break;
-        case 120: _t->SumPoly(); break;
-        case 121: _t->MultPolyPointer(); break;
-        case 122: _t->MultPolyMatrix(); break;
+        case 119: _t->vefDen(); break;
+        case 120: _t->sumPoly(); break;
+        case 121: _t->multPolyPointer(); break;
+        case 122: _t->multPolyMatrix(); break;
         case 123: _t->simplify(); break;
-        case 124: _t->Roots(); break;
-        case 125: _t->Root2Poly(); break;
+        case 124: _t->roots(); break;
+        case 125: _t->root2Poly(); break;
         case 126: _t->rootsContainRoot(); break;
         default: ;
         }

@@ -139,13 +139,13 @@ private Q_SLOTS:
     void printSmallPolynomCase25 ();
 
 //    std::string& operator<< (std::string& output, PolynomHandler::Polynom<Type> rhs);
-    void VefDen ();
-    void SumPoly ();
-    void MultPolyPointer ();
-    void MultPolyMatrix ();
+    void vefDen ();
+    void sumPoly ();
+    void multPolyPointer ();
+    void multPolyMatrix ();
     void simplify ();
-    void Roots ();
-    void Root2Poly ();
+    void roots ();
+    void root2Poly ();
     void rootsContainRoot ();
 };
 
@@ -1875,15 +1875,106 @@ void PolynomDoubleTest::printSmallPolynomCase25()
     QVERIFY2(A == "- x^3   +   1.000 ", "Falhou ao testar variável do Polinomio");
 }
 
-void PolynomDoubleTest::VefDen (){}
-void PolynomDoubleTest::SumPoly (){}
-void PolynomDoubleTest::MultPolyMatrix (){}
-void PolynomDoubleTest::MultPolyPointer (){}
-void PolynomDoubleTest::simplify (){}
-void PolynomDoubleTest::Roots (){}
-void PolynomDoubleTest::Root2Poly (){}
-void PolynomDoubleTest::rootsContainRoot (){}
+void PolynomDoubleTest::vefDen ()
+{
+    bool A;
+    double *den1 = new double[3], *den2 = new double[3];
+    den1[0] = 1;den1[1] = 2;den1[2] = 1;
+    den2[0] = 1;den2[1] = 2;den2[2] = 1;
+    unsigned sizeDen1 = 3, sizeDen2 = 3;
+    QBENCHMARK {
+        A = PolynomHandler::VefDen(den1,den2,sizeDen1,sizeDen2);
+    }
+    QVERIFY2(A == 1, "Falhou ao testar o denominador do Polinomio");
+}
+
+void PolynomDoubleTest::sumPoly ()
+{
+    double *A;
+    double *den1 = new double[3], *den2 = new double[3];
+    den1[0] = 1;den1[1] = 2;den1[2] = 1;
+    den2[0] = 1;den2[1] = 2;den2[2] = 1;
+    unsigned sizeDen1 = 3, sizeDen2 = 3;
+    QBENCHMARK {
+        A = PolynomHandler::SumPoly(den1,den2,sizeDen1,sizeDen2);
+    }
+    QVERIFY2(A[0] == 2 && A[1] == 4 && A[2] == 2, "Falhou ao testar a soma dos Polinomios");
+}
+
+void PolynomDoubleTest::multPolyMatrix ()
+{
+    LinAlg::Matrix<double> A, B("1,2,1");
+    QBENCHMARK {
+        A = PolynomHandler::MultPoly(B,B);
+    }
+    QVERIFY2(A(1,1) == 1 && A(1,2) == 4 && A(1,3) == 6 && A(1,4) == 4 && A(1,5) == 1, "Falhou ao testar a multiplicação dos Polinomios");
+}
+
+void PolynomDoubleTest::multPolyPointer ()
+{
+    double *A;
+    double *den1 = new double[3], *den2 = new double[3];
+    den1[0] = 1;den1[1] = 2;den1[2] = 1;
+    den2[0] = 1;den2[1] = 2;den2[2] = 1;
+    unsigned sizeDen1 = 3, sizeDen2 = 3;
+    QBENCHMARK {
+        A = PolynomHandler::MultPoly(den1,den2,sizeDen1,sizeDen2);
+    }
+    QVERIFY2(A[0] == 1 && A[1] == 4 && A[2] == 6 && A[3] == 4 && A[4] == 1, "Falhou ao testar o denominador do Polinomio");
+}
+
+void PolynomDoubleTest::simplify ()
+{
+    PolynomHandler::Polynom<double> A,B("1,15,85,225,274,120","1,16,100,310,499,394,120");
+    QBENCHMARK {
+        A = PolynomHandler::simplify<double>(B);
+    }
+    std::cout << A << std::endl;
+    QVERIFY2(A.getNum().getNumberOfColumns() == 1 && A.getDen().getNumberOfColumns() == 2,
+             "Falhou ao testar o tamanho do Polinomio");
+    QVERIFY2(A.getNum()(1,1) == 1 ,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(A.getDen()(1,1) == 1 && fabs(A.getDen()(1,2)-1) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+}
+
+void PolynomDoubleTest::roots()
+{
+    LinAlg::Matrix<double> A;
+    QBENCHMARK {
+        A = PolynomHandler::rootsNewtonBairstow<double>("1,-2,4,-4,4");
+    }
+    QVERIFY2(A.getNumberOfColumns() == 2 && A.getNumberOfRows() == 4,
+             "Falhou ao testar o tamanho do Polinomio");
+    QVERIFY2(A(1,1) == 1 && A(2,1) == 1 && A(3,1) == 0 && A(4,1) == 0,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(A(1,2) == 1 && A(2,2) == -1 && A(3,2) == sqrt(2) && A(4,2) == -sqrt(2),
+             "Falhou ao testar os valores do Polinomio");
+}
+
+void PolynomDoubleTest::root2Poly ()
+{
+    LinAlg::Matrix<double> B,A;
+    B = PolynomHandler::rootsNewtonBairstow<double>("1,-2,4,-4,4");
+    QBENCHMARK {
+        A = PolynomHandler::Root2Poly(B);
+    }
+    QVERIFY2(A.getNumberOfColumns() == 5 && A.getNumberOfRows() == 1,
+             "Falhou ao testar o tamanho do Polinomio");
+    QVERIFY2(A(1,1) - 1 <= 0.001 && A(1,2)- (-2) <= 0.001 && A(1,3) - 4 <= 0.001 && A(1,4) - (-4) <= 0.001 && A(1,4) - 4 <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+}
+
+void PolynomDoubleTest::rootsContainRoot ()
+{
+    LinAlg::Matrix<double> B;
+    double C = 1.0; bool A;
+    B = PolynomHandler::rootsNewtonBairstow<double>("1,-2,4,-4,4");
+    QBENCHMARK {
+        A = PolynomHandler::rootsContainRoot(C,B);
+    }
+    QVERIFY2(A, "Falhou ao testar o tamanho do Polinomio");
+}
 
 QTEST_APPLESS_MAIN(PolynomDoubleTest)
-
 #include "tst_polynomdoubletest.moc"

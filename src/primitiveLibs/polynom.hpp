@@ -533,18 +533,21 @@ PolynomHandler::Polynom<Type> PolynomHandler::simplify(const PolynomHandler::Pol
     LinAlg::Matrix<Type> num = P.getNum();
     LinAlg::Matrix<Type> den = P.getDen();
 
-    LinAlg::Matrix<Type> numRoots = Roots<Type>(num);
-//    std::cout << num << numRoots;
-    LinAlg::Matrix<Type> denRoots = Roots<Type>(den);
-//    std::cout << den << denRoots;
+    LinAlg::Matrix<Type> numRoots = rootsNewtonBairstow<long double>(num,1e-10);
+    std::cout << numRoots << std::endl;
+    LinAlg::Matrix<Type> denRoots = rootsNewtonBairstow<long double>(den,1e-10);
+    std::cout << denRoots << std::endl;
+
     unsigned counter = 0;
     for(unsigned i = 1; i <= numRoots.getNumberOfRows(); ++i){
         for(unsigned j = 1; j <= denRoots.getNumberOfRows(); ++j)
-            if(fabs(denRoots(j,1) - numRoots(i-counter,1)) < 0.05 && fabs(denRoots(j,2) - numRoots(i-counter,2)) < 0.05)
+            if(fabs(denRoots(j,1) - numRoots(i,1)) < 0.05 && fabs(denRoots(j,2) - numRoots(i,2)) < 0.05)
             {
-                numRoots.removeRow(i - counter);
+                numRoots.removeRow(i);
+//                numRoots.removeRow(i - counter);
                 denRoots.removeRow(j);
                 ++counter;
+                i = 0;
                 break;
             }
         if(i == numRoots.getNumberOfRows() && counter == 0)
@@ -623,6 +626,83 @@ LinAlg::Matrix<Type> PolynomHandler::Roots(LinAlg::Matrix<Type> smallPoly)
 //        std::cout << "roots" << LinAlg::EigenValues(root);
         return LinAlg::Zeros<Type>(zeroRoots,2)||LinAlg::EigenValues(root);
     }
+}
+
+template<typename Type>
+LinAlg::Matrix<Type> PolynomHandler::rootsNewtonBairstow(LinAlg::Matrix<Type> smallPoly, Type tolerance)
+{
+    LinAlg::Matrix<Type> ret;
+    unsigned i = 0;
+    do{
+        Type alfa = 0, beta = 0;
+        LinAlg::Matrix<Type> b(1,smallPoly.getNumberOfColumns()), c(1,smallPoly.getNumberOfColumns()-1);
+        unsigned n;
+        while (1)
+        {
+            b(1,1) = smallPoly(1,1);
+            b(1,2) = smallPoly(1,2)+alfa*b(1,1);
+
+            for (n = 3; n <= b.getNumberOfColumns(); ++n)
+               b(1,n) = smallPoly(1,n)+alfa*b(1,n-1)+ beta*b(1,n-2);
+
+            c(1,1) = b(1,1);
+            c(1,2) = b(1,2)+alfa*c(1,1);
+            for (n = 3; n <= c.getNumberOfColumns(); ++n)
+                c(1,n) = b(1,n)+alfa*c(1,n-1)+ beta*c(1,n-2);
+
+            n = b.getNumberOfColumns();
+            if(fabs(b(1,n))+fabs(b(1,n-1)) <= tolerance)
+                break;
+
+            alfa -= (1/((c(1,n-2)*(c(1,n-2)))-c(1,n-1)*c(1,n-3)))*(c(1,n-2)*b(1,n-1)-c(1,n-3)*b(1,n));
+            beta -= (1/((c(1,n-2)*(c(1,n-2)))-c(1,n-1)*c(1,n-3)))*(c(1,n-2)*b(1,n)-c(1,n-1)*b(1,n-1));
+        }
+
+        LinAlg::Matrix<Type> roots(2,2);
+        Type delta = alfa*alfa + 4*beta;
+        if(delta >= 0 )
+        {
+            roots(1,1) = (alfa + sqrt(delta))/2;
+            roots(1,2) = (alfa - sqrt(delta))/2;
+        }
+        else
+        {
+            roots(1,1) = alfa/2;
+            roots(1,2) = alfa/2;
+            roots(2,1) = sqrt(-delta)/2;
+            roots(2,2) = -sqrt(-delta)/2;
+        }
+        ret = ret|roots;
+        smallPoly = b(1,from(1)-->b.getNumberOfColumns()-2);
+        ++i;
+    }while(smallPoly.getNumberOfColumns() > 3 && i < 1000);
+
+    if(smallPoly.getNumberOfColumns() == 2)
+    {
+        LinAlg::Matrix<Type> root(2,1);
+        root(1,1) = -smallPoly(1,2)/smallPoly(1,1);
+        ret = ret|root;
+    }
+    else
+    {
+        LinAlg::Matrix<Type> roots(2,2);
+        Type delta = smallPoly(1,2)*smallPoly(1,2) - 4*smallPoly(1,1)*smallPoly(1,3);
+        if(delta >= 0 )
+        {
+            roots(1,1) = (-smallPoly(1,2) + sqrt(delta))/(2*smallPoly(1,1));
+            roots(1,2) = (-smallPoly(1,2) - sqrt(delta))/(2*smallPoly(1,1));
+        }
+        else
+        {
+            roots(1,1) = -smallPoly(1,2)/(2*smallPoly(1,1));
+            roots(1,2) = -smallPoly(1,2)/(2*smallPoly(1,1));
+            roots(2,1) = sqrt(-delta)/(2*smallPoly(1,1));
+            roots(2,2) = -sqrt(-delta)/(2*smallPoly(1,1));
+        }
+        ret = ret|roots;
+    }
+
+    return ~ret;
 }
 
 template <typename Type>
