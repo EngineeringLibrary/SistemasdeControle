@@ -138,6 +138,7 @@ namespace PolynomHandler {
     LinAlg::Matrix<Type> Roots(LinAlg::Matrix<Type> smallPoly);//sincronizado
 
     template <typename Type>
+    LinAlg::Matrix<Type> rootsNewtonBairstow(LinAlg::Matrix<Type> smallPoly, Type tolerance=1e-10);
 
     template <typename Type>
     LinAlg::Matrix<Type> Root2Poly(const LinAlg::Matrix<Type> &root);
