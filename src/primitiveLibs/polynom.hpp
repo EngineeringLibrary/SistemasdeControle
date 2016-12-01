@@ -534,9 +534,9 @@ PolynomHandler::Polynom<Type> PolynomHandler::simplify(const PolynomHandler::Pol
     LinAlg::Matrix<Type> den = P.getDen();
 
     LinAlg::Matrix<Type> numRoots = rootsNewtonBairstow<long double>(num,1e-10);
-    std::cout << numRoots << std::endl;
+//    std::cout << numRoots << std::endl;
     LinAlg::Matrix<Type> denRoots = rootsNewtonBairstow<long double>(den,1e-10);
-    std::cout << denRoots << std::endl;
+//    std::cout << denRoots << std::endl;
 
     unsigned counter = 0;
     for(unsigned i = 1; i <= numRoots.getNumberOfRows(); ++i){
@@ -633,7 +633,8 @@ LinAlg::Matrix<Type> PolynomHandler::rootsNewtonBairstow(LinAlg::Matrix<Type> sm
 {
     LinAlg::Matrix<Type> ret;
     unsigned i = 0;
-    do{
+
+    while(smallPoly.getNumberOfColumns() > 3 && i < 1000){
         Type alfa = 0, beta = 0;
         LinAlg::Matrix<Type> b(1,smallPoly.getNumberOfColumns()), c(1,smallPoly.getNumberOfColumns()-1);
         unsigned n;
@@ -675,7 +676,7 @@ LinAlg::Matrix<Type> PolynomHandler::rootsNewtonBairstow(LinAlg::Matrix<Type> sm
         ret = ret|roots;
         smallPoly = b(1,from(1)-->b.getNumberOfColumns()-2);
         ++i;
-    }while(smallPoly.getNumberOfColumns() > 3 && i < 1000);
+    }
 
     if(smallPoly.getNumberOfColumns() == 2)
     {
