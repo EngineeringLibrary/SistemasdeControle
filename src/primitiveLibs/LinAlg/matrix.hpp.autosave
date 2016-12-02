@@ -777,8 +777,7 @@ LinAlg::Matrix<bool> LinAlg::Matrix<Type>::operator> (const Type& rhs)
 
     return ret;
 }
-//-----------------------------------
-//#include "../../../headers/primitiveLibs/LinAlg/matrix.h"
+
 template <typename Type>
 void LinAlg::Matrix<Type>::operator<< (const LinAlg::Matrix<Type>& mat)
 {
