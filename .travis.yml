@@ -21,6 +21,9 @@ script:
   - qmake "CONFIG+=test" Testes/primitiveLibs/polynomDouble/polynomDouble.pro
   - make
   - ./tst_polynomdoubletest
+- qmake "CONFIG+=test" Testes/primitiveLibs/LinAlg/LinAlg/LinAlg.pro
+  - make
+  - ./tst_linalgtest
 
 after_success:
 - cpp-coveralls  
