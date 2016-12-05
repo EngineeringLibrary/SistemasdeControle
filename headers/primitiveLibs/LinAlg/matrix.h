@@ -132,77 +132,77 @@ namespace LinAlg {
     };
 
     template<typename MatrixLeftType, typename MatrixRigthType>
-    LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* operator, (LinAlg::Matrix<MatrixLeftType> &lhs, LinAlg::Matrix<MatrixRigthType> &rhs);
+    inline LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* operator, (LinAlg::Matrix<MatrixLeftType> &lhs, LinAlg::Matrix<MatrixRigthType> &rhs);
     template<typename MatrixLeftType, typename MatrixRigthType>
-    LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* operator, (LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* lhs, LinAlg::Matrix<MatrixRigthType> &rhs);
+    inline LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* operator, (LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* lhs, LinAlg::Matrix<MatrixRigthType> &rhs);
 
     template<typename MatrixType, typename ScalarType>
-    LinAlg::Matrix<MatrixType> operator+ (LinAlg::Matrix<MatrixType> lhs, const ScalarType& rhs) {return lhs += rhs;}
+    inline LinAlg::Matrix<MatrixType> operator+ (LinAlg::Matrix<MatrixType> lhs, const ScalarType& rhs) {return lhs += rhs;}
     template<typename MatrixType, typename ScalarType>
-    LinAlg::Matrix<MatrixType> operator+ (const ScalarType& lhs, LinAlg::Matrix<MatrixType> rhs) {return rhs += lhs;}
+    inline LinAlg::Matrix<MatrixType> operator+ (const ScalarType& lhs, LinAlg::Matrix<MatrixType> rhs) {return rhs += lhs;}
     template<typename LeftType, typename RightType>
-    LinAlg::Matrix<LeftType> operator+ (LinAlg::Matrix<LeftType> lhs, const LinAlg::Matrix<RightType>& rhs) {return lhs += rhs;}
+    inline LinAlg::Matrix<LeftType> operator+ (LinAlg::Matrix<LeftType> lhs, const LinAlg::Matrix<RightType>& rhs) {return lhs += rhs;}
 
     template<typename MatrixType, typename ScalarType>
-    LinAlg::Matrix<MatrixType> operator- (LinAlg::Matrix<MatrixType> lhs, const ScalarType& rhs) {return lhs -= rhs;}
+    inline LinAlg::Matrix<MatrixType> operator- (LinAlg::Matrix<MatrixType> lhs, const ScalarType& rhs) {return lhs -= rhs;}
     template<typename MatrixType, typename ScalarType>
-    LinAlg::Matrix<MatrixType> operator- (const ScalarType& lhs, LinAlg::Matrix<MatrixType> rhs) {return -rhs -= -lhs;}
+    inline LinAlg::Matrix<MatrixType> operator- (const ScalarType& lhs, LinAlg::Matrix<MatrixType> rhs) {return -rhs -= -lhs;}
     template<typename LeftType, typename RightType>
-    LinAlg::Matrix<LeftType> operator- (LinAlg::Matrix<LeftType> lhs, const LinAlg::Matrix<RightType>& rhs) {return lhs -= rhs;}
+    inline LinAlg::Matrix<LeftType> operator- (LinAlg::Matrix<LeftType> lhs, const LinAlg::Matrix<RightType>& rhs) {return lhs -= rhs;}
 
     template<typename MatrixType, typename ScalarType>
-    LinAlg::Matrix<MatrixType> operator* (LinAlg::Matrix<MatrixType> lhs, const ScalarType& rhs) {return lhs *= rhs;}
+    inline LinAlg::Matrix<MatrixType> operator* (LinAlg::Matrix<MatrixType> lhs, const ScalarType& rhs) {return lhs *= rhs;}
     template<typename MatrixType, typename ScalarType>
-    LinAlg::Matrix<MatrixType> operator* (const ScalarType& lhs, LinAlg::Matrix<MatrixType> rhs) {return rhs *= lhs;}
+    inline LinAlg::Matrix<MatrixType> operator* (const ScalarType& lhs, LinAlg::Matrix<MatrixType> rhs) {return rhs *= lhs;}
     template<typename LeftType, typename RightType>
-    LinAlg::Matrix<LeftType> operator* (LinAlg::Matrix<LeftType> lhs, const LinAlg::Matrix<RightType>& rhs) {return lhs *= rhs;}
+    inline LinAlg::Matrix<LeftType> operator* (LinAlg::Matrix<LeftType> lhs, const LinAlg::Matrix<RightType>& rhs) {return lhs *= rhs;}
 
     template<typename MatrixType, typename ScalarType>
-    LinAlg::Matrix<MatrixType> operator/ (LinAlg::Matrix<MatrixType> lhs, const ScalarType& rhs) {return lhs /= rhs;}
+    inline LinAlg::Matrix<MatrixType> operator/ (LinAlg::Matrix<MatrixType> lhs, const ScalarType& rhs) {return lhs /= rhs;}
     template<typename LeftType, typename RightType>
-    LinAlg::Matrix<LeftType> operator/ (LinAlg::Matrix<LeftType> lhs, const LinAlg::Matrix<RightType>& rhs) {return lhs /= rhs;}
+    inline LinAlg::Matrix<LeftType> operator/ (LinAlg::Matrix<LeftType> lhs, const LinAlg::Matrix<RightType>& rhs) {return lhs /= rhs;}
 
     template<typename Type>
-    LinAlg::Matrix<Type> operator- (const LinAlg::Matrix<Type>& mat);
+    inline LinAlg::Matrix<Type> operator- (const LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
-    LinAlg::Matrix<Type> operator~ (LinAlg::Matrix<Type> mat);
+    inline LinAlg::Matrix<Type> operator~ (LinAlg::Matrix<Type> mat);
 
     template<typename Type>
-    LinAlg::Matrix<Type> operator^ (LinAlg::Matrix<Type> lhs, int exp) {return lhs ^= exp;}
+    inline LinAlg::Matrix<Type> operator^ (LinAlg::Matrix<Type> lhs, int exp) {return lhs ^= exp;}
 
     template<typename Type>
-    std::ostream& operator<< (std::ostream& output, const LinAlg::Matrix<Type> mat);
+    inline std::ostream& operator<< (std::ostream& output, const LinAlg::Matrix<Type> mat);
     template<typename Type>
-    std::ostream& operator<<= (std::ostream& output, const LinAlg::Matrix<Type> mat);
+    inline std::ostream& operator<<= (std::ostream& output, const LinAlg::Matrix<Type> mat);
     template<typename Type>
-    std::istream& operator>> (std::istream& input, LinAlg::Matrix<Type>& mat);
+    inline std::istream& operator>> (std::istream& input, LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
-    std::string& operator<< (std::string& output, const LinAlg::Matrix<Type> mat);
+    inline std::string& operator<< (std::string& output, const LinAlg::Matrix<Type> mat);
 
     template<typename Type>
-    std::string& operator<<= (std::string& output, const LinAlg::Matrix<Type> mat);
+    inline std::string& operator<<= (std::string& output, const LinAlg::Matrix<Type> mat);
 
 //    template<typename Type>
 //    bool operator== (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs);
     template<typename Type>
-    bool operator!= (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs) {return !(lhs == rhs);}
+    inline bool operator!= (const LinAlg::Matrix<Type>& lhs, const LinAlg::Matrix<Type>& rhs) {return !(lhs == rhs);}
 
     template <typename Type>
-    LinAlg::Matrix<Type> divPoint(const LinAlg::Matrix<Type> &A, const LinAlg::Matrix<Type> &B);
+    inline LinAlg::Matrix<Type> divPoint(const LinAlg::Matrix<Type> &A, const LinAlg::Matrix<Type> &B);
 
     template <typename Type>
-    LinAlg::Matrix< LinAlg::Matrix<Type>* >* sort(const LinAlg::Matrix<Type> &vector);
+    inline LinAlg::Matrix< LinAlg::Matrix<Type>* >* sort(const LinAlg::Matrix<Type> &vector);
 
     template <typename Type>
-    LinAlg::Matrix< LinAlg::Matrix<Type>* >* min(const LinAlg::Matrix<Type> &vector);
+    inline LinAlg::Matrix< LinAlg::Matrix<Type>* >* min(const LinAlg::Matrix<Type> &vector);
 
     template <typename Type>
-    LinAlg::Matrix< LinAlg::Matrix<Type>* >* max(const LinAlg::Matrix<Type> &vector);
+    inline LinAlg::Matrix< LinAlg::Matrix<Type>* >* max(const LinAlg::Matrix<Type> &vector);
 
     template <typename Type>
-    LinAlg::Matrix<Type> sum(const LinAlg::Matrix<Type> &vector, const bool &rowCol = 0);
+    inline LinAlg::Matrix<Type> sum(const LinAlg::Matrix<Type> &vector, const bool &rowCol = 0);
 
 //    template <typename Type>
 //    unsigned lineOfMinValue(const LinAlg::Matrix<Type> &mat);
@@ -232,34 +232,34 @@ namespace LinAlg {
 //    void Zeros (LinAlg::Matrix<Type>& Mat);
 
     template<typename Type>
-    LinAlg::Matrix<Type> Zeros (unsigned rows, unsigned columns);
+    inline LinAlg::Matrix<Type> Zeros (unsigned rows, unsigned columns);
 
     template<typename Type>
-    LinAlg::Matrix<Type> Eye (unsigned dimension);
+    inline LinAlg::Matrix<Type> Eye (unsigned dimension);
 
     template<typename Type>
-    LinAlg::Matrix<Type> LineVector (Type from, Type to, Type step = 1);
+    inline LinAlg::Matrix<Type> LineVector (Type from, Type to, Type step = 1);
 
 //    template<typename Type>
 //    void Ones (LinAlg::Matrix<Type> & mat);
 
     template<typename Type>
-    LinAlg::Matrix<Type> Ones (unsigned rows, unsigned columns);
+    inline LinAlg::Matrix<Type> Ones (unsigned rows, unsigned columns);
 
     template<typename Type>
-    LinAlg::Matrix<Type> Random (unsigned rows, unsigned columns);
+    inline LinAlg::Matrix<Type> Random (unsigned rows, unsigned columns);
 
     template<typename Type>
-    Type Determinant (const LinAlg::Matrix<Type>& mat);
+    inline Type Determinant (const LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
-    LinAlg::Matrix<Type> Cofactor(const LinAlg::Matrix<Type>& mat);
+    inline LinAlg::Matrix<Type> Cofactor(const LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
-    LinAlg::Matrix<Type> Inverse(const LinAlg::Matrix<Type>& mat);
+    inline LinAlg::Matrix<Type> Inverse(const LinAlg::Matrix<Type>& mat);
 
     template<typename Type>
-    void Print (const LinAlg::Matrix<Type>& mat);
+    inline void Print (const LinAlg::Matrix<Type>& mat);
 }
 
     #ifdef testMatrix
