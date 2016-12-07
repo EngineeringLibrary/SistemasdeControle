@@ -81,8 +81,8 @@ template<typename Type>
 LinAlg::Matrix<Type> LinAlg::characteristicPolynom (const LinAlg::Matrix<Type>& mat)
 {
     unsigned n = mat.getNumberOfColumns();
-    Matrix<Type> z, voidM; *(z,voidM) = eigen(mat);
-    Matrix<Type> zi; *(zi,voidM) = eigen(mat);
+    Matrix<Type> z; z = eigenValues(mat);
+    Matrix<Type> zi; zi = eigenValues(mat);
     Matrix<Type> ret(1,n+1);
     std::complex<Type> *tempPoly = new std::complex<Type> [2];
     tempPoly[0] = 1;
@@ -123,7 +123,7 @@ LinAlg::Matrix<Type> LinAlg::inv_numeric(LinAlg::Matrix<Type> mat)
                 for(unsigned j = i+1; j <= mat.getNumberOfRows(); ++j)
                 {
                     Type m = mat(j,i)/mat(i,i);
-                    for(int k = 1; k <= mat.getNumberOfRows(); ++k)
+                    for(unsigned k = 1; k <= mat.getNumberOfRows(); ++k)
                     {
                         mat(j,k) = mat(j,k)-m*mat(i,k);
                         Id(j,k) = Id(j,k)-m*Id(i,k);
@@ -353,71 +353,76 @@ LinAlg::Matrix<Type> LinAlg::Hess (const LinAlg::Matrix<Type>& matrix_to_reduce)
 }
 
 template <typename Type>
-LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::eigen(const LinAlg::Matrix<Type> &matrix_to_get_eigens, unsigned iterations)//sincronizado
+LinAlg::Matrix<Type> LinAlg::eigenVectors(const LinAlg::Matrix<Type> &matrix_to_get_eigens, unsigned iterations)//sincronizado
 {
-    srand(time(NULL));
-    LinAlg::Matrix<Type> EigenValues = matrix_to_get_eigens, temp = LinAlg::Eye<Type>(EigenValues.getNumberOfRows());
-    LinAlg::Matrix<Type> EigenVector = LinAlg::Random<Type>(matrix_to_get_eigens.getNumberOfRows(), matrix_to_get_eigens.getNumberOfColumns());
-    LinAlg::balance(EigenValues);
+    LinAlg::Matrix<Type> EigenValues = matrix_to_get_eigens;
+    LinAlg::Matrix<Type> EigenVector = LinAlg::Eye<Type>(matrix_to_get_eigens.getNumberOfRows());
+    LinAlg::Matrix<Type> Q, R;
+    for(unsigned j = 0; j < iterations; ++j ){
+        *(Q,R) = LinAlg::QR(EigenValues);
+        EigenValues = R*Q;
+        EigenVector *= Q;
+    }
+    return EigenVector;
+}
 
-    EigenValues = LinAlg::Hess(EigenValues);
-    Type R,IM;
-    unsigned size = EigenValues.getNumberOfColumns();
+template <typename Type>
+LinAlg::Matrix<Type> LinAlg::eigenValues(const LinAlg::Matrix<Type> &matrix_to_get_eigens, unsigned iterations, Type tolerance)//sincronizado
+{
+    LinAlg::Matrix<Type> EigenValues = LinAlg::Hess(matrix_to_get_eigens), temp = LinAlg::Eye<Type>(EigenValues.getNumberOfRows());
+    LinAlg::Matrix<Type> Q, R;
+    Type Re,IM; unsigned size = EigenValues.getNumberOfColumns();
     Matrix<Type> Raizes(size,2);
 
-    for(unsigned i = 0; i < iterations; ++i)
+    unsigned j=0;
+
+    do{
+        for(unsigned i = size; i > 1; --i){
+            LinAlg::balance(EigenValues);
+            Type shift1 = EigenValues(i,i);
+            *(Q,R) = LinAlg::QR(EigenValues - shift1*temp);
+            EigenValues = R*Q + shift1*temp;
+    //        LinAlg::balance(EigenValues);
+    //        Type shift2 = EigenValues(size-1,size-1);
+    //        *(Q,R) = LinAlg::QR(EigenValues - shift2*temp);
+    //        EigenValues = R*Q + shift2*temp;
+        }
+        ++j;
+    }while(j < iterations && fabs(EigenValues(size,size-1)) > tolerance);
+
+    for(unsigned i = 1; i <= size; ++i)
     {
-        LinAlg::Matrix<Type> Q, R;
-        *(Q,R) = LinAlg::QR(EigenValues - EigenValues(size,size)*temp);
-        EigenVector *= Q;
-        EigenValues = R*Q + EigenValues(size,size)*temp;
-        LinAlg::balance(EigenValues);
-    }
-    for(unsigned i = 1; i <= EigenValues.getNumberOfColumns(); ++i)
-    {
-        if(i+1 <= EigenValues.getNumberOfColumns())
-            if(EigenValues(i+1,i) <= 1e-10 && EigenValues(i+1,i) >= -1e-10)
+        if(i+1 <= size){
+            if(fabs(EigenValues(i+1,i)) >= tolerance && fabs(EigenValues(i,i+1)) >= tolerance)
             {
-                Raizes(i,1) = EigenValues(i,i); Raizes(i,2) = 0;
-            }
-            else
-            {
-                R  = (EigenValues(i,i) + EigenValues(i+1,i+1))/2;
+                Re = (EigenValues(i,i) + EigenValues(i+1,i+1))/2;
                 IM = EigenValues(i+1,i)*EigenValues(i,i+1);
                 if( IM > 0)
                     IM = (sqrt(IM));
                 else
                     IM = (sqrt(-IM));
-                Raizes(i,1)   = R;
-                Raizes(i,2)   = -IM;
-                Raizes(i+1,1) = R;
-                Raizes(i+1,2) = IM;
+                Raizes(i,1)   = Re; Raizes(i,2)   = -IM;
+                Raizes(i+1,1) = Re; Raizes(i+1,2) = IM;
                 i++;
+            }else{
+                Raizes(i,1) = EigenValues(i,i); Raizes(i,2) = 0;
             }
-         else
-        {
+         }else{
             Raizes(i,1) = EigenValues(i,i); Raizes(i,2) = 0;
-        }
+         }
     }
-
-    LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
-    (*A)(1,1) = new LinAlg::Matrix<Type>(Raizes.getNumberOfRows(),Raizes.getNumberOfColumns());
-    (*A)(1,2) = new LinAlg::Matrix<Type>(EigenVector.getNumberOfRows(),EigenVector.getNumberOfColumns());
-    (*((*A)(1,1))) = Raizes;
-    (*((*A)(1,2))) = EigenVector;
-
-    return A;
+    return Raizes;
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> LinAlg::EigenValues_LU(const LinAlg::Matrix<Type> &matrix_to_get_eigenvalues, unsigned iterations )//sincronizado
+LinAlg::Matrix<Type> LinAlg::eigenValues_LU(const LinAlg::Matrix<Type> &matrix_to_get_eigenvalues, unsigned iterations )//sincronizado
 {
-    LinAlg::Matrix<Type> L,U = matrix_to_get_eigenvalues;
-    LinAlg::LU_Factorization(L,U);
+    LinAlg::Matrix<Type> L,U;
+    *(L,U) = LinAlg::LU_Factorization(matrix_to_get_eigenvalues);
 
     for(unsigned i = 0; i <= iterations; ++i)
     {
-        LinAlg::LU_Factorization(U * L,U);
+        *(L,U) = LinAlg::LU_Factorization(U * L);
     }
     return U * L;
 }
@@ -463,7 +468,7 @@ LinAlg::Matrix<Type> LinAlg::sqrtMatrix(const LinAlg::Matrix<Type> &mat)
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> LinAlg::powMatrix(const LinAlg::Matrix<Type> &mat, const Type &potence)
+LinAlg::Matrix<Type> LinAlg::powMatrix(const LinAlg::Matrix<Type> &mat, Type potence)
 {
     LinAlg::Matrix<Type> ret = mat;
     for(unsigned i = 1; i <= mat.getNumberOfRows(); ++i)
@@ -476,7 +481,7 @@ LinAlg::Matrix<Type> LinAlg::powMatrix(const LinAlg::Matrix<Type> &mat, const Ty
 template <typename Type>
 LinAlg::Matrix<Type> LinAlg::mean(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn)
 {
-    unsigned row = 1, column = 2;
+    unsigned row = 2, column = 1;
     LinAlg::Matrix<Type> ret;
 
     if(rowColumn == row)

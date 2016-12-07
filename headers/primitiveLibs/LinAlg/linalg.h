@@ -40,10 +40,13 @@ namespace LinAlg {
     inline LinAlg::Matrix<Type> Hess (const LinAlg::Matrix<Type>& matrix_to_reduce);
 
     template <typename Type>
-    inline LinAlg::Matrix< LinAlg::Matrix<Type>* >* eigen(const LinAlg::Matrix<Type>& matrix_to_get_eigens, unsigned iterations = 40);
+    inline LinAlg::Matrix<Type> eigenValues(const LinAlg::Matrix<Type>& matrix_to_get_eigens, unsigned iterations = 100, Type tolerance = 1e-5);
 
     template <typename Type>
-    inline LinAlg::Matrix<Type> EigenValues_LU(const LinAlg::Matrix<Type>& matrix_to_get_eigenvalues, unsigned iterations = 40);
+    inline LinAlg::Matrix<Type> eigenVectors(const LinAlg::Matrix<Type>& matrix_to_get_eigens, unsigned iterations = 100);
+
+    template <typename Type>
+    inline LinAlg::Matrix<Type> eigenValues_LU(const LinAlg::Matrix<Type>& matrix_to_get_eigenvalues, unsigned iterations = 40);
 
     template <typename Type>
     inline Type *MultPoly(const Type *lhs, const Type  *rhs, const unsigned &lhsSize, const unsigned &rhsSize);
@@ -55,10 +58,10 @@ namespace LinAlg {
     inline LinAlg::Matrix<Type> sqrtMatrix(const LinAlg::Matrix<Type> &mat);
 
     template <typename Type>
-    inline LinAlg::Matrix<Type> powMatrix(const LinAlg::Matrix<Type> &mat, const Type &potence);
+    inline LinAlg::Matrix<Type> powMatrix(const LinAlg::Matrix<Type> &mat, Type potence);
 
     template <typename Type>
-    inline LinAlg::Matrix<Type> mean(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn);
+    inline LinAlg::Matrix<Type> mean(const LinAlg::Matrix<Type> &mat, const unsigned &rowColumn = 1);
 }
 
 #ifdef testMatrix

@@ -624,7 +624,7 @@ LinAlg::Matrix<Type> PolynomHandler::Roots(LinAlg::Matrix<Type> smallPoly)
 
         root = poly_Monic||(LinAlg::Eye<Type> (numSize-2) | LinAlg::Zeros<Type> (numSize-2,1));
 //        std::cout << "roots" << LinAlg::EigenValues(root);
-        LinAlg::Matrix<Type> Ava, Ave; *(Ava, Ave) = LinAlg::eigen(root);
+        LinAlg::Matrix<Type> Ava, Ave; *(Ava, Ave) = LinAlg::eigenValues(root);
         return LinAlg::Zeros<Type>(zeroRoots,2)||Ava;
     }
 }

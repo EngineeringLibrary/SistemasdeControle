@@ -1,5 +1,6 @@
 #include <QString>
 #include <QtTest>
+#include <complex>
 
 #define testMatrix
 #include "../../../../headers/primitiveLibs/LinAlg/linalg.h"
@@ -23,7 +24,8 @@ private Q_SLOTS:
     void QRDouble ();
     void LU_FactorizationDouble ();
     void balanceDouble ();
-    void eigenDouble();
+    void eigenValuesDouble();
+    void eigenVectorsDouble(); //Continuar daqui;
     void eigenValues_LUDouble ();
     void inv_numericDouble ();
     void caracteristicPolynomDouble ();
@@ -31,7 +33,9 @@ private Q_SLOTS:
     void absDouble ();
     void sqrtMatrixDouble ();
     void powMatrixDouble ();
-    void meanDouble ();
+    void meanDoubleCase1 ();
+    void meanDoubleCase2 ();
+    void meanDoubleCase3 ();
 };
 
 void LinAlgTest::traceDouble (){
@@ -155,7 +159,76 @@ void LinAlgTest::QRDouble ()
 
 void LinAlgTest::LU_FactorizationDouble ()
 {
+    LinAlg::Matrix<double> L, U, B = "5,7,5;5,0,1;1,1,8";
+    QBENCHMARK {
+        *(L,U) = LinAlg::LU_Factorization(B);
+    }
+    QVERIFY2(U.getNumberOfColumns() == 3 && U.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(fabs(U(1,1) - 5.0000) <= 0.001 && fabs(U(1,2) - (7.0000))  <= 0.001 && fabs(U(1,3) - (5.0000)) <= 0.001 &&
+             fabs(U(2,1) - 0.0000) <= 0.001 && fabs(U(2,2) - (-7.0000)) <= 0.001 && fabs(U(2,3) - (-4.0000)) <= 0.001 &&
+             fabs(U(3,1) - 0.0000) <= 0.001 && fabs(U(3,2) - (0.0000))  <= 0.001 && fabs(U(3,3) - (7.2286))  <= 0.001,
+    "Falhou ao verificar o U da Fatoração LU");
 
+    QVERIFY2(L.getNumberOfColumns() == 3 && L.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(fabs(L(1,1) - 1.0000) <= 0.01 && fabs(L(1,2) - 0.000) <= 0.01 && fabs(L(1,3) - 0.000) <= 0.01 &&
+             fabs(L(2,1) - 1.0000) <= 0.01 && fabs(L(2,2) - 1.000) <= 0.01 && fabs(L(2,3) - 0.000) <= 0.01 &&
+             fabs(L(3,1) - 0.2000) <= 0.01 && fabs(L(3,2) - 0.057) <= 0.01 && fabs(L(3,3) - 1.000) <= 0.01,
+    "Falhou ao verificar o L da Fatoração LU");
+}
+
+void LinAlgTest::balanceDouble ()
+{
+    LinAlg::Matrix<double> A = "5,7,5;5,0,1;1,1,8";
+    QBENCHMARK {
+       LinAlg::balance(A);
+    }
+    QVERIFY2(A.getNumberOfColumns() == 3 && A.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(fabs(A(1,1) - 5.0000) <= 0.001 && fabs(A(1,2) - (7.0000))  <= 0.001 && fabs(A(1,3) - (2.5000)) <= 0.001 &&
+             fabs(A(2,1) - 5.0000) <= 0.001 && fabs(A(2,2) - (0.0000))  <= 0.001 && fabs(A(2,3) - (0.5000)) <= 0.001 &&
+             fabs(A(3,1) - 2.0000) <= 0.001 && fabs(A(3,2) - (2.0000))  <= 0.001 && fabs(A(3,3) - (8.000))  <= 0.001,
+    "Falhou ao verificar a função balance");
+}
+
+void LinAlgTest::eigenValuesDouble()
+{
+    LinAlg::Matrix<double> Ava, A = "5,7,5;5,0,1;1,1,8";
+    A = (~A)*A;
+    QBENCHMARK {
+        Ava = LinAlg::eigenValues(A);
+    }
+    QVERIFY2(Ava.getNumberOfColumns() == 2 && Ava.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(fabs(Ava(1,1) - 145.589) <= 0.01 && fabs(Ava(1,2)) <= 0.01 &&
+             fabs(Ava(2,1) - 13.994)  <= 0.01 && fabs(Ava(2,2)) <= 0.01 &&
+             fabs(Ava(3,1) - 31.417)  <= 0.01 && fabs(Ava(3,2)) <= 0.01,
+    "Falhou ao verificar os autovalores");
+}
+
+void LinAlgTest::eigenVectorsDouble()
+{
+    LinAlg::Matrix<double> Ave, A = "5,7,5;5,0,1;1,1,8";
+    A = (~A)*A;
+    QBENCHMARK {
+        Ave = LinAlg::eigenVectors(A);
+    }
+    QVERIFY2(Ave.getNumberOfColumns() == 3 && Ave.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(fabs(Ave(1,1) - 0.480) <= 0.001 && fabs(Ave(1,2) - (-0.618)) && fabs(Ave(1,3) - ( 0.622)) &&
+             fabs(Ave(2,1) - 0.504) <= 0.001 && fabs(Ave(2,2) - (-0.386)) && fabs(Ave(2,3) - (-0.773)) &&
+             fabs(Ave(3,1) - 0.718) <= 0.001 && fabs(Ave(3,2) - ( 0.685)) && fabs(Ave(3,3) - ( 0.126)),
+    "Falhou ao verificar os autovalores");
+}
+
+void LinAlgTest::eigenValues_LUDouble ()
+{
+    LinAlg::Matrix<double> Ava, A = "5,7,5;5,0,1;1,1,8";
+    A = (~A)*A;
+    QBENCHMARK {
+        Ava = LinAlg::eigenValues_LU(A);
+    }
+    QVERIFY2(Ava.getNumberOfColumns() == 3 && Ava.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(fabs(Ava(1,1) - 145.589) <= 0.001 &&
+             fabs(Ava(2,2) - 31.417)  <= 0.001 &&
+             fabs(Ava(3,3) - 13.994)  <= 0.001,
+    "Falhou ao verificar os autovalores");
 }
 
 void LinAlgTest::caracteristicPolynomDouble ()
@@ -169,16 +242,103 @@ void LinAlgTest::caracteristicPolynomDouble ()
              "Falhou ao verificar os coeficientes do polinomio caracteristico");
 }
 
+void LinAlgTest::inv_numericDouble ()
+{
+    LinAlg::Matrix<double> Ave, A = "5,7,5;5,0,1;1,1,8";
+    QBENCHMARK {
+        Ave = LinAlg::inv_numeric(A);
+    }
+    QVERIFY2(Ave.getNumberOfColumns() == 3 && Ave.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(fabs(Ave(1,1) - 0.0040)    <= 0.001 && fabs(Ave(1,2) - ( 0.2016)) && fabs(Ave(1,3) - (-0.0277)) &&
+             fabs(Ave(2,1) - 0.1542)    <= 0.001 && fabs(Ave(2,2) - (-0.1383)) && fabs(Ave(2,3) - (-0.0791)) &&
+             fabs(Ave(3,1) - (-0.0198)) <= 0.001 && fabs(Ave(3,2) - (-0.0079)) && fabs(Ave(3,3) - ( 0.1383)),
+    "Falhou ao verificar os elementos da inversa matricial");
+}
 
-void LinAlgTest::inv_numericDouble (){}
-void LinAlgTest::balanceDouble (){}
-void LinAlgTest::eigenDouble(){}
-void LinAlgTest::eigenValues_LUDouble (){}
-void LinAlgTest::multPolyDouble (){}
-void LinAlgTest::absDouble (){}
-void LinAlgTest::sqrtMatrixDouble (){}
-void LinAlgTest::powMatrixDouble (){}
-void LinAlgTest::meanDouble (){}
+void LinAlgTest::multPolyDouble ()
+{
+    double *A;
+    double *den1 = new double[3], *den2 = new double[3];
+    den1[0] = 1;den1[1] = 2;den1[2] = 1;
+    den2[0] = 1;den2[1] = 2;den2[2] = 1;
+    unsigned sizeDen1 = 3, sizeDen2 = 3;
+    QBENCHMARK {
+        A = LinAlg::MultPoly(den1,den2,sizeDen1,sizeDen2);
+    }
+    QVERIFY2(A[0] == 1 && A[1] == 4 && A[2] == 6 && A[3] == 4 && A[4] == 1, "Falhou ao testar o resultado da multiplicação dos Polinomios");
+}
+
+void LinAlgTest::absDouble ()
+{
+    LinAlg::Matrix<double> Ave, A = "-5,7,-5;5,0,-1;1,-1,8";
+    QBENCHMARK {
+        Ave = LinAlg::abs(A);
+    }
+    QVERIFY2(Ave.getNumberOfColumns() == 3 && Ave.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(Ave(1,1) == 5 && Ave(1,2) == 7 && Ave(1,3) == 5&&
+             Ave(2,1) == 5 && Ave(2,2) == 0 && Ave(2,3) == 1&&
+             Ave(3,1) == 1 && Ave(3,2) == 1 && Ave(3,3) == 8,
+    "Falhou ao verificar os elementos do módulo da matriz");
+}
+
+void LinAlgTest::sqrtMatrixDouble ()
+{
+    LinAlg::Matrix<double> Ave, A = "5,7,5;5,0,1;1,1,8";
+    QBENCHMARK {
+        Ave = LinAlg::sqrtMatrix(A);
+    }
+    QVERIFY2(Ave.getNumberOfColumns() == 3 && Ave.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(Ave(1,1) == sqrt(5) && Ave(1,2) == sqrt(7) && Ave(1,3) == sqrt(5) &&
+             Ave(2,1) == sqrt(5) && Ave(2,2) == sqrt(0) && Ave(2,3) == sqrt(1) &&
+             Ave(3,1) == sqrt(1) && Ave(3,2) == sqrt(1) && Ave(3,3) == sqrt(8),
+    "Falhou ao verificar os elementos do módulo da matriz");
+}
+
+void LinAlgTest::powMatrixDouble ()
+{
+    LinAlg::Matrix<double> Ave, A = "5,7,5;5,0,1;1,1,8";
+    QBENCHMARK {
+        Ave = LinAlg::powMatrix(A,2.0);
+    }
+    QVERIFY2(Ave.getNumberOfColumns() == 3 && Ave.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(Ave(1,1) == pow(5,2) && Ave(1,2) == pow(7,2) && Ave(1,3) == pow(5,2) &&
+             Ave(2,1) == pow(5,2) && Ave(2,2) == pow(0,2) && Ave(2,3) == pow(1,2) &&
+             Ave(3,1) == pow(1,2) && Ave(3,2) == pow(1,2) && Ave(3,3) == pow(8,2),
+    "Falhou ao verificar os elementos da potência da matriz");
+}
+
+void LinAlgTest::meanDoubleCase1 ()
+{
+    LinAlg::Matrix<double> Ave, A = "5,7,5;5,0,1;1,1,8";
+    QBENCHMARK {
+        Ave = LinAlg::mean(A);
+    }
+    QVERIFY2(Ave.getNumberOfColumns() == 3 && Ave.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(fabs(Ave(1,1) - 11.0/3.0) <= 0.001 && fabs(Ave(1,2) - 8.0/3.0) <= 0.001 && fabs(Ave(1,3) - 14.0/3.0) <= 0.001,
+    "Falhou ao verificar os elementos da media da matriz");
+}
+
+void LinAlgTest::meanDoubleCase2 ()
+{
+    LinAlg::Matrix<double> Ave, A = "5,7,5;5,0,1;1,1,8";
+    QBENCHMARK {
+        Ave = LinAlg::mean(A,1);
+    }
+    QVERIFY2(Ave.getNumberOfColumns() == 3 && Ave.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(fabs(Ave(1,1) - 11.0/3.0) <= 0.001 && fabs(Ave(1,2) - 8.0/3.0) <= 0.001 && fabs(Ave(1,3) - 14.0/3.0) <= 0.001,
+    "Falhou ao verificar os elementos da media da matriz");
+}
+
+void LinAlgTest::meanDoubleCase3 ()
+{
+    LinAlg::Matrix<double> Ave, A = "5,7,5;5,0,1;1,1,8";
+    QBENCHMARK {
+        Ave = LinAlg::mean(A,2);
+    }
+    QVERIFY2(Ave.getNumberOfColumns() == 1 && Ave.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
+    QVERIFY2(fabs(Ave(1,1) - 17.0/3.0) <= 0.001 && fabs(Ave(2,1) - 2) <= 0.001 && fabs(Ave(3,1) - 10.0/3.0) <= 0.001,
+    "Falhou ao verificar os elementos da media da matriz");
+}
 
 QTEST_APPLESS_MAIN(LinAlgTest)
 
