@@ -1,10 +1,17 @@
 #ifndef CONVERSIONS_H
 #define CONVERSIONS_H
 
-#include "SistemasdeControle/headers/modelLibs/model.h"
-#include "SistemasdeControle/headers/modelLibs/arx.h"
-#include "SistemasdeControle/headers/modelLibs/statespace.h"
-#include "SistemasdeControle/headers/modelLibs/transferfunction.h"
+#ifdef testModel
+    #include "../../../headers/modelLibs/model.h"
+    #include "../../../headers/modelLibs/arx.h"
+    #include "../../../headers/modelLibs/statespace.h"
+    #include "../../../headers/modelLibs/transferfunction.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/model.h"
+    #include "SistemasdeControle/headers/modelLibs/arx.h"
+    #include "SistemasdeControle/headers/modelLibs/statespace.h"
+    #include "SistemasdeControle/headers/modelLibs/transferfunction.h"
+#endif
 
 namespace ModelHandler{
 
@@ -33,6 +40,11 @@ namespace ModelHandler{
     ModelHandler::StateSpace<Type> d2c(const ModelHandler::StateSpace<Type> &discreteSS);
 }
 
-#include "SistemasdeControle/src/modelLibs/conversions.hpp"
+#ifdef testModel
+    #include "../../../src/modelLibs/conversions.hpp"
+#else
+    #include "SistemasdeControle/src/modelLibs/conversions.hpp"
+#endif
+
 #endif // CONVERSIONS_H
 

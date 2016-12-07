@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/modelLibs/statespace.h"
+#ifdef testModel
+    #include "../../../headers/modelLibs/statespace.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/statespace.h"
+#endif
 
 template <typename Type>
 ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> B,

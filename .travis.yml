@@ -25,6 +25,9 @@ script:
   - qmake "CONFIG+=test" Testes/primitiveLibs/LinAlg/LinAlg/LinAlg.pro
   - make
   - ./tst_linalgtest
+- qmake "CONFIG+=test" Testes/modelLibs/transferFunction/transferFunction.pro
+  - make
+  - ./tst_transferfunctiontest
 
 after_success:
 - cpp-coveralls  

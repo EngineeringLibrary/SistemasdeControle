@@ -132,12 +132,6 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
             commas += 1;
     }
 
-//    if(semiColons == 1 && commas == 1)
-//    {
-//        std::cout << "Invalid String";
-//    }
-//    else
-//    {
     row = semiColons;
     column = (commas + semiColons - 1)/semiColons;
 
@@ -178,7 +172,6 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
         col = 0;
         lin++;
     }
-//    }
 }
 
 template<typename Type>

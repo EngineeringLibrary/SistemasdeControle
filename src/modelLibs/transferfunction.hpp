@@ -1,12 +1,18 @@
-#include "SistemasdeControle/headers/modelLibs/transferfunction.h"
-#include "SistemasdeControle/headers/modelLibs/statespace.h"
-#include "SistemasdeControle/headers/modelLibs/conversions.h"
+#ifdef testModel
+    #include "../../../headers/modelLibs/transferfunction.h"
+    #include "../../../headers/modelLibs/statespace.h"
+    #include "../../../headers/modelLibs/conversions.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/transferfunction.h"
+    #include "SistemasdeControle/headers/modelLibs/statespace.h"
+    #include "SistemasdeControle/headers/modelLibs/conversions.h"
+#endif
 
 template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned cols)
 {
     this->var            = 's';
-    this->sampleTime     = 0.1;
+    this->step     = 0.1;
     this->Continuous     = 1;
     this->timeSimulation = 10;
 
@@ -21,7 +27,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(const LinAlg::Matrix<Type
     this->TF(1,1)        = PolynomHandler::Polynom<Type>(numPol,denPol);
     this->var            = 's';
     this->Continuous     = 1;
-    this->sampleTime     = 0.1;
+    this->step           = 0.1;
     this->timeSimulation = 10;
 }
 
@@ -32,7 +38,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Pol
 
     this->TF(1,1)        = TFSISO;
     this->var            = 's';
-    this->sampleTime     = 0.1;
+    this->step            = 0.1;
     this->Continuous   = 1;
     this->timeSimulation = 10;
 }
@@ -42,7 +48,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHa
 {
     this->TF = TF;
     this->var            = 's';
-    this->sampleTime     = 0.1;
+    this->step           = 0.1;
     this->Continuous   = 1;
     this->timeSimulation = 10;
 }
@@ -51,7 +57,7 @@ template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned cols, double sampleTime)
 {
     this->var            = 'z';
-    this->sampleTime     = sampleTime;
+    this->step           = sampleTime;
     this->Continuous     = 0;
     this->timeSimulation = 10;
 
@@ -66,7 +72,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(const LinAlg::Matrix<Type
     this->TF(1,1)        = PolynomHandler::Polynom<Type>(numPol,denPol);
     this->var            = 'z';
     this->Continuous     = 0;
-    this->sampleTime     = sampleTime;
+    this->step           = sampleTime;
     this->timeSimulation = 10;
 }
 
@@ -77,7 +83,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Pol
 
     this->TF(1,1)        = TFSISO;
     this->var            = 'z';
-    this->sampleTime     = sampleTime;
+    this->step           = sampleTime;
     this->Continuous     = 0;
     this->timeSimulation = 10;
 }
@@ -87,7 +93,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHa
 {
     this->TF = TF;
     this->var            = 'z';
-    this->sampleTime     = sampleTime;
+    this->step           = sampleTime;
     this->Continuous     = 0;
     this->timeSimulation = 10;
 }
@@ -113,7 +119,7 @@ unsigned ModelHandler::TransferFunction<Type>::getNumberOfColumns() const
 template <typename Type>
 double ModelHandler::TransferFunction<Type>::getSampleTime() const
 {
-    return this->sampleTime;
+    return this->step;
 }
 
 template <typename Type>

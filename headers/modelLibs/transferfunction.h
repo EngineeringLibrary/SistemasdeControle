@@ -1,7 +1,13 @@
 #ifndef TRANSFERFUNCTION_H
 #define TRANSFERFUNCTION_H
-#include "SistemasdeControle/headers/modelLibs/model.h"
-#include "SistemasdeControle/headers/modelLibs/statespace.h"
+
+#ifdef testModel
+    #include "../../../headers/modelLibs/model.h"
+    #include "../../../headers/modelLibs/statespace.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/model.h"
+    #include "SistemasdeControle/headers/modelLibs/statespace.h"
+#endif
 
 namespace ModelHandler {
     template <typename Type>
@@ -11,8 +17,8 @@ namespace ModelHandler {
         TransferFunction(unsigned rows, unsigned cols); // ok
         TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO); // OK
         TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF); // OK
-        TransferFunction(): var('s'), Continuous(1), sampleTime(0.1), timeSimulation(10) {} // ok
         TransferFunction(const LinAlg::Matrix<Type> &numPol, const LinAlg::Matrix<Type> &denPol); // OK
+        TransferFunction(): var('s'), Continuous(1), TF(1,1) { this->step = 0.1; this->timeSimulation = 10;} // ok
 
         TransferFunction(unsigned rows, unsigned cols, double sampleTime); // ok
         TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO, double sampleTime); // OK
@@ -21,10 +27,11 @@ namespace ModelHandler {
 //        virtual ~TransferFunction(); // ok
 
         bool isContinuous() const;
+        char getVar() const {return this->var;}
         double getSampleTime() const;
         unsigned getNumberOfRows() const; // OK
         unsigned getNumberOfColumns() const; // OK
-        unsigned getNumberOfVariables(){}
+        unsigned getNumberOfVariables() const{return TF.getNumberOfRows() + TF.getNumberOfColumns();}
         unsigned getNumberOfInputs() const { return TF.getNumberOfRows();}
         unsigned getNumberOfOutputs() const { return TF.getNumberOfColumns();}
 
@@ -85,7 +92,7 @@ namespace ModelHandler {
 
         char var;
         bool Continuous;
-        double sampleTime, timeSimulation;
+//        double sampleTime, timeSimulation;
         LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF;
         LinAlg::Matrix<Type> state;
     };
@@ -122,9 +129,12 @@ namespace ModelHandler {
     std::ostream& operator<< (std::ostream& output, ModelHandler::TransferFunction<Type> TF);
     template<typename Type> //ok
     std::string&  operator<< (std::string& output,  ModelHandler::TransferFunction<Type> TF);
-
-
 }
 
-#include "SistemasdeControle/src/modelLibs/transferfunction.hpp"
+#ifdef testModel
+    #include "../../../src/modelLibs/transferfunction.hpp"
+#else
+    #include "SistemasdeControle/src/modelLibs/transferfunction.hpp"
+#endif
+
 #endif // TRANSFERFUNCTION_H

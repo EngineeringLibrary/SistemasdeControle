@@ -1,6 +1,10 @@
 #ifndef ARX_H
 #define ARX_H
-#include "SistemasdeControle/headers/modelLibs/model.h"
+#ifdef testModel
+    #include "../../../headers/modelLibs/model.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/model.h"
+#endif
 
 namespace ModelHandler {
     template <class Type>
@@ -39,5 +43,10 @@ namespace ModelHandler {
     };
 }
 
-#include "SistemasdeControle/src/modelLibs/arx.hpp"
+#ifdef testModel
+    #include "../../../src/modelLibs/arx.hpp"
+#else
+    #include "SistemasdeControle/src/modelLibs/arx.hpp"
+#endif
+
 #endif // ARX_H

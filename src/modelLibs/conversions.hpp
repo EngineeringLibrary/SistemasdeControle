@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/modelLibs/conversions.h"
+#ifdef testModel
+    #include "../../../headers/modelLibs/conversions.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/conversions.h"
+#endif
 
 template <typename Type>
 ModelHandler::TransferFunction<Type> ModelHandler::ss2tf(const ModelHandler::StateSpace<Type> &SS)

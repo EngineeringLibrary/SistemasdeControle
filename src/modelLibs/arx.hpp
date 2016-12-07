@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/modelLibs/arx.h"
+#ifdef testModel
+    #include "../../../headers/modelLibs/arx.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/arx.h"
+#endif
 
 template <class Type>
 ModelHandler::ARX<Type>::ARX(unsigned nOutputpar,unsigned nInputpar,

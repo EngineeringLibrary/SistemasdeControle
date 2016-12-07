@@ -1,4 +1,9 @@
-#include "SistemasdeControle/headers/modelLibs/model.h"
+#ifdef testModel
+    #include "../../../headers/modelLibs/model.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/model.h"
+#endif
+
 
 //template <typename Type>
 //ModelHandler::Model<Type>::Model(ModelHandler::Model<Type>* InheritedModel)

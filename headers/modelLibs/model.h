@@ -1,9 +1,16 @@
 #ifndef MODEL_H
 #define MODEL_H
 #include <cfloat>
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
-#include "SistemasdeControle/headers/primitiveLibs/polynom.h"
+#ifdef testModel
+    #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
+    #include "../../../headers/primitiveLibs/LinAlg/linalg.h"
+    #include "../../../headers/primitiveLibs/polynom.h"
+#else
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
+    #include "SistemasdeControle/headers/primitiveLibs/polynom.h"
+#endif
+
 
 namespace ModelHandler {
     template <typename Type>
@@ -37,15 +44,15 @@ namespace ModelHandler {
         virtual LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> x, LinAlg::Matrix<Type> y) = 0;
 
         virtual std::string print()=0;
-        virtual unsigned getNumberOfVariables()=0;
+        virtual unsigned getNumberOfVariables() const = 0;
         virtual unsigned getNumberOfInputs() const = 0;
         virtual unsigned getNumberOfOutputs() const = 0;
         virtual void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output) = 0;
-        virtual void setLinearModel(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)=0;
+        virtual void setLinearModel(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output) = 0;
 
     protected:
 //        virtual bool isFunction() = 0;
-        Type                 input,    output,      lmin,lmax,            step;
+        Type                 input,    output,      lmin,lmax,            step, timeSimulation;
         LinAlg::Matrix<Type> Input,    Output,      EstOutput,       ModelCoef,
                          LinearVectorA,   LinearEqualityVectorB, LinearMatrixA,
                          LinearEqualityB, InputLinearVector, OutputLinearVector;
@@ -72,6 +79,10 @@ namespace ModelHandler {
     Type diff(const ModelHandler::Model<Type> *model, Type x);
 }
 
-#include "SistemasdeControle/src/modelLibs/model.hpp"
+#ifdef testModel
+    #include "../../../src/modelLibs/model.hpp"
+#else
+    #include "SistemasdeControle/src/modelLibs/model.hpp"
+#endif
 
 #endif // MODEL_H
