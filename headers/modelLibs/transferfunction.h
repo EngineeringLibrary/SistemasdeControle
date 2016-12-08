@@ -24,11 +24,15 @@ namespace ModelHandler {
         TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO, double sampleTime); // OK
         TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF, double sampleTime); // OK
         TransferFunction(const LinAlg::Matrix<Type> &numPol, const LinAlg::Matrix<Type> &denPol, double sampleTime); // OK
+
+        template<typename OtherType>
+        TransferFunction (const ModelHandler::TransferFunction<OtherType>& otherPolynom);
 //        virtual ~TransferFunction(); // ok
 
         bool isContinuous() const;
         char getVar() const {return this->var;}
         double getSampleTime() const;
+        double getTimeSimulation() const{return this->timeSimulation;}
         unsigned getNumberOfRows() const; // OK
         unsigned getNumberOfColumns() const; // OK
         unsigned getNumberOfVariables() const{return TF.getNumberOfRows() + TF.getNumberOfColumns();}
@@ -37,9 +41,6 @@ namespace ModelHandler {
 
         void setContinuous(const bool &continuous); //ok
         void setSampleTime(const double &sampleTime);//ok
-//        void setIsContinuous(bool isContinuous);
-//        void setTimeSimulation(double timeSimulation);
-//        void setTransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF);
         void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output); // não feito
         void setLinearModel (LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output); // não feito
 
@@ -87,12 +88,10 @@ namespace ModelHandler {
         std::string print();
 
     private:
-//        void initTfNumber();
         void c2dConversion(); // Passou a fazer parte de Conversions
 
         char var;
         bool Continuous;
-//        double sampleTime, timeSimulation;
         LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF;
         LinAlg::Matrix<Type> state;
     };

@@ -98,6 +98,20 @@ ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHa
     this->timeSimulation = 10;
 }
 
+template<typename Type> template<typename OtherType>
+ModelHandler::TransferFunction<Type>::TransferFunction (const ModelHandler::TransferFunction<OtherType>& otherPolynom)
+{
+    this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(otherPolynom.getNumberOfRows(),otherPolynom.getNumberOfColumns());
+    for(unsigned i = 1; i <= otherPolynom.getNumberOfRows(); i++)
+        for(unsigned j = 1; j <= otherPolynom.getNumberOfColumns(); j++)
+            this->TF(i,j) = otherPolynom(i,j);
+
+    this->var            = otherPolynom.getVar();
+    this->step           = otherPolynom.getSampleTime();
+    this->Continuous     = otherPolynom.isContinuous();
+    this->timeSimulation = otherPolynom.getTimeSimulation();
+}
+
 template <typename Type>
 bool ModelHandler::TransferFunction<Type>::isContinuous() const
 {
@@ -136,19 +150,21 @@ void ModelHandler::TransferFunction<Type>::setContinuous(const bool &continuous)
 template <typename Type>
 void ModelHandler::TransferFunction<Type>::setSampleTime(const double &sampleTime)
 {
-    this->sampleTime = sampleTime;
+    this->step = sampleTime;
 }
 
 template <typename Type>
 void ModelHandler::TransferFunction<Type>::setLinearModel(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
 {
-
+    Input = 0;
+    Output = 0;
 }
 
 template <typename Type>
 void ModelHandler::TransferFunction<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
 {
-
+    Input = 0;
+    Output = 0;
 }
 
 //template <typename Type>
@@ -184,7 +200,7 @@ ModelHandler::TransferFunction<Type>& ModelHandler::TransferFunction<Type>::oper
 {
     this->TF = otherTransferFunction.TF;
 
-    this->sampleTime     = otherTransferFunction.sampleTime;
+    this->step     = otherTransferFunction.step;
     this->Continuous   = otherTransferFunction.Continuous;
     this->timeSimulation = otherTransferFunction.timeSimulation;
     this->var = otherTransferFunction.var;
@@ -195,12 +211,15 @@ ModelHandler::TransferFunction<Type>& ModelHandler::TransferFunction<Type>::oper
 template <typename Type> template<typename OtherTransferFunctionType>
 ModelHandler::TransferFunction<Type>& ModelHandler::TransferFunction<Type>::operator= (const TransferFunction<OtherTransferFunctionType>& otherTransferFunction)
 {
-    this->TF = otherTransferFunction.TF;
+    this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(otherTransferFunction.getNumberOfRows(),otherTransferFunction.getNumberOfColumns());
+    for(unsigned i = 1; i <= otherTransferFunction.getNumberOfRows(); i++)
+        for(unsigned j = 1; j <= otherTransferFunction.getNumberOfColumns(); j++)
+            this->TF(i,j) = otherTransferFunction(i,j);
 
-    this->sampleTime     = otherTransferFunction.sampleTime;
-    this->isContinuous   = otherTransferFunction.isContinuous;
-    this->timeSimulation = otherTransferFunction.timeSimulation;
-    this->var = otherTransferFunction.var;
+    this->var            = otherTransferFunction.getVar();
+    this->step           = otherTransferFunction.getSampleTime();
+    this->Continuous     = otherTransferFunction.isContinuous();
+    this->timeSimulation = otherTransferFunction.getTimeSimulation();
 
     return *this;
 }
@@ -321,7 +340,7 @@ LinAlg::Matrix<Type> ModelHandler::TransferFunction<Type>::sim(LinAlg::Matrix<Ty
 {
 //    ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ss(*this);
 
-//    return SS.sim(x);
+    return x;
 }
 
 template <typename Type>

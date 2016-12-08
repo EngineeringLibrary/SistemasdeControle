@@ -27,7 +27,7 @@ namespace ModelHandler {
         LinAlg::Matrix<Type> getD() const; //ok
         LinAlg::Matrix<Type> getActualState() const; //ok
 
-        unsigned getNumberOfVariables() {}
+        unsigned getNumberOfVariables() const {}
         unsigned getNumberOfInputs() const {}
         unsigned getNumberOfOutputs() const {}
 
