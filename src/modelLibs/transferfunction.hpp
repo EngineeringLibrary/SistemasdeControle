@@ -12,7 +12,7 @@ template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned cols)
 {
     this->var            = 's';
-    this->step     = 0.1;
+    this->step           = 0.1;
     this->Continuous     = 1;
     this->timeSimulation = 10;
 
@@ -38,18 +38,18 @@ ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Pol
 
     this->TF(1,1)        = TFSISO;
     this->var            = 's';
-    this->step            = 0.1;
-    this->Continuous   = 1;
+    this->step           = 0.1;
+    this->Continuous     = 1;
     this->timeSimulation = 10;
 }
 
 template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF)
 {
-    this->TF = TF;
+    this->TF             = TF;
     this->var            = 's';
     this->step           = 0.1;
-    this->Continuous   = 1;
+    this->Continuous     = 1;
     this->timeSimulation = 10;
 }
 
@@ -91,7 +91,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Pol
 template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF, double sampleTime)
 {
-    this->TF = TF;
+    this->TF             = TF;
     this->var            = 'z';
     this->step           = sampleTime;
     this->Continuous     = 0;

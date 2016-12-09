@@ -57,6 +57,7 @@ namespace PolynomHandler {
             PolynomHandler::Polynom<Type>& operator/= (const PolynomHandler::Polynom<RightType>& rhs);
 
             Polynom<Type>& operator^= (int scalar);
+            bool operator==  (const PolynomHandler::Polynom<Type>& pol);
 
         private:
             char x;
@@ -89,12 +90,7 @@ namespace PolynomHandler {
     PolynomHandler::Polynom<LeftType> operator* (PolynomHandler::Polynom<LeftType> lhs, const PolynomHandler::Polynom<RightType>& rhs) {return lhs *= rhs;}
 
     template<typename ScalarType, typename PolynomType>
-    PolynomHandler::Polynom<PolynomType> operator/ (ScalarType lhs, PolynomHandler::Polynom<PolynomType> rhs) {
-        LinAlg::Matrix<PolynomType> num = rhs.getNum(), den = rhs.getDen();
-        rhs.setNum(den);
-        rhs.setDen(num);
-        return rhs *= lhs;
-    }
+    PolynomHandler::Polynom<PolynomType> operator/ (ScalarType lhs, PolynomHandler::Polynom<PolynomType> rhs);
     template<typename PolynomType, typename ScalarType>
     PolynomHandler::Polynom<PolynomType> operator/ (PolynomHandler::Polynom<PolynomType> lhs, const ScalarType& rhs) {return lhs /= rhs;}
     template<typename LeftType, typename RightType>
@@ -105,6 +101,9 @@ namespace PolynomHandler {
 
     template<typename PolynomType>
     PolynomHandler::Polynom<PolynomType> operator- (PolynomHandler::Polynom<PolynomType> rhs);
+
+    template<typename PolynomType>
+    LinAlg::Matrix< PolynomHandler::Polynom<PolynomType> > operator/ (LinAlg::Matrix< PolynomHandler::Polynom<PolynomType> > lhs, const PolynomHandler::Polynom<PolynomType>& rhs);
 
     template<typename Type> // testado
     std::ostream& operator<< (std::ostream& output, PolynomHandler::Polynom<Type> rhs);

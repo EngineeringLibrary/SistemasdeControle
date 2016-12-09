@@ -98,12 +98,21 @@ unsigned PolynomHandler::Polynom<Type>::getDenSize() const
 }
 
 template <typename Type> //testada
-LinAlg::Matrix<Type> PolynomHandler::Polynom<Type>::getNum() const
+LinAlg::Matrix<Type> PolynomHandler::Polynom<Type>::getNum()const
 {
     LinAlg::Matrix<Type> ret(1, this->sizeNum);
 
     for(unsigned i = 0; i < this->sizeNum; ++i)
         ret(1,i+1) = this->num[i];
+
+    for(unsigned i = 1; i < ret.getNumberOfColumns(); ++i){
+        if(ret(1,i) == 0){
+            ret.removeColumn(1);
+            i = 0;
+        }
+        else
+            break;
+    }
 
     return ret;
 }
@@ -115,6 +124,15 @@ LinAlg::Matrix<Type> PolynomHandler::Polynom<Type>::getDen() const
 
     for(unsigned i = 0; i < this->sizeDen; ++i)
         ret(1,i+1) = this->den[i];
+
+    for(unsigned i = 1; i < ret.getNumberOfColumns(); ++i){
+        if(ret(1,i) == 0){
+            ret.removeColumn(1);
+            i = 0;
+        }
+        else
+            break;
+    }
 
     return ret;
 }
@@ -294,6 +312,25 @@ PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator/= (const 
 }
 
 template <typename Type>
+bool PolynomHandler::Polynom<Type>::operator==  (const PolynomHandler::Polynom<Type>& pol)
+{
+    if(this->sizeDen == pol.sizeDen && this->sizeNum == pol.sizeNum)
+    {
+        for(unsigned i = 0; i < this->sizeDen; ++i)
+            if(this->den[i] != pol.den[i])
+                return false;
+        for(unsigned i = 0; i < this->sizeNum; ++i)
+            if(this->num[i] != pol.num[i])
+                return false;
+    }
+    else
+    {
+        return false;
+    }
+    return true;
+}
+
+template <typename Type>
 PolynomHandler::Polynom<Type>& PolynomHandler::Polynom<Type>::operator^= (int exp)
 {
     PolynomHandler::Polynom<Type> ret, temp;
@@ -402,13 +439,32 @@ std::string& PolynomHandler::operator<< (std::string& output, PolynomHandler::Po
     return output;
 }
 
+template<typename ScalarType, typename PolynomType>
+PolynomHandler::Polynom<PolynomType> PolynomHandler::operator/ (ScalarType lhs, PolynomHandler::Polynom<PolynomType> rhs) {
+    LinAlg::Matrix<PolynomType> num = rhs.getNum(), den = rhs.getDen();
+    rhs.setNum(den);
+    rhs.setDen(num);
+    return rhs *= lhs;
+}
+
+template<typename PolynomType>
+LinAlg::Matrix< PolynomHandler::Polynom<PolynomType> > PolynomHandler::operator/ (LinAlg::Matrix< PolynomHandler::Polynom<PolynomType> > lhs, const PolynomHandler::Polynom<PolynomType> &rhs)
+{
+    for(unsigned i = 1; i <= lhs.getNumberOfRows(); ++i)
+        for(unsigned j = 1; j <= lhs.getNumberOfColumns(); ++j)
+            lhs(i,j) /= rhs;
+    return lhs;
+}
+
 template<typename Type>
 std::string PolynomHandler::printSmallPolynom(LinAlg::Matrix<Type> rhs, const char &variable)
 {
     std::ostringstream ret;
     for(unsigned i = 1; i < rhs.getNumberOfColumns(); ++i){
-        if(rhs(1,i) == 0)
+        if(rhs(1,i) == 0){
             rhs.removeColumn(1);
+            i =0;
+        }
         else
             break;
     }
@@ -421,7 +477,7 @@ std::string PolynomHandler::printSmallPolynom(LinAlg::Matrix<Type> rhs, const ch
 
     for(unsigned i = 1; i <= Size; ++i)
     {
-        if(i != 1 && rhs(1,i) > 0)
+        if(i != 1 && rhs(1,i) > 0 && Size != 1)
         {
             ret << plusSignal << ' ';
         }

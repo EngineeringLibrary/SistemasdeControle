@@ -851,8 +851,8 @@ LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::sort(const LinAlg::Matrix<Type>
                   << std::endl;
     }
     LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
-    (*A)(1,1) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
-    (*A)(1,2) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*A)(1,1) = new LinAlg::Matrix<Type>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*A)(1,2) = new LinAlg::Matrix<Type>(vector.getNumberOfRows(),vector.getNumberOfColumns());
     (*((*A)(1,1))) = reorderedMatrix;
     (*((*A)(1,2))) = indices;
     return A;
@@ -893,8 +893,8 @@ LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::min(const LinAlg::Matrix<Type> 
 
 
     LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
-    (*A)(1,1) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
-    (*A)(1,2) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*A)(1,1) = new LinAlg::Matrix<Type>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*A)(1,2) = new LinAlg::Matrix<Type>(vector.getNumberOfRows(),vector.getNumberOfColumns());
     (*((*A)(1,1))) = minMatrix;
     (*((*A)(1,2))) = minIndiceMatrix;
     return A;
@@ -935,8 +935,8 @@ LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::max(const LinAlg::Matrix<Type> 
 
 
     LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
-    (*A)(1,1) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
-    (*A)(1,2) = new LinAlg::Matrix<double>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*A)(1,1) = new LinAlg::Matrix<Type>(vector.getNumberOfRows(),vector.getNumberOfColumns());
+    (*A)(1,2) = new LinAlg::Matrix<Type>(vector.getNumberOfRows(),vector.getNumberOfColumns());
     (*((*A)(1,1))) = maxMatrix;
     (*((*A)(1,2))) = maxIndiceMatrix;
     return A;
@@ -1457,8 +1457,8 @@ LinAlg::Matrix<Type> LinAlg::Inverse(const LinAlg::Matrix<Type>& mat)
     if(rows != columns)
         std::cout << "Operacao disponivel somente para matrizes quadradas.";
     else if(rows == 1 && columns == 1)
-        ret(1,1) = 1/ret(1,1);
-    else if( determinant == (0))
+        ret(1,1) = Type(1)/mat(1,1);
+    else if( determinant == Type(0.0))
         std::cout << "Impossivel inverter, determinante igual a 0.";
     else
     {

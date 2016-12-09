@@ -65,15 +65,9 @@ namespace ModelHandler {
         template<typename RightType>
         TransferFunction<Type> operator*= (const TransferFunction<RightType>& rhs){return TransferFunction<Type>(this->TF *= rhs.TF);}
 
-        TransferFunction<Type> operator/= (const Type& rhs /*scalar*/){ //Definidos apenas para o caso monovariavel
-            if(this->TF.getNumberOfColumns() == 1 && this->TF.getNumberOfRows() == 1)
-                return TransferFunction<Type>(this->TF(1,1) /= rhs);
-        }
+        TransferFunction<Type> operator/= (const Type& rhs /*scalar*/){ return TransferFunction<Type>(this->TF *= 1/rhs);}
         template<typename RightType>
-        TransferFunction<Type> operator/= (const TransferFunction<RightType>& rhs){ //Definidos apenas para o caso monovariavel
-            if(this->TF.getNumberOfColumns() == 1 && this->TF.getNumberOfRows() == 1)
-                return TransferFunction<Type>(this->TF(1,1) /= rhs.TF(1,1));
-        }
+        TransferFunction<Type> operator/= (const TransferFunction<RightType>& rhs){return TransferFunction<Type>(this->TF *= LinAlg::Inverse(rhs.TF));}
 
 
         Type sim(Type input);
