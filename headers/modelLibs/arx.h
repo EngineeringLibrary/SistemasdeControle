@@ -7,7 +7,7 @@
 #endif
 
 namespace ModelHandler {
-    template <class Type>
+    template <typename Type>
     class ARX : public Model<Type>
     {
     public:
@@ -23,7 +23,7 @@ namespace ModelHandler {
         unsigned getNumberOfOutputDelays() const;
 
         double getSampleTime() const;
-        unsigned getNumberOfVariables();
+        unsigned getNumberOfVariables() const;
 
         void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput);
         void setLinearModel (LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);

@@ -236,8 +236,8 @@ LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::sim(LinAlg::Matrix<Type> u)
 //    X = initialState;
     for(unsigned i = 0; i < u.getNumberOfColumns(); ++i)
     {
-        LinAlg::Matrix<Type> Xi1 = Ad*X+Bd*u.GetColumn(i+1);
-        y = y|(C*X + D*u.GetColumn(i+1));
+        LinAlg::Matrix<Type> Xi1 = Ad*X+Bd*u.getColumn(i+1);
+        y = y|(C*X + D*u.getColumn(i+1));
         X = Xi1;
 //        std::cout << X << std::endl;
     }
@@ -326,7 +326,10 @@ void ModelHandler::StateSpace<Type>::c2dConversion()
 //Taylor
     this->Ad = LinAlg::Zeros<Type>(this->A.getNumberOfRows(), this->A.getNumberOfColumns());
 
-    unsigned factor =  (unsigned)(LinAlg::max(LinAlg::abs(A)));
+    LinAlg::Matrix<Type> max, maxInd;
+    *(max, maxInd) = LinAlg::max(LinAlg::abs(A));
+    *(max, maxInd) = LinAlg::max(LinAlg::abs(max));
+    unsigned factor =  (unsigned)(max(1,1));
 
     //taylor
     for(unsigned i = 0; i < nDiscretization; ++i){

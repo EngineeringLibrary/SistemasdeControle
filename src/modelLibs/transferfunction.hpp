@@ -7,7 +7,8 @@
     #include "SistemasdeControle/headers/modelLibs/statespace.h"
     #include "SistemasdeControle/headers/modelLibs/conversions.h"
 #endif
-
+//#include "../../../../headers/modelLibs/transferfunction.h"
+//#include "../../../../headers/modelLibs/conversions.h"
 template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned cols)
 {
@@ -15,6 +16,12 @@ ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned c
     this->step           = 0.1;
     this->Continuous     = 1;
     this->timeSimulation = 10;
+    this->simulationFlag = false;
+    this->estOutput      = 0;
+    this->lmax           = 0;
+    this->lmin           = 0;
+    this->input          = 0;
+    this->output         = 0;
 
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(rows, cols);
 }
@@ -23,24 +30,34 @@ template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(const LinAlg::Matrix<Type> &numPol, const LinAlg::Matrix<Type> &denPol)
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
-
     this->TF(1,1)        = PolynomHandler::Polynom<Type>(numPol,denPol);
     this->var            = 's';
     this->Continuous     = 1;
     this->step           = 0.1;
     this->timeSimulation = 10;
+    this->simulationFlag = false;
+    this->estOutput      = 0;
+    this->lmax           = 0;
+    this->lmin           = 0;
+    this->input          = 0;
+    this->output         = 0;
 }
 
 template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO)
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
-
     this->TF(1,1)        = TFSISO;
     this->var            = 's';
     this->step           = 0.1;
     this->Continuous     = 1;
     this->timeSimulation = 10;
+    this->simulationFlag = false;
+    this->estOutput      = 0;
+    this->lmax           = 0;
+    this->lmin           = 0;
+    this->input          = 0;
+    this->output         = 0;
 }
 
 template <typename Type>
@@ -51,6 +68,12 @@ ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHa
     this->step           = 0.1;
     this->Continuous     = 1;
     this->timeSimulation = 10;
+    this->simulationFlag = false;
+    this->estOutput      = 0;
+    this->lmax           = 0;
+    this->lmin           = 0;
+    this->input          = 0;
+    this->output         = 0;
 }
 
 template <typename Type>
@@ -60,32 +83,47 @@ ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned c
     this->step           = sampleTime;
     this->Continuous     = 0;
     this->timeSimulation = 10;
-
+    this->simulationFlag = false;
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(rows, cols);
+    this->estOutput      = 0;
+    this->lmax           = 0;
+    this->lmin           = 0;
+    this->input          = 0;
+    this->output         = 0;
 }
 
 template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(const LinAlg::Matrix<Type> &numPol, const LinAlg::Matrix<Type> &denPol, double sampleTime)
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
-
+    this->simulationFlag = false;
     this->TF(1,1)        = PolynomHandler::Polynom<Type>(numPol,denPol);
     this->var            = 'z';
     this->Continuous     = 0;
     this->step           = sampleTime;
     this->timeSimulation = 10;
+    this->estOutput      = 0;
+    this->lmax           = 0;
+    this->lmin           = 0;
+    this->input          = 0;
+    this->output         = 0;
 }
 
 template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO, double sampleTime)
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
-
+    this->simulationFlag = false;
     this->TF(1,1)        = TFSISO;
     this->var            = 'z';
     this->step           = sampleTime;
     this->Continuous     = 0;
     this->timeSimulation = 10;
+    this->estOutput      = 0;
+    this->lmax           = 0;
+    this->lmin           = 0;
+    this->input          = 0;
+    this->output         = 0;
 }
 
 template <typename Type>
@@ -96,6 +134,12 @@ ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHa
     this->step           = sampleTime;
     this->Continuous     = 0;
     this->timeSimulation = 10;
+    this->simulationFlag = false;
+    this->estOutput      = 0;
+    this->lmax           = 0;
+    this->lmin           = 0;
+    this->input          = 0;
+    this->output         = 0;
 }
 
 template<typename Type> template<typename OtherType>
@@ -110,6 +154,12 @@ ModelHandler::TransferFunction<Type>::TransferFunction (const ModelHandler::Tran
     this->step           = otherPolynom.getSampleTime();
     this->Continuous     = otherPolynom.isContinuous();
     this->timeSimulation = otherPolynom.getTimeSimulation();
+    this->simulationFlag = false;
+    this->estOutput      = 0;
+    this->lmax           = 0;
+    this->lmin           = 0;
+    this->input          = 0;
+    this->output         = 0;
 }
 
 template <typename Type>
@@ -161,22 +211,6 @@ void ModelHandler::TransferFunction<Type>::setLinearModel(LinAlg::Matrix<Type> I
 }
 
 template <typename Type>
-void ModelHandler::TransferFunction<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
-{
-    Input = 0;
-    Output = 0;
-}
-
-//template <typename Type>
-//void ModelHandler::TransferFunction<Type>::c2d(Type sampleTime)
-//{
-//    this->sampleTime = sampleTime;
-//    this->c2dConversion();
-//    this->isContinuous = false;
-//}
-
-
-template <typename Type>
 PolynomHandler::Polynom<Type>& ModelHandler::TransferFunction<Type>::operator ()(unsigned row, unsigned column)
 {
     return this->TF(row, column);
@@ -204,6 +238,7 @@ ModelHandler::TransferFunction<Type>& ModelHandler::TransferFunction<Type>::oper
     this->Continuous   = otherTransferFunction.Continuous;
     this->timeSimulation = otherTransferFunction.timeSimulation;
     this->var = otherTransferFunction.var;
+    this->simulationFlag = false;
 
     return *this;
 }
@@ -220,6 +255,7 @@ ModelHandler::TransferFunction<Type>& ModelHandler::TransferFunction<Type>::oper
     this->step           = otherTransferFunction.getSampleTime();
     this->Continuous     = otherTransferFunction.isContinuous();
     this->timeSimulation = otherTransferFunction.getTimeSimulation();
+    this->simulationFlag = false;
 
     return *this;
 }
@@ -318,29 +354,73 @@ std::string ModelHandler::TransferFunction<Type>::ContinuosSecondOrderCaracteris
     return ret;
 }
 
+//#include "../../../../headers/modelLibs/transferfunction.h"
+template <typename Type>
+void ModelHandler::TransferFunction<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
+{
+    Input  >> this->inputState;
+    Output >> this->outputState;
+
+    LinAlg::Matrix<Type> temp;
+    for(unsigned i = 1; i <= this->outputState.getNumberOfRows(); ++i)
+        for(unsigned j = 1; j <= this->inputState.getNumberOfRows(); ++j)
+        temp = temp|-this->outputState.getRow(i)|this->inputState.getRow(j);
+
+    this->LinearVectorA = ~(temp);
+}
+
 template <typename Type>
 Type ModelHandler::TransferFunction<Type>::sim(Type x)
 {
-//    ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ss(*this);
-//    SS.setInitialState(state);
-//    x = SS.sim(x);
-//    state = SS.getActualState();
-
-    return x;
+    if(this->simulationFlag == false) // Colocar em Tf2Arx
+    {
+        ModelHandler::ARX<Type> arx = ModelHandler::tf2arxSISO(*this, this->step);
+        this->ModelCoef      = ~arx.getModelCoef();
+        this->inputState     = LinAlg::Zeros<Type>(this->getNumberOfColumns(),(arx.getNumberOfInputDelays()));
+        this->outputState    = LinAlg::Zeros<Type>(this->getNumberOfColumns(),(arx.getNumberOfOutputDelays()));
+        this->simulationFlag = true;
+    }
+    this->setLinearVector(x,this->estOutput);
+    this->estOutput = (this->ModelCoef*this->LinearVectorA)(1,1);
+    return this->estOutput;
 }
 
 template <typename Type>
 Type ModelHandler::TransferFunction<Type>::sim(Type x, Type y)
 {
-    return x + y;
+    if(this->simulationFlag == false) // Colocar em Tf2Arx
+    {
+        ModelHandler::ARX<Type> arx = ModelHandler::tf2arxSISO(*this, this->step);
+        this->ModelCoef      = ~arx.getModelCoef();
+        this->inputState     = LinAlg::Zeros<Type>(this->getNumberOfRows(),this->getNumberOfColumns()*(arx.getNumberOfInputDelays()));
+        this->outputState    = LinAlg::Zeros<Type>(this->getNumberOfRows(),this->getNumberOfColumns()*(arx.getNumberOfOutputDelays()));
+        this->simulationFlag = true;
+    }
+    this->setLinearVector(x,y);
+    y = (this->ModelCoef*this->LinearVectorA)(1,1);
+    return y;
 }
 
 template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::TransferFunction<Type>::sim(LinAlg::Matrix<Type> x)
 {
-//    ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ss(*this);
 
-    return x;
+    for(unsigned i = 1; i <= this->TF.getNumberOfRows(); ++i)
+    {
+        LinAlg::Matrix<Type> simTemp = LinAlg::Zeros<Type>(x.getNumberOfRows(),x.getNumberOfColumns()+1);
+        for(unsigned j = 1; j <= this->TF.getNumberOfColumns(); ++j)
+        {
+            ModelHandler::TransferFunction<Type> TfTemp(this->TF(i,j));
+            for(unsigned k = 1; k <= x.getNumberOfColumns(); ++k)
+                simTemp(j,k+1) = TfTemp.sim(x(j,k),simTemp(j,k));
+        }
+        this->EstOutput = this->EstOutput|| sum(simTemp);
+    }
+    {
+        this->setLinearVector(x,this->EstOutput);
+        this->EstOutput = this->EstOutput|(this->ModelCoef*this->LinearVectorA);
+    }
+    return this->EstOutput;
 }
 
 template <typename Type>
@@ -354,16 +434,6 @@ LinAlg::Matrix<Type> ModelHandler::TransferFunction<Type>::sim(Type lsim, Type l
 {
     return lsim+lmax+step;
 }
-
-//template <typename Type>// Passou a fazer parte de Conversions
-//void ModelHandler::TransferFunction<Type>::c2dConversion()
-//{
-//    ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ss(*this);
-//    SS.c2d(this->sampleTime);
-//    this->var = 'z';
-//    *this = ModelHandler::ss2tf(SS);
-//}
-
 
 template<typename Type>
 std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::TransferFunction<Type> TF)

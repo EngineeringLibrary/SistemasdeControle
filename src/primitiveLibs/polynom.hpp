@@ -456,18 +456,26 @@ LinAlg::Matrix< PolynomHandler::Polynom<PolynomType> > PolynomHandler::operator/
     return lhs;
 }
 
-template<typename Type>
-std::string PolynomHandler::printSmallPolynom(LinAlg::Matrix<Type> rhs, const char &variable)
+template <typename Type>
+LinAlg::Matrix<Type> PolynomHandler::zerosElimination(LinAlg::Matrix<Type> smallPoly)
 {
-    std::ostringstream ret;
-    for(unsigned i = 1; i < rhs.getNumberOfColumns(); ++i){
-        if(rhs(1,i) == 0){
-            rhs.removeColumn(1);
+    for(unsigned i = 1; i < smallPoly.getNumberOfColumns(); ++i){
+        if(smallPoly(1,i) == 0){
+            smallPoly.removeColumn(1);
             i =0;
         }
         else
             break;
     }
+    return smallPoly;
+}
+
+template<typename Type>
+std::string PolynomHandler::printSmallPolynom(LinAlg::Matrix<Type> rhs, const char &variable)
+{
+    std::ostringstream ret;
+    rhs = zerosElimination(rhs);
+
     const char plusSignal  = '+';
     const char minusSignal = '-';
     unsigned Size = rhs.getNumberOfColumns();

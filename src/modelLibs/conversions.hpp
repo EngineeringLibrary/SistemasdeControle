@@ -10,7 +10,7 @@ ModelHandler::TransferFunction<Type> ModelHandler::ss2tf(const ModelHandler::Sta
     ModelHandler::TransferFunction<Type> TF(SS.getC().getNumberOfRows(), SS.getB().getNumberOfColumns(),SS.getSampleTime());
     for(unsigned i = 1; i <= TF.getNumberOfRows(); ++i){
         for(unsigned j = 1; j <= TF.getNumberOfColumns(); ++j){
-            ModelHandler::StateSpace<Type> SStemp(SS.getA(),SS.getB().GetColumn(j), SS.getC().GetRow(i), SS.getD().GetRow(i),SS.getSampleTime());
+            ModelHandler::StateSpace<Type> SStemp(SS.getA(),SS.getB().getColumn(j), SS.getC().getRow(i), SS.getD().getRow(i),SS.getSampleTime());
             TF(i,j) = ModelHandler::ss2tfSISO(SStemp)(1,1);
 //            std::cout << TF << SStemp;
         }
@@ -31,8 +31,7 @@ ModelHandler::TransferFunction<Type> ModelHandler::ss2tfSISO(const ModelHandler:
     Matrix<Type> C = SS.getC();
     Matrix<Type> D = SS.getD();
 
-    std::cout << CaracteristicPolynom(A - B*C) - CaracteristicPolynom(A);
-    TransferFunction<Type> TF = Polynom<Type>(CaracteristicPolynom(A - B*C) - CaracteristicPolynom(A), CaracteristicPolynom(A));
+    TransferFunction<Type> TF = Polynom<Type>(characteristicPolynom(A - B*C) - characteristicPolynom(A), characteristicPolynom(A));
     TF.setContinuous(SS.isContinuous());
     if(!SS.isContinuous())
     {
@@ -228,6 +227,69 @@ ModelHandler::StateSpace<Type> ModelHandler::tf2ssSISO(const ModelHandler::Trans
 
     return ModelHandler::StateSpace<Type>(A,B,C,D);
 }
+
+template <typename Type>
+ModelHandler::ARX<Type> ModelHandler::tf2arxSISO(const ModelHandler::TransferFunction<Type> &TF, const Type &step)
+{
+    ModelHandler::TransferFunction<Type> TFd;
+    if(TF.isContinuous())
+        TFd = ModelHandler::c2d(TF, step);
+    else
+        TFd = TF;
+
+    unsigned inputSize  = TFd(1,1).getNum().getNumberOfColumns();
+    unsigned outputSize = TFd(1,1).getDen().getNumberOfColumns();
+
+    ModelHandler::ARX<Type> arx(outputSize-1,inputSize,0,1,1,step);
+    LinAlg::Matrix<Type> ModelCoef = (TFd(1,1).getDen()(1,from(2)-->outputSize))|TFd(1,1).getNum();
+    arx.setModelCoef(~ModelCoef);
+
+    return arx;
+}
+
+//template <typename Type>
+//ModelHandler::ARX<Type> ModelHandler::tf2arx(const ModelHandler::TransferFunction<Type> &TF, const Type &step)
+//{
+//    unsigned maxInputDelay  = 0;
+//    unsigned maxOutputDelay = 0;
+//    for(unsigned i = 1; i <= TF.getNumberOfRows(); ++i)
+//    {
+//        for(unsigned j = 1; j <= TF.getNumberOfColumns(); ++j)
+//        {
+//            ModelHandler::TransferFunction<Type> TFd;
+//            if(TF.isContinuous())
+//                TFd = ModelHandler::c2d(ModelHandler::TransferFunction<Type>(TF(i,j)), step);
+//            else
+//                TFd = TF(i,j);
+
+//            if(TFd(1,1).getNum().getNumberOfColumns() > maxInputDelay)
+//                maxInputDelay = TFd(1,1).getNum().getNumberOfColumns();
+//            if(TFd(1,1).getDen().getNumberOfColumns() > maxOutputDelay)
+//                maxOutputDelay = TFd(1,1).getDen().getNumberOfColumns()-1;
+//        }
+//    }
+//    LinAlg::Matrix<Type> ModelCoef = LinAlg::Zeros<Type>(TF.getNumberOfRows(), TF.getNumberOfColumns()*(maxInputDelay+maxOutputDelay));
+
+//    for(unsigned i = 1; i <= TF.getNumberOfRows(); ++i)
+//    {
+//        for(unsigned j = 1; j <= TF.getNumberOfColumns(); ++j)
+//        {
+//            ModelHandler::ARX<Type> arx = ModelHandler::tf2arxSISO(ModelHandler::TransferFunction<Type>(TF(i,j)), step);
+//            LinAlg::Matrix<Type> tempModelCoef      = ~arx.getModelCoef();
+//            for(unsigned k = 1; k <= maxOutputDelay; ++k)
+//            {
+//                ModelCoef(i,(j-1)*(maxOutputDelay+maxInputDelay)+k) = tempModelCoef(1,k);
+//            }
+//            for(unsigned k = 0; k <= maxInputDelay; ++k)
+//            {
+//                ModelCoef(i,(j-1)*(maxOutputDelay+maxInputDelay)+maxOutputDelay+k) = tempModelCoef(1,k+maxOutputDelay);
+//            }
+//        }
+//    }
+//    ModelHandler::ARX<Type> ret(maxOutputDelay,maxOutputDelay,0,TF.getNumberOfColumns(),TF.getNumberOfRows());
+//    ret.setModelCoef(~ModelCoef);
+//    return ret;
+//}
 
 template <typename Type>
 ModelHandler::StateSpace<Type> ModelHandler::c2d(const ModelHandler::StateSpace<Type> &SS, Type SampleTime)

@@ -65,7 +65,7 @@ namespace LinAlg {
 
 
             void operator= (const char* rhs);
-            LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<Type>& otherMatrix) const;
+            LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<Type>& rhs) const;
             template<typename OtherMatrixType>
             LinAlg::Matrix<Type>& operator= (const LinAlg::Matrix<OtherMatrixType>& otherMatrix);
             template<typename MatrixLeftType>

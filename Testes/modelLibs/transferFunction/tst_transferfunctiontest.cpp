@@ -5,6 +5,8 @@
 #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
 #include "../../../headers/primitiveLibs/polynom.h"
 #include "../../../headers/modelLibs/transferfunction.h"
+#include "../../../headers/modelLibs/arx.h"
+#include "../../../headers/modelLibs/conversions.h"
 
 class TransferFunctionTest : public QObject
 {
@@ -61,14 +63,47 @@ private Q_SLOTS:
     void operatorDivisionAccumulatorScalarDoubleCase2 ();
     void operatorDivisionAccumulatorTFDoubleCase1 ();
     void operatorDivisionAccumulatorTFDoubleCase2 ();
-//    Type sim(Type input);
-//    Type sim(Type x, Type y);
-//    LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> x);
-//    LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> x, LinAlg::Matrix<Type> y);
-//    LinAlg::Matrix<Type> sim(Type lsim, Type lmax, Type step);
-//    std::string ContinuosFirstOrderCaracteristics();
-//    std::string ContinuosSecondOrderCaracteristics();
-//    std::string print();
+
+
+
+    void simInputDouble ();
+    void simInputOutputDouble ();
+    void simMatrixInputDoubleCase1 ();
+    void simMatrixInputDoubleCase2 ();
+    void simMatrixOutputDouble ();
+    void simRange ();
+    void ContinuosFirstOrderCaracteristics();
+    void ContinuosSecondOrderCaracteristics();
+
+
+
+
+//    void operatorMinus ();
+    void operatorSumScalarDoubleCase1 ();
+    void operatorSumScalarDoubleCase2 ();
+    void operatorSumScalarLeftDoubleCase1 ();
+    void operatorSumScalarLeftDoubleCase2 ();
+    void operatorSumTFDoubleCase1 ();
+    void operatorSumTFDoubleCase2 ();
+    void operatorSubtractionScalarDoubleCase1 ();
+    void operatorSubtractionScalarDoubleCase2 ();
+    void operatorSubtractionScalarLeftDoubleCase1 ();
+    void operatorSubtractionScalarLeftDoubleCase2 ();
+    void operatorSubtractionTFDoubleCase1 ();
+    void operatorSubtractionTFDoubleCase2 ();
+    void operatorMultiplicationScalarDoubleCase1 ();
+    void operatorMultiplicationScalarDoubleCase2 ();
+    void operatorMultiplicationScalarLeftDoubleCase1 ();
+    void operatorMultiplicationScalarLeftDoubleCase2 ();
+    void operatorMultiplicationTFDoubleCase1 ();
+    void operatorMultiplicationTFDoubleCase2 ();
+    void operatorDivisionScalarDoubleCase1 ();
+    void operatorDivisionScalarDoubleCase2 ();
+    void operatorDivisionScalarLeftDoubleCase1 ();
+    void operatorDivisionScalarLeftDoubleCase2 ();
+    void operatorDivisionTFDoubleCase1 ();
+    void operatorDivisionTFDoubleCase2 ();
+
 //    TransferFunction<PolynomType> operator+ (TransferFunction<PolynomType> lhs, const ScalarType& rhs) {return lhs += rhs;}
 //    TransferFunction<PolynomType> operator+ (const ScalarType& lhs, TransferFunction<PolynomType> rhs) {return rhs += lhs;}
 //    TransferFunction<LeftType> operator+ (TransferFunction<LeftType> lhs, const TransferFunction<RightType>& rhs) {return lhs += rhs;}
@@ -805,6 +840,571 @@ void TransferFunctionTest::operatorDivisionAccumulatorTFDoubleCase2 ()
     QBENCHMARK {
         A = B;
         A /= C;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == -2 && A(1,1).getNum()(1,2) == -22 && A(1,1).getNum()(1,3) == -90 && A(1,1).getNum()(1,4) == -170 && A(1,1).getNum()(1,5) == -148 && A(1,1).getNum()(1,6) == -48,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 4  && A(1,1).getDen()(1,2) == 36  && A(1,1).getDen()(1,3) == 108 && A(1,1).getDen()(1,4) == 124  && A(1,1).getDen()(1,5) == 48, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == 2 && A(1,2).getNum()(1,2) == 22 && A(1,2).getNum()(1,3) == 90 && A(1,2).getNum()(1,4) == 170 && A(1,2).getNum()(1,5) == 148 && A(1,2).getNum()(1,6) == 48,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 4  && A(1,2).getDen()(1,2) == 20  && A(1,2).getDen()(1,3) == 36 && A(1,2).getDen()(1,4) == 28  && A(1,2).getDen()(1,5) == 8, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == -2 && A(2,1).getNum()(1,2) == -22 && A(2,1).getNum()(1,3) == -90 && A(2,1).getNum()(1,4) == -170 && A(2,1).getNum()(1,5) == -148 && A(2,1).getNum()(1,6) == -48,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 4  && A(2,1).getDen()(1,2) == 36  && A(2,1).getDen()(1,3) == 108 && A(2,1).getDen()(1,4) == 124  && A(2,1).getDen()(1,5) == 48, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == 2 && A(2,2).getNum()(1,2) == 22 && A(2,2).getNum()(1,3) == 90 && A(2,2).getNum()(1,4) == 170 && A(2,2).getNum()(1,5) == 148 && A(2,2).getNum()(1,6) == 48,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 4  && A(2,2).getDen()(1,2) == 20  && A(2,2).getDen()(1,3) == 36 && A(2,2).getDen()(1,4) == 28  && A(2,2).getDen()(1,5) == 8, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::simInputDouble ()
+{
+    LinAlg::Matrix<double> A;
+    QBENCHMARK {
+        ModelHandler::TransferFunction<double> B("1","1,2,1");
+        A = "0";
+        for(unsigned i = 0; i <= 10; ++i)
+            A = A|B.sim(1);
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 12, "Falhou ao testar o tamanho do vetor de simulacao.");
+    QVERIFY2(fabs(A(1,1)-0) <= 0.001 && fabs(A(1,2)-0.0047) <= 0.001 && fabs(A(1,3)-0.0175) <= 0.001 && fabs(A(1,4)-0.0369) <= 0.001 && fabs(A(1,5)-0.0616) <= 0.001 && fabs(A(1,6)-0.0902) <= 0.001 && fabs(A(1,7)-0.1219) <= 0.001 && fabs(A(1,8)-0.1558) <= 0.001 && fabs(A(1,9)-0.1912) <= 0.001 && fabs(A(1,10)-0.2275) <= 0.001 && fabs(A(1,11)-0.2642) <= 0.001 && fabs(A(1,12)-0.3010) <= 0.001,  "Falhou ao verificar os valores da simulacao.");
+    QVERIFY2(sizeof(A) == sizeof(LinAlg::Matrix<double>), "Falhou ao comparar o tipo da resposta da simulacao");
+}
+
+void TransferFunctionTest::simInputOutputDouble ()
+{
+    LinAlg::Matrix<double> A;
+    QBENCHMARK {
+        ModelHandler::TransferFunction<double> B("1","1,2,1");
+        double simulatedValue = 0;
+        A = "0";
+        for(unsigned i = 0; i <= 10; ++i)
+        {
+            simulatedValue = B.sim(1, simulatedValue);
+            A = A|simulatedValue;
+        }
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 12, "Falhou ao testar o tamanho do vetor de simulacao.");
+    QVERIFY2(fabs(A(1,1)-0) <= 0.001 && fabs(A(1,2)-0.0047) <= 0.001 && fabs(A(1,3)-0.0175) <= 0.001 && fabs(A(1,4)-0.0369) <= 0.001 && fabs(A(1,5)-0.0616) <= 0.001 && fabs(A(1,6)-0.0902) <= 0.001 && fabs(A(1,7)-0.1219) <= 0.001 && fabs(A(1,8)-0.1558) <= 0.001 && fabs(A(1,9)-0.1912) <= 0.001 && fabs(A(1,10)-0.2275) <= 0.001 && fabs(A(1,11)-0.2642) <= 0.001 && fabs(A(1,12)-0.3010) <= 0.001,  "Falhou ao verificar os valores da simulacao.");
+    QVERIFY2(sizeof(A) == sizeof(LinAlg::Matrix<double>), "Falhou ao comparar o tipo da resposta da simulacao");
+}
+
+void TransferFunctionTest::simMatrixInputDoubleCase1 ()
+{
+    LinAlg::Matrix<double> A;
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    QBENCHMARK {
+        ModelHandler::TransferFunction<double> B(1,2);
+        B(1,1) = C; B(1,2) = C;
+        A = B.sim("1,1,1,1,1,1,1,1,1,1,1;1,1,1,1,1,1,1,1,1,1,1");
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 12, "Falhou ao testar o tamanho do vetor de simulacao.");
+    QVERIFY2(fabs(A(1,1)-0) <= 0.001 && fabs(A(1,2)-2.0*0.0047) <= 0.001 && fabs(A(1,3)-2.0*0.0175) <= 0.001 && fabs(A(1,4)-2.0*0.0369) <= 0.001 && fabs(A(1,5)-2.0*0.0616) <= 0.001 && fabs(A(1,6)-2.0*0.0902) <= 0.001 && fabs(A(1,7)-2.0*0.1219) <= 0.001 && fabs(A(1,8)-2.0*0.1558) <= 0.001 && fabs(A(1,9)-2.0*0.1912) <= 0.001 && fabs(A(1,10)-2.0*0.2275) <= 0.001 && fabs(A(1,11)-2.0*0.2642) <= 0.001 && fabs(A(1,12)-2.0*0.3010) <= 0.001,  "Falhou ao verificar os valores da simulacao.");
+    QVERIFY2(sizeof(A) == sizeof(LinAlg::Matrix<double>), "Falhou ao comparar o tipo da resposta da simulacao");
+}
+
+void TransferFunctionTest::simMatrixInputDoubleCase2 ()
+{
+    LinAlg::Matrix<double> A;
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    QBENCHMARK {
+        ModelHandler::TransferFunction<double> B(2,2);
+        B(1,1) = C; B(1,2) = C; B(2,1) = C; B(2,2) = C;
+        A = B.sim("1,1,1,1,1,1,1,1,1,1,1;1,1,1,1,1,1,1,1,1,1,1");
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 12, "Falhou ao testar o tamanho do vetor de simulacao.");
+    QVERIFY2(fabs(A(1,1)-0) <= 0.001 && fabs(A(1,2)-2.0*0.0047) <= 0.001 && fabs(A(1,3)-2.0*0.0175) <= 0.001 && fabs(A(1,4)-2.0*0.0369) <= 0.001 && fabs(A(1,5)-2.0*0.0616) <= 0.001 && fabs(A(1,6)-2.0*0.0902) <= 0.001 && fabs(A(1,7)-2.0*0.1219) <= 0.001 && fabs(A(1,8)-2.0*0.1558) <= 0.001 && fabs(A(1,9)-2.0*0.1912) <= 0.001 && fabs(A(1,10)-2.0*0.2275) <= 0.001 && fabs(A(1,11)-2.0*0.2642) <= 0.001 && fabs(A(1,12)-2.0*0.3010) <= 0.001,  "Falhou ao verificar os valores da simulacao.");
+    QVERIFY2(fabs(A(2,1)-0) <= 0.001 && fabs(A(2,2)-2.0*0.0047) <= 0.001 && fabs(A(2,3)-2.0*0.0175) <= 0.001 && fabs(A(2,4)-2.0*0.0369) <= 0.001 && fabs(A(2,5)-2.0*0.0616) <= 0.001 && fabs(A(2,6)-2.0*0.0902) <= 0.001 && fabs(A(2,7)-2.0*0.1219) <= 0.001 && fabs(A(2,8)-2.0*0.1558) <= 0.001 && fabs(A(2,9)-2.0*0.1912) <= 0.001 && fabs(A(2,10)-2.0*0.2275) <= 0.001 && fabs(A(2,11)-2.0*0.2642) <= 0.001 && fabs(A(2,12)-2.0*0.3010) <= 0.001,  "Falhou ao verificar os valores da simulacao.");
+    QVERIFY2(sizeof(A) == sizeof(LinAlg::Matrix<double>), "Falhou ao comparar o tipo da resposta da simulacao");
+}
+
+void TransferFunctionTest::simMatrixOutputDouble ()
+{
+    std::cout << "Função não implementada" << std::endl;
+}
+
+void TransferFunctionTest::simRange ()
+{
+    std::cout << "Função não implementada" << std::endl;
+}
+
+void TransferFunctionTest::ContinuosFirstOrderCaracteristics()
+{
+
+}
+
+void TransferFunctionTest::ContinuosSecondOrderCaracteristics()
+{
+
+}
+
+void TransferFunctionTest::operatorSumScalarDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A = C, B = C;
+    QBENCHMARK {
+        A = B;
+        A = A+2;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2 && A(1,1).getNum()(1,2) == 4 && A(1,1).getNum()(1,3) == 3,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorSumScalarDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> B(2,2);
+    B(1,1) = C; B(1,2) = C; B(2,1) = C; B(2,2) = C;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A = A+2;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2 && A(1,1).getNum()(1,2) == 4 && A(1,1).getNum()(1,3) == 3,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == 2 && A(1,2).getNum()(1,2) == 4 && A(1,2).getNum()(1,3) == 3,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 2 && A(1,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == 2 && A(2,1).getNum()(1,2) == 4 && A(2,1).getNum()(1,3) == 3,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 2 && A(2,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == 2 && A(2,2).getNum()(1,2) == 4 && A(2,2).getNum()(1,3) == 3,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 2 && A(2,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorSumScalarLeftDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A = C, B = C;
+    QBENCHMARK {
+        A = B;
+        A = 2+A;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2 && A(1,1).getNum()(1,2) == 4 && A(1,1).getNum()(1,3) == 3,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorSumScalarLeftDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> B(2,2);
+    B(1,1) = C; B(1,2) = C; B(2,1) = C; B(2,2) = C;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A = 2+A;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2 && A(1,1).getNum()(1,2) == 4 && A(1,1).getNum()(1,3) == 3,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == 2 && A(1,2).getNum()(1,2) == 4 && A(1,2).getNum()(1,3) == 3,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 2 && A(1,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == 2 && A(2,1).getNum()(1,2) == 4 && A(2,1).getNum()(1,3) == 3,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 2 && A(2,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == 2 && A(2,2).getNum()(1,2) == 4 && A(2,2).getNum()(1,3) == 3,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 2 && A(2,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorSumTFDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A, B("1","1,1");
+    QBENCHMARK {
+        A = C;
+        A = A+B;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 1 && A(1,1).getNum()(1,2) == 3 && A(1,1).getNum()(1,3) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 3 && A(1,1).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorSumTFDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> D("1","1,2,1"), E("1","1,1");
+    ModelHandler::TransferFunction<double> B(2,2), C(2,2);
+    B(1,1) = D; B(1,2) = D; B(2,1) = D; B(2,2) = D;
+    C(1,1) = E; C(1,2) = E; C(2,1) = E; C(2,2) =E;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A = A+C;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 1 && A(1,1).getNum()(1,2) == 3 && A(1,1).getNum()(1,3) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 3 && A(1,1).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == 1 && A(1,2).getNum()(1,2) == 3 && A(1,2).getNum()(1,3) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 3 && A(1,2).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == 1 && A(2,1).getNum()(1,2) == 3 && A(2,1).getNum()(1,3) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 3 && A(2,1).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == 1 && A(2,2).getNum()(1,2) == 3 && A(2,2).getNum()(1,3) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 3 && A(2,2).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorSubtractionScalarDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A = C, B = C;
+    QBENCHMARK {
+        A = B;
+        A = A-2;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == -2 && A(1,1).getNum()(1,2) == -4 && A(1,1).getNum()(1,3) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorSubtractionScalarDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> B(2,2);
+    B(1,1) = C; B(1,2) = C; B(2,1) = C; B(2,2) = C;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A = A-2;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == -2 && A(1,1).getNum()(1,2) == -4 && A(1,1).getNum()(1,3) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == -2 && A(1,2).getNum()(1,2) == -4 && A(1,2).getNum()(1,3) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 2 && A(1,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == -2 && A(2,1).getNum()(1,2) == -4 && A(2,1).getNum()(1,3) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 2 && A(2,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == -2 && A(2,2).getNum()(1,2) == -4 && A(2,2).getNum()(1,3) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 2 && A(2,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorSubtractionScalarLeftDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A = C, B = C;
+    QBENCHMARK {
+        A = B;
+        A = 2-A;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == -2 && A(1,1).getNum()(1,2) == -4 && A(1,1).getNum()(1,3) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorSubtractionScalarLeftDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> B(2,2);
+    B(1,1) = C; B(1,2) = C; B(2,1) = C; B(2,2) = C;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A = 2-A;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == -2 && A(1,1).getNum()(1,2) == -4 && A(1,1).getNum()(1,3) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == -2 && A(1,2).getNum()(1,2) == -4 && A(1,2).getNum()(1,3) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 2 && A(1,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == -2 && A(2,1).getNum()(1,2) == -4 && A(2,1).getNum()(1,3) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 2 && A(2,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == -2 && A(2,2).getNum()(1,2) == -4 && A(2,2).getNum()(1,3) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 2 && A(2,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorSubtractionTFDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A, B("1","1,1");
+    QBENCHMARK {
+        A = C;
+        A = A-B;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == -1 && A(1,1).getNum()(1,2) == -1 && A(1,1).getNum()(1,3) == 0,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 3 && A(1,1).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorSubtractionTFDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> D("1","1,2,1"), E("1","1,1");
+    ModelHandler::TransferFunction<double> B(2,2), C(2,2);
+    B(1,1) = D; B(1,2) = D; B(2,1) = D; B(2,2) = D;
+    C(1,1) = E; C(1,2) = E; C(2,1) = E; C(2,2) =E;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A = A-C;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == -1 && A(1,1).getNum()(1,2) == -1 && A(1,1).getNum()(1,3) == 0,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 3 && A(1,1).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == -1 && A(1,2).getNum()(1,2) == -1 && A(1,2).getNum()(1,3) == 0,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 3 && A(1,2).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == -1 && A(2,1).getNum()(1,2) == -1 && A(2,1).getNum()(1,3) == 0,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 3 && A(2,1).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == -1 && A(2,2).getNum()(1,2) == -1 && A(2,2).getNum()(1,3) == 0,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 3 && A(2,2).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorMultiplicationScalarDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A = C, B = C;
+    QBENCHMARK {
+        A = B;
+        A = A*2;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorMultiplicationScalarDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> B(2,2);
+    B(1,1) = C; B(1,2) = C; B(2,1) = C; B(2,2) = C;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A = A*2;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 2 && A(1,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 2 && A(2,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 2 && A(2,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorMultiplicationScalarLeftDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A = C, B = C;
+    QBENCHMARK {
+        A = B;
+        A = 2*A;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorMultiplicationScalarLeftDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> B(2,2);
+    B(1,1) = C; B(1,2) = C; B(2,1) = C; B(2,2) = C;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A = 2*A;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 2 && A(1,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 2 && A(2,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 2 && A(2,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorMultiplicationTFDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A, B("1","1,1");
+    QBENCHMARK {
+        A = C;
+        A = A*B;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 3 && A(1,1).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorMultiplicationTFDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> D("1","1,2,1"), E("1","1,1");
+    ModelHandler::TransferFunction<double> B(2,2), C(2,2);
+    B(1,1) = D; B(1,2) = D; B(2,1) = D; B(2,2) = D;
+    C(1,1) = E; C(1,2) = E; C(2,1) = E; C(2,2) =E;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A =  A*C;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 3 && A(1,1).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 3 && A(1,2).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 3 && A(2,1).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 3 && A(2,2).getDen()(1,3) == 3 && A(1,1).getDen()(1,4) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorDivisionScalarDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A = C, B = C;
+    QBENCHMARK {
+        A = B;
+        A = A/0.5;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorDivisionScalarDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> B(2,2);
+    B(1,1) = C; B(1,2) = C; B(2,1) = C; B(2,2) = C;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A = A/0.5;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 2 && A(1,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 2 && A(2,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 2 && A(2,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorDivisionScalarLeftDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A = C, B = C;
+    QBENCHMARK {
+        A = B;
+        A = 0.5/A;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorDivisionScalarLeftDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> B(2,2);
+    B(1,1) = C; B(1,2) = C; B(2,1) = C; B(2,2) = C;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A = 0.5/A;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 2 && A(1,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 2 && A(2,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == 2,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 2 && A(2,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorDivisionTFDoubleCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A, B("1","1,1");
+    QBENCHMARK {
+        A = C;
+        A = A/B;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == 1 && A(1,1).getNum()(1,2) == 1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorDivisionTFDoubleCase2 ()
+{
+    PolynomHandler::Polynom<double> D("1","1,1"), E("1","1,1"), F("1","1,2"), G("1","1,3"), H("1","1,4");
+    ModelHandler::TransferFunction<double> B(2,2), C(2,2);
+    B(1,1) = D; B(1,2) = D; B(2,1) = D; B(2,2) = D;
+    C(1,1) = E; C(1,2) = F; C(2,1) = G; C(2,2) = H;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = B;
+        A = A/C;
     }
     QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
     QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");

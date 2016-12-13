@@ -35,7 +35,6 @@ namespace PolynomHandler {
             void setDen(const Type *Den, const unsigned sizeden); //testada
             void setDen(const LinAlg::Matrix<Type> &Den); // testada
 
-
             PolynomHandler::Polynom<Type>& operator=  (const PolynomHandler::Polynom<Type>& OtherPolynom);//testada
             template<typename OtherPolynomType>//testada
             PolynomHandler::Polynom<Type>& operator=  (const PolynomHandler::Polynom<OtherPolynomType>& OtherPolynom);
@@ -114,6 +113,9 @@ namespace PolynomHandler {
     template<typename Type>
     std::string printSmallPolynom(LinAlg::Matrix<Type> rhs, const char &variable = 'x');
 
+    template <typename Type>
+    LinAlg::Matrix<Type> zerosElimination(LinAlg::Matrix<Type> smallPoly);
+
     template<typename Type> // testada
     bool VefDen(const Type *den1, const Type *den2, const unsigned &sizeden1, const unsigned &sizeden2);
 
@@ -145,42 +147,8 @@ namespace PolynomHandler {
     template <typename Type>
     bool rootsContainRoot(const Type &root, const LinAlg::Matrix<Type> &roots);
 
-    template <class Type>
-    LinAlg::Matrix<Type> MMC(LinAlg::Matrix< PolynomHandler::Polynom<Type> > &polynomToGetMMC);
-//    {
-//        Polynom<Type> **Ret = PolynomMatrix<Type> (rows,cols);
-
-
-//        for(unsigned k = 0; k < rows; k++)
-//        {
-//            for(unsigned l = 0; l < cols; l++)
-//            {
-//               LinAlg::Matrix<Type> den = P[k][l].getDen();
-//               LinAlg::Matrix<Type> num = P[k][l].getNum();
-
-//                for(unsigned i = 0; i < rows; i++)
-//                    for(unsigned j = 0; j < cols; j++)
-//                    {
-//                        if((i == k) && (j == l))
-//                        {}
-//                        else
-//                        {
-//                            den = MultPoly(den, P[i][j].getDen());
-//    //                        sizeDen = sizeDen + P[i][j].getDenSize() - 1;
-
-//                            num = MultPoly(num, P[i][j].getDen());
-//    //                        sizeNum = sizeNum + P[i][j].getDenSize() - 1;
-//                        }
-//                    }
-
-//                Ret[k][l].setNum(num);
-//                Ret[k][l].setDen(den);
-//    //            Ret[k][l].print();
-//            }
-//        }
-//        return Ret;
-//    }
-
+//    template <class Type>
+//    LinAlg::Matrix<Type> MMC(LinAlg::Matrix< PolynomHandler::Polynom<Type> > &polynomToGetMMC);
 }
 
 #ifdef testMatrix

@@ -4,7 +4,7 @@
     #include "SistemasdeControle/headers/modelLibs/arx.h"
 #endif
 
-template <class Type>
+template <typename Type>
 ModelHandler::ARX<Type>::ARX(unsigned nOutputpar,unsigned nInputpar,
                              unsigned delay,
                              unsigned qdtInputVar, unsigned qdtOutputVar,
@@ -33,7 +33,7 @@ ModelHandler::ARX<Type>::ARX(unsigned nOutputpar,unsigned nInputpar,
     this->LinearVectorA = LinAlg::Zeros<Type>(this->qdtOutputVar, this->nInputpar+this->delay + this->nOutputpar);
 }
 
-template <class Type>
+template <typename Type>
 ModelHandler::ARX<Type>::ARX(const ModelHandler::ARX<Type>& OtherArxModel){
     this->delay                 = OtherArxModel.delay;
     this->nInputpar             = OtherArxModel.nInputpar;
@@ -60,7 +60,7 @@ ModelHandler::ARX<Type>::ARX(const ModelHandler::ARX<Type>& OtherArxModel){
 // Neste caso Input e Output se forem escalares corresponderão ao próximo valor
 // a ser colocado no vetor de saídas ou entradas e sor uma matriz corresponderá
 // a um conjunto de variáveis no instante de tempo pedido
-template <class Type>
+template <typename Type>
 void ModelHandler::ARX<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput)
 {
     this->InputLinearVector  =  Input|this->InputLinearVector;
@@ -71,16 +71,16 @@ void ModelHandler::ARX<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg
 
 
     for(unsigned i = 1; i <= this->OutputLinearVector.getNumberOfRows(); ++i)
-        TempLinearVector = TempLinearVector | -this->OutputLinearVector.GetRow(i);
+        TempLinearVector = TempLinearVector | -this->OutputLinearVector.getRow(i);
 
     for(unsigned i = 1; i <= this->InputLinearVector.getNumberOfRows(); ++i)
-        TempLinearVector = TempLinearVector | this->InputLinearVector.GetRow(i);
+        TempLinearVector = TempLinearVector | this->InputLinearVector.getRow(i);
 
     this->LinearVectorA = TempLinearVector;
 //    std::cout << TempLinearVector;
 }
 
-template <class Type>
+template <typename Type>
 void ModelHandler::ARX<Type>::setLinearModel(LinAlg::Matrix<Type> Input,
                                    LinAlg::Matrix<Type> Output)
 {
@@ -89,14 +89,14 @@ void ModelHandler::ARX<Type>::setLinearModel(LinAlg::Matrix<Type> Input,
 
     for(nSample = 1; nSample < this->Output.getNumberOfColumns()-1; ++nSample)
     {
-        this->setLinearVector( Input.GetColumn(nSample), Output.GetColumn(nSample+1));
+        this->setLinearVector( Input.getColumn(nSample), Output.getColumn(nSample+1));
 //        std::cout << ~Output.GetColumn(nSample) << " " << this->LinearVectorA;
         this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorA;
-        this->LinearEqualityB = this->LinearEqualityB || ~Output.GetColumn(nSample+2);
+        this->LinearEqualityB = this->LinearEqualityB || ~Output.getColumn(nSample+2);
     }
 }
 
-template <class Type>
+template <typename Type>
 Type ModelHandler::ARX<Type>::sim(Type input)
 {
     this->setLinearVector(input, this->output);
@@ -104,7 +104,7 @@ Type ModelHandler::ARX<Type>::sim(Type input)
     return this->output;
 }
 
-template <class Type>
+template <typename Type>
 Type ModelHandler::ARX<Type>::sim(Type input, Type output)
 {
     this->setLinearVector(input, output);
@@ -112,72 +112,72 @@ Type ModelHandler::ARX<Type>::sim(Type input, Type output)
     return this->output;
 }
 
-template <class Type>
+template <typename Type>
 std::string ModelHandler::ARX<Type>::print()
 {
     return "função não implementada";
 }
 
-template <class Type>
+template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input)
 {
     this->Input  = Input;
     LinAlg::Matrix<Type> TempOutput;// = LinAlg::Zeros<Type>(this->qdtOutputVar,1);
 
     for(unsigned i = 1; i <= Input.getNumberOfColumns(); ++i){
-        this->setLinearVector(Input.GetColumn(i),this->Output.GetColumn(i));
+        this->setLinearVector(Input.getColumn(i),this->Output.getColumn(i));
         TempOutput = TempOutput | ~(this->LinearVectorA*this->ModelCoef);
     }
     this->Output = TempOutput;
     return this->Output;
 }
 
-template <class Type>
+template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
 {
     this->Input  = Input;
     LinAlg::Matrix<Type> TempOutput = LinAlg::Zeros<Type>(this->qdtOutputVar,1);
 
     for(unsigned i = 1; i <= Input.getNumberOfColumns(); ++i){
-        this->setLinearVector(Input.GetColumn(i),Output.GetColumn(i));
+        this->setLinearVector(Input.getColumn(i),Output.getColumn(i));
         TempOutput = TempOutput | ~(this->LinearVectorA*this->ModelCoef);
     }
     this->Output = TempOutput;
     return this->Output;
 }
 
-template <class Type>
+template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(Type lsim, Type lmax, Type step)
 {
-    return 0.0;
+    return LinAlg::Matrix<Type>(lsim+lmax+step);
 }
 
-template <class Type>
+template <typename Type>
 unsigned ModelHandler::ARX<Type>::getNumberOfInputDelays() const{
     return this->nInputpar;
 }
 
-template <class Type>
+template <typename Type>
 unsigned ModelHandler::ARX<Type>::getNumberOfInputs()const {
     return this->qdtInputVar;
 }
 
-template <class Type>
+template <typename Type>
 unsigned ModelHandler::ARX<Type>::getNumberOfOutputDelays() const {
     return this->nOutputpar;
 }
 
-template <class Type>
+template <typename Type>
 unsigned ModelHandler::ARX<Type>::getNumberOfOutputs() const {
     return this->qdtOutputVar;
 }
 
-template <class Type>
+template <typename Type>
 double ModelHandler::ARX<Type>::getSampleTime() const {
     return this->sampleTime;
 }
 
-template <class Type>
-unsigned ModelHandler::ARX<Type>::getNumberOfVariables(){
+template <typename Type>
+unsigned ModelHandler::ARX<Type>::getNumberOfVariables() const {
     return this->qdtInputVar*this->nInputpar + this->qdtOutputVar*this->nOutputpar;
 }

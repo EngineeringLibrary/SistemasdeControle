@@ -93,12 +93,6 @@ LinAlg::Matrix<Type> ModelHandler::Model<Type>::getLinearEqualityVectorB() const
     return this->LinearEqualityVectorB;
 }
 
-//template <typename Type>
-//void ModelHandler::Model<Type>::operator= (ModelHandler::Model<Type>* InheritedModel)
-//{
-//    this->InheritedModel = InheritedModel;
-//}
-
 template<typename Type>
 std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::Model<Type> *model)
 {

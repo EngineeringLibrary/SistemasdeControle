@@ -17,7 +17,6 @@ namespace ModelHandler {
     class Model
     {
     public:
-//        Model(ModelHandler::Model<Type>* InheritedModel);
         Model(): input(0), output(0), step(1){}
         virtual ~Model();
 
@@ -35,8 +34,6 @@ namespace ModelHandler {
         LinAlg::Matrix<Type> getLinearEqualityB() const;
         LinAlg::Matrix<Type> getLinearEqualityVectorB() const;
 
-//        void operator= (ModelHandler::Model<Type>* InheritedModel); // implementar
-
         virtual Type         sim(Type x) = 0;
         virtual Type         sim(Type x, Type y) = 0;
         virtual LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> x) = 0;
@@ -52,7 +49,7 @@ namespace ModelHandler {
 
     protected:
 //        virtual bool isFunction() = 0;
-        Type                 input,    output,      lmin,lmax,            step, timeSimulation;
+        Type                 input, output, estOutput, lmin, lmax, step, timeSimulation;
         LinAlg::Matrix<Type> Input,    Output,      EstOutput,       ModelCoef,
                          LinearVectorA,   LinearEqualityVectorB, LinearMatrixA,
                          LinearEqualityB, InputLinearVector, OutputLinearVector;
