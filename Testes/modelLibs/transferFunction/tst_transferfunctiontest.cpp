@@ -933,8 +933,6 @@ void TransferFunctionTest::ContinuosFirstOrderCaracteristics()
     QBENCHMARK {
         str = A.ContinuosFirstOrderCaracteristics();
     }
-    std::cout << str << std::endl;
-
     QVERIFY2("O ganho estatico: 1\n"
              "A constante de tempo: 2\n"
              "t1: 0.22\n"
@@ -1129,7 +1127,6 @@ void TransferFunctionTest::operatorSubtractionScalarLeftDoubleCase1 ()
         A = B;
         A = 2-A;
     }
-    std::cout << A << std::endl;
     QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
     QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
     QVERIFY2(A(1,1).getNum()(1,1) == 2 && A(1,1).getNum()(1,2) == 4 && A(1,1).getNum()(1,3) == 1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
