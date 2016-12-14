@@ -109,9 +109,9 @@ namespace ModelHandler {
     template<typename PolynomType, typename ScalarType>
     TransferFunction<PolynomType> operator/ (TransferFunction<PolynomType> lhs, const ScalarType& rhs) {return lhs /= rhs;}
     template<typename PolynomType, typename ScalarType>
-    TransferFunction<PolynomType> operator/ (ScalarType rhs, TransferFunction<PolynomType> lhs) {return TransferFunction<PolynomType>(rhs) /= lhs;}
+    TransferFunction<PolynomType> operator/ (ScalarType lhs, const TransferFunction<PolynomType> &rhs) {TransferFunction<PolynomType> ret(lhs); return ret /= rhs;}
     template<typename LeftType, typename RightType>
-    TransferFunction<LeftType> operator/ (TransferFunction<LeftType> lhs, const TransferFunction<RightType>& rhs) {return lhs /= rhs;}
+    TransferFunction<LeftType> operator/ (TransferFunction<LeftType> lhs, const TransferFunction<RightType> &rhs) {return lhs /= rhs;}
 
     template<typename Type> // ok
     std::ostream& operator<< (std::ostream& output, ModelHandler::TransferFunction<Type> TF);

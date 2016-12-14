@@ -316,11 +316,13 @@ std::string ModelHandler::TransferFunction<Type>::ContinuosFirstOrderCaracterist
     if(this->TF.getNumberOfRows() == 1 && this->TF.getNumberOfColumns() == 1 && this->Continuous){
        PolynomHandler::Polynom<Type> poly = this->TF(1,1);
        if(poly.getNumSize() == 1 && poly.getDenSize() == 2){
-            str << "O ganho estatico e: " << poly.getNum()(1,poly.getNumSize()) / poly.getDen()(1,poly.getDenSize()) << std::endl;
+            str << "O ganho estatico: " << poly.getNum()(1,poly.getNumSize()) / poly.getDen()(1,poly.getDenSize()) << std::endl;
             tau = poly.getDen()(1,poly.getDenSize()-1) / poly.getDen()(1,poly.getDenSize());
-            str << "A constante de tempo e: " << tau << std::endl;
-            str << "Tempo de subida e: " << 2.2*tau << std::endl;
-            str << "Tempo de estabilizacao e: " << 3.9*tau << std::endl;
+            str << "A constante de tempo: " << tau << std::endl;
+            str << "t1: " << 0.11*tau << std::endl;
+            str << "t2: " << 0.23*tau << std::endl;
+            str << "Tempo de subida (t2-t1): " << 2.2*tau << std::endl;
+            str << "Tempo de estabilizacao: " << 4*tau << std::endl;
        }
     }
     std::string ret = str.str();
@@ -331,23 +333,34 @@ template <typename Type>
 std::string ModelHandler::TransferFunction<Type>::ContinuosSecondOrderCaracteristics()
 {
     std::ostringstream str;
-    Type k, wn, qsi;
+    Type k, wn, qsi, pd, wd, ts2, tr, tp, Os, Dr;
     if(this->TF.getNumberOfRows() == 1 && this->TF.getNumberOfColumns() == 1 && this->Continuous){
        PolynomHandler::Polynom<Type> poly = this->TF(1,1);
        if(poly.getNumSize() == 1 && poly.getDenSize() == 3){
 
-            wn = sqrt(fabs(poly.getDen()(1,poly.getDenSize())));
+            wn  = sqrt(fabs(poly.getDen()(1,poly.getDenSize())));
             qsi = poly.getDen()(1,poly.getDenSize()-1) / (wn * 2);
-            k = poly.getNum()(1,poly.getNumSize()) / (wn * wn);
+            k   = poly.getNum()(1,poly.getNumSize()) / (wn * wn);
+            wd  = wn*sqrt(1-qsi*qsi);
+            pd  = 2*M_PI/wd;
+            tr  = M_PI/(2*wd);
+            tp  = M_PI/(wd);
+            ts2 = 4/(qsi*wn);
+            Os  = exp(-M_PI*qsi/sqrt(1-qsi*qsi));
+            Dr  = exp(-2*M_PI*qsi/sqrt(1-qsi*qsi));
 
-            str << "O ganho estatico e: " << k << std::endl;
-//            str << "A constante de tempo e: " << tau << std::endl;
-            str << "Tempo de subida e: " << 2.1/wn << std::endl;
-            str << "Tempo de estabilizacao a 2% e: " << 4/(qsi*wn) << std::endl;
-            str << "Tempo de estabilizacao a 5% e: " << 3/(qsi*wn) << std::endl;
-            str << "Sobressinal Maximo: " << exp(-qsi * M_PI / sqrt(1 - qsi * qsi)) << std::endl;
-            if(qsi > 0 && qsi < 1)
-                str << "Tempo de Pico e: " << M_PI / (wn * sqrt(1 - qsi * qsi)) << std::endl;
+
+            str << "O ganho estatico: " << k << std::endl;
+            str << "Tempo de subida: " << tr << std::endl;
+//            str << "Tempo de estabilizacao a 2%: " << 4/(qsi*wn) << std::endl;
+            str << "Tempo de estabilizacao a 2%: " << ts2 << std::endl;
+            if(qsi > 0 && qsi < 1){
+                str << "Frequencia de oscilacao Amortecida: " << wd << std::endl;
+                str << "Periodo de oscilacao Amortecida: " << pd << std::endl;
+                str << "Sobressinal Maximo: " << Os << std::endl;
+                str << "Razao de decaimento: " << Dr << std::endl;
+                str << "Tempo para o primeiro Pico: " << tp << std::endl;
+            }
        }
     }
     std::string ret = str.str();

@@ -1,17 +1,6 @@
 #ifndef CONVERSIONS_H
 #define CONVERSIONS_H
 
-//#ifdef testModel
-//    #include "../../../headers/modelLibs/model.h"
-//    #include "../../../headers/modelLibs/statespace.h"
-//    #include "../../../headers/modelLibs/transferfunction.h"
-//    #include "../../../headers/modelLibs/arx.h"
-//#else
-//    #include "SistemasdeControle/headers/modelLibs/model.h"
-//    #include "SistemasdeControle/headers/modelLibs/statespace.h"
-//    #include "SistemasdeControle/headers/modelLibs/transferfunction.h"
-//    #include "SistemasdeControle/headers/modelLibs/arx.h"
-//#endif
 #include "model.h"
 #include "arx.h"
 #include "statespace.h"
