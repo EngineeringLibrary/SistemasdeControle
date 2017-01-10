@@ -18,8 +18,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_TransferFunctionTest_t {
-    QByteArrayData data[79];
-    char stringdata0[2580];
+    QByteArrayData data[85];
+    char stringdata0[2706];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -83,30 +83,36 @@ QT_MOC_LITERAL(51, 1640, 21), // "simMatrixOutputDouble"
 QT_MOC_LITERAL(52, 1662, 8), // "simRange"
 QT_MOC_LITERAL(53, 1671, 33), // "ContinuosFirstOrderCaracteris..."
 QT_MOC_LITERAL(54, 1705, 34), // "ContinuosSecondOrderCaracteri..."
-QT_MOC_LITERAL(55, 1740, 28), // "operatorSumScalarDoubleCase1"
-QT_MOC_LITERAL(56, 1769, 28), // "operatorSumScalarDoubleCase2"
-QT_MOC_LITERAL(57, 1798, 32), // "operatorSumScalarLeftDoubleCase1"
-QT_MOC_LITERAL(58, 1831, 32), // "operatorSumScalarLeftDoubleCase2"
-QT_MOC_LITERAL(59, 1864, 24), // "operatorSumTFDoubleCase1"
-QT_MOC_LITERAL(60, 1889, 24), // "operatorSumTFDoubleCase2"
-QT_MOC_LITERAL(61, 1914, 36), // "operatorSubtractionScalarDoub..."
-QT_MOC_LITERAL(62, 1951, 36), // "operatorSubtractionScalarDoub..."
-QT_MOC_LITERAL(63, 1988, 40), // "operatorSubtractionScalarLeft..."
-QT_MOC_LITERAL(64, 2029, 40), // "operatorSubtractionScalarLeft..."
-QT_MOC_LITERAL(65, 2070, 32), // "operatorSubtractionTFDoubleCase1"
-QT_MOC_LITERAL(66, 2103, 32), // "operatorSubtractionTFDoubleCase2"
-QT_MOC_LITERAL(67, 2136, 39), // "operatorMultiplicationScalarD..."
-QT_MOC_LITERAL(68, 2176, 39), // "operatorMultiplicationScalarD..."
-QT_MOC_LITERAL(69, 2216, 43), // "operatorMultiplicationScalarL..."
-QT_MOC_LITERAL(70, 2260, 43), // "operatorMultiplicationScalarL..."
-QT_MOC_LITERAL(71, 2304, 35), // "operatorMultiplicationTFDoubl..."
-QT_MOC_LITERAL(72, 2340, 35), // "operatorMultiplicationTFDoubl..."
-QT_MOC_LITERAL(73, 2376, 33), // "operatorDivisionScalarDoubleC..."
-QT_MOC_LITERAL(74, 2410, 33), // "operatorDivisionScalarDoubleC..."
-QT_MOC_LITERAL(75, 2444, 37), // "operatorDivisionScalarLeftDou..."
-QT_MOC_LITERAL(76, 2482, 37), // "operatorDivisionScalarLeftDou..."
-QT_MOC_LITERAL(77, 2520, 29), // "operatorDivisionTFDoubleCase1"
-QT_MOC_LITERAL(78, 2550, 29) // "operatorDivisionTFDoubleCase2"
+QT_MOC_LITERAL(55, 1740, 18), // "operatorMinusCase1"
+QT_MOC_LITERAL(56, 1759, 18), // "operatorMinusCase2"
+QT_MOC_LITERAL(57, 1778, 28), // "operatorSumScalarDoubleCase1"
+QT_MOC_LITERAL(58, 1807, 28), // "operatorSumScalarDoubleCase2"
+QT_MOC_LITERAL(59, 1836, 32), // "operatorSumScalarLeftDoubleCase1"
+QT_MOC_LITERAL(60, 1869, 32), // "operatorSumScalarLeftDoubleCase2"
+QT_MOC_LITERAL(61, 1902, 24), // "operatorSumTFDoubleCase1"
+QT_MOC_LITERAL(62, 1927, 24), // "operatorSumTFDoubleCase2"
+QT_MOC_LITERAL(63, 1952, 36), // "operatorSubtractionScalarDoub..."
+QT_MOC_LITERAL(64, 1989, 36), // "operatorSubtractionScalarDoub..."
+QT_MOC_LITERAL(65, 2026, 40), // "operatorSubtractionScalarLeft..."
+QT_MOC_LITERAL(66, 2067, 40), // "operatorSubtractionScalarLeft..."
+QT_MOC_LITERAL(67, 2108, 32), // "operatorSubtractionTFDoubleCase1"
+QT_MOC_LITERAL(68, 2141, 32), // "operatorSubtractionTFDoubleCase2"
+QT_MOC_LITERAL(69, 2174, 39), // "operatorMultiplicationScalarD..."
+QT_MOC_LITERAL(70, 2214, 39), // "operatorMultiplicationScalarD..."
+QT_MOC_LITERAL(71, 2254, 43), // "operatorMultiplicationScalarL..."
+QT_MOC_LITERAL(72, 2298, 43), // "operatorMultiplicationScalarL..."
+QT_MOC_LITERAL(73, 2342, 35), // "operatorMultiplicationTFDoubl..."
+QT_MOC_LITERAL(74, 2378, 35), // "operatorMultiplicationTFDoubl..."
+QT_MOC_LITERAL(75, 2414, 33), // "operatorDivisionScalarDoubleC..."
+QT_MOC_LITERAL(76, 2448, 33), // "operatorDivisionScalarDoubleC..."
+QT_MOC_LITERAL(77, 2482, 37), // "operatorDivisionScalarLeftDou..."
+QT_MOC_LITERAL(78, 2520, 37), // "operatorDivisionScalarLeftDou..."
+QT_MOC_LITERAL(79, 2558, 29), // "operatorDivisionTFDoubleCase1"
+QT_MOC_LITERAL(80, 2588, 29), // "operatorDivisionTFDoubleCase2"
+QT_MOC_LITERAL(81, 2618, 21), // "stringConvertionCase1"
+QT_MOC_LITERAL(82, 2640, 21), // "stringConvertionCase2"
+QT_MOC_LITERAL(83, 2662, 21), // "stringConvertionCase3"
+QT_MOC_LITERAL(84, 2684, 21) // "stringConvertionCase4"
 
     },
     "TransferFunctionTest\0TFVoidConstructorDouble\0"
@@ -156,6 +162,7 @@ QT_MOC_LITERAL(78, 2550, 29) // "operatorDivisionTFDoubleCase2"
     "simMatrixOutputDouble\0simRange\0"
     "ContinuosFirstOrderCaracteristics\0"
     "ContinuosSecondOrderCaracteristics\0"
+    "operatorMinusCase1\0operatorMinusCase2\0"
     "operatorSumScalarDoubleCase1\0"
     "operatorSumScalarDoubleCase2\0"
     "operatorSumScalarLeftDoubleCase1\0"
@@ -179,7 +186,9 @@ QT_MOC_LITERAL(78, 2550, 29) // "operatorDivisionTFDoubleCase2"
     "operatorDivisionScalarLeftDoubleCase1\0"
     "operatorDivisionScalarLeftDoubleCase2\0"
     "operatorDivisionTFDoubleCase1\0"
-    "operatorDivisionTFDoubleCase2"
+    "operatorDivisionTFDoubleCase2\0"
+    "stringConvertionCase1\0stringConvertionCase2\0"
+    "stringConvertionCase3\0stringConvertionCase4"
 };
 #undef QT_MOC_LITERAL
 
@@ -189,7 +198,7 @@ static const uint qt_meta_data_TransferFunctionTest[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      77,   14, // methods
+      83,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -197,85 +206,97 @@ static const uint qt_meta_data_TransferFunctionTest[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  399,    2, 0x08 /* Private */,
-       3,    0,  400,    2, 0x08 /* Private */,
-       4,    0,  401,    2, 0x08 /* Private */,
-       5,    0,  402,    2, 0x08 /* Private */,
-       6,    0,  403,    2, 0x08 /* Private */,
-       7,    0,  404,    2, 0x08 /* Private */,
-       8,    0,  405,    2, 0x08 /* Private */,
-       9,    0,  406,    2, 0x08 /* Private */,
-      10,    0,  407,    2, 0x08 /* Private */,
-      11,    0,  408,    2, 0x08 /* Private */,
-      12,    0,  409,    2, 0x08 /* Private */,
-      13,    0,  410,    2, 0x08 /* Private */,
-      14,    0,  411,    2, 0x08 /* Private */,
-      15,    0,  412,    2, 0x08 /* Private */,
-      16,    0,  413,    2, 0x08 /* Private */,
-      17,    0,  414,    2, 0x08 /* Private */,
-      18,    0,  415,    2, 0x08 /* Private */,
-      19,    0,  416,    2, 0x08 /* Private */,
-      20,    0,  417,    2, 0x08 /* Private */,
-      21,    0,  418,    2, 0x08 /* Private */,
-      22,    0,  419,    2, 0x08 /* Private */,
-      23,    0,  420,    2, 0x08 /* Private */,
-      24,    0,  421,    2, 0x08 /* Private */,
-      25,    0,  422,    2, 0x08 /* Private */,
-      26,    0,  423,    2, 0x08 /* Private */,
-      27,    0,  424,    2, 0x08 /* Private */,
-      28,    0,  425,    2, 0x08 /* Private */,
-      29,    0,  426,    2, 0x08 /* Private */,
-      30,    0,  427,    2, 0x08 /* Private */,
-      31,    0,  428,    2, 0x08 /* Private */,
-      32,    0,  429,    2, 0x08 /* Private */,
-      33,    0,  430,    2, 0x08 /* Private */,
-      34,    0,  431,    2, 0x08 /* Private */,
-      35,    0,  432,    2, 0x08 /* Private */,
-      36,    0,  433,    2, 0x08 /* Private */,
-      37,    0,  434,    2, 0x08 /* Private */,
-      38,    0,  435,    2, 0x08 /* Private */,
-      39,    0,  436,    2, 0x08 /* Private */,
-      40,    0,  437,    2, 0x08 /* Private */,
-      41,    0,  438,    2, 0x08 /* Private */,
-      42,    0,  439,    2, 0x08 /* Private */,
-      43,    0,  440,    2, 0x08 /* Private */,
-      44,    0,  441,    2, 0x08 /* Private */,
-      45,    0,  442,    2, 0x08 /* Private */,
-      46,    0,  443,    2, 0x08 /* Private */,
-      47,    0,  444,    2, 0x08 /* Private */,
-      48,    0,  445,    2, 0x08 /* Private */,
-      49,    0,  446,    2, 0x08 /* Private */,
-      50,    0,  447,    2, 0x08 /* Private */,
-      51,    0,  448,    2, 0x08 /* Private */,
-      52,    0,  449,    2, 0x08 /* Private */,
-      53,    0,  450,    2, 0x08 /* Private */,
-      54,    0,  451,    2, 0x08 /* Private */,
-      55,    0,  452,    2, 0x08 /* Private */,
-      56,    0,  453,    2, 0x08 /* Private */,
-      57,    0,  454,    2, 0x08 /* Private */,
-      58,    0,  455,    2, 0x08 /* Private */,
-      59,    0,  456,    2, 0x08 /* Private */,
-      60,    0,  457,    2, 0x08 /* Private */,
-      61,    0,  458,    2, 0x08 /* Private */,
-      62,    0,  459,    2, 0x08 /* Private */,
-      63,    0,  460,    2, 0x08 /* Private */,
-      64,    0,  461,    2, 0x08 /* Private */,
-      65,    0,  462,    2, 0x08 /* Private */,
-      66,    0,  463,    2, 0x08 /* Private */,
-      67,    0,  464,    2, 0x08 /* Private */,
-      68,    0,  465,    2, 0x08 /* Private */,
-      69,    0,  466,    2, 0x08 /* Private */,
-      70,    0,  467,    2, 0x08 /* Private */,
-      71,    0,  468,    2, 0x08 /* Private */,
-      72,    0,  469,    2, 0x08 /* Private */,
-      73,    0,  470,    2, 0x08 /* Private */,
-      74,    0,  471,    2, 0x08 /* Private */,
-      75,    0,  472,    2, 0x08 /* Private */,
-      76,    0,  473,    2, 0x08 /* Private */,
-      77,    0,  474,    2, 0x08 /* Private */,
-      78,    0,  475,    2, 0x08 /* Private */,
+       1,    0,  429,    2, 0x08 /* Private */,
+       3,    0,  430,    2, 0x08 /* Private */,
+       4,    0,  431,    2, 0x08 /* Private */,
+       5,    0,  432,    2, 0x08 /* Private */,
+       6,    0,  433,    2, 0x08 /* Private */,
+       7,    0,  434,    2, 0x08 /* Private */,
+       8,    0,  435,    2, 0x08 /* Private */,
+       9,    0,  436,    2, 0x08 /* Private */,
+      10,    0,  437,    2, 0x08 /* Private */,
+      11,    0,  438,    2, 0x08 /* Private */,
+      12,    0,  439,    2, 0x08 /* Private */,
+      13,    0,  440,    2, 0x08 /* Private */,
+      14,    0,  441,    2, 0x08 /* Private */,
+      15,    0,  442,    2, 0x08 /* Private */,
+      16,    0,  443,    2, 0x08 /* Private */,
+      17,    0,  444,    2, 0x08 /* Private */,
+      18,    0,  445,    2, 0x08 /* Private */,
+      19,    0,  446,    2, 0x08 /* Private */,
+      20,    0,  447,    2, 0x08 /* Private */,
+      21,    0,  448,    2, 0x08 /* Private */,
+      22,    0,  449,    2, 0x08 /* Private */,
+      23,    0,  450,    2, 0x08 /* Private */,
+      24,    0,  451,    2, 0x08 /* Private */,
+      25,    0,  452,    2, 0x08 /* Private */,
+      26,    0,  453,    2, 0x08 /* Private */,
+      27,    0,  454,    2, 0x08 /* Private */,
+      28,    0,  455,    2, 0x08 /* Private */,
+      29,    0,  456,    2, 0x08 /* Private */,
+      30,    0,  457,    2, 0x08 /* Private */,
+      31,    0,  458,    2, 0x08 /* Private */,
+      32,    0,  459,    2, 0x08 /* Private */,
+      33,    0,  460,    2, 0x08 /* Private */,
+      34,    0,  461,    2, 0x08 /* Private */,
+      35,    0,  462,    2, 0x08 /* Private */,
+      36,    0,  463,    2, 0x08 /* Private */,
+      37,    0,  464,    2, 0x08 /* Private */,
+      38,    0,  465,    2, 0x08 /* Private */,
+      39,    0,  466,    2, 0x08 /* Private */,
+      40,    0,  467,    2, 0x08 /* Private */,
+      41,    0,  468,    2, 0x08 /* Private */,
+      42,    0,  469,    2, 0x08 /* Private */,
+      43,    0,  470,    2, 0x08 /* Private */,
+      44,    0,  471,    2, 0x08 /* Private */,
+      45,    0,  472,    2, 0x08 /* Private */,
+      46,    0,  473,    2, 0x08 /* Private */,
+      47,    0,  474,    2, 0x08 /* Private */,
+      48,    0,  475,    2, 0x08 /* Private */,
+      49,    0,  476,    2, 0x08 /* Private */,
+      50,    0,  477,    2, 0x08 /* Private */,
+      51,    0,  478,    2, 0x08 /* Private */,
+      52,    0,  479,    2, 0x08 /* Private */,
+      53,    0,  480,    2, 0x08 /* Private */,
+      54,    0,  481,    2, 0x08 /* Private */,
+      55,    0,  482,    2, 0x08 /* Private */,
+      56,    0,  483,    2, 0x08 /* Private */,
+      57,    0,  484,    2, 0x08 /* Private */,
+      58,    0,  485,    2, 0x08 /* Private */,
+      59,    0,  486,    2, 0x08 /* Private */,
+      60,    0,  487,    2, 0x08 /* Private */,
+      61,    0,  488,    2, 0x08 /* Private */,
+      62,    0,  489,    2, 0x08 /* Private */,
+      63,    0,  490,    2, 0x08 /* Private */,
+      64,    0,  491,    2, 0x08 /* Private */,
+      65,    0,  492,    2, 0x08 /* Private */,
+      66,    0,  493,    2, 0x08 /* Private */,
+      67,    0,  494,    2, 0x08 /* Private */,
+      68,    0,  495,    2, 0x08 /* Private */,
+      69,    0,  496,    2, 0x08 /* Private */,
+      70,    0,  497,    2, 0x08 /* Private */,
+      71,    0,  498,    2, 0x08 /* Private */,
+      72,    0,  499,    2, 0x08 /* Private */,
+      73,    0,  500,    2, 0x08 /* Private */,
+      74,    0,  501,    2, 0x08 /* Private */,
+      75,    0,  502,    2, 0x08 /* Private */,
+      76,    0,  503,    2, 0x08 /* Private */,
+      77,    0,  504,    2, 0x08 /* Private */,
+      78,    0,  505,    2, 0x08 /* Private */,
+      79,    0,  506,    2, 0x08 /* Private */,
+      80,    0,  507,    2, 0x08 /* Private */,
+      81,    0,  508,    2, 0x08 /* Private */,
+      82,    0,  509,    2, 0x08 /* Private */,
+      83,    0,  510,    2, 0x08 /* Private */,
+      84,    0,  511,    2, 0x08 /* Private */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -416,30 +437,36 @@ void TransferFunctionTest::qt_static_metacall(QObject *_o, QMetaObject::Call _c,
         case 50: _t->simRange(); break;
         case 51: _t->ContinuosFirstOrderCaracteristics(); break;
         case 52: _t->ContinuosSecondOrderCaracteristics(); break;
-        case 53: _t->operatorSumScalarDoubleCase1(); break;
-        case 54: _t->operatorSumScalarDoubleCase2(); break;
-        case 55: _t->operatorSumScalarLeftDoubleCase1(); break;
-        case 56: _t->operatorSumScalarLeftDoubleCase2(); break;
-        case 57: _t->operatorSumTFDoubleCase1(); break;
-        case 58: _t->operatorSumTFDoubleCase2(); break;
-        case 59: _t->operatorSubtractionScalarDoubleCase1(); break;
-        case 60: _t->operatorSubtractionScalarDoubleCase2(); break;
-        case 61: _t->operatorSubtractionScalarLeftDoubleCase1(); break;
-        case 62: _t->operatorSubtractionScalarLeftDoubleCase2(); break;
-        case 63: _t->operatorSubtractionTFDoubleCase1(); break;
-        case 64: _t->operatorSubtractionTFDoubleCase2(); break;
-        case 65: _t->operatorMultiplicationScalarDoubleCase1(); break;
-        case 66: _t->operatorMultiplicationScalarDoubleCase2(); break;
-        case 67: _t->operatorMultiplicationScalarLeftDoubleCase1(); break;
-        case 68: _t->operatorMultiplicationScalarLeftDoubleCase2(); break;
-        case 69: _t->operatorMultiplicationTFDoubleCase1(); break;
-        case 70: _t->operatorMultiplicationTFDoubleCase2(); break;
-        case 71: _t->operatorDivisionScalarDoubleCase1(); break;
-        case 72: _t->operatorDivisionScalarDoubleCase2(); break;
-        case 73: _t->operatorDivisionScalarLeftDoubleCase1(); break;
-        case 74: _t->operatorDivisionScalarLeftDoubleCase2(); break;
-        case 75: _t->operatorDivisionTFDoubleCase1(); break;
-        case 76: _t->operatorDivisionTFDoubleCase2(); break;
+        case 53: _t->operatorMinusCase1(); break;
+        case 54: _t->operatorMinusCase2(); break;
+        case 55: _t->operatorSumScalarDoubleCase1(); break;
+        case 56: _t->operatorSumScalarDoubleCase2(); break;
+        case 57: _t->operatorSumScalarLeftDoubleCase1(); break;
+        case 58: _t->operatorSumScalarLeftDoubleCase2(); break;
+        case 59: _t->operatorSumTFDoubleCase1(); break;
+        case 60: _t->operatorSumTFDoubleCase2(); break;
+        case 61: _t->operatorSubtractionScalarDoubleCase1(); break;
+        case 62: _t->operatorSubtractionScalarDoubleCase2(); break;
+        case 63: _t->operatorSubtractionScalarLeftDoubleCase1(); break;
+        case 64: _t->operatorSubtractionScalarLeftDoubleCase2(); break;
+        case 65: _t->operatorSubtractionTFDoubleCase1(); break;
+        case 66: _t->operatorSubtractionTFDoubleCase2(); break;
+        case 67: _t->operatorMultiplicationScalarDoubleCase1(); break;
+        case 68: _t->operatorMultiplicationScalarDoubleCase2(); break;
+        case 69: _t->operatorMultiplicationScalarLeftDoubleCase1(); break;
+        case 70: _t->operatorMultiplicationScalarLeftDoubleCase2(); break;
+        case 71: _t->operatorMultiplicationTFDoubleCase1(); break;
+        case 72: _t->operatorMultiplicationTFDoubleCase2(); break;
+        case 73: _t->operatorDivisionScalarDoubleCase1(); break;
+        case 74: _t->operatorDivisionScalarDoubleCase2(); break;
+        case 75: _t->operatorDivisionScalarLeftDoubleCase1(); break;
+        case 76: _t->operatorDivisionScalarLeftDoubleCase2(); break;
+        case 77: _t->operatorDivisionTFDoubleCase1(); break;
+        case 78: _t->operatorDivisionTFDoubleCase2(); break;
+        case 79: _t->stringConvertionCase1(); break;
+        case 80: _t->stringConvertionCase2(); break;
+        case 81: _t->stringConvertionCase3(); break;
+        case 82: _t->stringConvertionCase4(); break;
         default: ;
         }
     }
@@ -471,13 +498,13 @@ int TransferFunctionTest::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 77)
+        if (_id < 83)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 77;
+        _id -= 83;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 77)
+        if (_id < 83)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 77;
+        _id -= 83;
     }
     return _id;
 }

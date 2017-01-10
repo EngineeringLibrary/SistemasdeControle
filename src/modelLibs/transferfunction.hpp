@@ -367,7 +367,6 @@ std::string ModelHandler::TransferFunction<Type>::ContinuosSecondOrderCaracteris
     return ret;
 }
 
-//#include "../../../../headers/modelLibs/transferfunction.h"
 template <typename Type>
 void ModelHandler::TransferFunction<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output)
 {

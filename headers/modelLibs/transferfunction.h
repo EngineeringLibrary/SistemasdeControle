@@ -1,13 +1,6 @@
 #ifndef TRANSFERFUNCTION_H
 #define TRANSFERFUNCTION_H
 
-//#ifdef testModel
-//    #include "../../../headers/modelLibs/model.h"
-//    #include "../../../headers/modelLibs/statespace.h"
-//#else
-//    #include "SistemasdeControle/headers/modelLibs/model.h"
-//    #include "SistemasdeControle/headers/modelLibs/statespace.h"
-//#endif
 #include "model.h"
 #include "statespace.h"
 namespace ModelHandler {
@@ -66,6 +59,7 @@ namespace ModelHandler {
         TransferFunction<Type> operator/= (const Type& rhs /*scalar*/){ return TransferFunction<Type>(this->TF *= 1/rhs);}
         template<typename RightType>
         TransferFunction<Type> operator/= (const TransferFunction<RightType>& rhs){return TransferFunction<Type>(this->TF *= LinAlg::Inverse(rhs.TF));}
+        operator std::string() const{ std::string str; str << *this; return str;}
 
         Type sim(Type input);
         Type sim(Type x, Type y);
@@ -92,6 +86,8 @@ namespace ModelHandler {
     template<typename LeftType, typename RightType>
     TransferFunction<LeftType> operator+ (TransferFunction<LeftType> lhs, const TransferFunction<RightType>& rhs) {return lhs += rhs;}
 
+    template<typename PolynomType>
+    TransferFunction<PolynomType> operator- (TransferFunction<PolynomType> rhs){return -1*rhs;}
     template<typename PolynomType, typename ScalarType>
     TransferFunction<PolynomType> operator- (TransferFunction<PolynomType> lhs, const ScalarType& rhs) {return lhs -= rhs;}
     template<typename PolynomType, typename ScalarType>

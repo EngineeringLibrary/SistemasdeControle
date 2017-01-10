@@ -25,7 +25,6 @@ private Q_SLOTS:
     void TFDiscretePolynomConstructorDouble ();
     void TFDiscreteMatrixPolynomConstructorDouble ();
     void TFDiscreteMatrixNumDenConstructorDouble ();
-
     void isContinuousDouble ();
     void getSampleTimeDouble ();
     void getNumberOfRowsDouble ();
@@ -34,19 +33,18 @@ private Q_SLOTS:
     void getNumberOfInputsDouble ();
     void getNumberOfOutputsDouble ();
     void getTimeSimulationDouble ();
-
     void setContinuousDouble ();
     void setSampleTimeDouble ();
     void operatorParenthesisDoubleCase1 ();
     void operatorParenthesisDoubleCase2 ();
-    void operatorAtributionDoubleCase1();
-    void operatorAtributionDoubleCase2();
-    void operatorAtributionDoubleCase3();
-    void operatorAtributionDoubleCase4();
-    void operatorAtributionDoubleCase5();
-    void operatorAtributionDoubleCase6();
-    void operatorAtributionDoubleCase7();
-    void operatorAtributionDoubleCase8();
+    void operatorAtributionDoubleCase1 ();
+    void operatorAtributionDoubleCase2 ();
+    void operatorAtributionDoubleCase3 ();
+    void operatorAtributionDoubleCase4 ();
+    void operatorAtributionDoubleCase5 ();
+    void operatorAtributionDoubleCase6 ();
+    void operatorAtributionDoubleCase7 ();
+    void operatorAtributionDoubleCase8 ();
     void operatorSumAccumulatorScalarDoubleCase1 ();
     void operatorSumAccumulatorScalarDoubleCase2 ();
     void operatorSumAccumulatorTFDoubleCase1 ();
@@ -63,22 +61,16 @@ private Q_SLOTS:
     void operatorDivisionAccumulatorScalarDoubleCase2 ();
     void operatorDivisionAccumulatorTFDoubleCase1 ();
     void operatorDivisionAccumulatorTFDoubleCase2 ();
-
-
-
     void simInputDouble ();
     void simInputOutputDouble ();
     void simMatrixInputDoubleCase1 ();
     void simMatrixInputDoubleCase2 ();
     void simMatrixOutputDouble ();
     void simRange ();
-    void ContinuosFirstOrderCaracteristics();
-    void ContinuosSecondOrderCaracteristics();
-
-
-
-
-//    void operatorMinus ();
+    void ContinuosFirstOrderCaracteristics ();
+    void ContinuosSecondOrderCaracteristics ();
+    void operatorMinusCase1 ();
+    void operatorMinusCase2 ();
     void operatorSumScalarDoubleCase1 ();
     void operatorSumScalarDoubleCase2 ();
     void operatorSumScalarLeftDoubleCase1 ();
@@ -103,21 +95,10 @@ private Q_SLOTS:
     void operatorDivisionScalarLeftDoubleCase2 ();
     void operatorDivisionTFDoubleCase1 ();
     void operatorDivisionTFDoubleCase2 ();
-
-//    TransferFunction<PolynomType> operator+ (TransferFunction<PolynomType> lhs, const ScalarType& rhs) {return lhs += rhs;}
-//    TransferFunction<PolynomType> operator+ (const ScalarType& lhs, TransferFunction<PolynomType> rhs) {return rhs += lhs;}
-//    TransferFunction<LeftType> operator+ (TransferFunction<LeftType> lhs, const TransferFunction<RightType>& rhs) {return lhs += rhs;}
-//    TransferFunction<PolynomType> operator- (TransferFunction<PolynomType> lhs, const ScalarType& rhs) {return lhs -= rhs;}
-//    TransferFunction<PolynomType> operator- (const ScalarType& lhs, TransferFunction<PolynomType> rhs) {return -1*(rhs -= lhs);}
-//    TransferFunction<LeftType> operator- (TransferFunction<LeftType> lhs, const TransferFunction<RightType>& rhs)
-//    TransferFunction<PolynomType>  operator* (TransferFunction<PolynomType>  lhs, const ScalarType& rhs) {return lhs *= rhs;}
-//    TransferFunction<PolynomType>  operator* (const ScalarType& lhs, TransferFunction<PolynomType>  rhs) {return rhs *= lhs;}
-//    TransferFunction<LeftType> operator* (TransferFunction<LeftType> lhs, const TransferFunction<RightType>& rhs) {return lhs *= rhs;}
-//    TransferFunction<PolynomType> operator/ (TransferFunction<PolynomType> lhs, const ScalarType& rhs) {return lhs /= rhs;}
-//    TransferFunction<PolynomType> operator/ (ScalarType rhs, TransferFunction<PolynomType> lhs) {return TransferFunction<PolynomType>(rhs) /= lhs;}
-//    TransferFunction<LeftType> operator/ (TransferFunction<LeftType> lhs, const TransferFunction<RightType>& rhs) {return lhs /= rhs;}
-//    std::ostream& operator<< (std::ostream& output, ModelHandler::TransferFunction<Type> TF);
-//    std::string&  operator<< (std::string& output,  ModelHandler::TransferFunction<Type> TF);
+    void stringConvertionCase1 ();
+    void stringConvertionCase2 ();
+    void stringConvertionCase3 ();
+    void stringConvertionCase4 ();
 };
 
 void TransferFunctionTest::TFVoidConstructorDouble ()
@@ -918,12 +899,12 @@ void TransferFunctionTest::simMatrixInputDoubleCase2 ()
 
 void TransferFunctionTest::simMatrixOutputDouble ()
 {
-    std::cout << "Função não implementada" << std::endl;
+    QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);
 }
 
 void TransferFunctionTest::simRange ()
 {
-    std::cout << "Função não implementada" << std::endl;
+    QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);
 }
 
 void TransferFunctionTest::ContinuosFirstOrderCaracteristics()
@@ -956,6 +937,44 @@ void TransferFunctionTest::ContinuosSecondOrderCaracteristics()
              "Sobressinal Maximo: 0.163034\n"
              "Razao de decaimento: 0.0265799\n"
              "Tempo para o primeiro Pico: 3.6276\n", "Falhou ao testar as caracteristicas do sistema de segunda ordem");
+}
+
+void TransferFunctionTest::operatorMinusCase1 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> A = C, B = C;
+    QBENCHMARK {
+        A = -B;
+    }
+    QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 1, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::operatorMinusCase2 ()
+{
+    PolynomHandler::Polynom<double> C("1","1,2,1");
+    ModelHandler::TransferFunction<double> B(2,2);
+    B(1,1) = C; B(1,2) = C; B(2,1) = C; B(2,2) = C;
+    ModelHandler::TransferFunction<double> A;
+    QBENCHMARK {
+        A = -B;
+    }
+    QVERIFY2(A.getNumberOfRows() == 2 && A.getNumberOfColumns() == 2, "Falhou ao testar o tamanho da Funcao de transferencia");
+    QVERIFY2(A.isContinuous() && A.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(A(1,1).getNum()(1,1) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,1).getDen()(1,1) == 1 && A(1,1).getDen()(1,2) == 2 && A(1,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(1,2).getNum()(1,1) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(1,2).getDen()(1,1) == 1 && A(1,2).getDen()(1,2) == 2 && A(1,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,1).getNum()(1,1) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,1).getDen()(1,1) == 1 && A(2,1).getDen()(1,2) == 2 && A(2,1).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A(2,2).getNum()(1,1) == -1,  "Falhou ao verificar os valores do numerador da funcao de transferencia");
+    QVERIFY2(A(2,2).getDen()(1,1) == 1 && A(2,2).getDen()(1,2) == 2 && A(2,2).getDen()(1,3) == 1, "Falhou ao verificar os valores do denominador da funcao de transferencia");
+    QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
+    QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
 }
 
 void TransferFunctionTest::operatorSumScalarDoubleCase1 ()
@@ -1440,6 +1459,64 @@ void TransferFunctionTest::operatorDivisionTFDoubleCase2 ()
     QVERIFY2(A(2,2).getDen()(1,1) == 4  && A(2,2).getDen()(1,2) == 20  && A(2,2).getDen()(1,3) == 36 && A(2,2).getDen()(1,4) == 28  && A(2,2).getDen()(1,5) == 8, "Falhou ao verificar os valores do denominador da funcao de transferencia");
     QVERIFY2(A.getVar() == 's', "Falhou ao verificar a variavel da funcao de transferencia");
     QVERIFY2(sizeof(A) == sizeof(ModelHandler::TransferFunction<double>), "Falhou ao comparar o tipo da funcao de transferencia");
+}
+
+void TransferFunctionTest::stringConvertionCase1 ()
+{
+    ModelHandler::TransferFunction<double> B("1","1,1");
+    std::string A = B;
+    QBENCHMARK {
+        std::string A = B;
+    }
+
+    QVERIFY2(sizeof(A) == sizeof(std::string), "Falhou ao comparar o tipo string");
+    QVERIFY2(A == "The continuous transfer function is:\n\n       1.000            \n------------------      \n   s +   1.000          \n\n", "Falhou ao verificar a conversão da ft em string");
+}
+
+void TransferFunctionTest::stringConvertionCase2 ()
+{
+    PolynomHandler::Polynom<double> D("1","1,1");
+    ModelHandler::TransferFunction<double> B(2,2);
+    B(1,1) = D; B(1,2) = D; B(2,1) = D; B(2,2) = D;
+
+    std::string A = B;
+    QBENCHMARK {
+        std::string A = B;
+    }
+
+    QVERIFY2(sizeof(A) == sizeof(std::string), "Falhou ao comparar o tipo string");
+    QVERIFY2(A == "The continuous transfer function is:\n\n       1.000                   1.000            \n------------------      ------------------      \n   s +   1.000             s +   1.000          \n\n       1.000                   1.000            \n------------------      ------------------      \n   s +   1.000             s +   1.000          \n\n", "Falhou ao verificar a conversão da ft em string");
+}
+
+void TransferFunctionTest::stringConvertionCase3 ()
+{
+    ModelHandler::TransferFunction<double> B("1","1,1");
+    std::string A;
+    A << B;
+    QBENCHMARK {
+        std::string A;
+        A << B;
+    }
+
+    QVERIFY2(sizeof(A) == sizeof(std::string), "Falhou ao comparar o tipo string");
+    QVERIFY2(A == "The continuous transfer function is:\n\n       1.000            \n------------------      \n   s +   1.000          \n\n", "Falhou ao verificar a conversão da ft em string");
+}
+
+void TransferFunctionTest::stringConvertionCase4 ()
+{
+    PolynomHandler::Polynom<double> D("1","1,1");
+    ModelHandler::TransferFunction<double> B(2,2);
+    B(1,1) = D; B(1,2) = D; B(2,1) = D; B(2,2) = D;
+
+    std::string A;
+    A << B;
+    QBENCHMARK {
+        std::string A;
+        A << B;
+    }
+
+    QVERIFY2(sizeof(A) == sizeof(std::string), "Falhou ao comparar o tipo string");
+    QVERIFY2(A == "The continuous transfer function is:\n\n       1.000                   1.000            \n------------------      ------------------      \n   s +   1.000             s +   1.000          \n\n       1.000                   1.000            \n------------------      ------------------      \n   s +   1.000             s +   1.000          \n\n", "Falhou ao verificar a conversão da ft em string");
 }
 
 QTEST_APPLESS_MAIN(TransferFunctionTest)
