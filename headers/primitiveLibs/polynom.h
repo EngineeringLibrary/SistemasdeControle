@@ -57,6 +57,7 @@ namespace PolynomHandler {
 
             Polynom<Type>& operator^= (int scalar);
             bool operator==  (const PolynomHandler::Polynom<Type>& pol);
+            operator std::string() const{ std::string str; str << *this; return str;}
 
         private:
             char x;

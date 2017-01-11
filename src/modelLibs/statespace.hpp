@@ -5,6 +5,16 @@
 #endif
 
 template <typename Type>
+ModelHandler::StateSpace<Type>::StateSpace()
+{
+    this->Continuous         = true;
+    this->step               =  0.1;
+    this->timeSimulation     =   10;
+    this->nDiscretization    =    6;
+    this->firstTimeKalmanObserver = 0;
+}
+
+template <typename Type>
 ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> B,
                                  LinAlg::Matrix<Type> C, LinAlg::Matrix<Type> D)
 {
@@ -13,8 +23,8 @@ ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> A, LinAlg::Matri
     this->C                  =    C;
     this->D                  =    D;
     this->Continuous         = true;
-    this->SampleTime         =  0.1;
-    this->TimeSimulation     =   10;
+    this->step               =  0.1;
+    this->timeSimulation     =   10;
     this->nDiscretization    =    6;
     this->firstTimeKalmanObserver = 0;
 
@@ -25,15 +35,15 @@ ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> A, LinAlg::Matri
 template <typename Type>
 ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> Ad, LinAlg::Matrix<Type> Bd,
                                  LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D ,
-                                 Type SampleTime)
+                                 Type step)
 {
     this->Ad                 =    Ad;
     this->Bd                 =    Bd;
     this->C                  =    C;
     this->D                  =    D;
     this->Continuous         = false;
-    this->SampleTime         = SampleTime;
-    this->TimeSimulation     =   10;
+    this->step               = step;
+    this->timeSimulation     =   10;
     this->firstTimeKalmanObserver = 0;
     this->nDiscretization    =    6;
 
@@ -55,10 +65,10 @@ ModelHandler::StateSpace<Type>& ModelHandler::StateSpace<Type>::operator= (const
     this->firstTimeKalmanObserver = 0;
 
     this->Continuous   = otherStateSpaceFunction.Continuous;
-    this->SampleTime   = otherStateSpaceFunction.SampleTime;
+    this->step         = otherStateSpaceFunction.getSampleTime();
     this->initialState = otherStateSpaceFunction.initialState;
 
-    this->TimeSimulation  = otherStateSpaceFunction.TimeSimulation;
+    this->timeSimulation  = otherStateSpaceFunction.getTimeSimulation();
     this->nDiscretization = otherStateSpaceFunction.nDiscretization;
 
     return *this;
@@ -71,9 +81,9 @@ bool ModelHandler::StateSpace<Type>::isContinuous() const
 }
 
 template <typename Type>
-double ModelHandler::StateSpace<Type>::getSampleTime() const
+Type ModelHandler::StateSpace<Type>::getSampleTime() const
 {
-    return this->SampleTime;
+    return this->step;
 }
 
 template <typename Type>
@@ -137,9 +147,9 @@ void ModelHandler::StateSpace<Type>::setD(LinAlg::Matrix<Type> D)
 }
 
 template <typename Type>
-void ModelHandler::StateSpace<Type>::setSampleTime(double SampleTime)
+void ModelHandler::StateSpace<Type>::setSampleTime(Type step)
 {
-    this->SampleTime = SampleTime;
+    this->step = step;
 }
 
 template <typename Type>
@@ -316,10 +326,10 @@ void ModelHandler::StateSpace<Type>::c2dConversion()
 //    unsigned factor =  (unsigned)(LinAlg::max(LinAlg::abs(LinAlg::EigenValues(A))));
 //
 //    for(unsigned n = 0; n < Nsize; ++n)
-//        Npq += ((factorial(Nsize + Dsize - n)*factorial(Nsize)/(factorial(Nsize + Dsize)*factorial(n)*(Nsize - n))))*((A*SampleTime/factor)^n);
+//        Npq += ((factorial(Nsize + Dsize - n)*factorial(Nsize)/(factorial(Nsize + Dsize)*factorial(n)*(Nsize - n))))*((A*step/factor)^n);
 
 //    for(unsigned n = 0; n < Dsize; ++n)
-//        Dpq += ((factorial(Nsize + Dsize - n)*factorial(Dsize)/(factorial(Nsize + Dsize)*factorial(n)*(Dsize - n))))*((-A*SampleTime/factor)^n);
+//        Dpq += ((factorial(Nsize + Dsize - n)*factorial(Dsize)/(factorial(Nsize + Dsize)*factorial(n)*(Dsize - n))))*((-A*step/factor)^n);
 
 //    Ad = ((Dpq^-1)*Npq)^factor;
 
@@ -333,7 +343,7 @@ void ModelHandler::StateSpace<Type>::c2dConversion()
 
     //taylor
     for(unsigned i = 0; i < nDiscretization; ++i){
-        Ad += (1/factorial(i))*((A*SampleTime/factor)^i);
+        Ad += (1/factorial(i))*((A*this->step/factor)^i);
 //        std::cout << A <<"\n"<< Ad;
     }
     Ad ^= factor;
@@ -345,7 +355,7 @@ void ModelHandler::StateSpace<Type>::d2cConversion()
 {
     LinAlg::Matrix<Type> I = LinAlg::Eye<Type> (Ad.getNumberOfRows());
 
-    A = (Ad - I)/SampleTime;
+    A = (Ad - I)/this->step;
     B = (((A^-1)*(Ad - I))^-1)*Bd;
 }
 

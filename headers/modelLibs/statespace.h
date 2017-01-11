@@ -11,7 +11,7 @@ namespace ModelHandler {
     class StateSpace : public Model<Type>
     {
     public:
-        StateSpace(){}
+        StateSpace();
         StateSpace(LinAlg::Matrix<Type> A , LinAlg::Matrix<Type> B,
                    LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D); //ok
         StateSpace(LinAlg::Matrix<Type> Ad, LinAlg::Matrix<Type> Bd,
@@ -20,23 +20,25 @@ namespace ModelHandler {
 
         StateSpace<Type>& operator= (const StateSpace<Type>& otherStateSpaceFunction); //ok
 
-        double getSampleTime() const; // ok
+        Type getSampleTime() const; // ok
+        Type getTimeSimulation() const{return this->timeSimulation;} // ok
+
         LinAlg::Matrix<Type> getA() const; //ok
         LinAlg::Matrix<Type> getB() const; //ok
         LinAlg::Matrix<Type> getC() const; //ok
         LinAlg::Matrix<Type> getD() const; //ok
         LinAlg::Matrix<Type> getActualState() const; //ok
 
-        unsigned getNumberOfVariables() const {}
-        unsigned getNumberOfInputs() const {}
-        unsigned getNumberOfOutputs() const {}
+        unsigned getNumberOfVariables() const {return 0;}
+        unsigned getNumberOfInputs() const {return 0;}
+        unsigned getNumberOfOutputs() const {return 0;}
 
         void setA(LinAlg::Matrix<Type> A); //ok
         void setB(LinAlg::Matrix<Type> B); //ok
         void setC(LinAlg::Matrix<Type> C); //ok
         void setD(LinAlg::Matrix<Type> D); //ok
         void setContinuous(bool Continuous); //ok
-        void setSampleTime(double SampleTime); //ok
+        void setSampleTime(Type SampleTime); //ok
         void setInitialState(LinAlg::Matrix<Type> X0); //ok
         void setLinearModel(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
         void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
@@ -57,6 +59,7 @@ namespace ModelHandler {
         void c2dConversion(); //ok
         void d2cConversion();
         std::string print(); //ok
+        operator std::string() const{ std::string str; str << *this; return str;}
 
     private:
         Type factorial(unsigned n); // ok
@@ -64,7 +67,6 @@ namespace ModelHandler {
 
         bool Continuous,firstTimeKalmanObserver;
         unsigned nDiscretization;
-        Type SampleTime, TimeSimulation;
         LinAlg::Matrix<Type> A, B, C, D, Ad, Bd, X, L, initialState,P;
     };
 
