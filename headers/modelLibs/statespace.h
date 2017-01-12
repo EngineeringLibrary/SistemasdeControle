@@ -13,21 +13,33 @@ namespace ModelHandler {
     public:
         StateSpace();
         StateSpace(LinAlg::Matrix<Type> A , LinAlg::Matrix<Type> B,
-                   LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D); //ok
+                   LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D);
         StateSpace(LinAlg::Matrix<Type> Ad, LinAlg::Matrix<Type> Bd,
                    LinAlg::Matrix<Type> C , LinAlg::Matrix<Type> D,
-                   Type SampleTime); //ok
+                   Type SampleTime);
+        template<typename OtherType>
+        StateSpace(const ModelHandler::StateSpace<OtherType>& otherStateSpaceFunction);
 
-        StateSpace<Type>& operator= (const StateSpace<Type>& otherStateSpaceFunction); //ok
+        StateSpace<Type>& operator= (const StateSpace<Type>& otherStateSpaceFunction);
+        template<typename OtherStateSpaceFunctionType>
+        StateSpace<Type>& operator= (const StateSpace<OtherStateSpaceFunctionType>& otherStateSpaceFunction);
+
+        operator std::string() const{ std::string str; str << *this; return str;}
 
         Type getSampleTime() const; // ok
         Type getTimeSimulation() const{return this->timeSimulation;} // ok
+        unsigned getnDiscretizationParameter() const {return nDiscretization;}
 
         LinAlg::Matrix<Type> getA() const; //ok
         LinAlg::Matrix<Type> getB() const; //ok
         LinAlg::Matrix<Type> getC() const; //ok
         LinAlg::Matrix<Type> getD() const; //ok
+        LinAlg::Matrix< LinAlg::Matrix<Type>* >* getContinuousParameters() const;
+        LinAlg::Matrix< LinAlg::Matrix<Type>* >* getDiscreteParameters() const;
         LinAlg::Matrix<Type> getActualState() const; //ok
+        LinAlg::Matrix<Type> getObserverParameters() const{return L;} //ok
+        LinAlg::Matrix<Type> getContinuousObserverParametersByAckerman(LinAlg::Matrix<Type> polesToBePlaced);
+        LinAlg::Matrix<Type> getKalmanFilterParameters() const{return P;}
 
         unsigned getNumberOfVariables() const {return 0;}
         unsigned getNumberOfInputs() const {return 0;}
@@ -42,13 +54,13 @@ namespace ModelHandler {
         void setInitialState(LinAlg::Matrix<Type> X0); //ok
         void setLinearModel(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
         void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
-        void SetObserverParameter(LinAlg::Matrix<Type> L);//ok
+        void setObserverParameters(LinAlg::Matrix<Type> L);//ok
 
         bool isContinuous()  const;
         bool isObservable()  const;
         bool isControlable() const;
-        LinAlg::Matrix<Type> Observer(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y);
-        LinAlg::Matrix<Type> KalmanFilterObserver(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y);
+        LinAlg::Matrix<Type> ObserverLoop(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y);
+        LinAlg::Matrix<Type> KalmanFilterObserverLoop(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y);
 
         Type sim(Type u); //ok
         Type sim(Type u, Type y); // não é usado
@@ -59,13 +71,12 @@ namespace ModelHandler {
         void c2dConversion(); //ok
         void d2cConversion();
         std::string print(); //ok
-        operator std::string() const{ std::string str; str << *this; return str;}
 
     private:
         Type factorial(unsigned n); // ok
 
 
-        bool Continuous,firstTimeKalmanObserver;
+        bool continuous,firstTimeKalmanObserver;
         unsigned nDiscretization;
         LinAlg::Matrix<Type> A, B, C, D, Ad, Bd, X, L, initialState,P;
     };

@@ -7,7 +7,7 @@
 template <typename Type>
 ModelHandler::StateSpace<Type>::StateSpace()
 {
-    this->Continuous         = true;
+    this->continuous         = true;
     this->step               =  0.1;
     this->timeSimulation     =   10;
     this->nDiscretization    =    6;
@@ -22,7 +22,7 @@ ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> A, LinAlg::Matri
     this->B                  =    B;
     this->C                  =    C;
     this->D                  =    D;
-    this->Continuous         = true;
+    this->continuous         = true;
     this->step               =  0.1;
     this->timeSimulation     =   10;
     this->nDiscretization    =    6;
@@ -41,7 +41,7 @@ ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> Ad, LinAlg::Matr
     this->Bd                 =    Bd;
     this->C                  =    C;
     this->D                  =    D;
-    this->Continuous         = false;
+    this->continuous         = false;
     this->step               = step;
     this->timeSimulation     =   10;
     this->firstTimeKalmanObserver = 0;
@@ -50,26 +50,58 @@ ModelHandler::StateSpace<Type>::StateSpace(LinAlg::Matrix<Type> Ad, LinAlg::Matr
     this->initialState = LinAlg::Zeros<Type>(Ad.getNumberOfRows(),1);
     this->X = this->initialState;
 }
+
+template<typename Type> template<typename OtherType>
+ModelHandler::StateSpace<Type>::StateSpace(const ModelHandler::StateSpace<OtherType>& otherStateSpaceFunction)
+{
+    *(this->A,this->B,this->C,this->D) = otherStateSpaceFunction.getContinuousParameters();
+    *(this->Ad,this->Bd,this->C,this->D) = otherStateSpaceFunction.getDiscreteParameters();
+    this->X  = otherStateSpaceFunction.getActualState();
+    this->L  = otherStateSpaceFunction.getObserverParameters();
+    this->P = otherStateSpaceFunction.getKalmanFilterParameters();
+    this->firstTimeKalmanObserver = 0;
+    this->continuous = otherStateSpaceFunction.isContinuous();
+    this->step         = otherStateSpaceFunction.getSampleTime();
+    this->initialState = otherStateSpaceFunction.getActualState();
+
+    this->timeSimulation  = otherStateSpaceFunction.getTimeSimulation();
+    this->nDiscretization = otherStateSpaceFunction.getnDiscretizationParameter();
+}
+
 template <typename Type>
 ModelHandler::StateSpace<Type>& ModelHandler::StateSpace<Type>::operator= (const ModelHandler::StateSpace<Type>& otherStateSpaceFunction)
 {
-    this->A  = otherStateSpaceFunction.A;
-    this->B  = otherStateSpaceFunction.B;
-    this->C  = otherStateSpaceFunction.C;
-    this->D  = otherStateSpaceFunction.D;
-    this->X  = otherStateSpaceFunction.X;
-    this->L  = otherStateSpaceFunction.L;
-    this->Ad = otherStateSpaceFunction.Ad;
-    this->Bd = otherStateSpaceFunction.Bd;
-    this->P = otherStateSpaceFunction.P;
+    *(this->A,this->B,this->C,this->D) = otherStateSpaceFunction.getContinuousParameters();
+    *(this->Ad,this->Bd,this->C,this->D) = otherStateSpaceFunction.getDiscreteParameters();
+    this->X  = otherStateSpaceFunction.getActualState();
+    this->L  = otherStateSpaceFunction.getObserverParameters();
+    this->P = otherStateSpaceFunction.getKalmanFilterParameters();
     this->firstTimeKalmanObserver = 0;
-
-    this->Continuous   = otherStateSpaceFunction.Continuous;
+    this->continuous = otherStateSpaceFunction.isContinuous();
     this->step         = otherStateSpaceFunction.getSampleTime();
-    this->initialState = otherStateSpaceFunction.initialState;
+    this->initialState = otherStateSpaceFunction.getActualState();
 
     this->timeSimulation  = otherStateSpaceFunction.getTimeSimulation();
-    this->nDiscretization = otherStateSpaceFunction.nDiscretization;
+    this->nDiscretization = otherStateSpaceFunction.getnDiscretizationParameter();
+
+    return *this;
+}
+
+template<typename Type> template<typename OtherStateSpaceFunctionType> // não funciona
+ModelHandler::StateSpace<Type>& ModelHandler::StateSpace<Type>::operator= (const ModelHandler::StateSpace<OtherStateSpaceFunctionType>& otherStateSpaceFunction)
+{
+    *(this->A,this->B,this->C,this->D) = otherStateSpaceFunction.getContinuousParameters();
+    *(this->Ad,this->Bd,this->C,this->D) = otherStateSpaceFunction.getDiscreteParameters();
+    this->X  = otherStateSpaceFunction.getActualState();
+    this->L  = otherStateSpaceFunction.getObserverParameters();
+    this->P = otherStateSpaceFunction.getKalmanFilterParameters();
+    this->firstTimeKalmanObserver = 0;
+    this->continuous = otherStateSpaceFunction.isContinuous();
+    this->step         = otherStateSpaceFunction.getSampleTime();
+    this->initialState = otherStateSpaceFunction.getActualState();
+
+    this->timeSimulation  = otherStateSpaceFunction.getTimeSimulation();
+    this->nDiscretization = otherStateSpaceFunction.getnDiscretizationParameter();
 
     return *this;
 }
@@ -77,7 +109,7 @@ ModelHandler::StateSpace<Type>& ModelHandler::StateSpace<Type>::operator= (const
 template <typename Type>
 bool ModelHandler::StateSpace<Type>::isContinuous() const
 {
-    return this->Continuous;
+    return this->continuous;
 }
 
 template <typename Type>
@@ -87,9 +119,41 @@ Type ModelHandler::StateSpace<Type>::getSampleTime() const
 }
 
 template <typename Type>
+LinAlg::Matrix< LinAlg::Matrix<Type>* >* ModelHandler::StateSpace<Type>::getContinuousParameters() const
+{
+    LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,4);
+    (*A)(1,1) = new LinAlg::Matrix<Type>(this->A.getNumberOfRows(), this->A.getNumberOfColumns());
+    (*A)(1,2) = new LinAlg::Matrix<Type>(this->B.getNumberOfRows(), this->B.getNumberOfColumns());
+    (*A)(1,3) = new LinAlg::Matrix<Type>(this->C.getNumberOfRows(), this->C.getNumberOfColumns());
+    (*A)(1,4) = new LinAlg::Matrix<Type>(this->D.getNumberOfRows(), this->D.getNumberOfColumns());
+    (*((*A)(1,1))) = this->A;
+    (*((*A)(1,2))) = this->B;
+    (*((*A)(1,3))) = this->C;
+    (*((*A)(1,4))) = this->D;
+
+    return A;
+}
+
+template <typename Type>
+LinAlg::Matrix< LinAlg::Matrix<Type>* >* ModelHandler::StateSpace<Type>::getDiscreteParameters() const
+{
+    LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,4);
+    (*A)(1,1) = new LinAlg::Matrix<Type>(this->Ad.getNumberOfRows(), this->Ad.getNumberOfColumns());
+    (*A)(1,2) = new LinAlg::Matrix<Type>(this->Bd.getNumberOfRows(), this->Bd.getNumberOfColumns());
+    (*A)(1,3) = new LinAlg::Matrix<Type>(this->C.getNumberOfRows(), this->C.getNumberOfColumns());
+    (*A)(1,4) = new LinAlg::Matrix<Type>(this->D.getNumberOfRows(), this->D.getNumberOfColumns());
+    (*((*A)(1,1))) = this->Ad;
+    (*((*A)(1,2))) = this->Bd;
+    (*((*A)(1,3))) = this->C;
+    (*((*A)(1,4))) = this->D;
+
+    return A;
+}
+
+template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getA() const
 {
-    if(this->Continuous)
+    if(this->continuous)
         return this->A;
     else
         return this->Ad;
@@ -98,7 +162,7 @@ LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getA() const
 template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getB() const
 {
-    if(this->Continuous)
+    if(this->continuous)
         return this->B;
     else
         return this->Bd;
@@ -155,7 +219,7 @@ void ModelHandler::StateSpace<Type>::setSampleTime(Type step)
 template <typename Type>
 void ModelHandler::StateSpace<Type>::setContinuous(bool Continuous)
 {
-    this->Continuous = Continuous;
+    this->continuous = Continuous;
 }
 
 template <typename Type>
@@ -178,16 +242,32 @@ void ModelHandler::StateSpace<Type>::setLinearVector(LinAlg::Matrix<Type> Input,
 }
 
 template <typename Type>
-void ModelHandler::StateSpace<Type>::SetObserverParameter(LinAlg::Matrix<Type> L)
+void ModelHandler::StateSpace<Type>::setObserverParameters(LinAlg::Matrix<Type> L)
 {
     this->L = L;
+}
+
+template <typename Type>
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getContinuousObserverParametersByAckerman(LinAlg::Matrix<Type> polesToBePlaced)
+{
+    LinAlg::Matrix<Type> Qo;
+    this->P = LinAlg::Zeros<Type>(A.getNumberOfRows(), A.getNumberOfColumns());
+    for (unsigned i = 0; i < A.getNumberOfColumns(); ++i)
+        Qo = Qo||(C*(A^i));
+
+    for (unsigned i = 0; i <= A.getNumberOfColumns(); ++i)
+        this->P += ((~A)^i)*polesToBePlaced(1,polesToBePlaced.getNumberOfColumns()-i);
+
+    this->L = ~((LinAlg::Zeros<Type>(1,A.getNumberOfRows()-1)|1)*(((~Qo)^-1)*this->P));
+
+    return this->L;
 }
 
 template <typename Type>
 bool ModelHandler::StateSpace<Type>::isObservable() const
 {
     LinAlg::Matrix<Type> Qo;
-    if(this->Continuous)
+    if(this->continuous)
         for (unsigned i = 0; i < A.getNumberOfColumns(); ++i)
             Qo = Qo||(C*(A^i));
     else
@@ -202,7 +282,7 @@ template <typename Type>
 bool ModelHandler::StateSpace<Type>::isControlable() const
 {
     LinAlg::Matrix<Type> Qc;
-    if(this->Continuous)
+    if(this->continuous)
         for (unsigned i = 0; i < A.getNumberOfColumns(); ++i)
             Qc = Qc|((A^i)*B);
     else
@@ -216,7 +296,7 @@ bool ModelHandler::StateSpace<Type>::isControlable() const
 template <typename Type>
 Type ModelHandler::StateSpace<Type>::sim(Type u)
 {
-    if(this->Continuous)
+    if(this->continuous)
         this->c2dConversion();
 
 //    X = initialState;
@@ -238,18 +318,15 @@ Type ModelHandler::StateSpace<Type>::sim(Type u, Type y)
 template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::sim(LinAlg::Matrix<Type> u)
 {
-    if(this->Continuous)
+    if(this->continuous)
         this->c2dConversion();
 
     LinAlg::Matrix<Type> y;
-//    if()
-//    X = initialState;
     for(unsigned i = 0; i < u.getNumberOfColumns(); ++i)
     {
         LinAlg::Matrix<Type> Xi1 = Ad*X+Bd*u.getColumn(i+1);
         y = y|(C*X + D*u.getColumn(i+1));
         X = Xi1;
-//        std::cout << X << std::endl;
     }
 
     return y;
@@ -265,7 +342,7 @@ LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::sim(LinAlg::Matrix<Type> u,
 template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::sim(Type lmin, Type lmax, Type step)
 {
-    if(this->Continuous)
+    if(this->continuous)
         this->c2dConversion();
 
     LinAlg::Matrix<Type> y;
@@ -287,7 +364,7 @@ std::string ModelHandler::StateSpace<Type>::print()
 {
     std::string output;
 
-    if(this->Continuous == true){
+    if(this->continuous == true){
         output += "The Continuous State Space Model is: \n\nA = \n";
         output << this->A; output += "\n\nB = \n";
         output << this->B; output += "\n\nC = \n";
@@ -360,23 +437,20 @@ void ModelHandler::StateSpace<Type>::d2cConversion()
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::Observer(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y)
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::ObserverLoop(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y)
 {
-    if(this->Continuous)
+    if(this->continuous)
         this->c2dConversion();
-    LinAlg::Matrix<Type> Qo;
-    for (unsigned i = 0; i < Ad.getNumberOfColumns(); ++i)
-        Qo = Qo||(C*(Ad^i));
-    this->L = 0.2*LinAlg::Ones<Type>(this->X.getNumberOfRows(),1);
-
-    X = Ad*X + Bd*U + L*(Y - C*X);
+    if(this->L.getNumberOfRows() != this->A.getNumberOfRows())
+       this->L = this->getContinuousObserverParametersByAckerman(LinAlg::Ones<Type>(1,this->A.getNumberOfRows()));
+    X += this->step*(A*X + B*U + L*((Y - C*X)(1,1)));
     return X;
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::KalmanFilterObserver(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y)
+LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::KalmanFilterObserverLoop(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y)
 {
-    if(this->Continuous)
+    if(this->continuous)
         this->c2dConversion();
 //    if(!firstTimeKalmanObserver)
 //    P = LinAlg::Zeros<Type>(Ad.getNumberOfRows(),Ad.getNumberOfColumns());

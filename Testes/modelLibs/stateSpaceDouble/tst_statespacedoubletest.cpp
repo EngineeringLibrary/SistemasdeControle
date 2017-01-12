@@ -19,23 +19,22 @@ private Q_SLOTS:
     void SSVoidConstructorDouble ();
     void SSContinuousConstructorDouble ();
     void SSDiscreteConstructorDouble ();
-
-//    unsigned getNumberOfVariables() const {}
-//    unsigned getNumberOfInputs() const {}
-//    unsigned getNumberOfOutputs() const {}
-//    StateSpace<Type>& operator= (const StateSpace<Type>& otherStateSpaceFunction); //ok
-//    void setLinearModel(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
-//    void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
-//    void SetObserverParameter(LinAlg::Matrix<Type> L);//ok
-//    LinAlg::Matrix<Type> Observer(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y);
-//    LinAlg::Matrix<Type> KalmanFilterObserver(LinAlg::Matrix<Type> U, LinAlg::Matrix<Type> Y);
-
+    void copyConstructorDouble ();
+    void copyAssignmentDouble ();
+    void copyAssignmentOtherType ();
+    void stringConversion();
     void getSampleTime();
+    void getTimeSimulation();
+    void getnDiscretizationParameter();
     void getA();
     void getB();
     void getC();
     void getD();
+    void getContinuousParameters();
+    void getDiscreteParameters();
     void getActualState();
+    void getObserverParameters();//ok
+    void getContinuousObserverParametersByAckerman();
     void setA();
     void setB();
     void setC();
@@ -43,21 +42,30 @@ private Q_SLOTS:
     void setContinuous();
     void setSampleTime();
     void setInitialState();
+    void setObserverParameters();
     void isContinuous();
     void isObservableCase1();
     void isObservableCase2();
     void isControlableCase1();
     void isControlableCase2();
+    void ObserverLoop();
+    void simScalar(); //ok
+    void simMatrix(); //ok
+    void c2dConversion(); //ok
+    void d2cConversion();
+    void print(); //ok
+    void bufferString();
 
-//    Type sim(Type u); //ok
-//    Type sim(Type u, Type y); // não é usado
-//    LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> u); //ok
-//    LinAlg::Matrix<Type> sim(Type lmin, Type lmax, Type step); //ok
-//    LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> u, LinAlg::Matrix<Type> y); // não é usado
-
-//    void c2dConversion(); //ok
-//    void d2cConversion();
-//    std::string print(); //ok
+    void simScalarInOut() {QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
+    void sim(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
+    void simMatrixInOut(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
+    void getNumberOfVariables(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
+    void getNumberOfInputs(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
+    void getNumberOfOutputs(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
+    void setLinearModel(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
+    void setLinearVector(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
+    void getKalmanFilterParameters(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
+    void KalmanFilterObserver(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
 };
 
 void StateSpaceDoubleTest::SSVoidConstructorDouble ()
@@ -105,6 +113,60 @@ void StateSpaceDoubleTest::SSDiscreteConstructorDouble()
     QVERIFY2(sizeof(SS) == sizeof(ModelHandler::StateSpace<double>), "Falhou ao comparar o tipo da equacao de estados");
 }
 
+void StateSpaceDoubleTest::copyConstructorDouble ()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<long double> SS2(A,B,C,D);
+    ModelHandler::StateSpace<double> SS(SS2);
+    QBENCHMARK {
+        ModelHandler::StateSpace<double> SS(SS2);
+    }
+    QVERIFY2(SS.getTimeSimulation() == 10, "Falhou ao comparar o tempo de simulacao.");
+    QVERIFY2(SS.isContinuous() && SS.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(SS.getA()(1,1) == 0 && SS.getA()(1,2) == 1 && SS.getA()(2,1) == -1 && SS.getA()(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getB()(1,1) == 0) & (SS.getB()(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getC()(1,1) == 1) & (SS.getC()(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getD()(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getActualState()(1,1) == 0 && SS.getActualState()(2,1) == 0, "Falhou ao verificar a matriz de estados");
+    QVERIFY2(sizeof(SS) == sizeof(ModelHandler::StateSpace<double>), "Falhou ao comparar o tipo da equacao de estados");
+}
+
+void StateSpaceDoubleTest::copyAssignmentDouble ()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS2(A,B,C,D);
+    ModelHandler::StateSpace<double> SS = SS2;
+    QBENCHMARK {
+        ModelHandler::StateSpace<double> SS = SS2;
+    }
+    QVERIFY2(SS.getTimeSimulation() == 10, "Falhou ao comparar o tempo de simulacao.");
+    QVERIFY2(SS.isContinuous() && SS.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(SS.getA()(1,1) == 0 && SS.getA()(1,2) == 1 && SS.getA()(2,1) == -1 && SS.getA()(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getB()(1,1) == 0) & (SS.getB()(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getC()(1,1) == 1) & (SS.getC()(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getD()(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getActualState()(1,1) == 0 && SS.getActualState()(2,1) == 0, "Falhou ao verificar a matriz de estados");
+    QVERIFY2(sizeof(SS) == sizeof(ModelHandler::StateSpace<double>), "Falhou ao comparar o tipo da equacao de estados");
+}
+
+void StateSpaceDoubleTest::copyAssignmentOtherType ()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<long double> SS2(A,B,C,D);
+    ModelHandler::StateSpace<double> SS = SS2;
+    QBENCHMARK {
+        ModelHandler::StateSpace<double> SS = SS2;
+    }
+    QVERIFY2(SS.getTimeSimulation() == 10, "Falhou ao comparar o tempo de simulacao.");
+    QVERIFY2(SS.isContinuous() && SS.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+    QVERIFY2(SS.getA()(1,1) == 0 && SS.getA()(1,2) == 1 && SS.getA()(2,1) == -1 && SS.getA()(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getB()(1,1) == 0) & (SS.getB()(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getC()(1,1) == 1) & (SS.getC()(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getD()(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getActualState()(1,1) == 0 && SS.getActualState()(2,1) == 0, "Falhou ao verificar a matriz de estados");
+    QVERIFY2(sizeof(SS) == sizeof(ModelHandler::StateSpace<double>), "Falhou ao comparar o tipo da equacao de estados");
+}
+
 void StateSpaceDoubleTest::getSampleTime()
 {
     LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
@@ -113,6 +175,26 @@ void StateSpaceDoubleTest::getSampleTime()
         SS.getSampleTime();
     }
     QVERIFY2(!SS.isContinuous() && SS.getSampleTime() == 0.2, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+}
+
+void StateSpaceDoubleTest::getTimeSimulation()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D,0.2);
+    QBENCHMARK {
+        SS.getTimeSimulation();
+    }
+    QVERIFY2(SS.getTimeSimulation() == 10, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
+}
+
+void StateSpaceDoubleTest::getnDiscretizationParameter()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D,0.2);
+    QBENCHMARK {
+        SS.getnDiscretizationParameter();
+    }
+    QVERIFY2(SS.getnDiscretizationParameter() == 6, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
 }
 
 void StateSpaceDoubleTest::getA()
@@ -155,6 +237,34 @@ void StateSpaceDoubleTest::getD()
     QVERIFY2(SS.getD()(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
 }
 
+void StateSpaceDoubleTest::getContinuousParameters()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    LinAlg::Matrix<double> As, Bs, Cs, Ds;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    QBENCHMARK {
+        *(As,Bs,Cs,Ds) = SS.getContinuousParameters();
+    }
+    QVERIFY2(As(1,1) == 0 && As(1,2) == 1 && As(2,1) == -1 && As(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((Bs(1,1) == 0) & (Bs(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((Cs(1,1) == 1) & (Cs(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(Ds(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+}
+
+void StateSpaceDoubleTest::getDiscreteParameters()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    LinAlg::Matrix<double> As, Bs, Cs, Ds;
+    ModelHandler::StateSpace<double> SS(A,B,C,D,0.1);
+    QBENCHMARK {
+        *(As,Bs,Cs,Ds) = SS.getDiscreteParameters();
+    }
+    QVERIFY2(As(1,1) == 0 && As(1,2) == 1 && As(2,1) == -1 && As(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((Bs(1,1) == 0) & (Bs(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((Cs(1,1) == 1) & (Cs(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(Ds(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+}
+
 void StateSpaceDoubleTest::getActualState()
 {
     LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
@@ -163,6 +273,27 @@ void StateSpaceDoubleTest::getActualState()
         SS.getActualState();
     }
     QVERIFY2(SS.getActualState()(1,1) == 0 && SS.getActualState()(2,1) == 0, "Falhou ao verificar a matriz de estados");
+}
+
+void StateSpaceDoubleTest::getObserverParameters()
+{
+    LinAlg::Matrix<double> A = "-2,0;0,-1", B = "2;1", C = "3,0", D = 0.0, L;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    SS.setObserverParameters("1;2");
+    QBENCHMARK {
+        L = SS.getObserverParameters();
+    }
+    QVERIFY2(SS.getObserverParameters()(1,1) == 1 && SS.getObserverParameters()(2,1) == 2, "Falhou ao verificar a controlabilidade do sistema");
+}
+
+void StateSpaceDoubleTest::getContinuousObserverParametersByAckerman()
+{
+    LinAlg::Matrix<double> A = "-1,1;1,-2", B = "1;0", C = "1,0", D = 0.0, L;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    QBENCHMARK {
+        L = SS.getContinuousObserverParametersByAckerman("1,11,30");
+    }
+    QVERIFY2(L (1,1) == 8 && L(2,1) == 13, "Falhou ao verificar os parametros do observador");
 }
 
 void StateSpaceDoubleTest::setA()
@@ -283,6 +414,147 @@ void StateSpaceDoubleTest::isControlableCase2()
         SS.isControlable();
     }
     QVERIFY2(!SS.isControlable(), "Falhou ao verificar a controlabilidade do sistema");
+}
+
+void StateSpaceDoubleTest::ObserverLoop()
+{
+    LinAlg::Matrix<double> A = "-1,1;1,-2", B = "1;0", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    ModelHandler::StateSpace<double> SS2 = SS;
+    SS2.getContinuousObserverParametersByAckerman("1,11,30");
+    double Y;
+    QBENCHMARK {
+        SS.setInitialState("1;0");
+        SS2.setInitialState("0;0");
+
+        for(unsigned i = 0; i < 50; ++i)
+        {
+            Y = SS.sim(1.0);
+            SS2.ObserverLoop(1.0,Y);
+        }
+    }
+    QVERIFY2( fabs(SS.getActualState()(1,1) - SS2.getActualState()(1,1)) < 0.001 && fabs(SS.getActualState()(2,1) - SS2.getActualState()(2,1)) < 0.001, "Falhou ao verificar os valores de simulação do sistema.");
+}
+
+void StateSpaceDoubleTest::simScalar()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    LinAlg::Matrix<double> Y;
+    QBENCHMARK {
+        SS.setInitialState("0;0");
+        Y = LinAlg::Matrix<double>(SS.sim(1.0));
+        for(unsigned i = 0; i < 10; ++i)
+        {
+            Y = Y|SS.sim(1.0);
+        }
+    }
+
+    QVERIFY2( fabs(Y(1,1) - 0) < 0.001 && fabs(Y(1,2) - 0.0047) < 0.001 &&
+              fabs(Y(1,3) - 0.0175) < 0.001 && fabs(Y(1,4) - 0.0369) < 0.001 &&
+              fabs(Y(1,5) - 0.0616) < 0.001 && fabs(Y(1,6) - 0.0902) < 0.001 &&
+              fabs(Y(1,7) - 0.1219) < 0.001 && fabs(Y(1,8) - 0.1558) < 0.001 &&
+              fabs(Y(1,9) - 0.1912) < 0.001 && fabs(Y(1,10) - 0.2275) < 0.001 && fabs(Y(1,11) - 0.2642) < 0.001, "Falhou ao verificar os valores de simulação do sistema.");
+}
+
+void StateSpaceDoubleTest::simMatrix()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    LinAlg::Matrix<double> Y;
+    QBENCHMARK {
+        SS.setInitialState("0;0");
+        Y = SS.sim("1,1,1,1,1,1,1,1,1,1,1");
+    }
+
+    QVERIFY2( fabs(Y(1,1) - 0) < 0.001 && fabs(Y(1,2) - 0.0047) < 0.001 &&
+              fabs(Y(1,3) - 0.0175) < 0.001 && fabs(Y(1,4) - 0.0369) < 0.001 &&
+              fabs(Y(1,5) - 0.0616) < 0.001 && fabs(Y(1,6) - 0.0902) < 0.001 &&
+              fabs(Y(1,7) - 0.1219) < 0.001 && fabs(Y(1,8) - 0.1558) < 0.001 &&
+              fabs(Y(1,9) - 0.1912) < 0.001 && fabs(Y(1,10) - 0.2275) < 0.001 && fabs(Y(1,11) - 0.2642) < 0.001, "Falhou ao verificar os valores de simulação do sistema.");
+}
+
+void StateSpaceDoubleTest::c2dConversion()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    SS.setContinuous(false);
+    SS.c2dConversion();
+    QBENCHMARK {
+        ModelHandler::StateSpace<double> SS(A,B,C,D);
+        SS.setContinuous(false);
+        SS.c2dConversion();
+    }
+
+//    std::cout << SS << std::endl;
+    QVERIFY2( fabs(SS.getA()(1,1) - 0.995) < 0.001 && fabs(SS.getA()(1,2) - 0.090) < 0.001 &&
+              fabs(SS.getA()(2,1) - (-0.09)) < 0.001 && fabs(SS.getA()(2,2) - 0.814) < 0.001, "Falhou ao verificar a matriz discreta");
+    QVERIFY2( fabs(SS.getB()(1,1) - 0.005) < 0.001 && fabs(SS.getB()(2,1) - 0.090) < 0.001, "Falhou ao verificar a matriz discreta");
+}
+
+void StateSpaceDoubleTest::d2cConversion()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    SS.c2dConversion();
+    SS.d2cConversion();
+    QBENCHMARK {
+        ModelHandler::StateSpace<double> SS(A,B,C,D);
+        SS.c2dConversion();
+        SS.d2cConversion();
+    }
+
+    QVERIFY2( fabs(SS.getA()(1,1) - 0) < 0.2 && fabs(SS.getA()(1,2) - 1) < 0.2 &&
+              fabs(SS.getA()(2,1) - (-1)) < 0.2 && fabs(SS.getA()(2,2) - (-2)) < 0.2, "Falhou ao verificar a matriz discreta");
+    QVERIFY2( fabs(SS.getB()(1,1) - 0) < 0.2 && fabs(SS.getB()(2,1) - 1) < 0.2, "Falhou ao verificar a matriz discreta");
+}
+
+void StateSpaceDoubleTest::print()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    std::string str;
+    QBENCHMARK {
+        str = SS.print();
+    }
+
+    QVERIFY2( str == "The Continuous State Space Model is: \n\nA = \n      0   1.000 \n -1.000  -2.000 \n\n\nB = \n      0 \n  1.000 \n\n\nC = \n  1.000       0 \n\n\nD = \n      0 \n\n", "Falhou ao verificar se o sistema e continuo");
+}
+
+void StateSpaceDoubleTest::bufferString()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    std::string str;
+    str << SS;
+    QBENCHMARK {
+        std::string str;
+        str << SS;
+    }
+
+    QVERIFY2( str == "The Continuous State Space Model is: \n\nA = \n      0   1.000 \n -1.000  -2.000 \n\n\nB = \n      0 \n  1.000 \n\n\nC = \n  1.000       0 \n\n\nD = \n      0 \n\n", "Falhou ao verificar se o sistema e continuo");
+}
+
+void StateSpaceDoubleTest::stringConversion()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    std::string str = SS;
+    QBENCHMARK {
+        std::string str = SS;
+    }
+
+    QVERIFY2( str == "The Continuous State Space Model is: \n\nA = \n      0   1.000 \n -1.000  -2.000 \n\n\nB = \n      0 \n  1.000 \n\n\nC = \n  1.000       0 \n\n\nD = \n      0 \n\n", "Falhou ao verificar se o sistema e continuo");
+}
+
+void StateSpaceDoubleTest::setObserverParameters()
+{
+    LinAlg::Matrix<double> A = "-2,0;0,-1", B = "2;1", C = "3,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    QBENCHMARK {
+        SS.setObserverParameters("1;2");
+    }
+    QVERIFY2(SS.getObserverParameters()(1,1) == 1 && SS.getObserverParameters()(2,1) == 2, "Falhou ao verificar a controlabilidade do sistema");
 }
 
 QTEST_APPLESS_MAIN(StateSpaceDoubleTest)

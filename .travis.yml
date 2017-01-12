@@ -28,6 +28,9 @@ script:
   - qmake "CONFIG+=test" Testes/modelLibs/transferFunction/transferFunction.pro
   - make
   - ./tst_transferfunctiontest
+ - qmake "CONFIG+=test" Testes/modelLibs/stateSpaceDouble/stateSpaceDouble.pro
+  - make
+  - ./tst_statespacedoubletest
 
 after_success:
 - cpp-coveralls  
