@@ -1,4 +1,9 @@
-#include "SistemasdeControle/headers/graphicLibs/plot.h"
+#ifndef plotTest
+    #include "SistemasdeControle/headers/graphicLibs/plot.h"
+#else
+    #include "../../../headers/graphicLibs/plot.h"
+#endif
+
 
 template<typename Type>
 PlotHandler::plot<Type>::plot(QWidget *PlotFrame)

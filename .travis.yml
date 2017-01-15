@@ -31,6 +31,9 @@ script:
   - qmake "CONFIG+=test" Testes/modelLibs/stateSpaceDouble/stateSpaceDouble.pro
   - make
   - ./tst_statespacedoubletest
+  - qmake "CONFIG+=test" Testes/modelLibs/ArxDouble/ArxDouble.pro
+  - make
+  - ./tst_arxdoubletest
 
 after_success:
 - cpp-coveralls  

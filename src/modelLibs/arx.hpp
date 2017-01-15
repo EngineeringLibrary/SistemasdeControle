@@ -19,12 +19,12 @@ ModelHandler::ARX<Type>::ARX(unsigned nOutputpar,unsigned nInputpar,
     this->nOutputpar   = nOutputpar;
     this->qdtOutputVar = qdtOutputVar;
     this->delay        = delay;
-    this->sampleTime   = sampleTime;
+    this->step         = sampleTime;
 
     this->ModelCoef = LinAlg::Zeros<Type>(nInputpar*qdtInputVar + nOutputpar*qdtOutputVar, qdtOutputVar);
     this->Input = LinAlg::Zeros<Type>(qdtInputVar, nInputpar);
     this->Output = LinAlg::Zeros<Type>(qdtOutputVar, nOutputpar);
-//    this->Output = LinAlg::Zeros<Type>(qdtOutputVar, nOutputpar);
+    this->output = 0;
     this->EstOutput = this->Output;
     this->nSample = delay + maxnInOut + 1;
     this->OutputLinearVector = LinAlg::Zeros<Type>(this->qdtOutputVar, this->delay + this->nOutputpar);
@@ -40,7 +40,7 @@ ModelHandler::ARX<Type>::ARX(const ModelHandler::ARX<Type>& OtherArxModel){
     this->qdtInputVar           = OtherArxModel.qdtInputVar;
     this->nOutputpar            = OtherArxModel.nOutputpar;
     this->qdtOutputVar          = OtherArxModel.qdtOutputVar;
-    this->sampleTime            = OtherArxModel.sampleTime;
+    this->step                  = OtherArxModel.step;
     this->EstOutput             = OtherArxModel.EstOutput;
     this->Input                 = OtherArxModel.Input;
     this->input                 = OtherArxModel.input;
@@ -90,7 +90,6 @@ void ModelHandler::ARX<Type>::setLinearModel(LinAlg::Matrix<Type> Input,
     for(nSample = 1; nSample < this->Output.getNumberOfColumns()-1; ++nSample)
     {
         this->setLinearVector( Input.getColumn(nSample), Output.getColumn(nSample+1));
-//        std::cout << ~Output.GetColumn(nSample) << " " << this->LinearVectorA;
         this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorA;
         this->LinearEqualityB = this->LinearEqualityB || ~Output.getColumn(nSample+2);
     }
@@ -172,10 +171,6 @@ unsigned ModelHandler::ARX<Type>::getNumberOfOutputs() const {
     return this->qdtOutputVar;
 }
 
-template <typename Type>
-double ModelHandler::ARX<Type>::getSampleTime() const {
-    return this->sampleTime;
-}
 
 template <typename Type>
 unsigned ModelHandler::ARX<Type>::getNumberOfVariables() const {

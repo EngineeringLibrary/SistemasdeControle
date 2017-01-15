@@ -57,8 +57,8 @@ private Q_SLOTS:
     void bufferString();
 
     void simScalarInOut() {QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
-    void sim(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
     void simMatrixInOut(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
+    void simRange(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
     void getNumberOfVariables(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
     void getNumberOfInputs(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
     void getNumberOfOutputs(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}

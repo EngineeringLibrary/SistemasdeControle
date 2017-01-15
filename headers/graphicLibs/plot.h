@@ -4,8 +4,13 @@
 #include <QMainWindow>
 #include <QWidget>
 #include <QObject>
-#include "qcustomplot.h"
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#include "../../../headers/graphicLibs/QCustomPlot/qcustomplot.h"
+
+#ifndef plotTest
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#else
+    #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
+#endif
 
 namespace PlotHandler {
     struct plotProperties{
@@ -114,5 +119,10 @@ namespace PlotHandler {
     };
 }
 
-#include "SistemasdeControle/src/graphicLibs/plot.hpp"
+#ifndef plotTest
+    #include "SistemasdeControle/src/graphicLibs/plot.hpp"
+#else
+    #include "../../../src/graphicLibs/plot.hpp"
+#endif
+
 #endif // PLOT_H

@@ -21,8 +21,6 @@ namespace ModelHandler {
         unsigned getNumberOfOutputs() const;
         unsigned getNumberOfInputDelays() const;
         unsigned getNumberOfOutputDelays() const;
-
-        double getSampleTime() const;
         unsigned getNumberOfVariables() const;
 
         void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput);
