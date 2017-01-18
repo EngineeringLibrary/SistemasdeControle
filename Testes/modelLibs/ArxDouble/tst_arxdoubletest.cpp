@@ -1,4 +1,3 @@
-#define testMatrix
 #define testPolynom
 #define testModel
 
