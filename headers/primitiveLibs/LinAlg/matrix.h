@@ -260,6 +260,11 @@ namespace LinAlg {
 
     template<typename Type>
     inline void Print (const LinAlg::Matrix<Type>& mat);
+
+    template<typename Type>
+    inline bool isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<Type>& rMat);
+    template<typename Type, typename otherType>
+    inline bool isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<otherType>& rMat);
 }
 
     #ifdef testMatrix

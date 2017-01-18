@@ -1,8 +1,13 @@
 #ifndef __OPTIMIZATION_H_INCLUDED
 #define __OPTIMIZATION_H_INCLUDED
 
-#include "SistemasdeControle/headers/modelLibs/model.h"
-#include "SistemasdeControle/headers/modelLibs/arx.h"
+#ifdef testModel
+    #include "../../../headers/modelLibs/model.h"
+    #include "../../../headers/modelLibs/arx.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/model.h"
+    #include "SistemasdeControle/headers/modelLibs/arx.h"
+#endif
 
 //Biblioteca incompleta, ainda nao funcional.
 namespace OptimizationHandler {
@@ -21,5 +26,10 @@ namespace OptimizationHandler {
     };
 }
 
-#include "SistemasdeControle/src/optimizationLibs/optimization.hpp"
+#ifdef testModel
+    #include "../../../src/optimizationLibs/optimization.hpp"
+#else
+    #include "SistemasdeControle/src/optimizationLibs/optimization.hpp"
+#endif
+
 #endif // OPTIMIZATION_H

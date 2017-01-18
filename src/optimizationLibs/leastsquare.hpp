@@ -1,4 +1,9 @@
-#include "SistemasdeControle/headers/optimizationLibs/leastsquare.h"
+#ifdef testModel
+    #include "../../../headers/optimizationLibs/leastsquare.h"
+#else
+    #include "SistemasdeControle/headers/optimizationLibs/leastsquare.h"
+#endif
+
 
 template <class Type>
 OptimizationHandler::LeastSquare<Type>::LeastSquare(ModelHandler::Model<Type> *model)

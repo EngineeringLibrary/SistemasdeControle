@@ -423,6 +423,7 @@ LinAlg::Matrix<Type> ModelHandler::TransferFunction<Type>::sim(LinAlg::Matrix<Ty
         for(unsigned j = 1; j <= this->TF.getNumberOfColumns(); ++j)
         {
             ModelHandler::TransferFunction<Type> TfTemp(this->TF(i,j));
+            TfTemp.Continuous = this->Continuous;
             for(unsigned k = 1; k <= x.getNumberOfColumns(); ++k)
                 simTemp(j,k+1) = TfTemp.sim(x(j,k),simTemp(j,k));
         }

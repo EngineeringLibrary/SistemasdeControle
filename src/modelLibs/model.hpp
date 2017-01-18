@@ -39,11 +39,11 @@ void ModelHandler::Model<Type>::setIO(LinAlg::Matrix<Type> in, LinAlg::Matrix<Ty
     this->Output = out;
 }
 
-template <typename Type>
-Type ModelHandler::Model<Type>::getOutput() const
-{
-    return this->output;
-}
+//template <typename Type>
+//Type ModelHandler::Model<Type>::getOutput() const
+//{
+//    return this->output;
+//}
 
 template <typename Type>
 Type ModelHandler::Model<Type>::getStep() const

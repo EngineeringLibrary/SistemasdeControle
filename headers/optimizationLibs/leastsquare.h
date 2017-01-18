@@ -1,6 +1,8 @@
 #ifndef LEASTSQUARE_H
 #define LEASTSQUARE_H
-#include "SistemasdeControle/headers/optimizationLibs/optimization.h"
+
+#include "optimization.h"
+
 
 namespace OptimizationHandler{
 
@@ -15,5 +17,10 @@ namespace OptimizationHandler{
     };
 }
 
-#include "SistemasdeControle/src/optimizationLibs/leastsquare.hpp"
+#ifdef testModel
+    #include "../../../src/optimizationLibs/leastsquare.hpp"
+#else
+    #include "SistemasdeControle/src/optimizationLibs/leastsquare.hpp"
+#endif
+
 #endif // LEASTSQUARE_H

@@ -25,10 +25,17 @@ namespace ModelHandler {
         void setIO(LinAlg::Matrix<Type> in, LinAlg::Matrix<Type> out);
 
         Type getStep() const;
-        Type getOutput() const;
+//        Type getOutput() const;
         LinAlg::Matrix<Type> getModelCoef() const;
+        Type getSingleInput() const { return this->input;}
+        Type getSingleOutput() const { return this->output;}
+        Type getSingleEstOutput() const { return this->estOutput;}
+        Type getLmin() const { return this->lmin;}
+        Type getLmax() const { return this->lmax;}
+
         LinAlg::Matrix<Type> getInputMatrix() const;
         LinAlg::Matrix<Type> getOutputMatrix() const;
+        LinAlg::Matrix<Type> getEstOutputMatrix() const {return this->EstOutput;}
         LinAlg::Matrix<Type> getLinearVectorA() const;
         LinAlg::Matrix<Type> getLinearMatrixA() const;
         LinAlg::Matrix<Type> getLinearEqualityB() const;
@@ -49,7 +56,7 @@ namespace ModelHandler {
 
     protected:
 //        virtual bool isFunction() = 0;
-        Type                 input, output, estOutput, lmin, lmax, step, timeSimulation;
+        Type                 input, output, estOutput, lmin, lmax, step, timeSimulation, delay;
         LinAlg::Matrix<Type> Input,    Output,      EstOutput,       ModelCoef,
                          LinearVectorA,   LinearEqualityVectorB, LinearMatrixA,
                          LinearEqualityB, InputLinearVector, OutputLinearVector;

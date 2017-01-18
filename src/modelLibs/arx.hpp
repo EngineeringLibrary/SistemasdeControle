@@ -4,8 +4,10 @@
     #include "SistemasdeControle/headers/modelLibs/arx.h"
 #endif
 
+#include "../../../headers/modelLibs/arx.h"
+#include "../../../headers/modelLibs/model.h"
 template <typename Type>
-ModelHandler::ARX<Type>::ARX(unsigned nOutputpar,unsigned nInputpar,
+ModelHandler::ARX<Type>::ARX(unsigned nInputpar,unsigned nOutputpar,
                              unsigned delay,
                              unsigned qdtInputVar, unsigned qdtOutputVar,
                              double sampleTime)
@@ -35,25 +37,126 @@ ModelHandler::ARX<Type>::ARX(unsigned nOutputpar,unsigned nInputpar,
 
 template <typename Type>
 ModelHandler::ARX<Type>::ARX(const ModelHandler::ARX<Type>& OtherArxModel){
+
     this->delay                 = OtherArxModel.delay;
     this->nInputpar             = OtherArxModel.nInputpar;
     this->qdtInputVar           = OtherArxModel.qdtInputVar;
     this->nOutputpar            = OtherArxModel.nOutputpar;
     this->qdtOutputVar          = OtherArxModel.qdtOutputVar;
-    this->step                  = OtherArxModel.step;
-    this->EstOutput             = OtherArxModel.EstOutput;
-    this->Input                 = OtherArxModel.Input;
+    this->maxnInOut             = OtherArxModel.maxnInOut;
+    this->nSample               = OtherArxModel.nSample;
+
     this->input                 = OtherArxModel.input;
-    this->InputLinearVector     = OtherArxModel.InputLinearVector;
-//    this->instance              = OtherArxModel.instance;
-    this->LinearEqualityB       = OtherArxModel.LinearEqualityB;
+    this->output                = OtherArxModel.output;
+    this->estOutput             = OtherArxModel.estOutput;
+    this->lmin                  = OtherArxModel.lmin;
+    this->lmax                  = OtherArxModel.lmax;
+    this->step                  = OtherArxModel.step;
+    this->timeSimulation        = OtherArxModel.timeSimulation;
+    this->Input                 = OtherArxModel.Input;
+    this->Output                = OtherArxModel.Output;
+    this->EstOutput             = OtherArxModel.EstOutput;
+    this->ModelCoef             = OtherArxModel.ModelCoef;
+    this->LinearVectorA         = OtherArxModel.LinearVectorA;
     this->LinearEqualityVectorB = OtherArxModel.LinearEqualityVectorB;
     this->LinearMatrixA         = OtherArxModel.LinearMatrixA;
-    this->LinearVectorA         = OtherArxModel.LinearVectorA;
-    this->lmax                  = OtherArxModel.lmax;
-    this->lmin                  = OtherArxModel.lmin;
-    this->maxnInOut             = OtherArxModel.maxnInOut;
+    this->LinearEqualityB       = OtherArxModel.LinearEqualityB;
+    this->InputLinearVector     = OtherArxModel.InputLinearVector;
+    this->OutputLinearVector    = OtherArxModel.OutputLinearVector;
+}
 
+template<typename Type> template<typename OtherType>
+ModelHandler::ARX<Type>::ARX(const ModelHandler::ARX<OtherType>& otherARXFunction)
+{
+    this->nInputpar    = otherARXFunction.getNumberOfInputDelays();
+    this->qdtInputVar  = otherARXFunction.getNumberOfInputs();
+    this->nOutputpar   = otherARXFunction.getNumberOfOutputDelays();
+    this->qdtOutputVar = otherARXFunction.getNumberOfOutputs();
+    this->maxnInOut    = otherARXFunction.getMaxnInOut ();
+    this->nSample      = otherARXFunction.getNSample ();
+
+    this->input                 = otherARXFunction.getSingleInput();
+    this->output                = otherARXFunction.getSingleOutput();
+    this->estOutput             = otherARXFunction.getSingleEstOutput();
+    this->lmin                  = otherARXFunction.getLmin();
+    this->lmax                  = otherARXFunction.getLmax();
+    this->step                  = otherARXFunction.getStep();
+    this->timeSimulation        = otherARXFunction.getTimeSimulation();
+    this->delay                 = otherARXFunction.getTransportDelay();
+    this->Input                 = otherARXFunction.getInputMatrix();
+    this->Output                = otherARXFunction.getOutputMatrix();
+    this->EstOutput             = otherARXFunction.getEstOutputMatrix();
+    this->ModelCoef             = otherARXFunction.getModelCoef();
+    this->LinearVectorA         = otherARXFunction.getLinearVectorA();
+    this->LinearEqualityVectorB = otherARXFunction.getLinearEqualityVectorB();
+    this->LinearMatrixA         = otherARXFunction.getLinearMatrixA();
+    this->LinearEqualityB       = otherARXFunction.getLinearEqualityB();
+    this->InputLinearVector     = otherARXFunction.getInputLinearVector();
+    this->OutputLinearVector    = otherARXFunction.getOutputLinearVector();
+}
+
+template <typename Type>
+ModelHandler::ARX<Type>& ModelHandler::ARX<Type>::operator= (const ModelHandler::ARX<Type>& otherARXFunction)
+{
+    this->delay                 = otherARXFunction.delay;
+    this->nInputpar             = otherARXFunction.nInputpar;
+    this->qdtInputVar           = otherARXFunction.qdtInputVar;
+    this->nOutputpar            = otherARXFunction.nOutputpar;
+    this->qdtOutputVar          = otherARXFunction.qdtOutputVar;
+    this->maxnInOut             = otherARXFunction.maxnInOut;
+    this->nSample               = otherARXFunction.nSample;
+
+    this->input                 = otherARXFunction.input;
+    this->output                = otherARXFunction.output;
+    this->estOutput             = otherARXFunction.estOutput;
+    this->lmin                  = otherARXFunction.lmin;
+    this->lmax                  = otherARXFunction.lmax;
+    this->step                  = otherARXFunction.step;
+    this->timeSimulation        = otherARXFunction.timeSimulation;
+    this->Input                 = otherARXFunction.Input;
+    this->Output                = otherARXFunction.Output;
+    this->EstOutput             = otherARXFunction.EstOutput;
+    this->ModelCoef             = otherARXFunction.ModelCoef;
+    this->LinearVectorA         = otherARXFunction.LinearVectorA;
+    this->LinearEqualityVectorB = otherARXFunction.LinearEqualityVectorB;
+    this->LinearMatrixA         = otherARXFunction.LinearMatrixA;
+    this->LinearEqualityB       = otherARXFunction.LinearEqualityB;
+    this->InputLinearVector     = otherARXFunction.InputLinearVector;
+    this->OutputLinearVector    = otherARXFunction.OutputLinearVector;
+
+    return *this;
+}
+
+template<typename Type> template<typename OtherARXFunctionType> // não funciona
+ModelHandler::ARX<Type>& ModelHandler::ARX<Type>::operator= (const ModelHandler::ARX<OtherARXFunctionType>& otherARXFunction)
+{
+    this->nInputpar    = otherARXFunction.getNumberOfInputDelays();
+    this->qdtInputVar  = otherARXFunction.getNumberOfInputs();
+    this->nOutputpar   = otherARXFunction.getNumberOfOutputDelays();
+    this->qdtOutputVar = otherARXFunction.getNumberOfOutputs();
+    this->maxnInOut    = otherARXFunction.getMaxnInOut ();
+    this->nSample      = otherARXFunction.getNSample ();
+
+    this->input                 = otherARXFunction.getSingleInput();
+    this->output                = otherARXFunction.getSingleOutput();
+    this->estOutput             = otherARXFunction.getSingleEstOutput();
+    this->lmin                  = otherARXFunction.getLmin();
+    this->lmax                  = otherARXFunction.getLmax();
+    this->step                  = otherARXFunction.getStep();
+    this->timeSimulation        = otherARXFunction.getTimeSimulation();
+    this->delay                 = otherARXFunction.getTransportDelay();
+    this->Input                 = otherARXFunction.getInputMatrix();
+    this->Output                = otherARXFunction.getOutputMatrix();
+    this->EstOutput             = otherARXFunction.getEstOutputMatrix();
+    this->ModelCoef             = otherARXFunction.getModelCoef();
+    this->LinearVectorA         = otherARXFunction.getLinearVectorA();
+    this->LinearEqualityVectorB = otherARXFunction.getLinearEqualityVectorB();
+    this->LinearMatrixA         = otherARXFunction.getLinearMatrixA();
+    this->LinearEqualityB       = otherARXFunction.getLinearEqualityB();
+    this->InputLinearVector     = otherARXFunction.getInputLinearVector();
+    this->OutputLinearVector    = otherARXFunction.getOutputLinearVector();
+
+    return *this;
 }
 
 // Nesta função será avaliada a quantidade de saídas pelo número de linhas das matrizes
@@ -77,7 +180,6 @@ void ModelHandler::ARX<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg
         TempLinearVector = TempLinearVector | this->InputLinearVector.getRow(i);
 
     this->LinearVectorA = TempLinearVector;
-//    std::cout << TempLinearVector;
 }
 
 template <typename Type>
@@ -114,7 +216,86 @@ Type ModelHandler::ARX<Type>::sim(Type input, Type output)
 template <typename Type>
 std::string ModelHandler::ARX<Type>::print()
 {
-    return "função não implementada";
+    std::string str;
+    for(unsigned nOutputVar = 1; nOutputVar <= this->qdtOutputVar; ++nOutputVar)
+    {
+        str += " y";
+        std::stringstream ss2; ss2 << nOutputVar; str += ss2.str();
+        str += "( k ) = ";
+
+        unsigned nCoef = 1;
+        bool isTheFirst = true;
+        for(unsigned yPar = 1; yPar <= this->qdtOutputVar; ++yPar)
+        {
+            for(unsigned ny = 1; ny <= this->nOutputpar; ++ny)
+            {
+                if(fabs(this->ModelCoef(nCoef,nOutputVar)) < 1e-30)
+                {
+                    ++nCoef;
+                    continue;
+                }
+                else if(this->ModelCoef(nCoef,nOutputVar) > 0)
+                {
+                    std::stringstream ss1;
+                    ss1 << this->ModelCoef(nCoef,nOutputVar);
+                    str += " - ";
+                    str += ss1.str();
+                }
+                else
+                {
+                    std::stringstream ss1;
+                    ss1 << -this->ModelCoef(nCoef,nOutputVar);
+                    if(!isTheFirst)
+                        str += " + ";
+                    str += ss1.str();
+                }
+                str += " y";
+                std::stringstream ss2; ss2 << yPar; str += ss2.str();
+                str += "( k - ";
+                std::stringstream ss3; ss3 << ny; str += ss3.str();
+                str += " ) ";
+                ++nCoef;
+                isTheFirst = false;
+            }
+        }
+        for(unsigned uPar = 1; uPar <= this->qdtInputVar; ++uPar)
+        {
+            for(unsigned nu = 1; nu <= this->nInputpar; ++nu)
+            {
+                if(fabs(this->ModelCoef(nCoef,nOutputVar)) < 1e-30)
+                {
+                    ++nCoef;
+                    continue;
+                }
+                else if(this->ModelCoef(nCoef,nOutputVar) > 0)
+                {
+                    std::stringstream ss1;
+                    ss1 << this->ModelCoef(nCoef,nOutputVar);
+                    if(!isTheFirst)
+                        str += " + ";
+                    str += ss1.str();
+                }
+                else
+                {
+                    std::stringstream ss1;
+                    ss1 << -this->ModelCoef(nCoef,nOutputVar);
+                    str += " - ";
+                    str += ss1.str();
+                }
+                str += " u";
+                std::stringstream ss2; ss2 << uPar; str += ss2.str();
+                str += "( k - ";
+                std::stringstream ss3; ss3 << nu; str += ss3.str();
+                str += " ) ";
+                ++nCoef;
+                isTheFirst = false;
+            }
+        }
+        if(nCoef == 1)
+            str += "0 ";
+        str += "\n";
+    }
+    return str;
 }
 
 template <typename Type>
@@ -175,4 +356,18 @@ unsigned ModelHandler::ARX<Type>::getNumberOfOutputs() const {
 template <typename Type>
 unsigned ModelHandler::ARX<Type>::getNumberOfVariables() const {
     return this->qdtInputVar*this->nInputpar + this->qdtOutputVar*this->nOutputpar;
+}
+
+template<typename Type>
+std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::ARX<Type> arx)
+{
+    output << arx.print();
+    return output;
+}
+
+template<typename Type>
+std::string& ModelHandler::operator<< (std::string& output, ModelHandler::ARX<Type> arx)
+{
+    output += arx.print();
+    return output;
 }

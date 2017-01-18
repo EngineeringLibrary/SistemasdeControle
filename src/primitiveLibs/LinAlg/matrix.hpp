@@ -1482,3 +1482,41 @@ void LinAlg::Print(const Matrix<Type>& mat)
     std::cout << std::endl;
   }
 }
+
+template<typename Type>
+bool LinAlg::isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<Type>& rMat)
+{
+    if(lMat.getNumberOfRows() != rMat.getNumberOfRows() || lMat.getNumberOfColumns() != rMat.getNumberOfColumns())
+        return false;
+    else
+    {
+        for(unsigned i = 1; i <= lMat.getNumberOfRows(); i++)
+        {
+          for(unsigned j = 1; j <= lMat.getNumberOfColumns(); j++)
+          {
+            if(lMat(i,j) != rMat(i,j))
+                return false;
+          }
+        }
+    }
+    return true;
+}
+
+template<typename Type, typename otherType>
+bool LinAlg::isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<otherType>& rMat)
+{
+    if(lMat.getNumberOfRows() != rMat.getNumberOfRows() || lMat.getNumberOfColumns() != rMat.getNumberOfColumns())
+        return false;
+    else
+    {
+        for(unsigned i = 1; i <= lMat.getNumberOfRows(); i++)
+        {
+          for(unsigned j = 1; j <= lMat.getNumberOfColumns(); j++)
+          {
+            if(fabs(lMat(i,j) - rMat(i,j)) > 1e-30)
+                return false;
+          }
+        }
+    }
+    return true;
+}

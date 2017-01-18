@@ -87,7 +87,7 @@ ModelHandler::StateSpace<Type>& ModelHandler::StateSpace<Type>::operator= (const
     return *this;
 }
 
-template<typename Type> template<typename OtherStateSpaceFunctionType> // não funciona
+template<typename Type> template<typename OtherStateSpaceFunctionType>
 ModelHandler::StateSpace<Type>& ModelHandler::StateSpace<Type>::operator= (const ModelHandler::StateSpace<OtherStateSpaceFunctionType>& otherStateSpaceFunction)
 {
     *(this->A,this->B,this->C,this->D) = otherStateSpaceFunction.getContinuousParameters();
