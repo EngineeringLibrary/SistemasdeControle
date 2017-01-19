@@ -36,7 +36,16 @@ template <typename Type>
 void ModelHandler::Model<Type>::setIO(LinAlg::Matrix<Type> in, LinAlg::Matrix<Type> out)
 {
     this->Input  = in;
+    this->EstOutput = out;
     this->Output = out;
+}
+
+template <typename Type>
+void ModelHandler::Model<Type>::setIO(Type in, Type out)
+{
+    this->input  = in;
+    this->output = out;
+    this->estOutput = out;
 }
 
 //template <typename Type>
@@ -91,6 +100,17 @@ template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::Model<Type>::getLinearEqualityVectorB() const
 {
     return this->LinearEqualityVectorB;
+}
+
+template <typename Type>
+LinAlg::Matrix< LinAlg::Matrix<Type>* >* ModelHandler::Model<Type>::getLinearSystem() const
+{
+    LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
+    (*A)(1,1) = new LinAlg::Matrix<Type>(this->LinearMatrixA.getNumberOfRows(), this->LinearMatrixA.getNumberOfColumns());
+    (*A)(1,2) = new LinAlg::Matrix<Type>(this->LinearEqualityB.getNumberOfRows(), this->LinearEqualityB.getNumberOfColumns());
+    (*((*A)(1,1))) = this->LinearMatrixA;
+    (*((*A)(1,2))) = this->LinearEqualityB;
+    return A;
 }
 
 template<typename Type>

@@ -1,6 +1,6 @@
 #ifndef RECURSIVELEASTSQUARE_H
 #define RECURSIVELEASTSQUARE_H
-#include "SistemasdeControle/headers/optimizationLibs/optimization.h"
+#include "optimization.h"
 
 namespace OptimizationHandler {
     template <class Type>
@@ -22,5 +22,10 @@ namespace OptimizationHandler {
     };
 }
 
-#include "SistemasdeControle/src/optimizationLibs/recursiveleastsquare.hpp"
+#ifdef testModel
+    #include "../../../src/optimizationLibs/recursiveleastsquare.hpp"
+#else
+    #include "SistemasdeControle/src/optimizationLibs/recursiveleastsquare.hpp"
+#endif
+
 #endif // RECURSIVELEASTSQUARE_H

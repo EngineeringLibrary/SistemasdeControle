@@ -23,16 +23,18 @@ namespace ModelHandler {
         void setStep(Type step);
         void setModelCoef(LinAlg::Matrix<Type> coef);
         void setIO(LinAlg::Matrix<Type> in, LinAlg::Matrix<Type> out);
+        void setIO(Type in, Type out);
+        void setLimits(Type lmin, Type lmax){this->lmin = lmin; this->lmax = lmax;}
+        void setTimeSimulation(Type timeSimulation){this->timeSimulation = timeSimulation;}
 
         Type getStep() const;
-//        Type getOutput() const;
-        LinAlg::Matrix<Type> getModelCoef() const;
         Type getSingleInput() const { return this->input;}
         Type getSingleOutput() const { return this->output;}
         Type getSingleEstOutput() const { return this->estOutput;}
         Type getLmin() const { return this->lmin;}
         Type getLmax() const { return this->lmax;}
 
+        LinAlg::Matrix<Type> getModelCoef() const;
         LinAlg::Matrix<Type> getInputMatrix() const;
         LinAlg::Matrix<Type> getOutputMatrix() const;
         LinAlg::Matrix<Type> getEstOutputMatrix() const {return this->EstOutput;}
@@ -40,6 +42,7 @@ namespace ModelHandler {
         LinAlg::Matrix<Type> getLinearMatrixA() const;
         LinAlg::Matrix<Type> getLinearEqualityB() const;
         LinAlg::Matrix<Type> getLinearEqualityVectorB() const;
+        LinAlg::Matrix< LinAlg::Matrix<Type>* >* getLinearSystem() const;
 
         virtual Type         sim(Type x) = 0;
         virtual Type         sim(Type x, Type y) = 0;

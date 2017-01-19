@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/optimizationLibs/recursiveleastsquare.h"
+#ifdef testModel
+    #include "../../../headers/optimizationLibs/recursiveleastsquare.h"
+#else
+    #include "SistemasdeControle/headers/optimizationLibs/recursiveleastsquare.h"
+#endif
 
 template <class Type>
 OptimizationHandler::RecursiveLeastSquare<Type>::RecursiveLeastSquare(ModelHandler::Model<Type> *model,
@@ -30,13 +34,13 @@ void OptimizationHandler::RecursiveLeastSquare<Type>::Optimize(LinAlg::Matrix<Ty
     this->Output = Output|this->Output;
     this->Input.removeColumn(this->Input.getNumberOfColumns());
     this->Output.removeColumn(this->Output.getNumberOfColumns());
-    this->model->setLinearVector(this->Input.GetColumn(1),
-                                 this->Output.GetColumn(2));
+    this->model->setLinearVector(this->Input.getColumn(1),
+                                 this->Output.getColumn(2));
 
 
     LinAlg::Matrix<Type> phi = this->model->getLinearVectorA();
 //    std::cout << "\n";
-    E = this->Output.GetColumn(1) - ~(phi*this->model->getModelCoef());
+    E = this->Output.getColumn(1) - ~(phi*this->model->getModelCoef());
     K = (P*~phi)/(((phi*P)*~phi) + lambda);
     LinAlg::Matrix<Type> KxE;
     for(unsigned i = 1; i <= this->model->getNumberOfOutputs(); ++i)

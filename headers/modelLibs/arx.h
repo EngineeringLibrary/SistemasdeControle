@@ -41,25 +41,26 @@ namespace ModelHandler {
 
         void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput);
         void setLinearModel (LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
+        void setInitialOutputValue(const LinAlg::Matrix<Type> &Output);
 
         std::string print();
         Type sim(Type input);
         Type sim(Type input, Type output);
         LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> Input);
         LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
-        LinAlg::Matrix<Type> sim(Type lsim, Type lmax, Type step);
+        LinAlg::Matrix<Type> sim(Type lmin, Type lmax, Type step);
 
     private:
         unsigned nInputpar  , nOutputpar,
                  qdtInputVar, qdtOutputVar, nSample,
                  maxnInOut;
     };
-}
 
-template<typename Type> // ok
-std::ostream& operator<< (std::ostream& output, ModelHandler::ARX<Type> arx);
-template<typename Type> //ok
-std::string&  operator<< (std::string& output,  ModelHandler::ARX<Type> arx);
+    template<typename Type> // ok
+    std::ostream& operator<< (std::ostream& output, ModelHandler::ARX<Type> arx);
+    template<typename Type> //ok
+    std::string&  operator<< (std::string& output,  ModelHandler::ARX<Type> arx);
+}
 
 #ifdef testModel
     #include "../../../src/modelLibs/arx.hpp"

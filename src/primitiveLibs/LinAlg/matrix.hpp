@@ -1503,7 +1503,7 @@ bool LinAlg::isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<Type
 }
 
 template<typename Type, typename otherType>
-bool LinAlg::isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<otherType>& rMat)
+bool LinAlg::isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<otherType>& rMat, Type tol)
 {
     if(lMat.getNumberOfRows() != rMat.getNumberOfRows() || lMat.getNumberOfColumns() != rMat.getNumberOfColumns())
         return false;
@@ -1513,7 +1513,7 @@ bool LinAlg::isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<othe
         {
           for(unsigned j = 1; j <= lMat.getNumberOfColumns(); j++)
           {
-            if(fabs(lMat(i,j) - rMat(i,j)) > 1e-30)
+            if(fabs(lMat(i,j) - rMat(i,j)) > tol)
                 return false;
           }
         }

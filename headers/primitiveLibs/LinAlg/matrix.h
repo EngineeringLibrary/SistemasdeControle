@@ -264,7 +264,7 @@ namespace LinAlg {
     template<typename Type>
     inline bool isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<Type>& rMat);
     template<typename Type, typename otherType>
-    inline bool isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<otherType>& rMat);
+    inline bool isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<otherType>& rMat, Type tol = 1e-30);
 }
 
     #ifdef testMatrix

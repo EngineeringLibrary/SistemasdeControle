@@ -180,6 +180,7 @@ void ModelHandler::ARX<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg
         TempLinearVector = TempLinearVector | this->InputLinearVector.getRow(i);
 
     this->LinearVectorA = TempLinearVector;
+    this->LinearEqualityVectorB = PastOutput;
 }
 
 template <typename Type>
@@ -191,9 +192,9 @@ void ModelHandler::ARX<Type>::setLinearModel(LinAlg::Matrix<Type> Input,
 
     for(nSample = 1; nSample < this->Output.getNumberOfColumns()-1; ++nSample)
     {
-        this->setLinearVector( Input.getColumn(nSample), Output.getColumn(nSample+1));
+        this->setLinearVector( Input.getColumn(nSample), Output.getColumn(nSample));
         this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorA;
-        this->LinearEqualityB = this->LinearEqualityB || ~Output.getColumn(nSample+2);
+        this->LinearEqualityB = this->LinearEqualityB || ~Output.getColumn(nSample+1);
     }
 }
 
@@ -302,13 +303,13 @@ template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input)
 {
     this->Input  = Input;
-    LinAlg::Matrix<Type> TempOutput;// = LinAlg::Zeros<Type>(this->qdtOutputVar,1);
+    this->EstOutput = LinAlg::Zeros<Type>(this->qdtOutputVar,1);
 
     for(unsigned i = 1; i <= Input.getNumberOfColumns(); ++i){
-        this->setLinearVector(Input.getColumn(i),this->Output.getColumn(i));
-        TempOutput = TempOutput | ~(this->LinearVectorA*this->ModelCoef);
+        this->setLinearVector(Input.getColumn(i),this->EstOutput.getColumn(i));
+        this->EstOutput = this->EstOutput | ~(this->LinearVectorA*this->ModelCoef);
     }
-    this->Output = TempOutput;
+    this->Output = this->EstOutput;
     return this->Output;
 }
 
@@ -327,9 +328,9 @@ LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input, Li
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(Type lsim, Type lmax, Type step)
+LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(Type lmin, Type lmax, Type step)
 {
-    return LinAlg::Matrix<Type>(lsim+lmax+step);
+    return LinAlg::Matrix<Type>(lmin+lmax+step);
 }
 
 template <typename Type>
@@ -358,6 +359,21 @@ unsigned ModelHandler::ARX<Type>::getNumberOfVariables() const {
     return this->qdtInputVar*this->nInputpar + this->qdtOutputVar*this->nOutputpar;
 }
 
+template <typename Type>
+void ModelHandler::ARX<Type>::setInitialOutputValue(const LinAlg::Matrix<Type> &Output)
+{
+    this->OutputLinearVector = LinAlg::Ones<Type>(this->qdtOutputVar, this->delay + this->nOutputpar);
+    for(unsigned i = 1; i <= this->qdtOutputVar; ++i)
+    {
+        this->OutputLinearVector = this->OutputLinearVector*Output(i,1);
+        if(i == 1)
+        {
+            this->output = Output(i,1);
+            this->estOutput = Output(i,1);
+        }
+    }
+}
+
 template<typename Type>
 std::ostream& ModelHandler::operator<< (std::ostream& output, ModelHandler::ARX<Type> arx)
 {
@@ -371,3 +387,4 @@ std::string& ModelHandler::operator<< (std::string& output, ModelHandler::ARX<Ty
     output += arx.print();
     return output;
 }
+

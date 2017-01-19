@@ -3,11 +3,13 @@
 
 #include <QString>
 #include <QtTest>
+#include "../../../headers/primitiveLibs/LinAlg/matrix.h"
 #include "../../../headers/modelLibs/model.h"
 #include "../../../headers/modelLibs/arx.h"
 #include "../../../headers/modelLibs/transferfunction.h"
 #include "../../../headers/modelLibs/conversions.h"
 #include "../../../headers/optimizationLibs/leastsquare.h"
+#include "../../../headers/optimizationLibs/recursiveleastsquare.h"
 
 class ArxDoubleTest : public QObject
 {
@@ -23,12 +25,10 @@ private Q_SLOTS:
     void voidConstructorCase4 ();
     void voidConstructorCase5 ();
     void voidConstructorCase6 ();
-
     void copyConstructor ();
     void copyConstructorOtherType ();
     void copyAssignment ();
     void copyAssignmentOtherType ();
-
     void stringConversionCase1();
     void stringConversionCase2();
     void stringConversionCase3();
@@ -44,7 +44,6 @@ private Q_SLOTS:
     void stringConversionCase13();
     void stringConversionCase14();
     void stringConversionCase15();
-
     void getNumberOfInputDelays();
     void getNumberOfInputs();
     void getNumberOfOutputDelays();
@@ -52,37 +51,35 @@ private Q_SLOTS:
     void getNumberOfVariables();
     void getMaxnInOut ();
     void getNSample ();
+    void getSingleInput();
+    void getSingleOutput();
+    void getSingleEstOutput();
+    void getLmin();
+    void getLmax();
+    void getStep();
+    void getTimeSimulation();
+    void getTransportDelay();
+    void getInputMatrix();
+    void getOutputMatrix();
+    void getEstOutputMatrix();
+    void getModelCoef();
 
-//    Type getSingleInput() const { return this->input;}
-//    Type getSingleOutput() const { return this->output;}
-//    Type getSingleEstOutput() const { return this->estOutput;}
-//    Type getLmin() const { return this->lmin;}
-//    Type getLmax() const { return this->lmax;}
-//    Type getStep() const { return this->step;}
-//    Type getTimeSimulation() const { return this->timeSimulation;}
-//    Type getTransportDelay() const { return this->delay;}
+    void getLinearSystem();
+    void getLinearMatrixA();
+    void getLinearEqualityB();
+    void getLinearVectorA();
+    void getLinearEqualityVectorB();
+    void getInputLinearVector();
+    void getOutputLinearVector();
+    void setLinearModel ();
+    void setLinearVector();
+    void setInitialOutputValue();
 
-//    LinAlg::Matrix<Type> getInput() const { return this->Input;}
-//    LinAlg::Matrix<Type> getOutput() const { return this->Output;}
-//    LinAlg::Matrix<Type> getEstOutput() const { return this->EstOutput;}
-//    LinAlg::Matrix<Type> getModelCoef() const { return this->ModelCoef;}
-
-//    LinAlg::Matrix<Type> getLinearEqualityVectorB() const { return this->LinearEqualityVectorB;}
-//    LinAlg::Matrix<Type> getLinearMatrixA() const { return this->LinearMatrixA;}
-//    LinAlg::Matrix<Type> getLinearVectorA() const { return this->LinearVectorA;}
-//    LinAlg::Matrix<Type> getLinearEqualityB() const { return this->LinearEqualityB;}
-//    LinAlg::Matrix<Type> getInputLinearVector() const { return this->InputLinearVector;}
-//    LinAlg::Matrix<Type> getOutputLinearVector() const { return this->OutputLinearVector;}
-
-//    void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput);
-//    void setLinearModel (LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
-
-//    Type sim(Type input);
-//    Type sim(Type input, Type output);
-//    LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> Input);
-//    LinAlg::Matrix<Type> sim(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
-//    LinAlg::Matrix<Type> sim(Type lsim, Type lmax, Type step);
-
+    void simInScalar();
+    void simInOutScalar();
+    void simInMatrix();
+    void simInOutMatrix();
+    void simRange(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
 };
 
 void ArxDoubleTest::voidConstructorCase1()
@@ -552,7 +549,7 @@ void ArxDoubleTest::getNumberOfInputDelays()
         arx.getNumberOfInputDelays();
     }
 
-    QVERIFY2(arx.getNumberOfInputDelays() == 1, "O numero de atrasos nas entradas e diferente na copia do construtor");
+    QVERIFY2(arx.getNumberOfInputDelays() == 1, "O numero de atrasos nas entradas e diferente");
 }
 
 void ArxDoubleTest::getNumberOfInputs()
@@ -562,7 +559,7 @@ void ArxDoubleTest::getNumberOfInputs()
         arx.getNumberOfInputs();
     }
 
-    QVERIFY2(arx.getNumberOfInputs() == 3, "O numero de variaveis de entrada e diferente na copia do construtor");
+    QVERIFY2(arx.getNumberOfInputs() == 3, "O numero de variaveis de entrada e diferente");
 }
 
 void ArxDoubleTest::getNumberOfOutputDelays()
@@ -572,7 +569,7 @@ void ArxDoubleTest::getNumberOfOutputDelays()
         arx.getNumberOfOutputDelays();
     }
 
-    QVERIFY2(arx.getNumberOfOutputDelays() == 2, "O numero de atrasos nas saidas e diferente na copia do construtor");
+    QVERIFY2(arx.getNumberOfOutputDelays() == 2, "O numero de atrasos nas saidas e diferente");
 }
 
 void ArxDoubleTest::getNumberOfOutputs()
@@ -582,7 +579,7 @@ void ArxDoubleTest::getNumberOfOutputs()
         arx.getNumberOfOutputs();
     }
 
-    QVERIFY2(arx.getNumberOfOutputs() == 4, "O numero de variaveis de saida e diferente na copia do construtor");
+    QVERIFY2(arx.getNumberOfOutputs() == 4, "O numero de variaveis de saida e diferente");
 }
 
 void ArxDoubleTest::getNumberOfVariables()
@@ -592,7 +589,7 @@ void ArxDoubleTest::getNumberOfVariables()
         arx.getNumberOfVariables();
     }
 
-    QVERIFY2(arx.getNumberOfVariables() == 11, "O numero de variaveis e diferente na copia do construtor");
+    QVERIFY2(arx.getNumberOfVariables() == 11, "O numero de variaveis e diferente");
 }
 
 void ArxDoubleTest::getMaxnInOut ()
@@ -602,7 +599,7 @@ void ArxDoubleTest::getMaxnInOut ()
         arx.getMaxnInOut();
     }
 
-    QVERIFY2(arx.getMaxnInOut() == 2, "O numero de maximo de atrasos e diferente na copia do construtor");
+    QVERIFY2(arx.getMaxnInOut() == 2, "O numero de maximo de atrasos e diferente");
 }
 
 void ArxDoubleTest::getNSample ()
@@ -612,7 +609,438 @@ void ArxDoubleTest::getNSample ()
         arx.getNSample();
     }
 
-    QVERIFY2(arx.getNSample() == 3, "O numero de amostras e diferente na copia do construtor");
+    QVERIFY2(arx.getNSample() == 3, "O numero de amostras e diferente");
+}
+
+void ArxDoubleTest::getSingleInput()
+{
+    ModelHandler::ARX<double> arx(1,2,0,3,4,0.1);
+    arx.setIO(1,1);
+    double value;
+    QBENCHMARK {
+        arx.getSingleInput();
+    }
+
+    QVERIFY2(arx.getSingleInput() == 1, "O valor das entradas e diferente");
+}
+
+void ArxDoubleTest::getSingleOutput()
+{
+    ModelHandler::ARX<double> arx(1,2,0,3,4,0.1);
+    arx.setIO(1,1);
+    double value;
+    QBENCHMARK {
+        value = arx.getSingleOutput();
+    }
+
+    QVERIFY2(arx.getSingleOutput() == 1, "O valor das saidas e diferente");
+}
+
+void ArxDoubleTest::getSingleEstOutput()
+{
+    ModelHandler::ARX<double> arx(1,2,0,3,4,0.1);
+    arx.setIO(1,1);
+    double value;
+    QBENCHMARK {
+        value = arx.getSingleEstOutput();
+    }
+
+    QVERIFY2(arx.getSingleEstOutput() == 1, "O valor das saidas estimadas e diferente");
+}
+
+void ArxDoubleTest::getLmin()
+{
+    ModelHandler::ARX<double> arx(1,2,0,3,4,0.1);
+    arx.setLimits(1,1);
+    double value;
+    QBENCHMARK {
+        value = arx.getLmin();
+    }
+
+    QVERIFY2(arx.getLmin() == 1, "O valor do limite minimo e diferente");
+}
+
+void ArxDoubleTest::getLmax()
+{
+    ModelHandler::ARX<double> arx(1,2,0,3,4,0.1);
+    arx.setLimits(1,1);
+    double value;
+    QBENCHMARK {
+        value = arx.getLmax();
+    }
+
+    QVERIFY2(arx.getLmax() == 1, "O valor do limite maximo e diferente");
+}
+
+void ArxDoubleTest::getStep()
+{
+    ModelHandler::ARX<double> arx(1,2,0,3,4,0.1);
+    arx.setStep(0.5);
+    double value;
+    QBENCHMARK {
+        value = arx.getStep();
+    }
+
+    QVERIFY2(arx.getStep() == 0.5, "O valor do passo de simulacao e diferente");
+}
+
+void ArxDoubleTest::getTimeSimulation()
+{
+    ModelHandler::ARX<double> arx(1,2,0,3,4,0.1);
+    arx.setTimeSimulation(10);
+    double value;
+    QBENCHMARK {
+        value = arx.getTimeSimulation();
+    }
+
+    QVERIFY2(arx.getTimeSimulation() == 10, "O tempo de simulacao e diferente");
+}
+
+void ArxDoubleTest::getTransportDelay()
+{
+    ModelHandler::ARX<double> arx(1,2,2,3,4,0.1);
+    double value;
+    QBENCHMARK {
+        value = arx.getTransportDelay();
+    }
+
+    QVERIFY2(arx.getTransportDelay() == 2, "O valor dos atrasos de transporte e diferente");
+}
+
+void ArxDoubleTest::getInputMatrix()
+{
+    ModelHandler::ARX<double> arx(1,1,0,1,1,0.1);
+    arx.setIO("1;1","1;1");
+    QBENCHMARK {
+        arx.getInputMatrix();
+    }
+
+    QVERIFY2(LinAlg::isEqual(arx.getInputMatrix(),LinAlg::Matrix<double>("1;1")), "O valor das entradas e diferente");
+}
+
+void ArxDoubleTest::getOutputMatrix()
+{
+    ModelHandler::ARX<double> arx(1,1,0,1,1,0.1);
+    arx.setIO("1;1","1;2");
+    QBENCHMARK {
+        arx.getOutputMatrix();
+    }
+
+    QVERIFY2(LinAlg::isEqual(arx.getOutputMatrix(),LinAlg::Matrix<double>("1;2")), "O valor das saidas e diferente");
+}
+
+void ArxDoubleTest::getEstOutputMatrix()
+{
+    ModelHandler::ARX<double> arx(1,1,0,1,1,0.1);
+    arx.setIO("1;1","1;2");
+    QBENCHMARK {
+        arx.getEstOutputMatrix();
+    }
+
+    QVERIFY2(LinAlg::isEqual(arx.getEstOutputMatrix(),LinAlg::Matrix<double>("1;2")), "O valor das saidas estimadas e diferente");
+}
+
+void ArxDoubleTest::getModelCoef()
+{
+    ModelHandler::ARX<double> arx(1,1,0,1,1,0.1);
+    arx.setModelCoef("0.982;0.045");
+    QBENCHMARK {
+        arx.getModelCoef();
+    }
+
+    QVERIFY2(LinAlg::isEqual(arx.getModelCoef(),LinAlg::Matrix<double>("0.982;0.045")), "O valor dos coeficientes do modelo e diferente");
+//    QVERIFY2(LinAlg::isEqual(arx.getLinearEqualityVectorB(),arx2.getLinearEqualityVectorB()), "O valor dos elementos de B no vetor do sistema linear e diferente");
+//    QVERIFY2(LinAlg::isEqual(arx.getLinearMatrixA(),arx2.getLinearMatrixA()), "O valor dos elementos de A na Matrix do sistema linear e diferente");
+//    QVERIFY2(LinAlg::isEqual(arx.getLinearVectorA(),arx2.getLinearVectorA()), "O valor dos elementos de A no vetor do sistema linear e diferente");
+//    QVERIFY2(LinAlg::isEqual(arx.getLinearEqualityB(),arx2.getLinearEqualityB()), "O valor dos elementos de B na Matrix do sistema linear e diferente");
+//    QVERIFY2(LinAlg::isEqual(arx.getInputLinearVector(),arx2.getInputLinearVector()), "O vetor de estados da entrada e diferente");
+//    QVERIFY2(LinAlg::isEqual(arx.getOutputLinearVector(),arx2.getOutputLinearVector()), "O vetor de estados da saida e diferente");
+}
+
+void ArxDoubleTest::getLinearSystem()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U);
+    ModelHandler::ARX<double> arx(2,2);
+    OptimizationHandler::LeastSquare<double> LS(&arx);
+    LS.Optimize(U,Y);
+    LinAlg::Matrix<double> A, b;
+    LinAlg::Matrix<double> Acorreto = "-0,     -0,  0.430,      0; -0.020,     -0,  0.430,  0.430; -0.075, -0.020,  0.430,  0.430; -0.159, -0.075,  0.430,  0.430; -0.265, -0.159,  0.430,  0.430; -0.388, -0.265,  0.430,  0.430; -0.524, -0.388,  0.430,  0.430; -0.670, -0.524,  0.430,  0.430; -0.822, -0.670,  0.430,  0.430", bCorreto = "0.020;  0.075;  0.159;  0.265;  0.388;  0.524;  0.670;  0.822;  0.978";
+
+    QBENCHMARK {
+        *(A,b) = arx.getLinearSystem();
+    }
+
+    QVERIFY2(LinAlg::isEqual(A,Acorreto,0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+    QVERIFY2(LinAlg::isEqual(b,bCorreto,0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+}
+
+void ArxDoubleTest::getLinearMatrixA()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U);
+    ModelHandler::ARX<double> arx(2,2);
+    OptimizationHandler::LeastSquare<double> LS(&arx);
+    LS.Optimize(U,Y);
+    LinAlg::Matrix<double> A;
+    LinAlg::Matrix<double> Acorreto = "-0,     -0,  0.430,      0; -0.020,     -0,  0.430,  0.430; -0.075, -0.020,  0.430,  0.430; -0.159, -0.075,  0.430,  0.430; -0.265, -0.159,  0.430,  0.430; -0.388, -0.265,  0.430,  0.430; -0.524, -0.388,  0.430,  0.430; -0.670, -0.524,  0.430,  0.430; -0.822, -0.670,  0.430,  0.430";
+
+    QBENCHMARK {
+        A = arx.getLinearMatrixA();
+    }
+
+    QVERIFY2(LinAlg::isEqual(A,Acorreto,0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+}
+
+void ArxDoubleTest::getLinearEqualityB()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U);
+    ModelHandler::ARX<double> arx(2,2);
+    OptimizationHandler::LeastSquare<double> LS(&arx);
+    LS.Optimize(U,Y);
+    LinAlg::Matrix<double> b;
+    LinAlg::Matrix<double> bCorreto = "0.020;  0.075;  0.159;  0.265;  0.388;  0.524;  0.670;  0.822;  0.978";
+
+    QBENCHMARK {
+        b = arx.getLinearEqualityB();
+    }
+
+    QVERIFY2(LinAlg::isEqual(b,bCorreto,0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+}
+
+void ArxDoubleTest::getLinearVectorA()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U);
+    ModelHandler::ARX<double> arx(2,2);
+    OptimizationHandler::RecursiveLeastSquare<double> RLS(&arx,1e6);
+
+    QBENCHMARK {
+        arx.getLinearVectorA();
+    }
+
+    LinAlg::Matrix<double> Acorreto = "-0,     -0,  0.430,      0; -0.020,     -0,  0.430,  0.430; -0.075, -0.020,  0.430,  0.430; -0.159, -0.075,  0.430,  0.430; -0.265, -0.159,  0.430,  0.430; -0.388, -0.265,  0.430,  0.430; -0.524, -0.388,  0.430,  0.430; -0.670, -0.524,  0.430,  0.430; -0.822, -0.670,  0.430,  0.430";
+
+    for(unsigned i = 1; i < 10; ++i)
+    {
+        RLS.Optimize(U(1,i),Y(1,i+1));
+        QVERIFY2(LinAlg::isEqual(arx.getLinearVectorA(),Acorreto.getRow(i),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+    }
+}
+
+void ArxDoubleTest::getLinearEqualityVectorB()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U);
+    ModelHandler::ARX<double> arx(2,2);
+    OptimizationHandler::RecursiveLeastSquare<double> RLS(&arx,1e6);
+
+    QBENCHMARK {
+        arx.getLinearEqualityVectorB();
+    }
+
+    LinAlg::Matrix<double> bCorreto = "0; 0.020;  0.075;  0.159;  0.265;  0.388;  0.524;  0.670;  0.822;  0.978";
+
+    for(unsigned i = 1; i < 10; ++i)
+    {
+        RLS.Optimize(U(1,i),Y(1,i+1));
+        QVERIFY2(LinAlg::isEqual(arx.getLinearEqualityVectorB(),bCorreto.getRow(i),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+    }
+
+}
+
+void ArxDoubleTest::getInputLinearVector()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U);
+    ModelHandler::ARX<double> arx(2,2);
+    OptimizationHandler::RecursiveLeastSquare<double> RLS(&arx,1e6);
+
+    QBENCHMARK {
+        arx.getInputLinearVector();
+    }
+
+    LinAlg::Matrix<double> Acorreto = "-0,     -0,  0.430,      0; -0.020,     -0,  0.430,  0.430; -0.075, -0.020,  0.430,  0.430; -0.159, -0.075,  0.430,  0.430; -0.265, -0.159,  0.430,  0.430; -0.388, -0.265,  0.430,  0.430; -0.524, -0.388,  0.430,  0.430; -0.670, -0.524,  0.430,  0.430; -0.822, -0.670,  0.430,  0.430";
+
+    for(unsigned i = 1; i < 10; ++i)
+    {
+        RLS.Optimize(U(1,i),Y(1,i+1));
+//        std::cout << (arx.getInputLinearVector()|-Acorreto(i,from(3)-->4)) << std::endl;
+        QVERIFY2(LinAlg::isEqual(arx.getInputLinearVector(),Acorreto(i,from(3)-->4),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+    }
+
+}
+
+void ArxDoubleTest::getOutputLinearVector()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U);
+    ModelHandler::ARX<double> arx(2,2);
+    OptimizationHandler::RecursiveLeastSquare<double> RLS(&arx,1e6);
+
+    QBENCHMARK {
+        arx.getOutputLinearVector();
+    }
+
+    LinAlg::Matrix<double> Acorreto = "-0,     -0,  0.430,      0; -0.020,     -0,  0.430,  0.430; -0.075, -0.020,  0.430,  0.430; -0.159, -0.075,  0.430,  0.430; -0.265, -0.159,  0.430,  0.430; -0.388, -0.265,  0.430,  0.430; -0.524, -0.388,  0.430,  0.430; -0.670, -0.524,  0.430,  0.430; -0.822, -0.670,  0.430,  0.430";
+
+    for(unsigned i = 1; i < 10; ++i)
+    {
+        RLS.Optimize(U(1,i),Y(1,i+1));
+//        std::cout << (arx.getOutputLinearVector()|Acorreto(i,from(1)-->2)) << std::endl;
+        QVERIFY2(LinAlg::isEqual(arx.getOutputLinearVector(),-Acorreto(i,from(1)-->2),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+    }
+
+}
+
+void ArxDoubleTest::setLinearModel()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y    = TFd.sim(U);
+    LinAlg::Matrix<double> Acorreto = "-0,     -0,  0.430,      0; -0.020,     -0,  0.430,  0.430; -0.075, -0.020,  0.430,  0.430; -0.159, -0.075,  0.430,  0.430; -0.265, -0.159,  0.430,  0.430; -0.388, -0.265,  0.430,  0.430; -0.524, -0.388,  0.430,  0.430; -0.670, -0.524,  0.430,  0.430; -0.822, -0.670,  0.430,  0.430", bCorreto = "0.020;  0.075;  0.159;  0.265;  0.388;  0.524;  0.670;  0.822;  0.978";
+
+    QBENCHMARK {
+        ModelHandler::ARX<double> arx(2,2);
+        arx.setLinearModel(U,Y);
+    }
+
+    ModelHandler::ARX<double> arx(2,2);
+    arx.setLinearModel(U,Y);
+
+    QVERIFY2(LinAlg::isEqual(arx.getLinearMatrixA(),Acorreto,0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+    QVERIFY2(LinAlg::isEqual(arx.getLinearEqualityB(),bCorreto,0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+}
+
+void ArxDoubleTest::setLinearVector()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U);
+    QBENCHMARK {
+        ModelHandler::ARX<double> arx(2,2);
+        arx.setLinearVector(U.getRow(1),Y.getRow(1));
+    }
+    LinAlg::Matrix<double> Acorreto = "-0,     -0,  0.430,      0; -0.020,     -0,  0.430,  0.430; -0.075, -0.020,  0.430,  0.430; -0.159, -0.075,  0.430,  0.430; -0.265, -0.159,  0.430,  0.430; -0.388, -0.265,  0.430,  0.430; -0.524, -0.388,  0.430,  0.430; -0.670, -0.524,  0.430,  0.430; -0.822, -0.670,  0.430,  0.430", bCorreto = "0;0.020;  0.075;  0.159;  0.265;  0.388;  0.524;  0.670;  0.822;  0.978";
+
+    ModelHandler::ARX<double> arx(2,2);
+    for(unsigned i = 1; i < 10; ++i)
+    {
+        arx.setLinearVector(U.getColumn(i),Y.getColumn(i));
+        QVERIFY2(LinAlg::isEqual(arx.getLinearVectorA(),Acorreto.getRow(i),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+        QVERIFY2(LinAlg::isEqual(arx.getLinearEqualityVectorB(),bCorreto.getRow(i),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+    }
+}
+
+void ArxDoubleTest::simInScalar()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U);
+    QBENCHMARK {
+        ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
+        double Y2;
+        for(unsigned i = 1; i <= U.getNumberOfColumns(); ++i)
+            Y2 = arx.sim(U(1,i));
+    }
+
+    ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
+    double Y2;
+    for(unsigned i = 1; i <= U.getNumberOfColumns(); ++i)
+    {
+        Y2 = arx.sim(U(1,i));
+        QVERIFY2(fabs(Y(1,i+1)-Y2) < 0.01, "O resultado das simulacoes e diferente");
+    }
+}
+
+void ArxDoubleTest::simInOutScalar()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U);
+    QBENCHMARK {
+        ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
+        double Y2;
+        for(unsigned i = 1; i <= U.getNumberOfColumns(); ++i)
+            Y2 = arx.sim(U(1,i),Y(1,i));
+    }
+
+    ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
+    double Y2;
+    for(unsigned i = 1; i <= U.getNumberOfColumns(); ++i)
+    {
+        Y2 = arx.sim(U(1,i),Y(1,i));
+        QVERIFY2(fabs(Y(1,i+1)-Y2) < 0.01, "O resultado das simulacoes e diferente");
+    }
+}
+
+void ArxDoubleTest::simInMatrix()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U),Y2;
+
+    QBENCHMARK {
+        LinAlg::Matrix<double> Y2;
+        ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
+        Y2 = arx.sim(U);
+    }
+
+    ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
+    Y2 = arx.sim(U);
+    std::cout << (~Y|~Y2) << std::endl;
+    QVERIFY2(LinAlg::isEqual(Y,Y2,0.01), "O resultado das simulacoes e diferente");
+}
+
+void ArxDoubleTest::simInOutMatrix()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    LinAlg::Matrix<double> U = 0.43*LinAlg::Ones<double>(1,10);
+    LinAlg::Matrix<double> Y = TFd.sim(U),Y2;
+
+    QBENCHMARK {
+        LinAlg::Matrix<double> Y2;
+        ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
+        Y2 = arx.sim(U,Y);
+    }
+
+    ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
+    Y2 = arx.sim(U,Y);
+    QVERIFY2(LinAlg::isEqual(Y,Y2, 0.01), "O resultado das simulacoes e diferente");
+}
+
+void ArxDoubleTest::setInitialOutputValue()
+{
+    ModelHandler::TransferFunction<double> TF("10","1,2,1");
+    ModelHandler::TransferFunction<double> TFd = ModelHandler::c2d(TF,0.1);
+    ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
+
+    QBENCHMARK {
+        arx.setInitialOutputValue(1.0);
+    }
+
+    QVERIFY2(arx.getOutputLinearVector()(1,1)-1 < 0.01, "O resultado das simulacoes e diferente");
 }
 
 QTEST_APPLESS_MAIN(ArxDoubleTest)
