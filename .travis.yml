@@ -12,7 +12,7 @@ install:
   - sudo apt-get -y install qt58[QTPACKAGE]
 
 script:
-  - source /opt/qt57/bin/qt57-env.sh
+  - source /opt/qt58/bin/qt58-env.sh
   - qmake "CONFIG+=test" Testes/primitiveLibs/LinAlg/matrix/matrix.pro
   - make
   - ./tst_matrixtest
