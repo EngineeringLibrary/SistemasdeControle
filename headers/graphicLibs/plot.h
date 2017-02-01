@@ -4,12 +4,14 @@
 #include <QMainWindow>
 #include <QWidget>
 #include <QObject>
-#include "../../../headers/graphicLibs/QCustomPlot/qcustomplot.h"
+
 
 #ifndef plotTest
     #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+    #include "SistemasdeControle/headers/graphicLibs/QCustomPlot/qcustomplot.h"
 #else
     #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
+    #include "../../../headers/graphicLibs/QCustomPlot/qcustomplot.h"
 #endif
 
 namespace PlotHandler {

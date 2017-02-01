@@ -34,7 +34,9 @@ PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, QWidget *PlotFrame)
 {
     LinAlg::Matrix<Type> Y = LinAlg::LineVector<Type>(0,X.getNumberOfColumns()-1);
     this->properties.setPlotFrame(PlotFrame);
-    this->generalPlot(Y,X);
+    this->properties.PlotFrame->hide();
+    this->generalPlot(X,Y);
+    this->properties.PlotFrame->show();
 }
 
 template<typename Type>
@@ -42,21 +44,27 @@ PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, plotProperties properties)
 {
     LinAlg::Matrix<Type> Y = LinAlg::LineVector<Type>(0,X.getNumberOfColumns());
     this->properties = properties;
-    this->generalPlot(Y,X);
+    this->properties.PlotFrame->hide();
+    this->generalPlot(X,Y);
+    this->properties.PlotFrame->show();
 }
 
 template<typename Type>
 PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, plotProperties properties)
 {
     this->properties = properties;
+    this->properties.PlotFrame->hide();
     this->generalPlot(X,Y);
+    this->properties.PlotFrame->show();
 }
 
 template<typename Type>
 PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, QWidget *PlotFrame)
 {
     this->properties.setPlotFrame(PlotFrame);
+    this->properties.PlotFrame->hide();
     this->generalPlot(X,Y);
+    this->properties.PlotFrame->show();
 }
 
 template<typename Type>
@@ -64,7 +72,9 @@ PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, un
 {
     this->properties.setPlotFrame(PlotFrame);
     this->properties.setPlotSize(this->properties.windowSizeX*(xSubplot-1),this->properties.windowSizeY*(ySubplot-1),this->properties.windowSizeX, this->properties.windowSizeY);
+    this->properties.PlotFrame->hide();
     this->generalPlot(X,Y);
+    this->properties.PlotFrame->show();
 }
 
 template<typename Type>
@@ -72,7 +82,10 @@ PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, un
 {
     this->properties = properties;
     this->properties.setPlotSize(this->properties.windowSizeX*(xSubplot-1),this->properties.windowSizeY*(ySubplot-1),this->properties.windowSizeX, this->properties.windowSizeY);
+    this->properties.PlotFrame->hide();
     this->generalPlot(X,Y);
+    this->properties.PlotFrame->show();
+
 }
 
 template <typename Type>
@@ -87,7 +100,7 @@ void PlotHandler::plot<Type>::generalPlot(LinAlg::Matrix<Type> X, LinAlg::Matrix
     if(this->properties.titleFlag)
     {
         customPlot->plotLayout()->insertRow(0);
-        customPlot->plotLayout()->addElement(0, 0, new QCPPlotTitle(this->customPlot, this->properties.title.c_str()));
+        customPlot->plotLayout()->addElement(0, 0, new QCPTextElement(this->customPlot, this->properties.title.c_str()));
     }
 
     if(X.getNumberOfColumns() == Y.getNumberOfColumns() && X.getNumberOfRows() == Y.getNumberOfRows())
@@ -140,7 +153,7 @@ void PlotHandler::plot<Type>::generalPlot(LinAlg::Matrix<Type> X)
     if(this->properties.titleFlag)
     {
         customPlot->plotLayout()->insertRow(0);
-        customPlot->plotLayout()->addElement(0, 0, new QCPPlotTitle(this->customPlot, this->properties.title.c_str()));
+        customPlot->plotLayout()->addElement(0, 0, new QCPTextElement(this->customPlot, this->properties.title.c_str()));
     }
 
     this->properties.rows = X.getNumberOfRows();
@@ -184,8 +197,8 @@ void PlotHandler::plot<Type>::realTimeDataUpdate(double i, double j)
 {
 //    double key = QDateTime::currentDateTime().toMSecsSinceEpoch()/1000.0;
     customPlot->graph(0)->addData(i, j);
-    customPlot->graph(0)->removeDataBefore(i-8);
-    customPlot->graph(1)->clearData();
+//    customPlot->graph(0)->removeDataBefore(i-8);
+//    customPlot->graph(1)->clearData();
     customPlot->graph(1)->addData(i, j);
     customPlot->rescaleAxes();
     customPlot->replot();
@@ -208,17 +221,17 @@ void PlotHandler::plot<Type>::realTimePlotInit()
     customPlot->graph()->setLineStyle(QCPGraph::lsNone);
     customPlot->graph()->setScatterStyle(QCPScatterStyle::ssDisc);
 
-    customPlot->xAxis->setTickLabelType(QCPAxis::ltDateTime);
-    customPlot->xAxis->setDateTimeFormat("hh:mm:ss");
-    customPlot->xAxis->setAutoTickStep(false);
-    customPlot->xAxis->setTickStep(2);
+    customPlot->xAxis->setTicker(QSharedPointer<QCPAxisTickerPi>(new QCPAxisTickerPi));
+//    customPlot->xAxis->setDateTimeFormat("hh:mm:ss");
+//    customPlot->xAxis->setAutoTickStep(false);
+//    customPlot->xAxis->setTickStep(2);
     customPlot->axisRect()->setupFullAxesBox();
 
     // add title layout element:
     if(this->properties.titleFlag)
     {
         customPlot->plotLayout()->insertRow(0);
-        customPlot->plotLayout()->addElement(0, 0, new QCPPlotTitle(this->customPlot, this->properties.title.c_str()));
+        customPlot->plotLayout()->addElement(0, 0, new QCPTextElement(this->customPlot, this->properties.title.c_str()));
     }
     if(this->properties.yLabelFlag)
         customPlot->yAxis->setLabel(this->properties.yLabel.c_str());
