@@ -1,9 +1,14 @@
 #ifndef IntegrativeModel_H
 #define IntegrativeModel_H
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
-#include "SistemasdeControle/headers/modelLibs/model.h"
-#include "SistemasdeControle/headers/modelLibs/statespace.h"
+#ifdef testModel
+    #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
+    #include "../../../headers/primitiveLibs/LinAlg/linalg.h"
+#else
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
+#endif
+#include "model.h"
+#include "statespace.h"
 
 namespace ModelHandler {
     template <class Type>
@@ -61,5 +66,9 @@ namespace ModelHandler {
     std::string&  operator<< (std::string& output,  ModelHandler::IntegrativeModel<Type> SS);
 }
 
-#include "SistemasdeControle/src/modelLibs/integrativemodel.hpp"
+#ifdef testModel
+    #include "../../../src/modelLibs/integrativemodel.hpp"
+#else
+    #include "SistemasdeControle/src/modelLibs/integrativemodel.hpp"
+#endif
 #endif // IntegrativeModel_H

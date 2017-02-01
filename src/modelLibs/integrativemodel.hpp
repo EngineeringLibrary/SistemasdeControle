@@ -1,4 +1,9 @@
-#include "SistemasdeControle/headers/modelLibs/integrativemodel.h"
+#ifdef testModel
+    #include "../../../headers/modelLibs/integrativemodel.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/integrativemodel.h"
+#endif
+
 
 template <class Type>
 ModelHandler::IntegrativeModel<Type>::IntegrativeModel(
@@ -42,10 +47,10 @@ ModelHandler::IntegrativeModel<Type>::IntegrativeModel(ModelHandler::StateSpace<
     this->Continuous = SS.isContinuous();
     if(Continuous)
     {
-//        this->A = (SS.getA() | LinAlg::Zeros(SS.getA().getNumberOfRows(),SS.getC().getNumberOfRows()))
-//                || (SS.getC()*SS.getA() | LinAlg::Eye(SS.getC().getNumberOfRows()));
+        this->A = LinAlg::Zeros<Type>(SS.getC().getNumberOfRows()+SS.getA().getNumberOfRows(),1)|(SS.getC()||SS.getA());
 
-//        this->B = (SS.getB() || SS.getC()*SS.getB());
+        this->B = (LinAlg::Zeros<Type>(SS.getC().getNumberOfRows()+SS.getB().getNumberOfColumns(),1)||SS.getB());
+        //Retirado da apostila de meneghet
     }else{
         this->Ad = ( SS.getA()            | LinAlg::Zeros<Type>(SS.getA().getNumberOfRows(),SS.getC().getNumberOfRows()))
                 || ((SS.getC()*SS.getA()) | LinAlg::Eye<Type>  (SS.getC().getNumberOfRows()));

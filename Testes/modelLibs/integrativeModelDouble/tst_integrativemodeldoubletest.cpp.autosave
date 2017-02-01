@@ -18,7 +18,7 @@ private Q_SLOTS:
 
 void IntegrativeModelDoubleTest::voidConstructorCase1()
 {
-
+    
 }
 
 void IntegrativeModelDoubleTest::voidConstructorCase2()
