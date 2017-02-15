@@ -416,14 +416,38 @@ std::ostream& PolynomHandler::operator<< (std::ostream& output, PolynomHandler::
 
     maxSize += 6;
 
-    for(unsigned i = 0; i < unsigned(abs((maxSize - polyNum.length())/2)); ++i)
+    for(unsigned i = 0; i < unsigned(fabs((maxSize - polyNum.length())/2)); ++i)
         numSpace += ' ';
     for(unsigned i = 0; i < maxSize; ++i)
         midLine += '-';
-    for(unsigned i = 0; i < unsigned(abs((maxSize - polyDen.length())/2)); ++i)
+    for(unsigned i = 0; i < unsigned(fabs((maxSize - polyDen.length())/2)); ++i)
         denSpace += ' ';
 
+    LinAlg::Matrix<PolynomType> temp = rhs.getDen();
+
+    unsigned counter = 0;
+    for(unsigned i = 1; i <= temp.getNumberOfColumns(); ++i)
+        if(temp(1,i) != 0)
+            break;
+        else
+            ++counter;
+    if(counter == temp.getNumberOfColumns())
+    {
+        output << "Polinomio tem denominador zero!!";
+        return output;
+    }
+
     output << numSpace << polyNum << numSpace << '\n';
+
+    counter = 0;
+    for(unsigned i = 1; i <= temp.getNumberOfColumns(); ++i)
+        if(temp(1,i) != 1)
+            break;
+        else
+            ++counter;
+    if(counter == temp.getNumberOfColumns())
+        return output;
+
     output << midLine << '\n';
     output << denSpace << polyDen << denSpace << '\n';
 
@@ -788,7 +812,7 @@ LinAlg::Matrix<Type> PolynomHandler::Root2Poly(const LinAlg::Matrix<Type> &root)
     tempRoot[0] = 1;
     for(unsigned i = 2; i <= n ; ++i)
     {
-        tempRoot[1] = std::complex<Type>(-root(i,1),-root(i,2));//apos o templade entre (real,imaginario) atribuiÃ§Ã£o
+        tempRoot[1] = std::complex<Type>(-root(i,1),-root(i,2));//apos o templade entre (real,imaginario) atribuição
         tempPoly = PolynomHandler::MultPoly(tempPoly,tempRoot,sizeTempPoly,2);
         sizeTempPoly++;
     }

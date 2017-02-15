@@ -136,6 +136,10 @@ private Q_SLOTS:
     void printSmallPolynomCase24 ();
     void printSmallPolynomCase25 ();
 
+    void printPolynomCase1 ();
+    void printPolynomCase2 ();
+    void printPolynomCase3 ();
+
 //    std::string& operator<< (std::string& output, PolynomHandler::Polynom<Type> rhs);
     void vefDen ();
     void sumPoly ();
@@ -1923,6 +1927,39 @@ void PolynomDoubleTest::printSmallPolynomCase25()
         A = PolynomHandler::printSmallPolynom<double>("-1,0,0,1",'x');
     }
     QVERIFY2(A == "- x^3   +   1.000 ", "Falhou ao testar variável do Polinomio");
+}
+
+void PolynomDoubleTest::printPolynomCase1()
+{
+    PolynomHandler::Polynom<double> pol("1,2,1",1.0);
+    std::string str; str << pol;
+
+    QBENCHMARK {
+        std::string str; str << pol;
+    }
+    QVERIFY2(str == "   x^2 +   2.000x +   1.000    \n", "Falhou ao testar variável do Polinomio");
+}
+
+void PolynomDoubleTest::printPolynomCase2()
+{
+    PolynomHandler::Polynom<double> pol("1,2,1",2.0);
+    std::string str; str << pol;
+
+    QBENCHMARK {
+        std::string str; str << pol;
+    }
+    QVERIFY2(str == "   x^2 +   2.000x +   1.000    \n-------------------------------\n             2.000            \n", "Falhou ao testar variável do Polinomio");
+}
+
+void PolynomDoubleTest::printPolynomCase3()
+{
+    PolynomHandler::Polynom<double> pol("1,2,1",0.0);
+    std::string str; str << pol;
+
+    QBENCHMARK {
+        std::string str; str << pol;
+    }
+    QVERIFY2(str == "Polinomio tem denominador zero!!", "Falhou ao testar variável do Polinomio");
 }
 
 void PolynomDoubleTest::vefDen ()
