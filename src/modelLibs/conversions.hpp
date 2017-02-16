@@ -71,7 +71,7 @@ ModelHandler::StateSpace<Type> ModelHandler::arx2SS(const ARX<Type> &Arx)
     LinAlg::Matrix<Type> Temp;
     LinAlg::Matrix<Type> ArxParameters = Arx.getModelCoef();
 
-    double sampleTime = Arx.getSampleTime();
+    double sampleTime = Arx.getStep();
     unsigned nuPar    = Arx.getNumberOfInputs();
     unsigned nyPar    = Arx.getNumberOfOutputs();
 //    unsigned nArxPar  = Arx.getNumberOfVariables();
@@ -356,9 +356,9 @@ ModelHandler::StateSpace<Type> ModelHandler::integrativeModel(const ModelHandler
 
 template<typename Type> //ok
 ModelHandler::StateSpace<Type> ModelHandler::predictionModel(const ModelHandler::StateSpace<Type> &SS_SSI,
-                                                             unsigned &minPredictionHorizon,
-                                                             unsigned &maxPredictionHorizon,
-                                                             unsigned &controlHorizon)
+                                                             const unsigned &minPredictionHorizon,
+                                                             const unsigned &maxPredictionHorizon,
+                                                             const unsigned &controlHorizon)
 {
     ModelHandler::StateSpace<Type> SSP;
     SSP.setContinuous(SS_SSI.isContinuous());

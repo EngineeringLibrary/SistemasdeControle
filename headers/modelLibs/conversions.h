@@ -39,7 +39,10 @@ namespace ModelHandler{
     template<typename Type> //ok
     StateSpace<Type> integrativeModel(const StateSpace<Type> &SS);
     template<typename Type> //ok
-    StateSpace<Type> predictionModel(const StateSpace<Type> &SSI);
+    StateSpace<Type> predictionModel(const ModelHandler::StateSpace<Type> &SS_SSI,
+                                     const unsigned &minPredictionHorizon,
+                                     const unsigned &maxPredictionHorizon,
+                                     const unsigned &controlHorizon);
 }
 
 #ifdef testModel

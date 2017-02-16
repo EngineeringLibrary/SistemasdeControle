@@ -34,6 +34,9 @@ script:
   - qmake "CONFIG+=test" Testes/modelLibs/ArxDouble/ArxDouble.pro
   - make
   - ./tst_arxdoubletest
+  - qmake "CONFIG+=test" Testes/modelLibs/conversions/conversions.pro
+  - make
+  - ./tst_conversionstest
 
 after_success:
 - cpp-coveralls  

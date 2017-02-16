@@ -189,13 +189,19 @@ LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getActualState() const
 template <typename Type>
 void ModelHandler::StateSpace<Type>::setA(LinAlg::Matrix<Type> A)
 {
-    this->A = A;
+    if(this->continuous)
+        this->A = A;
+    else
+        this->Ad = A;
 }
 
 template <typename Type>
 void ModelHandler::StateSpace<Type>::setB(LinAlg::Matrix<Type> B)
 {
-    this->B = B;
+    if(this->continuous)
+        this->B = B;
+    else
+        this->Bd = B;
 }
 
 template <typename Type>
