@@ -56,6 +56,17 @@ private Q_SLOTS:
     void print(); //ok
     void bufferString();
 
+    void getNDiscretizationValue();
+    void getMinPredictionHorizon();
+    void getMaxPredictionHorizon();
+    void getControlHorizon();
+    void setNDiscretizationValue();
+    void setMinPredictionHorizon();
+    void setMaxPredictionHorizon();
+    void setControlHorizon();
+
+
+
     void simScalarInOut() {QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
     void simMatrixInOut(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
     void simRange(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
@@ -533,6 +544,110 @@ void StateSpaceDoubleTest::bufferString()
     }
 
     QVERIFY2( str == "The Continuous State Space Model is: \n\nA = \n      0   1.000 \n -1.000  -2.000 \n\n\nB = \n      0 \n  1.000 \n\n\nC = \n  1.000       0 \n\n\nD = \n      0 \n\n", "Falhou ao verificar se o sistema e continuo");
+}
+
+void StateSpaceDoubleTest::getNDiscretizationValue()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    SS.setNDiscretizationValue(6);
+
+    QBENCHMARK {
+        SS.getNDiscretizationValue();
+    }
+
+    QVERIFY2( SS.getNDiscretizationValue() == 6, "O valor de discretização esta errado.");
+}
+
+void StateSpaceDoubleTest::getMinPredictionHorizon()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    SS.setMinPredictionHorizon(0);
+
+    QBENCHMARK {
+        SS.getMinPredictionHorizon();
+    }
+
+    QVERIFY2( SS.getMinPredictionHorizon() == 0, "O minimo horizonte de predicao esta errado.");
+}
+
+void StateSpaceDoubleTest::getMaxPredictionHorizon()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    SS.setMaxPredictionHorizon(10);
+
+    QBENCHMARK {
+        SS.getMaxPredictionHorizon();
+    }
+
+    QVERIFY2( SS.getMaxPredictionHorizon() == 10, "O maximo horizonte de predicao esta errado.");
+}
+
+void StateSpaceDoubleTest::getControlHorizon()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    SS.setControlHorizon(4);
+
+    QBENCHMARK {
+        SS.getControlHorizon();
+    }
+
+    QVERIFY2( SS.getControlHorizon() == 4, "O horizonte de controle esta errado.");
+}
+
+void StateSpaceDoubleTest::setNDiscretizationValue()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    SS.setNDiscretizationValue(6);
+
+    QBENCHMARK {
+        SS.setNDiscretizationValue(6);
+    }
+
+    QVERIFY2( SS.getNDiscretizationValue() == 6, "O valor de discretização esta errado.");
+}
+
+void StateSpaceDoubleTest::setMinPredictionHorizon()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    SS.setMinPredictionHorizon(0);
+
+    QBENCHMARK {
+        SS.setMinPredictionHorizon(0);
+    }
+
+    QVERIFY2( SS.getMinPredictionHorizon() == 0, "O minimo horizonte de predicao esta errado.");
+}
+
+void StateSpaceDoubleTest::setMaxPredictionHorizon()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    SS.setMaxPredictionHorizon(10);
+
+    QBENCHMARK {
+        SS.setMaxPredictionHorizon(10);
+    }
+
+    QVERIFY2( SS.getMaxPredictionHorizon() == 10, "O maximo horizonte de predicao esta errado.");
+}
+
+void StateSpaceDoubleTest::setControlHorizon()
+{
+    LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    SS.setControlHorizon(4);
+
+    QBENCHMARK {
+        SS.setControlHorizon(4);
+    }
+
+    QVERIFY2( SS.getControlHorizon() == 4, "O horizonte de controle esta errado.");
 }
 
 void StateSpaceDoubleTest::stringConversion()

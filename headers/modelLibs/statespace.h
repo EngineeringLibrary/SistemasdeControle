@@ -28,7 +28,12 @@ namespace ModelHandler {
 
         Type getSampleTime() const; // ok
         Type getTimeSimulation() const{return this->timeSimulation;} // ok
-        unsigned getnDiscretizationParameter() const {return nDiscretization;}
+
+        unsigned getnDiscretizationParameter() const {return this->nDiscretization;}
+        unsigned getNDiscretizationValue() const {return this->nDiscretization;}
+        unsigned getMinPredictionHorizon() const {return this->minPredictionHorizon;}
+        unsigned getMaxPredictionHorizon() const {return this->maxPredictionHorizon;}
+        unsigned getControlHorizon() const {return this->controlHorizon;}
 
         LinAlg::Matrix<Type> getA() const; //ok
         LinAlg::Matrix<Type> getB() const; //ok
@@ -55,6 +60,10 @@ namespace ModelHandler {
         void setLinearModel(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
         void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
         void setObserverParameters(LinAlg::Matrix<Type> L);//ok
+        void setNDiscretizationValue(const unsigned &nDiscretization){this->nDiscretization = nDiscretization;}
+        void setMinPredictionHorizon(const unsigned &minPredictionHorizon){this->minPredictionHorizon = minPredictionHorizon;}
+        void setMaxPredictionHorizon(const unsigned &maxPredictionHorizon){this->maxPredictionHorizon = maxPredictionHorizon;}
+        void setControlHorizon(const unsigned &controlHorizon){this->controlHorizon = controlHorizon;}
 
         bool isContinuous()  const;
         bool isObservable()  const;
@@ -77,7 +86,7 @@ namespace ModelHandler {
 
 
         bool continuous,firstTimeKalmanObserver;
-        unsigned nDiscretization;
+        unsigned nDiscretization, minPredictionHorizon, maxPredictionHorizon, controlHorizon;
         LinAlg::Matrix<Type> A, B, C, D, Ad, Bd, X, L, initialState,P;
     };
 

@@ -323,3 +323,93 @@ ModelHandler::StateSpace<Type> ModelHandler::d2c(const ModelHandler::StateSpace<
     ret.setContinuous(true);
     return ret;
 }
+
+template<typename Type> //ok
+ModelHandler::StateSpace<Type> ModelHandler::integrativeModel(const ModelHandler::StateSpace<Type> &SS)
+{
+    ModelHandler::StateSpace<Type> SSI;
+    SSI.setContinuous(SS.isContinuous());
+    if(SSI.isContinuous())
+    {
+        SSI.setA(LinAlg::Zeros<Type>(SS.getC().getNumberOfRows()+SS.getA().getNumberOfRows(),1)|(SS.getC()||SS.getA()));
+
+        SSI.setB((LinAlg::Zeros<Type>(SS.getC().getNumberOfRows()+SS.getB().getNumberOfColumns(),1)||SS.getB()));
+        //Retirado da apostila de meneghet
+    }else{
+        SSI.setA(( SS.getA()            | LinAlg::Zeros<Type>(SS.getA().getNumberOfRows(),SS.getC().getNumberOfRows()))
+                || ((SS.getC()*SS.getA()) | LinAlg::Eye<Type>  (SS.getC().getNumberOfRows())));
+//        Ba = [B; C*B];
+        SSI.setB((SS.getB() || SS.getC()*SS.getB()));
+    }
+
+    SSI.setC((LinAlg::Zeros<Type>(SS.getC().getNumberOfRows(),SS.getA().getNumberOfColumns()) | LinAlg::Eye<Type>(SS.getC().getNumberOfRows())));
+    SSI.setD(SS.getD());
+
+    SSI.setSampleTime(SS.getSampleTime());
+    SSI.setInitialState(LinAlg::Zeros<Type>(SSI.getA().getNumberOfRows(),1));
+    SSI.setObserverParameters((LinAlg::Zeros<Type>(SSI.getA().getNumberOfRows(),1)));
+
+    SSI.setTimeSimulation(SS.getTimeSimulation());
+
+    return SSI;
+}
+
+template<typename Type> //ok
+ModelHandler::StateSpace<Type> ModelHandler::predictionModel(const ModelHandler::StateSpace<Type> &SS_SSI,
+                                                             unsigned &minPredictionHorizon,
+                                                             unsigned &maxPredictionHorizon,
+                                                             unsigned &controlHorizon)
+{
+    ModelHandler::StateSpace<Type> SSP;
+    SSP.setContinuous(SS_SSI.isContinuous());
+    SSP.setControlHorizon(controlHorizon);
+    SSP.setMinPredictionHorizon(minPredictionHorizon);
+    SSP.setMaxPredictionHorizon(maxPredictionHorizon);
+
+    if(SSP.isContinuous())
+    {
+
+    }else{
+
+        for(unsigned i = minPredictionHorizon; i <= maxPredictionHorizon; ++i)
+            SSP.setA((SSP.getA() || SS_SSI.getA()^i));
+
+        for(unsigned j = 0; j <= controlHorizon - 1; ++j)
+        {
+            LinAlg::Matrix<Type> Btemp = LinAlg::Zeros<Type>(j*SS_SSI.getB().getNumberOfRows(),
+                                                               SS_SSI.getB().getNumberOfColumns());
+
+            for(unsigned i = minPredictionHorizon - 1 + j;  i <= maxPredictionHorizon - 1; ++i)
+                Btemp = (Btemp || (SS_SSI.getA()^i)*SS_SSI.getB());
+
+            SSP.setB(SSP.getB() | Btemp);
+        }
+
+        LinAlg::Matrix<Type> zerosC = LinAlg::Zeros<Type>(SS_SSI.getC().getNumberOfRows(), SS_SSI.getC().getNumberOfColumns());
+
+        for(unsigned i = minPredictionHorizon; i <= maxPredictionHorizon; ++i)
+        {
+            LinAlg::Matrix<Type> Ctemp;
+            for(unsigned j = minPredictionHorizon; j <= maxPredictionHorizon; ++j)
+            {
+                if(i == j)
+                {
+                    Ctemp = (Ctemp || SS_SSI.getC());
+                }else
+                {
+                    Ctemp = (Ctemp || zerosC);
+                }
+            }
+            SSP.setC(SSP.getC() | Ctemp);
+        }
+    }
+
+    SSP.setD(SS_SSI.getD());
+
+    SSP.setSampleTime(SS_SSI.getSampleTime());
+    SSP.setInitialState(LinAlg::Zeros<Type>(SSP.getA().getNumberOfRows(),1));
+    SSP.setObserverParameters((LinAlg::Zeros<Type>(SSP.getA().getNumberOfRows(),1)));
+    SSP.setTimeSimulation(SS_SSI.getTimeSimulation());
+
+    return SSP;
+}
