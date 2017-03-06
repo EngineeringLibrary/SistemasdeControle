@@ -112,8 +112,8 @@ namespace PlotHandler {
         plot(QWidget *PlotFrame);
         plot(unsigned ySubplot, unsigned xSubplot, QWidget *PlotFrame);
         plot(unsigned ySubplot, unsigned xSubplot, plotProperties properties);
-        plot(LinAlg::Matrix<Type> X, QWidget *PlotFrame); //precisa ajeitar
-        plot(LinAlg::Matrix<Type> X, plotProperties properties); //precisa ajeitar
+        plot(LinAlg::Matrix<Type> Y, QWidget *PlotFrame); //precisa ajeitar
+        plot(LinAlg::Matrix<Type> Y, plotProperties properties); //precisa ajeitar
         plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, QWidget *PlotFrame);
         plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, plotProperties properties);
         plot(LinAlg::Matrix<Type> X, LinAlg::Matrix<Type> Y, unsigned ySubplot, unsigned xSubplot, QWidget *PlotFrame);

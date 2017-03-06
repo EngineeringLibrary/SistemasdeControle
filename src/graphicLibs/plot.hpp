@@ -1,4 +1,4 @@
-#ifndef plotTest
+'#ifndef plotTest
     #include "SistemasdeControle/headers/graphicLibs/plot.h"
 #else
     #include "../../../headers/graphicLibs/plot.h"
@@ -30,9 +30,9 @@ PlotHandler::plot<Type>::plot(unsigned ySubplot, unsigned xSubplot, plotProperti
 }
 
 template<typename Type>
-PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, QWidget *PlotFrame)
+PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> Y, QWidget *PlotFrame)
 {
-    LinAlg::Matrix<Type> Y = LinAlg::LineVector<Type>(0,X.getNumberOfColumns()-1);
+    LinAlg::Matrix<Type> X = LinAlg::LineVector<Type>(0,Y.getNumberOfColumns()-1);
     this->properties.setPlotFrame(PlotFrame);
     this->properties.PlotFrame->hide();
     this->generalPlot(X,Y);
@@ -40,9 +40,9 @@ PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, QWidget *PlotFrame)
 }
 
 template<typename Type>
-PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> X, plotProperties properties)
+PlotHandler::plot<Type>::plot(LinAlg::Matrix<Type> Y, plotProperties properties)
 {
-    LinAlg::Matrix<Type> Y = LinAlg::LineVector<Type>(0,X.getNumberOfColumns());
+    LinAlg::Matrix<Type> X = LinAlg::LineVector<Type>(0,Y.getNumberOfColumns());
     this->properties = properties;
     this->properties.PlotFrame->hide();
     this->generalPlot(X,Y);
