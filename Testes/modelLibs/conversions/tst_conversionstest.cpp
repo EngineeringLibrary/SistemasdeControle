@@ -326,8 +326,8 @@ void ConversionsTest::predictionModelDiscrete()
     QVERIFY2(LinAlg::isEqual(Cd, LinAlg::Matrix<double>("0,0,1,0,0,0;0,0,0,0,0,1")), "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
     QVERIFY2(LinAlg::isEqual(Dd, LinAlg::Matrix<double>("0")), "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
 
-    std::string str; str << SSP;
-    std::cout << str << std::endl;
+//    std::string str; str << SSP;
+//    std::cout << str << std::endl;
 }
 
 void ConversionsTest::predictionModelContinuous()

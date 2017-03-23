@@ -11,7 +11,7 @@ namespace ControlHandler{
         bool checkUpLim, checkLowLim;
         Type Error, pastError, integralError, derivativeError, Step, kp, ki, kd, upperLimit, lowerLimit, PIDout;
 
-        void antReset();
+        void errorLimitation();
 
         void intError();
         void difError();
@@ -28,5 +28,10 @@ namespace ControlHandler{
     };
 }
 
-#include "SistemasdeControle/src/controlLibs/pid.hpp"
+#ifdef testControl
+    #include "../../../src/controlLibs/pid.hpp"
+#else
+    #include "SistemasdeControle/src/controlLibs/pid.hpp"
+#endif
+
 #endif // PID_H

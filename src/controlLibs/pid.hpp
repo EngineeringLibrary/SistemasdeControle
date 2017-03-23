@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/controlLibs/pid.h"
+#ifdef testControl
+    #include "../../../headers/controlLibs/pid.h"
+#else
+    #include "SistemasdeControle/headers/controlLibs/pid.h"
+#endif
 
 template<typename Type>
 ControlHandler::PID<Type>::PID()
@@ -18,7 +22,7 @@ ControlHandler::PID<Type>::PID()
 }
 
 template<typename Type>
-void ControlHandler::PID<Type>::antReset()
+void ControlHandler::PID<Type>::errorLimitation()
 {
     if(this->PIDout >= this->upperLimit)
     {
@@ -40,7 +44,7 @@ void ControlHandler::PID<Type>::antReset()
 template<typename Type>
 void ControlHandler::PID<Type>::intError()
 {
-    antReset();
+    this->errorLimitation();
 
     if(!this->checkUpLim && !this->checkLowLim)
         this->integralError += this->Error*this->Step;
@@ -90,7 +94,7 @@ Type ControlHandler::PID<Type>::OutputControl(Type Reference, Type SignalInput)
     difError();
     intError();
     this->PIDout = (this->kp*this->Error + this->ki*this->integralError + this->kd*this->derivativeError);
-    antReset();
+    errorLimitation();
     
     return this->PIDout;
 }
