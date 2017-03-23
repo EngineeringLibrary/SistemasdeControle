@@ -57,7 +57,7 @@ ModelHandler::TransferFunction<Type> ModelHandler::arx2tf(const ARX<Type> &Arx, 
         {
             TF(i,j) = PolynomHandler::Polynom<Type>
             ( ~ArxParameters(from( nyPar*ny + (j-1)*nu + 1) --> nyPar*ny + j*nu, i), LinAlg::Matrix<Type>(1)|
-              ~ArxParameters(from((j-1)*ny + 1)             --> j*ny,i            ) );
+              ~ArxParameters(from(1)             --> ny,i ) );
         }
     }
     TF.setContinuous(false);
@@ -333,7 +333,7 @@ ModelHandler::StateSpace<Type> ModelHandler::integrativeModel(const ModelHandler
     {
         SSI.setA(LinAlg::Zeros<Type>(SS.getC().getNumberOfRows()+SS.getA().getNumberOfRows(),1)|(SS.getC()||SS.getA()));
 
-        SSI.setB((LinAlg::Zeros<Type>(SS.getC().getNumberOfRows()+SS.getB().getNumberOfColumns(),1)||SS.getB()));
+        SSI.setB((LinAlg::Zeros<Type>(SS.getC().getNumberOfRows()+SS.getB().getNumberOfColumns()-1,1)||SS.getB()));
         //Retirado da apostila de meneghet
     }else{
         SSI.setA(( SS.getA()            | LinAlg::Zeros<Type>(SS.getA().getNumberOfRows(),SS.getC().getNumberOfRows()))
