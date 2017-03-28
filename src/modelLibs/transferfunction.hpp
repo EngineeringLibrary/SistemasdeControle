@@ -393,6 +393,8 @@ Type ModelHandler::TransferFunction<Type>::sim(Type x)
         this->simulationFlag = true;
     }
     this->setLinearVector(x,this->estOutput);
+//    std::cout << this->LinearVectorA << std::endl;
+//    std::cout << this->ModelCoef << std::endl;
     this->estOutput = (this->ModelCoef*this->LinearVectorA)(1,1);
     return this->estOutput;
 }

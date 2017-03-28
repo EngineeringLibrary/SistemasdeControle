@@ -310,6 +310,8 @@ ModelHandler::TransferFunction<Type> ModelHandler::c2d(const TransferFunction<Ty
     SS = ModelHandler::c2d(SS, sampleTime);
 //    std::cout << SS;
     TransferFunction<Type> TFr = ModelHandler::ss2tf(SS);
+
+//    std::cout << TFr << std::endl;
     TFr.setContinuous(false);
     return TFr;
 }

@@ -18,6 +18,14 @@ namespace ControlHandler{
 
     public:
         PID();
+        PID(const LinAlg::Matrix<Type> &PIDsParameters);
+
+        Type getSampleTime() const {return this->Step;}
+        Type getErrorValue() const {return this->Error;}
+        Type getDerivativeErrorValue() const {return this->derivativeError;}
+        Type getIntegralErrorValue() const {return this->integralError;}
+        LinAlg::Matrix<Type> getLimits();
+        LinAlg::Matrix<Type> getParams();
 
         void setSampleTime(Type Time);
         void setLimits(Type upperLimit, Type lowerLimit);

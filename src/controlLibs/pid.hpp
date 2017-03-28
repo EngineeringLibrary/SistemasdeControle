@@ -22,6 +22,23 @@ ControlHandler::PID<Type>::PID()
 }
 
 template<typename Type>
+ControlHandler::PID<Type>::PID(const LinAlg::Matrix<Type> &PIDsParameters)
+{
+    this->kp = PIDsParameters(1,1);
+    this->ki = PIDsParameters(1,2);
+    this->kd = PIDsParameters(1,3);
+
+    this->Error = 0;
+    this->derivativeError = 0;
+    this->pastError = 0;
+    this->integralError = 0;
+
+    this->Step = 0.1;
+    this->upperLimit = 200;
+    this->lowerLimit = -200;
+}
+
+template<typename Type>
 void ControlHandler::PID<Type>::errorLimitation()
 {
     if(this->PIDout >= this->upperLimit)
@@ -58,7 +75,7 @@ void ControlHandler::PID<Type>::difError()
 }
 
 template<typename Type>
-void ControlHandler::PID<Type>::setLimits(Type upperLimit, Type lowerLimit)
+void ControlHandler::PID<Type>::setLimits(Type lowerLimit, Type upperLimit)
 {
     this->upperLimit = upperLimit;
     this->lowerLimit = lowerLimit;
@@ -97,4 +114,27 @@ Type ControlHandler::PID<Type>::OutputControl(Type Reference, Type SignalInput)
     errorLimitation();
     
     return this->PIDout;
+}
+
+template<typename Type>
+LinAlg::Matrix<Type> ControlHandler::PID<Type>::getLimits()
+{
+    LinAlg::Matrix<Type> limits(1,2);
+
+    limits(1,1) = this->lowerLimit;
+    limits(1,2) = this->upperLimit;
+
+    return limits;
+}
+
+template<typename Type>
+LinAlg::Matrix<Type> ControlHandler::PID<Type>::getParams()
+{
+    LinAlg::Matrix<Type> params(1,3);
+
+    params(1,1) = this->kp;
+    params(1,2) = this->ki;
+    params(1,3) = this->kd;
+
+    return params;
 }

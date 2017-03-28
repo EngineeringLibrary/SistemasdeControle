@@ -430,6 +430,8 @@ void ModelHandler::StateSpace<Type>::c2dConversion()
 //        std::cout << A <<"\n"<< Ad;
     }
     Ad ^= factor;
+//    std::cout << (Ad - (Ad^0)) << std::endl;
+//    std::cout << (A^-1) << std::endl;
     Bd = (A^-1)*(Ad - (Ad^0))*B;
 }
 

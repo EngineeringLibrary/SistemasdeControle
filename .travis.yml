@@ -37,6 +37,9 @@ script:
   - qmake "CONFIG+=test" Testes/modelLibs/conversions/conversions.pro
   - make
   - ./tst_conversionstest
+Testes/controlLibs/PIDTest/PIDTest.pro
+  - make
+  - ./tst_pidtesttest
 
 after_success:
 - cpp-coveralls  
