@@ -139,7 +139,7 @@ void PIDTestTest::getErrorValue()
     ModelHandler::TransferFunction<double> TF("1","1,1");
     double u, error, y = 0;
 
-    for(unsigned i = 0; i <= 100; ++i)
+    for(unsigned i = 0; i < 100; ++i)
     {
         u = PID.OutputControl(1,y);
         y = TF.sim(u);
@@ -158,7 +158,7 @@ void PIDTestTest::getDerivativeErrorValue()
     ModelHandler::TransferFunction<double> TF("1","1,1");
     double u, derror, y = 0;
 
-    for(unsigned i = 0; i <= 100; ++i)
+    for(unsigned i = 0; i < 100; ++i)
     {
         u = PID.OutputControl(1,y);
         y = TF.sim(u);
@@ -220,7 +220,7 @@ void PIDTestTest::OutputControl()
     ModelHandler::TransferFunction<double> TF("1","1,1");
     double u, y = 0;
 
-    for(unsigned i = 0; i <= 100; ++i)
+    for(unsigned i = 0; i < 100; ++i)
     {
         u = PID.OutputControl(1,y);
         y = TF.sim(u);
