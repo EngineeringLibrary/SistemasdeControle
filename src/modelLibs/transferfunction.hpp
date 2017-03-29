@@ -284,11 +284,11 @@ std::string ModelHandler::TransferFunction<Type>::print()
                 maxSize[i-1][j] = polyDen[i-1][j].length();
             maxSize[i-1][j] += 6;
 
-            for(unsigned k = 0; k < unsigned(abs((maxSize[i-1][j] - polyNum[i-1][j].length())/2)); ++k)
+            for(unsigned k = 0; k < unsigned(fabs((maxSize[i-1][j] - polyNum[i-1][j].length())/2)); ++k)
                 numSpace[i-1][j] += ' ';
             for(unsigned k = 0; k < maxSize[i-1][j]; ++k)
                 midLine[i-1][j] += '-';
-            for(unsigned k = 0; k < unsigned(abs((maxSize[i-1][j] - polyDen[i-1][j].length())/2)); ++k)
+            for(unsigned k = 0; k < unsigned(fabs((maxSize[i-1][j] - polyDen[i-1][j].length())/2)); ++k)
                 denSpace[i-1][j] += ' ';
         }
 
@@ -394,7 +394,7 @@ Type ModelHandler::TransferFunction<Type>::sim(Type x)
     }
     this->setLinearVector(x,this->estOutput);
 //    std::cout << this->LinearVectorA << std::endl;
-//    std::cout << this->ModelCoef << std::endl;
+//    std::cout << (this->ModelCoef*this->LinearVectorA) << std::endl;
     this->estOutput = (this->ModelCoef*this->LinearVectorA)(1,1);
     return this->estOutput;
 }

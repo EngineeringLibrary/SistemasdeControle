@@ -387,6 +387,8 @@ LinAlg::Matrix<Type> LinAlg::eigenValues(const LinAlg::Matrix<Type> &matrix_to_g
     //        *(Q,R) = LinAlg::QR(EigenValues - shift2*temp);
     //        EigenValues = R*Q + shift2*temp;
         }
+        if(size <= 1)
+            break;
         ++j;
     }while(j < iterations && fabs(EigenValues(size,size-1)) > tolerance);
 
