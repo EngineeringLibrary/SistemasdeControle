@@ -154,6 +154,7 @@ private Q_SLOTS:
     void rootscase6 ();
     void rootscase7 ();
     void rootscase8 ();
+    void rootscase9 ();
     void root2Poly ();
     void rootsContainRoot ();
 };
@@ -2053,29 +2054,46 @@ void PolynomDoubleTest::rootscase2()
 }
 void PolynomDoubleTest::rootscase3()
 {
-    LinAlg::Matrix<double> A;
+    LinAlg::Matrix<long double> A;
     QBENCHMARK {
-        A = PolynomHandler::rootsNewtonBairstow<double>("1,15,92,296,528,496,192");
-//        std::cout<<A<<std::endl;
+        A = PolynomHandler::rootsNewtonBairstow<long double>("1,15,92,296,528,496,192",1e-35);
     }
+//        std::cout<<A<<std::endl;
     QVERIFY2(A.getNumberOfColumns() == 2 && A.getNumberOfRows() == 6,
              "Falhou ao testar o tamanho do Polinomio");
-    QVERIFY2(fabs(A(1,1) - (-2)) <= 0.01 && fabs(A(2,1) - (-4)) <= 0.01 && fabs(A(3,1) - (-2)) <= 0.01 && fabs(A(4,1) - (-3)) <= 0.01 && fabs(A(5,1) - (-2)) <= 0.01 && fabs(A(6,1) - (-2)) <= 0.01,
+    QVERIFY2(fabs(A(1,1) + (2)) <= 0.001 && fabs(A(1,2)) <= 0.001,
              "Falhou ao testar os valores do Polinomio");
-    QVERIFY2(fabs(A(1,2) == 0) && fabs(A(2,2) == 0) && fabs(A(3,2) == 0) && fabs(A(4,2) == 0),
+    QVERIFY2(fabs(A(2,1) + (4)) <= 0.001 && fabs(A(2,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(3,1) + (2)) <= 0.001 && fabs(A(3,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(4,1) + (3)) <= 0.001 && fabs(A(4,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(5,1) + (2)) <= 0.001 && fabs(A(5,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(6,1) + (2)) <= 0.001 && fabs(A(6,2)) <= 0.001,
              "Falhou ao testar os valores do Polinomio");
 }
 void PolynomDoubleTest::rootscase4()
 {
-    LinAlg::Matrix<double> A;
+    LinAlg::Matrix<long double> A;
     QBENCHMARK {
-        A = PolynomHandler::rootsNewtonBairstow<double>("1,15,85,237,346,252,72");
+        A = PolynomHandler::rootsNewtonBairstow<long double>("1,15,85,237,346,252,72",1e-35);
     }
+//    std::cout << A << std::endl;
     QVERIFY2(A.getNumberOfColumns() == 2 && A.getNumberOfRows() == 6,
              "Falhou ao testar o tamanho do Polinomio");
-    QVERIFY2(fabs(A(1,1) - (-1)) <= 0.01 && fabs(A(2,1) - (-1)) <= 0.01 && fabs(A(3,1) - (-2)) <= 0.01 && fabs(A(4,1) - (-6)) <= 0.01 && fabs(A(5,1) - (-2)) <= 0.01 && fabs(A(6,1) - (-3)) <= 0.01,
+    QVERIFY2(fabs(A(1,1) + (1)) <= 0.001 && fabs(A(1,2)) <= 0.001,
              "Falhou ao testar os valores do Polinomio");
-    QVERIFY2(fabs(A(1,2)) <= 0.001 && fabs(A(2,2)) <= 0.001 && fabs(A(3,2)) <= 0.001 && fabs(A(4,2)) <= 0.001,
+    QVERIFY2(fabs(A(2,1) + (6)) <= 0.001 && fabs(A(2,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(3,1) + (1)) <= 0.001 && fabs(A(3,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(4,1) + (3)) <= 0.001 && fabs(A(4,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(5,1) + (2)) <= 0.001 && fabs(A(5,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(6,1) + (2)) <= 0.001 && fabs(A(6,2)) <= 0.001,
              "Falhou ao testar os valores do Polinomio");
 }
 void PolynomDoubleTest::rootscase5()
@@ -2130,6 +2148,30 @@ void PolynomDoubleTest::rootscase8()
     QVERIFY2(fabs(A(1,2) - (1)) <= 0.001 && fabs(A(2,2) + 1) <= 0.001,
              "Falhou ao testar os valores do Polinomio");
 }
+
+void PolynomDoubleTest::rootscase9()
+{
+    LinAlg::Matrix<long double> A;
+    QBENCHMARK {
+        A = PolynomHandler::rootsNewtonBairstow<long double>("1,6,15,20,15,6,1", 1e-35);
+    }
+    QVERIFY2(A.getNumberOfColumns() == 2 && A.getNumberOfRows() == 6,
+             "Falhou ao testar o tamanho do Polinomio");
+//    std::cout << A;
+    QVERIFY2(fabs(A(1,1) + (1)) <= 0.001 && fabs(A(1,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(2,1) + (1)) <= 0.001 && fabs(A(2,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(3,1) + (1)) <= 0.001 && fabs(A(3,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(4,1) + (1)) <= 0.001 && fabs(A(4,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(5,1) + (1)) <= 0.001 && fabs(A(5,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+    QVERIFY2(fabs(A(6,1) + (1)) <= 0.001 && fabs(A(6,2)) <= 0.001,
+             "Falhou ao testar os valores do Polinomio");
+}
+
 void PolynomDoubleTest::root2Poly ()
 {
     LinAlg::Matrix<double> B,A;

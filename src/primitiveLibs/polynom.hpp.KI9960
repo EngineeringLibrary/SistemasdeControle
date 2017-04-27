@@ -721,13 +721,13 @@ template<typename Type>
 LinAlg::Matrix<Type> PolynomHandler::rootsNewtonBairstow(LinAlg::Matrix<Type> smallPoly, Type tolerance)
 {
     LinAlg::Matrix<Type> ret;
+    unsigned i = 0;
 
-    while(smallPoly.getNumberOfColumns() > 3){
-        Type alfa = -0.01, beta = 0.01;
+    while(smallPoly.getNumberOfColumns() > 3 && i < 1000){
+        Type alfa = 0, beta = 0;
         LinAlg::Matrix<Type> b(1,smallPoly.getNumberOfColumns()), c(1,smallPoly.getNumberOfColumns()-1);
         unsigned n;
-        unsigned i = 0;
-        while (i < 5000)
+        while (1)
         {
             b(1,1) = smallPoly(1,1);
             b(1,2) = smallPoly(1,2)+alfa*b(1,1);
@@ -746,7 +746,6 @@ LinAlg::Matrix<Type> PolynomHandler::rootsNewtonBairstow(LinAlg::Matrix<Type> sm
 
             alfa -= (1/((c(1,n-2)*(c(1,n-2)))-c(1,n-1)*c(1,n-3)))*(c(1,n-2)*b(1,n-1)-c(1,n-3)*b(1,n));
             beta -= (1/((c(1,n-2)*(c(1,n-2)))-c(1,n-1)*c(1,n-3)))*(c(1,n-2)*b(1,n)-c(1,n-1)*b(1,n-1));
-            ++i;
         }
 
         LinAlg::Matrix<Type> roots(2,2);
@@ -765,6 +764,7 @@ LinAlg::Matrix<Type> PolynomHandler::rootsNewtonBairstow(LinAlg::Matrix<Type> sm
         }
         ret = ret|roots;
         smallPoly = b(1,from(1)-->b.getNumberOfColumns()-2);
+        ++i;
     }
 
     if(smallPoly.getNumberOfColumns() == 2)
