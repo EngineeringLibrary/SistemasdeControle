@@ -4,8 +4,6 @@
     #include "SistemasdeControle/headers/modelLibs/arx.h"
 #endif
 
-#include "../../../headers/modelLibs/arx.h"
-#include "../../../headers/modelLibs/model.h"
 template <typename Type>
 ModelHandler::ARX<Type>::ARX(unsigned nInputpar,unsigned nOutputpar,
                              unsigned delay,
