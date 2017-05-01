@@ -1,33 +1,29 @@
 #ifndef PREDITIVO_H
 #define PREDITIVO_H
 
-#include "SistemasdeControle/headers/restrictedOptimization/activeset.h"
-#include "SistemasdeControle/headers/modelLibs/model.h"
-#include "SistemasdeControle/headers/modelLibs/statespace.h"
-#include "SistemasdeControle/headers/modelLibs/conversions.h"
-#include "SistemasdeControle/headers/modelLibs/integrativemodel.h"
-#include "SistemasdeControle/headers/modelLibs/predictionmodel.h"
-#include "SistemasdeControle/headers/restrictedOptimization/recursiveactiveset.h"
+#ifdef testControl
+    #include "../../../headers/restrictedOptimization/activeset.h"
+    #include "../../../headers/modelLibs/model.h"
+    #include "../../../headers/modelLibs/statespace.h"
+    #include "../../../headers/modelLibs/conversions.h"
+//    #include "../../../headers/modelLibs/integrativemodel.h"
+//    #include "../../../headers/modelLibs/predictionmodel.h"
+    #include "../../../headers/restrictedOptimization/recursiveactiveset.h"
+#else
+    #include "SistemasdeControle/headers/restrictedOptimization/activeset.h"
+    #include "SistemasdeControle/headers/modelLibs/model.h"
+    #include "SistemasdeControle/headers/modelLibs/statespace.h"
+    #include "SistemasdeControle/headers/modelLibs/conversions.h"
+//    #include "SistemasdeControle/headers/modelLibs/integrativemodel.h"
+//    #include "SistemasdeControle/headers/modelLibs/predictionmodel.h"
+    #include "SistemasdeControle/headers/restrictedOptimization/recursiveactiveset.h"
+#endif
+
 
 namespace ControlHandler{
     template <class Type>
     class ModelPredictiveControl
     {
-        ModelHandler::StateSpace<Type> SSd, SSdStateStimated;
-        ModelHandler::PredictionModel<Type> SSP;
-        ModelHandler::IntegrativeModel<Type> SSI;
-        LinAlg::Matrix<Type> K, W, Q, R, U;
-        Type N1,N2,NU, uMax, uMin, duMax, duMin, yMax, yMin;
-        restrictedOptimizationHandler::QuadProg<Type> *QP;
-
-        void setOptimizationConstraints(Type duMax, Type duMin, Type yMax,
-                                        Type yMin, Type uMax, Type uMin,
-                                        const LinAlg::Matrix<Type> &uk1,
-                                        const LinAlg::Matrix<Type> &A,
-                                        const LinAlg::Matrix<Type> &B,
-                                        const LinAlg::Matrix<Type> &C,
-                                        const LinAlg::Matrix<Type> &X0);
-
     public:
         ModelPredictiveControl(){this->QP = NULL;}
         ModelPredictiveControl(const ModelHandler::StateSpace<Type> &SS,
@@ -61,8 +57,34 @@ namespace ControlHandler{
         LinAlg::Matrix<Type> OutputControlCalc(LinAlg::Matrix<Type> X_input, LinAlg::Matrix<Type> W);
         LinAlg::Matrix<Type> OutputControlCalc(LinAlg::Matrix<Type> X_input, LinAlg::Matrix<Type> Q, LinAlg::Matrix<Type> R, LinAlg::Matrix<Type> W);
 
+        std::string print();
+
+    private:
+        ModelHandler::StateSpace<Type> SSd, SSdStateStimated;
+        ModelHandler::StateSpace<Type> SSP;
+        ModelHandler::StateSpace<Type> SSI;
+        LinAlg::Matrix<Type> K, W, Q, R, U;
+        Type N1,N2,NU, uMax, uMin, duMax, duMin, yMax, yMin;
+        restrictedOptimizationHandler::QuadProg<Type> *QP;
+
+        void setOptimizationConstraints(Type duMax, Type duMin, Type yMax,
+                                        Type yMin, Type uMax, Type uMin,
+                                        const LinAlg::Matrix<Type> &uk1,
+                                        const LinAlg::Matrix<Type> &A,
+                                        const LinAlg::Matrix<Type> &B,
+                                        const LinAlg::Matrix<Type> &C,
+                                        const LinAlg::Matrix<Type> &X0);
     };
 }
 
-#include "SistemasdeControle/src/controlLibs/modelpredictivecontrol.hpp"
+template<typename Type>
+std::ostream& operator<< (std::ostream& output, ControlHandler::ModelPredictiveControl<Type> rhs);
+
+
+#ifdef testControl
+    #include "../../../src/controlLibs/modelpredictivecontrol.hpp"
+#else
+    #include "SistemasdeControle/src/controlLibs/modelpredictivecontrol.hpp"
+#endif
+
 #endif // PREDITIVO_H

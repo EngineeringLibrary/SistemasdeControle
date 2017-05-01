@@ -1,10 +1,20 @@
 #ifndef MODELOPREDICAO_H
 #define MODELOPREDICAO_H
-#include "SistemasdeControle/headers/modelLibs/model.h"
-#include "SistemasdeControle/headers/modelLibs/statespace.h"
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
-#include "SistemasdeControle/headers/modelLibs/integrativemodel.h"
+
+#ifdef testModel
+    #include "../../../headers/modelLibs/model.h"
+    #include "../../../headers/modelLibs/statespace.h"
+    #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
+    #include "../../../headers/primitiveLibs/LinAlg/linalg.h"
+    #include "../../../headers/modelLibs/model.h"
+    #include "../../../headers/modelLibs/integrativemodel.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/model.h"
+    #include "SistemasdeControle/headers/modelLibs/statespace.h"
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
+    #include "SistemasdeControle/headers/modelLibs/integrativemodel.h"
+#endif
 
 namespace ModelHandler {
     template <class Type>
@@ -64,5 +74,10 @@ namespace ModelHandler {
 
 }
 
-#include "SistemasdeControle/src/modelLibs/predictionmodel.hpp"
+#ifdef testModel
+    #include "../../../src/modelLibs/predictionmodel.hpp"
+#else
+    #include "SistemasdeControle/src/modelLibs/predictionmodel.hpp"
+#endif
+
 #endif // MODELOPREDICAO_H

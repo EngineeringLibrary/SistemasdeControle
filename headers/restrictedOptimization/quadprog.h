@@ -1,7 +1,13 @@
 #ifndef QUADPROG_H
 #define QUADPROG_H
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrixrestriction.h"
-#include "SistemasdeControle/headers/restrictedOptimization/simplex.h"
+
+#ifdef testModel
+    #include "../../../headers/primitiveLibs/LinAlg/matrixrestriction.h"
+    #include "../../../headers/restrictedOptimization/simplex.h"
+#else
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrixrestriction.h"
+    #include "SistemasdeControle/headers/restrictedOptimization/simplex.h"
+#endif
 
 namespace restrictedOptimizationHandler{
 
@@ -41,5 +47,10 @@ namespace restrictedOptimizationHandler{
     };
 }
 
-#include "SistemasdeControle/src/restrictedOptimization/quadprog.hpp"
+#ifdef testModel
+    #include "../../../src/restrictedOptimization/quadprog.hpp"
+#else
+    #include "SistemasdeControle/src/restrictedOptimization/quadprog.hpp"
+#endif
+
 #endif // QUADPROG_H

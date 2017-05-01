@@ -1,6 +1,12 @@
 #ifndef ACTIVESET_H
 #define ACTIVESET_H
-#include "SistemasdeControle/headers/restrictedOptimization/quadprog.h"
+
+#ifdef testModel
+    #include "../../../headers/restrictedOptimization/quadprog.h"
+#else
+    #include "SistemasdeControle/headers/restrictedOptimization/quadprog.h"
+#endif
+
 
 namespace restrictedOptimizationHandler{
 
@@ -37,5 +43,10 @@ namespace restrictedOptimizationHandler{
     };
 }
 
-#include "SistemasdeControle/src/restrictedOptimization/activeset.hpp"
+#ifdef testModel
+    #include "../../../src/restrictedOptimization/activeset.hpp"
+#else
+    #include "SistemasdeControle/src/restrictedOptimization/activeset.hpp"
+#endif
+
 #endif // ACTIVESET_H

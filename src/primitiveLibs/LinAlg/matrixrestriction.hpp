@@ -1,4 +1,9 @@
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrixrestriction.h"
+#ifdef testModel
+    #include "../../../headers/primitiveLibs/LinAlg/matrixrestriction.h"
+#else
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrixrestriction.h"
+#endif
+
 
 template <typename Type>
 MatrixRestrictionHandler::MatrixPositiveInequality<Type> operator<

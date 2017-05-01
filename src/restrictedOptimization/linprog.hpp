@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/restrictedOptimization/linprog.h"
+#ifdef testModel
+    #include "../../../headers/restrictedOptimization/linprog.h"
+#else
+    #include "SistemasdeControle/headers/restrictedOptimization/linprog.h"
+#endif
 
 template<typename Type>
 restrictedOptimizationHandler::linProg<Type>::linProg()

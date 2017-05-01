@@ -1,7 +1,14 @@
 #ifndef SIMPLEX_H
 #define SIMPLEX_H
-#include "SistemasdeControle/headers/restrictedOptimization/linprog.h"
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
+
+#ifdef testModel
+    #include "../../../headers/restrictedOptimization/linprog.h"
+    #include "../../../headers/primitiveLibs/LinAlg/linalg.h"
+#else
+    #include "SistemasdeControle/headers/restrictedOptimization/linprog.h"
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
+#endif
+
 
 namespace restrictedOptimizationHandler{
 
@@ -22,5 +29,10 @@ namespace restrictedOptimizationHandler{
     };
 }
 
-#include "SistemasdeControle/src/restrictedOptimization/simplex.hpp"
+#ifdef testModel
+    #include "../../../src/restrictedOptimization/simplex.hpp"
+#else
+    #include "SistemasdeControle/src/restrictedOptimization/simplex.hpp"
+#endif
+
 #endif // SIMPLEX_H

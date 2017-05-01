@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/modelLibs/predictionmodel.h"
+#ifdef testModel
+    #include "../../../headers/modelLibs/predictionmodel.h"
+#else
+    #include "SistemasdeControle/headers/modelLibs/predictionmodel.h"
+#endif
 
 template <typename Type>
 ModelHandler::PredictionModel<Type>::PredictionModel(

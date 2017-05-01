@@ -1,6 +1,10 @@
 #ifndef RECURSIVEACTIVESET_H
 #define RECURSIVEACTIVESET_H
-#include "SistemasdeControle/headers/restrictedOptimization/quadprog.h"
+#ifdef testModel
+    #include "../../../headers/restrictedOptimization/quadprog.h"
+#else
+    #include "SistemasdeControle/headers/restrictedOptimization/quadprog.h"
+#endif
 
 namespace restrictedOptimizationHandler{
 
@@ -24,6 +28,11 @@ namespace restrictedOptimizationHandler{
     };
 }
 
-#include "SistemasdeControle/src/restrictedOptimization/recursiveactiveset.hpp"
+#ifdef testModel
+    #include "../../../src/restrictedOptimization/recursiveactiveset.hpp"
+#else
+    #include "SistemasdeControle/src/restrictedOptimization/recursiveactiveset.hpp"
+#endif
+
 #endif // RECURSIVEACTIVESET_H
 

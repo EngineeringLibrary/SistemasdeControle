@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/restrictedOptimization/recursiveactiveset.h"
+#ifdef testModel
+    #include "../../../headers/restrictedOptimization/recursiveactiveset.h"
+#else
+    #include "SistemasdeControle/headers/restrictedOptimization/recursiveactiveset.h"
+#endif
 
 template <typename Type>
 void restrictedOptimizationHandler::RecursiveActiveSet<Type>::optimize()

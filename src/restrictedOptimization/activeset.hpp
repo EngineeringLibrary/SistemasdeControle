@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/restrictedOptimization/activeset.h"
+#ifdef testModel
+    #include "../../../headers/restrictedOptimization/activeset.h"
+#else
+    #include "SistemasdeControle/headers/restrictedOptimization/activeset.h"
+#endif
 
 template <typename Type>
 void restrictedOptimizationHandler::activeSet<Type>::optimize()
@@ -51,14 +55,16 @@ void restrictedOptimizationHandler::activeSet<Type>::activeSetMethod(const LinAl
 
         this->KKT(A,b,Xeqp,v);
 
-        if(LinAlg::sumOfColumnsElements(A0*Xeqp - b0 <= tol)(1,1) == b0.getNumberOfRows())
+//        if(LinAlg::sumOfColumnsElements(A0*Xeqp - b0 <= tol)(1,1) == b0.getNumberOfRows())
+        if(LinAlg::sum(A0*Xeqp - b0 <= tol)(1,1) == b0.getNumberOfRows())
         {
             if(v.getNumberOfRows() == 0)
             {
                 this->x = Xeqp;
                 break;
             }
-            else if((LinAlg::sumOfColumnsElements<Type>(v >= 0.0)(1,1) == v.getNumberOfRows()))
+//            else if((LinAlg::sumOfColumnsElements<Type>(v >= 0.0)(1,1) == v.getNumberOfRows()))
+            else if((LinAlg::sum<Type>(v >= 0.0)(1,1) == v.getNumberOfRows()))
             {
                this->x = Xeqp;
                break;
@@ -92,15 +98,20 @@ void restrictedOptimizationHandler::activeSet<Type>::activeSetMethod(const LinAl
                    b = b || LinAlg::Matrix<Type>(b0(i,1));
                    LinAlg::Matrix<Type> tTemp = (b0(i,1) - (A0(i,from(1)-->A0.getNumberOfColumns())*this->x)(1,1)/((A0(i,from(1)-->A0.getNumberOfColumns())*(Xeqp-this->x))(1,1)));
                    LinAlg::Matrix<Type> xTemp =  this->x + tTemp*(Xeqp - this->x);
-                   if(LinAlg::sumOfColumnsElements<Type>((A0*xTemp - b0) <= tol)(1,1) == b0.getNumberOfRows())
+//                   if(LinAlg::sumOfColumnsElements<Type>((A0*xTemp - b0) <= tol)(1,1) == b0.getNumberOfRows())
+                   if(LinAlg::sum<Type>((A0*xTemp - b0) <= tol)(1,1) == b0.getNumberOfRows())
                    {
                        t = t|tTemp;
                        pos = pos | i;
                    }
                }
              }
-            Type MaxT = LinAlg::MaxValue(t);
-            unsigned posMax = LinAlg::lineOfMaxValue(t);
+            LinAlg::Matrix<Type> maxValue, maxIndice;
+            *(maxValue, maxIndice) = LinAlg::max(t);
+            Type MaxT = maxValue(1,1);
+            unsigned posMax = maxIndice(1,1);
+//            Type MaxT = LinAlg::MaxValue(t);
+//            unsigned posMax = LinAlg::lineOfMaxValue(t);
             this->x = this->x + MaxT*(Xeqp - this->x);
             if(S.getNumberOfColumns() < this->QuadMat.getNumberOfRows() && pos.getNumberOfColumns() != 0 && pos.getNumberOfRows() != 0)
             {

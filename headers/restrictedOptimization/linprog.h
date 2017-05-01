@@ -1,6 +1,12 @@
 #ifndef LINPROG_H
 #define LINPROG_H
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrixrestriction.h"
+
+#ifdef testModel
+    #include "../../../headers/primitiveLibs/LinAlg/matrixrestriction.h"
+#else
+    #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrixrestriction.h"
+#endif
+
 
 namespace restrictedOptimizationHandler{
 
@@ -42,5 +48,10 @@ namespace restrictedOptimizationHandler{
     std::ostream& operator<< (std::ostream& output, const restrictedOptimizationHandler::linProg<Type> LP);
 }
 
-#include "SistemasdeControle/src/restrictedOptimization/linprog.hpp"
+#ifdef testModel
+    #include "../../../src/restrictedOptimization/linprog.hpp"
+#else
+    #include "SistemasdeControle/src/restrictedOptimization/linprog.hpp"
+#endif
+
 #endif // LINPROG_H

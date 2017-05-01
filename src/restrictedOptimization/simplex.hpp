@@ -1,4 +1,8 @@
-#include "SistemasdeControle/headers/restrictedOptimization/simplex.h"
+#ifdef testModel
+    #include "../../../headers/restrictedOptimization/simplex.h"
+#else
+    #include "SistemasdeControle/headers/restrictedOptimization/simplex.h"
+#endif
 
 template <typename Type>
 void restrictedOptimizationHandler::simplex<Type>::optimize()
@@ -77,7 +81,10 @@ void restrictedOptimizationHandler::simplex<Type>::simplexOptimization(const Lin
         if(contFlag == r.getNumberOfColumns())
             break;
         //%determine o vetor de chegada
-        unsigned indMinD = LinAlg::lineOfMinValue(~r);
+        LinAlg::Matrix<Type> maxValue, maxIndice;
+        *(maxValue, maxIndice) = LinAlg::max(~r);
+        unsigned indMinD = maxIndice(1,1);
+//        unsigned indMinD = LinAlg::lineOfMinValue(~r);
 
         this->x = Abinv*An(from(1)-->An.getNumberOfRows(),indMinD);
         LinAlg::Matrix<Type> d = LinAlg::divPoint(xb,this->x);
@@ -98,11 +105,14 @@ void restrictedOptimizationHandler::simplex<Type>::simplexOptimization(const Lin
     }
 
     this->x = xb || LinAlg::Zeros<Type>(An.getNumberOfColumns(),1);
-    LinAlg::Matrix<Type> ind = LinAlg::sortColumnVectorIndices<Type>(B|N);
+//    LinAlg::Matrix<Type> ind = LinAlg::sortColumnVectorIndices<Type>(B|N);
+    LinAlg::Matrix<Type> ind = LinAlg::sort<Type>(B|N);
     this->x = this->x(ind,1);
 //    std::cout << "\n\n" << ind << "\n\n";
-    N = LinAlg::sortColumnVector<Type>(N);
-    B = LinAlg::sortColumnVector<Type>(B);
+    N = LinAlg::sort<Type>(N);
+    B = LinAlg::sort<Type>(B);
+//    N = LinAlg::sortColumnVector<Type>(N);
+//    B = LinAlg::sortColumnVector<Type>(B);
 }
 
 template <typename Type>

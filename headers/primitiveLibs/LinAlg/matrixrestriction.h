@@ -1,6 +1,6 @@
 #ifndef MATRIXRESTRICTION_H
 #define MATRIXRESTRICTION_H
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+#include "matrix.h"
 
 namespace MatrixRestrictionHandler {
 
@@ -41,5 +41,11 @@ MatrixRestrictionHandler::MatrixNegativeInequality<Type> operator>= (LinAlg::Mat
 template <typename Type>
 MatrixRestrictionHandler::MatrixEquality<Type> operator== (LinAlg::Matrix<Type> A,
                                                            LinAlg::Matrix<Type> b);
-#include "SistemasdeControle/src/primitiveLibs/LinAlg/matrixrestriction.hpp"
+
+#ifdef testModel
+    #include "../../../src/primitiveLibs/LinAlg/matrixrestriction.hpp"
+#else
+    #include "SistemasdeControle/src/primitiveLibs/LinAlg/matrixrestriction.hpp"
+#endif
+
 #endif // MATRIXRESTRICTION_H
