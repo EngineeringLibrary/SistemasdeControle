@@ -34,8 +34,6 @@ private Q_SLOTS:
     void setInitialState();
     void setOptimizationAlgorithm2QuadProg();
 
-    void LimitControlOutput();
-
     void setNewModelCase1();
     void setNewModelCase2();
 
@@ -156,31 +154,61 @@ void PredictiveTestTest::setLimitsCase4()
 
 void PredictiveTestTest::setReference()
 {
+    double reference = 1;
+    LinAlg::Matrix<double> A(2,2), B(2,1), C(1,2), D(1,1);
+    unsigned N1= 1, N2 = 2, NU = 2;
+    double Q = 1, R, W = 0, L, b, J, K;
+    R = 2.7; L = 0.004;
+    K = 0.105; b = 9.3e-6; J = 1e-5;
+    A(1,1) = -R/L; A(1,2) = -K/L;
+    A(2,1) = K/L; A(2,2) = -b/J;
+    B(1,1) = 1/L;
+    B(2,1) = 0;
+    C(1,1) = 0; C(1,2) = 1;
+    D(1,1) = 0;
 
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    ControlHandler::ModelPredictiveControl<double> MPC(SS,N1,N2,NU,Q,10,W);
+    QBENCHMARK {
+        MPC.setReference(reference);
+    }
+//    std::cout << MPC.getReference() << std::endl;
+    QVERIFY2(LinAlg::isEqual(MPC.getReference(), LinAlg::Matrix<double>("1;1")), "Referencia esta errada!");
 }
 
 void PredictiveTestTest::setErrorWeight()
 {
-
+    ControlHandler::ModelPredictiveControl<double> MPC;
+    LinAlg::Matrix<double> Q("1.000,0;0,1.000");
+    QBENCHMARK {
+        MPC.setErrorWeight(Q);
+    }
+    QVERIFY2(LinAlg::isEqual(MPC.getErrorWeight(), Q), "Ponderacao do erro errada!");
 }
 
 void PredictiveTestTest::setControlWeight()
 {
-
+    ControlHandler::ModelPredictiveControl<double> MPC;
+    LinAlg::Matrix<double> R("1.000,0;0,1.000");
+    QBENCHMARK {
+        MPC.setControlWeight(R);
+    }
+    QVERIFY2(LinAlg::isEqual(MPC.getControlWeight(), R), "Ponderacao do erro errada!");
 }
 
 void PredictiveTestTest::setInitialState()
 {
-
+    ControlHandler::ModelPredictiveControl<double> MPC;
+    LinAlg::Matrix<double> X("1.000;1.000");
+    QBENCHMARK {
+        MPC.setInitialState(X);
+    }
+    QVERIFY2(LinAlg::isEqual(MPC.getInitialState(), X), "Ponderacao do erro errada!");
 }
 
 void PredictiveTestTest::setOptimizationAlgorithm2QuadProg()
 {
-
-}
-
-void PredictiveTestTest::LimitControlOutput()
-{
+//    restrictedOptimizationHandler::QuadProg<Type> *QP = new restrictedOptimizationHandler::RecursiveActiveSet<double>;
 
 }
 
@@ -196,27 +224,73 @@ void PredictiveTestTest::setNewModelCase2()
 
 void PredictiveTestTest::getReference()
 {
+    double reference = 1;
+    LinAlg::Matrix<double> A(2,2), B(2,1), C(1,2), D(1,1);
+    unsigned N1= 1, N2 = 2, NU = 2;
+    double Q = 1, R, W = 0, L, b, J, K;
+    R = 2.7; L = 0.004;
+    K = 0.105; b = 9.3e-6; J = 1e-5;
+    A(1,1) = -R/L; A(1,2) = -K/L;
+    A(2,1) = K/L; A(2,2) = -b/J;
+    B(1,1) = 1/L;
+    B(2,1) = 0;
+    C(1,1) = 0; C(1,2) = 1;
+    D(1,1) = 0;
 
+    ModelHandler::StateSpace<double> SS(A,B,C,D);
+    ControlHandler::ModelPredictiveControl<double> MPC(SS,N1,N2,NU,Q,10,W);
+    MPC.setReference(reference);
+    QBENCHMARK {
+        MPC.getReference();
+    }
+//    std::cout << MPC.getReference() << std::endl;
+    QVERIFY2(LinAlg::isEqual(MPC.getReference(), LinAlg::Matrix<double>("1;1")), "Referencia esta errada!");
 }
 
 void PredictiveTestTest::getErrorWeight()
 {
 
+    ControlHandler::ModelPredictiveControl<double> MPC;
+    LinAlg::Matrix<double> Q("1.000,0;0,1.000");
+    MPC.setErrorWeight(Q);
+    QBENCHMARK {
+        MPC.getErrorWeight();
+    }
+    QVERIFY2(LinAlg::isEqual(MPC.getErrorWeight(), Q), "Ponderacao do erro errada!");
 }
 
 void PredictiveTestTest::getInitialState()
 {
-
+    ControlHandler::ModelPredictiveControl<double> MPC;
+    LinAlg::Matrix<double> X("1.000;1.000");
+    MPC.setInitialState(X);
+    QBENCHMARK {
+        MPC.getInitialState();
+    }
+    QVERIFY2(LinAlg::isEqual(MPC.getInitialState(), X), "Ponderacao do erro errada!");
 }
 
 void PredictiveTestTest::getControlWeight()
 {
-
+    ControlHandler::ModelPredictiveControl<double> MPC;
+    LinAlg::Matrix<double> R("1.000,0;0,1.000");
+    MPC.setControlWeight(R);
+    QBENCHMARK {
+        MPC.getControlWeight();
+    }
+    QVERIFY2(LinAlg::isEqual(MPC.getControlWeight(), R), "Ponderacao do erro errada!");
 }
 
 void PredictiveTestTest::getControlerGain()
 {
+    ModelHandler::ARX<double> gz(2,2);
+    gz.setModelCoef("-0.823; -0.000; 0.873; 0.012");
+    ControlHandler::ModelPredictiveControl<double> MPC(gz,1,2,2,1,10,1);
+    QBENCHMARK {
+        MPC.getControlerGain();
+    }
 
+    QVERIFY2(LinAlg::isEqual(MPC.getControlerGain(), LinAlg::Matrix<double>("0.068,0.100;-0.014,0.107"),0.01), "Ganho do controlador errado!");
 }
 
 void PredictiveTestTest::OutputControlCalcCase1()

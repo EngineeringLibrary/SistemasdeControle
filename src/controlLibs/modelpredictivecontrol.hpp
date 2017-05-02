@@ -156,7 +156,6 @@ void ControlHandler::ModelPredictiveControl<Type>::setReference(LinAlg::Matrix<T
         for(unsigned i = 1; i <= this->W.getNumberOfRows(); i += this->SSd.getC().getNumberOfRows())
                 for(unsigned j = 0; j < this->SSd.getC().getNumberOfRows(); ++j)
                     this->W(i+j,  k)  = W(j+1,k);
-
 }
 
 template<typename Type>
@@ -168,7 +167,7 @@ void ControlHandler::ModelPredictiveControl<Type>::setErrorWeight(LinAlg::Matrix
 template<typename Type>
 void ControlHandler::ModelPredictiveControl<Type>::setInitialState(LinAlg::Matrix<Type> X0)
 {
-    this->X0 = X0;
+    this->SSd.setInitialState(X0);
 }
 
 template<typename Type>

@@ -40,6 +40,10 @@ script:
   - qmake "CONFIG+=test" Testes/controlLibs/PIDTest/PIDTest.pro
   - make
   - ./tst_pidtesttest
+  - qmake "CONFIG+=test" Testes/controlLibs/PredictiveTest/PredictiveTest.pro
+  - make
+  - ./tst_predictivetesttest
+
 
 after_success:
 - cpp-coveralls  

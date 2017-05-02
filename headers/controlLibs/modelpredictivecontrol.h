@@ -43,7 +43,6 @@ namespace ControlHandler{
         void setInitialState(LinAlg::Matrix<Type> X0);
         void setOptimizationAlgorithm2QuadProg(restrictedOptimizationHandler::QuadProg<Type> *QP){this->QP = QP;}
 
-        void LimitControlOutput();
 
         void setNewModel(const ModelHandler::ARX<Type> &gz);
         void setNewModel(ModelHandler::StateSpace<Type> SS);
@@ -57,6 +56,7 @@ namespace ControlHandler{
         LinAlg::Matrix< LinAlg::Matrix<Type>* >* getOutputLimits();
         LinAlg::Matrix< LinAlg::Matrix<Type>* >* getControlLimits();
         LinAlg::Matrix< LinAlg::Matrix<Type>* >* getControlVariationLimits();
+        restrictedOptimizationHandler::QuadProg<Type> getOptimizationAlgorithm2QuadProg();
 
         LinAlg::Matrix<Type> OutputControlCalc(const LinAlg::Matrix<Type> &X_input);
         LinAlg::Matrix<Type> OutputControlCalc(const ModelHandler::ARX<Type> &gz);
@@ -80,6 +80,7 @@ namespace ControlHandler{
                                         const LinAlg::Matrix<Type> &B,
                                         const LinAlg::Matrix<Type> &C,
                                         const LinAlg::Matrix<Type> &X0);
+        void LimitControlOutput();
     };
 }
 
