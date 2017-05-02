@@ -26,6 +26,8 @@ private Q_SLOTS:
 
     void setLimitsCase1();
     void setLimitsCase2();
+    void setLimitsCase3();
+    void setLimitsCase4();
     void setReference();
     void setErrorWeight();
     void setControlWeight();
@@ -102,12 +104,54 @@ void PredictiveTestTest::ModelPredictiveControlConstructorCase3()
 
 void PredictiveTestTest::setLimitsCase1()
 {
-
+    ControlHandler::ModelPredictiveControl<double> MPC;
+    LinAlg::Matrix<double> uMax, uMin;
+    QBENCHMARK {
+        MPC.setControlLimits(10,-10);
+    }
+    *(uMax,uMin) = MPC.getControlLimits();
+    QVERIFY2(uMax(1,1) == 10, "Limites do controlador errado!");
+    QVERIFY2(uMin(1,1) == -10, "Limites do controlador errado!");
 }
 
 void PredictiveTestTest::setLimitsCase2()
 {
+    ControlHandler::ModelPredictiveControl<double> MPC;
+    LinAlg::Matrix<double> duMax, duMin;
+    QBENCHMARK {
+        MPC.setControlVariationLimits(0.1,-0.1);
+    }
+    *(duMax,duMin) = MPC.getControlVariationLimits();
+    QVERIFY2(duMax(1,1) == 0.10, "Limites do controlador errado!");
+    QVERIFY2(duMin(1,1) == -0.10, "Limites do controlador errado!");
+}
 
+void PredictiveTestTest::setLimitsCase3()
+{
+    ControlHandler::ModelPredictiveControl<double> MPC;
+    LinAlg::Matrix<double> yMax, yMin;
+    QBENCHMARK {
+        MPC.setOutputLimits(10,-10);
+    }
+    *(yMax,yMin) = MPC.getOutputLimits();
+    QVERIFY2(yMax(1,1) == 10, "Limites da saida errado!");
+    QVERIFY2(yMin(1,1) == -10, "Limites da saida errado!");
+}
+
+void PredictiveTestTest::setLimitsCase4()
+{
+    ControlHandler::ModelPredictiveControl<double> MPC;
+    LinAlg::Matrix<double> uMax, uMin, duMax, duMin, yMax, yMin;
+    QBENCHMARK {
+        MPC.setLimits(0.1,-0.1,2,-2,10,-10);
+    }
+    *(duMax, duMin, yMax, yMin, uMax, uMin) = MPC.getLimits();
+    QVERIFY2(uMax(1,1) == 10, "Limites do controlador errado!");
+    QVERIFY2(uMin(1,1) == -10, "Limites do controlador errado!");
+    QVERIFY2(duMax(1,1) == 0.10, "Limites do controlador errado!");
+    QVERIFY2(duMin(1,1) == -0.10, "Limites do controlador errado!");
+    QVERIFY2(yMax(1,1) == 2, "Limites da saida errado!");
+    QVERIFY2(yMin(1,1) == -2, "Limites da saida errado!");
 }
 
 void PredictiveTestTest::setReference()

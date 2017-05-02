@@ -33,7 +33,9 @@ namespace ControlHandler{
                                unsigned N1, unsigned N2, unsigned NU,
                                Type Q, Type R, Type W);
 
-        void setLimits(Type Umax, Type Umin);
+        void setControlLimits(Type Umax, Type Umin);
+        void setControlVariationLimits(Type duMax, Type duMin);
+        void setOutputLimits(Type yMax, Type yMin);
         void setLimits(Type duMax, Type duMin, Type yMax, Type yMin, Type uMax, Type uMin);
         void setReference(LinAlg::Matrix<Type> W);
         void setErrorWeight(LinAlg::Matrix<Type> Q);
@@ -51,6 +53,10 @@ namespace ControlHandler{
         LinAlg::Matrix<Type> getInitialState() const;
         LinAlg::Matrix<Type> getControlWeight() const;
         LinAlg::Matrix<Type> getControlerGain() const;
+        LinAlg::Matrix< LinAlg::Matrix<Type>* >* getLimits();
+        LinAlg::Matrix< LinAlg::Matrix<Type>* >* getOutputLimits();
+        LinAlg::Matrix< LinAlg::Matrix<Type>* >* getControlLimits();
+        LinAlg::Matrix< LinAlg::Matrix<Type>* >* getControlVariationLimits();
 
         LinAlg::Matrix<Type> OutputControlCalc(const LinAlg::Matrix<Type> &X_input);
         LinAlg::Matrix<Type> OutputControlCalc(const ModelHandler::ARX<Type> &gz);
