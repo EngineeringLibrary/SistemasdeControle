@@ -21,6 +21,7 @@ namespace ModelHandler {
         template<typename OtherType>
         TransferFunction (const ModelHandler::TransferFunction<OtherType>& otherPolynom);
 
+        Type getTransportDelay () const {return this->transportDelay;}
         bool isContinuous() const;
         char getVar() const {return this->var;}
         double getSampleTime() const;
@@ -31,6 +32,7 @@ namespace ModelHandler {
         unsigned getNumberOfInputs() const { return TF.getNumberOfRows();}
         unsigned getNumberOfOutputs() const { return TF.getNumberOfColumns();}
 
+        void setTransportDelay(const Type &TD){this->transportDelay = TD;}
         void setContinuous(const bool &continuous); //ok
         void setSampleTime(const double &sampleTime);//ok
         void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
@@ -77,6 +79,7 @@ namespace ModelHandler {
         bool Continuous, simulationFlag;
         LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF;
         LinAlg::Matrix<Type> inputState, outputState;
+        Type transportDelay;
     };
 
     template<typename PolynomType, typename ScalarType>
@@ -113,6 +116,10 @@ namespace ModelHandler {
     std::ostream& operator<< (std::ostream& output, ModelHandler::TransferFunction<Type> TF);
     template<typename Type> //ok
     std::string&  operator<< (std::string& output,  ModelHandler::TransferFunction<Type> TF);
+
+    template<typename Type> // ok
+    TransferFunction<Type> pade(const Type &time, const unsigned &order);
+    unsigned factorial(unsigned n);
 }
 
 #ifdef testModel

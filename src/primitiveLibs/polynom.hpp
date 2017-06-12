@@ -494,6 +494,38 @@ LinAlg::Matrix<Type> PolynomHandler::zerosElimination(LinAlg::Matrix<Type> small
     return smallPoly;
 }
 
+template <typename Type>
+LinAlg::Matrix<Type> PolynomHandler::derivate(const LinAlg::Matrix<Type> &smallPoly)
+{
+    if(smallPoly.getNumberOfColumns() > 1)
+    {
+        LinAlg::Matrix<Type> derivatedSmallPoly(smallPoly.getNumberOfRows(),smallPoly.getNumberOfColumns()-1);
+        unsigned count = 1;
+        for(unsigned i = smallPoly.getNumberOfColumns()-1; i > 0; --i)
+        {
+            derivatedSmallPoly(1,count) = smallPoly(1,count)*i;
+            count++;
+        }
+        return derivatedSmallPoly;
+    }
+    else if(smallPoly.getNumberOfColumns() == 1)
+        return LinAlg::Matrix<Type>(0.0);
+    else
+        return LinAlg::Matrix<Type>();
+}
+
+template <typename Type>
+PolynomHandler::Polynom<Type> PolynomHandler::derivate(const PolynomHandler::Polynom<Type> &rhs)
+{
+    LinAlg::Matrix<Type> num = rhs.getNum();
+    LinAlg::Matrix<Type> den = rhs.getDen();
+    LinAlg::Matrix<Type> numDerivate = derivate(rhs.getNum());
+    LinAlg::Matrix<Type> denDerivate = derivate(rhs.getDen());
+    Polynom<Type> f(num,"1"), df(numDerivate,"1"),
+                  g(den,"1"), dg(denDerivate,"1");
+    return (df*g-f*dg)/(g*g);
+}
+
 template<typename Type>
 std::string PolynomHandler::printSmallPolynom(LinAlg::Matrix<Type> rhs, const char &variable)
 {

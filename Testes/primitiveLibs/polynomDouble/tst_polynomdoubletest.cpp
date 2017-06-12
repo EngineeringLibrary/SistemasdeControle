@@ -110,6 +110,11 @@ private Q_SLOTS:
     void equalityOperator();
     void operatorDivisionMatrixPolynom ();
     void minusOperatorDouble ();
+    void derivateCase1();
+    void derivateCase2();
+    void derivateCase3();
+    void derivateCase4();
+    void derivateCase5();
     void printSmallPolynomCase1 ();
     void printSmallPolynomCase2 ();
     void printSmallPolynomCase3 ();
@@ -1703,6 +1708,54 @@ void PolynomDoubleTest::minusOperatorDouble()
     QVERIFY2(A.getDen()(1,1) == 1 && A.getDen()(1,2) == 2 && A.getDen()(1,3) == 1,
              "Falhou ao testar os valores do denominador do Polinomio");
     QVERIFY2(A.getVar() == 'x', "Falhou ao testar variável do Polinomio");
+}
+
+void PolynomDoubleTest::derivateCase1()
+{
+    LinAlg::Matrix<double> smallPoly("1,2,1");
+    QBENCHMARK {
+        PolynomHandler::derivate(smallPoly);
+    }
+    QVERIFY2(LinAlg::isEqual(PolynomHandler::derivate(smallPoly),LinAlg::Matrix<double>("2,2")), "Falhou ao testar a derivada do Polinomio");
+}
+
+void PolynomDoubleTest::derivateCase2()
+{
+    LinAlg::Matrix<double> smallPoly("5,2,1,6,5,30,1,2,1");
+    QBENCHMARK {
+        PolynomHandler::derivate(smallPoly);
+    }
+    QVERIFY2(LinAlg::isEqual(PolynomHandler::derivate(smallPoly),LinAlg::Matrix<double>("40,14,6,30,20,90,2,2")), "Falhou ao testar a derivada do Polinomio");
+}
+
+void PolynomDoubleTest::derivateCase3()
+{
+    LinAlg::Matrix<double> smallPoly("10");
+    QBENCHMARK {
+        PolynomHandler::derivate(smallPoly);
+    }
+    QVERIFY2(LinAlg::isEqual(PolynomHandler::derivate(smallPoly),LinAlg::Matrix<double>("0")), "Falhou ao testar a derivada do Polinomio");
+}
+
+void PolynomDoubleTest::derivateCase4()
+{
+    LinAlg::Matrix<double> smallPoly,dif;
+    QBENCHMARK {
+        dif = PolynomHandler::derivate(smallPoly);
+    }
+    QVERIFY2(dif.getNumberOfRows() == 0 && dif.getNumberOfColumns() == 0, "Falhou ao testar a derivada do Polinomio");
+}
+
+void PolynomDoubleTest::derivateCase5()
+{
+    PolynomHandler::Polynom<double> p("6,-10,9,8,-5","2,-4,5");
+    PolynomHandler::Polynom<double> dp;
+    QBENCHMARK {
+        dp = PolynomHandler::derivate(p);
+    }
+    std::cout << dp << std::endl;
+    QVERIFY2(LinAlg::isEqual(dp.getNum(),LinAlg::Matrix<double>("24,-92,200,-202,110,20")), "Falhou ao testar a derivada do Polinomio");
+    QVERIFY2(LinAlg::isEqual(dp.getDen(),LinAlg::Matrix<double>("4,-16,36,-40,25")), "Falhou ao testar a derivada do Polinomio");
 }
 
 void PolynomDoubleTest::printSmallPolynomCase1()

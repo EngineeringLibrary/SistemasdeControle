@@ -115,10 +115,7 @@ namespace PolynomHandler {
     std::string printSmallPolynom(LinAlg::Matrix<Type> rhs, const char &variable = 'x');
 
     template <typename Type>
-    LinAlg::Matrix<Type> derivate(const LinAlg::Matrix<Type> &smallPoly);
-
-    template <typename Type>
-    PolynomHandler::Polynom<Type> derivate(const PolynomHandler::Polynom<Type> &rhs);
+    LinAlg::Matrix<Type> derivate(LinAlg::Matrix<Type> smallPoly);
 
     template <typename Type>
     LinAlg::Matrix<Type> zerosElimination(LinAlg::Matrix<Type> smallPoly);

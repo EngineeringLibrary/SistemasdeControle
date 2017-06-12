@@ -2,6 +2,11 @@
 #define __PID_H_INCLUDED
 
 #include <cmath>
+#ifdef testControl
+    #include "../../../headers/modelLibs/transferfunction.h"
+#else
+    #include "SistemasdeControle/modelLibs/transferfunction.h"
+#endif
 
 namespace ControlHandler{
     template <typename Type>
@@ -34,6 +39,18 @@ namespace ControlHandler{
 
         Type OutputControl(Type Reference, Type SignalInput);
     };
+#include "../../../headers/modelLibs/transferfunction.h"
+    template <typename Type>
+    PID<Type> ZieglerNicholsTunning(const ModelHandler::TransferFunction<Type> &FOPTD, const std::string &controllerType);
+    template <typename Type>
+    PID<Type> CHRTunningServo0OV(const ModelHandler::TransferFunction<Type> &FOPTD, const std::string &controllerType);
+    template <typename Type>
+    PID<Type> CHRTunningServo20OV(const ModelHandler::TransferFunction<Type> &FOPTD, const std::string &controllerType);
+    template <typename Type>
+    PID<Type> CHRTunningRegulatorio(const ModelHandler::TransferFunction<Type> &FOPTD, const std::string &controllerType);
+    template <typename Type>
+    PID<Type> CohenCoonTunning(const ModelHandler::TransferFunction<Type> &FOPTD, const std::string &controllerType);
+
 }
 
 #ifdef testControl

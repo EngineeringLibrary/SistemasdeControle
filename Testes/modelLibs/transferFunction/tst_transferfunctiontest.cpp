@@ -16,6 +16,7 @@ public:
     TransferFunctionTest(){}
 
 private Q_SLOTS:
+
     void TFVoidConstructorDouble ();
     void TFRowColumnConstructorDouble ();
     void TFPolynomConstructorDouble ();
@@ -99,6 +100,8 @@ private Q_SLOTS:
     void stringConvertionCase2 ();
     void stringConvertionCase3 ();
     void stringConvertionCase4 ();
+
+    void pade ();
 };
 
 void TransferFunctionTest::TFVoidConstructorDouble ()
@@ -1517,6 +1520,18 @@ void TransferFunctionTest::stringConvertionCase4 ()
 
     QVERIFY2(sizeof(A) == sizeof(std::string), "Falhou ao comparar o tipo string");
     QVERIFY2(A == "The continuous transfer function is:\n\n       1.000                   1.000            \n------------------      ------------------      \n   s +   1.000             s +   1.000          \n\n       1.000                   1.000            \n------------------      ------------------      \n   s +   1.000             s +   1.000          \n\n", "Falhou ao verificar a conversão da ft em string");
+}
+
+void TransferFunctionTest::pade()
+{
+    ModelHandler::TransferFunction<double> delay;
+    QBENCHMARK {
+        delay = ModelHandler::pade<double>(1,2);
+    }
+
+//    std::cout << delay << std::endl;
+    QVERIFY2(LinAlg::isEqual(delay(1,1).getNum(),LinAlg::Matrix<double>("0.125,-0.500,1.000")),"numerador errado em pade");
+    QVERIFY2(LinAlg::isEqual(delay(1,1).getDen(),LinAlg::Matrix<double>("0.125,0.500,1.000")),"denominador errado em pade");
 }
 
 QTEST_APPLESS_MAIN(TransferFunctionTest)

@@ -7,8 +7,7 @@
     #include "SistemasdeControle/headers/modelLibs/statespace.h"
     #include "SistemasdeControle/headers/modelLibs/conversions.h"
 #endif
-//#include "../../../../headers/modelLibs/transferfunction.h"
-//#include "../../../../headers/modelLibs/conversions.h"
+
 template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned cols)
 {
@@ -474,4 +473,27 @@ std::string& ModelHandler::operator<< (std::string& output, ModelHandler::Transf
     ss << TF;
     output += ss.str();
     return output;
+}
+
+//#include "../../../../headers/modelLibs/transferfunction.h"
+//#include "../../../../headers/modelLibs/conversions.h"
+unsigned ModelHandler::factorial(unsigned n)
+{
+    unsigned retval = 1;
+    for (int i = n; i > 1; --i)  retval *= i;
+    return retval;
+}
+
+template<typename Type>
+ModelHandler::TransferFunction<Type> ModelHandler::pade(const Type &time, const unsigned &order)
+{
+    PolynomHandler::Polynom<Type> s("1,0","1");
+    PolynomHandler::Polynom<Type> num("1","1"), den("1","1");
+
+    for(unsigned i = 1; i <= order; ++i){
+        num += (time/(pow(-2.0,i)*factorial(i)))*(s^i);
+        den += (time/(pow(2.0,i)*factorial(i)))*(s^i);
+    }
+    PolynomHandler::Polynom<Type> ret = num/den;
+    return ModelHandler::TransferFunction<Type>(ret);
 }
