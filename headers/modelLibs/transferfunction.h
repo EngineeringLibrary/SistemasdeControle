@@ -119,6 +119,19 @@ namespace ModelHandler {
 
     template<typename Type> // ok
     TransferFunction<Type> pade(const Type &time, const unsigned &order);
+
+    template<typename Type> // ok
+    TransferFunction<Type> FOPDTCurvaDeReacao(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime = 0.1);
+
+    template<typename Type> // ok
+    TransferFunction<Type> FOPDTZieglerNichols(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime = 0.1);
+
+    template<typename Type> // ok
+    TransferFunction<Type> FOPDTSmith(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime = 0.1);
+
+    template<typename Type> // ok
+    TransferFunction<Type> FOPDTSundaresanKrishnaswamy(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime = 0.1);
+
     unsigned factorial(unsigned n);
 }
 

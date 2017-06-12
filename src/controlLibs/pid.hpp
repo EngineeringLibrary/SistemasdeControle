@@ -140,16 +140,16 @@ LinAlg::Matrix<Type> ControlHandler::PID<Type>::getParams()
 }
 
 template <typename Type>
-ControlHandler::PID<Type> ControlHandler::ZieglerNicholsTunning(const ModelHandler::TransferFunction<Type> &FOPTD, const std::string &controllerType)
+ControlHandler::PID<Type> ControlHandler::ZieglerNicholsTunning(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
 {
-    LinAlg::Matrix<Type> num = FOPTD(1,1).getNum();
-    LinAlg::Matrix<Type> den = FOPTD(1,1).getDen();
+    LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
+    LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
     num /= den(1,2);
     den /= den(1,2);
-    Type tau = den(1,1), K = num(1,1), theta = FOPTD.getTransportDelay();
+    Type tau = den(1,1), K = num(1,1), theta = FOPDT.getTransportDelay();
 
     ControlHandler::PID<Type> controller;
-    controller.setSampleTime(FOPTD.getSampleTime());
+    controller.setSampleTime(FOPDT.getSampleTime());
     if(controllerType == "P")
     {
         Type Kp = tau/(K*theta);
@@ -170,16 +170,16 @@ ControlHandler::PID<Type> ControlHandler::ZieglerNicholsTunning(const ModelHandl
 }
 
 template <typename Type>
-ControlHandler::PID<Type> ControlHandler::CHRTunningServo0OV(const ModelHandler::TransferFunction<Type> &FOPTD, const std::string &controllerType)
+ControlHandler::PID<Type> ControlHandler::CHRTunningServo0OV(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
 {
-    LinAlg::Matrix<Type> num = FOPTD(1,1).getNum();
-    LinAlg::Matrix<Type> den = FOPTD(1,1).getDen();
+    LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
+    LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
     num /= den(1,2);
     den /= den(1,2);
-    Type tau = den(1,1), K = num(1,1), theta = FOPTD.getTransportDelay();
+    Type tau = den(1,1), K = num(1,1), theta = FOPDT.getTransportDelay();
 
     ControlHandler::PID<Type> controller;
-    controller.setSampleTime(FOPTD.getSampleTime());
+    controller.setSampleTime(FOPDT.getSampleTime());
     if(controllerType == "P")
     {
         Type Kp = 0.3*tau/(K*theta);
@@ -200,16 +200,16 @@ ControlHandler::PID<Type> ControlHandler::CHRTunningServo0OV(const ModelHandler:
 }
 
 template <typename Type>
-ControlHandler::PID<Type> ControlHandler::CHRTunningServo20OV(const ModelHandler::TransferFunction<Type> &FOPTD, const std::string &controllerType)
+ControlHandler::PID<Type> ControlHandler::CHRTunningServo20OV(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
 {
-    LinAlg::Matrix<Type> num = FOPTD(1,1).getNum();
-    LinAlg::Matrix<Type> den = FOPTD(1,1).getDen();
+    LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
+    LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
     num /= den(1,2);
     den /= den(1,2);
-    Type tau = den(1,1), K = num(1,1), theta = FOPTD.getTransportDelay();
+    Type tau = den(1,1), K = num(1,1), theta = FOPDT.getTransportDelay();
 
     ControlHandler::PID<Type> controller;
-    controller.setSampleTime(FOPTD.getSampleTime());
+    controller.setSampleTime(FOPDT.getSampleTime());
     if(controllerType == "P")
     {
         Type Kp = 0.7*tau/(K*theta);
@@ -230,16 +230,16 @@ ControlHandler::PID<Type> ControlHandler::CHRTunningServo20OV(const ModelHandler
 }
 
 template <typename Type>
-ControlHandler::PID<Type> ControlHandler::CHRTunningRegulatorio(const ModelHandler::TransferFunction<Type> &FOPTD, const std::string &controllerType)
+ControlHandler::PID<Type> ControlHandler::CHRTunningRegulatorio(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
 {
-    LinAlg::Matrix<Type> num = FOPTD(1,1).getNum();
-    LinAlg::Matrix<Type> den = FOPTD(1,1).getDen();
+    LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
+    LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
     num /= den(1,2);
     den /= den(1,2);
-    Type tau = den(1,1), K = num(1,1), theta = FOPTD.getTransportDelay();
+    Type tau = den(1,1), K = num(1,1), theta = FOPDT.getTransportDelay();
 
     ControlHandler::PID<Type> controller;
-    controller.setSampleTime(FOPTD.getSampleTime());
+    controller.setSampleTime(FOPDT.getSampleTime());
     if(controllerType == "P")
     {
         Type Kp = 0.3*tau/(K*theta);
@@ -260,16 +260,16 @@ ControlHandler::PID<Type> ControlHandler::CHRTunningRegulatorio(const ModelHandl
 }
 
 template <typename Type>
-ControlHandler::PID<Type> ControlHandler::CohenCoonTunning(const ModelHandler::TransferFunction<Type> &FOPTD, const std::string &controllerType)
+ControlHandler::PID<Type> ControlHandler::CohenCoonTunning(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
 {
-    LinAlg::Matrix<Type> num = FOPTD(1,1).getNum();
-    LinAlg::Matrix<Type> den = FOPTD(1,1).getDen();
+    LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
+    LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
     num /= den(1,2);
     den /= den(1,2);
-    Type tau = den(1,1), K = num(1,1), theta = FOPTD.getTransportDelay();
+    Type tau = den(1,1), K = num(1,1), theta = FOPDT.getTransportDelay();
 
     ControlHandler::PID<Type> controller;
-    controller.setSampleTime(FOPTD.getSampleTime());
+    controller.setSampleTime(FOPDT.getSampleTime());
     if(controllerType == "P")
     {
         Type Kp = (1.03+0.35*tau/theta)*(tau/(K*theta));

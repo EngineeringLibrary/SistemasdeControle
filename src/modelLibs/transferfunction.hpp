@@ -497,3 +497,155 @@ ModelHandler::TransferFunction<Type> ModelHandler::pade(const Type &time, const 
     PolynomHandler::Polynom<Type> ret = num/den;
     return ModelHandler::TransferFunction<Type>(ret);
 }
+
+template<typename Type>
+ModelHandler::TransferFunction<Type> ModelHandler::FOPDTCurvaDeReacao(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime)
+{
+    Y = Y-Y(1,1); U = U-U(1,1);
+    Type Yend = Y(1,Y.getNumberOfColumns());
+    Type Uend = U(1,U.getNumberOfColumns());
+
+    Type K = Yend/Uend;
+    Type Ytau = Yend*(1-exp(-1));
+    Type tau, theta;
+    bool flagTheta = true, flagU = true;
+    unsigned uStart;
+    for(unsigned i = 1; i <= Y.getNumberOfColumns(); ++i)
+    {
+        if(U(1,i) != 0 && flagU)
+        {
+            flagU = false;
+            uStart = i+1;
+        }
+        if(Y(1,i) != 0 && flagTheta)
+        {
+            flagTheta = false;
+            theta = (i-uStart)*sampleTime;
+        }
+        else if(Y(1,i) > Ytau){
+            tau = (i-uStart)*sampleTime-theta;
+            break;
+        }
+    }
+    LinAlg::Matrix<Type> den(1,2); den(1,1) = tau; den(1,2) = 1;
+    ModelHandler::TransferFunction<Type> ret(LinAlg::Matrix<Type>(K),den);
+    ret.setTransportDelay(theta);
+    return ret;
+}
+
+template<typename Type>
+ModelHandler::TransferFunction<Type> ModelHandler::FOPDTZieglerNichols(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime)
+{
+    Y = Y-Y(1,1); U = U-U(1,1);
+    Type Yend = Y(1,Y.getNumberOfColumns());
+    Type Uend = U(1,U.getNumberOfColumns());
+
+    Type K = Yend/Uend;
+    Type YmaxDif = Y(1,2) - Y(1,1);
+    unsigned maxPosition = 0;
+    bool flagU = true; unsigned uStart;
+
+    for(unsigned i = 1; i < Y.getNumberOfColumns(); ++i)
+    {
+        if(U(1,i) != 0 && flagU)
+        {
+            flagU = false;
+            uStart = i+1;
+        }
+        if(YmaxDif < Y(1,i+1) - Y(1,i))
+        {
+            YmaxDif = Y(1,i+1) - Y(1,i);
+            maxPosition = i;
+        }
+    }
+
+    Type a = (Y(1,maxPosition + 4) - Y(1,maxPosition))/(4*sampleTime);
+    Type b = Y(1,maxPosition) - a*maxPosition*sampleTime;
+    Type theta = -b/a - uStart*sampleTime;
+    Type tau = (Yend-b)/a - theta;
+
+    LinAlg::Matrix<Type> den(1,2); den(1,1) = tau; den(1,2) = 1;
+    ModelHandler::TransferFunction<Type> ret(LinAlg::Matrix<Type>(K),den);
+    ret.setTransportDelay(theta);
+    return ret;
+}
+
+template<typename Type>
+ModelHandler::TransferFunction<Type> ModelHandler::FOPDTSmith(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime)
+{
+    Y = Y-Y(1,1); U = U-U(1,1);
+    Type Yend = Y(1,Y.getNumberOfColumns());
+    Type Uend = U(1,U.getNumberOfColumns());
+
+    Type K = Yend/Uend;
+    Type Y2 = Yend*0.632, Y1 = Yend*0.283, t1, t2;
+    bool flagT1 = true;
+    bool flagU = true; unsigned uStart;
+
+    for(unsigned i = 1; i < Y.getNumberOfColumns(); ++i)
+    {
+        if(U(1,i) != 0 && flagU)
+        {
+            flagU = false;
+            uStart = i+1;
+        }
+        if(Y1 < Y(1,i) && flagT1)
+        {
+            t1 = (i-uStart)*sampleTime;
+            flagT1 = false;
+        }
+        else if(Y2 < Y(1,i))
+        {
+            t2 = (i-uStart)*sampleTime;
+            break;
+        }
+    }
+
+    Type tau = 1.5*(t2-t1);
+    Type theta = t2-tau;
+
+    LinAlg::Matrix<Type> den(1,2); den(1,1) = tau; den(1,2) = 1;
+    ModelHandler::TransferFunction<Type> ret(LinAlg::Matrix<Type>(K),den);
+    ret.setTransportDelay(theta);
+    return ret;
+}
+
+template<typename Type>
+ModelHandler::TransferFunction<Type> ModelHandler::FOPDTSundaresanKrishnaswamy(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime)
+{
+    Y = Y-Y(1,1); U = U-U(1,1);
+    Type Yend = Y(1,Y.getNumberOfColumns());
+    Type Uend = U(1,U.getNumberOfColumns());
+
+    Type K = Yend/Uend;
+    Type Y2 = Yend*0.853, Y1 = Yend*0.353, t1, t2;
+    bool flagT1 = true;
+    bool flagU = true; unsigned uStart;
+
+    for(unsigned i = 1; i < Y.getNumberOfColumns(); ++i)
+    {
+        if(U(1,i) != 0 && flagU)
+        {
+            flagU = false;
+            uStart = i+1;
+        }
+        if(Y1 < Y(1,i) && flagT1)
+        {
+            t1 = (i-uStart)*sampleTime;
+            flagT1 = false;
+        }
+        else if(Y2 < Y(1,i))
+        {
+            t2 = (i-uStart)*sampleTime;
+            break;
+        }
+    }
+
+    Type tau = 0.67*(t2-t1);
+    Type theta = 1.3*t1-0.29*t2;
+
+    LinAlg::Matrix<Type> den(1,2); den(1,1) = tau; den(1,2) = 1;
+    ModelHandler::TransferFunction<Type> ret(LinAlg::Matrix<Type>(K),den);
+    ret.setTransportDelay(theta);
+    return ret;
+}
