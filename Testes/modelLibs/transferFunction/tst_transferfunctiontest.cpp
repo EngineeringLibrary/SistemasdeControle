@@ -1545,7 +1545,7 @@ void TransferFunctionTest::FOPDTCurvaDeReacao()
 
     ModelHandler::TransferFunction<double> FOP = ModelHandler::FOPDTCurvaDeReacao(Y,U,0.1);
 
-    std::cout << FOP << "exp(-" << FOP.getTransportDelay() << "s)" << std::endl;
+//    std::cout << FOP << "exp(-" << FOP.getTransportDelay() << "s)" << std::endl;
     QVERIFY2(fabs(FOP(1,1).getNum()(1,1) - 10) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
     QVERIFY2(fabs(FOP(1,1).getDen()(1,1) - 5) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
     QVERIFY2(fabs(FOP.getTransportDelay() - 3) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
@@ -1558,7 +1558,7 @@ void TransferFunctionTest::FOPDTZieglerNichols()
 
     ModelHandler::TransferFunction<double> FOP = ModelHandler::FOPDTZieglerNichols(Y,U,0.1);
 
-    std::cout << FOP << "exp(-" << FOP.getTransportDelay() << "s)" << std::endl;
+//    std::cout << FOP << "exp(-" << FOP.getTransportDelay() << "s)" << std::endl;
     QVERIFY2(fabs(FOP(1,1).getNum()(1,1) - 10) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
     QVERIFY2(fabs(FOP(1,1).getDen()(1,1) - 5) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
     QVERIFY2(fabs(FOP.getTransportDelay() - 3) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
@@ -1571,7 +1571,7 @@ void TransferFunctionTest::FOPDTSmith()
 
     ModelHandler::TransferFunction<double> FOP = ModelHandler::FOPDTSmith(Y,U,0.1);
 
-    std::cout << FOP << "exp(-" << FOP.getTransportDelay() << "s)" << std::endl;
+//    std::cout << FOP << "exp(-" << FOP.getTransportDelay() << "s)" << std::endl;
     QVERIFY2(fabs(FOP(1,1).getNum()(1,1) - 10) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
     QVERIFY2(fabs(FOP(1,1).getDen()(1,1) - 5) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
     QVERIFY2(fabs(FOP.getTransportDelay() - 3) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
@@ -1584,7 +1584,7 @@ void TransferFunctionTest::FOPDTSundaresanKrishnaswamy()
 
     ModelHandler::TransferFunction<double> FOP = ModelHandler::FOPDTSundaresanKrishnaswamy(Y,U,0.1);
 
-    std::cout << FOP << "exp(-" << FOP.getTransportDelay() << "s)" << std::endl;
+//    std::cout << FOP << "exp(-" << FOP.getTransportDelay() << "s)" << std::endl;
     QVERIFY2(fabs(FOP(1,1).getNum()(1,1) - 10) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
     QVERIFY2(fabs(FOP(1,1).getDen()(1,1) - 5) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
     QVERIFY2(fabs(FOP.getTransportDelay() - 3) < 0.6, "Funcao de primeira ordem estimada de forma errada!");
