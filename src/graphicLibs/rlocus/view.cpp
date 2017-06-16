@@ -27,14 +27,14 @@
 **
 ****************************************************************************/
 
-#include "view.h"
+#include "SistemasdeControle/headers/graphicLibs/rlocus/view.h"
 #include <QtGui/QResizeEvent>
 #include <QtWidgets/QGraphicsScene>
 #include <QtCharts/QChart>
 #include <QtCharts/QLineSeries>
 #include <QtCharts/QSplineSeries>
 #include <QtWidgets/QGraphicsTextItem>
-#include "callout.h"
+#include "SistemasdeControle/headers/graphicLibs/rlocus/callout.h"
 #include <QtGui/QMouseEvent>
 
 View::View(QWidget *parent)

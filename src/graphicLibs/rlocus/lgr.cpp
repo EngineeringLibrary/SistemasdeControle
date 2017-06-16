@@ -1,4 +1,4 @@
-#include "lgr.h"
+#include "SistemasdeControle/headers/graphicLibs/rlocus/lgr.h"
 
 //void plot::rlocus(const ModelHandler::TransferFunction<double> &TF)
 LGR::LGR(const ModelHandler::TransferFunction<double> &TF, QWidget *parent):
