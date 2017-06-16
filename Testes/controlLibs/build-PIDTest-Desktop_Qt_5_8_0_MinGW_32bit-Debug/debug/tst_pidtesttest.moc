@@ -20,8 +20,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_PIDTestTest_t {
-    QByteArrayData data[26];
-    char stringdata0[403];
+    QByteArrayData data[15];
+    char stringdata0[209];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -44,18 +44,7 @@ QT_MOC_LITERAL(10, 129, 23), // "getDerivativeErrorValue"
 QT_MOC_LITERAL(11, 153, 21), // "getIntegralErrorValue"
 QT_MOC_LITERAL(12, 175, 9), // "getLimits"
 QT_MOC_LITERAL(13, 185, 9), // "getParams"
-QT_MOC_LITERAL(14, 195, 13), // "OutputControl"
-QT_MOC_LITERAL(15, 209, 14), // "operatorString"
-QT_MOC_LITERAL(16, 224, 21), // "tunningZieglerNichols"
-QT_MOC_LITERAL(17, 246, 18), // "tunningCHRServo0OV"
-QT_MOC_LITERAL(18, 265, 19), // "tunningCHRServo20OV"
-QT_MOC_LITERAL(19, 285, 21), // "tunningCHRRegulatorio"
-QT_MOC_LITERAL(20, 307, 16), // "tunningCohenCoon"
-QT_MOC_LITERAL(21, 324, 15), // "tunningIAELopes"
-QT_MOC_LITERAL(22, 340, 16), // "tunningITAELopes"
-QT_MOC_LITERAL(23, 357, 16), // "tunningIAERovira"
-QT_MOC_LITERAL(24, 374, 17), // "tunningITAERovira"
-QT_MOC_LITERAL(25, 392, 10) // "tunningIMC"
+QT_MOC_LITERAL(14, 195, 13) // "OutputControl"
 
     },
     "PIDTestTest\0constructorCase1\0\0"
@@ -63,13 +52,7 @@ QT_MOC_LITERAL(25, 392, 10) // "tunningIMC"
     "setParamsCase1\0setParamsCase2\0"
     "getSampleTime\0getErrorValue\0"
     "getDerivativeErrorValue\0getIntegralErrorValue\0"
-    "getLimits\0getParams\0OutputControl\0"
-    "operatorString\0tunningZieglerNichols\0"
-    "tunningCHRServo0OV\0tunningCHRServo20OV\0"
-    "tunningCHRRegulatorio\0tunningCohenCoon\0"
-    "tunningIAELopes\0tunningITAELopes\0"
-    "tunningIAERovira\0tunningITAERovira\0"
-    "tunningIMC"
+    "getLimits\0getParams\0OutputControl"
 };
 #undef QT_MOC_LITERAL
 
@@ -79,7 +62,7 @@ static const uint qt_meta_data_PIDTestTest[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      24,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -87,43 +70,21 @@ static const uint qt_meta_data_PIDTestTest[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  134,    2, 0x08 /* Private */,
-       3,    0,  135,    2, 0x08 /* Private */,
-       4,    0,  136,    2, 0x08 /* Private */,
-       5,    0,  137,    2, 0x08 /* Private */,
-       6,    0,  138,    2, 0x08 /* Private */,
-       7,    0,  139,    2, 0x08 /* Private */,
-       8,    0,  140,    2, 0x08 /* Private */,
-       9,    0,  141,    2, 0x08 /* Private */,
-      10,    0,  142,    2, 0x08 /* Private */,
-      11,    0,  143,    2, 0x08 /* Private */,
-      12,    0,  144,    2, 0x08 /* Private */,
-      13,    0,  145,    2, 0x08 /* Private */,
-      14,    0,  146,    2, 0x08 /* Private */,
-      15,    0,  147,    2, 0x08 /* Private */,
-      16,    0,  148,    2, 0x08 /* Private */,
-      17,    0,  149,    2, 0x08 /* Private */,
-      18,    0,  150,    2, 0x08 /* Private */,
-      19,    0,  151,    2, 0x08 /* Private */,
-      20,    0,  152,    2, 0x08 /* Private */,
-      21,    0,  153,    2, 0x08 /* Private */,
-      22,    0,  154,    2, 0x08 /* Private */,
-      23,    0,  155,    2, 0x08 /* Private */,
-      24,    0,  156,    2, 0x08 /* Private */,
-      25,    0,  157,    2, 0x08 /* Private */,
+       1,    0,   79,    2, 0x08 /* Private */,
+       3,    0,   80,    2, 0x08 /* Private */,
+       4,    0,   81,    2, 0x08 /* Private */,
+       5,    0,   82,    2, 0x08 /* Private */,
+       6,    0,   83,    2, 0x08 /* Private */,
+       7,    0,   84,    2, 0x08 /* Private */,
+       8,    0,   85,    2, 0x08 /* Private */,
+       9,    0,   86,    2, 0x08 /* Private */,
+      10,    0,   87,    2, 0x08 /* Private */,
+      11,    0,   88,    2, 0x08 /* Private */,
+      12,    0,   89,    2, 0x08 /* Private */,
+      13,    0,   90,    2, 0x08 /* Private */,
+      14,    0,   91,    2, 0x08 /* Private */,
 
  // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -160,17 +121,6 @@ void PIDTestTest::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 10: _t->getLimits(); break;
         case 11: _t->getParams(); break;
         case 12: _t->OutputControl(); break;
-        case 13: _t->operatorString(); break;
-        case 14: _t->tunningZieglerNichols(); break;
-        case 15: _t->tunningCHRServo0OV(); break;
-        case 16: _t->tunningCHRServo20OV(); break;
-        case 17: _t->tunningCHRRegulatorio(); break;
-        case 18: _t->tunningCohenCoon(); break;
-        case 19: _t->tunningIAELopes(); break;
-        case 20: _t->tunningITAELopes(); break;
-        case 21: _t->tunningIAERovira(); break;
-        case 22: _t->tunningITAERovira(); break;
-        case 23: _t->tunningIMC(); break;
         default: ;
         }
     }
@@ -202,13 +152,13 @@ int PIDTestTest::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 24)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 24;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 24)
+        if (_id < 13)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 24;
+        _id -= 13;
     }
     return _id;
 }

@@ -117,7 +117,7 @@ Type ControlHandler::PID<Type>::OutputControl(Type Reference, Type SignalInput)
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> ControlHandler::PID<Type>::getLimits() const
+LinAlg::Matrix<Type> ControlHandler::PID<Type>::getLimits()
 {
     LinAlg::Matrix<Type> limits(1,2);
 
@@ -128,7 +128,7 @@ LinAlg::Matrix<Type> ControlHandler::PID<Type>::getLimits() const
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> ControlHandler::PID<Type>::getParams() const
+LinAlg::Matrix<Type> ControlHandler::PID<Type>::getParams()
 {
     LinAlg::Matrix<Type> params(1,3);
 
@@ -139,57 +139,8 @@ LinAlg::Matrix<Type> ControlHandler::PID<Type>::getParams() const
     return params;
 }
 
-template<typename Type> // ok
-std::ostream& ControlHandler::operator<< (std::ostream& output, ControlHandler::PID<Type> controller)
-{
-    std::string str; str << controller;
-    output << str;
-    return output;
-}
-#include <string>
-template<typename Type> //ok
-std::string&  ControlHandler::operator<< (std::string& output,  const ControlHandler::PID<Type> &controller)
-{
-    LinAlg::Matrix<Type> parameters = controller.getParams();
-
-    output = "U(s) = ";
-    if(parameters(1,1) != 0)
-    {
-        std::stringstream ss;
-        if(parameters(1,1) != 1)
-        {
-            ss << parameters(1,1);
-            output += ss.str();
-        }
-        output += " E(s)";
-    }
-    if(parameters(1,2) != 0)
-    {
-        output += " + ";
-        std::stringstream ss;
-        if(parameters(1,2) != 1)
-        {
-            ss << parameters(1,2);
-            output += ss.str();
-        }
-        output += " (E(s)/s)";
-    }
-    if(parameters(1,3) != 0)
-    {
-        output += " + ";
-        std::stringstream ss;
-        if(parameters(1,3) != 1)
-        {
-            ss << parameters(1,3);
-            output += ss.str();
-        }
-        output += " s E(s) ";
-    }
-    return output;
-}
-
 template <typename Type>
-ControlHandler::PID<Type> ControlHandler::tunningZieglerNichols(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
+ControlHandler::PID<Type> ControlHandler::ZieglerNicholsTunning(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
 {
     LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
     LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
@@ -216,11 +167,10 @@ ControlHandler::PID<Type> ControlHandler::tunningZieglerNichols(const ModelHandl
     }
     else
         std::cout << "Controlador nao encontrado" << std::endl;
-    return controller;
 }
 
 template <typename Type>
-ControlHandler::PID<Type> ControlHandler::tunningCHRServo0OV(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
+ControlHandler::PID<Type> ControlHandler::CHRTunningServo0OV(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
 {
     LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
     LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
@@ -247,11 +197,10 @@ ControlHandler::PID<Type> ControlHandler::tunningCHRServo0OV(const ModelHandler:
     }
     else
         std::cout << "Controlador nao encontrado" << std::endl;
-    return controller;
 }
 
 template <typename Type>
-ControlHandler::PID<Type> ControlHandler::tunningCHRServo20OV(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
+ControlHandler::PID<Type> ControlHandler::CHRTunningServo20OV(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
 {
     LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
     LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
@@ -278,11 +227,10 @@ ControlHandler::PID<Type> ControlHandler::tunningCHRServo20OV(const ModelHandler
     }
     else
         std::cout << "Controlador nao encontrado" << std::endl;
-    return controller;
 }
 
 template <typename Type>
-ControlHandler::PID<Type> ControlHandler::tunningCHRRegulatorio(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
+ControlHandler::PID<Type> ControlHandler::CHRTunningRegulatorio(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
 {
     LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
     LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
@@ -309,11 +257,10 @@ ControlHandler::PID<Type> ControlHandler::tunningCHRRegulatorio(const ModelHandl
     }
     else
         std::cout << "Controlador nao encontrado" << std::endl;
-    return controller;
 }
 
 template <typename Type>
-ControlHandler::PID<Type> ControlHandler::tunningCohenCoon(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
+ControlHandler::PID<Type> ControlHandler::CohenCoonTunning(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
 {
     LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
     LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
@@ -343,156 +290,4 @@ ControlHandler::PID<Type> ControlHandler::tunningCohenCoon(const ModelHandler::T
     }
     else
         std::cout << "Controlador nao encontrado" << std::endl;
-    return controller;
-}
-
-template <typename Type>
-ControlHandler::PID<Type> ControlHandler::tunningIAELopes(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
-{
-    LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
-    LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
-    num /= den(1,2);
-    den /= den(1,2);
-    Type tau = den(1,1), K = num(1,1), theta = FOPDT.getTransportDelay();
-
-    ControlHandler::PID<Type> controller;
-    controller.setSampleTime(theta);
-    if(controllerType == "PI")
-    {
-        Type Kp = ((0.984/K)*pow(tau/theta,0.986));
-        Type Ti = tau/(0.608*pow(tau/theta,0.707));
-        controller.setParams(Kp,Kp/Ti,0.0);
-    }
-    else if(controllerType == "PID")
-    {
-        Type Kp = ((1.435/K)*pow(tau/theta,0.921));
-        Type Ti = tau/(0.878*pow(tau/theta,0.749));
-        Type Td = tau*(0.482*pow(theta/tau,1.137));
-        controller.setParams(Kp,Kp/Ti,Kp*Td);
-    }
-    else
-        std::cout << "Controlador nao encontrado" << std::endl;
-    return controller;
-}
-
-template <typename Type>
-ControlHandler::PID<Type> ControlHandler::tunningITAELopes(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
-{
-    LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
-    LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
-    num /= den(1,2);
-    den /= den(1,2);
-    Type tau = den(1,1), K = num(1,1), theta = FOPDT.getTransportDelay();
-
-    ControlHandler::PID<Type> controller;
-    controller.setSampleTime(theta);
-    if(controllerType == "PI")
-    {
-        Type Kp = ((0.959/K)*pow(tau/theta,0.977));
-        Type Ti = tau/(0.674*pow(tau/theta,0.68));
-        controller.setParams(Kp,Kp/Ti,0.0);
-    }
-    else if(controllerType == "PID")
-    {
-        Type Kp = ((1.357/K)*pow(tau/theta,0.947));
-        Type Ti = tau/(0.842*pow(tau/theta,0.738));
-        Type Td = tau*(0.381*pow(theta/tau,0.995));
-        controller.setParams(Kp,Kp/Ti,Kp*Td);
-    }
-    else
-        std::cout << "Controlador nao encontrado" << std::endl;
-    return controller;
-}
-
-template <typename Type>
-ControlHandler::PID<Type> ControlHandler::tunningIAERovira(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
-{
-    LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
-    LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
-    num /= den(1,2);
-    den /= den(1,2);
-    Type tau = den(1,1), K = num(1,1), theta = FOPDT.getTransportDelay();
-
-    ControlHandler::PID<Type> controller;
-    controller.setSampleTime(theta);
-    if(controllerType == "PI")
-    {
-        Type Kp = ((0.758/K)*pow(tau/theta,0.861));
-        Type Ti = tau/(1.02-0.323*(theta/tau));
-        controller.setParams(Kp,Kp/Ti,0.0);
-    }
-    else if(controllerType == "PID")
-    {
-        Type Kp = ((1.086/K)*pow(tau/theta,0.869));
-        Type Ti = tau/(0.74-0.130*(theta/tau));
-        Type Td = tau*(0.348*pow(theta/tau,0.914));
-        controller.setParams(Kp,Kp/Ti,Kp*Td);
-    }
-    else
-        std::cout << "Controlador nao encontrado" << std::endl;
-    return controller;
-}
-
-template <typename Type>
-ControlHandler::PID<Type> ControlHandler::tunningITAERovira(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType)
-{
-    LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
-    LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
-    num /= den(1,2);
-    den /= den(1,2);
-    Type tau = den(1,1), K = num(1,1), theta = FOPDT.getTransportDelay();
-
-    ControlHandler::PID<Type> controller;
-    controller.setSampleTime(theta);
-    if(controllerType == "PI")
-    {
-        Type Kp = ((0.586/K)*pow(tau/theta,0.916));
-        Type Ti = tau/(1.03-0.165*(theta/tau));
-        controller.setParams(Kp,Kp/Ti,0.0);
-    }
-    else if(controllerType == "PID")
-    {
-        Type Kp = ((0.965/K)*pow(tau/theta,0.850));
-        Type Ti = tau/(0.796-0.147*(theta/tau));
-        Type Td = tau*(0.308*pow(theta/tau,0.929));
-        controller.setParams(Kp,Kp/Ti,Kp*Td);
-    }
-    else
-        std::cout << "Controlador nao encontrado" << std::endl;
-    return controller;
-}
-
-template <typename Type>
-ControlHandler::PID<Type> ControlHandler::tunningIMC(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType, const Type &lambda)
-{
-    LinAlg::Matrix<Type> num = FOPDT(1,1).getNum();
-    LinAlg::Matrix<Type> den = FOPDT(1,1).getDen();
-    num /= den(1,2);
-    den /= den(1,2);
-    Type tau = den(1,1), K = num(1,1), theta = FOPDT.getTransportDelay();
-
-    ControlHandler::PID<Type> controller;
-    controller.setSampleTime(FOPDT.getSampleTime());
-
-    if(controllerType == "PI")
-    {
-        if(lambda < 0.8*theta)
-            std::cout << "Valor de lambda menor que o esperado" << std::endl;
-        Type Kp = (2*tau+theta)/(2*K*lambda);
-        Type Ti = tau+(theta/2);
-        controller.setParams(Kp,Kp/Ti,0.0);
-    }
-    else if(controllerType == "PID")
-    {
-        if(lambda < 1.7*theta)
-            std::cout << "Valor de lambda menor que o esperado" << std::endl;
-
-        Type Kp = (2*tau+theta)/(K*(2*lambda+theta));
-        Type Ti = tau+(theta/2);
-        Type Td = tau*theta/(2*tau+theta);
-        controller.setParams(Kp,Kp/Ti,Kp*Td);
-    }
-    else
-        std::cout << "Controlador nao encontrado" << std::endl;
-    return controller;
 }
