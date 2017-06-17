@@ -475,12 +475,12 @@ std::string& ModelHandler::operator<< (std::string& output, ModelHandler::Transf
     return output;
 }
 
-unsigned factorial(unsigned n)
-{
-    unsigned retval = 1;
-    for (int i = n; i > 1; --i)  retval *= i;
-    return retval;
-}
+//unsigned ModelHandler::factorial(unsigned n)
+//{
+//    unsigned retval = 1;
+//    for (int i = n; i > 1; --i)  retval *= i;
+//    return retval;
+//}
 
 template<typename Type>
 ModelHandler::TransferFunction<Type> ModelHandler::pade(const Type &time, const unsigned &order)
