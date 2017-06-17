@@ -132,7 +132,7 @@ namespace ModelHandler {
     template<typename Type> // ok
     TransferFunction<Type> FOPDTSundaresanKrishnaswamy(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime = 0.1);
 
-    unsigned factorial(unsigned n);
+//    unsigned factorial(unsigned n);
 }
 
 #ifdef testModel
