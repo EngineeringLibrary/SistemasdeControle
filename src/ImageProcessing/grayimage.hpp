@@ -1,4 +1,4 @@
-#include "grayimage.h"
+#include "SistemasdeControle/headers/ImageProcessing/grayimage.h"
 
 template <typename Type>
 ImageProcessing::GrayImage<Type>::~GrayImage()

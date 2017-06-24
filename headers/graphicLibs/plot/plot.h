@@ -14,7 +14,6 @@
 #include "SistemasdeControle/headers/graphicLibs/callout.h"
 #include <QtGui/QMouseEvent>
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
-#include "SistemasdeControle/headers/modelLibs/transferfunction.h"
 
 QT_BEGIN_NAMESPACE
 class QGraphicsScene;
@@ -30,19 +29,19 @@ class Callout;
 
 QT_CHARTS_USE_NAMESPACE
 
-class LGR: public QGraphicsView
+class Plot: public QGraphicsView
 {
     Q_OBJECT
 
 public:
-//    plot(QWidget *parent = 0){}
-    LGR(const LinAlg::Matrix<double> &X, const LinAlg::Matrix<double> &Y,
-         QWidget *parent = 0);
-    LGR(const ModelHandler::TransferFunction<double> &TF, QWidget *parent = 0);
-    LGR(const ModelHandler::TransferFunction<double> &G, const ModelHandler::TransferFunction<double> &H, QWidget *parent = 0);
+    Plot(QWidget *parent = 0);
+    Plot(const LinAlg::Matrix<double> &X, const LinAlg::Matrix<double> &Y,
+         QWidget *parent = 0, double windowSizeHeigh = 800, double windowSizeWidth = 600);
+    void realTimeDataUpdate(const double &x, const double &y);
     void setTitle(QString title);
+    void setxLabel(QString xLabel);
+    void setyLabel(QString yLabel);
     void setRange(const double &xMin, const double &xMax, const double &yMin, const double &yMax);
-//    void rlocus/*(const ModelHandler::TransferFunction<double> &TF)*/;
 
 protected:
     void resizeEvent(QResizeEvent *event);
@@ -58,7 +57,7 @@ private:
     QChart *m_chart;
     Callout *m_tooltip;
     QList<Callout *> m_callouts;
-    QScatterSeries **series;
+    QSplineSeries **series;
 };
 
 #endif // PLOT_H

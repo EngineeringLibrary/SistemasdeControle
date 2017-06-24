@@ -19,6 +19,9 @@ ControlHandler::PID<Type>::PID()
     this->Step = 0.1;
     this->upperLimit = 200;
     this->lowerLimit = -200;
+
+    //------------
+//    e = LinAlg::Matrix<Type>(1,3);
 }
 
 template<typename Type>
@@ -112,7 +115,13 @@ Type ControlHandler::PID<Type>::OutputControl(Type Reference, Type SignalInput)
     intError();
     this->PIDout = (this->kp*this->Error + this->ki*this->integralError + this->kd*this->derivativeError);
     errorLimitation();
-    
+
+//    e.removeColumn(3);
+//    e = LinAlg::Matrix<Type>(this->Error)|e;
+//    K1 = kp + this->Step*ki + kd/this->Step;
+//    K2 = -kp - 2*kd/this->Step;
+//    K3 = kd/this->Step;
+//    this->PIDout = this->PIDout + (K1*e(1,1) + K2*e(1,2) + K3*e(1,3));
     return this->PIDout;
 }
 

@@ -388,17 +388,6 @@ std::string ModelHandler::StateSpace<Type>::print()
 }
 
 template <typename Type>
-Type ModelHandler::StateSpace<Type>::factorial(unsigned n)
-{
-    Type retval = 1;
-
-    for (int i = n; i > 1; --i)
-        retval *= i;
-
-    return retval;
-}
-
-template <typename Type>
 void ModelHandler::StateSpace<Type>::c2dConversion()
 {
 //Pade

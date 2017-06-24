@@ -137,5 +137,5 @@ namespace ImageProcessing
         return ret;
     }
 }
-#include "ImageProcessing/imageprocessing.hpp"
+#include "SistemasdeControle/src/ImageProcessing/imageprocessing.hpp"
 #endif // IMAGEPROCESSING_H

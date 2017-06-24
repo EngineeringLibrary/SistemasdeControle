@@ -2,7 +2,7 @@
 #define GRAYIMAGE_H
 
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
-#include "ImageProcessing/imageprocessing.h"
+#include "SistemasdeControle/headers/ImageProcessing/imageprocessing.h"
 
 namespace ImageProcessing
 {
@@ -127,5 +127,5 @@ namespace ImageProcessing
     template <typename Type>
     LinAlg::Matrix<bool> im2bw(const ImageProcessing::GrayImage<Type> &grayimg, const double &limiar);
 }
-#include "ImageProcessing/grayimage.hpp"
+#include "SistemasdeControle/src/ImageProcessing/grayimage.hpp"
 #endif // GRAYIMAGE_H

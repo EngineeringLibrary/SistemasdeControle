@@ -1,4 +1,4 @@
-#include "imageprocessing.h"
+#include "SistemasdeControle/headers/ImageProcessing/imageprocessing.h"
 
 template <typename Type>
 int ImageProcessing::GetColorPixel(const Type &r,const Type &g, const Type &b)
@@ -216,7 +216,8 @@ LinAlg::Matrix<Type> ImageProcessing::MedianFilter(const LinAlg::Matrix<Type> &m
     for(unsigned i = n; i <= ret.getNumberOfRows()-n-1; ++i)
         for(unsigned j = n; j <= ret.getNumberOfColumns()-n-1; ++j){
             aux = aux2(from(i-n+1)-->(i-n+sizeMask),from(j-n+1)-->(j-n+sizeMask));
-            aux = LinAlg::selectionSort<Type>(aux);
+            std::cout << "Comentei essa linha" << std::endl;
+//            aux = LinAlg::selectionSort<Type>(aux);
             if(sizeMask % 2 == 0)
                 temp = (aux(1,g) + aux(1,g+1))/2;
             else

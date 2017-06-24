@@ -5,7 +5,7 @@
 #ifdef testControl
     #include "../../../headers/modelLibs/transferfunction.h"
 #else
-    #include "SistemasdeControle/modelLibs/transferfunction.h"
+    #include "SistemasdeControle/headers/modelLibs/transferfunction.h"
 #endif
 
 namespace ControlHandler{
@@ -15,6 +15,8 @@ namespace ControlHandler{
     private:
         bool checkUpLim, checkLowLim;
         Type Error, pastError, integralError, derivativeError, Step, kp, ki, kd, upperLimit, lowerLimit, PIDout;
+//        Type K1, K2, K3;
+//        LinAlg::Matrix<double> e;
 
         void errorLimitation();
 

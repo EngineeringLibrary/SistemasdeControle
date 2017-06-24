@@ -2,8 +2,10 @@
 #define STATESPACE_H
 #ifdef testModel
     #include "../../../headers/modelLibs/model.h"
+    #include "../../../headers/primitiveLibs/primitives.h"
 #else
     #include "SistemasdeControle/headers/modelLibs/model.h"
+    #include "SistemasdeControle/headers/primitiveLibs/primitives.h"
 #endif
 
 namespace ModelHandler {
@@ -82,9 +84,6 @@ namespace ModelHandler {
         std::string print(); //ok
 
     private:
-        Type factorial(unsigned n); // ok
-
-
         bool continuous,firstTimeKalmanObserver;
         unsigned nDiscretization, minPredictionHorizon, maxPredictionHorizon, controlHorizon;
         LinAlg::Matrix<Type> A, B, C, D, Ad, Bd, X, L, initialState,P;
