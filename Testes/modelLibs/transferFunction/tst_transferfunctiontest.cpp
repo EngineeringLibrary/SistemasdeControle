@@ -852,6 +852,7 @@ void TransferFunctionTest::simInputDouble ()
         for(unsigned i = 0; i <= 10; ++i)
             A = A|B.sim(1);
     }
+    std::cout << A << std::endl;
     QVERIFY2(A.getNumberOfRows() == 1 && A.getNumberOfColumns() == 12, "Falhou ao testar o tamanho do vetor de simulacao.");
     QVERIFY2(fabs(A(1,1)-0) <= 0.001 && fabs(A(1,2)-0.0047) <= 0.001 && fabs(A(1,3)-0.0175) <= 0.001 && fabs(A(1,4)-0.0369) <= 0.001 && fabs(A(1,5)-0.0616) <= 0.001 && fabs(A(1,6)-0.0902) <= 0.001 && fabs(A(1,7)-0.1219) <= 0.001 && fabs(A(1,8)-0.1558) <= 0.001 && fabs(A(1,9)-0.1912) <= 0.001 && fabs(A(1,10)-0.2275) <= 0.001 && fabs(A(1,11)-0.2642) <= 0.001 && fabs(A(1,12)-0.3010) <= 0.001,  "Falhou ao verificar os valores da simulacao.");
     QVERIFY2(sizeof(A) == sizeof(LinAlg::Matrix<double>), "Falhou ao comparar o tipo da resposta da simulacao");

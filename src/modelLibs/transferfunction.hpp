@@ -386,6 +386,7 @@ Type ModelHandler::TransferFunction<Type>::sim(Type x)
     if(this->simulationFlag == false) // Colocar em Tf2Arx
     {
         ModelHandler::ARX<Type> arx = ModelHandler::tf2arxSISO(*this, this->step);
+        std::cout << arx << std::endl;
         this->ModelCoef      = ~arx.getModelCoef();
         this->inputState     = LinAlg::Zeros<Type>(this->getNumberOfColumns(),(arx.getNumberOfInputDelays()));
         this->outputState    = LinAlg::Zeros<Type>(this->getNumberOfColumns(),(arx.getNumberOfOutputDelays()));

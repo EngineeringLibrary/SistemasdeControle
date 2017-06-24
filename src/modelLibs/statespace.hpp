@@ -415,10 +415,10 @@ void ModelHandler::StateSpace<Type>::c2dConversion()
 
     //taylor
     for(unsigned i = 0; i < nDiscretization; ++i){
-        Ad += (1/factorial(i))*((A*this->step/factor)^i);
-//        std::cout << A <<"\n"<< Ad;
+        Ad += (1/(Type)factorial(i))*((A*this->step/factor)^i);
     }
     Ad ^= factor;
+//    std::cout << A <<"\n"<< Ad;
 //    std::cout << (Ad - (Ad^0)) << std::endl;
 //    std::cout << (A^-1) << std::endl;
     Bd = (A^-1)*(Ad - (Ad^0))*B;

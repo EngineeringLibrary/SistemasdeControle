@@ -4,7 +4,7 @@
 #include "LinAlg/matrix.h"
 #include "LinAlg/linalg.h"
 #include <complex>
-#include "SistemasdeControle/headers/primitiveLibs/primitives.h"
+#include "primitives.h"
 
 namespace PolynomHandler {
     template <typename Type>
