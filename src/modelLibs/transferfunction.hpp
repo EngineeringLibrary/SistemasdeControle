@@ -159,6 +159,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction (const ModelHandler::Tran
     this->lmin           = 0;
     this->input          = 0;
     this->output         = 0;
+    this->setTransportDelay(otherPolynom.getTransportDelay());
 }
 
 template <typename Type>
@@ -255,6 +256,7 @@ ModelHandler::TransferFunction<Type>& ModelHandler::TransferFunction<Type>::oper
     this->Continuous     = otherTransferFunction.isContinuous();
     this->timeSimulation = otherTransferFunction.getTimeSimulation();
     this->simulationFlag = false;
+    this->setTransportDelay(otherTransferFunction.getTransportDelay());
 
     return *this;
 }
