@@ -411,12 +411,12 @@ void ModelHandler::StateSpace<Type>::c2dConversion()
     LinAlg::Matrix<Type> max, maxInd;
     *(max, maxInd) = LinAlg::max(LinAlg::abs(A));
     *(max, maxInd) = LinAlg::max(LinAlg::abs(max));
-    unsigned factor =  (unsigned)(max(1,1));
+    unsigned factor =  (unsigned)ceil(max(1,1)*this->step);
 
     //taylor
-    for(unsigned i = 0; i < nDiscretization; ++i){
+    for(unsigned i = 0; i < nDiscretization; ++i)
         Ad += (1/(Type)factorial(i))*((A*this->step/factor)^i);
-    }
+
     Ad ^= factor;
 //    std::cout << A <<"\n"<< Ad;
 //    std::cout << (Ad - (Ad^0)) << std::endl;
@@ -428,8 +428,20 @@ template <typename Type>
 void ModelHandler::StateSpace<Type>::d2cConversion()
 {
     LinAlg::Matrix<Type> I = LinAlg::Eye<Type> (Ad.getNumberOfRows());
+    A = LinAlg::Zeros<Type>(Ad.getNumberOfRows(),Ad.getNumberOfRows());
+    LinAlg::Matrix<Type> max, maxInd, AdTemp;
+    *(max, maxInd) = LinAlg::max(LinAlg::abs(Ad));
+    *(max, maxInd) = LinAlg::max(LinAlg::abs(max));
+    Type factor =  (unsigned)ceil(max(1,1));
 
-    A = (Ad - I)/this->step;
+    for(unsigned i = 1; i < nDiscretization + 1; ++i){
+        std::cout << A; std::cout << std::endl;
+        A += -(pow(-1,i))*((Ad/factor - I)^i)/i;
+    }
+    std::cout << A; std::cout << std::endl;
+    A = (A + log(factor))/this->step;
+    std::cout << A; std::cout << std::endl;
+//    A = (Ad - I)/this->step;
     B = (((A^-1)*(Ad - I))^-1)*Bd;
 }
 

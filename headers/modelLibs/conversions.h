@@ -35,6 +35,8 @@ namespace ModelHandler{
 
     template<typename Type> //ok
     StateSpace<Type> d2c(const StateSpace<Type> &discreteSS);
+    template<typename Type> //ok
+    TransferFunction<Type> d2c(const TransferFunction<Type> &discreteTF);
 
     template<typename Type> //ok
     StateSpace<Type> integrativeModel(const StateSpace<Type> &SS);

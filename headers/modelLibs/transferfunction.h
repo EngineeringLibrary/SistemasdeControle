@@ -2,7 +2,9 @@
 #define TRANSFERFUNCTION_H
 
 #include "model.h"
+#include "SistemasdeControle/headers/modelLibs/arx.h"
 #include "statespace.h"
+
 namespace ModelHandler {
     template <typename Type>
     class TransferFunction : public Model<Type>

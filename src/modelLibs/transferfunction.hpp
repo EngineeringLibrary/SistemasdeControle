@@ -1,10 +1,8 @@
 #ifdef testModel
     #include "../../../headers/modelLibs/transferfunction.h"
-    #include "../../../headers/modelLibs/statespace.h"
     #include "../../../headers/modelLibs/conversions.h"
 #else
     #include "SistemasdeControle/headers/modelLibs/transferfunction.h"
-    #include "SistemasdeControle/headers/modelLibs/statespace.h"
     #include "SistemasdeControle/headers/modelLibs/conversions.h"
 #endif
 
