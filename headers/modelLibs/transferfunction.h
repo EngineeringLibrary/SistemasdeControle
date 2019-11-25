@@ -2,7 +2,7 @@
 #define TRANSFERFUNCTION_H
 
 #include "model.h"
-#include "SistemasdeControle/headers/modelLibs/arx.h"
+#include "arx.h"
 #include "statespace.h"
 
 namespace ModelHandler {

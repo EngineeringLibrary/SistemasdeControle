@@ -51,7 +51,7 @@ ModelHandler::TransferFunction<Type> ModelHandler::ss2tfSISO(const ModelHandler:
 
     TransferFunction<Type> TF = Polynom<Type>(characteristicPolynom(A - B*C) - characteristicPolynom(A), characteristicPolynom(A));
     TF(1,1).setNum(TF(1,1).getNum()); TF(1,1).setDen(TF(1,1).getDen());
-    std::cout << TF; std::cout << std::endl;
+   // std::cout << TF; std::cout << std::endl;
     TF.setContinuous(SS.isContinuous());
     if(!SS.isContinuous())
     {
@@ -153,7 +153,7 @@ template <typename Type>
 ModelHandler::StateSpace<Type> ModelHandler::tf2ss(const ModelHandler::TransferFunction<Type> &TF)
 {
     ModelHandler::TransferFunction<Type> TFtemp = TF(1,1); TFtemp.setContinuous(TF.isContinuous()); TFtemp.setSampleTime(TF.getSampleTime());// pensar em um jeito de fazer a igualdade de pol com tf
-    std::cout << TFtemp; std::cout << std::endl;
+    //std::cout << TFtemp; std::cout << std::endl;
     ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ssSISO(TFtemp);
     SS.setContinuous(TF.isContinuous());
     LinAlg::Matrix<Type> ZeroDireita, ZeroAbaixo;
@@ -167,7 +167,7 @@ ModelHandler::StateSpace<Type> ModelHandler::tf2ss(const ModelHandler::TransferF
         for(unsigned j = 1; j <= TF.getNumberOfColumns(); ++j)
         {
             TFtemp = TF(i,j); TFtemp.setContinuous(TF.isContinuous()); TFtemp.setSampleTime(TF.getSampleTime());// pensar em um jeito de fazer a igualdade de pol com tf
-            std::cout << TFtemp; std::cout << std::endl;
+            //std::cout << TFtemp; std::cout << std::endl;
             ModelHandler::StateSpace<Type> SStemp = ModelHandler::tf2ssSISO(TFtemp);
             if(i != 1 || j != 1)//monta A
             {
@@ -228,23 +228,23 @@ ModelHandler::StateSpace<Type> ModelHandler::tf2ssSISO(const ModelHandler::Trans
         den(1, i) = -(TF(1,1).getDen()(1, TFdenCols + 2 - i));
     }
 
-    std::cout << TF(1,1).getDen();
-    std::cout << TF(1,1).getNum();
+    //std::cout << TF(1,1).getDen();
+    //std::cout << TF(1,1).getNum();
 
-    LinAlg::Matrix<Type> A = (ZeroVector|I)||den; std::cout << A;
-    LinAlg::Matrix<Type> B = LinAlg::Zeros<Type>(A.getNumberOfRows() - 1, 1)||LinAlg::Matrix<Type>(1); std::cout << B;
+    LinAlg::Matrix<Type> A = (ZeroVector|I)||den; //std::cout << A;
+    LinAlg::Matrix<Type> B = LinAlg::Zeros<Type>(A.getNumberOfRows() - 1, 1)||LinAlg::Matrix<Type>(1); //std::cout << B;
 
     LinAlg::Matrix<Type> D(1,1);
     if(TF(1,1).getNumSize() == TF(1,1).getDenSize())
         D(1,1) = TF(1,1).getNum()(1,1);
-    std::cout << D;
+    //std::cout << D;
     LinAlg::Matrix<Type> C = LinAlg::Zeros<Type>(1, A.getNumberOfColumns());
     for(unsigned i = 1; i <= TF(1,1).getNumSize(); ++i)
         C(1,i) = TF(1,1).getNum()(1, TF(1,1).getNumSize() - i + 1);
-    std::cout << C;
+    //std::cout << C;
      for (unsigned i = 1; i <= A.getNumberOfColumns(); ++i)
         C(1,i) = C(1,i) - (TF(1,1).getDen()(1, TFdenCols + 2 - i))* D(1,1);
-    std::cout << C;
+    //std::cout << C;
 
     if(!TF.isContinuous())
     {

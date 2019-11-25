@@ -357,11 +357,12 @@ void ArxDoubleTest::stringConversionCase1()
     ModelHandler::TransferFunction<double> TF("20","1,2,1");
     ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TF,0.1);
 
+    //std::cout << arx.print();
     QBENCHMARK {
         arx.print();
     }
 
-    QVERIFY2( arx.print() == " y1( k ) = 1.80967 y1( k - 1 )  - 0.818731 y1( k - 2 )  + 0.0935768 u1( k - 1 )  + 0.0875415 u1( k - 2 ) \n", "Impressao do modelo ARX realizada de forma incorreta.");
+    QVERIFY2( arx.print() == " y1( k ) = 1.80967 y1( k - 1 )  - 0.818731 y1( k - 2 )  + 0.0935767 u1( k - 1 )  + 0.0875417 u1( k - 2 ) \n", "Impressao do modelo ARX realizada de forma incorreta.");
 }
 
 void ArxDoubleTest::stringConversionCase2()
@@ -421,7 +422,7 @@ void ArxDoubleTest::stringConversionCase6()
         std::string str = arx;
     }
 
-    QVERIFY2( str == " y1( k ) = 1.80967 y1( k - 1 )  - 0.818731 y1( k - 2 )  + 0.0935768 u1( k - 1 )  + 0.0875415 u1( k - 2 ) \n", "Impressao do modelo ARX realizada de forma incorreta.");
+    QVERIFY2( str == " y1( k ) = 1.80967 y1( k - 1 )  - 0.818731 y1( k - 2 )  + 0.0935767 u1( k - 1 )  + 0.0875417 u1( k - 2 ) \n", "Impressao do modelo ARX realizada de forma incorreta.");
 }
 
 void ArxDoubleTest::stringConversionCase7()
@@ -483,7 +484,7 @@ void ArxDoubleTest::stringConversionCase11()
         str << arx;
     }
 
-    QVERIFY2( str == " y1( k ) = 1.80967 y1( k - 1 )  - 0.818731 y1( k - 2 )  + 0.0935768 u1( k - 1 )  + 0.0875415 u1( k - 2 ) \n", "Impressao do modelo ARX realizada de forma incorreta.");
+    QVERIFY2( str == " y1( k ) = 1.80967 y1( k - 1 )  - 0.818731 y1( k - 2 )  + 0.0935767 u1( k - 1 )  + 0.0875417 u1( k - 2 ) \n", "Impressao do modelo ARX realizada de forma incorreta.");
 }
 
 void ArxDoubleTest::stringConversionCase12()
@@ -1008,7 +1009,7 @@ void ArxDoubleTest::simInMatrix()
 
     ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
     Y2 = arx.sim(U);
-    std::cout << (~Y|~Y2) << std::endl;
+    //std::cout << (~Y|~Y2) << std::endl;
     QVERIFY2(LinAlg::isEqual(Y,Y2,0.01), "O resultado das simulacoes e diferente");
 }
 

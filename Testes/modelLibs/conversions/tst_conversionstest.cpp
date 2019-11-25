@@ -27,6 +27,7 @@ private Q_SLOTS:
     void c2dCase1();
     void c2dCase2();
     void d2c();
+    void d2cCase2();
     void integrativeModelDiscrete();
     void integrativeModelContinuous();
     void predictionModelDiscrete();
@@ -185,7 +186,8 @@ void ConversionsTest::tf2arxSISO()
     }
 
     std::string str; str << arx;
-    QVERIFY2(str == " y1( k ) = 1.80967 y1( k - 1 )  - 0.818731 y1( k - 2 )  + 0.00467884 u1( k - 1 )  + 0.00437708 u1( k - 2 ) \n", "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    //std::cout << str;
+    QVERIFY2(str == " y1( k ) = 1.80967 y1( k - 1 )  - 0.818731 y1( k - 2 )  + 0.00467883 u1( k - 1 )  + 0.00437708 u1( k - 2 ) \n", "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
 //    std::cout << str << std::endl;
 }
 
@@ -255,6 +257,20 @@ void ConversionsTest::d2c()
     QVERIFY2(LinAlg::isEqual(C, LinAlg::Matrix<double>("1,0")), "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
     QVERIFY2(LinAlg::isEqual(D, LinAlg::Matrix<double>("0,0")), "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
 
+}
+
+void ConversionsTest::d2cCase2()
+{
+    ModelHandler::TransferFunction<long double> Tf("0.51987","1,-0.949896",12.5);
+    std::string num, den;
+    ModelHandler::TransferFunction<long double> Tfc;
+    QBENCHMARK {
+        Tfc = ModelHandler::d2c(Tf);
+    }
+    num << Tfc(1,1).getNum(); den << Tfc(1,1).getDen();
+   // std::cout << Tfc; std::cout << "\n";
+    QVERIFY2(num == "  0.043 \n", "Falhou ao comparar As funcoes de Transferencia discreta.");
+    QVERIFY2(den == "  1.000   0.004 \n", "Falhou ao comparar As funcoes de Transferencia discreta.");
 }
 
 void ConversionsTest::integrativeModelDiscrete()
