@@ -103,9 +103,9 @@ void PlotHandler::plot<Type>::generalPlot(LinAlg::Matrix<Type> X, LinAlg::Matrix
         customPlot->plotLayout()->addElement(0, 0, new QCPTextElement(this->customPlot, this->properties.title.c_str()));
     }
 
-    if(X.getNumberOfColumns() == Y.getNumberOfColumns() && X.getNumberOfRows() == Y.getNumberOfRows())
+    if(X.getNumberOfColumns() == Y.getNumberOfColumns() )//&& X.getNumberOfRows() == Y.getNumberOfRows())
     {
-        this->properties.rows = X.getNumberOfRows();
+        this->properties.rows = Y.getNumberOfRows();
         this->properties.columns = X.getNumberOfColumns();
 //        this->setLegend();
 
@@ -119,7 +119,7 @@ void PlotHandler::plot<Type>::generalPlot(LinAlg::Matrix<Type> X, LinAlg::Matrix
           QVector<double> x(this->properties.columns), y(this->properties.columns);
           for (unsigned k = 0; k < this->properties.columns; ++k)
           {
-            x[k] = X(i+1,k+1);
+            x[k] = X(1,k+1);
             y[k] = Y(i+1,k+1);
           }
           customPlot->graph()->setData(x, y);

@@ -244,8 +244,8 @@ LinAlg::Matrix<Type> ImageProcessing::GaussianFilter(const LinAlg::Matrix<Type> 
         for(unsigned i = 1; i <= mask.getNumberOfRows(); ++i)
             for(unsigned j = 1; j <= mask.getNumberOfColumns(); ++j)
             {
-                x = pow(abs(cont-i),2);
-                y = pow(abs(cont-j),2);
+                x = pow((cont-i),2);
+                y = pow((cont-j),2);
                 mask(i,j) = (temp * exp(-(x+y)/(2*step*step)));
             }
         aux = LinAlg::sum(mask);
@@ -500,7 +500,7 @@ LinAlg::Matrix<Type> ImageProcessing::completing(const LinAlg::Matrix<Type> &mat
 
     for(unsigned i = n; i <= ret.getNumberOfRows()-n-1; ++i)
         for(unsigned j = n; j <= ret.getNumberOfColumns()-n-1; ++j)
-            ret(i+1,j+1) = mat(abs(i-n+1),abs(j-n+1));
+            ret(i+1,j+1) = mat((i-n+1),(j-n+1));
 
     return ret;
 }
