@@ -47,27 +47,6 @@ namespace ControlHandler{
     template<typename Type> //ok
     std::string&  operator<< (std::string& output,  const ControlHandler::PID<Type> &controller);
 
-    template <typename Type>
-    PID<Type> tunningZieglerNichols(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType);
-    template <typename Type>
-    PID<Type> tunningCHRServo0OV(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType);
-    template <typename Type>
-    PID<Type> tunningCHRServo20OV(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType);
-    template <typename Type>
-    PID<Type> tunningCHRRegulatorio(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType);
-    template <typename Type>
-    PID<Type> tunningCohenCoon(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType);
-    template <typename Type>
-    PID<Type> tunningIAELopes(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType);
-    template <typename Type>
-    PID<Type> tunningITAELopes(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType);
-    template <typename Type>
-    PID<Type> tunningIAERovira(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType);
-    template <typename Type>
-    PID<Type> tunningITAERovira(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType);
-    template <typename Type>
-    PID<Type> tunningIMC(const ModelHandler::TransferFunction<Type> &FOPDT, const std::string &controllerType, const Type &lambda);
-
 }
 
 #ifdef testControl
