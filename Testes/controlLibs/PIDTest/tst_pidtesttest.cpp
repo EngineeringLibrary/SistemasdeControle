@@ -10,6 +10,7 @@
 #include "../../../headers/modelLibs/arx.h"
 #include "../../../headers/modelLibs/conversions.h"
 #include "../../../headers/controlLibs/pid.h"
+#include "../../../headers/controlLibs/pidTuning.h"
 
 class PIDTestTest : public QObject
 {
