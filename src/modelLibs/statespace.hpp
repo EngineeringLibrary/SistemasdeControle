@@ -435,14 +435,15 @@ void ModelHandler::StateSpace<Type>::d2cConversion()
     Type factor =  (unsigned)ceil(max(1,1));
 
     for(unsigned i = 1; i < nDiscretization + 1; ++i){
-        //std::cout << A; std::cout << std::endl;
+        std::cout << A; std::cout << std::endl;
         A += -(pow(-1,i))*((Ad/factor - I)^i)/i;
     }
     //std::cout << A; std::cout << std::endl;
     A = (A + log(factor))/this->step;
-    //std::cout << A; std::cout << std::endl;
+    std::cout << A; std::cout << std::endl;
 //    A = (Ad - I)/this->step;
     B = (((A^-1)*(Ad - I))^-1)*Bd;
+    std::cout << B; std::cout << std::endl;
 }
 
 template <typename Type>

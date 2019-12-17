@@ -1353,6 +1353,17 @@ LinAlg::Matrix<Type> LinAlg::Random(unsigned rows, unsigned columns)
 }
 
 template<typename Type>
+LinAlg::Matrix<Type> diff(LinAlg::Matrix<Type> mat)
+{
+    LinAlg::Matrix<Type> ret(mat.getNumberOfRows(), mat.getNumberOfColumns()-1);
+    for(unsigned i = 1; i <= mat.getNumberOfColumns()-1; ++i)
+        for(unsigned j = 1; j <= mat.getNumberOfRows(); ++j)
+            ret(j,i) = mat(j,i+1) - mat(j,i);
+    return ret;
+
+}
+
+template<typename Type>
 Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
 {
     Type determinant = 0;

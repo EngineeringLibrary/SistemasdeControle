@@ -49,6 +49,10 @@ ModelHandler::TransferFunction<Type> ModelHandler::ss2tfSISO(const ModelHandler:
     Matrix<Type> C = SS.getC();
     Matrix<Type> D = SS.getD();
 
+    std::cout << A << " \n" << B << " \n" << C << " \n";
+    std::cout << characteristicPolynom(A - B*C) - characteristicPolynom(A) << " \n";
+    std::cout << characteristicPolynom(A) << " \n";
+
     TransferFunction<Type> TF = Polynom<Type>(characteristicPolynom(A - B*C) - characteristicPolynom(A), characteristicPolynom(A));
     TF(1,1).setNum(TF(1,1).getNum()); TF(1,1).setDen(TF(1,1).getDen());
    // std::cout << TF; std::cout << std::endl;

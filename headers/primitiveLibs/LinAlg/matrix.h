@@ -241,14 +241,14 @@ namespace LinAlg {
     template<typename Type>
     inline LinAlg::Matrix<Type> LineVector (Type from, Type to, Type step = 1);
 
-//    template<typename Type>
-//    void Ones (LinAlg::Matrix<Type> & mat);
-
     template<typename Type>
     inline LinAlg::Matrix<Type> Ones (unsigned rows, unsigned columns);
 
     template<typename Type>
     inline LinAlg::Matrix<Type> Random (unsigned rows, unsigned columns);
+
+    template<typename Type>
+    inline LinAlg::Matrix<Type> diff (const LinAlg::Matrix<Type> &mat);
 
     template<typename Type>
     inline Type Determinant (const LinAlg::Matrix<Type>& mat);
