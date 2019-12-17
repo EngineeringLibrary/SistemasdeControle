@@ -1320,14 +1320,6 @@ LinAlg::Matrix<Type> LinAlg::LineVector (Type from, Type to, Type step)
     return Ret;
 }
 
-//template<typename Type>
-//void LinAlg::Ones(LinAlg::Matrix<Type>& mat)
-//{
-//    for(unsigned i = 1; i <= mat.getNumberOfRows(); i++)
-//        for(unsigned j = 1; j <= mat.getNumberOfColumns(); j++)
-//            mat(i, j) = 1;
-//}
-
 template<typename Type>
 LinAlg::Matrix<Type> LinAlg::Ones(unsigned rows, unsigned columns)
 {
