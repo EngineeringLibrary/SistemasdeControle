@@ -14,9 +14,9 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DSRCDIR=\"/home/andre/EletroestimulatorSoftware/SistemasdeControle/Testes/controlLibs/PredictiveTest/\" -DQT_QML_DEBUG -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/andre/EletroestimulatorSoftware/SistemasdeControle/Testes/controlLibs/build-PredictiveTest-Desktop_Qt_5_12_6_GCC_64bit-Debug"'
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DSRCDIR=\"/home/andre/optimizedControlSystem/SistemasdeControle/Testes/controlLibs/PredictiveTest/\" -DQT_QML_DEBUG -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/andre/optimizedControlSystem/SistemasdeControle/Testes/controlLibs/build-PredictiveTest-Desktop_Qt_5_12_6_GCC_64bit-Debug"'
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I../PredictiveTest -I. -I/home/andre/Qt/5.12.6/gcc_64/include -I/home/andre/Qt/5.12.6/gcc_64/include/QtTest -I/home/andre/Qt/5.12.6/gcc_64/include/QtCore -I. -I/home/andre/Qt/5.12.6/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/andre/Qt/5.12.6/gcc_64/bin/qmake
 DEL_FILE      = rm -f
@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = tst_predictivetesttest1.0.0
-DISTDIR = /home/andre/EletroestimulatorSoftware/SistemasdeControle/Testes/controlLibs/build-PredictiveTest-Desktop_Qt_5_12_6_GCC_64bit-Debug/.tmp/tst_predictivetesttest1.0.0
+DISTDIR = /home/andre/optimizedControlSystem/SistemasdeControle/Testes/controlLibs/build-PredictiveTest-Desktop_Qt_5_12_6_GCC_64bit-Debug/.tmp/tst_predictivetesttest1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/andre/Qt/5.12.6/gcc_64/lib
 LIBS          = $(SUBLIBS) /home/andre/Qt/5.12.6/gcc_64/lib/libQt5Test.so /home/andre/Qt/5.12.6/gcc_64/lib/libQt5Core.so -lpthread   
@@ -228,7 +228,7 @@ DIST          = /home/andre/Qt/5.12.6/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/features/qt_config.prf \
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/features/spec_post.prf \
-		../../../../.qmake.stash \
+		../PredictiveTest/.qmake.stash \
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/features/toolchain.prf \
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/features/default_pre.prf \
@@ -524,7 +524,7 @@ Makefile: ../PredictiveTest/PredictiveTest.pro /home/andre/Qt/5.12.6/gcc_64/mksp
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/features/qt_config.prf \
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/features/spec_post.prf \
-		../../../../.qmake.stash \
+		.qmake.stash \
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/features/toolchain.prf \
 		/home/andre/Qt/5.12.6/gcc_64/mkspecs/features/default_pre.prf \
@@ -719,7 +719,7 @@ Makefile: ../PredictiveTest/PredictiveTest.pro /home/andre/Qt/5.12.6/gcc_64/mksp
 /home/andre/Qt/5.12.6/gcc_64/mkspecs/features/qt_config.prf:
 /home/andre/Qt/5.12.6/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/andre/Qt/5.12.6/gcc_64/mkspecs/features/spec_post.prf:
-../../../../.qmake.stash:
+.qmake.stash:
 /home/andre/Qt/5.12.6/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/andre/Qt/5.12.6/gcc_64/mkspecs/features/toolchain.prf:
 /home/andre/Qt/5.12.6/gcc_64/mkspecs/features/default_pre.prf:
@@ -765,6 +765,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -784,7 +785,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /home/andre/Qt/5.12.6/gcc_64/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /home/andre/Qt/5.12.6/gcc_64/mkspecs/features/data/dummy.cpp
+	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /home/andre/Qt/5.12.6/gcc_64/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all:
 compiler_moc_header_clean:
@@ -1108,12 +1109,12 @@ tst_predictivetesttest.moc: ../PredictiveTest/tst_predictivetesttest.cpp \
 		../../../headers/modelLibs/transferfunction.h \
 		../../../headers/modelLibs/model.h \
 		../../../src/modelLibs/model.hpp \
+		../../../headers/modelLibs/arx.h \
+		../../../src/modelLibs/arx.hpp \
 		../../../headers/modelLibs/statespace.h \
 		../../../src/modelLibs/statespace.hpp \
 		../../../src/modelLibs/transferfunction.hpp \
 		../../../headers/modelLibs/conversions.h \
-		../../../headers/modelLibs/arx.h \
-		../../../src/modelLibs/arx.hpp \
 		../../../src/modelLibs/conversions.hpp \
 		../../../headers/controlLibs/modelpredictivecontrol.h \
 		../../../headers/restrictedOptimization/activeset.h \
@@ -1131,7 +1132,7 @@ tst_predictivetesttest.moc: ../PredictiveTest/tst_predictivetesttest.cpp \
 		../../../src/controlLibs/modelpredictivecontrol.hpp \
 		moc_predefs.h \
 		/home/andre/Qt/5.12.6/gcc_64/bin/moc
-	/home/andre/Qt/5.12.6/gcc_64/bin/moc $(DEFINES) --include /home/andre/EletroestimulatorSoftware/SistemasdeControle/Testes/controlLibs/build-PredictiveTest-Desktop_Qt_5_12_6_GCC_64bit-Debug/moc_predefs.h -I/home/andre/Qt/5.12.6/gcc_64/mkspecs/linux-g++ -I/home/andre/EletroestimulatorSoftware/SistemasdeControle/Testes/controlLibs/PredictiveTest -I/home/andre/Qt/5.12.6/gcc_64/include -I/home/andre/Qt/5.12.6/gcc_64/include/QtTest -I/home/andre/Qt/5.12.6/gcc_64/include/QtCore -I. -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ../PredictiveTest/tst_predictivetesttest.cpp -o tst_predictivetesttest.moc
+	/home/andre/Qt/5.12.6/gcc_64/bin/moc $(DEFINES) --include /home/andre/optimizedControlSystem/SistemasdeControle/Testes/controlLibs/build-PredictiveTest-Desktop_Qt_5_12_6_GCC_64bit-Debug/moc_predefs.h -I/home/andre/Qt/5.12.6/gcc_64/mkspecs/linux-g++ -I/home/andre/optimizedControlSystem/SistemasdeControle/Testes/controlLibs/PredictiveTest -I/home/andre/Qt/5.12.6/gcc_64/include -I/home/andre/Qt/5.12.6/gcc_64/include/QtTest -I/home/andre/Qt/5.12.6/gcc_64/include/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../PredictiveTest/tst_predictivetesttest.cpp -o tst_predictivetesttest.moc
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1457,12 +1458,12 @@ tst_predictivetesttest.o: ../PredictiveTest/tst_predictivetesttest.cpp /home/and
 		../../../headers/modelLibs/transferfunction.h \
 		../../../headers/modelLibs/model.h \
 		../../../src/modelLibs/model.hpp \
+		../../../headers/modelLibs/arx.h \
+		../../../src/modelLibs/arx.hpp \
 		../../../headers/modelLibs/statespace.h \
 		../../../src/modelLibs/statespace.hpp \
 		../../../src/modelLibs/transferfunction.hpp \
 		../../../headers/modelLibs/conversions.h \
-		../../../headers/modelLibs/arx.h \
-		../../../src/modelLibs/arx.hpp \
 		../../../src/modelLibs/conversions.hpp \
 		../../../headers/controlLibs/modelpredictivecontrol.h \
 		../../../headers/restrictedOptimization/activeset.h \

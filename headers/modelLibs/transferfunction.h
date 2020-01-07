@@ -10,38 +10,38 @@ namespace ModelHandler {
     class TransferFunction : public Model<Type>
     {
     public:
-        TransferFunction(unsigned rows, unsigned cols);
+        TransferFunction(int rows, int cols);
         TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO);
         TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF);
         TransferFunction(const LinAlg::Matrix<Type> &numPol, const LinAlg::Matrix<Type> &denPol);
         TransferFunction(): var('s'), Continuous(1), TF(1,1) { this->step = 0.1; this->timeSimulation = 10;}
 
-        TransferFunction(unsigned rows, unsigned cols, double sampleTime);
+        TransferFunction(int rows, int cols, double sampleTime);
         TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO, double sampleTime);
         TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF, double sampleTime);
         TransferFunction(const LinAlg::Matrix<Type> &numPol, const LinAlg::Matrix<Type> &denPol, double sampleTime);
         template<typename OtherType>
         TransferFunction (const ModelHandler::TransferFunction<OtherType>& otherPolynom);
 
-        Type getTransportDelay () const {return this->transportDelay;}
+        LinAlg::Matrix<Type> getTransportDelay () const {return transportDelay;}
         bool isContinuous() const;
         char getVar() const {return this->var;}
         double getSampleTime() const;
         double getTimeSimulation() const{return this->timeSimulation;}
-        unsigned getNumberOfRows() const; // OK
-        unsigned getNumberOfColumns() const; // OK
+        int getNumberOfRows() const; // OK
+        int getNumberOfColumns() const; // OK
         unsigned getNumberOfVariables() const{return TF.getNumberOfRows() + TF.getNumberOfColumns();}
         unsigned getNumberOfInputs() const { return TF.getNumberOfRows();}
         unsigned getNumberOfOutputs() const { return TF.getNumberOfColumns();}
 
-        void setTransportDelay(const Type &TD){this->transportDelay = TD;}
+        void setTransportDelay(const LinAlg::Matrix<Type> &TD){this->transportDelay = TD;}
         void setContinuous(const bool &continuous); //ok
         void setSampleTime(const double &sampleTime);//ok
         void setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
         void setLinearModel (LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output); // não feito
 
-        PolynomHandler::Polynom<Type>& operator()(unsigned row, unsigned column); // ok
-        PolynomHandler::Polynom<Type>  operator()(unsigned row, unsigned column) const; // ok
+        PolynomHandler::Polynom<Type>& operator()(int row, int column); // ok
+        PolynomHandler::Polynom<Type>  operator()(int row, int column) const; // ok
 
         void operator= (const PolynomHandler::Polynom<Type> &rhs);
         TransferFunction<Type>& operator= (const TransferFunction<Type>& otherTransferFunction); //ok
@@ -81,7 +81,7 @@ namespace ModelHandler {
         bool Continuous, simulationFlag;
         LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF;
         LinAlg::Matrix<Type> inputState, outputState;
-        Type transportDelay;
+        LinAlg::Matrix<Type> transportDelay;
     };
 
     template<typename PolynomType, typename ScalarType>
@@ -120,7 +120,7 @@ namespace ModelHandler {
     std::string&  operator<< (std::string& output,  ModelHandler::TransferFunction<Type> TF);
 
     template<typename Type> // ok
-    TransferFunction<Type> pade(const Type &time, const unsigned &order);
+    TransferFunction<Type> pade(const Type &time, const int &order);
 
     template<typename Type> // ok
     TransferFunction<Type> FOPDTCurvaDeReacao(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime = 0.1);
@@ -134,7 +134,7 @@ namespace ModelHandler {
     template<typename Type> // ok
     TransferFunction<Type> FOPDTSundaresanKrishnaswamy(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime = 0.1);
 
-//    unsigned factorial(unsigned n);
+//    int factorial(int n);
 }
 
 #ifdef testModel

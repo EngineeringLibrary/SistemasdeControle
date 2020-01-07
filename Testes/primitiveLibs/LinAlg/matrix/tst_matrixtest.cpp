@@ -139,8 +139,8 @@ void MatrixTest::constructorMatrixTypeChar()
     }
     LinAlg::Matrix<char> A('a');
     QVERIFY2(A.getNumberOfColumns() == 1 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 'a', "Falhou ao comparar o elemento da matriz com valor char");
-    QVERIFY2(sizeof(A(1,1)) == sizeof(char), "Falhou ao comparar o tipo do elemento da matriz com valor char");
+    QVERIFY2(A(0,0) == 'a', "Falhou ao comparar o elemento da matriz com valor char");
+    QVERIFY2(sizeof(A(0,0)) == sizeof(char), "Falhou ao comparar o tipo do elemento da matriz com valor char");
 }
 
 void MatrixTest::constructorMatrixTypeShort()
@@ -150,8 +150,8 @@ void MatrixTest::constructorMatrixTypeShort()
     }
     LinAlg::Matrix<short> A(1);
     QVERIFY2(A.getNumberOfColumns() == 1 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1, "Falhou ao comparar o elemento da matriz com valor short");
-    QVERIFY2(sizeof(A(1,1)) == sizeof(short), "Falhou ao comparar o tipo do elemento da matriz com valor short");
+    QVERIFY2(A(0,0) == 1, "Falhou ao comparar o elemento da matriz com valor short");
+    QVERIFY2(sizeof(A(0,0)) == sizeof(short), "Falhou ao comparar o tipo do elemento da matriz com valor short");
 }
 
 void MatrixTest::constructorMatrixTypeInt()
@@ -161,8 +161,8 @@ void MatrixTest::constructorMatrixTypeInt()
     }
     LinAlg::Matrix<int> A(1);
     QVERIFY2(A.getNumberOfColumns() == 1 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1, "Falhou ao comparar o elemento da matriz com valor inteiro");
-    QVERIFY2(sizeof(A(1,1)) == sizeof(int), "Falhou ao comparar o tipo do elemento da matriz com valor inteiro");
+    QVERIFY2(A(0,0) == 1, "Falhou ao comparar o elemento da matriz com valor inteiro");
+    QVERIFY2(sizeof(A(0,0)) == sizeof(int), "Falhou ao comparar o tipo do elemento da matriz com valor inteiro");
 }
 
 void MatrixTest::constructorMatrixTypeFloat()
@@ -172,8 +172,8 @@ void MatrixTest::constructorMatrixTypeFloat()
     }
     LinAlg::Matrix<float> A(1.5);
     QVERIFY2(A.getNumberOfColumns() == 1 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1.5, "Falhou ao comparar o elemento da matriz com valor float");
-    QVERIFY2(sizeof(A(1,1)) == sizeof(float), "Falhou ao comparar o tipo do elemento da matriz com valor float");
+    QVERIFY2(A(0,0) == 1.5, "Falhou ao comparar o elemento da matriz com valor float");
+    QVERIFY2(sizeof(A(0,0)) == sizeof(float), "Falhou ao comparar o tipo do elemento da matriz com valor float");
 }
 
 void MatrixTest::constructorMatrixTypeDouble()
@@ -183,8 +183,8 @@ void MatrixTest::constructorMatrixTypeDouble()
     }
     LinAlg::Matrix<double> A(1.1);
     QVERIFY2(A.getNumberOfColumns() == 1 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1.1, "Falhou ao comparar o elemento da matriz com valor double");
-    QVERIFY2(sizeof(A(1,1)) == sizeof(double), "Falhou ao comparar o tipo do elemento da matriz com valor double");
+    QVERIFY2(A(0,0) == 1.1, "Falhou ao comparar o elemento da matriz com valor double");
+    QVERIFY2(sizeof(A(0,0)) == sizeof(double), "Falhou ao comparar o tipo do elemento da matriz com valor double");
 }
 
 void MatrixTest::constructorMatrixTypeLongDouble()
@@ -194,8 +194,8 @@ void MatrixTest::constructorMatrixTypeLongDouble()
     }
     LinAlg::Matrix<long double> A(1.1);
     QVERIFY2(A.getNumberOfColumns() == 1 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1.1, "Falhou ao comparar o elemento da matriz com valor long double");
-    QVERIFY2(sizeof(A(1,1)) == sizeof(long double), "Falhou ao comparar o tipo do elemento da matriz com valor long double");
+    QVERIFY2(A(0,0) == 1.1, "Falhou ao comparar o elemento da matriz com valor long double");
+    QVERIFY2(sizeof(A(0,0)) == sizeof(long double), "Falhou ao comparar o tipo do elemento da matriz com valor long double");
 }
 
 void MatrixTest::constructorMatrixTypeCStringAndDouble()
@@ -205,8 +205,8 @@ void MatrixTest::constructorMatrixTypeCStringAndDouble()
     }
     LinAlg::Matrix<double> A("1,2,3,4;5,6,7,8");
     QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1.0 && A(1,2) == 2.0 && A(1,3) == 3.0 && A(1,4) == 4.0 &&
-             A(2,1) == 5.0 && A(2,2) == 6.0 && A(2,3) == 7.0 && A(2,4) == 8.0
+    QVERIFY2(A(0,0) == 1.0 && A(0,1) == 2.0 && A(0,2) == 3.0 && A(0,3) == 4.0 &&
+             A(1,0) == 5.0 && A(1,1) == 6.0 && A(1,2) == 7.0 && A(1,3) == 8.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -218,8 +218,8 @@ void MatrixTest::constructorMatrixTypeStringAndDouble()
     }
     LinAlg::Matrix<double> A(str);
     QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1.0 && A(1,2) == 2.0 && A(1,3) == 3.0 && A(1,4) == 4.0 &&
-             A(2,1) == 5.0 && A(2,2) == 6.0 && A(2,3) == 7.0 && A(2,4) == 8.0
+    QVERIFY2(A(0,0) == 1.0 && A(0,1) == 2.0 && A(0,2) == 3.0 && A(0,3) == 4.0 &&
+             A(1,0) == 5.0 && A(1,1) == 6.0 && A(1,2) == 7.0 && A(1,3) == 8.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -230,9 +230,9 @@ void MatrixTest::constructorSizedVoidMatrixDouble()
     }
     LinAlg::Matrix<double> A(3,3);
     QVERIFY2(A.getNumberOfColumns() == 3 && A.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 0.0 && A(1,2) == 0.0 && A(1,3) == 0.0 &&
-             A(2,1) == 0.0 && A(2,2) == 0.0 && A(2,3) == 0.0 &&
-             A(3,1) == 0.0 && A(3,2) == 0.0 && A(3,3) == 0.0
+    QVERIFY2(A(0,0) == 0.0 && A(0,1) == 0.0 && A(0,2) == 0.0 &&
+             A(1,0) == 0.0 && A(1,1) == 0.0 && A(1,2) == 0.0 &&
+             A(2,0) == 0.0 && A(2,1) == 0.0 && A(2,2) == 0.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -253,8 +253,8 @@ void MatrixTest::copyconstructorDouble()
     }
     LinAlg::Matrix<double> B(A);
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1.0 && B(1,2) == 2.0 &&
-             B(2,1) == 3.0 && B(2,2) == 4.0
+    QVERIFY2(B(0,0) == 1.0 && B(0,1) == 2.0 &&
+             B(1,0) == 3.0 && B(1,1) == 4.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -266,8 +266,8 @@ void MatrixTest::copyconstructorOtherTypeDoubleAndInt()
     }
     LinAlg::Matrix<double> B(A);
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1.0 && B(1,2) == 2.0 &&
-             B(2,1) == 3.0 && B(2,2) == 4.0
+    QVERIFY2(B(0,0) == 1.0 && B(0,1) == 2.0 &&
+             B(1,0) == 3.0 && B(1,1) == 4.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -297,10 +297,10 @@ void MatrixTest::removeRowDoubleSecondTest()
     LinAlg::Matrix<double> A;
     QBENCHMARK {
         A = str.c_str();
-        A.removeRow(1);
+        A.removeRow(0);
     }
     QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 5.0 && A(1,2) == 6.0 && A(1,3) == 7.0 && A(1,4) == 8.0
+    QVERIFY2(A(0,0) == 5.0 && A(0,1) == 6.0 && A(0,2) == 7.0 && A(0,3) == 8.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -310,11 +310,11 @@ void MatrixTest::removeRowDoubleThirdTest()
     LinAlg::Matrix<double> A;
     QBENCHMARK {
         A = str.c_str();
-        A.removeRow(2);
+        A.removeRow(1);
     }
     QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1.0 && A(1,2) == 2.0 && A(1,3) == 3.0 && A(1,4) == 4.0 &&
-             A(2,1) == 9.0 && A(2,2) == 10.0 && A(2,3) == 11.0 && A(2,4) == 12.0
+    QVERIFY2(A(0,0) == 1.0 && A(0,1) == 2.0 && A(0,2) == 3.0 && A(0,3) == 4.0 &&
+             A(1,0) == 9.0 && A(1,1) == 10.0 && A(1,2) == 11.0 && A(1,3) == 12.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -324,7 +324,7 @@ void MatrixTest::removeColumnDoubleFirstTest()
     LinAlg::Matrix<double> A;
     QBENCHMARK {
         A = str.c_str();
-        A.removeColumn(1);
+        A.removeColumn(0);
     }
     QVERIFY2(A.getNumberOfColumns() == 0 && A.getNumberOfRows() == 0, "Falhou ao testar o tamanho da matriz");
 }
@@ -335,10 +335,10 @@ void MatrixTest::removeColumnDoubleSecondTest()
     LinAlg::Matrix<double> A;
     QBENCHMARK {
         A = str.c_str();
-        A.removeColumn(1);
+        A.removeColumn(0);
     }
     QVERIFY2(A.getNumberOfColumns() == 1 && A.getNumberOfRows() == 4, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 5.0 && A(2,1) == 6.0 && A(3,1) == 7.0 && A(4,1) == 8.0
+    QVERIFY2(A(0,0) == 5.0 && A(1,0) == 6.0 && A(2,0) == 7.0 && A(3,0) == 8.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -348,11 +348,11 @@ void MatrixTest::removeColumnDoubleThirdTest()
     LinAlg::Matrix<double> A;
     QBENCHMARK {
         A = str.c_str();
-        A.removeColumn(2);
+        A.removeColumn(1);
     }
     QVERIFY2(A.getNumberOfColumns() == 2 && A.getNumberOfRows() == 4, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1.0 && A(2,1) == 2.0 && A(3,1) == 3.0 && A(4,1) == 4.0 &&
-             A(1,2) == 9.0 && A(2,2) == 10.0 && A(3,2) == 11.0 && A(4,2) == 12.0
+    QVERIFY2(A(0,0) == 1.0 && A(1,0) == 2.0 && A(2,0) == 3.0 && A(3,0) == 4.0 &&
+             A(0,1) == 9.0 && A(1,1) == 10.0 && A(2,1) == 11.0 && A(3,1) == 12.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -384,10 +384,10 @@ void MatrixTest::getRowDouble()
     LinAlg::Matrix<double> A,B;
     A = str.c_str();
     QBENCHMARK {
-        B = A.getRow(1);
+        B = A.getRow(0);
     }
     QVERIFY2(B.getNumberOfColumns() == 4 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1.0 && B(1,2) == 2.0 && B(1,3) == 3.0 && B(1,4) == 4.0
+    QVERIFY2(B(0,0) == 1.0 && B(0,1) == 2.0 && B(0,2) == 3.0 && B(0,3) == 4.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -397,10 +397,10 @@ void MatrixTest::getColumnDouble()
     LinAlg::Matrix<double> A,B;
     A = str.c_str();
     QBENCHMARK {
-        B = A.getColumn(1);
+        B = A.getColumn(0);
     }
     QVERIFY2(B.getNumberOfColumns() == 1 && B.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1.0 && B(2,1) == 5.0 && B(3,1) == 9.0
+    QVERIFY2(B(0,0) == 1.0 && B(1,0) == 5.0 && B(2,0) == 9.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -410,12 +410,12 @@ void MatrixTest::swapRowsDouble()
     LinAlg::Matrix<double> A;
     QBENCHMARK {
         A = str.c_str();
-        A.swapRows(1,2);
+        A.swapRows(0,1);
     }
     QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 5.0 && A(1,2) == 6.0 && A(1,3) == 7.0 && A(1,4) == 8.0 &&
-             A(2,1) == 1.0 && A(2,2) == 2.0 && A(2,3) == 3.0 && A(2,4) == 4.0 &&
-             A(3,1) == 9.0 && A(3,2) == 10.0 && A(3,3) == 11.0 && A(3,4) == 12.0
+    QVERIFY2(A(0,0) == 5.0 && A(0,1) == 6.0 && A(0,2) == 7.0 && A(0,3) == 8.0 &&
+             A(1,0) == 1.0 && A(1,1) == 2.0 && A(1,2) == 3.0 && A(1,3) == 4.0 &&
+             A(2,0) == 9.0 && A(2,1) == 10.0 && A(2,2) == 11.0 && A(2,3) == 12.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -425,12 +425,12 @@ void MatrixTest::swapColumnsDouble()
     LinAlg::Matrix<double> A;
     QBENCHMARK {
         A = str.c_str();
-        A.swapColumns(1,2);
+        A.swapColumns(0,1);
     }
     QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 2.0 && A(1,2) == 1.0 && A(1,3) == 3.0 && A(1,4) == 4.0 &&
-             A(2,1) == 6.0 && A(2,2) == 5.0 && A(2,3) == 7.0 && A(2,4) == 8.0 &&
-             A(3,1) == 10.0 && A(3,2) == 9.0 && A(3,3) == 11.0 && A(3,4) == 12.0
+    QVERIFY2(A(0,0) == 2.0 && A(0,1) == 1.0 && A(0,2) == 3.0 && A(0,3) == 4.0 &&
+             A(1,0) == 6.0 && A(1,1) == 5.0 && A(1,2) == 7.0 && A(1,3) == 8.0 &&
+             A(2,0) == 10.0 && A(2,1) == 9.0 && A(2,2) == 11.0 && A(2,3) == 12.0
              , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -453,7 +453,7 @@ void MatrixTest::sizeDouble()
         B = A.size();
     }
     QVERIFY2(A.getNumberOfColumns() == 4 && A.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 3 && B(1,2) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 3 && B(0,1) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::isNullDouble ()
@@ -483,10 +483,10 @@ void MatrixTest::operatorParenthesisInputTwoUnsignedDouble ()
 {
     LinAlg::Matrix<double> A = LinAlg::Zeros<double>(1,5);
     QBENCHMARK {
-        A(1,1) = 2.0;
+        A(0,0) = 2.0;
     }
-    A(1,1) = 2.0;
-    QVERIFY2(A(1,1) == 2.0, "Atribuição não realizada com sucesso");
+    A(0,0) = 2.0;
+    QVERIFY2(A(0,0) == 2.0, "Atribuição não realizada com sucesso");
 }
 
 void MatrixTest::operatorParenthesisInputTwoUnsignedOutputConstDouble ()
@@ -494,7 +494,7 @@ void MatrixTest::operatorParenthesisInputTwoUnsignedOutputConstDouble ()
     LinAlg::Matrix<double> A = LinAlg::Zeros<double>(1,5);
     bool flag;
     QBENCHMARK {
-        flag = (A(1,1) == 0.0);
+        flag = (A(0,0) == 0.0);
     }
     QVERIFY2(flag, "Acesso ao elemento da matriz não realizado com sucesso");
 }
@@ -504,10 +504,10 @@ void MatrixTest::operatorParenthesisInputFromToAndUnsignedDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A(from(2)-->3,2);
+        B = A(from(1)-->2,1);
     }
     QVERIFY2(B.getNumberOfColumns() == 1 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 6 && B(2,1) == 10, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 6 && B(1,0) == 10, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputUnsignedAndFromToDouble ()
@@ -515,10 +515,10 @@ void MatrixTest::operatorParenthesisInputUnsignedAndFromToDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A(2,from(2)-->3);
+        B = A(1,from(1)-->2);
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 6 && B(1,2) == 7, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 6 && B(0,1) == 7, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputFromToAndFromToDouble ()
@@ -526,10 +526,10 @@ void MatrixTest::operatorParenthesisInputFromToAndFromToDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A(from(2)-->3,from(2)-->3);
+        B = A(from(1)-->2,from(1)-->2);
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 6 && B(2,1) == 10 && B(1,2) == 7 && B(2,2) == 11, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 6 && B(1,0) == 10 && B(0,1) == 7 && B(1,1) == 11, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputFromToAndMatrixDouble ()
@@ -537,10 +537,10 @@ void MatrixTest::operatorParenthesisInputFromToAndMatrixDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A(from(2)-->3,"2,3");
+        B = A(from(1)-->2,"1,2");
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 6 && B(2,1) == 10 && B(1,2) == 7 && B(2,2) == 11, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 6 && B(1,0) == 10 && B(0,1) == 7 && B(1,1) == 11, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputMatrixAndFromToDouble ()
@@ -548,10 +548,10 @@ void MatrixTest::operatorParenthesisInputMatrixAndFromToDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A("2,3",from(2)-->3);
+        B = A("1,2",from(1)-->2);
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 6 && B(2,1) == 10 && B(1,2) == 7 && B(2,2) == 11, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 6 && B(1,0) == 10 && B(0,1) == 7 && B(1,1) == 11, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputUnsignedAndMatrixDouble ()
@@ -559,10 +559,10 @@ void MatrixTest::operatorParenthesisInputUnsignedAndMatrixDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A(2,"2,3");
+        B = A(1,"1,2");
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 6 && B(1,2) == 7, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 6 && B(0,1) == 7, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputMatrixAndUnsignedDouble ()
@@ -570,10 +570,10 @@ void MatrixTest::operatorParenthesisInputMatrixAndUnsignedDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A("2,3",2);
+        B = A("1,2",1);
     }
     QVERIFY2(B.getNumberOfColumns() == 1 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 6 && B(2,1) == 10, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 6 && B(1,0) == 10, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputMatrixAndMatrixDouble ()
@@ -581,10 +581,10 @@ void MatrixTest::operatorParenthesisInputMatrixAndMatrixDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A("2,3","2,3");
+        B = A("1,2","1,2");
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 6 && B(2,1) == 10 && B(1,2) == 7 && B(2,2) == 11, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 6 && B(1,0) == 10 && B(0,1) == 7 && B(1,1) == 11, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputFromToAndUnsignedInvertedAccessDouble ()
@@ -592,10 +592,10 @@ void MatrixTest::operatorParenthesisInputFromToAndUnsignedInvertedAccessDouble (
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A(from(3)-->2,2);
+        B = A(from(2)-->1,1);
     }
     QVERIFY2(B.getNumberOfColumns() == 1 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 10 && B(2,1) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 10 && B(1,0) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputUnsignedAndFromToInvertedAccessDouble ()
@@ -603,10 +603,10 @@ void MatrixTest::operatorParenthesisInputUnsignedAndFromToInvertedAccessDouble (
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A(2,from(3)-->2);
+        B = A(1,from(2)-->1);
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 7 && B(1,2) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 7 && B(0,1) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputFromToAndFromToInvertedAccessDouble ()
@@ -614,10 +614,10 @@ void MatrixTest::operatorParenthesisInputFromToAndFromToInvertedAccessDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A(from(3)-->2,from(3)-->2);
+        B = A(from(2)-->1,from(2)-->1);
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 11 && B(2,1) == 7 && B(1,2) == 10 && B(2,2) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 11 && B(1,0) == 7 && B(0,1) == 10 && B(1,1) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputFromToAndMatrixInvertedAccessDouble ()
@@ -625,10 +625,10 @@ void MatrixTest::operatorParenthesisInputFromToAndMatrixInvertedAccessDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A(from(3)-->2,"3,2");
+        B = A(from(2)-->1,"2,1");
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 11 && B(2,1) == 7 && B(1,2) == 10 && B(2,2) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 11 && B(1,0) == 7 && B(0,1) == 10 && B(1,1) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputMatrixAndFromToInvertedAccessDouble ()
@@ -636,10 +636,10 @@ void MatrixTest::operatorParenthesisInputMatrixAndFromToInvertedAccessDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A("3,2",from(3)-->2);
+        B = A("2,1",from(2)-->1);
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 11 && B(2,1) == 7 && B(1,2) == 10 && B(2,2) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 11 && B(1,0) == 7 && B(0,1) == 10 && B(1,1) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputUnsignedAndMatrixInvertedAccessDouble ()
@@ -647,10 +647,10 @@ void MatrixTest::operatorParenthesisInputUnsignedAndMatrixInvertedAccessDouble (
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A(2,"3,2");
+        B = A(1,"2,1");
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 7 && B(1,2) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 7 && B(0,1) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputMatrixAndUnsignedInvertedAccessDouble ()
@@ -658,10 +658,10 @@ void MatrixTest::operatorParenthesisInputMatrixAndUnsignedInvertedAccessDouble (
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A("3,2",2);
+        B = A("2,1",1);
     }
     QVERIFY2(B.getNumberOfColumns() == 1 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 10 && B(2,1) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 10 && B(1,0) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorParenthesisInputMatrixAndMatrixInvertedAccessDouble ()
@@ -669,10 +669,10 @@ void MatrixTest::operatorParenthesisInputMatrixAndMatrixInvertedAccessDouble ()
     std::string str = "1,2,3,4;5,6,7,8;9,10,11,12";
     LinAlg::Matrix<double> A = str,B;
     QBENCHMARK {
-        B = A("3,2","3,2");
+        B = A("2,1","2,1");
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 11 && B(2,1) == 7 && B(1,2) == 10 && B(2,2) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 11 && B(1,0) == 7 && B(0,1) == 10 && B(1,1) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorAtributionMatrixPointerDouble ()
@@ -682,13 +682,13 @@ void MatrixTest::operatorAtributionMatrixPointerDouble ()
         *(C,D) = (A,B);
     }
     QVERIFY2(C.getNumberOfColumns() == 2 && C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == A(1,1) && C(1,2) == A(1,2) &&
-             C(2,1) == A(2,1) && C(2,2) == A(2,2), "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == A(0,0) && C(0,1) == A(0,1) &&
+             C(1,0) == A(1,0) && C(1,1) == A(1,1), "Falhou ao comparar todos os elementos da matriz com valor double");
     QVERIFY2(&C != &A, "Falhou ao comparar os endereços da matriz com valor double");
 
     QVERIFY2(D.getNumberOfColumns() == 4 && D.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(D(1,1) == B(1,1) && D(1,2) == B(1,2) &&
-             D(1,3) == B(1,3) && D(1,4) == B(1,4), "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(D(0,0) == B(0,0) && D(0,1) == B(0,1) &&
+             D(0,2) == B(0,2) && D(0,3) == B(0,3), "Falhou ao comparar todos os elementos da matriz com valor double");
     QVERIFY2(&D != &B, "Falhou ao comparar os endereços da matriz com valor double");
 }
 
@@ -699,17 +699,17 @@ void MatrixTest::operatorAtributionMatrixMoreThanTwoParametersPointerDouble ()
         *(D,E,F) = (A,B,C);
     }
     QVERIFY2(D.getNumberOfColumns() == 2 && D.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(D(1,1) == A(1,1) && D(1,2) == A(1,2) &&
-             D(2,1) == A(2,1) && D(2,2) == A(2,2), "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(D(0,0) == A(0,0) && D(0,1) == A(0,1) &&
+             D(1,0) == A(1,0) && D(1,1) == A(1,1), "Falhou ao comparar todos os elementos da matriz com valor double");
     QVERIFY2(&D != &A, "Falhou ao comparar os endereços da matriz com valor double");
 
     QVERIFY2(E.getNumberOfColumns() == 4 && E.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(E(1,1) == B(1,1) && E(1,2) == B(1,2) &&
-             E(1,3) == B(1,3) && E(1,4) == B(1,4), "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(E(0,0) == B(0,0) && E(0,1) == B(0,1) &&
+             E(0,2) == B(0,2) && E(0,3) == B(0,3), "Falhou ao comparar todos os elementos da matriz com valor double");
     QVERIFY2(&E != &B, "Falhou ao comparar os endereços da matriz com valor double");
 
     QVERIFY2(F.getNumberOfColumns() == 2 && F.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(F(1,1) == C(1,1) && F(1,2) == C(1,2), "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(F(0,0) == C(0,0) && F(0,1) == C(0,1), "Falhou ao comparar todos os elementos da matriz com valor double");
     QVERIFY2(&F != &C, "Falhou ao comparar os endereços da matriz com valor double");
 }
 
@@ -720,7 +720,7 @@ void MatrixTest::operatorAtributionDoubleReturningVoid ()
         B = "3,2";
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 3 && B(1,2) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 3 && B(0,1) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorAtributionDoubleReturningDouble ()
@@ -731,7 +731,7 @@ void MatrixTest::operatorAtributionDoubleReturningDouble ()
         B = A;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 3 && B(1,2) == 2 && B(2,2) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 3 && B(0,1) == 2 && B(1,1) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorAtributionDoubleReturningInt ()
@@ -743,7 +743,7 @@ void MatrixTest::operatorAtributionDoubleReturningInt ()
         B = A;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 3 && B(1,2) == 2 && B(2,2) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 3 && B(0,1) == 2 && B(1,1) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorAtributionDoubleReturningShort ()
@@ -755,7 +755,7 @@ void MatrixTest::operatorAtributionDoubleReturningShort ()
         B = A;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 3 && B(1,2) == 2 && B(2,2) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 3 && B(0,1) == 2 && B(1,1) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorAtributionDoubleReturningLongInt ()
@@ -767,7 +767,7 @@ void MatrixTest::operatorAtributionDoubleReturningLongInt ()
         B = A;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 3 && B(1,2) == 2 && B(2,2) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 3 && B(0,1) == 2 && B(1,1) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorAtributionDoubleReturningLongFloat ()
@@ -779,7 +779,7 @@ void MatrixTest::operatorAtributionDoubleReturningLongFloat ()
         B = A;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 3 && B(1,2) == 2 && B(2,2) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 3 && B(0,1) == 2 && B(1,1) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 
@@ -793,7 +793,7 @@ void MatrixTest::operatorSumAccumulatorScalarDouble ()
         B += 1;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 1 && B(1,2) == 1 && B(2,2) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 1 && B(0,1) == 1 && B(1,1) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorSumAccumulatorMatrixDouble ()
@@ -804,7 +804,7 @@ void MatrixTest::operatorSumAccumulatorMatrixDouble ()
         B += A;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 1 && B(1,2) == 1 && B(2,2) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 1 && B(0,1) == 1 && B(1,1) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorSubtractionAccumulatorScalarDouble ()
@@ -815,7 +815,7 @@ void MatrixTest::operatorSubtractionAccumulatorScalarDouble ()
         B -= 1;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == -1 && B(2,1) == -1 && B(1,2) == -1 && B(2,2) == -1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == -1 && B(1,0) == -1 && B(0,1) == -1 && B(1,1) == -1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorSubtractionAccumulatorMatrixDouble ()
@@ -826,7 +826,7 @@ void MatrixTest::operatorSubtractionAccumulatorMatrixDouble ()
         B -= A;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == -1 && B(2,1) == -1 && B(1,2) == -1 && B(2,2) == -1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == -1 && B(1,0) == -1 && B(0,1) == -1 && B(1,1) == -1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorMultiplicationAccumulatorScalarDouble ()
@@ -837,7 +837,7 @@ void MatrixTest::operatorMultiplicationAccumulatorScalarDouble ()
         B *= 2;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 4 && B(2,1) == 4 && B(1,2) == 4 && B(2,2) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 4 && B(1,0) == 4 && B(0,1) == 4 && B(1,1) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorMultiplicationAccumulatorMatrixDouble ()
@@ -848,7 +848,7 @@ void MatrixTest::operatorMultiplicationAccumulatorMatrixDouble ()
         B *= A;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 2 && B(2,1) == 2 && B(1,2) == 2 && B(2,2) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 2 && B(1,0) == 2 && B(0,1) == 2 && B(1,1) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorDivisionAccumulatorScalarDouble ()
@@ -859,7 +859,7 @@ void MatrixTest::operatorDivisionAccumulatorScalarDouble ()
         B /= 2;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 1 && B(1,2) == 1 && B(2,2) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 1 && B(0,1) == 1 && B(1,1) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorDivisionAccumulatorMatrixDouble ()
@@ -870,7 +870,7 @@ void MatrixTest::operatorDivisionAccumulatorMatrixDouble ()
         B /= A;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 1 && B(1,2) == 1 && B(2,2) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 1 && B(0,1) == 1 && B(1,1) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorPotentiationAccumulatorScalarDouble ()
@@ -881,7 +881,7 @@ void MatrixTest::operatorPotentiationAccumulatorScalarDouble ()
         B ^= 2;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 2 && B(2,1) == 2 && B(1,2) == 2 && B(2,2) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 2 && B(1,0) == 2 && B(0,1) == 2 && B(1,1) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorEqualDouble ()
@@ -892,7 +892,7 @@ void MatrixTest::operatorEqualDouble ()
         B = A == 1;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 1 && B(1,2) == 0 && B(2,2) == 0, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 1 && B(0,1) == 0 && B(1,1) == 0, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorLessEqualThanDouble ()
@@ -903,7 +903,7 @@ void MatrixTest::operatorLessEqualThanDouble ()
         B = A <= 1;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 1 && B(1,2) == 0 && B(2,2) == 0, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 1 && B(0,1) == 0 && B(1,1) == 0, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorGreaterEqualThanDouble ()
@@ -914,7 +914,7 @@ void MatrixTest::operatorGreaterEqualThanDouble ()
         B = A >= 2;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 0 && B(2,1) == 0 && B(1,2) == 1 && B(2,2) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 0 && B(1,0) == 0 && B(0,1) == 1 && B(1,1) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorLessThanDouble ()
@@ -925,7 +925,7 @@ void MatrixTest::operatorLessThanDouble ()
         B = A < 2;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 1 && B(1,2) == 0 && B(2,2) == 0, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 1 && B(0,1) == 0 && B(1,1) == 0, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorGreaterThanDouble ()
@@ -936,7 +936,7 @@ void MatrixTest::operatorGreaterThanDouble ()
         B = A > 1;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 0 && B(2,1) == 0 && B(1,2) == 1 && B(2,2) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 0 && B(1,0) == 0 && B(0,1) == 1 && B(1,1) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::horizontalConcatenationOperatorScalarDouble ()
@@ -947,7 +947,7 @@ void MatrixTest::horizontalConcatenationOperatorScalarDouble ()
         B = A|3;
     }
     QVERIFY2(B.getNumberOfColumns() == 3 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(1,2) == 2 && B(1,3) == 3, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(0,1) == 2 && B(0,2) == 3, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::horizontalConcatenationOperatorMatrixDouble ()
@@ -958,7 +958,7 @@ void MatrixTest::horizontalConcatenationOperatorMatrixDouble ()
         B = A|LinAlg::Matrix<double>(3);
     }
     QVERIFY2(B.getNumberOfColumns() == 3 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(1,2) == 2 && B(1,3) == 3, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(0,1) == 2 && B(0,2) == 3, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::verticalConcatenationOperatorScalarDouble()
@@ -969,7 +969,7 @@ void MatrixTest::verticalConcatenationOperatorScalarDouble()
         B = A||3;
     }
     QVERIFY2(B.getNumberOfColumns() == 1 && B.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 2 && B(3,1) == 3, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 2 && B(2,0) == 3, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::verticalConcatenationOperatorMatrixDouble()
@@ -980,7 +980,7 @@ void MatrixTest::verticalConcatenationOperatorMatrixDouble()
         B = A||LinAlg::Matrix<double>(3);
     }
     QVERIFY2(B.getNumberOfColumns() == 1 && B.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 2 && B(3,1) == 3, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 2 && B(2,0) == 3, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::bufferOperatorDoubleCase1 ()
@@ -992,7 +992,7 @@ void MatrixTest::bufferOperatorDoubleCase1 ()
         B << A;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 3 && B(1,2) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 3 && B(0,1) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::bufferOperatorDoubleCase2 ()
@@ -1004,7 +1004,7 @@ void MatrixTest::bufferOperatorDoubleCase2 ()
         B << A;
     }
     QVERIFY2(B.getNumberOfColumns() == 1 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::bufferOperatorDoubleCase3 ()
@@ -1016,7 +1016,7 @@ void MatrixTest::bufferOperatorDoubleCase3 ()
         B << A;
     }
     QVERIFY2(B.getNumberOfColumns() == 1 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 2 && B(2,1) == 2 , "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 2 && B(1,0) == 2 , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::bufferOperatorDoubleCase4 ()
@@ -1028,7 +1028,7 @@ void MatrixTest::bufferOperatorDoubleCase4 ()
         B << A;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 1 && B(1,2) == 2 && B(2,2) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 1 && B(0,1) == 2 && B(1,1) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::bufferOperatorDoubleCase5 ()
@@ -1040,9 +1040,9 @@ void MatrixTest::bufferOperatorDoubleCase5 ()
         B << A;
     }
     QVERIFY2(B.getNumberOfColumns() == 3 && B.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(2,1) == 1 && B(3,1) == 1 &&
-             B(1,2) == 2 && B(2,2) == 2 && B(3,2) == 2 &&
-             B(1,3) == 2 && B(2,3) == 2 && B(3,3) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(1,0) == 1 && B(2,0) == 1 &&
+             B(0,1) == 2 && B(1,1) == 2 && B(2,1) == 2 &&
+             B(0,2) == 2 && B(1,2) == 2 && B(2,2) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::bufferOperatorDoubleCase6 ()
@@ -1054,7 +1054,7 @@ void MatrixTest::bufferOperatorDoubleCase6 ()
         A >> B;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(1,2) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(0,1) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::bufferOperatorDoubleCase7 ()
@@ -1066,7 +1066,7 @@ void MatrixTest::bufferOperatorDoubleCase7 ()
         A >> B;
     }
     QVERIFY2(B.getNumberOfColumns() == 1 && B.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::bufferOperatorDoubleCase8 ()
@@ -1078,7 +1078,7 @@ void MatrixTest::bufferOperatorDoubleCase8 ()
         A >> B;
     }
     QVERIFY2(B.getNumberOfColumns() == 1 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 2 && B(2,1) == 2 , "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 2 && B(1,0) == 2 , "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::bufferOperatorDoubleCase9 ()
@@ -1090,7 +1090,7 @@ void MatrixTest::bufferOperatorDoubleCase9 ()
         A >> B;
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 2 && B(2,1) == 2 && B(1,2) == 1 && B(2,2) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 2 && B(1,0) == 2 && B(0,1) == 1 && B(1,1) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::bufferOperatorDoubleCase10 ()
@@ -1102,9 +1102,9 @@ void MatrixTest::bufferOperatorDoubleCase10 ()
         A >> B;
     }
     QVERIFY2(B.getNumberOfColumns() == 3 && B.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 2 && B(2,1) == 2 && B(3,1) == 2 &&
-             B(1,2) == 2 && B(2,2) == 2 && B(3,2) == 2 &&
-             B(1,3) == 1 && B(2,3) == 1 && B(3,3) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 2 && B(1,0) == 2 && B(2,0) == 2 &&
+             B(0,1) == 2 && B(1,1) == 2 && B(2,1) == 2 &&
+             B(0,2) == 1 && B(1,2) == 1 && B(2,2) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::swapTwoMatrixDouble()
@@ -1116,8 +1116,8 @@ void MatrixTest::swapTwoMatrixDouble()
         B.swap(A);
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(1,2) == 2 &&
-             B(2,1) == 3 && B(2,2) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(0,1) == 2 &&
+             B(1,0) == 3 && B(1,1) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::swapTwoMatrixFriendDouble()
@@ -1129,8 +1129,8 @@ void MatrixTest::swapTwoMatrixFriendDouble()
         swap(B,A);
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == 1 && B(1,2) == 2 &&
-             B(2,1) == 3 && B(2,2) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(B(0,0) == 1 && B(0,1) == 2 &&
+             B(1,0) == 3 && B(1,1) == 4, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorSumMatrixScalarDouble ()
@@ -1142,8 +1142,8 @@ void MatrixTest::operatorSumMatrixScalarDouble ()
 
     }
     QVERIFY2(C.getNumberOfColumns() == 2 &&C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == 3 && C(1,2) == 4 &&
-             C(2,1) == 5 && C(2,2) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == 3 && C(0,1) == 4 &&
+             C(1,0) == 5 && C(1,1) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorSumScalarMatrixDouble()
@@ -1155,8 +1155,8 @@ void MatrixTest::operatorSumScalarMatrixDouble()
 
     }
     QVERIFY2(C.getNumberOfColumns() == 2 &&C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == 3 && C(1,2) == 4 &&
-             C(2,1) == 5 && C(2,2) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == 3 && C(0,1) == 4 &&
+             C(1,0) == 5 && C(1,1) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorSumMatrixMatrixDouble ()
@@ -1168,8 +1168,8 @@ void MatrixTest::operatorSumMatrixMatrixDouble ()
 
     }
     QVERIFY2(C.getNumberOfColumns() == 2 &&C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == 5 && C(1,2) == 5 &&
-             C(2,1) == 5 && C(2,2) == 5, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == 5 && C(0,1) == 5 &&
+             C(1,0) == 5 && C(1,1) == 5, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorSubtractionMatrixScalarDouble ()
@@ -1181,8 +1181,8 @@ void MatrixTest::operatorSubtractionMatrixScalarDouble ()
 
     }
     QVERIFY2(C.getNumberOfColumns() == 2 &&C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == -1 && C(1,2) == 0 &&
-             C(2,1) == 1 && C(2,2) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == -1 && C(0,1) == 0 &&
+             C(1,0) == 1 && C(1,1) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorSubtractionScalarMatrixDouble ()
@@ -1194,8 +1194,8 @@ void MatrixTest::operatorSubtractionScalarMatrixDouble ()
 
     }
     QVERIFY2(C.getNumberOfColumns() == 2 &&C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == 1 && C(1,2) == 0 &&
-             C(2,1) == -1 && C(2,2) == -2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == 1 && C(0,1) == 0 &&
+             C(1,0) == -1 && C(1,1) == -2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorSubtractionMatrixMatrixDouble ()
@@ -1207,8 +1207,8 @@ void MatrixTest::operatorSubtractionMatrixMatrixDouble ()
 
     }
     QVERIFY2(C.getNumberOfColumns() == 2 &&C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == -3 && C(1,2) == -1 &&
-             C(2,1) == 1 && C(2,2) == 3, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == -3 && C(0,1) == -1 &&
+             C(1,0) == 1 && C(1,1) == 3, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorMultiplicationMatrixScalarDouble ()
@@ -1220,8 +1220,8 @@ void MatrixTest::operatorMultiplicationMatrixScalarDouble ()
 
     }
     QVERIFY2(C.getNumberOfColumns() == 2 &&C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == 2 && C(1,2) == 4 &&
-             C(2,1) == 6 && C(2,2) == 8, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == 2 && C(0,1) == 4 &&
+             C(1,0) == 6 && C(1,1) == 8, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorMultiplicationScalarMatrixDouble ()
@@ -1233,8 +1233,8 @@ void MatrixTest::operatorMultiplicationScalarMatrixDouble ()
 
     }
     QVERIFY2(C.getNumberOfColumns() == 2 &&C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == 2 && C(1,2) == 4 &&
-             C(2,1) == 6 && C(2,2) == 8, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == 2 && C(0,1) == 4 &&
+             C(1,0) == 6 && C(1,1) == 8, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorMultiplicationMatrixMatrixDouble ()
@@ -1246,9 +1246,9 @@ void MatrixTest::operatorMultiplicationMatrixMatrixDouble ()
 
     }
     QVERIFY2(C.getNumberOfColumns() == 2 &&C.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == 7  && C(1,2) == 10 &&
-             C(2,1) == 15 && C(2,2) == 22 &&
-             C(3,1) == 23 && C(3,2) == 34, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == 7  && C(0,1) == 10 &&
+             C(1,0) == 15 && C(1,1) == 22 &&
+             C(2,0) == 23 && C(2,1) == 34, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorDivisionMatrixScalarDouble ()
@@ -1260,8 +1260,8 @@ void MatrixTest::operatorDivisionMatrixScalarDouble ()
 
     }
     QVERIFY2(C.getNumberOfColumns() == 2 &&C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == 0.5 && C(1,2) == 1 &&
-             C(2,1) == 1.5 && C(2,2) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == 0.5 && C(0,1) == 1 &&
+             C(1,0) == 1.5 && C(1,1) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorDivisionMatrixMatrixDouble ()
@@ -1273,9 +1273,9 @@ void MatrixTest::operatorDivisionMatrixMatrixDouble ()
 
     }
     QVERIFY2(C.getNumberOfColumns() == 2 &&C.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == 1  && C(1,2) == 0 &&
-             C(2,1) == 0  && C(2,2) == 1 &&
-             C(3,1) == -1 && C(3,2) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == 1  && C(0,1) == 0 &&
+             C(1,0) == 0  && C(1,1) == 1 &&
+             C(2,0) == -1 && C(2,1) == 2, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorNegativeMatrixDouble ()
@@ -1285,9 +1285,9 @@ void MatrixTest::operatorNegativeMatrixDouble ()
         C = -A;
     }
     QVERIFY2(C.getNumberOfColumns() == 2 && C.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == -1  && C(1,2) == -2 &&
-             C(2,1) == -3  && C(2,2) == -4 &&
-             C(3,1) == -5  && C(3,2) == -6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == -1  && C(0,1) == -2 &&
+             C(1,0) == -3  && C(1,1) == -4 &&
+             C(2,0) == -5  && C(2,1) == -6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorTransposeMatrixDouble()
@@ -1297,8 +1297,8 @@ void MatrixTest::operatorTransposeMatrixDouble()
         C = ~A;
     }
     QVERIFY2(C.getNumberOfColumns() == 3 && C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == 1  && C(1,2) == 3 && C(1,3) == 5 &&
-             C(2,1) == 2  && C(2,2) == 4 && C(2,3) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == 1  && C(0,1) == 3 && C(0,2) == 5 &&
+             C(1,0) == 2  && C(1,1) == 4 && C(1,2) == 6, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::operatorPotentiationScalarDouble ()
@@ -1308,8 +1308,8 @@ void MatrixTest::operatorPotentiationScalarDouble ()
         C = A^2;
     }
     QVERIFY2(C.getNumberOfColumns() == 2 && C.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(C(1,1) == 7  && C(1,2) == 10 &&
-             C(2,1) == 15 && C(2,2) == 22, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(C(0,0) == 7  && C(0,1) == 10 &&
+             C(1,0) == 15 && C(1,1) == 22, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::zerosMatrixDouble ()
@@ -1319,8 +1319,8 @@ void MatrixTest::zerosMatrixDouble ()
         A = LinAlg::Zeros<double>(2,2);
     }
     QVERIFY2(A.getNumberOfColumns() == 2 && A.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 0 && A(1,2) == 0 &&
-             A(2,1) == 0 && A(2,2) == 0, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(A(0,0) == 0 && A(0,1) == 0 &&
+             A(1,0) == 0 && A(1,1) == 0, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::identityMatrixDouble ()
@@ -1330,8 +1330,8 @@ void MatrixTest::identityMatrixDouble ()
         A = LinAlg::Eye<double>(2);
     }
     QVERIFY2(A.getNumberOfColumns() == 2 && A.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1 && A(1,2) == 0 &&
-             A(2,1) == 0 && A(2,2) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(A(0,0) == 1 && A(0,1) == 0 &&
+             A(1,0) == 0 && A(1,1) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 void MatrixTest::onesMatrixDouble ()
 {
@@ -1340,8 +1340,8 @@ void MatrixTest::onesMatrixDouble ()
         A = LinAlg::Ones<double>(2,2);
     }
     QVERIFY2(A.getNumberOfColumns() == 2 && A.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1 && A(1,2) == 1 &&
-             A(2,1) == 1 && A(2,2) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
+    QVERIFY2(A(0,0) == 1 && A(0,1) == 1 &&
+             A(1,0) == 1 && A(1,1) == 1, "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
 void MatrixTest::LineVector ()
@@ -1351,7 +1351,7 @@ void MatrixTest::LineVector ()
         A = LinAlg::LineVector<double>(1,5);
     }
     QVERIFY2(A.getNumberOfColumns() == 5 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) == 1 && A(1,2) == 2 && A(1,3) == 3 && A(1,4) == 4 && A(1,5) == 5,
+    QVERIFY2(A(0,0) == 1 && A(0,1) == 2 && A(0,2) == 3 && A(0,3) == 4 && A(0,4) == 5,
              "Falhou ao comparar todos os elementos da matriz com valor double");
 
     QBENCHMARK {
@@ -1359,7 +1359,7 @@ void MatrixTest::LineVector ()
     }
     QVERIFY2(A.getNumberOfColumns() == 5 && A.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
 //    std::cout << A;
-    QVERIFY2(A(1,1) == 5 && A(1,2) == 4 && A(1,3) == 3 && A(1,4) == 2 && A(1,5) == 1,
+    QVERIFY2(A(0,0) == 5 && A(0,1) == 4 && A(0,2) == 3 && A(0,3) == 2 && A(0,4) == 1,
              "Falhou ao comparar todos os elementos da matriz com valor double");
 }
 
@@ -1371,7 +1371,7 @@ void MatrixTest::Random ()
         A = LinAlg::Random<double>(2,5);
     }
     QVERIFY2(A.getNumberOfColumns() == 5 && A.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(A(1,1) < 1 && A(1,2) < 1 && A(1,3) < 1 && A(1,4) < 1 && A(1,5) < 1,
+    QVERIFY2(A(0,0) < 1 && A(0,1) < 1 && A(0,2) < 1 && A(0,3) < 1 && A(0,4) < 1,
              "Falhou ao comparar todos os elementos da matriz com valor double");
 
 }
@@ -1405,7 +1405,7 @@ void MatrixTest::Inverse ()
         B = LinAlg::Inverse(A);
     }
     QVERIFY2(B.getNumberOfColumns() == 2 && B.getNumberOfRows() == 2, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(B(1,1) == -2 && B(1,2) == 1 && B(2,1) == 1.5 && B(2,2) == -0.5,
+    QVERIFY2(B(0,0) == -2 && B(0,1) == 1 && B(1,0) == 1.5 && B(1,1) == -0.5,
              "Falhou ao comparar a inversa com valor double");
 }
 
@@ -1441,12 +1441,12 @@ void MatrixTest::sort ()
     }
 
     QVERIFY2(matrixSorted.getNumberOfColumns() == 6 && matrixSorted.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(matrixSorted(1,1) == 1 && matrixSorted(1,2) == 2 && matrixSorted(1,3) == 3 &&
-             matrixSorted(1,4) == 5 && matrixSorted(1,5) == 6 && matrixSorted(1,6) == 7,
+    QVERIFY2(matrixSorted(0,0) == 1 && matrixSorted(0,1) == 2 && matrixSorted(0,2) == 3 &&
+             matrixSorted(0,3) == 5 && matrixSorted(0,4) == 6 && matrixSorted(0,5) == 7,
              "Falhou ao comparar elementos da matriz com valor double");
     QVERIFY2(matrixIndices.getNumberOfColumns() == 6 && matrixIndices.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(matrixIndices(1,1) == 1 && matrixIndices(1,2) == 5 && matrixIndices(1,3) == 4 &&
-             matrixIndices(1,4) == 2 && matrixIndices(1,5) == 3 && matrixIndices(1,6) == 6,
+    QVERIFY2(matrixIndices(0,0) == 0 && matrixIndices(0,1) == 4 && matrixIndices(0,2) == 3 &&
+             matrixIndices(0,3) == 1 && matrixIndices(0,4) == 2 && matrixIndices(0,5) == 5,
              "Falhou ao comparar elementos da matriz com valor double");
 
     A = ~A;
@@ -1455,12 +1455,12 @@ void MatrixTest::sort ()
     }
 
     QVERIFY2(matrixSorted.getNumberOfColumns() == 1 && matrixSorted.getNumberOfRows() == 6, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(matrixSorted(1,1) == 1 && matrixSorted(2,1) == 2 && matrixSorted(3,1) == 3 &&
-             matrixSorted(4,1) == 5 && matrixSorted(5,1) == 6 && matrixSorted(6,1) == 7,
+    QVERIFY2(matrixSorted(0,0) == 1 && matrixSorted(1,0) == 2 && matrixSorted(2,0) == 3 &&
+             matrixSorted(3,0) == 5 && matrixSorted(4,0) == 6 && matrixSorted(5,0) == 7,
              "Falhou ao comparar elementos da matriz com valor double");
     QVERIFY2(matrixIndices.getNumberOfColumns() == 1 && matrixIndices.getNumberOfRows() == 6, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(matrixIndices(1,1) == 1 && matrixIndices(2,1) == 5 && matrixIndices(3,1) == 4 &&
-             matrixIndices(4,1) == 2 && matrixIndices(5,1) == 3 && matrixIndices(6,1) == 6,
+    QVERIFY2(matrixIndices(0,0) == 0 && matrixIndices(1,0) == 4 && matrixIndices(2,0) == 3 &&
+             matrixIndices(3,0) == 1 && matrixIndices(4,0) == 2 && matrixIndices(5,0) == 5,
              "Falhou ao comparar elementos da matriz com valor double");
 }
 
@@ -1470,11 +1470,12 @@ void MatrixTest::min ()
     QBENCHMARK {
         *(minMatrix, minIndices) = LinAlg::min(A);
     }
+
     QVERIFY2(minMatrix.getNumberOfColumns() == 2 && minMatrix.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(minMatrix(1,1) == 1 && minMatrix(1,2) == 1,
+    QVERIFY2(minMatrix(0,0) == 1 && minMatrix(0,1) == 1,
              "Falhou ao comparar elementos da matriz com valor double");
     QVERIFY2(minIndices.getNumberOfColumns() == 2 && minIndices.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(minIndices(1,1) == 1 && minIndices(1,2) == 2,
+    QVERIFY2(minIndices(0,0) == 0 && minIndices(0,1) == 1,
              "Falhou ao comparar elementos da matriz com valor double");
 
     A = "1,2,4,1";
@@ -1483,10 +1484,10 @@ void MatrixTest::min ()
     }
 
     QVERIFY2(minMatrix.getNumberOfColumns() == 1 && minMatrix.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(minMatrix(1,1) == 1,
+    QVERIFY2(minMatrix(0,0) == 1.0,
              "Falhou ao comparar elementos da matriz com valor double");
     QVERIFY2(minIndices.getNumberOfColumns() == 1 && minIndices.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(minIndices(1,1) == 1,
+    QVERIFY2(minIndices(0,0) == 0,
              "Falhou ao comparar elementos da matriz com valor double");
 }
 
@@ -1496,11 +1497,12 @@ void MatrixTest::max ()
     QBENCHMARK {
         *(maxMatrix, maxIndices) = LinAlg::max(A);
     }
+
     QVERIFY2(maxMatrix.getNumberOfColumns() == 2 && maxMatrix.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(maxMatrix(1,1) == 5 && maxMatrix(1,2) == 5,
+    QVERIFY2(maxMatrix(0,0) == 5 && maxMatrix(0,1) == 5,
              "Falhou ao comparar elementos da matriz com valor double");
     QVERIFY2(maxIndices.getNumberOfColumns() == 2 && maxIndices.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(maxIndices(1,1) == 3 && maxIndices(1,2) == 1,
+    QVERIFY2(maxIndices(0,0) == 2 && maxIndices(0,1) == 0,
              "Falhou ao comparar elementos da matriz com valor double");
 
     A = "1,2,4,1";
@@ -1509,10 +1511,10 @@ void MatrixTest::max ()
     }
 
     QVERIFY2(maxMatrix.getNumberOfColumns() == 1 && maxMatrix.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(maxMatrix(1,1) == 4,
+    QVERIFY2(maxMatrix(0,0) == 4,
              "Falhou ao comparar elementos da matriz com valor double");
     QVERIFY2(maxIndices.getNumberOfColumns() == 1 && maxIndices.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(maxIndices(1,1) == 3,
+    QVERIFY2(maxIndices(0,0) == 2,
              "Falhou ao comparar elementos da matriz com valor double");
 }
 
@@ -1523,14 +1525,14 @@ void MatrixTest::sum ()
         sumMatrix = LinAlg::sum(A);
     }
     QVERIFY2(sumMatrix.getNumberOfColumns() == 2 && sumMatrix.getNumberOfRows() == 1, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(sumMatrix(1,1) == 8 && sumMatrix(1,2) == 9,
+    QVERIFY2(sumMatrix(0,0) == 8 && sumMatrix(0,1) == 9,
              "Falhou ao comparar elementos da matriz com valor double");
 
     QBENCHMARK {
         sumMatrix = LinAlg::sum(A,1);
     }
     QVERIFY2(sumMatrix.getNumberOfColumns() == 1 && sumMatrix.getNumberOfRows() == 3, "Falhou ao testar o tamanho da matriz");
-    QVERIFY2(sumMatrix(1,1) == 6 && sumMatrix(2,1) == 3 && sumMatrix(3,1) == 8,
+    QVERIFY2(sumMatrix(0,0) == 6 && sumMatrix(1,0) == 3 && sumMatrix(2,0) == 8,
              "Falhou ao comparar elementos da matriz com valor double");
 }
 

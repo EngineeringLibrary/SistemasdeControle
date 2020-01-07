@@ -122,14 +122,14 @@ template <typename Type>
 LinAlg::Matrix< LinAlg::Matrix<Type>* >* ModelHandler::StateSpace<Type>::getContinuousParameters() const
 {
     LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,4);
-    (*A)(1,1) = new LinAlg::Matrix<Type>(this->A.getNumberOfRows(), this->A.getNumberOfColumns());
-    (*A)(1,2) = new LinAlg::Matrix<Type>(this->B.getNumberOfRows(), this->B.getNumberOfColumns());
-    (*A)(1,3) = new LinAlg::Matrix<Type>(this->C.getNumberOfRows(), this->C.getNumberOfColumns());
-    (*A)(1,4) = new LinAlg::Matrix<Type>(this->D.getNumberOfRows(), this->D.getNumberOfColumns());
-    (*((*A)(1,1))) = this->A;
-    (*((*A)(1,2))) = this->B;
-    (*((*A)(1,3))) = this->C;
-    (*((*A)(1,4))) = this->D;
+    (*A)(0,0) = new LinAlg::Matrix<Type>(this->A.getNumberOfRows(), this->A.getNumberOfColumns());
+    (*A)(0,1) = new LinAlg::Matrix<Type>(this->B.getNumberOfRows(), this->B.getNumberOfColumns());
+    (*A)(0,2) = new LinAlg::Matrix<Type>(this->C.getNumberOfRows(), this->C.getNumberOfColumns());
+    (*A)(0,3) = new LinAlg::Matrix<Type>(this->D.getNumberOfRows(), this->D.getNumberOfColumns());
+    (*((*A)(0,0))) = this->A;
+    (*((*A)(0,1))) = this->B;
+    (*((*A)(0,2))) = this->C;
+    (*((*A)(0,3))) = this->D;
 
     return A;
 }
@@ -138,14 +138,14 @@ template <typename Type>
 LinAlg::Matrix< LinAlg::Matrix<Type>* >* ModelHandler::StateSpace<Type>::getDiscreteParameters() const
 {
     LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,4);
-    (*A)(1,1) = new LinAlg::Matrix<Type>(this->Ad.getNumberOfRows(), this->Ad.getNumberOfColumns());
-    (*A)(1,2) = new LinAlg::Matrix<Type>(this->Bd.getNumberOfRows(), this->Bd.getNumberOfColumns());
-    (*A)(1,3) = new LinAlg::Matrix<Type>(this->C.getNumberOfRows(), this->C.getNumberOfColumns());
-    (*A)(1,4) = new LinAlg::Matrix<Type>(this->D.getNumberOfRows(), this->D.getNumberOfColumns());
-    (*((*A)(1,1))) = this->Ad;
-    (*((*A)(1,2))) = this->Bd;
-    (*((*A)(1,3))) = this->C;
-    (*((*A)(1,4))) = this->D;
+    (*A)(0,0) = new LinAlg::Matrix<Type>(this->Ad.getNumberOfRows(), this->Ad.getNumberOfColumns());
+    (*A)(0,1) = new LinAlg::Matrix<Type>(this->Bd.getNumberOfRows(), this->Bd.getNumberOfColumns());
+    (*A)(0,2) = new LinAlg::Matrix<Type>(this->C.getNumberOfRows(), this->C.getNumberOfColumns());
+    (*A)(0,3) = new LinAlg::Matrix<Type>(this->D.getNumberOfRows(), this->D.getNumberOfColumns());
+    (*((*A)(0,0))) = this->Ad;
+    (*((*A)(0,1))) = this->Bd;
+    (*((*A)(0,2))) = this->C;
+    (*((*A)(0,3))) = this->D;
 
     return A;
 }
@@ -411,7 +411,7 @@ void ModelHandler::StateSpace<Type>::c2dConversion()
     LinAlg::Matrix<Type> max, maxInd;
     *(max, maxInd) = LinAlg::max(LinAlg::abs(A));
     *(max, maxInd) = LinAlg::max(LinAlg::abs(max));
-    unsigned factor =  (unsigned)ceil(max(1,1)*this->step);
+    unsigned factor =  (unsigned)ceil(max(0,0)*this->step);
 
     //taylor
     for(unsigned i = 0; i < nDiscretization; ++i)
@@ -421,6 +421,8 @@ void ModelHandler::StateSpace<Type>::c2dConversion()
 //    std::cout << A <<"\n"<< Ad;
 //    std::cout << (Ad - (Ad^0)) << std::endl;
 //    std::cout << (A^-1) << std::endl;
+//    std::cout << B << std::endl;
+//    A^-1;
     Bd = (A^-1)*(Ad - (Ad^0))*B;
 }
 
@@ -432,7 +434,7 @@ void ModelHandler::StateSpace<Type>::d2cConversion()
     LinAlg::Matrix<Type> max, maxInd, AdTemp;
     *(max, maxInd) = LinAlg::max(LinAlg::abs(Ad));
     *(max, maxInd) = LinAlg::max(LinAlg::abs(max));
-    Type factor =  (unsigned)ceil(max(1,1));
+    Type factor =  (unsigned)ceil(max(0,0));
 
     for(unsigned i = 1; i < nDiscretization + 1; ++i){
         std::cout << A; std::cout << std::endl;
@@ -440,10 +442,10 @@ void ModelHandler::StateSpace<Type>::d2cConversion()
     }
     //std::cout << A; std::cout << std::endl;
     A = (A + log(factor))/this->step;
-    std::cout << A; std::cout << std::endl;
+    //std::cout << A; std::cout << std::endl;
 //    A = (Ad - I)/this->step;
     B = (((A^-1)*(Ad - I))^-1)*Bd;
-    std::cout << B; std::cout << std::endl;
+    //std::cout << B; std::cout << std::endl;
 }
 
 template <typename Type>

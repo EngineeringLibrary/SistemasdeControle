@@ -7,7 +7,7 @@
 #endif
 
 template <typename Type>
-ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned cols)
+ModelHandler::TransferFunction<Type>::TransferFunction(int rows, int cols)
 {
     this->var            = 's';
     this->step           = 0.1;
@@ -20,6 +20,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned c
     this->input          = 0;
     this->output         = 0;
 
+    this->transportDelay = LinAlg::Zeros<Type>(rows, cols);
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(rows, cols);
 }
 
@@ -27,7 +28,8 @@ template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(const LinAlg::Matrix<Type> &numPol, const LinAlg::Matrix<Type> &denPol)
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
-    this->TF(1,1)        = PolynomHandler::Polynom<Type>(numPol,denPol);
+    this->TF(0,0)        = PolynomHandler::Polynom<Type>(numPol,denPol);
+    this->transportDelay = LinAlg::Zeros<Type>(1, 1);
     this->var            = 's';
     this->Continuous     = 1;
     this->step           = 0.1;
@@ -44,7 +46,8 @@ template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Polynom<Type> &TFSISO)
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
-    this->TF(1,1)        = TFSISO;
+    this->TF(0,0)        = TFSISO;
+    this->transportDelay = LinAlg::Zeros<Type>(1, 1);
     this->var            = 's';
     this->step           = 0.1;
     this->Continuous     = 1;
@@ -61,6 +64,7 @@ template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF)
 {
     this->TF             = TF;
+    this->transportDelay = LinAlg::Zeros<Type>(TF.getNumberOfRows(), TF.getNumberOfColumns());
     this->var            = 's';
     this->step           = 0.1;
     this->Continuous     = 1;
@@ -74,7 +78,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHa
 }
 
 template <typename Type>
-ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned cols, double sampleTime)
+ModelHandler::TransferFunction<Type>::TransferFunction(int rows, int cols, double sampleTime)
 {
     this->var            = 'z';
     this->step           = sampleTime;
@@ -82,6 +86,7 @@ ModelHandler::TransferFunction<Type>::TransferFunction(unsigned rows, unsigned c
     this->timeSimulation = 10;
     this->simulationFlag = false;
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(rows, cols);
+    this->transportDelay = LinAlg::Zeros<Type>(rows, cols);
     this->estOutput      = 0;
     this->lmax           = 0;
     this->lmin           = 0;
@@ -94,7 +99,8 @@ ModelHandler::TransferFunction<Type>::TransferFunction(const LinAlg::Matrix<Type
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
     this->simulationFlag = false;
-    this->TF(1,1)        = PolynomHandler::Polynom<Type>(numPol,denPol);
+    this->TF(0,0)        = PolynomHandler::Polynom<Type>(numPol,denPol);
+    this->transportDelay = LinAlg::Zeros<Type>(1, 1);
     this->var            = 'z';
     this->Continuous     = 0;
     this->step           = sampleTime;
@@ -111,7 +117,8 @@ ModelHandler::TransferFunction<Type>::TransferFunction(const PolynomHandler::Pol
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(1,1);
     this->simulationFlag = false;
-    this->TF(1,1)        = TFSISO;
+    this->TF(0,0)        = TFSISO;
+    this->transportDelay = LinAlg::Zeros<Type>(1, 1);
     this->var            = 'z';
     this->step           = sampleTime;
     this->Continuous     = 0;
@@ -127,6 +134,7 @@ template <typename Type>
 ModelHandler::TransferFunction<Type>::TransferFunction(LinAlg::Matrix< PolynomHandler::Polynom<Type> > TF, double sampleTime)
 {
     this->TF             = TF;
+    this->transportDelay = LinAlg::Zeros<Type>(TF.getNumberOfRows(), TF.getNumberOfColumns());
     this->var            = 'z';
     this->step           = sampleTime;
     this->Continuous     = 0;
@@ -143,8 +151,8 @@ template<typename Type> template<typename OtherType>
 ModelHandler::TransferFunction<Type>::TransferFunction (const ModelHandler::TransferFunction<OtherType>& otherPolynom)
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(otherPolynom.getNumberOfRows(),otherPolynom.getNumberOfColumns());
-    for(unsigned i = 1; i <= otherPolynom.getNumberOfRows(); i++)
-        for(unsigned j = 1; j <= otherPolynom.getNumberOfColumns(); j++)
+    for(int i = 0; i < otherPolynom.getNumberOfRows(); i++)
+        for(int j = 0; j < otherPolynom.getNumberOfColumns(); j++)
             this->TF(i,j) = otherPolynom(i,j);
 
     this->var            = otherPolynom.getVar();
@@ -167,13 +175,13 @@ bool ModelHandler::TransferFunction<Type>::isContinuous() const
 }
 
 template <typename Type>
-unsigned ModelHandler::TransferFunction<Type>::getNumberOfRows() const
+int ModelHandler::TransferFunction<Type>::getNumberOfRows() const
 {
     return this->TF.getNumberOfRows();
 }
 
 template <typename Type>
-unsigned ModelHandler::TransferFunction<Type>::getNumberOfColumns() const
+int ModelHandler::TransferFunction<Type>::getNumberOfColumns() const
 {
     return this->TF.getNumberOfColumns();
 }
@@ -209,13 +217,13 @@ void ModelHandler::TransferFunction<Type>::setLinearModel(LinAlg::Matrix<Type> I
 }
 
 template <typename Type>
-PolynomHandler::Polynom<Type>& ModelHandler::TransferFunction<Type>::operator ()(unsigned row, unsigned column)
+PolynomHandler::Polynom<Type>& ModelHandler::TransferFunction<Type>::operator ()(int row, int column)
 {
     return this->TF(row, column);
 }
 
 template <typename Type>
-PolynomHandler::Polynom<Type> ModelHandler::TransferFunction<Type>::operator ()(unsigned row, unsigned column) const
+PolynomHandler::Polynom<Type> ModelHandler::TransferFunction<Type>::operator ()(int row, int column) const
 {
     return this->TF(row, column);
 }
@@ -224,7 +232,7 @@ PolynomHandler::Polynom<Type> ModelHandler::TransferFunction<Type>::operator ()(
 template <typename Type>
 void ModelHandler::TransferFunction<Type>::operator= (const PolynomHandler::Polynom<Type> &rhs)
 {
-    this->TF(1,1) = rhs;
+    this->TF(0,0) = rhs;
 }
 
 template <typename Type>
@@ -245,8 +253,8 @@ template <typename Type> template<typename OtherTransferFunctionType>
 ModelHandler::TransferFunction<Type>& ModelHandler::TransferFunction<Type>::operator= (const TransferFunction<OtherTransferFunctionType>& otherTransferFunction)
 {
     this->TF = LinAlg::Matrix< PolynomHandler::Polynom<Type> >(otherTransferFunction.getNumberOfRows(),otherTransferFunction.getNumberOfColumns());
-    for(unsigned i = 1; i <= otherTransferFunction.getNumberOfRows(); i++)
-        for(unsigned j = 1; j <= otherTransferFunction.getNumberOfColumns(); j++)
+    for(int i = 0; i < otherTransferFunction.getNumberOfRows(); i++)
+        for(int j = 0; j < otherTransferFunction.getNumberOfColumns(); j++)
             this->TF(i,j) = otherTransferFunction(i,j);
 
     this->var            = otherTransferFunction.getVar();
@@ -262,45 +270,51 @@ ModelHandler::TransferFunction<Type>& ModelHandler::TransferFunction<Type>::oper
 template <typename Type>
 std::string ModelHandler::TransferFunction<Type>::print()
 {    
-    unsigned rows = this->TF.getNumberOfRows(), columns = this->TF.getNumberOfColumns();
+    int rows = this->TF.getNumberOfRows(), columns = this->TF.getNumberOfColumns();
     std::string polyNum[rows][columns];
     std::string polyDen[rows][columns];
     std::string numSpace[rows][columns], denSpace[rows][columns], midLine[rows][columns];
-    unsigned maxSize[rows][columns];
+    int maxSize[rows][columns];
     std::string output;
-    for(unsigned i = 1; i <= rows; ++i)
+    for(int i = 0; i < rows; ++i)
     {
-        for(unsigned j = 1; j <= columns; ++j)
-            polyNum[i-1][j-1] = PolynomHandler::printSmallPolynom(this->TF(i,j).getNum(),this->var);
+        for(int j = 0; j < columns; ++j)
+            polyNum[i][j] = PolynomHandler::printSmallPolynom(this->TF(i,j).getNum(),this->var);
 
-        for(unsigned j = 1; j <= columns; ++j)
-            polyDen[i-1][j-1] = PolynomHandler::printSmallPolynom(this->TF(i,j).getDen(),this->var);
+        for(int j = 0; j < columns; ++j)
+            polyDen[i][j] = PolynomHandler::printSmallPolynom(this->TF(i,j).getDen(),this->var);
 
-        for(unsigned j = 0; j < columns; ++j)
+        for(int j = 0; j < columns; ++j)
         {
-            maxSize[i-1][j] = polyNum[i-1][j].length();
-            if(maxSize[i-1][j] < polyDen[i-1][j].length())
-                maxSize[i-1][j] = polyDen[i-1][j].length();
-            maxSize[i-1][j] += 6;
+            maxSize[i][j] = polyNum[i][j].length();
+            if(maxSize[i][j] < polyDen[i][j].length())
+                maxSize[i][j] = polyDen[i][j].length();
+            maxSize[i][j] += 6;
 
-            for(unsigned k = 0; k < unsigned(fabs((maxSize[i-1][j] - polyNum[i-1][j].length())/2)); ++k)
-                numSpace[i-1][j] += ' ';
-            for(unsigned k = 0; k < maxSize[i-1][j]; ++k)
-                midLine[i-1][j] += '-';
-            for(unsigned k = 0; k < unsigned(fabs((maxSize[i-1][j] - polyDen[i-1][j].length())/2)); ++k)
-                denSpace[i-1][j] += ' ';
+            for(int k = 0; k < int(fabs((maxSize[i][j] - polyNum[i][j].length())/2)); ++k)
+                numSpace[i][j] += ' ';
+            for(int k = 0; k < maxSize[i][j]; ++k)
+                midLine[i][j] += '-';
+            for(int k = 0; k < int(fabs((maxSize[i][j] - polyDen[i][j].length())/2)); ++k)
+                denSpace[i][j] += ' ';
         }
 
-        for(unsigned j = 0; j < columns; ++j)
-            output += numSpace[i-1][j] + polyNum[i-1][j] + numSpace[i-1][j] + "      ";
+        for(int j = 0; j < columns; ++j)
+            output += numSpace[i][j] + polyNum[i][j] + numSpace[i][j] + "      ";
         output += '\n';
 
-        for(unsigned j = 0; j < columns; ++j)
-            output += midLine[i-1][j] + "      ";
+        for(int j = 0; j < columns; ++j){
+            output += midLine[i][j] + "      ";
+            if(this->transportDelay(i,j) != 0){
+                std::stringstream ss;
+                ss << "exp(-" << this->transportDelay(i,j) << "s)";
+                output += ss.str();
+            }
+        }
         output += '\n';
 
-        for(unsigned j = 0; j < columns; ++j)
-            output += denSpace[i-1][j] + polyDen[i-1][j] + denSpace[i-1][j] + "      ";
+        for(int j = 0; j < columns; ++j)
+            output += denSpace[i][j] + polyDen[i][j] + denSpace[i][j] + "      ";
         output += '\n'; output += '\n';
     }
 
@@ -313,10 +327,10 @@ std::string ModelHandler::TransferFunction<Type>::ContinuosFirstOrderCaracterist
     std::ostringstream str;
     Type tau;
     if(this->TF.getNumberOfRows() == 1 && this->TF.getNumberOfColumns() == 1 && this->Continuous){
-       PolynomHandler::Polynom<Type> poly = this->TF(1,1);
+       PolynomHandler::Polynom<Type> poly = this->TF(0,0);
        if(poly.getNumSize() == 1 && poly.getDenSize() == 2){
-            str << "O ganho estatico: " << poly.getNum()(1,poly.getNumSize()) / poly.getDen()(1,poly.getDenSize()) << std::endl;
-            tau = poly.getDen()(1,poly.getDenSize()-1) / poly.getDen()(1,poly.getDenSize());
+            str << "O ganho estatico: " << poly.getNum()(0,poly.getNumSize()-1) / poly.getDen()(0,poly.getDenSize()-1) << std::endl;
+            tau = poly.getDen()(0,poly.getDenSize()-2) / poly.getDen()(0,poly.getDenSize()-1);
             str << "A constante de tempo: " << tau << std::endl;
             str << "t1: " << 0.11*tau << std::endl;
             str << "t2: " << 0.23*tau << std::endl;
@@ -334,12 +348,12 @@ std::string ModelHandler::TransferFunction<Type>::ContinuosSecondOrderCaracteris
     std::ostringstream str;
     Type k, wn, qsi, pd, wd, ts2, tr, tp, Os, Dr;
     if(this->TF.getNumberOfRows() == 1 && this->TF.getNumberOfColumns() == 1 && this->Continuous){
-       PolynomHandler::Polynom<Type> poly = this->TF(1,1);
+       PolynomHandler::Polynom<Type> poly = this->TF(0,0);
        if(poly.getNumSize() == 1 && poly.getDenSize() == 3){
 
-            wn  = sqrt(fabs(poly.getDen()(1,poly.getDenSize())));
-            qsi = poly.getDen()(1,poly.getDenSize()-1) / (wn * 2);
-            k   = poly.getNum()(1,poly.getNumSize()) / (wn * wn);
+            wn  = sqrt(fabs(poly.getDen()(0,poly.getDenSize()-1)));
+            qsi = poly.getDen()(0,poly.getDenSize()-2) / (wn * 2);
+            k   = poly.getNum()(0,poly.getNumSize()-1) / (wn * wn);
             wd  = wn*sqrt(1-qsi*qsi);
             pd  = 2*M_PI/wd;
             tr  = M_PI/(2*wd);
@@ -373,8 +387,8 @@ void ModelHandler::TransferFunction<Type>::setLinearVector(LinAlg::Matrix<Type> 
     Output >> this->outputState;
 
     LinAlg::Matrix<Type> temp;
-    for(unsigned i = 1; i <= this->outputState.getNumberOfRows(); ++i)
-        for(unsigned j = 1; j <= this->inputState.getNumberOfRows(); ++j)
+    for(int i = 0; i < this->outputState.getNumberOfRows(); ++i)
+        for(int j = 0; j < this->inputState.getNumberOfRows(); ++j)
         temp = temp|-this->outputState.getRow(i)|this->inputState.getRow(j);
 
     this->LinearVectorA = ~(temp);
@@ -395,7 +409,7 @@ Type ModelHandler::TransferFunction<Type>::sim(Type x)
     this->setLinearVector(x,this->estOutput);
 //    std::cout << this->LinearVectorA << std::endl;
 //    std::cout << (this->ModelCoef*this->LinearVectorA) << std::endl;
-    this->estOutput = (this->ModelCoef*this->LinearVectorA)(1,1);
+    this->estOutput = (this->ModelCoef*this->LinearVectorA)(0,0);
     return this->estOutput;
 }
 
@@ -411,7 +425,7 @@ Type ModelHandler::TransferFunction<Type>::sim(Type x, Type y)
         this->simulationFlag = true;
     }
     this->setLinearVector(x,y);
-    y = (this->ModelCoef*this->LinearVectorA)(1,1);
+    y = (this->ModelCoef*this->LinearVectorA)(0,0);
     return y;
 }
 
@@ -419,22 +433,22 @@ template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::TransferFunction<Type>::sim(LinAlg::Matrix<Type> x)
 {
 
-    for(unsigned i = 1; i <= this->TF.getNumberOfRows(); ++i)
+    for(int i = 0; i < this->TF.getNumberOfRows(); ++i)
     {
         LinAlg::Matrix<Type> simTemp = LinAlg::Zeros<Type>(x.getNumberOfRows(),x.getNumberOfColumns()+1);
-        for(unsigned j = 1; j <= this->TF.getNumberOfColumns(); ++j)
+        for(int j = 0; j < this->TF.getNumberOfColumns(); ++j)
         {
             ModelHandler::TransferFunction<Type> TfTemp(this->TF(i,j));
             TfTemp.Continuous = this->Continuous;
-            for(unsigned k = 1; k <= x.getNumberOfColumns(); ++k)
+            for(int k = 0; k < x.getNumberOfColumns(); ++k)
                 simTemp(j,k+1) = TfTemp.sim(x(j,k),simTemp(j,k));
         }
+        //std::cout << simTemp << std::endl;
         this->EstOutput = this->EstOutput|| sum(simTemp);
     }
-    {
-        this->setLinearVector(x,this->EstOutput);
-        this->EstOutput = this->EstOutput|(this->ModelCoef*this->LinearVectorA);
-    }
+    this->setLinearVector(x,this->EstOutput);
+    this->EstOutput = this->EstOutput|(this->ModelCoef*this->LinearVectorA);
+    //std::cout << this->EstOutput << std::endl;
     return this->EstOutput;
 }
 
@@ -477,12 +491,12 @@ std::string& ModelHandler::operator<< (std::string& output, ModelHandler::Transf
 }
 
 template<typename Type>
-ModelHandler::TransferFunction<Type> ModelHandler::pade(const Type &time, const unsigned &order)
+ModelHandler::TransferFunction<Type> ModelHandler::pade(const Type &time, const int &order)
 {
     PolynomHandler::Polynom<Type> s("1,0","1");
     PolynomHandler::Polynom<Type> num("1","1"), den("1","1");
 
-    for(unsigned i = 1; i <= order; ++i){
+    for(int i = 1; i <= order; ++i){
         num += (time/(pow(-2.0,i)*factorial(i)))*(s^i);
         den += (time/(pow(2.0,i)*factorial(i)))*(s^i);
     }
@@ -493,33 +507,33 @@ ModelHandler::TransferFunction<Type> ModelHandler::pade(const Type &time, const 
 template<typename Type>
 ModelHandler::TransferFunction<Type> ModelHandler::FOPDTCurvaDeReacao(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime)
 {
-    Y = Y-Y(1,1); U = U-U(1,1);
-    Type Yend = Y(1,Y.getNumberOfColumns());
-    Type Uend = U(1,U.getNumberOfColumns());
+    Y = Y-Y(0,0); U = U-U(0,0);
+    Type Yend = Y(0,Y.getNumberOfColumns()-1);
+    Type Uend = U(0,U.getNumberOfColumns()-1);
 
     Type K = Yend/Uend;
     Type Ytau = Yend*(1-exp(-1));
     Type tau, theta;
     bool flagTheta = true, flagU = true;
-    unsigned uStart;
-    for(unsigned i = 1; i <= Y.getNumberOfColumns(); ++i)
+    int uStart;
+    for(int i = 0; i < Y.getNumberOfColumns(); ++i)
     {
-        if(U(1,i) != 0 && flagU)
+        if(U(0,i) != 0 && flagU)
         {
             flagU = false;
             uStart = i+1;
         }
-        if(Y(1,i) != 0 && flagTheta)
+        if(Y(0,i) != 0 && flagTheta)
         {
             flagTheta = false;
             theta = (i-uStart)*sampleTime;
         }
-        else if(Y(1,i) > Ytau){
+        else if(Y(0,i) > Ytau){
             tau = (i-uStart)*sampleTime-theta;
             break;
         }
     }
-    LinAlg::Matrix<Type> den(1,2); den(1,1) = tau; den(1,2) = 1;
+    LinAlg::Matrix<Type> den(1,2); den(0,0) = tau; den(0,1) = 1;
     ModelHandler::TransferFunction<Type> ret(LinAlg::Matrix<Type>(K),den);
     ret.setTransportDelay(theta);
     return ret;
@@ -528,35 +542,35 @@ ModelHandler::TransferFunction<Type> ModelHandler::FOPDTCurvaDeReacao(LinAlg::Ma
 template<typename Type>
 ModelHandler::TransferFunction<Type> ModelHandler::FOPDTZieglerNichols(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime)
 {
-    Y = Y-Y(1,1); U = U-U(1,1);
-    Type Yend = Y(1,Y.getNumberOfColumns());
-    Type Uend = U(1,U.getNumberOfColumns());
+    Y = Y-Y(0,0); U = U-U(0,0);
+    Type Yend = Y(0,Y.getNumberOfColumns()-1);
+    Type Uend = U(0,U.getNumberOfColumns()-1);
 
     Type K = Yend/Uend;
-    Type YmaxDif = Y(1,2) - Y(1,1);
-    unsigned maxPosition = 0;
-    bool flagU = true; unsigned uStart;
+    Type YmaxDif = Y(0,1) - Y(0,0);
+    int maxPosition = 0;
+    bool flagU = true; int uStart;
 
-    for(unsigned i = 1; i < Y.getNumberOfColumns(); ++i)
+    for(int i = 0; i < Y.getNumberOfColumns()-1; ++i)
     {
-        if(U(1,i) != 0 && flagU)
+        if(U(0,i) != 0 && flagU)
         {
             flagU = false;
             uStart = i+1;
         }
-        if(YmaxDif < Y(1,i+1) - Y(1,i))
+        if(YmaxDif < Y(0,i+1) - Y(0,i))
         {
-            YmaxDif = Y(1,i+1) - Y(1,i);
+            YmaxDif = Y(0,i+1) - Y(0,i);
             maxPosition = i;
         }
     }
 
-    Type a = (Y(1,maxPosition + 4) - Y(1,maxPosition))/(4*sampleTime);
-    Type b = Y(1,maxPosition) - a*maxPosition*sampleTime;
+    Type a = (Y(0,maxPosition + 4) - Y(0,maxPosition))/(4*sampleTime);
+    Type b = Y(0,maxPosition) - a*maxPosition*sampleTime;
     Type theta = -b/a - uStart*sampleTime;
     Type tau = (Yend-b)/a - theta;
 
-    LinAlg::Matrix<Type> den(1,2); den(1,1) = tau; den(1,2) = 1;
+    LinAlg::Matrix<Type> den(1,2); den(0,0) = tau; den(0,1) = 1;
     ModelHandler::TransferFunction<Type> ret(LinAlg::Matrix<Type>(K),den);
     ret.setTransportDelay(theta);
     return ret;
@@ -565,28 +579,28 @@ ModelHandler::TransferFunction<Type> ModelHandler::FOPDTZieglerNichols(LinAlg::M
 template<typename Type>
 ModelHandler::TransferFunction<Type> ModelHandler::FOPDTSmith(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime)
 {
-    Y = Y-Y(1,1); U = U-U(1,1);
-    Type Yend = Y(1,Y.getNumberOfColumns());
-    Type Uend = U(1,U.getNumberOfColumns());
+    Y = Y-Y(0,0); U = U-U(0,0);
+    Type Yend = Y(0,Y.getNumberOfColumns()-1);
+    Type Uend = U(0,U.getNumberOfColumns()-1);
 
     Type K = Yend/Uend;
     Type Y2 = Yend*0.632, Y1 = Yend*0.283, t1, t2;
     bool flagT1 = true;
-    bool flagU = true; unsigned uStart;
+    bool flagU = true; int uStart;
 
-    for(unsigned i = 1; i < Y.getNumberOfColumns(); ++i)
+    for(int i = 0; i < Y.getNumberOfColumns()-1; ++i)
     {
-        if(U(1,i) != 0 && flagU)
+        if(U(0,i) != 0 && flagU)
         {
             flagU = false;
             uStart = i+1;
         }
-        if(Y1 < Y(1,i) && flagT1)
+        if(Y1 < Y(0,i) && flagT1)
         {
             t1 = (i-uStart)*sampleTime;
             flagT1 = false;
         }
-        else if(Y2 < Y(1,i))
+        else if(Y2 < Y(0,i))
         {
             t2 = (i-uStart)*sampleTime;
             break;
@@ -596,7 +610,7 @@ ModelHandler::TransferFunction<Type> ModelHandler::FOPDTSmith(LinAlg::Matrix<Typ
     Type tau = 1.5*(t2-t1);
     Type theta = t2-tau;
 
-    LinAlg::Matrix<Type> den(1,2); den(1,1) = tau; den(1,2) = 1;
+    LinAlg::Matrix<Type> den(1,2); den(0,0) = tau; den(0,1) = 1;
     ModelHandler::TransferFunction<Type> ret(LinAlg::Matrix<Type>(K),den);
     ret.setTransportDelay(theta);
     return ret;
@@ -605,28 +619,28 @@ ModelHandler::TransferFunction<Type> ModelHandler::FOPDTSmith(LinAlg::Matrix<Typ
 template<typename Type>
 ModelHandler::TransferFunction<Type> ModelHandler::FOPDTSundaresanKrishnaswamy(LinAlg::Matrix<Type> Y, LinAlg::Matrix<Type> U, Type sampleTime)
 {
-    Y = Y-Y(1,1); U = U-U(1,1);
-    Type Yend = Y(1,Y.getNumberOfColumns());
-    Type Uend = U(1,U.getNumberOfColumns());
+    Y = Y-Y(0,0); U = U-U(0,0);
+    Type Yend = Y(0,Y.getNumberOfColumns()-1);
+    Type Uend = U(0,U.getNumberOfColumns()-1);
 
     Type K = Yend/Uend;
     Type Y2 = Yend*0.853, Y1 = Yend*0.353, t1, t2;
     bool flagT1 = true;
-    bool flagU = true; unsigned uStart;
+    bool flagU = true; int uStart;
 
-    for(unsigned i = 1; i < Y.getNumberOfColumns(); ++i)
+    for(int i = 0; i < Y.getNumberOfColumns()-1; ++i)
     {
-        if(U(1,i) != 0 && flagU)
+        if(U(0,i) != 0 && flagU)
         {
             flagU = false;
             uStart = i+1;
         }
-        if(Y1 < Y(1,i) && flagT1)
+        if(Y1 < Y(0,i) && flagT1)
         {
             t1 = (i-uStart)*sampleTime;
             flagT1 = false;
         }
-        else if(Y2 < Y(1,i))
+        else if(Y2 < Y(0,i))
         {
             t2 = (i-uStart)*sampleTime;
             break;
@@ -636,7 +650,7 @@ ModelHandler::TransferFunction<Type> ModelHandler::FOPDTSundaresanKrishnaswamy(L
     Type tau = 0.67*(t2-t1);
     Type theta = 1.3*t1-0.29*t2;
 
-    LinAlg::Matrix<Type> den(1,2); den(1,1) = tau; den(1,2) = 1;
+    LinAlg::Matrix<Type> den(1,2); den(0,0) = tau; den(0,1) = 1;
     ModelHandler::TransferFunction<Type> ret(LinAlg::Matrix<Type>(K),den);
     ret.setTransportDelay(theta);
     return ret;

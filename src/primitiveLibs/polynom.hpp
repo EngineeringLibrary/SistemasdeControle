@@ -45,10 +45,10 @@ PolynomHandler::Polynom<Type>::Polynom(const PolynomHandler::Polynom<OtherPolyno
     LinAlg::Matrix<OtherPolynomType> DEN = otherPolynom.getDen();
 
     for(unsigned i = 0; i < this->sizeNum; ++i)
-        this->num[i] = (Type)NUM(1,i+1);
+        this->num[i] = (Type)NUM(0,i);
 
     for(unsigned i = 0; i < this->sizeDen; ++i)
-        this->den[i] = (Type)DEN(1,i+1);
+        this->den[i] = (Type)DEN(0,i);
 }
 
 template <typename Type> // testada
@@ -103,12 +103,12 @@ LinAlg::Matrix<Type> PolynomHandler::Polynom<Type>::getNum()const
     LinAlg::Matrix<Type> ret(1, this->sizeNum);
 
     for(unsigned i = 0; i < this->sizeNum; ++i)
-        ret(1,i+1) = this->num[i];
+        ret(0,i) = this->num[i];
 
-    for(unsigned i = 1; i < ret.getNumberOfColumns(); ++i){
-        if(ret(1,i) == 0){
-            ret.removeColumn(1);
-            i = 0;
+    for(unsigned i = 0; i < ret.getNumberOfColumns()-1; ++i){
+        if(ret(0,i) == 0){
+            ret.removeColumn(0);
+            i = -1;
         }
         else
             break;
@@ -123,12 +123,12 @@ LinAlg::Matrix<Type> PolynomHandler::Polynom<Type>::getDen() const
     LinAlg::Matrix<Type> ret(1, this->sizeDen);
 
     for(unsigned i = 0; i < this->sizeDen; ++i)
-        ret(1,i+1) = this->den[i];
+        ret(0,i) = this->den[i];
 
-    for(unsigned i = 1; i < ret.getNumberOfColumns(); ++i){
-        if(ret(1,i) == 0){
-            ret.removeColumn(1);
-            i = 0;
+    for(unsigned i = 0; i < ret.getNumberOfColumns()-1; ++i){
+        if(ret(0,i) == 0){
+            ret.removeColumn(0);
+            i = -1;
         }
         else
             break;
@@ -154,7 +154,7 @@ void PolynomHandler::Polynom<Type>::setNum(const LinAlg::Matrix<Type> &Num)
     this->sizeNum = Num.getNumberOfColumns();
 
     for (unsigned i = 0; i < Num.getNumberOfColumns(); ++i)
-        this->num[i] = Num(1,i+1);
+        this->num[i] = Num(0,i);
 }
 
 template <typename Type> //testada
@@ -174,7 +174,7 @@ void PolynomHandler::Polynom<Type>::setDen(const LinAlg::Matrix<Type> &Den)
     this->sizeDen = Den.getNumberOfColumns();
 
     for (unsigned i = 0; i < Den.getNumberOfColumns(); ++i)
-        this->den[i] = Den(1,i+1);
+        this->den[i] = Den(0,i);
 }
 
 template <typename Type> // testada
@@ -374,12 +374,12 @@ void PolynomHandler::Polynom<Type>::init(const LinAlg::Matrix<Type> &Num, const 
     //this->num = initPointer<Type>(Num.getNumberOfColumns());
     this->num = new Type[Num.getNumberOfColumns()]();
     for (unsigned i = 0; i < Num.getNumberOfColumns(); ++i)
-        this->num[i] = (Type) Num(1, i+1);
+        this->num[i] = (Type) Num(0, i);
 
     this->sizeDen = Den.getNumberOfColumns();
     this->den = new Type[Den.getNumberOfColumns()]();
     for (unsigned i = 0; i < Den.getNumberOfColumns(); ++i)
-        this->den[i] = (Type) Den(1 , i+1);
+        this->den[i] = (Type) Den(0 , i);
     this->x = 'x';
 }
 
@@ -426,8 +426,8 @@ std::ostream& PolynomHandler::operator<< (std::ostream& output, PolynomHandler::
     LinAlg::Matrix<PolynomType> temp = rhs.getDen();
 
     unsigned counter = 0;
-    for(unsigned i = 1; i <= temp.getNumberOfColumns(); ++i)
-        if(temp(1,i) != 0)
+    for(unsigned i = 0; i < temp.getNumberOfColumns(); ++i)
+        if(temp(0,i) != 0)
             break;
         else
             ++counter;
@@ -440,8 +440,8 @@ std::ostream& PolynomHandler::operator<< (std::ostream& output, PolynomHandler::
     output << numSpace << polyNum << numSpace << '\n';
 
     counter = 0;
-    for(unsigned i = 1; i <= temp.getNumberOfColumns(); ++i)
-        if(temp(1,i) != 1)
+    for(unsigned i = 0; i < temp.getNumberOfColumns(); ++i)
+        if(temp(0,i) != 1)
             break;
         else
             ++counter;
@@ -474,8 +474,8 @@ PolynomHandler::Polynom<PolynomType> PolynomHandler::operator/ (ScalarType lhs, 
 template<typename PolynomType>
 LinAlg::Matrix< PolynomHandler::Polynom<PolynomType> > PolynomHandler::operator/ (LinAlg::Matrix< PolynomHandler::Polynom<PolynomType> > lhs, const PolynomHandler::Polynom<PolynomType> &rhs)
 {
-    for(unsigned i = 1; i <= lhs.getNumberOfRows(); ++i)
-        for(unsigned j = 1; j <= lhs.getNumberOfColumns(); ++j)
+    for(unsigned i = 0; i < lhs.getNumberOfRows(); ++i)
+        for(unsigned j = 0; j < lhs.getNumberOfColumns(); ++j)
             lhs(i,j) /= rhs;
     return lhs;
 }
@@ -483,9 +483,9 @@ LinAlg::Matrix< PolynomHandler::Polynom<PolynomType> > PolynomHandler::operator/
 template <typename Type>
 LinAlg::Matrix<Type> PolynomHandler::zerosElimination(LinAlg::Matrix<Type> smallPoly)
 {
-    for(unsigned i = 1; i < smallPoly.getNumberOfColumns(); ++i){
-        if(smallPoly(1,i) == 0){
-            smallPoly.removeColumn(1);
+    for(unsigned i = 0; i < smallPoly.getNumberOfColumns(); ++i){
+        if(smallPoly(0,i) == 0){
+            smallPoly.removeColumn(0);
             i =0;
         }
         else
@@ -500,10 +500,10 @@ LinAlg::Matrix<Type> PolynomHandler::derivate(const LinAlg::Matrix<Type> &smallP
     if(smallPoly.getNumberOfColumns() > 1)
     {
         LinAlg::Matrix<Type> derivatedSmallPoly(smallPoly.getNumberOfRows(),smallPoly.getNumberOfColumns()-1);
-        unsigned count = 1;
-        for(unsigned i = smallPoly.getNumberOfColumns()-1; i > 0; --i)
+        unsigned count = 0;
+        for(int i = smallPoly.getNumberOfColumns()-1; i >= 0; --i)
         {
-            derivatedSmallPoly(1,count) = smallPoly(1,count)*i;
+            derivatedSmallPoly(0,count) = smallPoly(0,count)*i;
             count++;
         }
         return derivatedSmallPoly;
@@ -534,28 +534,28 @@ std::string PolynomHandler::printSmallPolynom(LinAlg::Matrix<Type> rhs, const ch
 
     const char plusSignal  = '+';
     const char minusSignal = '-';
-    unsigned Size = rhs.getNumberOfColumns();
+    unsigned Size = rhs.getNumberOfColumns()-1;
 
-    if(Size == 0)
+    if(Size == -1)
         return ret.str();
 
-    for(unsigned i = 1; i <= Size; ++i)
+    for(unsigned i = 0; i <= Size; ++i)
     {
-        if(i != 1 && rhs(1,i) > 0 && Size != 1)
+        if(i != 0 && rhs(0,i) > 0 && Size != 0)
         {
             ret << plusSignal << ' ';
         }
-        else if(rhs(1,i) < 0)
+        else if(rhs(0,i) < 0)
         {
             ret << minusSignal << ' ';
         }
 
-        if(((rhs(1,i) != 1) && (rhs(1,i) > 0)) || ((i == Size) && (rhs(1,i) > 0)))
-            ret << std::setw(2*3+1) << std::setprecision(3) << std::fixed << rhs(1,i);
-        else if((rhs(1,i) != -1 && rhs(1,i) < 0)|| ((i == Size) && (rhs(1,i) < 0)))
-            ret << std::setw(2*3+1) << std::setprecision(3) << std::fixed << -rhs(1,i);
+        if(((rhs(0,i) != 1) && (rhs(0,i) > 0)) || ((i == Size) && (rhs(0,i) > 0)))
+            ret << std::setw(2*3+1) << std::setprecision(3) << std::fixed << rhs(0,i);
+        else if((rhs(0,i) != -1 && rhs(0,i) < 0)|| ((i == Size) && (rhs(0,i) < 0)))
+            ret << std::setw(2*3+1) << std::setprecision(3) << std::fixed << -rhs(0,i);
 
-        if(Size-i > 0 && rhs(1,i) != 0)
+        if(Size-i > 0 && rhs(0,i) != 0)
         {
             ret << variable;
             if(i != Size-1)
@@ -641,7 +641,7 @@ LinAlg::Matrix<Type> PolynomHandler::MultPoly(const LinAlg::Matrix<Type> &lhs, c
     for(unsigned i = 0; i < lhsSize; ++i)
         for(unsigned j = 0; j < rhsSize; ++j)
         {
-            ret(1,i+j+1) += lhs(1,i+1)*rhs(1,j+1);
+            ret(0,i+j) += lhs(0,i)*rhs(0,j);
         }
 
     return ret;
@@ -654,38 +654,35 @@ PolynomHandler::Polynom<Type> PolynomHandler::simplify(const PolynomHandler::Pol
     LinAlg::Matrix<Type> den = P.getDen();
 
     LinAlg::Matrix<Type> numRoots = rootsNewtonBairstow<long double>(num,1e-10);
-//    std::cout << numRoots << std::endl;
     LinAlg::Matrix<Type> denRoots = rootsNewtonBairstow<long double>(den,1e-10);
-//    std::cout << denRoots << std::endl;
 
     unsigned counter = 0;
-    for(unsigned i = 1; i <= numRoots.getNumberOfRows(); ++i){
-        for(unsigned j = 1; j <= denRoots.getNumberOfRows(); ++j)
-            if(fabs(denRoots(j,1) - numRoots(i,1)) < 0.05 && fabs(denRoots(j,2) - numRoots(i,2)) < 0.05)
+    for(unsigned i = 0; i < numRoots.getNumberOfRows(); ++i){
+        for(unsigned j = 0; j < denRoots.getNumberOfRows(); ++j)
+            if(fabs(denRoots(j,0) - numRoots(i,0)) < 0.05 && fabs(denRoots(j,1) - numRoots(i,1)) < 0.05)
             {
                 numRoots.removeRow(i);
 //                numRoots.removeRow(i - counter);
                 denRoots.removeRow(j);
                 ++counter;
-                i = 0;
+                i = -1;
                 break;
             }
         if(i == numRoots.getNumberOfRows() && counter == 0)
             return Polynom<Type>(num,den);
-
     }
 
     LinAlg::Matrix<Type> numPol = Root2Poly(numRoots);
     if(numPol.getNumberOfColumns() == 0)
-        numPol = LinAlg::Matrix<Type>(num(1,1));
+        numPol = LinAlg::Matrix<Type>(num(0,0));
     else
-        numPol *= num(1,1);
+        numPol *= num(0,0);
     LinAlg::Matrix<Type> denPol = Root2Poly(denRoots);
-//    std::cout << denRoots;
     if(denPol.getNumberOfColumns() == 0)
-        denPol = LinAlg::Matrix<Type>(den(1,1));
+        denPol = LinAlg::Matrix<Type>(den(0,0));
     else
-        denPol *= den(1,1);
+        denPol *= den(0,0);
+
     return Polynom<Type>(numPol,denPol);
 }
 
@@ -700,9 +697,9 @@ LinAlg::Matrix<Type> PolynomHandler::Roots(LinAlg::Matrix<Type> smallPoly)
         else
             break;
     }
-    for(unsigned i = 1; i < smallPoly.getNumberOfColumns(); ++i){
-        if(smallPoly(1,i) == 0)
-            smallPoly.removeColumn(1);
+    for(unsigned i = 0; i < smallPoly.getNumberOfColumns()-1; ++i){
+        if(smallPoly(0,i) == 0)
+            smallPoly.removeColumn(0);
         else
             break;
     }
@@ -712,12 +709,12 @@ LinAlg::Matrix<Type> PolynomHandler::Roots(LinAlg::Matrix<Type> smallPoly)
         return LinAlg::Matrix<Type>();
     else if(smallPoly.getNumberOfColumns() == 2){
         LinAlg::Matrix<Type> root(1,2);
-        root(1,1) = -smallPoly(1,2)/smallPoly(1,1);
+        root(0,0) = -smallPoly(0,1)/smallPoly(0,0);
         return root;
     }
     else if(smallPoly.getNumberOfColumns() == 3){
         LinAlg::Matrix<Type> mat(2,2);
-        double a = smallPoly(1,1),b = smallPoly(1,2),c = smallPoly(1,3);
+        double a = smallPoly(0,0),b = smallPoly(0,1),c = smallPoly(0,2);
         double delt = (b*b) - 4 * c * a;
 
         if(delt < 0){
@@ -737,9 +734,9 @@ LinAlg::Matrix<Type> PolynomHandler::Roots(LinAlg::Matrix<Type> smallPoly)
         LinAlg::Matrix<Type>root;
         unsigned numSize = smallPoly.getNumberOfColumns();
         LinAlg::Matrix<Type> poly_Monic(1,numSize-1);
-        for(unsigned j = 2; j <= numSize; ++j)
+        for(unsigned j = 1; j < numSize; ++j)
         {
-            poly_Monic(1,j-1) = -smallPoly(1,j)/smallPoly(1,1);
+            poly_Monic(0,j) = -smallPoly(0,j)/smallPoly(0,0);
         }
 
         root = poly_Monic||(LinAlg::Eye<Type> (numSize-2) | LinAlg::Zeros<Type> (numSize-2,1));
@@ -761,23 +758,23 @@ LinAlg::Matrix<Type> PolynomHandler::rootsNewtonBairstow(LinAlg::Matrix<Type> sm
         unsigned i = 0;
         while (i < 5000)
         {
-            b(1,1) = smallPoly(1,1);
-            b(1,2) = smallPoly(1,2)+alfa*b(1,1);
+            b(0,0) = smallPoly(0,0);
+            b(0,1) = smallPoly(0,1)+alfa*b(0,0);
 
-            for (n = 3; n <= b.getNumberOfColumns(); ++n)
-               b(1,n) = smallPoly(1,n)+alfa*b(1,n-1)+ beta*b(1,n-2);
+            for (n = 2; n < b.getNumberOfColumns(); ++n)
+               b(0,n) = smallPoly(0,n)+alfa*b(0,n-1)+ beta*b(0,n-2);
 
-            c(1,1) = b(1,1);
-            c(1,2) = b(1,2)+alfa*c(1,1);
-            for (n = 3; n <= c.getNumberOfColumns(); ++n)
-                c(1,n) = b(1,n)+alfa*c(1,n-1)+ beta*c(1,n-2);
+            c(0,0) = b(0,0);
+            c(0,1) = b(0,1)+alfa*c(0,0);
+            for (n = 2; n < c.getNumberOfColumns(); ++n)
+                c(0,n) = b(0,n)+alfa*c(0,n-1)+ beta*c(0,n-2);
 
-            n = b.getNumberOfColumns();
-            if(fabsl(b(1,n))+fabsl(b(1,n-1)) <= tolerance)
+            n = b.getNumberOfColumns()-1;
+            if(fabsl(b(0,n))+fabsl(b(0,n-1)) <= tolerance)
                 break;
 
-            alfa -= (1/((c(1,n-2)*(c(1,n-2)))-c(1,n-1)*c(1,n-3)))*(c(1,n-2)*b(1,n-1)-c(1,n-3)*b(1,n));
-            beta -= (1/((c(1,n-2)*(c(1,n-2)))-c(1,n-1)*c(1,n-3)))*(c(1,n-2)*b(1,n)-c(1,n-1)*b(1,n-1));
+            alfa -= (1/((c(0,n-2)*(c(0,n-2)))-c(0,n-1)*c(0,n-3)))*(c(0,n-2)*b(0,n-1)-c(0,n-3)*b(0,n));
+            beta -= (1/((c(0,n-2)*(c(0,n-2)))-c(0,n-1)*c(0,n-3)))*(c(0,n-2)*b(0,n)-c(0,n-1)*b(0,n-1));
             ++i;
         }
 
@@ -785,41 +782,41 @@ LinAlg::Matrix<Type> PolynomHandler::rootsNewtonBairstow(LinAlg::Matrix<Type> sm
         Type delta = alfa*alfa + 4*beta;
         if(delta >= 0 )
         {
-            roots(1,1) = (alfa + sqrt(delta))/2;
-            roots(1,2) = (alfa - sqrt(delta))/2;
+            roots(0,0) = (alfa + sqrt(delta))/2;
+            roots(0,1) = (alfa - sqrt(delta))/2;
         }
         else
         {
-            roots(1,1) = alfa/2;
-            roots(1,2) = alfa/2;
-            roots(2,1) = sqrt(-delta)/2;
-            roots(2,2) = -sqrt(-delta)/2;
+            roots(0,0) = alfa/2;
+            roots(0,1) = alfa/2;
+            roots(1,0) = sqrt(-delta)/2;
+            roots(1,1) = -sqrt(-delta)/2;
         }
         ret = ret|roots;
-        smallPoly = b(1,from(1)-->b.getNumberOfColumns()-2);
+        smallPoly = b(0,from(0)-->b.getNumberOfColumns()-3);
     }
 
     if(smallPoly.getNumberOfColumns() == 2)
     {
         LinAlg::Matrix<Type> root(2,1);
-        root(1,1) = -smallPoly(1,2)/smallPoly(1,1);
+        root(0,0) = -smallPoly(0,1)/smallPoly(0,0);
         ret = ret|root;
     }
     else
     {
         LinAlg::Matrix<Type> roots(2,2);
-        Type delta = smallPoly(1,2)*smallPoly(1,2) - 4*smallPoly(1,1)*smallPoly(1,3);
+        Type delta = smallPoly(0,1)*smallPoly(0,1) - 4*smallPoly(0,0)*smallPoly(0,2);
         if(delta >= 0 )
         {
-            roots(1,1) = (-smallPoly(1,2) + sqrt(delta))/(2*smallPoly(1,1));
-            roots(1,2) = (-smallPoly(1,2) - sqrt(delta))/(2*smallPoly(1,1));
+            roots(0,0) = (-smallPoly(0,1) + sqrt(delta))/(2*smallPoly(0,0));
+            roots(0,1) = (-smallPoly(0,1) - sqrt(delta))/(2*smallPoly(0,0));
         }
         else
         {
-            roots(1,1) = -smallPoly(1,2)/(2*smallPoly(1,1));
-            roots(1,2) = -smallPoly(1,2)/(2*smallPoly(1,1));
-            roots(2,1) = sqrt(-delta)/(2*smallPoly(1,1));
-            roots(2,2) = -sqrt(-delta)/(2*smallPoly(1,1));
+            roots(0,0) = -smallPoly(0,1)/(2*smallPoly(0,0));
+            roots(0,1) = -smallPoly(0,1)/(2*smallPoly(0,0));
+            roots(1,0) = sqrt(-delta)/(2*smallPoly(0,0));
+            roots(1,1) = -sqrt(-delta)/(2*smallPoly(0,0));
         }
         ret = ret|roots;
     }
@@ -837,20 +834,20 @@ LinAlg::Matrix<Type> PolynomHandler::Root2Poly(const LinAlg::Matrix<Type> &root)
     LinAlg::Matrix<Type> ret(1,n+1);
     std::complex<Type> *tempPoly = new std::complex<Type> [2]();
     tempPoly[0] = 1;
-    tempPoly[1] = std::complex<Type>(-root(1,1),-root(1,2));
+    tempPoly[1] = std::complex<Type>(-root(0,0),-root(0,1));
     std::complex<Type> * tempRoot = new std::complex<Type>[2]();
 
     unsigned sizeTempPoly = 2;
     tempRoot[0] = 1;
-    for(unsigned i = 2; i <= n ; ++i)
+    for(unsigned i = 1; i < n ; ++i)
     {
-        tempRoot[1] = std::complex<Type>(-root(i,1),-root(i,2));//apos o templade entre (real,imaginario) atribuição
+        tempRoot[1] = std::complex<Type>(-root(i,0),-root(i,1));//apos o templade entre (real,imaginario) atribuição
         tempPoly = PolynomHandler::MultPoly(tempPoly,tempRoot,sizeTempPoly,2);
         sizeTempPoly++;
     }
     for(unsigned i = 0; i < sizeTempPoly; ++i)
     {
-        ret(1,i+1) = tempPoly[i].real();
+        ret(0,i) = tempPoly[i].real();
     }
     return ret;
 }
@@ -858,9 +855,9 @@ LinAlg::Matrix<Type> PolynomHandler::Root2Poly(const LinAlg::Matrix<Type> &root)
 template <typename Type>
 bool PolynomHandler::rootsContainRoot(const Type &root, const LinAlg::Matrix<Type> &roots)
 {
-    for(unsigned i = 1; i <= roots.getNumberOfRows(); ++i)
+    for(unsigned i = 0; i < roots.getNumberOfRows(); ++i)
     {
-        if(root == roots(1,i))
+        if(root == roots(0,i))
             return 1;
     }
     return 0;

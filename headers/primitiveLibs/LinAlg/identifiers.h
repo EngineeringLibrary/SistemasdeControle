@@ -3,38 +3,38 @@
 
 namespace Identifiers{
     struct to{
-        to(unsigned interval) : interval(interval) {}
+        to(int interval) : interval(interval) {}
 
-        unsigned interval;
+        int interval;
     };
     struct from{
-        from(unsigned interval) : interval(interval) {}
+        from(int interval) : interval(interval) {}
 
-        unsigned interval;
+        int interval;
 
-        unsigned* operator > (to b){
-            unsigned* ret = new unsigned[2];
+        int* operator > (to b){
+            int* ret = new int[2];
             ret[0] = this->interval;
             ret[1] = b.interval;
             return ret;
         }
 
-        unsigned* operator > (unsigned b){
-            unsigned* ret = new unsigned[2];
+        int* operator > (int b){
+            int* ret = new int[2];
             ret[0] = this->interval;
             ret[1] = b;
             return ret;
         }
 
-        unsigned operator- (unsigned b){
+        int operator- (int b){
             return this->interval - b;
         }
 
-        unsigned operator+ (unsigned b){
+        int operator+ (int b){
             return this->interval + b;
         }
 
-        void operator = (unsigned b){
+        void operator = (int b){
             this->interval = b;
         }
 

@@ -10,10 +10,10 @@ ModelHandler::TransferFunction<Type> ModelHandler::ss2tf(const ModelHandler::Sta
     if(SS.isContinuous())
     {
         ModelHandler::TransferFunction<Type> TF(SS.getC().getNumberOfRows(), SS.getB().getNumberOfColumns());
-        for(unsigned i = 1; i <= TF.getNumberOfRows(); ++i){
-            for(unsigned j = 1; j <= TF.getNumberOfColumns(); ++j){
+        for(unsigned i = 0; i < TF.getNumberOfRows(); ++i){
+            for(unsigned j = 0; j < TF.getNumberOfColumns(); ++j){
                 ModelHandler::StateSpace<Type> SStemp(SS.getA(),SS.getB().getColumn(j), SS.getC().getRow(i), SS.getD().getRow(i));
-                TF(i,j) = ModelHandler::ss2tfSISO(SStemp)(1,1);
+                TF(i,j) = ModelHandler::ss2tfSISO(SStemp)(0,0);
     //            std::cout << TF << SStemp;
             }
         }
@@ -24,10 +24,10 @@ ModelHandler::TransferFunction<Type> ModelHandler::ss2tf(const ModelHandler::Sta
     {
 
             ModelHandler::TransferFunction<Type> TF(SS.getC().getNumberOfRows(), SS.getB().getNumberOfColumns(),SS.getSampleTime());
-            for(unsigned i = 1; i <= TF.getNumberOfRows(); ++i){
-                for(unsigned j = 1; j <= TF.getNumberOfColumns(); ++j){
+            for(unsigned i = 0; i < TF.getNumberOfRows(); ++i){
+                for(unsigned j = 0; j < TF.getNumberOfColumns(); ++j){
                     ModelHandler::StateSpace<Type> SStemp(SS.getA(),SS.getB().getColumn(j), SS.getC().getRow(i), SS.getD().getRow(i),SS.getSampleTime());
-                    TF(i,j) = ModelHandler::ss2tfSISO(SStemp)(1,1);
+                    TF(i,j) = ModelHandler::ss2tfSISO(SStemp)(0,0);
         //            std::cout << TF << SStemp;
                 }
             }
@@ -49,12 +49,12 @@ ModelHandler::TransferFunction<Type> ModelHandler::ss2tfSISO(const ModelHandler:
     Matrix<Type> C = SS.getC();
     Matrix<Type> D = SS.getD();
 
-    std::cout << A << " \n" << B << " \n" << C << " \n";
-    std::cout << characteristicPolynom(A - B*C) - characteristicPolynom(A) << " \n";
-    std::cout << characteristicPolynom(A) << " \n";
+    //std::cout << A << " \n" << B << " \n" << C << " \n";
+    //std::cout << characteristicPolynom(A - B*C) - characteristicPolynom(A) << " \n";
+    //std::cout << characteristicPolynom(A) << " \n";
 
     TransferFunction<Type> TF = Polynom<Type>(characteristicPolynom(A - B*C) - characteristicPolynom(A), characteristicPolynom(A));
-    TF(1,1).setNum(TF(1,1).getNum()); TF(1,1).setDen(TF(1,1).getDen());
+    TF(0,0).setNum(TF(0,0).getNum()); TF(0,0).setDen(TF(0,0).getDen());
    // std::cout << TF; std::cout << std::endl;
     TF.setContinuous(SS.isContinuous());
     if(!SS.isContinuous())
@@ -156,31 +156,31 @@ ModelHandler::StateSpace<Type> ModelHandler::arx2SS(const ARX<Type> &Arx)
 template <typename Type>
 ModelHandler::StateSpace<Type> ModelHandler::tf2ss(const ModelHandler::TransferFunction<Type> &TF)
 {
-    ModelHandler::TransferFunction<Type> TFtemp = TF(1,1); TFtemp.setContinuous(TF.isContinuous()); TFtemp.setSampleTime(TF.getSampleTime());// pensar em um jeito de fazer a igualdade de pol com tf
+    ModelHandler::TransferFunction<Type> TFtemp = TF(0,0); TFtemp.setContinuous(TF.isContinuous()); TFtemp.setSampleTime(TF.getSampleTime());// pensar em um jeito de fazer a igualdade de pol com tf
     //std::cout << TFtemp; std::cout << std::endl;
     ModelHandler::StateSpace<Type> SS = ModelHandler::tf2ssSISO(TFtemp);
     SS.setContinuous(TF.isContinuous());
     LinAlg::Matrix<Type> ZeroDireita, ZeroAbaixo;
 
-    for(unsigned i = 1; i <= TF.getNumberOfRows(); ++i)
+    for(unsigned i = 0; i < TF.getNumberOfRows(); ++i)
     {
         LinAlg::Matrix<Type> Btemp;
         LinAlg::Matrix<Type> Ctemp;
         LinAlg::Matrix<Type> Dtemp;
 
-        for(unsigned j = 1; j <= TF.getNumberOfColumns(); ++j)
+        for(unsigned j = 0; j < TF.getNumberOfColumns(); ++j)
         {
             TFtemp = TF(i,j); TFtemp.setContinuous(TF.isContinuous()); TFtemp.setSampleTime(TF.getSampleTime());// pensar em um jeito de fazer a igualdade de pol com tf
             //std::cout << TFtemp; std::cout << std::endl;
             ModelHandler::StateSpace<Type> SStemp = ModelHandler::tf2ssSISO(TFtemp);
-            if(i != 1 || j != 1)//monta A
+            if(i != 0 || j != 0)//monta A
             {
                 ZeroDireita = LinAlg::Zeros<Type> (SS.getA().getNumberOfRows(),SStemp.getA().getNumberOfColumns());
                 ZeroAbaixo  = LinAlg::Zeros<Type> (SStemp.getA().getNumberOfRows(),SS.getA().getNumberOfColumns());
                 SS.setA((SS.getA()|ZeroDireita) || (ZeroAbaixo|SStemp.getA()));
             }
 
-            if(j == 1) // Monta B, C e D
+            if(j == 0) // Monta B, C e D
             {
                 Btemp = SStemp.getB();
                 Ctemp = SStemp.getC();
@@ -196,7 +196,7 @@ ModelHandler::StateSpace<Type> ModelHandler::tf2ss(const ModelHandler::TransferF
                 Dtemp = (Dtemp) | (SStemp.getD());
             }
         }
-        if(i == 1) // Monta B, C e D
+        if(i == 0) // Monta B, C e D
         {
             SS.setB(Btemp);
             SS.setC(Ctemp);
@@ -222,14 +222,14 @@ ModelHandler::StateSpace<Type> ModelHandler::tf2ss(const ModelHandler::TransferF
 template <typename Type>
 ModelHandler::StateSpace<Type> ModelHandler::tf2ssSISO(const ModelHandler::TransferFunction<Type> &TF)
 {
-    unsigned TFdenCols = TF(1,1).getDenSize() - 1;
+    unsigned TFdenCols = TF(0,0).getDenSize()-1;
     LinAlg::Matrix<Type> I = LinAlg::Eye<Type> (TFdenCols - 1);
     LinAlg::Matrix<Type> den(1, TFdenCols);
     LinAlg::Matrix<Type> ZeroVector = LinAlg::Zeros<Type> (TFdenCols - 1, 1);
 
-    for (unsigned i = 1; i <= TFdenCols; ++i)
+    for (unsigned i = 0; i < TFdenCols; ++i)
     {
-        den(1, i) = -(TF(1,1).getDen()(1, TFdenCols + 2 - i));
+        den(0, i) = -(TF(0,0).getDen()(0, TFdenCols - i));
     }
 
     //std::cout << TF(1,1).getDen();
@@ -239,16 +239,16 @@ ModelHandler::StateSpace<Type> ModelHandler::tf2ssSISO(const ModelHandler::Trans
     LinAlg::Matrix<Type> B = LinAlg::Zeros<Type>(A.getNumberOfRows() - 1, 1)||LinAlg::Matrix<Type>(1); //std::cout << B;
 
     LinAlg::Matrix<Type> D(1,1);
-    if(TF(1,1).getNumSize() == TF(1,1).getDenSize())
-        D(1,1) = TF(1,1).getNum()(1,1);
+    if(TF(0,0).getNumSize() == TF(0,0).getDenSize())
+        D(0,0) = TF(0,0).getNum()(0,0);
     //std::cout << D;
     LinAlg::Matrix<Type> C = LinAlg::Zeros<Type>(1, A.getNumberOfColumns());
-    for(unsigned i = 1; i <= TF(1,1).getNumSize(); ++i)
-        C(1,i) = TF(1,1).getNum()(1, TF(1,1).getNumSize() - i + 1);
-    //std::cout << C;
-     for (unsigned i = 1; i <= A.getNumberOfColumns(); ++i)
-        C(1,i) = C(1,i) - (TF(1,1).getDen()(1, TFdenCols + 2 - i))* D(1,1);
-    //std::cout << C;
+    for(unsigned i = 0; i < TF(0,0).getNumSize(); ++i)
+        C(0,i) = TF(0,0).getNum()(0, TF(0,0).getNumSize() - 1 - i);
+    //std::cout << C << std::endl;
+     for (unsigned i = 0; i < A.getNumberOfColumns(); ++i)
+        C(0,i) = C(0,i) - (TF(0,0).getDen()(0, TFdenCols - i))* D(0,0);
+    //std::cout << C<< std::endl;
 
     if(!TF.isContinuous())
     {
@@ -267,11 +267,11 @@ ModelHandler::ARX<Type> ModelHandler::tf2arxSISO(const ModelHandler::TransferFun
     else
         TFd = TF;
 
-    unsigned inputSize  = TFd(1,1).getNum().getNumberOfColumns();
-    unsigned outputSize = TFd(1,1).getDen().getNumberOfColumns();
+    unsigned inputSize  = TFd(0,0).getNum().getNumberOfColumns();
+    unsigned outputSize = TFd(0,0).getDen().getNumberOfColumns();
 
     ModelHandler::ARX<Type> arx(outputSize-1,inputSize,0,1,1,step);
-    LinAlg::Matrix<Type> ModelCoef = (TFd(1,1).getDen()(1,from(2)-->outputSize))|TFd(1,1).getNum();
+    LinAlg::Matrix<Type> ModelCoef = (TFd(0,0).getDen()(0,from(1)-->outputSize-1))|TFd(0,0).getNum();
     arx.setModelCoef(~ModelCoef);
 
     return arx;
@@ -336,9 +336,9 @@ template<typename Type>
 ModelHandler::TransferFunction<Type> ModelHandler::c2d(const TransferFunction<Type>& TF, Type sampleTime)
 {
     StateSpace<Type> SS = tf2ss(TF);
-//    std::cout << SS;
+    //std::cout << SS << std::endl;
     SS = ModelHandler::c2d(SS, sampleTime);
-//    std::cout << SS;
+    //std::cout << SS<< std::endl;
     TransferFunction<Type> TFr = ModelHandler::ss2tf(SS);
 
 //    std::cout << TFr << std::endl;
