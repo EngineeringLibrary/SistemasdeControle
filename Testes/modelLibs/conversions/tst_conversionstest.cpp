@@ -44,22 +44,22 @@ void ConversionsTest::ss2tf()
         tf = ModelHandler::ss2tf(SS);
     }
 
-    LinAlg::Matrix<double> numTF1 = tf(1,1).getNum();
-    LinAlg::Matrix<double> denTF1 = tf(1,1).getDen();
-    LinAlg::Matrix<double> numTF2 = tf(1,2).getNum();
-    LinAlg::Matrix<double> denTF2 = tf(1,2).getDen();
+    LinAlg::Matrix<double> numTF1 = tf(0,0).getNum();
+    LinAlg::Matrix<double> denTF1 = tf(0,0).getDen();
+    LinAlg::Matrix<double> numTF2 = tf(0,1).getNum();
+    LinAlg::Matrix<double> denTF2 = tf(0,1).getDen();
 
-    QVERIFY2(fabs(numTF1(1,1)) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(numTF1(1,2) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,1) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,2) - 2) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,3) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF1(0,0)) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF1(0,1) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,0) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,1) - 2) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,2) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
 
-    QVERIFY2(fabs(numTF2(1,1) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(numTF2(1,2) - 2) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF2(1,1) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF2(1,2) - 2) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF2(1,3) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF2(0,0) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF2(0,1) - 2) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF2(0,0) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF2(0,1) - 2) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF2(0,2) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
 
 //    std::string str; str << tf;
 //    std::cout << str << std::endl;
@@ -75,14 +75,14 @@ void ConversionsTest::ss2tfSISO()
         tf = ModelHandler::ss2tfSISO(SS);
     }
 
-    LinAlg::Matrix<double> numTF1 = tf(1,1).getNum();
-    LinAlg::Matrix<double> denTF1 = tf(1,1).getDen();
+    LinAlg::Matrix<double> numTF1 = tf(0,0).getNum();
+    LinAlg::Matrix<double> denTF1 = tf(0,0).getDen();
 
-    QVERIFY2(fabs(numTF1(1,1)) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(numTF1(1,2) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,1) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,2) - 2) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,3) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF1(0,0)) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF1(0,1) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,0) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,1) - 2) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,2) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
 //    std::string str; str << tf;
 //    std::cout << str << std::endl;
 }
@@ -96,22 +96,22 @@ void ConversionsTest::arx2tf()
         tf = ModelHandler::arx2tf(arx);
     }
 
-    LinAlg::Matrix<double> numTF1 = tf(1,1).getNum();
-    LinAlg::Matrix<double> denTF1 = tf(1,1).getDen();
-    LinAlg::Matrix<double> numTF2 = tf(1,2).getNum();
-    LinAlg::Matrix<double> denTF2 = tf(1,2).getDen();
+    LinAlg::Matrix<double> numTF1 = tf(0,0).getNum();
+    LinAlg::Matrix<double> denTF1 = tf(0,0).getDen();
+    LinAlg::Matrix<double> numTF2 = tf(0,1).getNum();
+    LinAlg::Matrix<double> denTF2 = tf(0,1).getDen();
 
-    QVERIFY2(fabs(numTF1(1,1) - 0.094) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(numTF1(1,2) - 0.088) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,1) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,2) + 1.810) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,3) - 0.819 ) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF1(0,0) - 0.094) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF1(0,1) - 0.088) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,0) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,1) + 1.810) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,2) - 0.819 ) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
 
-    QVERIFY2(fabs(numTF2(1,1) - 0.074) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(numTF2(1,2) - 0.058) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF2(1,1) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF2(1,2) + 1.810) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF2(1,3) - 0.819) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF2(0,0) - 0.074) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF2(0,1) - 0.058) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF2(0,0) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF2(0,1) + 1.810) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF2(0,2) - 0.819) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
 //    std::string str; str << tf;
 //    std::cout << str << std::endl;
 }
@@ -143,8 +143,8 @@ void ConversionsTest::tf2ss()
 {
     ModelHandler::StateSpace<double> SS;
     ModelHandler::TransferFunction<double> tf(1,2);
-    tf(1,1) = PolynomHandler::Polynom<double>(1,"1,2,1");
-    tf(1,2) = PolynomHandler::Polynom<double>("1,2","1,2,1");
+    tf(0,0) = PolynomHandler::Polynom<double>(1,"1,2,1");
+    tf(0,1) = PolynomHandler::Polynom<double>("1,2","1,2,1");
     QBENCHMARK {
         SS = ModelHandler::tf2ss(tf);
     }
@@ -157,7 +157,7 @@ void ConversionsTest::tf2ssSISO()
 {
     ModelHandler::StateSpace<double> SS;
     ModelHandler::TransferFunction<double> tf(1,1);
-    tf(1,1) = PolynomHandler::Polynom<double>(1,"1,2,1");
+    tf(0,0) = PolynomHandler::Polynom<double>(1,"1,2,1");
     QBENCHMARK {
         SS = ModelHandler::tf2ss(tf);
     }
@@ -179,7 +179,7 @@ void ConversionsTest::tf2ssSISO()
 void ConversionsTest::tf2arxSISO()
 {
     ModelHandler::TransferFunction<double> tf(1,1);
-    tf(1,1) = PolynomHandler::Polynom<double>(1,"1,2,1");
+    tf(0,0) = PolynomHandler::Polynom<double>(1,"1,2,1");
     ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(tf,0.1);
     QBENCHMARK {
         ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(tf,0.1);
@@ -194,7 +194,7 @@ void ConversionsTest::tf2arxSISO()
 void ConversionsTest::c2dCase1()
 {
     ModelHandler::TransferFunction<double> tf(1,1),tfd(1,1);
-    tf(1,1) = PolynomHandler::Polynom<double>(1,"1,2,1");
+    tf(0,0) = PolynomHandler::Polynom<double>(1,"1,2,1");
     QBENCHMARK {
         tfd = ModelHandler::c2d(tf,0.1);
     }
@@ -202,11 +202,11 @@ void ConversionsTest::c2dCase1()
     LinAlg::Matrix<double> numTF1 = tfd(1,1).getNum();
     LinAlg::Matrix<double> denTF1 = tfd(1,1).getDen();
 
-    QVERIFY2(fabs(numTF1(1,1)- 0.00467884) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(numTF1(1,2) - 0.00437708) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,1) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,2) + 1.80967) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
-    QVERIFY2(fabs(denTF1(1,3) - 0.818731) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF1(0,0)- 0.00467884) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(numTF1(0,1) - 0.00437708) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,0) - 1) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,1) + 1.80967) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
+    QVERIFY2(fabs(denTF1(0,2) - 0.818731) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
 
 //    std::string str; str << tfd;
 //    std::cout << str << std::endl;

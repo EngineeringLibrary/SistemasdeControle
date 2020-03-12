@@ -97,9 +97,9 @@ void ArxDoubleTest::voidConstructorCase1()
     QVERIFY2(arx.getNumberOfOutputs()   == 1, "Falha ao testar o numero de saidas do modelo arx");
     QVERIFY2(arx.getNumberOfVariables() == 2, "Falha ao testar o numero de variaveis do modelo arx");
     QVERIFY2(arx.getStep() == 0.1, "Falha ao testar o periodo de amostragem do modelo arx");
-    QVERIFY2(arx.getModelCoef()(1,1) == 0 && arx.getModelCoef()(2,1) == 0, "Falha ao testar os parametros do modelo arx");
-    QVERIFY2(arx.getInputMatrix()(1,1) == 0, "Falha ao testar as entradas do modelo arx");
-    QVERIFY2(arx.getOutputMatrix()(1,1) == 0, "Falha ao testar as saidas do modelo arx");
+    QVERIFY2(arx.getModelCoef()(0,0) == 0 && arx.getModelCoef()(1,0) == 0, "Falha ao testar os parametros do modelo arx");
+    QVERIFY2(arx.getInputMatrix()(0,0) == 0, "Falha ao testar as entradas do modelo arx");
+    QVERIFY2(arx.getOutputMatrix()(0,0) == 0, "Falha ao testar as saidas do modelo arx");
     QVERIFY2(arx.getSingleOutput() == 0, "Falha ao testar as saidas do modelo arx");
 }
 
@@ -115,9 +115,9 @@ void ArxDoubleTest::voidConstructorCase2()
     QVERIFY2(M->getNumberOfOutputs()   == 1, "Falha ao testar o numero de saidas do modelo arx");
     QVERIFY2(M->getNumberOfVariables() == 2, "Falha ao testar o numero de variaveis do modelo arx");
     QVERIFY2(M->getStep() == 0.1, "Falha ao testar o periodo de amostragem do modelo arx");
-    QVERIFY2(M->getModelCoef()(1,1) == 0 && M->getModelCoef()(2,1) == 0, "Falha ao testar os parametros do modelo arx");
-    QVERIFY2(M->getInputMatrix()(1,1) == 0, "Falha ao testar as entradas do modelo arx");
-    QVERIFY2(M->getOutputMatrix()(1,1) == 0, "Falha ao testar as saidas do modelo arx");
+    QVERIFY2(M->getModelCoef()(0,0) == 0 && M->getModelCoef()(1,0) == 0, "Falha ao testar os parametros do modelo arx");
+    QVERIFY2(M->getInputMatrix()(0,0) == 0, "Falha ao testar as entradas do modelo arx");
+    QVERIFY2(M->getOutputMatrix()(0,0) == 0, "Falha ao testar as saidas do modelo arx");
     QVERIFY2(M->getSingleOutput() == 0, "Falha ao testar as saidas do modelo arx");
 }
 
@@ -133,10 +133,10 @@ void ArxDoubleTest::voidConstructorCase3()
     QVERIFY2(arx.getNumberOfOutputs()   == 1, "Falha ao testar o numero de saidas do modelo arx");
     QVERIFY2(arx.getNumberOfVariables() == 4, "Falha ao testar o numero de variaveis do modelo arx");
     QVERIFY2(arx.getStep() == 0.1, "Falha ao testar o periodo de amostragem do modelo arx");
-    QVERIFY2(arx.getModelCoef()(1,1) == 0 && arx.getModelCoef()(2,1) == 0 &&
-             arx.getModelCoef()(3,1) == 0 && arx.getModelCoef()(4,1) == 0, "Falha ao testar os parametros do modelo arx");
-    QVERIFY2(arx.getInputMatrix()(1,1) == 0 && arx.getInputMatrix()(1,2) == 0, "Falha ao testar as entradas do modelo arx");
-    QVERIFY2(arx.getOutputMatrix()(1,1) == 0 && arx.getOutputMatrix()(1,2) == 0, "Falha ao testar as saidas do modelo arx");
+    QVERIFY2(arx.getModelCoef()(0,0) == 0 && arx.getModelCoef()(1,0) == 0 &&
+             arx.getModelCoef()(2,0) == 0 && arx.getModelCoef()(3,0) == 0, "Falha ao testar os parametros do modelo arx");
+    QVERIFY2(arx.getInputMatrix()(0,0) == 0 && arx.getInputMatrix()(0,1) == 0, "Falha ao testar as entradas do modelo arx");
+    QVERIFY2(arx.getOutputMatrix()(0,0) == 0 && arx.getOutputMatrix()(0,1) == 0, "Falha ao testar as saidas do modelo arx");
     QVERIFY2(arx.getSingleOutput() == 0, "Falha ao testar as saidas do modelo arx");
     QVERIFY2(arx.getNumberOfInputDelays()  == 2, "Falha ao testar o numero de atrasos das entradas do modelo arx");
     QVERIFY2(arx.getNumberOfOutputDelays() == 2, "Falha ao testar o numero de atrasos das saidas do modelo arx");
@@ -157,10 +157,10 @@ void ArxDoubleTest::voidConstructorCase4()
     QVERIFY2(M->getNumberOfOutputs()   == 1, "Falha ao testar o numero de saidas do modelo arx");
     QVERIFY2(M->getNumberOfVariables() == 4, "Falha ao testar o numero de variaveis do modelo arx");
     QVERIFY2(M->getStep() == 0.1, "Falha ao testar o periodo de amostragem do modelo arx");
-    QVERIFY2(M->getModelCoef()(1,1) == 0 && M->getModelCoef()(2,1) == 0 &&
-             M->getModelCoef()(3,1) == 0 && M->getModelCoef()(4,1) == 0, "Falha ao testar os parametros do modelo arx");
-    QVERIFY2(M->getInputMatrix()(1,1) == 0 && M->getInputMatrix()(1,2) == 0, "Falha ao testar as entradas do modelo arx");
-    QVERIFY2(M->getOutputMatrix()(1,1) == 0 && M->getOutputMatrix()(1,2) == 0, "Falha ao testar as saidas do modelo arx");
+    QVERIFY2(M->getModelCoef()(0,0) == 0 && M->getModelCoef()(1,0) == 0 &&
+             M->getModelCoef()(2,0) == 0 && M->getModelCoef()(3,0) == 0, "Falha ao testar os parametros do modelo arx");
+    QVERIFY2(M->getInputMatrix()(0,0) == 0 && M->getInputMatrix()(0,1) == 0, "Falha ao testar as entradas do modelo arx");
+    QVERIFY2(M->getOutputMatrix()(0,0) == 0 && M->getOutputMatrix()(0,1) == 0, "Falha ao testar as saidas do modelo arx");
     QVERIFY2(M->getSingleOutput() == 0, "Falha ao testar as saidas do modelo arx");
 }
 
@@ -191,14 +191,14 @@ void ArxDoubleTest::voidConstructorCase6()
     QVERIFY2(M->getNumberOfOutputs()   == 2, "Falha ao testar o numero de saidas do modelo arx");
     QVERIFY2(M->getNumberOfVariables() == 8, "Falha ao testar o numero de variaveis do modelo arx");
     QVERIFY2(M->getStep() == 0.1, "Falha ao testar o periodo de amostragem do modelo arx");
-    QVERIFY2(M->getModelCoef()(1,1) == 0 && M->getModelCoef()(2,1) == 0 &&
-             M->getModelCoef()(3,1) == 0 && M->getModelCoef()(4,1) == 0, "Falha ao testar os parametros do modelo arx");
-    QVERIFY2(M->getModelCoef()(1,2) == 0 && M->getModelCoef()(2,2) == 0 &&
-             M->getModelCoef()(3,2) == 0 && M->getModelCoef()(4,2) == 0, "Falha ao testar os parametros do modelo arx");
-    QVERIFY2(M->getInputMatrix()(1,1) == 0 && M->getInputMatrix()(1,2) == 0, "Falha ao testar as entradas do modelo arx");
-    QVERIFY2(M->getInputMatrix()(2,1) == 0 && M->getInputMatrix()(2,2) == 0, "Falha ao testar as entradas do modelo arx");
-    QVERIFY2(M->getOutputMatrix()(1,1) == 0 && M->getOutputMatrix()(1,2) == 0, "Falha ao testar as saidas do modelo arx");
-    QVERIFY2(M->getOutputMatrix()(2,1) == 0 && M->getOutputMatrix()(2,2) == 0, "Falha ao testar as saidas do modelo arx");
+    QVERIFY2(M->getModelCoef()(0,0) == 0 && M->getModelCoef()(1,0) == 0 &&
+             M->getModelCoef()(2,0) == 0 && M->getModelCoef()(3,0) == 0, "Falha ao testar os parametros do modelo arx");
+    QVERIFY2(M->getModelCoef()(0,1) == 0 && M->getModelCoef()(1,1) == 0 &&
+             M->getModelCoef()(2,1) == 0 && M->getModelCoef()(3,1) == 0, "Falha ao testar os parametros do modelo arx");
+    QVERIFY2(M->getInputMatrix()(0,0) == 0 && M->getInputMatrix()(0,1) == 0, "Falha ao testar as entradas do modelo arx");
+    QVERIFY2(M->getInputMatrix()(1,0) == 0 && M->getInputMatrix()(1,1) == 0, "Falha ao testar as entradas do modelo arx");
+    QVERIFY2(M->getOutputMatrix()(0,0) == 0 && M->getOutputMatrix()(0,1) == 0, "Falha ao testar as saidas do modelo arx");
+    QVERIFY2(M->getOutputMatrix()(1,0) == 0 && M->getOutputMatrix()(1,1) == 0, "Falha ao testar as saidas do modelo arx");
     QVERIFY2(M->getSingleOutput() == 0, "Falha ao testar as saidas do modelo arx");
 }
 
@@ -357,7 +357,7 @@ void ArxDoubleTest::stringConversionCase1()
     ModelHandler::TransferFunction<double> TF("20","1,2,1");
     ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TF,0.1);
 
-    //std::cout << arx.print();
+    //std::cout << arx.print() << "\n";
     QBENCHMARK {
         arx.print();
     }
@@ -831,9 +831,9 @@ void ArxDoubleTest::getLinearVectorA()
 
     LinAlg::Matrix<double> Acorreto = "-0,     -0,  0.430,      0; -0.020,     -0,  0.430,  0.430; -0.075, -0.020,  0.430,  0.430; -0.159, -0.075,  0.430,  0.430; -0.265, -0.159,  0.430,  0.430; -0.388, -0.265,  0.430,  0.430; -0.524, -0.388,  0.430,  0.430; -0.670, -0.524,  0.430,  0.430; -0.822, -0.670,  0.430,  0.430";
 
-    for(unsigned i = 1; i < 10; ++i)
+    for(unsigned i = 0; i < 9; ++i)
     {
-        RLS.Optimize(U(1,i),Y(1,i+1));
+        RLS.Optimize(U(0,i),Y(0,i+1));
         QVERIFY2(LinAlg::isEqual(arx.getLinearVectorA(),Acorreto.getRow(i),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
     }
 }
@@ -853,9 +853,9 @@ void ArxDoubleTest::getLinearEqualityVectorB()
 
     LinAlg::Matrix<double> bCorreto = "0; 0.020;  0.075;  0.159;  0.265;  0.388;  0.524;  0.670;  0.822;  0.978";
 
-    for(unsigned i = 1; i < 10; ++i)
+    for(unsigned i = 0; i < 9; ++i)
     {
-        RLS.Optimize(U(1,i),Y(1,i+1));
+        RLS.Optimize(U(0,i),Y(0,i+1));
         QVERIFY2(LinAlg::isEqual(arx.getLinearEqualityVectorB(),bCorreto.getRow(i),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
     }
 
@@ -876,11 +876,11 @@ void ArxDoubleTest::getInputLinearVector()
 
     LinAlg::Matrix<double> Acorreto = "-0,     -0,  0.430,      0; -0.020,     -0,  0.430,  0.430; -0.075, -0.020,  0.430,  0.430; -0.159, -0.075,  0.430,  0.430; -0.265, -0.159,  0.430,  0.430; -0.388, -0.265,  0.430,  0.430; -0.524, -0.388,  0.430,  0.430; -0.670, -0.524,  0.430,  0.430; -0.822, -0.670,  0.430,  0.430";
 
-    for(unsigned i = 1; i < 10; ++i)
+    for(unsigned i = 0; i < 9; ++i)
     {
-        RLS.Optimize(U(1,i),Y(1,i+1));
+        RLS.Optimize(U(0,i),Y(0,i+1));
 //        std::cout << (arx.getInputLinearVector()|-Acorreto(i,from(3)-->4)) << std::endl;
-        QVERIFY2(LinAlg::isEqual(arx.getInputLinearVector(),Acorreto(i,from(3)-->4),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+        QVERIFY2(LinAlg::isEqual(arx.getInputLinearVector(),Acorreto(i,from(2)-->3),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
     }
 
 }
@@ -900,11 +900,11 @@ void ArxDoubleTest::getOutputLinearVector()
 
     LinAlg::Matrix<double> Acorreto = "-0,     -0,  0.430,      0; -0.020,     -0,  0.430,  0.430; -0.075, -0.020,  0.430,  0.430; -0.159, -0.075,  0.430,  0.430; -0.265, -0.159,  0.430,  0.430; -0.388, -0.265,  0.430,  0.430; -0.524, -0.388,  0.430,  0.430; -0.670, -0.524,  0.430,  0.430; -0.822, -0.670,  0.430,  0.430";
 
-    for(unsigned i = 1; i < 10; ++i)
+    for(unsigned i = 0; i < 9; ++i)
     {
-        RLS.Optimize(U(1,i),Y(1,i+1));
+        RLS.Optimize(U(0,i),Y(0,i+1));
 //        std::cout << (arx.getOutputLinearVector()|Acorreto(i,from(1)-->2)) << std::endl;
-        QVERIFY2(LinAlg::isEqual(arx.getOutputLinearVector(),-Acorreto(i,from(1)-->2),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
+        QVERIFY2(LinAlg::isEqual(arx.getOutputLinearVector(),-Acorreto(i,from(0)-->1),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
     }
 
 }
@@ -937,12 +937,12 @@ void ArxDoubleTest::setLinearVector()
     LinAlg::Matrix<double> Y = TFd.sim(U);
     QBENCHMARK {
         ModelHandler::ARX<double> arx(2,2);
-        arx.setLinearVector(U.getRow(1),Y.getRow(1));
+        arx.setLinearVector(U.getRow(0),Y.getRow(0));
     }
     LinAlg::Matrix<double> Acorreto = "-0,     -0,  0.430,      0; -0.020,     -0,  0.430,  0.430; -0.075, -0.020,  0.430,  0.430; -0.159, -0.075,  0.430,  0.430; -0.265, -0.159,  0.430,  0.430; -0.388, -0.265,  0.430,  0.430; -0.524, -0.388,  0.430,  0.430; -0.670, -0.524,  0.430,  0.430; -0.822, -0.670,  0.430,  0.430", bCorreto = "0;0.020;  0.075;  0.159;  0.265;  0.388;  0.524;  0.670;  0.822;  0.978";
 
     ModelHandler::ARX<double> arx(2,2);
-    for(unsigned i = 1; i < 10; ++i)
+    for(unsigned i = 0; i < 9; ++i)
     {
         arx.setLinearVector(U.getColumn(i),Y.getColumn(i));
         QVERIFY2(LinAlg::isEqual(arx.getLinearVectorA(),Acorreto.getRow(i),0.01), "O valor dos elementos de A na matriz do sistema linear e diferente");
@@ -959,16 +959,16 @@ void ArxDoubleTest::simInScalar()
     QBENCHMARK {
         ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
         double Y2;
-        for(unsigned i = 1; i <= U.getNumberOfColumns(); ++i)
-            Y2 = arx.sim(U(1,i));
+        for(unsigned i = 0; i < U.getNumberOfColumns(); ++i)
+            Y2 = arx.sim(U(0,i));
     }
 
     ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
     double Y2;
-    for(unsigned i = 1; i <= U.getNumberOfColumns(); ++i)
+    for(unsigned i = 0; i < U.getNumberOfColumns(); ++i)
     {
-        Y2 = arx.sim(U(1,i));
-        QVERIFY2(fabs(Y(1,i+1)-Y2) < 0.01, "O resultado das simulacoes e diferente");
+        Y2 = arx.sim(U(0,i));
+        QVERIFY2(fabs(Y(0,i+1)-Y2) < 0.01, "O resultado das simulacoes e diferente");
     }
 }
 
@@ -981,16 +981,16 @@ void ArxDoubleTest::simInOutScalar()
     QBENCHMARK {
         ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
         double Y2;
-        for(unsigned i = 1; i <= U.getNumberOfColumns(); ++i)
-            Y2 = arx.sim(U(1,i),Y(1,i));
+        for(unsigned i = 0; i < U.getNumberOfColumns(); ++i)
+            Y2 = arx.sim(U(0,i),Y(0,i));
     }
 
     ModelHandler::ARX<double> arx = ModelHandler::tf2arxSISO(TFd,0.1);
     double Y2;
-    for(unsigned i = 1; i <= U.getNumberOfColumns(); ++i)
+    for(unsigned i = 0; i < U.getNumberOfColumns(); ++i)
     {
-        Y2 = arx.sim(U(1,i),Y(1,i));
-        QVERIFY2(fabs(Y(1,i+1)-Y2) < 0.01, "O resultado das simulacoes e diferente");
+        Y2 = arx.sim(U(0,i),Y(0,i));
+        QVERIFY2(fabs(Y(0,i+1)-Y2) < 0.01, "O resultado das simulacoes e diferente");
     }
 }
 
@@ -1041,7 +1041,7 @@ void ArxDoubleTest::setInitialOutputValue()
         arx.setInitialOutputValue(1.0);
     }
 
-    QVERIFY2(arx.getOutputLinearVector()(1,1)-1 < 0.01, "O resultado das simulacoes e diferente");
+    QVERIFY2(arx.getOutputLinearVector()(0,0)-1 < 0.01, "O resultado das simulacoes e diferente");
 }
 
 QTEST_APPLESS_MAIN(ArxDoubleTest)

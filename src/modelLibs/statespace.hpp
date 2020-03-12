@@ -261,8 +261,8 @@ LinAlg::Matrix<Type> ModelHandler::StateSpace<Type>::getContinuousObserverParame
     for (unsigned i = 0; i < A.getNumberOfColumns(); ++i)
         Qo = Qo||(C*(A^i));
 
-    for (unsigned i = 0; i <= A.getNumberOfColumns(); ++i)
-        this->P += ((~A)^i)*polesToBePlaced(1,polesToBePlaced.getNumberOfColumns()-i);
+    for (unsigned i = 0; i < A.getNumberOfColumns(); ++i)
+        this->P += ((~A)^i)*polesToBePlaced(0,polesToBePlaced.getNumberOfColumns()-i+1);
 
     this->L = ~((LinAlg::Zeros<Type>(1,A.getNumberOfRows()-1)|1)*(((~Qo)^-1)*this->P));
 
@@ -310,7 +310,7 @@ Type ModelHandler::StateSpace<Type>::sim(Type u)
     LinAlg::Matrix<Type> y  = C*X+D*u;
     X = Xi1;
 
-    return y(1,1);
+    return y(0,0);
 }
 
 template <typename Type>

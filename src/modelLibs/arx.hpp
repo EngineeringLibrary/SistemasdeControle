@@ -166,15 +166,15 @@ void ModelHandler::ARX<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg
 {
     this->InputLinearVector  =  Input|this->InputLinearVector;
     this->OutputLinearVector =  PastOutput|this->OutputLinearVector;
-    this->InputLinearVector.removeColumn(this->InputLinearVector.getNumberOfColumns());
-    this->OutputLinearVector.removeColumn(this->OutputLinearVector.getNumberOfColumns());
+    this->InputLinearVector.removeColumn(this->InputLinearVector.getNumberOfColumns()-1);
+    this->OutputLinearVector.removeColumn(this->OutputLinearVector.getNumberOfColumns()-1);
     LinAlg::Matrix<Type> TempLinearVector;
 
 
-    for(unsigned i = 1; i <= this->OutputLinearVector.getNumberOfRows(); ++i)
+    for(unsigned i = 0; i < this->OutputLinearVector.getNumberOfRows(); ++i)
         TempLinearVector = TempLinearVector | -this->OutputLinearVector.getRow(i);
 
-    for(unsigned i = 1; i <= this->InputLinearVector.getNumberOfRows(); ++i)
+    for(unsigned i = 0; i < this->InputLinearVector.getNumberOfRows(); ++i)
         TempLinearVector = TempLinearVector | this->InputLinearVector.getRow(i);
 
     this->LinearVectorA = TempLinearVector;
@@ -188,7 +188,7 @@ void ModelHandler::ARX<Type>::setLinearModel(LinAlg::Matrix<Type> Input,
     this->Input = Input;
     this->Output = Output;
 
-    for(nSample = 1; nSample < this->Output.getNumberOfColumns()-1; ++nSample)
+    for(nSample = 0; nSample < this->Output.getNumberOfColumns()-2; ++nSample)
     {
         this->setLinearVector( Input.getColumn(nSample), Output.getColumn(nSample));
         this->LinearMatrixA = this->LinearMatrixA || this->LinearVectorA;
@@ -200,7 +200,7 @@ template <typename Type>
 Type ModelHandler::ARX<Type>::sim(Type input)
 {
     this->setLinearVector(input, this->output);
-    this->output = (this->LinearVectorA*this->ModelCoef)(1,1);
+    this->output = (this->LinearVectorA*this->ModelCoef)(0,0);
     return this->output;
 }
 
@@ -208,7 +208,7 @@ template <typename Type>
 Type ModelHandler::ARX<Type>::sim(Type input, Type output)
 {
     this->setLinearVector(input, output);
-    this->output = (this->LinearVectorA*this->ModelCoef)(1,1);
+    this->output = (this->LinearVectorA*this->ModelCoef)(0,0);
     return this->output;
 }
 
@@ -228,22 +228,22 @@ std::string ModelHandler::ARX<Type>::print()
         {
             for(unsigned ny = 1; ny <= this->nOutputpar; ++ny)
             {
-                if(fabs(this->ModelCoef(nCoef,nOutputVar)) < 1e-30)
+                if(fabs(this->ModelCoef(nCoef-1,nOutputVar-1)) < 1e-30)
                 {
                     ++nCoef;
                     continue;
                 }
-                else if(this->ModelCoef(nCoef,nOutputVar) > 0)
+                else if(this->ModelCoef(nCoef-1,nOutputVar-1) > 0)
                 {
                     std::stringstream ss1;
-                    ss1 << this->ModelCoef(nCoef,nOutputVar);
+                    ss1 << this->ModelCoef(nCoef-1,nOutputVar-1);
                     str += " - ";
                     str += ss1.str();
                 }
                 else
                 {
                     std::stringstream ss1;
-                    ss1 << -this->ModelCoef(nCoef,nOutputVar);
+                    ss1 << -this->ModelCoef(nCoef-1,nOutputVar-1);
                     if(!isTheFirst)
                         str += " + ";
                     str += ss1.str();
@@ -261,15 +261,15 @@ std::string ModelHandler::ARX<Type>::print()
         {
             for(unsigned nu = 1; nu <= this->nInputpar; ++nu)
             {
-                if(fabs(this->ModelCoef(nCoef,nOutputVar)) < 1e-30)
+                if(fabs(this->ModelCoef(nCoef-1,nOutputVar-1)) < 1e-30)
                 {
                     ++nCoef;
                     continue;
                 }
-                else if(this->ModelCoef(nCoef,nOutputVar) > 0)
+                else if(this->ModelCoef(nCoef-1,nOutputVar-1) > 0)
                 {
                     std::stringstream ss1;
-                    ss1 << this->ModelCoef(nCoef,nOutputVar);
+                    ss1 << this->ModelCoef(nCoef-1,nOutputVar-1);
                     if(!isTheFirst)
                         str += " + ";
                     str += ss1.str();
@@ -277,7 +277,7 @@ std::string ModelHandler::ARX<Type>::print()
                 else
                 {
                     std::stringstream ss1;
-                    ss1 << -this->ModelCoef(nCoef,nOutputVar);
+                    ss1 << -this->ModelCoef(nCoef-1,nOutputVar-1);
                     str += " - ";
                     str += ss1.str();
                 }
@@ -303,7 +303,7 @@ LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input)
     this->Input  = Input;
     this->EstOutput = LinAlg::Zeros<Type>(this->qdtOutputVar,1);
 
-    for(unsigned i = 1; i <= Input.getNumberOfColumns(); ++i){
+    for(unsigned i = 0; i < Input.getNumberOfColumns(); ++i){
         this->setLinearVector(Input.getColumn(i),this->EstOutput.getColumn(i));
         this->EstOutput = this->EstOutput | ~(this->LinearVectorA*this->ModelCoef);
     }
@@ -317,7 +317,7 @@ LinAlg::Matrix<Type> ModelHandler::ARX<Type>::sim(LinAlg::Matrix<Type> Input, Li
     this->Input  = Input;
     LinAlg::Matrix<Type> TempOutput = LinAlg::Zeros<Type>(this->qdtOutputVar,1);
 
-    for(unsigned i = 1; i <= Input.getNumberOfColumns(); ++i){
+    for(unsigned i = 0; i < Input.getNumberOfColumns(); ++i){
         this->setLinearVector(Input.getColumn(i),Output.getColumn(i));
         TempOutput = TempOutput | ~(this->LinearVectorA*this->ModelCoef);
     }
@@ -361,13 +361,13 @@ template <typename Type>
 void ModelHandler::ARX<Type>::setInitialOutputValue(const LinAlg::Matrix<Type> &Output)
 {
     this->OutputLinearVector = LinAlg::Ones<Type>(this->qdtOutputVar, this->delay + this->nOutputpar);
-    for(unsigned i = 1; i <= this->qdtOutputVar; ++i)
+    for(unsigned i = 0; i < this->qdtOutputVar; ++i)
     {
-        this->OutputLinearVector = this->OutputLinearVector*Output(i,1);
-        if(i == 1)
+        this->OutputLinearVector = this->OutputLinearVector*Output(i,0);
+        if(i == 0)
         {
-            this->output = Output(i,1);
-            this->estOutput = Output(i,1);
+            this->output = Output(i,0);
+            this->estOutput = Output(i,0);
         }
     }
 }

@@ -34,17 +34,17 @@ void OptimizationHandler::RecursiveLeastSquare<Type>::Optimize(LinAlg::Matrix<Ty
     this->Output = Output|this->Output;
     this->Input.removeColumn(this->Input.getNumberOfColumns());
     this->Output.removeColumn(this->Output.getNumberOfColumns());
-    this->model->setLinearVector(this->Input.getColumn(1),
-                                 this->Output.getColumn(2));
+    this->model->setLinearVector(this->Input.getColumn(0),
+                                 this->Output.getColumn(1));
 
 
     LinAlg::Matrix<Type> phi = this->model->getLinearVectorA();
 //    std::cout << "\n";
-    E = this->Output.getColumn(1) - ~(phi*this->model->getModelCoef());
+    E = this->Output.getColumn(0) - ~(phi*this->model->getModelCoef());
     K = (P*~phi)/(((phi*P)*~phi) + lambda);
     LinAlg::Matrix<Type> KxE;
-    for(unsigned i = 1; i <= this->model->getNumberOfOutputs(); ++i)
-        KxE = KxE | K*E(i,1);
+    for(unsigned i = 0; i < this->model->getNumberOfOutputs(); ++i)
+        KxE = KxE | K*E(i,0);
     this->model->setModelCoef(this->model->getModelCoef() + KxE);
     P = (P - (K*(phi*P)))/lambda;
 }

@@ -106,10 +106,10 @@ template <typename Type>
 LinAlg::Matrix< LinAlg::Matrix<Type>* >* ModelHandler::Model<Type>::getLinearSystem() const
 {
     LinAlg::Matrix< LinAlg::Matrix<Type>* > *A = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
-    (*A)(1,1) = new LinAlg::Matrix<Type>(this->LinearMatrixA.getNumberOfRows(), this->LinearMatrixA.getNumberOfColumns());
-    (*A)(1,2) = new LinAlg::Matrix<Type>(this->LinearEqualityB.getNumberOfRows(), this->LinearEqualityB.getNumberOfColumns());
-    (*((*A)(1,1))) = this->LinearMatrixA;
-    (*((*A)(1,2))) = this->LinearEqualityB;
+    (*A)(0,0) = new LinAlg::Matrix<Type>(this->LinearMatrixA.getNumberOfRows(), this->LinearMatrixA.getNumberOfColumns());
+    (*A)(0,1) = new LinAlg::Matrix<Type>(this->LinearEqualityB.getNumberOfRows(), this->LinearEqualityB.getNumberOfColumns());
+    (*((*A)(0,0))) = this->LinearMatrixA;
+    (*((*A)(0,1))) = this->LinearEqualityB;
     return A;
 }
 

@@ -99,11 +99,11 @@ void StateSpaceDoubleTest::SSContinuousConstructorDouble()
     }
     QVERIFY2(SS.getTimeSimulation() == 10, "Falhou ao comparar o tempo de simulacao.");
     QVERIFY2(SS.isContinuous() && SS.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
-    QVERIFY2(SS.getA()(1,1) == 0 && SS.getA()(1,2) == 1 && SS.getA()(2,1) == -1 && SS.getA()(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((SS.getB()(1,1) == 0) & (SS.getB()(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((SS.getC()(1,1) == 1) & (SS.getC()(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(SS.getD()(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(SS.getActualState()(1,1) == 0 && SS.getActualState()(2,1) == 0, "Falhou ao verificar a matriz de estados");
+    QVERIFY2(SS.getA()(0,0) == 0 && SS.getA()(0,1) == 1 && SS.getA()(1,0) == -1 && SS.getA()(1,1) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getB()(0,0) == 0) & (SS.getB()(1,0) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getC()(0,0) == 1) & (SS.getC()(0,1) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getD()(0,0) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getActualState()(0,0) == 0 && SS.getActualState()(1,0) == 0, "Falhou ao verificar a matriz de estados");
     QVERIFY2(sizeof(SS) == sizeof(ModelHandler::StateSpace<double>), "Falhou ao comparar o tipo da equacao de estados");
 }
 
@@ -116,11 +116,11 @@ void StateSpaceDoubleTest::SSDiscreteConstructorDouble()
     }
     QVERIFY2(SS.getTimeSimulation() == 10, "Falhou ao comparar o tempo de simulacao.");
     QVERIFY2(!SS.isContinuous() && SS.getSampleTime() == 0.2, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
-    QVERIFY2(SS.getA()(1,1) == 0 && SS.getA()(1,2) == 1 && SS.getA()(2,1) == -1 && SS.getA()(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((SS.getB()(1,1) == 0) & (SS.getB()(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((SS.getC()(1,1) == 1) & (SS.getC()(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(SS.getD()(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(SS.getActualState()(1,1) == 0 && SS.getActualState()(2,1) == 0, "Falhou ao verificar a matriz de estados");
+    QVERIFY2(SS.getA()(0,0) == 0 && SS.getA()(0,1) == 1 && SS.getA()(1,0) == -1 && SS.getA()(1,1) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getB()(0,0) == 0) & (SS.getB()(1,0) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getC()(0,0) == 1) & (SS.getC()(0,1) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getD()(0,0) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getActualState()(0,0) == 0 && SS.getActualState()(1,0) == 0, "Falhou ao verificar a matriz de estados");
     QVERIFY2(sizeof(SS) == sizeof(ModelHandler::StateSpace<double>), "Falhou ao comparar o tipo da equacao de estados");
 }
 
@@ -134,11 +134,11 @@ void StateSpaceDoubleTest::copyConstructorDouble ()
     }
     QVERIFY2(SS.getTimeSimulation() == 10, "Falhou ao comparar o tempo de simulacao.");
     QVERIFY2(SS.isContinuous() && SS.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
-    QVERIFY2(SS.getA()(1,1) == 0 && SS.getA()(1,2) == 1 && SS.getA()(2,1) == -1 && SS.getA()(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((SS.getB()(1,1) == 0) & (SS.getB()(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((SS.getC()(1,1) == 1) & (SS.getC()(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(SS.getD()(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(SS.getActualState()(1,1) == 0 && SS.getActualState()(2,1) == 0, "Falhou ao verificar a matriz de estados");
+    QVERIFY2(SS.getA()(0,0) == 0 && SS.getA()(0,1) == 1 && SS.getA()(1,0) == -1 && SS.getA()(1,1) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getB()(0,0) == 0) & (SS.getB()(1,0) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getC()(0,0) == 1) & (SS.getC()(0,1) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getD()(0,0) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getActualState()(0,0) == 0 && SS.getActualState()(1,0) == 0, "Falhou ao verificar a matriz de estados");
     QVERIFY2(sizeof(SS) == sizeof(ModelHandler::StateSpace<double>), "Falhou ao comparar o tipo da equacao de estados");
 }
 
@@ -152,11 +152,11 @@ void StateSpaceDoubleTest::copyAssignmentDouble ()
     }
     QVERIFY2(SS.getTimeSimulation() == 10, "Falhou ao comparar o tempo de simulacao.");
     QVERIFY2(SS.isContinuous() && SS.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
-    QVERIFY2(SS.getA()(1,1) == 0 && SS.getA()(1,2) == 1 && SS.getA()(2,1) == -1 && SS.getA()(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((SS.getB()(1,1) == 0) & (SS.getB()(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((SS.getC()(1,1) == 1) & (SS.getC()(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(SS.getD()(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(SS.getActualState()(1,1) == 0 && SS.getActualState()(2,1) == 0, "Falhou ao verificar a matriz de estados");
+    QVERIFY2(SS.getA()(0,0) == 0 && SS.getA()(0,1) == 1 && SS.getA()(1,0) == -1 && SS.getA()(1,1) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getB()(0,0) == 0) & (SS.getB()(1,0) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getC()(0,0) == 1) & (SS.getC()(0,1) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getD()(0,0) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getActualState()(0,0) == 0 && SS.getActualState()(1,0) == 0, "Falhou ao verificar a matriz de estados");
     QVERIFY2(sizeof(SS) == sizeof(ModelHandler::StateSpace<double>), "Falhou ao comparar o tipo da equacao de estados");
 }
 
@@ -170,11 +170,11 @@ void StateSpaceDoubleTest::copyAssignmentOtherType ()
     }
     QVERIFY2(SS.getTimeSimulation() == 10, "Falhou ao comparar o tempo de simulacao.");
     QVERIFY2(SS.isContinuous() && SS.getSampleTime() == 0.1, "Falhou ao verificar que a função e continua e ao verificar o periodo de amostragem");
-    QVERIFY2(SS.getA()(1,1) == 0 && SS.getA()(1,2) == 1 && SS.getA()(2,1) == -1 && SS.getA()(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((SS.getB()(1,1) == 0) & (SS.getB()(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((SS.getC()(1,1) == 1) & (SS.getC()(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(SS.getD()(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(SS.getActualState()(1,1) == 0 && SS.getActualState()(2,1) == 0, "Falhou ao verificar a matriz de estados");
+    QVERIFY2(SS.getA()(0,0) == 0 && SS.getA()(0,1) == 1 && SS.getA()(1,0) == -1 && SS.getA()(1,1) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getB()(0,0) == 0) & (SS.getB()(1,0) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getC()(0,0) == 1) & (SS.getC()(0,1) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getD()(0,0) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getActualState()(0,0) == 0 && SS.getActualState()(1,0) == 0, "Falhou ao verificar a matriz de estados");
     QVERIFY2(sizeof(SS) == sizeof(ModelHandler::StateSpace<double>), "Falhou ao comparar o tipo da equacao de estados");
 }
 
@@ -215,7 +215,7 @@ void StateSpaceDoubleTest::getA()
     QBENCHMARK {
         SS.getA();
     }
-    QVERIFY2(SS.getA()(1,1) == 0 && SS.getA()(1,2) == 1 && SS.getA()(2,1) == -1 && SS.getA()(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getA()(0,0) == 0 && SS.getA()(0,1) == 1 && SS.getA()(1,0) == -1 && SS.getA()(1,1) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
 }
 
 void StateSpaceDoubleTest::getB()
@@ -225,7 +225,7 @@ void StateSpaceDoubleTest::getB()
     QBENCHMARK {
         SS.getB();
     }
-    QVERIFY2((SS.getB()(1,1) == 0) & (SS.getB()(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getB()(0,0) == 0) & (SS.getB()(1,0) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
 }
 
 void StateSpaceDoubleTest::getC()
@@ -235,7 +235,7 @@ void StateSpaceDoubleTest::getC()
     QBENCHMARK {
         SS.getC();
     }
-    QVERIFY2((SS.getC()(1,1) == 1) & (SS.getC()(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getC()(0,0) == 1) & (SS.getC()(0,1) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
 }
 
 void StateSpaceDoubleTest::getD()
@@ -243,9 +243,9 @@ void StateSpaceDoubleTest::getD()
     LinAlg::Matrix<double> A = "0,1;-1,-2", B = "0;1", C = "1,0", D = 0.0;
     ModelHandler::StateSpace<double> SS(A,B,C,D);
     QBENCHMARK {
-        SS.getC();
+        SS.getD();
     }
-    QVERIFY2(SS.getD()(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getD()(0,0) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
 }
 
 void StateSpaceDoubleTest::getContinuousParameters()
@@ -256,10 +256,10 @@ void StateSpaceDoubleTest::getContinuousParameters()
     QBENCHMARK {
         *(As,Bs,Cs,Ds) = SS.getContinuousParameters();
     }
-    QVERIFY2(As(1,1) == 0 && As(1,2) == 1 && As(2,1) == -1 && As(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((Bs(1,1) == 0) & (Bs(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((Cs(1,1) == 1) & (Cs(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(Ds(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(As(0,0) == 0 && As(0,1) == 1 && As(1,0) == -1 && As(1,1) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((Bs(0,0) == 0) & (Bs(1,0) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((Cs(0,0) == 1) & (Cs(0,1) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(Ds(0,0) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
 }
 
 void StateSpaceDoubleTest::getDiscreteParameters()
@@ -270,10 +270,10 @@ void StateSpaceDoubleTest::getDiscreteParameters()
     QBENCHMARK {
         *(As,Bs,Cs,Ds) = SS.getDiscreteParameters();
     }
-    QVERIFY2(As(1,1) == 0 && As(1,2) == 1 && As(2,1) == -1 && As(2,2) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((Bs(1,1) == 0) & (Bs(2,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2((Cs(1,1) == 1) & (Cs(1,2) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
-    QVERIFY2(Ds(1,1) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(As(0,0) == 0 && As(0,1) == 1 && As(1,0) == -1 && As(1,1) == -2 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((Bs(0,0) == 0) & (Bs(1,0) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((Cs(0,0) == 1) & (Cs(0,1) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(Ds(0,0) == 0, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
 }
 
 void StateSpaceDoubleTest::getActualState()
@@ -283,7 +283,7 @@ void StateSpaceDoubleTest::getActualState()
     QBENCHMARK {
         SS.getActualState();
     }
-    QVERIFY2(SS.getActualState()(1,1) == 0 && SS.getActualState()(2,1) == 0, "Falhou ao verificar a matriz de estados");
+    QVERIFY2(SS.getActualState()(0,0) == 0 && SS.getActualState()(1,0) == 0, "Falhou ao verificar a matriz de estados");
 }
 
 void StateSpaceDoubleTest::getObserverParameters()
@@ -294,7 +294,7 @@ void StateSpaceDoubleTest::getObserverParameters()
     QBENCHMARK {
         L = SS.getObserverParameters();
     }
-    QVERIFY2(SS.getObserverParameters()(1,1) == 1 && SS.getObserverParameters()(2,1) == 2, "Falhou ao verificar a controlabilidade do sistema");
+    QVERIFY2(SS.getObserverParameters()(0,0) == 1 && SS.getObserverParameters()(1,0) == 2, "Falhou ao verificar a controlabilidade do sistema");
 }
 
 void StateSpaceDoubleTest::getContinuousObserverParametersByAckerman()
@@ -304,7 +304,8 @@ void StateSpaceDoubleTest::getContinuousObserverParametersByAckerman()
     QBENCHMARK {
         L = SS.getContinuousObserverParametersByAckerman("1,11,30");
     }
-    QVERIFY2(L (1,1) == 8 && L(2,1) == 13, "Falhou ao verificar os parametros do observador");
+    L = SS.getContinuousObserverParametersByAckerman("1,11,30");
+    QVERIFY2(L (0,0) == 8 && L(1,0) == 13, "Falhou ao verificar os parametros do observador");
 }
 
 void StateSpaceDoubleTest::setA()
@@ -314,7 +315,7 @@ void StateSpaceDoubleTest::setA()
     QBENCHMARK {
         SS.setA("1,2;-2,-3");
     }
-    QVERIFY2(SS.getA()(1,1) == 1 && SS.getA()(1,2) == 2 && SS.getA()(2,1) == -2 && SS.getA()(2,2) == -3 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getA()(0,0) == 1 && SS.getA()(0,1) == 2 && SS.getA()(1,0) == -2 && SS.getA()(1,1) == -3 , "Falhou ao verificar as matrizes dos sistema em espaco de estados");
 }
 
 void StateSpaceDoubleTest::setB()
@@ -324,7 +325,7 @@ void StateSpaceDoubleTest::setB()
     QBENCHMARK {
         SS.setB("1;0");
     }
-    QVERIFY2((SS.getB()(1,1) == 1) & (SS.getB()(2,1) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getB()(0,0) == 1) & (SS.getB()(1,0) == 0), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
 }
 
 void StateSpaceDoubleTest::setC()
@@ -334,7 +335,7 @@ void StateSpaceDoubleTest::setC()
     QBENCHMARK {
         SS.setC("0,1");
     }
-    QVERIFY2((SS.getC()(1,1) == 0) & (SS.getC()(1,2) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2((SS.getC()(0,0) == 0) & (SS.getC()(0,1) == 1), "Falhou ao verificar as matrizes dos sistema em espaco de estados");
 }
 
 void StateSpaceDoubleTest::setD()
@@ -344,7 +345,7 @@ void StateSpaceDoubleTest::setD()
     QBENCHMARK {
         SS.setD(1.0);
     }
-    QVERIFY2(SS.getD()(1,1) == 1, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
+    QVERIFY2(SS.getD()(0,0) == 1, "Falhou ao verificar as matrizes dos sistema em espaco de estados");
 }
 
 void StateSpaceDoubleTest::setContinuous()
@@ -374,7 +375,7 @@ void StateSpaceDoubleTest::setInitialState()
     QBENCHMARK {
         SS.setInitialState("1;2");
     }
-    QVERIFY2(SS.getActualState()(1,1) == 1 && SS.getActualState()(2,1) == 2, "Falhou ao verificar a matriz de estados");
+    QVERIFY2(SS.getActualState()(0,0) == 1 && SS.getActualState()(1,0) == 2, "Falhou ao verificar a matriz de estados");
 }
 
 void StateSpaceDoubleTest::isContinuous()
@@ -444,7 +445,7 @@ void StateSpaceDoubleTest::ObserverLoop()
             SS2.ObserverLoop(1.0,Y);
         }
     }
-    QVERIFY2( fabs(SS.getActualState()(1,1) - SS2.getActualState()(1,1)) < 0.001 && fabs(SS.getActualState()(2,1) - SS2.getActualState()(2,1)) < 0.001, "Falhou ao verificar os valores de simulação do sistema.");
+    QVERIFY2( fabs(SS.getActualState()(0,0) - SS2.getActualState()(0,0)) < 0.001 && fabs(SS.getActualState()(1,0) - SS2.getActualState()(1,0)) < 0.001, "Falhou ao verificar os valores de simulação do sistema.");
 }
 
 void StateSpaceDoubleTest::simScalar()
@@ -498,9 +499,9 @@ void StateSpaceDoubleTest::c2dConversion()
     }
 
 //    std::cout << SS << std::endl;
-    QVERIFY2( fabs(SS.getA()(1,1) - 0.995) < 0.001 && fabs(SS.getA()(1,2) - 0.090) < 0.001 &&
-              fabs(SS.getA()(2,1) - (-0.09)) < 0.001 && fabs(SS.getA()(2,2) - 0.814) < 0.001, "Falhou ao verificar a matriz discreta");
-    QVERIFY2( fabs(SS.getB()(1,1) - 0.005) < 0.001 && fabs(SS.getB()(2,1) - 0.090) < 0.001, "Falhou ao verificar a matriz discreta");
+    QVERIFY2( fabs(SS.getA()(0,0) - 0.995) < 0.001 && fabs(SS.getA()(0,1) - 0.090) < 0.001 &&
+              fabs(SS.getA()(1,0) - (-0.09)) < 0.001 && fabs(SS.getA()(1,1) - 0.814) < 0.001, "Falhou ao verificar a matriz discreta");
+    QVERIFY2( fabs(SS.getB()(0,0) - 0.005) < 0.001 && fabs(SS.getB()(1,0) - 0.090) < 0.001, "Falhou ao verificar a matriz discreta");
 }
 
 void StateSpaceDoubleTest::d2cConversion()
@@ -515,9 +516,9 @@ void StateSpaceDoubleTest::d2cConversion()
         SS.d2cConversion();
     }
 
-    QVERIFY2( fabs(SS.getA()(1,1) - 0) < 0.2 && fabs(SS.getA()(1,2) - 1) < 0.2 &&
-              fabs(SS.getA()(2,1) - (-1)) < 0.2 && fabs(SS.getA()(2,2) - (-2)) < 0.2, "Falhou ao verificar a matriz discreta");
-    QVERIFY2( fabs(SS.getB()(1,1) - 0) < 0.2 && fabs(SS.getB()(2,1) - 1) < 0.2, "Falhou ao verificar a matriz discreta");
+    QVERIFY2( fabs(SS.getA()(0,0) - 0) < 0.2 && fabs(SS.getA()(0,1) - 1) < 0.2 &&
+              fabs(SS.getA()(1,0) - (-1)) < 0.2 && fabs(SS.getA()(1,1) - (-2)) < 0.2, "Falhou ao verificar a matriz discreta");
+    QVERIFY2( fabs(SS.getB()(0,0) - 0) < 0.2 && fabs(SS.getB()(1,0) - 1) < 0.2, "Falhou ao verificar a matriz discreta");
 }
 
 void StateSpaceDoubleTest::print()
@@ -669,7 +670,7 @@ void StateSpaceDoubleTest::setObserverParameters()
     QBENCHMARK {
         SS.setObserverParameters("1;2");
     }
-    QVERIFY2(SS.getObserverParameters()(1,1) == 1 && SS.getObserverParameters()(2,1) == 2, "Falhou ao verificar a controlabilidade do sistema");
+    QVERIFY2(SS.getObserverParameters()(0,0) == 1 && SS.getObserverParameters()(1,0) == 2, "Falhou ao verificar a controlabilidade do sistema");
 }
 
 QTEST_APPLESS_MAIN(StateSpaceDoubleTest)
