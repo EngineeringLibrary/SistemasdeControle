@@ -199,8 +199,8 @@ void ConversionsTest::c2dCase1()
         tfd = ModelHandler::c2d(tf,0.1);
     }
 
-    LinAlg::Matrix<double> numTF1 = tfd(1,1).getNum();
-    LinAlg::Matrix<double> denTF1 = tfd(1,1).getDen();
+    LinAlg::Matrix<double> numTF1 = tfd(0,0).getNum();
+    LinAlg::Matrix<double> denTF1 = tfd(0,0).getDen();
 
     QVERIFY2(fabs(numTF1(0,0)- 0.00467884) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
     QVERIFY2(fabs(numTF1(0,1) - 0.00437708) < 1e-5, "Falhou ao comparar As funcoes de Transferencia a partir da em espaco de estados.");
@@ -267,7 +267,7 @@ void ConversionsTest::d2cCase2()
     QBENCHMARK {
         Tfc = ModelHandler::d2c(Tf);
     }
-    num << Tfc(1,1).getNum(); den << Tfc(1,1).getDen();
+    num << Tfc(0,0).getNum(); den << Tfc(0,0).getDen();
    // std::cout << Tfc; std::cout << "\n";
     QVERIFY2(num == "  0.043 \n", "Falhou ao comparar As funcoes de Transferencia discreta.");
     QVERIFY2(den == "  1.000   0.004 \n", "Falhou ao comparar As funcoes de Transferencia discreta.");

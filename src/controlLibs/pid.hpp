@@ -27,9 +27,9 @@ ControlHandler::PID<Type>::PID()
 template<typename Type>
 ControlHandler::PID<Type>::PID(const LinAlg::Matrix<Type> &PIDsParameters)
 {
-    this->kp = PIDsParameters(1,1);
-    this->ki = PIDsParameters(1,2);
-    this->kd = PIDsParameters(1,3);
+    this->kp = PIDsParameters(0,0);
+    this->ki = PIDsParameters(0,1);
+    this->kd = PIDsParameters(0,2);
 
     this->Error = 0;
     this->derivativeError = 0;
@@ -101,9 +101,9 @@ void ControlHandler::PID<Type>::setParams(Type kp, Type ki, Type kd)
 template<typename Type>
 void ControlHandler::PID<Type>::setParams(const LinAlg::Matrix<Type> &PIDsParameters)
 {
-    this->kp = PIDsParameters(1,1);
-    this->ki = PIDsParameters(1,2);
-    this->kd = PIDsParameters(1,3);
+    this->kp = PIDsParameters(0,0);
+    this->ki = PIDsParameters(0,1);
+    this->kd = PIDsParameters(0,2);
 }
 
 template<typename Type>
@@ -130,8 +130,8 @@ LinAlg::Matrix<Type> ControlHandler::PID<Type>::getLimits() const
 {
     LinAlg::Matrix<Type> limits(1,2);
 
-    limits(1,1) = this->lowerLimit;
-    limits(1,2) = this->upperLimit;
+    limits(0,0) = this->lowerLimit;
+    limits(0,1) = this->upperLimit;
 
     return limits;
 }
@@ -141,9 +141,9 @@ LinAlg::Matrix<Type> ControlHandler::PID<Type>::getParams() const
 {
     LinAlg::Matrix<Type> params(1,3);
 
-    params(1,1) = this->kp;
-    params(1,2) = this->ki;
-    params(1,3) = this->kd;
+    params(0,0) = this->kp;
+    params(0,1) = this->ki;
+    params(0,2) = this->kd;
 
     return params;
 }
@@ -162,34 +162,34 @@ std::string&  ControlHandler::operator<< (std::string& output,  const ControlHan
     LinAlg::Matrix<Type> parameters = controller.getParams();
 
     output = "U(s) = ";
-    if(parameters(1,1) != 0)
+    if(parameters(0,0) != 0)
     {
         std::stringstream ss;
-        if(parameters(1,1) != 1)
+        if(parameters(0,0) != 1)
         {
-            ss << parameters(1,1);
+            ss << parameters(0,0);
             output += ss.str();
         }
         output += " E(s)";
     }
-    if(parameters(1,2) != 0)
+    if(parameters(0,1) != 0)
     {
         output += " + ";
         std::stringstream ss;
-        if(parameters(1,2) != 1)
+        if(parameters(0,1) != 1)
         {
-            ss << parameters(1,2);
+            ss << parameters(0,1);
             output += ss.str();
         }
         output += " (E(s)/s)";
     }
-    if(parameters(1,3) != 0)
+    if(parameters(0,2) != 0)
     {
         output += " + ";
         std::stringstream ss;
-        if(parameters(1,3) != 1)
+        if(parameters(0,2) != 1)
         {
-            ss << parameters(1,3);
+            ss << parameters(0,2);
             output += ss.str();
         }
         output += " s E(s) ";

@@ -64,12 +64,12 @@ void PredictiveTestTest::ModelPredictiveControlConstructorCase2()
     double Q = 1, R, W = 1, L, b, J, K;
     R = 2.7; L = 0.004;
     K = 0.105; b = 9.3e-6; J = 1e-5;
-    A(1,1) = -R/L; A(1,2) = -K/L;
-    A(2,1) = K/L; A(2,2) = -b/J;
-    B(1,1) = 1/L;
-    B(2,1) = 0;
-    C(1,1) = 0; C(1,2) = 1;
-    D(1,1) = 0;
+    A(0,0) = -R/L; A(0,1) = -K/L;
+    A(1,0) = K/L; A(1,1) = -b/J;
+    B(0,0) = 1/L;
+    B(1,0) = 0;
+    C(0,0) = 0; C(0,1) = 1;
+    D(0,0) = 0;
 
     ModelHandler::StateSpace<double> SS(A,B,C,D);
     ControlHandler::ModelPredictiveControl<double> MPC(SS,N1,N2,NU,Q,10,W);
@@ -108,8 +108,8 @@ void PredictiveTestTest::setLimitsCase1()
         MPC.setControlLimits(10,-10);
     }
     *(uMax,uMin) = MPC.getControlLimits();
-    QVERIFY2(uMax(1,1) == 10, "Limites do controlador errado!");
-    QVERIFY2(uMin(1,1) == -10, "Limites do controlador errado!");
+    QVERIFY2(uMax(0,0) == 10, "Limites do controlador errado!");
+    QVERIFY2(uMin(0,0) == -10, "Limites do controlador errado!");
 }
 
 void PredictiveTestTest::setLimitsCase2()
@@ -120,8 +120,8 @@ void PredictiveTestTest::setLimitsCase2()
         MPC.setControlVariationLimits(0.1,-0.1);
     }
     *(duMax,duMin) = MPC.getControlVariationLimits();
-    QVERIFY2(duMax(1,1) == 0.10, "Limites do controlador errado!");
-    QVERIFY2(duMin(1,1) == -0.10, "Limites do controlador errado!");
+    QVERIFY2(duMax(0,0) == 0.10, "Limites do controlador errado!");
+    QVERIFY2(duMin(0,0) == -0.10, "Limites do controlador errado!");
 }
 
 void PredictiveTestTest::setLimitsCase3()
@@ -132,8 +132,8 @@ void PredictiveTestTest::setLimitsCase3()
         MPC.setOutputLimits(10,-10);
     }
     *(yMax,yMin) = MPC.getOutputLimits();
-    QVERIFY2(yMax(1,1) == 10, "Limites da saida errado!");
-    QVERIFY2(yMin(1,1) == -10, "Limites da saida errado!");
+    QVERIFY2(yMax(0,0) == 10, "Limites da saida errado!");
+    QVERIFY2(yMin(0,0) == -10, "Limites da saida errado!");
 }
 
 void PredictiveTestTest::setLimitsCase4()
@@ -144,12 +144,12 @@ void PredictiveTestTest::setLimitsCase4()
         MPC.setLimits(0.1,-0.1,2,-2,10,-10);
     }
     *(duMax, duMin, yMax, yMin, uMax, uMin) = MPC.getLimits();
-    QVERIFY2(uMax(1,1) == 10, "Limites do controlador errado!");
-    QVERIFY2(uMin(1,1) == -10, "Limites do controlador errado!");
-    QVERIFY2(duMax(1,1) == 0.10, "Limites do controlador errado!");
-    QVERIFY2(duMin(1,1) == -0.10, "Limites do controlador errado!");
-    QVERIFY2(yMax(1,1) == 2, "Limites da saida errado!");
-    QVERIFY2(yMin(1,1) == -2, "Limites da saida errado!");
+    QVERIFY2(uMax(0,0) == 10, "Limites do controlador errado!");
+    QVERIFY2(uMin(0,0) == -10, "Limites do controlador errado!");
+    QVERIFY2(duMax(0,0) == 0.10, "Limites do controlador errado!");
+    QVERIFY2(duMin(0,0) == -0.10, "Limites do controlador errado!");
+    QVERIFY2(yMax(0,0) == 2, "Limites da saida errado!");
+    QVERIFY2(yMin(0,0) == -2, "Limites da saida errado!");
 }
 
 void PredictiveTestTest::setReference()
@@ -160,12 +160,12 @@ void PredictiveTestTest::setReference()
     double Q = 1, R, W = 0, L, b, J, K;
     R = 2.7; L = 0.004;
     K = 0.105; b = 9.3e-6; J = 1e-5;
-    A(1,1) = -R/L; A(1,2) = -K/L;
-    A(2,1) = K/L; A(2,2) = -b/J;
-    B(1,1) = 1/L;
-    B(2,1) = 0;
-    C(1,1) = 0; C(1,2) = 1;
-    D(1,1) = 0;
+    A(0,0) = -R/L; A(0,1) = -K/L;
+    A(1,0) = K/L; A(1,1) = -b/J;
+    B(0,0) = 1/L;
+    B(1,0) = 0;
+    C(0,0) = 0; C(0,1) = 1;
+    D(0,0) = 0;
 
     ModelHandler::StateSpace<double> SS(A,B,C,D);
     ControlHandler::ModelPredictiveControl<double> MPC(SS,N1,N2,NU,Q,10,W);
@@ -230,12 +230,12 @@ void PredictiveTestTest::getReference()
     double Q = 1, R, W = 0, L, b, J, K;
     R = 2.7; L = 0.004;
     K = 0.105; b = 9.3e-6; J = 1e-5;
-    A(1,1) = -R/L; A(1,2) = -K/L;
-    A(2,1) = K/L; A(2,2) = -b/J;
-    B(1,1) = 1/L;
-    B(2,1) = 0;
-    C(1,1) = 0; C(1,2) = 1;
-    D(1,1) = 0;
+    A(0,0) = -R/L; A(0,1) = -K/L;
+    A(1,0) = K/L; A(1,1) = -b/J;
+    B(0,0) = 1/L;
+    B(1,0) = 0;
+    C(0,0) = 0; C(0,1) = 1;
+    D(0,0) = 0;
 
     ModelHandler::StateSpace<double> SS(A,B,C,D);
     ControlHandler::ModelPredictiveControl<double> MPC(SS,N1,N2,NU,Q,10,W);

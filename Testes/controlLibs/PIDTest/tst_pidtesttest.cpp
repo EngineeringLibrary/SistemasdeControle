@@ -317,10 +317,10 @@ void PIDTestTest::tunningCHRRegulatorio ()
     QBENCHMARK {
         ControlHandler::PID<double> pid = ControlHandler::tunningCHRRegulatorio(FOP, "PI");
     }
-//    std::cout << pid << std::endl;
+    //std::cout << pid << std::endl;
     std::string str;
     str << pid;
-    QVERIFY2(str == "U(s) = 0.113849 E(s) + 0.00981455 (E(s)/s)", "parâmetro dos controladores errados.");
+    QVERIFY2(str == "U(s) = 0.11178 E(s) + 0.00963618 (E(s)/s)", "parâmetro dos controladores errados.");
 }
 
 void PIDTestTest::tunningCohenCoon ()

@@ -152,10 +152,10 @@ template<typename Type>
 void ControlHandler::ModelPredictiveControl<Type>::setReference(LinAlg::Matrix<Type> W)
 {
 //    this->W = LinAlg::Zeros<Type>(this->W.getNumberOfRows(),this->SSd.getB().getNumberOfColumns());
-    for(unsigned k = 1; k <= this->W.getNumberOfColumns(); ++k)
-        for(unsigned i = 1; i <= this->W.getNumberOfRows(); i += this->SSd.getC().getNumberOfRows())
+    for(unsigned k = 0; k < this->W.getNumberOfColumns(); ++k)
+        for(unsigned i = 0; i < this->W.getNumberOfRows(); i += this->SSd.getC().getNumberOfRows())
                 for(unsigned j = 0; j < this->SSd.getC().getNumberOfRows(); ++j)
-                    this->W(i+j,  k)  = W(j+1,k);
+                    this->W(i+j,  k)  = W(j,k);
 }
 
 template<typename Type>
@@ -245,10 +245,10 @@ template<typename Type>
 LinAlg::Matrix< LinAlg::Matrix<Type>* >* ControlHandler::ModelPredictiveControl<Type>::getControlLimits()
 {
     LinAlg::Matrix< LinAlg::Matrix<Type>* > *controlLimits = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
-    (*controlLimits)(1,1) = new LinAlg::Matrix<Type>(1,1);
-    (*controlLimits)(1,2) = new LinAlg::Matrix<Type>(1,1);
-    (*((*controlLimits)(1,1))) = LinAlg::Matrix<Type>(this->uMax);
-    (*((*controlLimits)(1,2))) = LinAlg::Matrix<Type>(this->uMin);
+    (*controlLimits)(0,0) = new LinAlg::Matrix<Type>(1,1);
+    (*controlLimits)(0,1) = new LinAlg::Matrix<Type>(1,1);
+    (*((*controlLimits)(0,0))) = LinAlg::Matrix<Type>(this->uMax);
+    (*((*controlLimits)(0,1))) = LinAlg::Matrix<Type>(this->uMin);
     return controlLimits;
 }
 
@@ -256,10 +256,10 @@ template<typename Type>
 LinAlg::Matrix< LinAlg::Matrix<Type>* >* ControlHandler::ModelPredictiveControl<Type>::getControlVariationLimits()
 {
     LinAlg::Matrix< LinAlg::Matrix<Type>* > *controlVariationLimits = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
-    (*controlVariationLimits)(1,1) = new LinAlg::Matrix<Type>(1,1);
-    (*controlVariationLimits)(1,2) = new LinAlg::Matrix<Type>(1,1);
-    (*((*controlVariationLimits)(1,1))) = LinAlg::Matrix<Type>(this->duMax);
-    (*((*controlVariationLimits)(1,2))) = LinAlg::Matrix<Type>(this->duMin);
+    (*controlVariationLimits)(0,0) = new LinAlg::Matrix<Type>(1,1);
+    (*controlVariationLimits)(0,1) = new LinAlg::Matrix<Type>(1,1);
+    (*((*controlVariationLimits)(0,0))) = LinAlg::Matrix<Type>(this->duMax);
+    (*((*controlVariationLimits)(0,1))) = LinAlg::Matrix<Type>(this->duMin);
     return controlVariationLimits;
 }
 
@@ -267,10 +267,10 @@ template<typename Type>
 LinAlg::Matrix< LinAlg::Matrix<Type>* >* ControlHandler::ModelPredictiveControl<Type>::getOutputLimits()
 {
     LinAlg::Matrix< LinAlg::Matrix<Type>* > *outputLimits = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,2);
-    (*outputLimits)(1,1) = new LinAlg::Matrix<Type>(1,1);
-    (*outputLimits)(1,2) = new LinAlg::Matrix<Type>(1,1);
-    (*((*outputLimits)(1,1))) = LinAlg::Matrix<Type>(this->yMax);
-    (*((*outputLimits)(1,2))) = LinAlg::Matrix<Type>(this->yMin);
+    (*outputLimits)(0,0) = new LinAlg::Matrix<Type>(1,1);
+    (*outputLimits)(0,1) = new LinAlg::Matrix<Type>(1,1);
+    (*((*outputLimits)(0,0))) = LinAlg::Matrix<Type>(this->yMax);
+    (*((*outputLimits)(0,1))) = LinAlg::Matrix<Type>(this->yMin);
     return outputLimits;
 }
 
@@ -278,18 +278,18 @@ template<typename Type>
 LinAlg::Matrix< LinAlg::Matrix<Type>* >* ControlHandler::ModelPredictiveControl<Type>::getLimits()
 {
     LinAlg::Matrix< LinAlg::Matrix<Type>* > *Limits = new LinAlg::Matrix< LinAlg::Matrix<Type>* >(1,6);
-    (*Limits)(1,1) = new LinAlg::Matrix<Type>(1,1);
-    (*Limits)(1,2) = new LinAlg::Matrix<Type>(1,1);
-    (*Limits)(1,3) = new LinAlg::Matrix<Type>(1,1);
-    (*Limits)(1,4) = new LinAlg::Matrix<Type>(1,1);
-    (*Limits)(1,5) = new LinAlg::Matrix<Type>(1,1);
-    (*Limits)(1,6) = new LinAlg::Matrix<Type>(1,1);
-    (*((*Limits)(1,1))) = LinAlg::Matrix<Type>(this->duMax);
-    (*((*Limits)(1,2))) = LinAlg::Matrix<Type>(this->duMin);
-    (*((*Limits)(1,3))) = LinAlg::Matrix<Type>(this->yMax);
-    (*((*Limits)(1,4))) = LinAlg::Matrix<Type>(this->yMin);
-    (*((*Limits)(1,5))) = LinAlg::Matrix<Type>(this->uMax);
-    (*((*Limits)(1,6))) = LinAlg::Matrix<Type>(this->uMin);
+    (*Limits)(0,0) = new LinAlg::Matrix<Type>(1,1);
+    (*Limits)(0,1) = new LinAlg::Matrix<Type>(1,1);
+    (*Limits)(0,2) = new LinAlg::Matrix<Type>(1,1);
+    (*Limits)(0,3) = new LinAlg::Matrix<Type>(1,1);
+    (*Limits)(0,4) = new LinAlg::Matrix<Type>(1,1);
+    (*Limits)(0,5) = new LinAlg::Matrix<Type>(1,1);
+    (*((*Limits)(0,0))) = LinAlg::Matrix<Type>(this->duMax);
+    (*((*Limits)(0,1))) = LinAlg::Matrix<Type>(this->duMin);
+    (*((*Limits)(0,2))) = LinAlg::Matrix<Type>(this->yMax);
+    (*((*Limits)(0,3))) = LinAlg::Matrix<Type>(this->yMin);
+    (*((*Limits)(0,4))) = LinAlg::Matrix<Type>(this->uMax);
+    (*((*Limits)(0,5))) = LinAlg::Matrix<Type>(this->uMin);
     return Limits;
 }
 

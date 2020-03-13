@@ -79,9 +79,9 @@ ModelHandler::TransferFunction<Type> ModelHandler::arx2tf(const ARX<Type> &Arx, 
     {
         for(unsigned j = 1; j <= nuPar; ++j)
         {
-            TF(i,j) = PolynomHandler::Polynom<Type>
-            ( ~ArxParameters(from( nyPar*ny + (j-1)*nu + 1) --> nyPar*ny + j*nu, i), LinAlg::Matrix<Type>(1)|
-              ~ArxParameters(from(1)             --> ny,i ) );
+            TF(i-1,j-1) = PolynomHandler::Polynom<Type>
+            ( ~ArxParameters(from( nyPar*ny + (j-1)*nu) --> nyPar*ny + j*nu - 1, i - 1), LinAlg::Matrix<Type>(1)|
+              ~ArxParameters(from(0)             --> ny-1, i - 1 ) );
         }
     }
     TF.setContinuous(false);
@@ -112,10 +112,10 @@ ModelHandler::StateSpace<Type> ModelHandler::arx2SS(const ARX<Type> &Arx)
     for(unsigned i = 1; i <= nyPar; ++i)
     {
         Temp = LinAlg::Zeros<Type>(nyPar*ny, 1);
-        unsigned row = 1;
+        unsigned row = 0;
         for(unsigned j = 1; j <= nyPar; ++j)
             for(unsigned k = 1; k <= ny; ++k){
-                Temp(row,1) = -ArxParameters((i-1)*ny + k, j);
+                Temp(row,0) = -ArxParameters((i-1)*ny + k - 1, j - 1);
                 ++row;
             }
 //        std::cout << Temp;
@@ -127,12 +127,12 @@ ModelHandler::StateSpace<Type> ModelHandler::arx2SS(const ARX<Type> &Arx)
 
     for(unsigned i = 1; i <= nuPar; ++i)
     {
-        Temp = LinAlg::Zeros<Type>(nyPar*ny, 1);
-        unsigned row = 1;
+        Temp = LinAlg::Zeros<Type>(nyPar*ny - 1, 0);
+        unsigned row = 0;
         for(unsigned j = 1; j <= nyPar; ++j)
             for(unsigned k = 1; k <= nu; ++k){
 //                std::cout << ArxParameters << std::cout;
-                Temp(row,1) = ArxParameters((i-1)*nu + k + nyPar*ny, j);
+                Temp(row,0) = ArxParameters((i-1)*nu + k + nyPar*ny - 1, j - 1);
                 ++row;
             }
 //        std::cout << Temp;
@@ -145,7 +145,7 @@ ModelHandler::StateSpace<Type> ModelHandler::arx2SS(const ARX<Type> &Arx)
         for(unsigned j = 1; j <= nyPar*ny; ++j)
         {
             if(j == (i-1)*ny + 1)
-                C(i,j) = 1;
+                C(i - 1, j - 1) = 1;
         }
     }
 //    std::cout << C;

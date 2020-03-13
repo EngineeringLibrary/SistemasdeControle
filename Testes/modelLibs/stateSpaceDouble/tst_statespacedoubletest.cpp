@@ -462,11 +462,11 @@ void StateSpaceDoubleTest::simScalar()
         }
     }
 
-    QVERIFY2( fabs(Y(1,1) - 0) < 0.001 && fabs(Y(1,2) - 0.0047) < 0.001 &&
-              fabs(Y(1,3) - 0.0175) < 0.001 && fabs(Y(1,4) - 0.0369) < 0.001 &&
-              fabs(Y(1,5) - 0.0616) < 0.001 && fabs(Y(1,6) - 0.0902) < 0.001 &&
-              fabs(Y(1,7) - 0.1219) < 0.001 && fabs(Y(1,8) - 0.1558) < 0.001 &&
-              fabs(Y(1,9) - 0.1912) < 0.001 && fabs(Y(1,10) - 0.2275) < 0.001 && fabs(Y(1,11) - 0.2642) < 0.001, "Falhou ao verificar os valores de simulação do sistema.");
+    QVERIFY2( fabs(Y(0,0) - 0) < 0.001 && fabs(Y(0,1) - 0.0047) < 0.001 &&
+              fabs(Y(0,2) - 0.0175) < 0.001 && fabs(Y(0,3) - 0.0369) < 0.001 &&
+              fabs(Y(0,4) - 0.0616) < 0.001 && fabs(Y(0,5) - 0.0902) < 0.001 &&
+              fabs(Y(0,6) - 0.1219) < 0.001 && fabs(Y(0,7) - 0.1558) < 0.001 &&
+              fabs(Y(0,8) - 0.1912) < 0.001 && fabs(Y(0,9) - 0.2275) < 0.001 && fabs(Y(0,10) - 0.2642) < 0.001, "Falhou ao verificar os valores de simulação do sistema.");
 }
 
 void StateSpaceDoubleTest::simMatrix()
@@ -479,11 +479,11 @@ void StateSpaceDoubleTest::simMatrix()
         Y = SS.sim("1,1,1,1,1,1,1,1,1,1,1");
     }
 
-    QVERIFY2( fabs(Y(1,1) - 0) < 0.001 && fabs(Y(1,2) - 0.0047) < 0.001 &&
-              fabs(Y(1,3) - 0.0175) < 0.001 && fabs(Y(1,4) - 0.0369) < 0.001 &&
-              fabs(Y(1,5) - 0.0616) < 0.001 && fabs(Y(1,6) - 0.0902) < 0.001 &&
-              fabs(Y(1,7) - 0.1219) < 0.001 && fabs(Y(1,8) - 0.1558) < 0.001 &&
-              fabs(Y(1,9) - 0.1912) < 0.001 && fabs(Y(1,10) - 0.2275) < 0.001 && fabs(Y(1,11) - 0.2642) < 0.001, "Falhou ao verificar os valores de simulação do sistema.");
+    QVERIFY2( fabs(Y(0,0) - 0) < 0.001 && fabs(Y(0,1) - 0.0047) < 0.001 &&
+              fabs(Y(0,2) - 0.0175) < 0.001 && fabs(Y(0,3) - 0.0369) < 0.001 &&
+              fabs(Y(0,4) - 0.0616) < 0.001 && fabs(Y(0,5) - 0.0902) < 0.001 &&
+              fabs(Y(0,6) - 0.1219) < 0.001 && fabs(Y(0,7) - 0.1558) < 0.001 &&
+              fabs(Y(0,8) - 0.1912) < 0.001 && fabs(Y(0,9) - 0.2275) < 0.001 && fabs(Y(0,10) - 0.2642) < 0.001, "Falhou ao verificar os valores de simulação do sistema.");
 }
 
 void StateSpaceDoubleTest::c2dConversion()
