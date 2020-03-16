@@ -437,7 +437,7 @@ void ModelHandler::StateSpace<Type>::d2cConversion()
     Type factor =  (unsigned)ceil(max(0,0));
 
     for(unsigned i = 1; i < nDiscretization + 1; ++i){
-        std::cout << A; std::cout << std::endl;
+        //std::cout << A; std::cout << std::endl;
         A += -(pow(-1,i))*((Ad/factor - I)^i)/i;
     }
     //std::cout << A; std::cout << std::endl;
