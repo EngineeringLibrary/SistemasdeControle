@@ -30,10 +30,12 @@ SOURCES += tst_predictivetesttest.cpp
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 HEADERS += \
+    ../../../headers/advancedModelLibs/droneModel/limbModel.h \
     ../../../headers/primitiveLibs/LinAlg/identifiers.h \
     ../../../headers/primitiveLibs/LinAlg/linalg.h \
     ../../../headers/primitiveLibs/LinAlg/matrix.h \
     ../../../headers/primitiveLibs/polynom.h \
+    ../../../src/advancedModelLibs/droneModel/limbModel.hpp \
     ../../../src/primitiveLibs/LinAlg/linalg.hpp \
     ../../../src/primitiveLibs/LinAlg/matrix.hpp \
     ../../../src/primitiveLibs/polynom.hpp \

@@ -1,9 +1,12 @@
-#ifndef __OPTIMIZATION_H_INCLUDED
-#define __OPTIMIZATION_H_INCLUDED
+#ifndef _OPTIMIZATION_H_INCLUDED
+#define _OPTIMIZATION_H_INCLUDED
 
 #ifdef testModel
+    #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
     #include "../../../headers/modelLibs/model.h"
     #include "../../../headers/modelLibs/arx.h"
+    #include "../../../headers/advancedModelLibs/droneModel/limbModel.h"
+
 #else
     #include "SistemasdeControle/headers/modelLibs/model.h"
     #include "SistemasdeControle/headers/modelLibs/arx.h"
@@ -15,21 +18,16 @@ namespace OptimizationHandler {
     class Optimization
     {
     public:
-        Optimization();
+        Optimization(){}
 
         virtual void Optimize()=0;
         virtual void Optimize(LinAlg::Matrix<Type> Input,
                               LinAlg::Matrix<Type> Output)=0;
-
+        LinAlg::Matrix<Type> getOptimizedVariable(){return OptimizatedVariable;}
     protected:
         ModelHandler::Model<Type> *model;
+        LinAlg::Matrix<Type> OptimizatedVariable;
     };
 }
-
-#ifdef testModel
-    #include "../../../src/optimizationLibs/optimization.hpp"
-#else
-    #include "SistemasdeControle/src/optimizationLibs/optimization.hpp"
-#endif
 
 #endif // OPTIMIZATION_H
