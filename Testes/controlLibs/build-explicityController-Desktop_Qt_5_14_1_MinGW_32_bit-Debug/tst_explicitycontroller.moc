@@ -1,5 +1,5 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'tst_psotest.cpp'
+** Meta object code from reading C++ file 'tst_explicitycontroller.cpp'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.14.1)
 **
@@ -10,7 +10,7 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'tst_psotest.cpp' doesn't include <QObject>."
+#error "The header file 'tst_explicitycontroller.cpp' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.14.1. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -20,27 +20,27 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_psoTest_t {
+struct qt_meta_stringdata_ExplicityController_t {
     QByteArrayData data[3];
-    char stringdata0[18];
+    char stringdata0[32];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_psoTest_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_ExplicityController_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_psoTest_t qt_meta_stringdata_psoTest = {
+static const qt_meta_stringdata_ExplicityController_t qt_meta_stringdata_ExplicityController = {
     {
-QT_MOC_LITERAL(0, 0, 7), // "psoTest"
-QT_MOC_LITERAL(1, 8, 8), // "psoTest1"
-QT_MOC_LITERAL(2, 17, 0) // ""
+QT_MOC_LITERAL(0, 0, 19), // "ExplicityController"
+QT_MOC_LITERAL(1, 20, 10), // "test_case1"
+QT_MOC_LITERAL(2, 31, 0) // ""
 
     },
-    "psoTest\0psoTest1\0"
+    "ExplicityController\0test_case1\0"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_psoTest[] = {
+static const uint qt_meta_data_ExplicityController[] = {
 
  // content:
        8,       // revision
@@ -62,43 +62,43 @@ static const uint qt_meta_data_psoTest[] = {
        0        // eod
 };
 
-void psoTest::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void ExplicityController::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<psoTest *>(_o);
+        auto *_t = static_cast<ExplicityController *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->psoTest1(); break;
+        case 0: _t->test_case1(); break;
         default: ;
         }
     }
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject psoTest::staticMetaObject = { {
+QT_INIT_METAOBJECT const QMetaObject ExplicityController::staticMetaObject = { {
     QMetaObject::SuperData::link<QObject::staticMetaObject>(),
-    qt_meta_stringdata_psoTest.data,
-    qt_meta_data_psoTest,
+    qt_meta_stringdata_ExplicityController.data,
+    qt_meta_data_ExplicityController,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *psoTest::metaObject() const
+const QMetaObject *ExplicityController::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *psoTest::qt_metacast(const char *_clname)
+void *ExplicityController::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_psoTest.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_ExplicityController.stringdata0))
         return static_cast<void*>(this);
     return QObject::qt_metacast(_clname);
 }
 
-int psoTest::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int ExplicityController::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
