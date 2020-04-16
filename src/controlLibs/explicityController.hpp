@@ -5,6 +5,25 @@
 #endif
 
 template<typename Type>
+void ControlHandler::ExplicityController<Type>::setConstraints(const LinAlg::Matrix<Type> *Constraints, const unsigned &size)
+{
+    this->Constraints = new LinAlg::Matrix<Type>[size];
+    for(unsigned i = 0; i < size; ++i)
+        this->Constraints[i] = Constraints[i];
+    this->quantityOfRegions = size;
+}
+
+template<typename Type>
+void ControlHandler::ExplicityController<Type>::setControllerParameters(const LinAlg::Matrix<Type> *controllers, const unsigned &size)
+{
+    this->controllerParameters = new LinAlg::Matrix<Type>[size];
+    for(unsigned i = 0; i < size; ++i)
+        this->controllerParameters[i] = controllers[i];
+    this->quantityOfRegions = size;
+}// Recebe uma string com C no final de cada conjunto parâmetros do controlador afim por partes. Converte cada trecho do início até encontrar o C em uma matriz e deleta o trecho da string.
+
+
+template<typename Type>
 bool ControlHandler::ExplicityController<Type>::isInside(const LinAlg::Matrix<Type> &_point)
 {
 	this->inWitchRegion = -1; // Se o número não for alterado os estados não pertencem a nenhuma região.

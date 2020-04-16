@@ -9,6 +9,7 @@ TEMPLATE = app
 SOURCES +=  tst_explicitycontroller.cpp
 
 HEADERS += \
+    ../../../headers/controlLibs/EGPC.h \
     ../../../headers/controlLibs/explicityController.h \
     ../../../headers/controlLibs/modelpredictivecontrol.h \
     ../../../headers/controlLibs/mp_pi.h \
@@ -16,6 +17,7 @@ HEADERS += \
     ../../../headers/controlLibs/mp_state_feedback_controller.h \
     ../../../headers/controlLibs/pid.h \
     ../../../headers/controlLibs/pidTuning.h \
+    ../../../src/controlLibs/EGPC.hpp \
     ../../../src/controlLibs/explicityController.hpp \
     ../../../src/controlLibs/modelpredictivecontrol.hpp \
     ../../../src/controlLibs/mp_pi.hpp \
