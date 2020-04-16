@@ -27,18 +27,18 @@ OptimizationHandler::PSO<UsedType>::PSO(ModelHandler::Model<UsedType> *model, co
 template <class UsedType>
 void OptimizationHandler::PSO<UsedType>::initAlgorithm()
 {
-    LinAlg::Matrix<UsedType> init = "0.203979,0.097670,0.445005,0.369224,0.121721,0.200847,0.974407,0.999997,2.999732";
+    //LinAlg::Matrix<UsedType> init = "0.203979,0.097670,0.445005,0.369224,0.121721,0.200847,0.974407,0.999997,2.999732";
     this->X = this->maxX/50*LinAlg::Random<UsedType>(this->PopSize, this->varNum);
-    for(int i = 0; i < this->X.getNumberOfRows(); ++i)
-        for(int j = 0; j < this->X.getNumberOfColumns(); ++j)
-            this->X(i,j) += init(0,j);
+//    for(int i = 0; i < this->X.getNumberOfRows(); ++i)
+//        for(int j = 0; j < this->X.getNumberOfColumns(); ++j)
+//            this->X(i,j) += init(0,j);
 
     //std::cout << X;
     this->V = 0.01*LinAlg::Random<UsedType>(this->PopSize, this->varNum);
     this->P = this->maxX/50*LinAlg::Random<UsedType>(this->PopSize, this->varNum);
-    for(int i = 0; i < this->P.getNumberOfRows(); ++i)
-        for(int j = 0; j < this->X.getNumberOfColumns(); ++j)
-            this->P(i,j) += init(0,j);
+//    for(int i = 0; i < this->P.getNumberOfRows(); ++i)
+//        for(int j = 0; j < this->X.getNumberOfColumns(); ++j)
+//            this->P(i,j) += init(0,j);
 
     this->Pfitness = Evaluation(this->P);
     this->G = this->maxX/10 *LinAlg::Random<UsedType>(1, this->varNum);
@@ -151,6 +151,7 @@ void OptimizationHandler::PSO<UsedType>::Optimize()
 {
 //    clock_t start, stop;
 
+    std::cout << "Iteration  Gfitness  BestSolution \n";
 
     initAlgorithm();
 
@@ -167,8 +168,7 @@ void OptimizationHandler::PSO<UsedType>::Optimize()
 //        cout << this->Stime << endl;
 
         FitnessUpdate();
-        std::cout << i+1 << ": " << Gfitness << "\n";
-        std::cout << G << "\n\n";
+        std::cout << i+1 << ": " << (Gfitness|G);
 //        Gfitness.print();
 //        this->GGen = this->GGen||this->G; // função lenta
 //        this->GfitnessGen = this->GfitnessnTime||this->Gfitness; // função lenta
