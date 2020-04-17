@@ -81,7 +81,7 @@ ModelHandler::TransferFunction<Type> ModelHandler::arx2tf(const ARX<Type> &Arx, 
         {
             TF(i-1,j-1) = PolynomHandler::Polynom<Type>
             ( ~ArxParameters(from( nyPar*ny + (j-1)*nu) --> nyPar*ny + j*nu - 1, i - 1), LinAlg::Matrix<Type>(1)|
-              ~ArxParameters(from(0+(nyPar-1)*ny)             --> ny-1 +(nyPar-1)*ny, i - 1 ) );
+              ~ArxParameters(from(0+(ny)*(i-1))             --> ny-1 +(ny)*(i-1), i - 1 ) );
         }
     }
     TF.setContinuous(false);

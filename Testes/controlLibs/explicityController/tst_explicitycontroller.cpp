@@ -395,7 +395,7 @@ void ExplicityController::MIMO_case1()
         U += dU;
         //std::cout << ~GPC->getState() << std::endl;
         //std::cout << (~dU) << std::endl;
-        //std::cout << (~Y) << std::endl;
+        std::cout << (~Y) << std::endl;
     }
 }
 

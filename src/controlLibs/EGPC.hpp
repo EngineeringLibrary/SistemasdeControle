@@ -42,7 +42,6 @@ LinAlg::Matrix<Type> ControlHandler::EGPC<Type>::outputControlActionsCalc(LinAlg
     this->setStates(Input, SignalInput);
     if(this->isInside(this->states)) // Verifica em qual poliedro os estados estão (inWhitchRegion).
         this->Input = this->controllerParameters[this->inWitchRegion](from(0)-->this->inputSize-1,from(0)-->this->states.getNumberOfRows()-1)*this->states;
-
     else //Esse caso não deve acontecer exceto que o sistema seja iniciado de maneira errada.
     	std::cout << "Valor enviado nao pertence ao conjunto de restricoes!" << std::endl;
 

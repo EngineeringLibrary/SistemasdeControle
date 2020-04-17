@@ -1,6 +1,5 @@
 #define testPolynom
 #define testModel
-#define coutPrecision 10
 
 #include <QString>
 #include <QtTest>
@@ -50,8 +49,8 @@ void rls::identification_SISO_case1()
             std::cout << (arx) << std::endl;
         }
 
-        //std::cout << ModelHandler::arx2tf(arx) << std::endl;
-        //std::cout << TFd << std::endl;
+        std::cout << ModelHandler::arx2tf(arx) << std::endl;
+        std::cout << TFd << std::endl;
     }
 
     for(unsigned i = 0; i < 9; ++i)
@@ -60,7 +59,6 @@ void rls::identification_SISO_case1()
     }
     //std::cout << arx << "\n";
 }
-
 
 void rls::identification_MIMO_case1()
 {
@@ -87,13 +85,11 @@ void rls::identification_MIMO_case1()
         for(unsigned i = 0; i < 200; ++i)
         {
             RLS.Optimize(U(from(0)-->(3),i),Y(from(0)-->(1),i+1));
-            //std::cout << (arx) << std::endl;
+            std::cout << (arx) << std::endl;
         }
-        //std::cout <<= arx.getModelCoef();
-        //std::cout << std::endl;
-        //std::cout << std::endl;
 
-        //std::cout << TFd << std::endl;
+        std::cout << ModelHandler::arx2tf(arx) << std::endl;
+        std::cout << TFd << std::endl;
     }
 }
 
