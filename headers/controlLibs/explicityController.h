@@ -25,8 +25,8 @@ namespace ControlHandler{
     protected://significa que todas as classes filhas podem acessar os atributos abaixo.
         LinAlg::Matrix<Type> *Constraints, states; // Vetor de Matrizes contendo todas as restrições para cada conjunto.
     	LinAlg::Matrix<Type> *controllerParameters; // Vetor de Matrizes contendo todos os parâmetros de controlador para cada conjunto.
-    	uint16_t quantityOfRegions; // Quantidade de regiões em que o conjunto foi subdividido.
-    	int inWitchRegion; // Sinalisa em qual região pertence o estado calculado.
+        uint16_t quantityOfRegions, stateSize; // Quantidade de regiões em que o conjunto foi subdividido.
+        int inWitchRegion; // Sinalisa em qual região pertence o estado calculado.
 
     	bool isInside(const LinAlg::Matrix<Type> &_point);// Verifica se um estado pertence ao conjunto invariante.
         bool any(const LinAlg::Matrix<Type> &H);// função para auxiliar isInside.

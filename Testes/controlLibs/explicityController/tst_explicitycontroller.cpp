@@ -388,7 +388,7 @@ void ExplicityController::MIMO_case1()
                           Y = LinAlg::Zeros<float>(2,1),
                           Reference = "0.5;0.3";
 
-    for(uint16_t i = 0; i < 500; ++i) {
+    for(uint16_t i = 0; i < 50; ++i) {
         arx.setLinearVector(U,Y);
         Y = ~(arx.getLinearVectorA()*arx.getModelCoef());
         dU = GPC->outputControlActionsCalc(~Reference,Y);

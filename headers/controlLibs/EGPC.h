@@ -14,7 +14,7 @@ namespace ControlHandler{
 
     protected:
         Type inputSize;
-        LinAlg::Matrix<Type> freeDU, freeY, Input, pastInputs, Reference;
+        LinAlg::Matrix<Type> freeDU, freeY, Input, Reference;
         void setStates(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> Output);
     };
 }
