@@ -787,6 +787,8 @@ tst_rls.moc: ../RecursiveLestSquare/tst_rls.cpp \
 		../../../src/modelLibs/model.hpp \
 		../../../headers/modelLibs/arx.h \
 		../../../src/modelLibs/arx.hpp \
+		../../../headers/modelLibs/polynomial.h \
+		../../../src/modelLibs/polynomial.hpp \
 		../../../headers/modelLibs/transferfunction.h \
 		../../../headers/modelLibs/statespace.h \
 		../../../src/modelLibs/statespace.hpp \
@@ -1138,6 +1140,8 @@ tst_rls.o: ../RecursiveLestSquare/tst_rls.cpp D:/Qt/5.14.1/mingw73_32/include/Qt
 		../../../src/modelLibs/model.hpp \
 		../../../headers/modelLibs/arx.h \
 		../../../src/modelLibs/arx.hpp \
+		../../../headers/modelLibs/polynomial.h \
+		../../../src/modelLibs/polynomial.hpp \
 		../../../headers/modelLibs/transferfunction.h \
 		../../../headers/modelLibs/statespace.h \
 		../../../src/modelLibs/statespace.hpp \

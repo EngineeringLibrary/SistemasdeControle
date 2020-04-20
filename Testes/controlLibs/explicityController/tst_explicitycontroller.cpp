@@ -386,7 +386,7 @@ void ExplicityController::MIMO_case1()
     LinAlg::Matrix<float> dU = LinAlg::Zeros<float>(4,1),
                           U = LinAlg::Zeros<float>(4,1),
                           Y = LinAlg::Zeros<float>(2,1),
-                          Reference = "0.5;0.3";
+                          Reference = "0.8;0.4";
 
     for(uint16_t i = 0; i < 50; ++i) {
         arx.setLinearVector(U,Y);
