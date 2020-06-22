@@ -40,16 +40,16 @@ namespace LinAlg {
     inline LinAlg::Matrix<Type> Hess (const LinAlg::Matrix<Type>& matrix_to_reduce);
 
     template <typename Type>
-    inline LinAlg::Matrix<Type> eigenValues(const LinAlg::Matrix<Type>& matrix_to_get_eigens, int iterations = 100, Type tolerance = 1e-5);
+    inline LinAlg::Matrix<Type> eigenValues(const LinAlg::Matrix<Type>& matrix_to_get_eigens, uint32_t iterations = 100, Type tolerance = 1e-5);
 
     template <typename Type>
-    inline LinAlg::Matrix<Type> eigenVectors(const LinAlg::Matrix<Type>& matrix_to_get_eigens, int iterations = 100);
+    inline LinAlg::Matrix<Type> eigenVectors(const LinAlg::Matrix<Type>& matrix_to_get_eigens, uint32_t iterations = 100);
 
     template <typename Type>
-    inline LinAlg::Matrix<Type> eigenValues_LU(const LinAlg::Matrix<Type>& matrix_to_get_eigenvalues, int iterations = 40);
+    inline LinAlg::Matrix<Type> eigenValues_LU(const LinAlg::Matrix<Type>& matrix_to_get_eigenvalues, uint32_t iterations = 40);
 
     template <typename Type>
-    inline Type *MultPoly(const Type *lhs, const Type  *rhs, const int &lhsSize, const int &rhsSize);
+    inline Type *MultPoly(const Type *lhs, const Type  *rhs, const uint32_t &lhsSize, const uint32_t &rhsSize);
 
     template <typename Type>
     inline LinAlg::Matrix<Type> abs(const LinAlg::Matrix<Type> &mat);
@@ -61,13 +61,13 @@ namespace LinAlg {
     inline LinAlg::Matrix<Type> powMatrix(const LinAlg::Matrix<Type> &mat, Type potence);
 
     template <typename Type>
-    inline LinAlg::Matrix<Type> expM(const LinAlg::Matrix<Type> &mat, const Type &sampleTime = 1, const int &precision = 10);
+    inline LinAlg::Matrix<Type> expM(const LinAlg::Matrix<Type> &mat, const Type &sampleTime = 1, const uint32_t &precision = 10);
 
     template <typename Type>
-    inline LinAlg::Matrix<Type> logM(const LinAlg::Matrix<Type> &mat, const Type &sampleTime = 1, const int &precision = 40);
+    inline LinAlg::Matrix<Type> logM(const LinAlg::Matrix<Type> &mat, const Type &sampleTime = 1, const uint32_t &precision = 40);
 
     template <typename Type>
-    inline LinAlg::Matrix<Type> mean(const LinAlg::Matrix<Type> &mat, const int &rowColumn = 1);
+    inline LinAlg::Matrix<Type> mean(const LinAlg::Matrix<Type> &mat, const uint32_t &rowColumn = 1);
 }
 
 #ifdef testMatrix

@@ -33,7 +33,7 @@ LinAlg::Matrix<Type>::Matrix (std::string Mat)
 }
 
 template<typename Type>
-LinAlg::Matrix<Type>::Matrix (int row, int column)
+LinAlg::Matrix<Type>::Matrix (uint32_t row, uint32_t column)
 {
     if(row == 0 || column == 0)
     {
@@ -50,8 +50,8 @@ LinAlg::Matrix<Type>::Matrix (const LinAlg::Matrix<Type>& otherMatrix)
 {
     this->Init(otherMatrix.rows, otherMatrix.columns);
 
-    for(int i = 0; i < otherMatrix.rows; i++)
-        for(int j = 0; j < otherMatrix.columns; j++)
+    for(uint32_t i = 0; i < otherMatrix.rows; i++)
+        for(uint32_t j = 0; j < otherMatrix.columns; j++)
             this->mat[i][j] = otherMatrix.mat[i][j];
 }
 
@@ -60,8 +60,8 @@ LinAlg::Matrix<Type>::Matrix (const LinAlg::Matrix<OtherMatrixType>& otherMatrix
 {
     this->Init(otherMatrix.getNumberOfRows(), otherMatrix.getNumberOfColumns());
 
-    for(int i = 0; i < otherMatrix.getNumberOfRows(); i++)
-        for(int j = 0; j < otherMatrix.getNumberOfColumns(); j++)
+    for(uint32_t i = 0; i < otherMatrix.getNumberOfRows(); i++)
+        for(uint32_t j = 0; j < otherMatrix.getNumberOfColumns(); j++)
             this->mat[i][j] = (Type)otherMatrix(i,j);
 }
 
@@ -70,7 +70,7 @@ LinAlg::Matrix<Type>::~Matrix ()
 {
     if(columns != 0 || rows != 0)
     {
-        for(int i = 0; i < this->rows; i++)
+        for(uint32_t i = 0; i < this->rows; i++)
             delete[] this->mat[i];
         delete this->mat;
     }
@@ -82,7 +82,7 @@ LinAlg::Matrix<Type>::~Matrix ()
 }
 
 template<typename Type>
-void LinAlg::Matrix<Type>::removeRow(int row)
+void LinAlg::Matrix<Type>::removeRow(uint32_t row)
 {
     if(this->rows == 1)
     {
@@ -92,7 +92,7 @@ void LinAlg::Matrix<Type>::removeRow(int row)
     else
     {
         LinAlg::Matrix<Type> Temp;
-        for(int i = 0; i < this->rows; ++i)
+        for(uint32_t i = 0; i < this->rows; ++i)
                 if(i != row)
                     Temp = Temp||this->getRow(i);
         *this = Temp;
@@ -100,7 +100,7 @@ void LinAlg::Matrix<Type>::removeRow(int row)
 }
 
 template<typename Type>
-void LinAlg::Matrix<Type>::removeColumn(int column)
+void LinAlg::Matrix<Type>::removeColumn(uint32_t column)
 {
     if(this->columns == 1)
     {
@@ -110,7 +110,7 @@ void LinAlg::Matrix<Type>::removeColumn(int column)
     else
     {
         LinAlg::Matrix<Type> Temp;
-        for(int i = 0; i < this->columns; ++i)
+        for(uint32_t i = 0; i < this->columns; ++i)
                 if(i != column)
                    Temp = Temp|this->getColumn(i);
         *this = Temp;
@@ -120,11 +120,11 @@ void LinAlg::Matrix<Type>::removeColumn(int column)
 template<typename Type>
 void LinAlg::Matrix<Type>::Init (std::string Mat)
 {
-    int commas = 1, semiColons = 1, row, column, lin = 0, col = 0;
-    int posComma = 0, posSemiColon = 0;
+    uint32_t commas = 1, semiColons = 1, row, column, lin = 0, col = 0;
+    uint32_t posComma = 0, posSemiColon = 0;
     std::string temp;
 
-    for(int i = 0; i < Mat.length(); ++i)
+    for(uint32_t i = 0; i < Mat.length(); ++i)
     {
         if(Mat[i] == ';')
             semiColons += 1;
@@ -175,7 +175,7 @@ void LinAlg::Matrix<Type>::Init (std::string Mat)
 }
 
 template<typename Type>
-void LinAlg::Matrix<Type>::Init (int row, int column)
+void LinAlg::Matrix<Type>::Init (uint32_t row, uint32_t column)
 {
     if(row == 0  && column == 0){
         this->rows = 0;
@@ -186,7 +186,7 @@ void LinAlg::Matrix<Type>::Init (int row, int column)
         this->columns = column;
 
         this->mat = new Type*[row]();
-        for(int i = 0; i < row; i++)
+        for(uint32_t i = 0; i < row; i++)
             this->mat[i] = new Type[column]();
     }
 
@@ -194,21 +194,21 @@ void LinAlg::Matrix<Type>::Init (int row, int column)
 }
 
 template<typename Type>
-void LinAlg::Matrix<Type>::ReInit (int row, int column)
+void LinAlg::Matrix<Type>::ReInit (uint32_t row, uint32_t column)
 {
     LinAlg::Matrix<Type> temp(row, column);
 
-    for(int i = 0; i < this->rows; i++)
-        for(int j = 0; j < this->columns; j++)
+    for(uint32_t i = 0; i < this->rows; i++)
+        for(uint32_t j = 0; j < this->columns; j++)
             temp.mat[i][j] = this->mat[i][j];
 
     *this = temp;
 }
 
 template<typename Type>
-void LinAlg::Matrix<Type>::Add (int row, int column, Type number)
+void LinAlg::Matrix<Type>::Add (uint32_t row, uint32_t column, Type number)
 {
-    int greaterRow, greaterColumn;
+    uint32_t greaterRow, greaterColumn;
 
     if(((row + 1) > this->rows) || ((column + 1) > this->columns))
     {
@@ -229,7 +229,7 @@ void LinAlg::Matrix<Type>::Add (int row, int column, Type number)
 }
 
 template<typename Type> template<typename OtherMatrixType>
-bool LinAlg::Matrix<Type>::CheckDimensions (const LinAlg::Matrix<OtherMatrixType>& rhs, int operation)
+bool LinAlg::Matrix<Type>::CheckDimensions (const LinAlg::Matrix<OtherMatrixType>& rhs, uint32_t operation)
 {
     bool checked = false;
 
@@ -259,8 +259,8 @@ void LinAlg::Matrix<Type>::swap (const LinAlg::Matrix<OtherMatrixType>& otherMat
 
     LinAlg::Matrix<Type> temp(otherMatrix.getNumberOfRows(), otherMatrix.getNumberOfColumns());
 
-    for(int i = 0; i < temp.rows; i++)
-        for(int j = 0; j < temp.columns; j++)
+    for(uint32_t i = 0; i < temp.rows; i++)
+        for(uint32_t j = 0; j < temp.columns; j++)
             temp.mat[i][j] = otherMatrix(i, j);
 
     swap (rows, temp.rows);
@@ -270,13 +270,13 @@ void LinAlg::Matrix<Type>::swap (const LinAlg::Matrix<OtherMatrixType>& otherMat
 }
 
 template<typename Type>
-int LinAlg::Matrix<Type>::getNumberOfRows () const
+uint32_t LinAlg::Matrix<Type>::getNumberOfRows () const
 {
     return this->rows;
 }
 
 template<typename Type>
-int LinAlg::Matrix<Type>::getNumberOfColumns () const
+uint32_t LinAlg::Matrix<Type>::getNumberOfColumns () const
 {
     return this->columns;
 }
@@ -304,36 +304,36 @@ bool LinAlg::Matrix<Type>::isSquare ()
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::getRow (const int &number_of_the_row) const
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::getRow (const uint32_t &number_of_the_row) const
 {
     LinAlg::Matrix<Type> ret(1, this->columns);
 
-    for(int j = 0; j < ret.columns; j++)
+    for(uint32_t j = 0; j < ret.columns; j++)
         ret.mat[0][j] = this->mat[number_of_the_row][j];
 
     return ret;
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::getColumn (const int &number_of_the_column) const
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::getColumn (const uint32_t &number_of_the_column) const
 {
     LinAlg::Matrix<Type> ret(this->rows, 1);
 
-    for(int i = 0; i < ret.rows; i++)
+    for(uint32_t i = 0; i < ret.rows; i++)
         ret.mat[i][0] = this->mat[i][number_of_the_column];
 
     return ret;
 }
 
 template <typename Type>
-void LinAlg::Matrix<Type>::swapRows (int row_to_be_swapped, int row_to_take_place)
+void LinAlg::Matrix<Type>::swapRows (uint32_t row_to_be_swapped, uint32_t row_to_take_place)
 {
     LinAlg::Matrix<Type> aux1, aux2;
 
     aux1 = this->getRow(row_to_be_swapped);
     aux2 = this->getRow(row_to_take_place);
 
-    for(int j = 0; j < this->columns; j++)
+    for(uint32_t j = 0; j < this->columns; j++)
     {
         this->mat[row_to_be_swapped][j] = aux2.mat[0][j];
         this->mat[row_to_take_place][j] = aux1.mat[0][j];
@@ -341,14 +341,14 @@ void LinAlg::Matrix<Type>::swapRows (int row_to_be_swapped, int row_to_take_plac
 }
 
 template <typename Type>
-void LinAlg::Matrix<Type>::swapColumns (int column_to_be_swapped, int column_to_take_place)
+void LinAlg::Matrix<Type>::swapColumns (uint32_t column_to_be_swapped, uint32_t column_to_take_place)
 {
     LinAlg::Matrix<Type>aux1, aux2;
 
     aux1 = this->getColumn(column_to_be_swapped);
     aux2 = this->getColumn(column_to_take_place);
 
-    for(int i = 0; i < this->rows; i++)
+    for(uint32_t i = 0; i < this->rows; i++)
     {
         this->mat[i][column_to_be_swapped] = aux2.mat[i][0];
         this->mat[i][column_to_take_place] = aux1.mat[i][0];
@@ -356,9 +356,9 @@ void LinAlg::Matrix<Type>::swapColumns (int column_to_be_swapped, int column_to_
 }
 
 template <typename Type>
-int LinAlg::Matrix<Type>::length () const
+uint32_t LinAlg::Matrix<Type>::length () const
 {
-    int ret;
+    uint32_t ret;
 
     if(this->rows >= this->columns)
         ret = this->rows;
@@ -380,47 +380,47 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::size () const
 }
 
 template<typename Type>
-Type& LinAlg::Matrix<Type>::operator() (int row, int column)
+Type& LinAlg::Matrix<Type>::operator() (uint32_t row, uint32_t column)
 {
     return this->mat[row][column];
 }
 
 template<typename Type>
-Type LinAlg::Matrix<Type>::operator() (int row, int column) const
+Type LinAlg::Matrix<Type>::operator() (uint32_t row, uint32_t column) const
 {
     return this->mat[row][column];
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(int* row_interval, int* column_interval)const
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(uint32_t* row_uint32_terval, uint32_t* column_uint32_terval)const
 {
     LinAlg::Matrix<Type> Ret;
 
-    if(row_interval[0] < row_interval[1]){
-        if(column_interval[0] < column_interval[1]){
-            Ret.Init(row_interval[1] - row_interval[0] + 1, column_interval[1] - column_interval[0] + 1);
-            for(int i = row_interval[0]; i <= row_interval[1]; ++i)
-                for(int j = column_interval[0]; j <= column_interval[1]; ++j)
-                    Ret.mat[i - row_interval[0]][j - column_interval[0]] = this->mat[i][j];
+    if(row_uint32_terval[0] < row_uint32_terval[1]){
+        if(column_uint32_terval[0] < column_uint32_terval[1]){
+            Ret.Init(row_uint32_terval[1] - row_uint32_terval[0] + 1, column_uint32_terval[1] - column_uint32_terval[0] + 1);
+            for(uint32_t i = row_uint32_terval[0]; i <= row_uint32_terval[1]; ++i)
+                for(uint32_t j = column_uint32_terval[0]; j <= column_uint32_terval[1]; ++j)
+                    Ret.mat[i - row_uint32_terval[0]][j - column_uint32_terval[0]] = this->mat[i][j];
 
         }else{
-            Ret.Init(row_interval[1] - row_interval[0] + 1, column_interval[0] - column_interval[1] + 1);
-            for(int i = row_interval[0]; i <= row_interval[1]; ++i)
-                for(int j = column_interval[0]; j >= column_interval[1]; --j)
-                    Ret.mat[i - row_interval[0]][column_interval[0] - j] = this->mat[i][j];
+            Ret.Init(row_uint32_terval[1] - row_uint32_terval[0] + 1, column_uint32_terval[0] - column_uint32_terval[1] + 1);
+            for(uint32_t i = row_uint32_terval[0]; i <= row_uint32_terval[1]; ++i)
+                for(uint32_t j = column_uint32_terval[0]; j >= column_uint32_terval[1]; --j)
+                    Ret.mat[i - row_uint32_terval[0]][column_uint32_terval[0] - j] = this->mat[i][j];
         }
 
     } else{
-        if(column_interval[0] < column_interval[1]){
-            Ret.Init(row_interval[0] - row_interval[1] + 1, column_interval[1] - column_interval[0] + 1);
-            for(int i = row_interval[0]; i >= row_interval[1]; --i)
-                for(int j = column_interval[0]; j <= column_interval[1]; ++j)
-                    Ret.mat[row_interval[0] - i][j - column_interval[0]] = this->mat[i][j];
-        }else /*if(column_interval[1] > 0 && column_interval[0] < this->columns)*/{
-            Ret.Init(row_interval[0] - row_interval[1] + 1, column_interval[0] - column_interval[1] + 1);
-            for(int i = row_interval[0]; i >= row_interval[1]; --i)
-                for(int j = column_interval[0]; j >= column_interval[1]; --j)
-                    Ret.mat[row_interval[0] - i][column_interval[0] - j] = this->mat[i][j];
+        if(column_uint32_terval[0] < column_uint32_terval[1]){
+            Ret.Init(row_uint32_terval[0] - row_uint32_terval[1] + 1, column_uint32_terval[1] - column_uint32_terval[0] + 1);
+            for(uint32_t i = row_uint32_terval[0]; i >= row_uint32_terval[1]; --i)
+                for(uint32_t j = column_uint32_terval[0]; j <= column_uint32_terval[1]; ++j)
+                    Ret.mat[row_uint32_terval[0] - i][j - column_uint32_terval[0]] = this->mat[i][j];
+        }else /*if(column_uint32_terval[1] > 0 && column_uint32_terval[0] < this->columns)*/{
+            Ret.Init(row_uint32_terval[0] - row_uint32_terval[1] + 1, column_uint32_terval[0] - column_uint32_terval[1] + 1);
+            for(uint32_t i = row_uint32_terval[0]; i >= row_uint32_terval[1]; --i)
+                for(uint32_t j = column_uint32_terval[0]; j >= column_uint32_terval[1]; --j)
+                    Ret.mat[row_uint32_terval[0] - i][column_uint32_terval[0] - j] = this->mat[i][j];
         }
     }
 
@@ -428,82 +428,82 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(int* row_interval, int* c
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(int row, int* column_interval)const
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(uint32_t row, uint32_t* column_uint32_terval)const
 {
     LinAlg::Matrix<Type> Ret;
 
-//    std::cout << column_interval[0] << " , " << column_interval[1] << "\n\n";
-    if(column_interval[0] <= column_interval[1]){
-        Ret.Init(1, column_interval[1] - column_interval[0] + 1);
-        for(int j = column_interval[0]; j <= column_interval[1]; ++j)
-            Ret.mat[0][j - column_interval[0]] = this->mat[row][j];
+//    std::cout << column_uint32_terval[0] << " , " << column_uint32_terval[1] << "\n\n";
+    if(column_uint32_terval[0] <= column_uint32_terval[1]){
+        Ret.Init(1, column_uint32_terval[1] - column_uint32_terval[0] + 1);
+        for(uint32_t j = column_uint32_terval[0]; j <= column_uint32_terval[1]; ++j)
+            Ret.mat[0][j - column_uint32_terval[0]] = this->mat[row][j];
 
-    }else if(column_interval[1] > 0 && column_interval[0] < this->columns){
-        Ret.Init(1, column_interval[0] - column_interval[1] + 1);
-        for(int j = column_interval[0]; j >= column_interval[1]; --j)
-            Ret.mat[0][column_interval[0] - j] = this->mat[row][j];
+    }else if(column_uint32_terval[1] > 0 && column_uint32_terval[0] < this->columns){
+        Ret.Init(1, column_uint32_terval[0] - column_uint32_terval[1] + 1);
+        for(uint32_t j = column_uint32_terval[0]; j >= column_uint32_terval[1]; --j)
+            Ret.mat[0][column_uint32_terval[0] - j] = this->mat[row][j];
     }
 
     return Ret;
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(int* row_interval, int column)const
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(uint32_t* row_uint32_terval, uint32_t column)const
 {
     LinAlg::Matrix<Type> Ret;
 
-    if(row_interval[0] <= row_interval[1]){
-        Ret.Init(row_interval[1] - row_interval[0] + 1, 1);
-        for(int i = row_interval[0]; i <= row_interval[1]; ++i)
-            Ret.mat[i - row_interval[0]][0] = this->mat[i][column];
+    if(row_uint32_terval[0] <= row_uint32_terval[1]){
+        Ret.Init(row_uint32_terval[1] - row_uint32_terval[0] + 1, 1);
+        for(uint32_t i = row_uint32_terval[0]; i <= row_uint32_terval[1]; ++i)
+            Ret.mat[i - row_uint32_terval[0]][0] = this->mat[i][column];
     } else{
-//        int aux = row_interval[0] - row_interval[1] + 1;
+//        uint32_t aux = row_uint32_terval[0] - row_uint32_terval[1] + 1;
 
-        Ret.Init(row_interval[0] - row_interval[1] + 1, 1);
-        for(int i = row_interval[0]; i >= row_interval[1]; --i)
-            Ret.mat[row_interval[0] - i][0] = this->mat[i][column];
+        Ret.Init(row_uint32_terval[0] - row_uint32_terval[1] + 1, 1);
+        for(uint32_t i = row_uint32_terval[0]; i >= row_uint32_terval[1]; --i)
+            Ret.mat[row_uint32_terval[0] - i][0] = this->mat[i][column];
     }
 
     return Ret;
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(int* row_interval, LinAlg::Matrix<Type> columns)const
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(uint32_t* row_uint32_terval, LinAlg::Matrix<Type> columns)const
 {
     LinAlg::Matrix<Type> Ret;
 
-    if(row_interval[0] <= row_interval[1]){
-        Ret.Init(row_interval[1] - row_interval[0] + 1, columns.getNumberOfColumns());
-        for(int i = row_interval[0]; i <= row_interval[1]; ++i)
-            for(int j = 0; j < columns.getNumberOfColumns(); ++j)
-                Ret.mat[i - row_interval[0]][j] = this->mat[i][int(columns(0,j))];
+    if(row_uint32_terval[0] <= row_uint32_terval[1]){
+        Ret.Init(row_uint32_terval[1] - row_uint32_terval[0] + 1, columns.getNumberOfColumns());
+        for(uint32_t i = row_uint32_terval[0]; i <= row_uint32_terval[1]; ++i)
+            for(uint32_t j = 0; j < columns.getNumberOfColumns(); ++j)
+                Ret.mat[i - row_uint32_terval[0]][j] = this->mat[i][uint32_t(columns(0,j))];
     } else{
-//        int aux = row_interval[0] - row_interval[1] + 1;
+//        uint32_t aux = row_uint32_terval[0] - row_uint32_terval[1] + 1;
 
-        Ret.Init(row_interval[0] - row_interval[1] + 1, columns.getNumberOfColumns());
-        for(int i = row_interval[0]; i >= row_interval[1]; --i)
-            for(int j = 0; j < columns.getNumberOfColumns(); ++j)
-                Ret.mat[row_interval[0] - i][j] = this->mat[i][int(columns(0,j))];
+        Ret.Init(row_uint32_terval[0] - row_uint32_terval[1] + 1, columns.getNumberOfColumns());
+        for(uint32_t i = row_uint32_terval[0]; i >= row_uint32_terval[1]; --i)
+            for(uint32_t j = 0; j < columns.getNumberOfColumns(); ++j)
+                Ret.mat[row_uint32_terval[0] - i][j] = this->mat[i][uint32_t(columns(0,j))];
     }
 
     return Ret;
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(LinAlg::Matrix<Type> rows, int* column_interval)const
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(LinAlg::Matrix<Type> rows, uint32_t* column_uint32_terval)const
 {
     LinAlg::Matrix<Type> Ret;
 
-    if(column_interval[0] <= column_interval[1]){
-        Ret.Init(rows.getNumberOfColumns(),column_interval[1] - column_interval[0] + 1);
-        for(int i = 0; i < rows.getNumberOfColumns(); ++i)
-            for(int j = column_interval[0]; j <= column_interval[1]; ++j)
-                Ret.mat[i][j - column_interval[0]] = this->mat[int(rows(0,i))][j];
+    if(column_uint32_terval[0] <= column_uint32_terval[1]){
+        Ret.Init(rows.getNumberOfColumns(),column_uint32_terval[1] - column_uint32_terval[0] + 1);
+        for(uint32_t i = 0; i < rows.getNumberOfColumns(); ++i)
+            for(uint32_t j = column_uint32_terval[0]; j <= column_uint32_terval[1]; ++j)
+                Ret.mat[i][j - column_uint32_terval[0]] = this->mat[uint32_t(rows(0,i))][j];
     } else{
-        Ret.Init(rows.getNumberOfColumns(), column_interval[0] - column_interval[1] + 1);
-        for(int i = 0; i < rows.getNumberOfColumns(); ++i)
-            for(int j = column_interval[0]; j >= column_interval[1]; --j)
-                Ret.mat[i][column_interval[0] - j] = this->mat[int(rows(0,i))][j];
+        Ret.Init(rows.getNumberOfColumns(), column_uint32_terval[0] - column_uint32_terval[1] + 1);
+        for(uint32_t i = 0; i < rows.getNumberOfColumns(); ++i)
+            for(uint32_t j = column_uint32_terval[0]; j >= column_uint32_terval[1]; --j)
+                Ret.mat[i][column_uint32_terval[0] - j] = this->mat[uint32_t(rows(0,i))][j];
     }
 
 
@@ -511,25 +511,25 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(LinAlg::Matrix<Type> rows
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(int row, LinAlg::Matrix<Type> columns)const
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(uint32_t row, LinAlg::Matrix<Type> columns)const
 {
     LinAlg::Matrix<Type> Ret;
 
     Ret.Init(1, columns.getNumberOfColumns());
-    for(int j = 0; j < columns.getNumberOfColumns(); ++j)
-        Ret.mat[0][j] = this->mat[row][int(columns(0,j))];
+    for(uint32_t j = 0; j < columns.getNumberOfColumns(); ++j)
+        Ret.mat[0][j] = this->mat[row][uint32_t(columns(0,j))];
 
     return Ret;
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(LinAlg::Matrix<Type> rows, int column)const
+LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(LinAlg::Matrix<Type> rows, uint32_t column)const
 {
     LinAlg::Matrix<Type> Ret;
 
     Ret.Init(rows.getNumberOfColumns(), 1);
-     for(int j = 0; j < rows.getNumberOfColumns(); ++j)
-        Ret.mat[j][0] = this->mat[int(rows(0,j))][column];
+     for(uint32_t j = 0; j < rows.getNumberOfColumns(); ++j)
+        Ret.mat[j][0] = this->mat[uint32_t(rows(0,j))][column];
 
     return Ret;
 }
@@ -540,9 +540,9 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator ()(LinAlg::Matrix<Type> rows
     LinAlg::Matrix<Type> Ret;
 
     Ret.Init(rows.getNumberOfColumns(), column.getNumberOfColumns());
-    for(int i = 0; i < rows.getNumberOfColumns(); ++i)
-         for(int j = 0; j < rows.getNumberOfColumns(); ++j)
-            Ret.mat[i][j] = this->mat[int(rows(0,i))][int(column(0,j))];
+    for(uint32_t i = 0; i < rows.getNumberOfColumns(); ++i)
+         for(uint32_t j = 0; j < rows.getNumberOfColumns(); ++j)
+            Ret.mat[i][j] = this->mat[uint32_t(rows(0,i))][uint32_t(column(0,j))];
 
     return Ret;
 }
@@ -565,7 +565,7 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator= (const LinAlg::Matrix<Type
 template<typename Type> template<typename MatrixLeftType>
 void LinAlg::Matrix<Type>::operator= (LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* > *rhs)
 {
-    for(int i = 0; i < this->getNumberOfColumns(); ++i )
+    for(uint32_t i = 0; i < this->getNumberOfColumns(); ++i )
         *((*this)(0,i)) = *((*rhs)(0,i));
 }
 
@@ -591,7 +591,7 @@ template<typename MatrixLeftType, typename MatrixRigthType>
 LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* LinAlg::operator, (LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* lhs, LinAlg::Matrix<MatrixRigthType> &rhs)
 {
     LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* > *A = new LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >(1,(*lhs).getNumberOfColumns()+1);
-    for(int i = 0; i < (*lhs).getNumberOfColumns(); ++i)
+    for(uint32_t i = 0; i < (*lhs).getNumberOfColumns(); ++i)
         (*A)(0,i) = (*lhs)(0,i);
     (*A)(0,(*lhs).getNumberOfColumns()) = &rhs;
     return A;
@@ -600,8 +600,8 @@ LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* >* LinAlg::operator, (LinAlg::Ma
 template<typename Type>
 LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator+= (const Type& rhs /*scalar*/)
 {
-    for(int i = 0; i < this->rows; i++)
-        for(int j = 0; j < this-> columns; j++)
+    for(uint32_t i = 0; i < this->rows; i++)
+        for(uint32_t j = 0; j < this-> columns; j++)
             this->mat[i][j] += rhs;
 
     return *this;
@@ -612,8 +612,8 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator+= (const LinAlg::Matrix<Rig
 {
     if(CheckDimensions(rhs, 0))
     {
-        for(int i = 0; i < this->rows; i++)
-            for(int j = 0; j < this->columns; j++)
+        for(uint32_t i = 0; i < this->rows; i++)
+            for(uint32_t j = 0; j < this->columns; j++)
                 this->mat[i][j] += rhs(i, j);
     }
 
@@ -636,8 +636,8 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator-= (const LinAlg::Matrix<Rig
 template<typename Type>
 LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator*= (const Type& rhs /*scalar*/)
 {
-    for(int i = 0; i < this->rows; i++)
-        for(int j = 0; j < this->columns; j++)
+    for(uint32_t i = 0; i < this->rows; i++)
+        for(uint32_t j = 0; j < this->columns; j++)
             this->mat[i][j] *= rhs;
 
     return *this;
@@ -650,8 +650,8 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator*= (const LinAlg::Matrix<Rig
     if ((this->rows == 1) && (this->columns == 1))
     {
         LinAlg::Matrix<RightType> Temp = rhs;
-        for(int i = 0; i < rhs.getNumberOfRows(); ++i)
-            for(int j = 0; j < rhs.getNumberOfColumns(); ++j)
+        for(uint32_t i = 0; i < rhs.getNumberOfRows(); ++i)
+            for(uint32_t j = 0; j < rhs.getNumberOfColumns(); ++j)
                 Temp(i,j) = rhs(i,j) * this->mat[0][0];
         *this = Temp;
 //        std::cout << ' ';
@@ -663,11 +663,11 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator*= (const LinAlg::Matrix<Rig
         LinAlg::Matrix<Type> tempMat(*this);
         this->Init(this->rows, rhs.getNumberOfColumns());
 
-        for(int i = 0; i < tempMat.rows; i++)
-            for(int col = 0; col < rhs.getNumberOfColumns(); col++)
+        for(uint32_t i = 0; i < tempMat.rows; i++)
+            for(uint32_t col = 0; col < rhs.getNumberOfColumns(); col++)
             {
                 temp = 0;
-                for(int j = 0; j < tempMat.columns; j++)
+                for(uint32_t j = 0; j < tempMat.columns; j++)
                     temp += tempMat.mat[i][j] * rhs(j, col);
                 this->mat[i][col] = temp;
             }
@@ -687,13 +687,13 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator/= (const LinAlg::Matrix<Rig
 {
 
     if(rhs.getNumberOfRows() == 1 && rhs.getNumberOfColumns() == 1)
-        return  *this /= rhs((uint8_t)0, (uint8_t)0);
+        return  *this /= rhs((uint32_t)0, (uint32_t)0);
     else
         return *this *= LinAlg::Inverse<RightType>(rhs);
 }
 
 template<typename Type>
-LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator^= (int exp)
+LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator^= (uint32_t exp)
 {
     LinAlg::Matrix<Type> temp = LinAlg::Eye<Type>(this->rows);
 
@@ -711,7 +711,7 @@ LinAlg::Matrix<Type>& LinAlg::Matrix<Type>::operator^= (int exp)
         }
     }
 
-    for(int i = 0; i < exp; ++i) {
+    for(uint32_t i = 0; i < exp; ++i) {
         temp *= *this;
     }
 
@@ -724,8 +724,8 @@ template<typename Type>
 LinAlg::Matrix<bool> LinAlg::Matrix<Type>::operator== (const Type& rhs)
 {
     LinAlg::Matrix<bool> ret = *this;
-    for(int i = 0; i < this->rows; ++i)
-        for(int j = 0; j < this->columns; ++j)
+    for(uint32_t i = 0; i < this->rows; ++i)
+        for(uint32_t j = 0; j < this->columns; ++j)
             ret(i,j) = this->mat[i][j] == rhs;
 
     return ret;
@@ -735,8 +735,8 @@ template<typename Type>
 LinAlg::Matrix<bool> LinAlg::Matrix<Type>::operator<= (const Type& rhs)
 {
     LinAlg::Matrix<bool> ret = *this;
-    for(int i = 0; i < this->rows; ++i)
-        for(int j = 0; j < this->columns; ++j)
+    for(uint32_t i = 0; i < this->rows; ++i)
+        for(uint32_t j = 0; j < this->columns; ++j)
             ret(i,j) = this->mat[i][j] <= rhs;
 
     return ret;
@@ -746,8 +746,8 @@ template<typename Type>
 LinAlg::Matrix<bool> LinAlg::Matrix<Type>::operator>= (const Type& rhs)
 {
     LinAlg::Matrix<bool> ret = *this;
-    for(int i = 0; i < this->rows; ++i)
-        for(int j = 0; j < this->columns; ++j)
+    for(uint32_t i = 0; i < this->rows; ++i)
+        for(uint32_t j = 0; j < this->columns; ++j)
             ret(i,j) = this->mat[i][j] >= rhs;
 
     return ret;
@@ -757,8 +757,8 @@ template<typename Type>
 LinAlg::Matrix<bool> LinAlg::Matrix<Type>::operator< (const Type& rhs)
 {
     LinAlg::Matrix<bool> ret = *this;
-    for(int i = 0; i < this->rows; ++i)
-        for(int j = 0; j < this->columns; ++j)
+    for(uint32_t i = 0; i < this->rows; ++i)
+        for(uint32_t j = 0; j < this->columns; ++j)
             ret(i,j) = this->mat[i][j] < rhs;
 
     return ret;
@@ -768,8 +768,8 @@ template<typename Type>
 LinAlg::Matrix<bool> LinAlg::Matrix<Type>::operator> (const Type& rhs)
 {
     LinAlg::Matrix<bool> ret = *this;
-    for(int i = 0; i < this->rows; ++i)
-        for(int j = 0; j < this->columns; ++j)
+    for(uint32_t i = 0; i < this->rows; ++i)
+        for(uint32_t j = 0; j < this->columns; ++j)
             ret(i,j) = this->mat[i][j] > rhs;
 
     return ret;
@@ -779,12 +779,12 @@ template <typename Type>
 void LinAlg::Matrix<Type>::operator<< (const LinAlg::Matrix<Type>& mat)
 {
 
-    for(int i = 0; i < this->rows; ++i)
-        for(int j = 0; j < this->columns - mat.columns; ++j)
+    for(uint32_t i = 0; i < this->rows; ++i)
+        for(uint32_t j = 0; j < this->columns - mat.columns; ++j)
             this->mat[i][j] = this->mat[i][this->columns - mat.columns + j];
 
-    for(int i = 0; i < this->rows; ++i)
-        for(int j = 0; j < mat.columns; ++j)
+    for(uint32_t i = 0; i < this->rows; ++i)
+        for(uint32_t j = 0; j < mat.columns; ++j)
             this->mat[i][this->columns - mat.columns + j] = mat.mat[i][j];
 }
 
@@ -792,12 +792,12 @@ template <typename Type>
 void LinAlg::Matrix<Type>::operator>> (LinAlg::Matrix<Type>& mat)
 {
 
-    for(int i = 0; i < mat.rows; ++i)
-        for(int j = 0; j < mat.columns - this->columns; ++j)
+    for(uint32_t i = 0; i < mat.rows; ++i)
+        for(uint32_t j = 0; j < mat.columns - this->columns; ++j)
             mat.mat[i][mat.columns - this->columns + j] = mat.mat[i][j];
 
-    for(int i = 0; i < mat.rows; ++i)
-        for(int j = 0; j < this->columns; ++j)
+    for(uint32_t i = 0; i < mat.rows; ++i)
+        for(uint32_t j = 0; j < this->columns; ++j)
             mat.mat[i][j] = this->mat[i][j];
 }
 
@@ -807,8 +807,8 @@ LinAlg::Matrix<Type> LinAlg::divPoint(const LinAlg::Matrix<Type> &A, const LinAl
 {
     LinAlg::Matrix<Type> ret = A;
     if(A.getNumberOfColumns() == B.getNumberOfColumns() && A.getNumberOfRows() == B.getNumberOfRows())
-        for(int i = 0; i < A.getNumberOfRows(); ++i)
-            for(int j = 0; j < A.getNumberOfColumns(); ++j)
+        for(uint32_t i = 0; i < A.getNumberOfRows(); ++i)
+            for(uint32_t j = 0; j < A.getNumberOfColumns(); ++j)
                 ret(i,j) = A(i,j)/B(i,j);
     else
         std::cout << "A dimensao das matrizes esta incorreta";
@@ -824,8 +824,8 @@ LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::sort(const LinAlg::Matrix<Type>
     if(vector.getNumberOfColumns() > 1 && vector.getNumberOfRows() == 1)
     {
         indices = LineVector<Type>(0, vector.getNumberOfColumns()-1);
-        for(int i = 0; i < reorderedMatrix.getNumberOfColumns(); ++i)
-            for(int j = i+1; j < reorderedMatrix.getNumberOfColumns(); ++j)
+        for(uint32_t i = 0; i < reorderedMatrix.getNumberOfColumns(); ++i)
+            for(uint32_t j = i+1; j < reorderedMatrix.getNumberOfColumns(); ++j)
                 if(reorderedMatrix(0,i) > reorderedMatrix(0,j)){
                     Type aux = reorderedMatrix(0,i);
                     reorderedMatrix(0,i) = reorderedMatrix(0,j);
@@ -838,8 +838,8 @@ LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::sort(const LinAlg::Matrix<Type>
     else if(vector.getNumberOfColumns() == 1 && vector.getNumberOfRows() > 1)
     {
         indices = ~LineVector<Type>(0, vector.getNumberOfRows()-1);
-        for(int i = 0; i < reorderedMatrix.getNumberOfRows(); ++i)
-            for(int j = i+1; j < reorderedMatrix.getNumberOfRows(); ++j)
+        for(uint32_t i = 0; i < reorderedMatrix.getNumberOfRows(); ++i)
+            for(uint32_t j = i+1; j < reorderedMatrix.getNumberOfRows(); ++j)
                 if(reorderedMatrix(i,0) > reorderedMatrix(j,0)){
                     Type aux = reorderedMatrix(i,0);
                     reorderedMatrix(i,0) = reorderedMatrix(j,0);
@@ -872,10 +872,10 @@ LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::min(const LinAlg::Matrix<Type> 
         minMatrix = LinAlg::Zeros<Type>(1, vector.getNumberOfColumns());
         minIndiceMatrix = LinAlg::Zeros<Type>(1, vector.getNumberOfColumns());
 
-        for (int i = 0; i < vector.getNumberOfColumns(); ++i)
+        for (uint32_t i = 0; i < vector.getNumberOfColumns(); ++i)
         {
             minMatrix(0,i) = vector(0,i);
-            for (int j = 0; j < vector.getNumberOfRows(); ++j)
+            for (uint32_t j = 0; j < vector.getNumberOfRows(); ++j)
                 if(minMatrix(0,i) > vector(j,i))
                 {
                     minMatrix(0,i) = vector(j,i);
@@ -888,7 +888,7 @@ LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::min(const LinAlg::Matrix<Type> 
         minMatrix = LinAlg::Zeros<Type>(1,1);
         minIndiceMatrix = LinAlg::Zeros<Type>(1,1);
         minMatrix(0,0) = vector(0,0);
-        for (int j = 0; j < vector.getNumberOfColumns(); ++j)
+        for (uint32_t j = 0; j < vector.getNumberOfColumns(); ++j)
             if(minMatrix(0,0) > vector(0,j))
             {
                 minMatrix(0,0) = vector(0,j);
@@ -914,10 +914,10 @@ LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::max(const LinAlg::Matrix<Type> 
         maxMatrix = LinAlg::Zeros<Type>(1, vector.getNumberOfColumns());
         maxIndiceMatrix = LinAlg::Zeros<Type>(1, vector.getNumberOfColumns());
 
-        for (int i = 0; i < vector.getNumberOfColumns(); ++i)
+        for (uint32_t i = 0; i < vector.getNumberOfColumns(); ++i)
         {
-            maxMatrix(0,i) = vector(0,i);
-            for (int j = 0; j < vector.getNumberOfRows(); ++j)
+            maxMatrix(uint32_t(0),i) = vector(uint32_t(0),i);
+            for (uint32_t j = 0; j < vector.getNumberOfRows(); ++j)
                 if(maxMatrix(0,i) < vector(j,i))
                 {
                     maxMatrix(0,i) = vector(j,i);
@@ -929,11 +929,11 @@ LinAlg::Matrix< LinAlg::Matrix<Type>* >* LinAlg::max(const LinAlg::Matrix<Type> 
     {
         maxMatrix = LinAlg::Zeros<Type>(1,1);
         maxIndiceMatrix = LinAlg::Zeros<Type>(1,1);
-        maxMatrix(0,0) = vector(0,0);
-        for (int j = 0; j < vector.getNumberOfColumns(); ++j)
-            if(maxMatrix(0,0) < vector(0,j))
+        maxMatrix(uint32_t(0),uint32_t(0)) = vector(uint32_t(0),uint32_t(0));
+        for (uint32_t j = 0; j < vector.getNumberOfColumns(); ++j)
+            if(maxMatrix(0,0) < vector(uint32_t(0),j))
             {
-                maxMatrix(0,0) = vector(0,j);
+                maxMatrix(0,0) = vector(uint32_t(0),j);
                 maxIndiceMatrix(0,0) = j;
             }
     }
@@ -954,8 +954,8 @@ LinAlg::Matrix<Type> LinAlg::sum(const LinAlg::Matrix<Type> &mat, const bool &ro
     {
         LinAlg::Matrix<Type> sum(1,mat.getNumberOfColumns());
 
-        for (int i = 0; i < mat.getNumberOfRows(); ++i)
-            for (int j = 0; j < mat.getNumberOfColumns(); ++j)
+        for (uint32_t i = 0; i < mat.getNumberOfRows(); ++i)
+            for (uint32_t j = 0; j < mat.getNumberOfColumns(); ++j)
                 sum(0,j) += mat(i,j);
 
         return sum;
@@ -964,20 +964,20 @@ LinAlg::Matrix<Type> LinAlg::sum(const LinAlg::Matrix<Type> &mat, const bool &ro
     {
         LinAlg::Matrix<Type> sum(mat.getNumberOfRows(),1);
 
-        for (int i = 0; i < mat.getNumberOfRows(); ++i)
-            for (int j = 0; j < mat.getNumberOfColumns(); ++j)
+        for (uint32_t i = 0; i < mat.getNumberOfRows(); ++i)
+            for (uint32_t j = 0; j < mat.getNumberOfColumns(); ++j)
                 sum(i,0) += mat(i,j);
 
         return sum;
     }
 }
 //template <typename Type>
-//int LinAlg::lineOfMinValue(const LinAlg::Matrix<Type> &mat)
+//uint32_t LinAlg::lineOfMinValue(const LinAlg::Matrix<Type> &mat)
 //{
-//    int minIndice = 1;
+//    uint32_t minIndice = 1;
 //    Type minValue = mat(1,1);
-//    for (int i = 1; i <= mat.getNumberOfRows(); ++i)
-//        for (int j = 1; j <= mat.getNumberOfColumns(); ++j)
+//    for (uint32_t i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (uint32_t j = 1; j <= mat.getNumberOfColumns(); ++j)
 //            if(minValue > mat(i,j))
 //            {
 //                minValue = mat(i,j);
@@ -987,12 +987,12 @@ LinAlg::Matrix<Type> LinAlg::sum(const LinAlg::Matrix<Type> &mat, const bool &ro
 //}
 
 //template <typename Type>
-//int LinAlg::columnOfMinValue(const LinAlg::Matrix<Type> &mat)
+//uint32_t LinAlg::columnOfMinValue(const LinAlg::Matrix<Type> &mat)
 //{
-//    int minIndice = 1;
+//    uint32_t minIndice = 1;
 //    Type minValue = mat(1,1);
-//    for (int i = 1; i <= mat.getNumberOfRows(); ++i)
-//        for (int j = 1; j <= mat.getNumberOfColumns(); ++j)
+//    for (uint32_t i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (uint32_t j = 1; j <= mat.getNumberOfColumns(); ++j)
 //            if(minValue > mat(i,j))
 //            {
 //                minValue = mat(i,j);
@@ -1005,8 +1005,8 @@ LinAlg::Matrix<Type> LinAlg::sum(const LinAlg::Matrix<Type> &mat, const bool &ro
 //Type LinAlg::MinValue(const LinAlg::Matrix<Type> &mat)
 //{
 //    Type minValue = mat(1,1);
-//    for (int i = 1; i <= mat.getNumberOfRows(); ++i)
-//        for (int j = 1; j <= mat.getNumberOfColumns(); ++j)
+//    for (uint32_t i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (uint32_t j = 1; j <= mat.getNumberOfColumns(); ++j)
 //            if(minValue > mat(i,j))
 //                minValue = mat(i,j);
 
@@ -1014,12 +1014,12 @@ LinAlg::Matrix<Type> LinAlg::sum(const LinAlg::Matrix<Type> &mat, const bool &ro
 //}
 
 //template <typename Type>
-//int LinAlg::lineOfMaxValue(const LinAlg::Matrix<Type> &mat)
+//uint32_t LinAlg::lineOfMaxValue(const LinAlg::Matrix<Type> &mat)
 //{
-//    int maxIndice = 1;
+//    uint32_t maxIndice = 1;
 //    Type maxValue = mat(1,1);
-//    for (int i = 1; i <= mat.getNumberOfRows(); ++i)
-//        for (int j = 1; j <= mat.getNumberOfColumns(); ++j)
+//    for (uint32_t i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (uint32_t j = 1; j <= mat.getNumberOfColumns(); ++j)
 //            if(maxValue < mat(i,j))
 //            {
 //                maxValue = mat(i,j);
@@ -1029,12 +1029,12 @@ LinAlg::Matrix<Type> LinAlg::sum(const LinAlg::Matrix<Type> &mat, const bool &ro
 //}
 
 //template <typename Type>
-//int LinAlg::columnOfMaxValue(const LinAlg::Matrix<Type> &mat)
+//uint32_t LinAlg::columnOfMaxValue(const LinAlg::Matrix<Type> &mat)
 //{
-//    int maxIndice = 1;
+//    uint32_t maxIndice = 1;
 //    Type maxValue = mat(1,1);
-//    for (int i = 1; i <= mat.getNumberOfRows(); ++i)
-//        for (int j = 1; j <= mat.getNumberOfColumns(); ++j)
+//    for (uint32_t i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (uint32_t j = 1; j <= mat.getNumberOfColumns(); ++j)
 //            if(maxValue < mat(i,j))
 //            {
 //                maxValue = mat(i,j);
@@ -1047,8 +1047,8 @@ LinAlg::Matrix<Type> LinAlg::sum(const LinAlg::Matrix<Type> &mat, const bool &ro
 //Type LinAlg::MaxValue(const LinAlg::Matrix<Type> &mat)
 //{
 //    Type maxValue = mat(1,1);
-//    for (int i = 1; i <= mat.getNumberOfRows(); ++i)
-//        for (int j = 1; j <= mat.getNumberOfColumns(); ++j)
+//    for (uint32_t i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (uint32_t j = 1; j <= mat.getNumberOfColumns(); ++j)
 //            if(maxValue < mat(i,j))
 //                maxValue = mat(i,j);
 
@@ -1060,8 +1060,8 @@ LinAlg::Matrix<Type> LinAlg::sum(const LinAlg::Matrix<Type> &mat, const bool &ro
 //{
 //    LinAlg::Matrix<Type> sum(mat.getNumberOfRows(),1);
 
-//    for (int i = 1; i <= mat.getNumberOfRows(); ++i)
-//        for (int j = 1; j <= mat.getNumberOfColumns(); ++j)
+//    for (uint32_t i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (uint32_t j = 1; j <= mat.getNumberOfColumns(); ++j)
 //            sum(i,1) += mat(i,j);
 
 //    return sum;
@@ -1072,8 +1072,8 @@ LinAlg::Matrix<Type> LinAlg::sum(const LinAlg::Matrix<Type> &mat, const bool &ro
 //{
 //    LinAlg::Matrix<Type> sum(1,mat.getNumberOfColumns());
 
-//    for (int i = 1; i <= mat.getNumberOfRows(); ++i)
-//        for (int j = 1; j <= mat.getNumberOfColumns(); ++j)
+//    for (uint32_t i = 1; i <= mat.getNumberOfRows(); ++i)
+//        for (uint32_t j = 1; j <= mat.getNumberOfColumns(); ++j)
 //            sum(1,j) += mat(i,j);
 
 //    return sum;
@@ -1088,19 +1088,19 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator| (LinAlg::Matrix<RightType> 
         ret = rhs;
     else
     {
-        int aux = this->columns;
+        uint32_t aux = this->columns;
 
         if(this->rows < rhs.getNumberOfRows())
             ret.Init(rhs.getNumberOfRows(), this->columns + rhs.getNumberOfColumns());
         else
             ret.Init(this->rows, this->columns + rhs.getNumberOfColumns());
 
-        for(int i = 0; i < this->rows; i++)
-            for(int j = 0; j < this->columns; j++)
+        for(uint32_t i = 0; i < this->rows; i++)
+            for(uint32_t j = 0; j < this->columns; j++)
                 ret.mat[i][j] = this->mat[i][j];
 
-        for(int i = 0; i < rhs.getNumberOfRows(); i++)
-            for(int j = 0; j < rhs.getNumberOfColumns(); j++)
+        for(uint32_t i = 0; i < rhs.getNumberOfRows(); i++)
+            for(uint32_t j = 0; j < rhs.getNumberOfColumns(); j++)
                 ret(i, aux + j) = rhs(i, j);
     }
 
@@ -1122,19 +1122,19 @@ LinAlg::Matrix<Type> LinAlg::Matrix<Type>::operator|| (LinAlg::Matrix<RightType>
         ret = rhs;
     else
     {
-        int aux = this->rows;
+        uint32_t aux = this->rows;
 
         if(this->columns < rhs.getNumberOfColumns())
             ret.Init(this->rows + rhs.getNumberOfRows(), rhs.getNumberOfColumns());
         else
             ret.Init(this->rows + rhs.getNumberOfRows(), this->columns);
 
-        for(int i = 0; i < this->rows; i++)
-            for(int j = 0; j < this->columns; j++)
+        for(uint32_t i = 0; i < this->rows; i++)
+            for(uint32_t j = 0; j < this->columns; j++)
                 ret.mat[i][j] = this->mat[i][j];
 
-        for(int i = 0; i < rhs.getNumberOfRows(); i++)
-            for(int j = 0; j < rhs.getNumberOfColumns(); j++)
+        for(uint32_t i = 0; i < rhs.getNumberOfRows(); i++)
+            for(uint32_t j = 0; j < rhs.getNumberOfColumns(); j++)
                 ret(i + aux, j) = rhs(i, j);
     }
 
@@ -1152,8 +1152,8 @@ LinAlg::Matrix<Type> LinAlg::operator- (const LinAlg::Matrix<Type>& mat)
 {
     LinAlg::Matrix<Type> temp(mat);
 
-    for(int i = 0; i < temp.getNumberOfRows(); i++)
-        for(int j = 0; j < temp.getNumberOfColumns(); j++)
+    for(uint32_t i = 0; i < temp.getNumberOfRows(); i++)
+        for(uint32_t j = 0; j < temp.getNumberOfColumns(); j++)
             temp(i, j) *= -1;
 
     return temp;
@@ -1164,8 +1164,8 @@ LinAlg::Matrix<Type> LinAlg::operator~ (LinAlg::Matrix<Type> mat)
 {
     LinAlg::Matrix<Type> temp(mat.getNumberOfColumns(), mat.getNumberOfRows());
 
-    for(int i = 0; i < mat.getNumberOfRows(); i++)
-        for(int j = 0; j < mat.getNumberOfColumns(); j++)
+    for(uint32_t i = 0; i < mat.getNumberOfRows(); i++)
+        for(uint32_t j = 0; j < mat.getNumberOfColumns(); j++)
             temp(j, i) = mat(i, j);
 
     return temp;
@@ -1178,9 +1178,9 @@ std::ostream& LinAlg::operator<< (std::ostream& output, const LinAlg::Matrix<Typ
         return output;
     }
 
-    for(int i = 0; i < mat.getNumberOfRows(); i++)
+    for(uint32_t i = 0; i < mat.getNumberOfRows(); i++)
     {
-        for(int j = 0; j < mat.getNumberOfColumns(); j++)
+        for(uint32_t j = 0; j < mat.getNumberOfColumns(); j++)
             if(mat(i, j) != 0)
                 output << std::setw(2*coutPrecision+1) << std::setprecision(coutPrecision) << std::fixed << mat(i, j) << ' ';
             else
@@ -1199,9 +1199,9 @@ std::ostream& LinAlg::operator<<= (std::ostream& output, const LinAlg::Matrix<Ty
         return output;
     }
 
-    for(int i = 0; i < mat.getNumberOfRows(); i++)
+    for(uint32_t i = 0; i < mat.getNumberOfRows(); i++)
     {
-        for(int j = 0; j < mat.getNumberOfColumns(); j++)
+        for(uint32_t j = 0; j < mat.getNumberOfColumns(); j++)
         {
             if(mat(i, j) != 0)
                 output << std::setw(2*coutPrecision+1) << std::setprecision(coutPrecision) << std::fixed << mat(i, j);
@@ -1255,8 +1255,8 @@ std::string& LinAlg::operator<<= (std::string& output, const LinAlg::Matrix<Type
 
 //    if((lhs.getNumberOfRows() == rhs.getNumberOfRows()) && (lhs.getNumberOfColumns() && rhs.getNumberOfColumns()))
 //    {
-//        for(int i = 1; i <= lhs.getNumberOfRows(); i++)
-//            for(int j = 1; j <= lhs.getNumberOfColumns(); j++)
+//        for(uint32_t i = 1; i <= lhs.getNumberOfRows(); i++)
+//            for(uint32_t j = 1; j <= lhs.getNumberOfColumns(); j++)
 //                if(!(lhs(i, j) == rhs(i, j)))
 //                {
 //                    ret = false;
@@ -1272,26 +1272,26 @@ std::string& LinAlg::operator<<= (std::string& output, const LinAlg::Matrix<Type
 //template<typename Type>
 //void LinAlg::Zeros(Matrix<Type>& Mat)
 //{
-//    for(int i = 1; i <= Mat.getNumberOfRows(); i++)
-//        for(int j = 1; j <= Mat.getNumberOfColumns(); j++)
-//            if(typeid(Mat(i, j)) == typeid(double) || typeid(Mat(i, j)) == typeid(int) || typeid(Mat(i, j)) == typeid(float) || typeid(Mat(i, j)) == typeid(int))
+//    for(uint32_t i = 1; i <= Mat.getNumberOfRows(); i++)
+//        for(uint32_t j = 1; j <= Mat.getNumberOfColumns(); j++)
+//            if(typeid(Mat(i, j)) == typeid(double) || typeid(Mat(i, j)) == typeid(uint32_t) || typeid(Mat(i, j)) == typeid(float) || typeid(Mat(i, j)) == typeid(uint32_t))
 //                Mat(i, j) = 0;
 //}
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Zeros (int rows, int columns)
+LinAlg::Matrix<Type> LinAlg::Zeros (uint32_t rows, uint32_t columns)
 {
     return LinAlg::Matrix<Type>(rows, columns);
 
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Eye (int dimension)
+LinAlg::Matrix<Type> LinAlg::Eye (uint32_t dimension)
 {
     LinAlg::Matrix<Type> Ret(dimension, dimension);
 
-    for(int i = 0; i < dimension; i++)
-        for(int j = 0; j < dimension; j++)
+    for(uint32_t i = 0; i < dimension; i++)
+        for(uint32_t j = 0; j < dimension; j++)
             {
                 if( i == j)
                     Ret(i, j) = 1;
@@ -1305,8 +1305,8 @@ LinAlg::Matrix<Type> LinAlg::Eye (int dimension)
 template<typename Type>
 LinAlg::Matrix<Type> LinAlg::LineVector (Type from, Type to, Type step)
 {
-    LinAlg::Matrix<Type> Ret(1,int((to-from)/step) + 1);
-    int j = 0;
+    LinAlg::Matrix<Type> Ret(1,uint32_t((to-from)/step) + 1);
+    uint32_t j = 0;
     if(step > 0)
         for(Type i = from; i <= to; i+= step)
         {
@@ -1323,24 +1323,24 @@ LinAlg::Matrix<Type> LinAlg::LineVector (Type from, Type to, Type step)
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Ones(int rows, int columns)
+LinAlg::Matrix<Type> LinAlg::Ones(uint32_t rows, uint32_t columns)
 {
     LinAlg::Matrix<Type> temp(rows, columns);
 
-    for(int i = 0; i < temp.getNumberOfRows(); i++)
-        for(int j = 0; j < temp.getNumberOfColumns(); j++)
+    for(uint32_t i = 0; i < temp.getNumberOfRows(); i++)
+        for(uint32_t j = 0; j < temp.getNumberOfColumns(); j++)
             temp(i, j) = 1;
 
     return temp;
 }
 
 template<typename Type>
-LinAlg::Matrix<Type> LinAlg::Random(int rows, int columns)
+LinAlg::Matrix<Type> LinAlg::Random(uint32_t rows, uint32_t columns)
 {
     LinAlg::Matrix<Type> mat(rows, columns);
 
-    for(int i = 0; i < rows; ++i)
-        for(int j = 0; j < columns; ++j)
+    for(uint32_t i = 0; i < rows; ++i)
+        for(uint32_t j = 0; j < columns; ++j)
             mat(i, j) = (Type)(((double)(rand()%100))/100.0);
 
     return mat;
@@ -1350,8 +1350,8 @@ template<typename Type>
 LinAlg::Matrix<Type> diff(LinAlg::Matrix<Type> mat)
 {
     LinAlg::Matrix<Type> ret(mat.getNumberOfRows(), mat.getNumberOfColumns()-1);
-    for(int i = 0; i < mat.getNumberOfColumns()-1; ++i)
-        for(int j = 0; j < mat.getNumberOfRows(); ++j)
+    for(uint32_t i = 0; i < mat.getNumberOfColumns()-1; ++i)
+        for(uint32_t j = 0; j < mat.getNumberOfRows(); ++j)
             ret(j,i) = mat(j,i+1) - mat(j,i);
     return ret;
 
@@ -1361,7 +1361,7 @@ template<typename Type>
 Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
 {
     Type determinant = 0;
-    int rows = mat.getNumberOfRows(), columns = mat.getNumberOfColumns(), aux1, aux2;
+    uint32_t rows = mat.getNumberOfRows(), columns = mat.getNumberOfColumns(), aux1, aux2;
     LinAlg::Matrix<Type> temp(rows - 1, columns - 1);
 
 
@@ -1371,9 +1371,9 @@ Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
         std::cout << "Operacao disponivel somente para matrizes quadradas.";
     }
     else if(rows == 1)
-        determinant = mat(0, 0);
+        determinant = mat((uint32_t)0, (uint32_t)0);
     else if(rows == 2){
-        determinant = mat(0, 0)*mat(1, 1) - mat(0, 1)*mat(1, 0);
+        determinant = mat((uint32_t)0, (uint32_t)0)*mat((uint32_t)1, (uint32_t)1) - mat((uint32_t)0, (uint32_t)1)*mat((uint32_t)1, (uint32_t)0);
 //        std::cout << mat(0,0) << std::endl;
 //        std::cout << mat(1,0) << std::endl;
 //        std::cout << mat(0,1) << std::endl;
@@ -1381,13 +1381,13 @@ Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
     }
     else
     {
-        for(int k = 0; k < rows; k++)
+        for(uint32_t k = 0; k < rows; k++)
         {
             aux1 = 0;
             aux2 = 0;
-            for(int i = 1; i < rows; i++)
+            for(uint32_t i = 1; i < rows; i++)
             {
-                for(int j = 0; j < rows; j++)
+                for(uint32_t j = 0; j < rows; j++)
                 {
                     if(!(j == k))
                     {
@@ -1403,7 +1403,7 @@ Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
                 }
             }
 
-            determinant += pow( -1, k)*mat(0, k) * LinAlg::Determinant(temp);
+            determinant += pow( -1, k)*mat((uint32_t)0, k) * LinAlg::Determinant(temp);
         }
     }
 
@@ -1413,7 +1413,7 @@ Type LinAlg::Determinant(const LinAlg::Matrix<Type>& mat)
 template<typename Type>
 LinAlg::Matrix<Type> LinAlg::Cofactor(const LinAlg::Matrix<Type>& mat)
 {
-    int rows = mat.getNumberOfRows(), columns = mat.getNumberOfColumns(), aux1, aux2;
+    uint32_t rows = mat.getNumberOfRows(), columns = mat.getNumberOfColumns(), aux1, aux2;
     LinAlg::Matrix<Type> temp(rows - 1, columns - 1), ret(rows, columns);
 
     if(rows != columns)
@@ -1423,25 +1423,25 @@ LinAlg::Matrix<Type> LinAlg::Cofactor(const LinAlg::Matrix<Type>& mat)
     }
     else if(rows == 2)
     {
-        ret(0, 0) = mat(1, 1);
-        ret(1, 1) = mat(0, 0);
-        ret(0, 1) = -mat(1, 0);
-        ret(1, 0) = -mat(0, 1);
+        ret((uint32_t)0, (uint32_t)0) = mat((uint32_t)1, (uint32_t)1);
+        ret((uint32_t)1, (uint32_t)1) = mat((uint32_t)0, (uint32_t)0);
+        ret((uint32_t)0, (uint32_t)1) = -mat((uint32_t)1, (uint32_t)0);
+        ret((uint32_t)1, (uint32_t)0) = -mat((uint32_t)0, (uint32_t)1);
     }
     else
     {
-        for(int j = 0; j < rows; j++)
-            for(int i = 0; i < rows; i++)
+        for(uint32_t j = 0; j < rows; j++)
+            for(uint32_t i = 0; i < rows; i++)
             {
                 aux1 = 1;
 
-                for(int m = 0; m < rows; m++)
+                for(uint32_t m = 0; m < rows; m++)
                 {
                     if(!(m == i))
                     {
                         aux2 = 1;
 
-                        for(int n = 0; n < rows; n++)
+                        for(uint32_t n = 0; n < rows; n++)
                         {
                             if(!(n == j))
                             {
@@ -1464,13 +1464,13 @@ template<typename Type>
 LinAlg::Matrix<Type> LinAlg::Inverse(const LinAlg::Matrix<Type>& mat)
 {
     Type determinant = LinAlg::Determinant(mat);
-    int rows = mat.getNumberOfRows(), columns = mat.getNumberOfColumns();
+    uint32_t rows = mat.getNumberOfRows(), columns = mat.getNumberOfColumns();
     LinAlg::Matrix<Type> ret(rows, columns);
 
     if(rows != columns)
         std::cout << "Operacao disponivel somente para matrizes quadradas.";
     else if(rows == 1 && columns == 1)
-        ret(0,0) = Type(1)/mat(0,0);
+        ret((uint32_t)0,(uint32_t)0) = Type(1)/mat((uint32_t)0,(uint32_t)0);
     else if( determinant == Type(0.0))
         std::cout << "Impossivel inverter, determinante igual a 0.";
     else
@@ -1487,9 +1487,9 @@ void LinAlg::Print(const Matrix<Type>& mat)
 {
   std::cout << std::endl;
 
-  for(int i = 0; i < mat.getNumberOfRows(); i++)
+  for(uint32_t i = 0; i < mat.getNumberOfRows(); i++)
   {
-    for(int j = 0; j < mat.getNumberOfColumns(); j++)
+    for(uint32_t j = 0; j < mat.getNumberOfColumns(); j++)
         std::cout << std::setw(10) << mat(i, j) << ' ';
 
     std::cout << std::endl;
@@ -1503,9 +1503,9 @@ bool LinAlg::isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<Type
         return false;
     else
     {
-        for(int i = 0; i < lMat.getNumberOfRows(); i++)
+        for(uint32_t i = 0; i < lMat.getNumberOfRows(); i++)
         {
-          for(int j = 0; j < lMat.getNumberOfColumns(); j++)
+          for(uint32_t j = 0; j < lMat.getNumberOfColumns(); j++)
           {
             if(lMat(i,j) != rMat(i,j))
                 return false;
@@ -1522,9 +1522,9 @@ bool LinAlg::isEqual(const LinAlg::Matrix<Type>& lMat, const LinAlg::Matrix<othe
         return false;
     else
     {
-        for(int i = 0; i < lMat.getNumberOfRows(); i++)
+        for(uint32_t i = 0; i < lMat.getNumberOfRows(); i++)
         {
-          for(int j = 0; j < lMat.getNumberOfColumns(); j++)
+          for(uint32_t j = 0; j < lMat.getNumberOfColumns(); j++)
           {
             if(fabs(lMat(i,j) - rMat(i,j)) > tol)
                 return false;

@@ -5,12 +5,13 @@
 #endif
 
 template <typename Type>
-ModelHandler::Polynomial<Type>::Polynomial(uint8_t degree, uint8_t nInput)
+ModelHandler::Polynomial<Type>::Polynomial(uint8_t degree, uint8_t nInput,  uint8_t nOutput)
 {
     this->degree = degree;
     this->nInput = nInput;
-    this->LinearVectorA = LinAlg::Zeros<Type>(nInput,nInput*(degree+1));
-    this->ModelCoef = LinAlg::Zeros<Type>(nInput*(degree+1),nInput);
+    this->nOutput = nOutput;
+    this->LinearVectorA = LinAlg::Zeros<Type>(1,nInput*(degree+1));
+    this->ModelCoef = LinAlg::Zeros<Type>(nInput*(degree+1),nOutput);
 }
 
 template<typename Type>
@@ -18,6 +19,7 @@ ModelHandler::Polynomial<Type>::Polynomial(const Polynomial<Type>& OtherPolynomi
 {
     this->degree = (OtherPolynomialModel.getNumberOfVariables()/OtherPolynomialModel.getNumberOfInputs()) - 1;
     this->nInput = OtherPolynomialModel.getNumberOfInputs();
+    this->nOutput = OtherPolynomialModel.getNumberOfOutputs();
     this->ModelCoef             = OtherPolynomialModel.getModelCoef();
     this->LinearVectorA         = OtherPolynomialModel.getLinearVectorA();
 }
@@ -27,6 +29,7 @@ ModelHandler::Polynomial<Type>::Polynomial(const ModelHandler::Polynomial<OtherT
 {
     this->degree = (otherPolynomialFunction.getNumberOfVariables()/otherPolynomialFunction.getNumberOfInputs()) - 1;
     this->nInput = otherPolynomialFunction.getNumberOfInputs();
+    this->nOutput = otherPolynomialFunction.getNumberOfOutputs();
     this->LinearVectorA = otherPolynomialFunction.getLinearVectorA();
 
     this->setModelCoef(otherPolynomialFunction.getModelCoef());
@@ -37,6 +40,7 @@ ModelHandler::Polynomial<Type>& ModelHandler::Polynomial<Type>::operator= (const
 {
     this->degree = (otherPolynomialFunction.getNumberOfVariables()/otherPolynomialFunction.getNumberOfInputs()) - 1;
     this->nInput = otherPolynomialFunction.getNumberOfInputs();
+    this->nOutput = otherPolynomialFunction.getNumberOfOutputs();
     this->ModelCoef             = otherPolynomialFunction.getModelCoef();
     this->LinearVectorA         = otherPolynomialFunction.getLinearVectorA();
 }
@@ -46,6 +50,7 @@ ModelHandler::Polynomial<Type>& ModelHandler::Polynomial<Type>::operator= (const
 {
     this->degree = (otherPolynomialFunction.getNumberOfVariables()/otherPolynomialFunction.getNumberOfInputs()) - 1;
     this->nInput = otherPolynomialFunction.getNumberOfInputs();
+    this->nOutput = otherPolynomialFunction.getNumberOfOutputs();
     this->ModelCoef             = otherPolynomialFunction.getModelCoef();
     this->LinearVectorA         = otherPolynomialFunction.getLinearVectorA();
 }
@@ -53,11 +58,15 @@ ModelHandler::Polynomial<Type>& ModelHandler::Polynomial<Type>::operator= (const
 template <typename Type>
 void ModelHandler::Polynomial<Type>::setLinearVector(LinAlg::Matrix<Type> Input, LinAlg::Matrix<Type> PastOutput)
 {
-    for(uint8_t i = 0; i < this->nInput; ++i)
-        for(uint8_t j = 0; j <= this-> degree; ++j)
+
+    uint8_t counter = 0;
+    for(uint8_t k = 0; k < this->nInput; ++k)
+        for(uint8_t j = 0; j <= this->degree; ++j)
         {
-            this->LinearVectorA(i,j) = pow(Input(0,i), j);
+            this->LinearVectorA(0,counter) = pow(Input(k,0), j);
+            counter++;
         }
+
     this->LinearEqualityVectorB = PastOutput;
 }
 
@@ -80,30 +89,36 @@ std::string ModelHandler::Polynomial<Type>::print()
 
     for(uint8_t i = 0; i < this->nInput; ++i)
     {
+        uint8_t counter = 0;
         str += " y";std::stringstream ss2; ss2 << i+1; str += ss2.str(); ss2.clear();
         str += " = ";
-        for(uint8_t j = 0; j <= this-> degree; ++j)
+        for(uint8_t k = 0; k < this->nInput; ++k)
         {
-            if(this->ModelCoef(j,i) > 0)
+            for(uint8_t j = 0; j <= this-> degree; ++j)
             {
-                std::stringstream ss1;
-                ss1 << this->ModelCoef(j,i);
-                str += " + ";
-                str += ss1.str();
+                if(this->ModelCoef(counter,i) > 0)
+                {
+                    std::stringstream ss1;
+                    ss1 << this->ModelCoef(counter,i);
+                    str += " + ";
+                    str += ss1.str();
+                }
+                else
+                {
+                    std::stringstream ss1;
+                    ss1 << -this->ModelCoef(counter,i);
+                    str += ss1.str();
+                }
+                if(j > 0)
+                {
+                    str += " u";
+                    std::stringstream ss1;
+                    ss1 << int(k) << "^" << int(j) << " ";
+                    str += ss1.str().c_str();
+                }
+                counter++;
             }
-            else
-            {
-                std::stringstream ss1;
-                ss1 << -this->ModelCoef(j,i);
-                str += ss1.str();
-            }
-            if(j > 0)
-            {
-                str += " u^";
-                std::stringstream ss1;
-                ss1 << int(j) << " ";
-                str += ss1.str().c_str();
-            }
+
         }
         str += '\n';
     }
@@ -114,7 +129,8 @@ template <typename Type>
 Type ModelHandler::Polynomial<Type>::sim(Type input)
 {
     this->setLinearVector(input,0.0);
-    return (this->ModelCoef*this->LinearVectorA)(0,0);
+    //std::cout << this->LinearVectorA << this->LinearVectorA*this->ModelCoef;
+    return (this->LinearVectorA*this->ModelCoef)(0,0);
 }
 
 template <typename Type>
@@ -126,15 +142,15 @@ Type ModelHandler::Polynomial<Type>::sim(Type input, Type output)
 template <typename Type>
 LinAlg::Matrix<Type> ModelHandler::Polynomial<Type>::sim(LinAlg::Matrix<Type> Input)
 {
-//    LinAlg::Matrix<double> Y = LinAlg::Zeros<Type>(Input.getNumberOfRows(),Input.getNumberOfColumns());
-    for(unsigned i = 0; i < Input.getNumberOfColumns(); ++i)
+    LinAlg::Matrix<double> Y;// = LinAlg::Zeros<Type>(Input.getNumberOfRows(),Input.getNumberOfColumns());
+    for(uint32_t i = 0; i < Input.getNumberOfColumns(); ++i)
     {
-        this->setLinearVector(Input(0,i),"0");
-        this->LinearMatrixA = this->LinearMatrixA||this->LinearVectorA;
+        this->setLinearVector(Input.getColumn(i),"0");
+        Y = Y||this->LinearVectorA*this->ModelCoef;
     }
     //std::cout << this->ModelCoef << "\n";
     //std::cout << this->LinearMatrixA << "\n";
-    return ~(this->LinearMatrixA*this->ModelCoef);
+    return ~(Y);
 }
 
 template <typename Type>

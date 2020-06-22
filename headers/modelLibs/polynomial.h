@@ -11,7 +11,7 @@ namespace ModelHandler {
     class Polynomial : public Model<Type>
     {
     public:
-        Polynomial(uint8_t degree, uint8_t nInput = 1);
+        Polynomial(uint8_t degree, uint8_t nInput = 1,  uint8_t nOutput = 1);
         Polynomial(const Polynomial<Type>& OtherPolynomialModel);
         template<typename OtherType>
         Polynomial(const ModelHandler::Polynomial<OtherType>& otherPolynomialFunction);
@@ -25,7 +25,7 @@ namespace ModelHandler {
         unsigned getNumberOfInputDelays() const{ return 0;}
         unsigned getNumberOfInputs() const{ return this->nInput;}
         unsigned getNumberOfOutputDelays() const{ return 0;}
-        unsigned getNumberOfOutputs() const{ return this->nInput;}
+        unsigned getNumberOfOutputs() const{ return this->nOutput;}
         unsigned getNumberOfVariables() const{ return this->nInput*(this->degree+1);}
         unsigned getMaxnInOut () const { return 0;}
         unsigned getNSample () const { return this->nSample;}
@@ -49,7 +49,7 @@ namespace ModelHandler {
 
     private:
         unsigned nSample;
-        uint8_t degree, nInput;
+        uint8_t degree, nInput, nOutput;
     };
 
     template<typename Type> // ok

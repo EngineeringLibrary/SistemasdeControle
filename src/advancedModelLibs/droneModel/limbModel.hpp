@@ -40,7 +40,7 @@ LinAlg::Matrix<Type> ModelHandler::LimbModel<Type>::sim(LinAlg::Matrix<Type> x){
 
     this->theta_pp = 0; this->theta_p = 0; this->theta = 0;
 
-    for(int i = 0; i < x.getNumberOfRows(); ++i)
+    for(uint32_t i = 0; i < x.getNumberOfRows(); ++i)
     {
 
         theta_pp = (1.0/J)*(x(i,0)*cos(theta) - (K1*exp(K2*theta))*(theta-K3) - m*g*l*sin(theta) - B1*tanh(-B2*theta_p) - B3*theta_p + Td);
@@ -49,6 +49,7 @@ LinAlg::Matrix<Type> ModelHandler::LimbModel<Type>::sim(LinAlg::Matrix<Type> x){
         if(theta == NAN)
             break;
         Y(i,0) = theta;
+        //std::cout << Y(i,0);
     }
 
     return Y;

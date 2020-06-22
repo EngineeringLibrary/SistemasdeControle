@@ -7,8 +7,8 @@
 #include <ctime>
 
 template <class UsedType>
-OptimizationHandler::PSO<UsedType>::PSO(ModelHandler::Model<UsedType> *model, const int &varNum, const int &PopSize,
-                                        const int &GenSize, const UsedType &phi1, const UsedType &phi2, const UsedType &omega,
+OptimizationHandler::PSO<UsedType>::PSO(ModelHandler::Model<UsedType> *model, const uint32_t &varNum, const uint32_t &PopSize,
+                                        const uint32_t &GenSize, const UsedType &phi1, const UsedType &phi2, const UsedType &omega,
                                         const UsedType &minX, const UsedType &maxX, const bool &MinMax)
 {
     this->model   = model;
@@ -29,15 +29,15 @@ void OptimizationHandler::PSO<UsedType>::initAlgorithm()
 {
     //LinAlg::Matrix<UsedType> init = "0.203979,0.097670,0.445005,0.369224,0.121721,0.200847,0.974407,0.999997,2.999732";
     this->X = this->maxX/50*LinAlg::Random<UsedType>(this->PopSize, this->varNum);
-//    for(int i = 0; i < this->X.getNumberOfRows(); ++i)
-//        for(int j = 0; j < this->X.getNumberOfColumns(); ++j)
+//    for(uint32_ti = 0; i < this->X.getNumberOfRows(); ++i)
+//        for(uint32_tj = 0; j < this->X.getNumberOfColumns(); ++j)
 //            this->X(i,j) += init(0,j);
 
     //std::cout << X;
     this->V = 0.01*LinAlg::Random<UsedType>(this->PopSize, this->varNum);
     this->P = this->maxX/50*LinAlg::Random<UsedType>(this->PopSize, this->varNum);
-//    for(int i = 0; i < this->P.getNumberOfRows(); ++i)
-//        for(int j = 0; j < this->X.getNumberOfColumns(); ++j)
+//    for(uint32_ti = 0; i < this->P.getNumberOfRows(); ++i)
+//        for(uint32_tj = 0; j < this->X.getNumberOfColumns(); ++j)
 //            this->P(i,j) += init(0,j);
 
     this->Pfitness = Evaluation(this->P);
@@ -57,7 +57,7 @@ LinAlg::Matrix<UsedType> OptimizationHandler::PSO<UsedType>::Evaluation(LinAlg::
     LinAlg::Matrix<UsedType> Error;
     //TODO -> Tornar a função mais fléxivel.
 
-    for(unsigned i = 0; i < Matrix2Evaluate.getNumberOfRows(); i++)
+    for(uint32_t i = 0; i < Matrix2Evaluate.getNumberOfRows(); i++)
     {
       model->setModelCoef(Matrix2Evaluate.getRow(i));
       Error =  10000*(Out - model->sim(In));
@@ -80,8 +80,8 @@ void OptimizationHandler::PSO<UsedType>::VelocityUpdate()
     double Rand1, Rand2;
 
 
-    for(int i = 0; i < this->PopSize; i++)
-        for(int j = 0; j < this->varNum; j++)
+    for(uint32_t i = 0; i < this->PopSize; i++)
+        for(uint32_t j = 0; j < this->varNum; j++)
         {
             Rand1 = rand()*this->phi1/RAND_MAX;
             Rand2 = rand()*this->phi2/RAND_MAX;
@@ -107,19 +107,19 @@ void OptimizationHandler::PSO<UsedType>::FitnessUpdate()
 template <class UsedType>
 void OptimizationHandler::PSO<UsedType>::FitnessUpdateMin()
 {
-  for (int i = 0; i < this->PopSize; i++)
+  for (uint32_t i = 0; i < this->PopSize; i++)
   {
       if (this->Xfitness(i,0) < this->Pfitness(i,0))
       {
           this->Pfitness(i,0) = this->Xfitness(i,0);
-          for(int j = 0; j < this->varNum; j++)
+          for(uint32_t j = 0; j < this->varNum; j++)
             this->P(i, j) = this->X(i,j);
       }
 
       if (this->Pfitness(i,0) < this->Gfitness(0,0))
       {
           this->Gfitness(0,0) = this->Pfitness(i,0);
-          for(int j = 0; j < this->varNum; j++)
+          for(uint32_t j = 0; j < this->varNum; j++)
             this->G(0, j) = this->P(i,j);
       }
   }
@@ -128,19 +128,19 @@ void OptimizationHandler::PSO<UsedType>::FitnessUpdateMin()
 template <class UsedType>
 void OptimizationHandler::PSO<UsedType>::FitnessUpdateMax()
 {
-    for (int i = 0; i < this->PopSize; i++)
+    for (uint32_t i = 0; i < this->PopSize; i++)
     {
         if (this->Xfitness(i,0) > this->Pfitness(i,0))
         {
             this->Pfitness(i,0) = this->Xfitness(i,0);
-            for(int j = 0; j < this->varNum; j++)
+            for(uint32_t j = 0; j < this->varNum; j++)
               this->P(i, j) = this->X(i,j);
         }
 
         if (this->Pfitness(i,0) > this->Gfitness(0,0))
         {
             this->Gfitness(0,0) = this->Pfitness(i,0);
-            for(int j = 0; j < this->varNum; j++)
+            for(uint32_t j = 0; j < this->varNum; j++)
                 this->G(0, j) = this->P(i,j);
         }
     }
@@ -155,7 +155,7 @@ void OptimizationHandler::PSO<UsedType>::Optimize()
 
     initAlgorithm();
 
-    for(int i = 0; i < this->GenSize; i++)
+    for(uint32_t i = 0; i < this->GenSize; i++)
     {
         VelocityUpdate();
         ParticleUpdate();
@@ -179,11 +179,11 @@ void OptimizationHandler::PSO<UsedType>::Optimize()
 }
 
 template <class UsedType>
-void OptimizationHandler::PSO<UsedType>::Run(int nTimes)
+void OptimizationHandler::PSO<UsedType>::Run(uint32_t nTimes)
 {
     this->GnTimes = LinAlg::Zeros<UsedType>(nTimes, this->G.getNumberOfColumns());
     this->GfitnessnTime = LinAlg::Zeros<UsedType>(nTimes, 1);
-    for (int i = 0; i < nTimes; i++)
+    for (uint32_t i = 0; i < nTimes; i++)
     {
         this->Optimize();
 //        this->GnTimes = this->GnTimes||this->G;
@@ -211,8 +211,8 @@ double OptimizationHandler::PSO<UsedType>::getTime()
 template <class UsedType>
 void OptimizationHandler::PSO<UsedType>::limits()
 {
-    for(int i = 0; i < this->PopSize; i++)
-        for(int j = 0; j < this->varNum; j++)
+    for(uint32_t i = 0; i < this->PopSize; i++)
+        for(uint32_t j = 0; j < this->varNum; j++)
         {
             if(this->X(i,j) > maxX)
                 this->X(i,j) = maxX;

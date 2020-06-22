@@ -27,41 +27,41 @@ namespace LinAlg {
             Matrix (Type Number);
             Matrix (const char* Mat);
             Matrix (std::string Mat);
-            Matrix (int row, int column);
+            Matrix (uint32_t row, uint32_t column);
             Matrix (): rows(0), columns(0), mat(NULL){}
             Matrix (const LinAlg::Matrix<Type>& otherMatrix);
             template<typename OtherMatrixType>
             Matrix (const LinAlg::Matrix<OtherMatrixType>& otherMatrix);
             virtual ~Matrix ();
 
-            void removeRow (int row);
-            void removeColumn (int column);
+            void removeRow (uint32_t row);
+            void removeColumn (uint32_t column);
 
-            int getNumberOfRows () const;
-            int getNumberOfColumns () const;
+            uint32_t getNumberOfRows () const;
+            uint32_t getNumberOfColumns () const;
 
-            LinAlg::Matrix<Type> getRow (const int &number_of_the_row) const;
-            LinAlg::Matrix<Type> getColumn (const int &number_of_the_column) const;
+            LinAlg::Matrix<Type> getRow (const uint32_t &number_of_the_row) const;
+            LinAlg::Matrix<Type> getColumn (const uint32_t &number_of_the_column) const;
 
-            void swapRows (int row_to_be_swapped, int  row_to_take_place);
-            void swapColumns (int column_to_be_swapped, int column_to_take_place);
+            void swapRows (uint32_t row_to_be_swapped, uint32_t  row_to_take_place);
+            void swapColumns (uint32_t column_to_be_swapped, uint32_t column_to_take_place);
 
-            int length () const;
+            uint32_t length () const;
             LinAlg::Matrix<Type> size () const;
 
             bool isNull ();
             bool isSquare ();
 
-            Type& operator() (int row, int column);
-            Type  operator() (int  row, int column) const;
+            Type& operator() (uint32_t row, uint32_t column);
+            Type  operator() (uint32_t  row, uint32_t column) const;
 
-            LinAlg::Matrix<Type> operator() (int* row_interval, int column) const;
-            LinAlg::Matrix<Type> operator() (int  row, int* column_interval) const;
-            LinAlg::Matrix<Type> operator() (int* row_interval, int* column_interval) const;
-            LinAlg::Matrix<Type> operator() (int* row_interval, LinAlg::Matrix<Type> columns) const;
-            LinAlg::Matrix<Type> operator() (LinAlg::Matrix<Type> rows, int* column_interval) const;
-            LinAlg::Matrix<Type> operator() (int  row, LinAlg::Matrix<Type> columns) const;
-            LinAlg::Matrix<Type> operator() (LinAlg::Matrix<Type> rows, int  column) const;
+            LinAlg::Matrix<Type> operator() (uint32_t* row_uint32_terval, uint32_t column) const;
+            LinAlg::Matrix<Type> operator() (uint32_t  row, uint32_t* column_uint32_terval) const;
+            LinAlg::Matrix<Type> operator() (uint32_t* row_uint32_terval, uint32_t* column_uint32_terval) const;
+            LinAlg::Matrix<Type> operator() (uint32_t* row_uint32_terval, LinAlg::Matrix<Type> columns) const;
+            LinAlg::Matrix<Type> operator() (LinAlg::Matrix<Type> rows, uint32_t* column_uint32_terval) const;
+            LinAlg::Matrix<Type> operator() (uint32_t  row, LinAlg::Matrix<Type> columns) const;
+            LinAlg::Matrix<Type> operator() (LinAlg::Matrix<Type> rows, uint32_t  column) const;
             LinAlg::Matrix<Type> operator() (LinAlg::Matrix<Type> rows, LinAlg::Matrix<Type> column) const;
 
 
@@ -90,7 +90,7 @@ namespace LinAlg {
             template<typename RightType>
             LinAlg::Matrix<Type>& operator/= (const LinAlg::Matrix<RightType>& rhs);
 
-            LinAlg::Matrix<Type>& operator^= (int exp);
+            LinAlg::Matrix<Type>& operator^= (uint32_t exp);
 
             LinAlg::Matrix<bool> operator== (const Type& rhs /*scalar*/);
             LinAlg::Matrix<bool> operator<= (const Type& rhs /*scalar*/);
@@ -119,16 +119,16 @@ namespace LinAlg {
 
         private:
             void Init (std::string Mat);
-            void Init (int row, int column);
+            void Init (uint32_t row, uint32_t column);
 
-            void ReInit (int row, int column);
+            void ReInit (uint32_t row, uint32_t column);
 
-            void Add (int row, int column, Type number);
+            void Add (uint32_t row, uint32_t column, Type number);
 
             template<typename OtherMatrixType>
-            bool CheckDimensions(const LinAlg::Matrix<OtherMatrixType>& rhs, int operation);
+            bool CheckDimensions(const LinAlg::Matrix<OtherMatrixType>& rhs, uint32_t operation);
 
-            int rows, columns;
+            uint32_t rows, columns;
             Type** mat;
     };
 
@@ -170,7 +170,7 @@ namespace LinAlg {
     inline LinAlg::Matrix<Type> operator~ (LinAlg::Matrix<Type> mat);
 
     template<typename Type>
-    inline LinAlg::Matrix<Type> operator^ (LinAlg::Matrix<Type> lhs, int exp) {return lhs ^= exp;}
+    inline LinAlg::Matrix<Type> operator^ (LinAlg::Matrix<Type> lhs, uint32_t exp) {return lhs ^= exp;}
 
     template<typename Type>
     inline std::ostream& operator<< (std::ostream& output, const LinAlg::Matrix<Type> mat);
@@ -206,19 +206,19 @@ namespace LinAlg {
     inline LinAlg::Matrix<Type> sum(const LinAlg::Matrix<Type> &vector, const bool &rowCol = 0);
 
 //    template <typename Type>
-//    int lineOfMinValue(const LinAlg::Matrix<Type> &mat);
+//    uint32_t lineOfMinValue(const LinAlg::Matrix<Type> &mat);
 
 //    template <typename Type>
-//    int columnOfMinValue(const LinAlg::Matrix<Type> &mat);
+//    uint32_t columnOfMinValue(const LinAlg::Matrix<Type> &mat);
 
 //    template <typename Type>
 //    Type MinValue(const LinAlg::Matrix<Type> &mat);
 
 //    template <typename Type>
-//    int lineOfMaxValue(const LinAlg::Matrix<Type> &mat);
+//    uint32_t lineOfMaxValue(const LinAlg::Matrix<Type> &mat);
 
 //    template <typename Type>
-//    int columnOfMaxValue(const LinAlg::Matrix<Type> &mat);
+//    uint32_t columnOfMaxValue(const LinAlg::Matrix<Type> &mat);
 
 //    template <typename Type>
 //    Type MaxValue(const LinAlg::Matrix<Type> &mat);
@@ -233,19 +233,19 @@ namespace LinAlg {
 //    void Zeros (LinAlg::Matrix<Type>& Mat);
 
     template<typename Type>
-    inline LinAlg::Matrix<Type> Zeros (int rows, int columns);
+    inline LinAlg::Matrix<Type> Zeros (uint32_t rows, uint32_t columns);
 
     template<typename Type>
-    inline LinAlg::Matrix<Type> Eye (int dimension);
+    inline LinAlg::Matrix<Type> Eye (uint32_t dimension);
 
     template<typename Type>
     inline LinAlg::Matrix<Type> LineVector (Type from, Type to, Type step = 1);
 
     template<typename Type>
-    inline LinAlg::Matrix<Type> Ones (int rows, int columns);
+    inline LinAlg::Matrix<Type> Ones (uint32_t rows, uint32_t columns);
 
     template<typename Type>
-    inline LinAlg::Matrix<Type> Random (int rows, int columns);
+    inline LinAlg::Matrix<Type> Random (uint32_t rows, uint32_t columns);
 
     template<typename Type>
     inline LinAlg::Matrix<Type> diff (const LinAlg::Matrix<Type> &mat);

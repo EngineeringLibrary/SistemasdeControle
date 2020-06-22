@@ -15,7 +15,7 @@ namespace OptimizationHandler {
     {
     private:
         bool MinMax;
-        int varNum, PopSize, GenSize;
+        uint32_t varNum, PopSize, GenSize;
         UsedType phi1, phi2, omega, Stime, minX, maxX;
         LinAlg::Matrix<UsedType> V, X, P, G, GGen, GnTimes,
                          Xfitness, Pfitness, Gfitness,
@@ -34,14 +34,14 @@ namespace OptimizationHandler {
         void limits();
 
     public:
-        PSO(ModelHandler::Model<UsedType> *model, const int &varNum = 1, const int &PopSize = 80,
-            const int &GenSize = 2000, const UsedType &phi1 = 1, const UsedType &phi2 = 1, const UsedType &omega = 1,
+        PSO(ModelHandler::Model<UsedType> *model, const uint32_t &varNum = 1, const uint32_t &PopSize = 80,
+            const uint32_t &GenSize = 2000, const UsedType &phi1 = 1, const UsedType &phi2 = 1, const UsedType &omega = 1,
             const UsedType &minX = 0, const UsedType &maxX = 10, const bool &MinMax = false);
         ~PSO(){}
 
         void Optimize();
         void Optimize(LinAlg::Matrix<UsedType> dataIn, LinAlg::Matrix<UsedType> dataOut){}
-        void Run(int nTimes);
+        void Run(uint32_t nTimes);
         void setData(LinAlg::Matrix<UsedType> dataIn, LinAlg::Matrix<UsedType> dataOut);
 
         double getTime();

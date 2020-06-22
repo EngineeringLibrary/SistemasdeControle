@@ -267,11 +267,11 @@ ModelHandler::ARX<Type> ModelHandler::tf2arxSISO(const ModelHandler::TransferFun
     else
         TFd = TF;
 
-    unsigned inputSize  = TFd(0,0).getNum().getNumberOfColumns();
-    unsigned outputSize = TFd(0,0).getDen().getNumberOfColumns();
+    uint32_t inputSize  = TFd(0,0).getNum().getNumberOfColumns();
+    uint32_t outputSize = TFd(0,0).getDen().getNumberOfColumns();
 
     ModelHandler::ARX<Type> arx(outputSize-1,inputSize,0,1,1,step);
-    LinAlg::Matrix<Type> ModelCoef = (TFd(0,0).getDen()(0,from(1)-->outputSize-1))|TFd(0,0).getNum();
+    LinAlg::Matrix<Type> ModelCoef = (TFd(0,0).getDen()(uint32_t(0),(from(uint32_t(1))-->(outputSize-1))))|TFd(0,0).getNum();
     arx.setModelCoef(~ModelCoef);
 
     return arx;

@@ -154,7 +154,7 @@ void PolynomHandler::Polynom<Type>::setNum(const LinAlg::Matrix<Type> &Num)
     this->sizeNum = Num.getNumberOfColumns();
 
     for (unsigned i = 0; i < Num.getNumberOfColumns(); ++i)
-        this->num[i] = Num(0,i);
+        this->num[i] = Num(uint32_t(0),i);
 }
 
 template <typename Type> //testada
@@ -174,7 +174,7 @@ void PolynomHandler::Polynom<Type>::setDen(const LinAlg::Matrix<Type> &Den)
     this->sizeDen = Den.getNumberOfColumns();
 
     for (unsigned i = 0; i < Den.getNumberOfColumns(); ++i)
-        this->den[i] = Den(0,i);
+        this->den[i] = Den(uint32_t(0),i);
 }
 
 template <typename Type> // testada
@@ -374,12 +374,12 @@ void PolynomHandler::Polynom<Type>::init(const LinAlg::Matrix<Type> &Num, const 
     //this->num = initPointer<Type>(Num.getNumberOfColumns());
     this->num = new Type[Num.getNumberOfColumns()]();
     for (unsigned i = 0; i < Num.getNumberOfColumns(); ++i)
-        this->num[i] = (Type) Num(0, i);
+        this->num[i] = (Type) Num(uint32_t(0), i);
 
     this->sizeDen = Den.getNumberOfColumns();
     this->den = new Type[Den.getNumberOfColumns()]();
     for (unsigned i = 0; i < Den.getNumberOfColumns(); ++i)
-        this->den[i] = (Type) Den(0 , i);
+        this->den[i] = (Type) Den(uint32_t(0) , i);
     this->x = 'x';
 }
 
