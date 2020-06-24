@@ -98,26 +98,16 @@ void pca::clustering1()
              i = i + 1;
         dados = dadosTemp;
     }
-    std::cout << "\n";
 
-    std::cout <<= LinAlg::PCAf::grid(3, -1.0, 1.0, 0.5);
-    std::cout << std::endl;
 }
 
 void pca::optimization()
 {
-    GRBEnv* env = 0;
-    env = new GRBEnv();
-
-    double c[] = {1, 1, 0};
-    double  Q[3][3] = {{1, 1, 0}, {0, 1, 1}, {0, 0, 1}};
-    double  A[2][3] = {{1, 2, 3}, {1, 1, 0}}; //
-    char    sense[] = {'>', '>'};
-    double  rhs[]   = {4, 1};
-    double  lb[]    = {0, 0, 0};
-    bool    success;
-    double  objval, sol[3];
-
+    LinAlg::Matrix<double> Aeq = "1, 1, 1, 0"; LinAlg::Matrix<double> beq = "1";
+    LinAlg::Matrix<double> A = "-15, 0, 0, -1; 0, -12, 0, -1; 0, 0, -12, -1;240, 0, 0, -1; 0, 27, 0, -1; 0, 0, 27, -1";
+    LinAlg::Matrix<double> b = "-15;-12;-12;0;0;0";
+    LinAlg::Matrix<double> obj = "0, 0, 0, 1";
+    std::cout << LinAlg::PCAf::linSolve(obj,A,b,Aeq,beq);
 }
 
 QTEST_APPLESS_MAIN(pca)

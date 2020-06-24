@@ -9,7 +9,6 @@
     #include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
     #include "SistemasdeControle/headers/primitiveLibs/polynom.h"
 #endif
-//#include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
 
 namespace LinAlg {
 
@@ -44,7 +43,7 @@ namespace LinAlg {
                                                            LinAlg::Matrix<Type> D, LinAlg::Matrix<Type> Gf, LinAlg::Matrix<Type> rhof,
                                                            LinAlg::Matrix<Type> w, LinAlg::Matrix<Type> eta, LinAlg::Matrix<Type> x);
         template <typename Type>
-        LinAlg::Matrix<Type> linSolve(LinAlg::Matrix<Type> obj, LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> b);
+        LinAlg::Matrix<Type> linSolve(LinAlg::Matrix<Type> obj, LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> b, LinAlg::Matrix<Type> Aeq, LinAlg::Matrix<Type> beq);
     }
 }
 

@@ -96,7 +96,7 @@ LinAlg::Matrix<Type> LinAlg::PCAf::optimalSignalControlGenerator(LinAlg::Matrix<
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> LinAlg::PCAf::linSolve(LinAlg::Matrix<Type> obj, LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> b)
+LinAlg::Matrix<Type> LinAlg::PCAf::linSolve(LinAlg::Matrix<Type> obj, LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> b, LinAlg::Matrix<Type> Aeq, LinAlg::Matrix<Type> beq)
 {
     GRBVar *X = new GRBVar[A.getNumberOfRows()];
 
@@ -106,10 +106,12 @@ LinAlg::Matrix<Type> LinAlg::PCAf::linSolve(LinAlg::Matrix<Type> obj, LinAlg::Ma
         GRBVar X[i] = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, ss.str().c_str());
     }
 
-    GRBLinExpr expr = new GRBLinExpr();
+    GRBLinExpr *expr = new GRBLinExpr();
     for(uint8_t i = 0; i < x.getNumberOfRows(); ++i)
     {
           expr.addTerm(1.0, z);
           model.setObjective(expr, GRB.MINIMIZE);
     }
+
+
 }
