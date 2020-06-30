@@ -7,6 +7,9 @@
 #include "primitives.h"
 
 namespace PolynomHandler {
+    #ifndef coutPrecision
+        #define coutPrecision 3
+    #endif
     template <typename Type>
     class Polynom
     {

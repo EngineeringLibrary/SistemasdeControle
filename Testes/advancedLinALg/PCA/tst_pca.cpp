@@ -1,5 +1,4 @@
 #include <QtTest>
-#include "C:/gurobi901/win64/include/gurobi_c++.h"
 
 // add necessary includes here
 
@@ -8,6 +7,8 @@
 #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
 #include "../../../headers/primitiveLibs/LinAlg/linalg.h"
 #include "../../../headers/advancedLinALg/PCA.h"
+
+
 
 
 
@@ -103,11 +104,13 @@ void pca::clustering1()
 
 void pca::optimization()
 {
-    LinAlg::Matrix<double> Aeq = "1, 1, 1, 0"; LinAlg::Matrix<double> beq = "1";
-    LinAlg::Matrix<double> A = "-15, 0, 0, -1; 0, -12, 0, -1; 0, 0, -12, -1;240, 0, 0, -1; 0, 27, 0, -1; 0, 0, 27, -1";
-    LinAlg::Matrix<double> b = "-15;-12;-12;0;0;0";
-    LinAlg::Matrix<double> obj = "0, 0, 0, 1";
-    std::cout << LinAlg::PCAf::linSolve(obj,A,b,Aeq,beq);
+//    LinAlg::Matrix<double> Aeq = "1, 1, 1, 0"; LinAlg::Matrix<double> beq = "1";
+//    LinAlg::Matrix<double> A = "-15, 0, 0, -1; 0, -12, 0, -1; 0, 0, -12, -1;240, 0, 0, -1; 0, 27, 0, -1; 0, 0, 27, -1";
+//    LinAlg::Matrix<double> b = "-15;-12;-12;0;0;0";
+//    LinAlg::Matrix<double> obj = "0, 0, 0, 1";
+//    std::cout << LinAlg::PCAf::linSolve<double>(obj,A,b,Aeq,beq);
+
+
 }
 
 QTEST_APPLESS_MAIN(pca)

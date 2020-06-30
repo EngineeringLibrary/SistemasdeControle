@@ -1,6 +1,7 @@
 #define testPolynom
 #define testModel
 
+#define coutPrecision 8
 #include <QString>
 #include <QtTest>
 #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
@@ -19,6 +20,7 @@ public:
     ArxDoubleTest(){}
 
 private Q_SLOTS:
+    void SS();
     void voidConstructorCase1 ();
     void voidConstructorCase2 ();
     void voidConstructorCase3 ();
@@ -81,6 +83,20 @@ private Q_SLOTS:
     void simInOutMatrix();
     void simRange(){QSKIP("Função não implementada. Por enquanto não há necessidade", SkipAll);}
 };
+
+
+
+void ArxDoubleTest::SS()
+{
+    ModelHandler::ARX<double> arx(2,2,0,2,2,0.1);
+    arx.setModelCoef("-1.87085281783314,-0.0257757033875835;0.872372441342299,0.0260503483855521;0.0134449857557203,-1.91759967979487;-0.0138029025062675,0.878507728995683;0.00803352607122690,9.86084948436049e-05;-0.00264657484585805,-0.000400820393917207;5.66450203206749e-06,0.00164742672119849;1.38049689720422e-06,-0.000609528899845942");
+    std::cout << arx.print() << std::endl;
+
+    std::cout << ModelHandler::arx2SS(arx) << std::endl;
+
+    std::cout << ModelHandler::arx2tf(arx) << std::endl;
+    arx.print();
+}
 
 void ArxDoubleTest::voidConstructorCase1()
 {

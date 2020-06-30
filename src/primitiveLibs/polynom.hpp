@@ -551,9 +551,9 @@ std::string PolynomHandler::printSmallPolynom(LinAlg::Matrix<Type> rhs, const ch
         }
 
         if(((rhs(0,i) != 1) && (rhs(0,i) > 0)) || ((i == Size) && (rhs(0,i) > 0)))
-            ret << std::setw(2*3+1) << std::setprecision(3) << std::fixed << rhs(0,i);
+            ret << std::setw(2*coutPrecision+1) << std::setprecision(coutPrecision) << std::fixed << rhs(0,i);
         else if((rhs(0,i) != -1 && rhs(0,i) < 0)|| ((i == Size) && (rhs(0,i) < 0)))
-            ret << std::setw(2*3+1) << std::setprecision(3) << std::fixed << -rhs(0,i);
+            ret << std::setw(2*coutPrecision+1) << std::setprecision(coutPrecision) << std::fixed << -rhs(0,i);
 
         if(Size-i > 0 && rhs(0,i) != 0)
         {

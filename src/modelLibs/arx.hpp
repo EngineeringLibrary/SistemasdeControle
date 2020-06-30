@@ -361,13 +361,14 @@ template <typename Type>
 void ModelHandler::ARX<Type>::setInitialOutputValue(const LinAlg::Matrix<Type> &Output)
 {
     this->OutputLinearVector = LinAlg::Ones<Type>(this->qdtOutputVar, this->delay + this->nOutputpar);
-    for(unsigned i = 0; i < this->qdtOutputVar; ++i)
+    uint32_t zero = 0;
+    for(uint32_t i = 0; i < this->qdtOutputVar; ++i)
     {
-        this->OutputLinearVector = this->OutputLinearVector*Output(i,0);
-        if(i == 0)
+        this->OutputLinearVector = this->OutputLinearVector*Output(i,zero);
+        if(i == zero)
         {
-            this->output = Output(i,0);
-            this->estOutput = Output(i,0);
+            this->output = Output(i,zero);
+            this->estOutput = Output(i,zero);
         }
     }
 }

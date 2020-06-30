@@ -68,7 +68,7 @@ LinAlg::Matrix<Type> LinAlg::PCAf::grid(uint32_t dimension, Type lowerLimit, Typ
 
 template <typename Type>
 LinAlg::Matrix<Type> LinAlg::PCAf::optimalSignalControlGenerator(LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> B, LinAlg::Matrix<Type> C,
-                                                                 LinAlg::Matrix<Type> D, LinAlg::Matrix<Type> Gf, LinAlg::Matrix<Type> rhof,
+                                                                 LinAlg::Matrix<Type> D, LinAlg::Matrix<Type> G, LinAlg::Matrix<Type> rho,
                                                                  LinAlg::Matrix<Type> w, LinAlg::Matrix<Type> eta, LinAlg::Matrix<Type> x)
 {
     // given A,C,G,rho,y, find psi(i) for i=1:g such that
@@ -82,7 +82,7 @@ LinAlg::Matrix<Type> LinAlg::PCAf::optimalSignalControlGenerator(LinAlg::Matrix<
     for(uint8_t i = 0; i < g; ++i)
     {
         obj = (-G(i,from(0)-->G.getNumberOfColumns()-1)*A);
-        psi = (psi||-linSolve(obj, Gc, rhoEta));
+        //psi = (psi||-linSolve(obj, Gc, rhoEta));
     }
 
     LinAlg::Matrix<Type> delta;
@@ -90,28 +90,95 @@ LinAlg::Matrix<Type> LinAlg::PCAf::optimalSignalControlGenerator(LinAlg::Matrix<
         delta = (delta||G(i,from(0)-->G.getNumberOfColumns()-1)*B*linSolve(-G(i,from(0)-->G.getNumberOfColumns()-1)*B,D,w));
 
     uint32_t n = A.getNumberOfRows();
-    LinAlg::Matrix<Type> v = linSolve(LinAlg::Zeros<Type>(n,0)||1.0,G|-rho ,-psi_eta-delta);
-    epsi = v(n);
-    vt = v(from(0)-->n-1,0);
+   // LinAlg::Matrix<Type> v = linSolve(LinAlg::Zeros<Type>(n,0)||1.0,G|-rho ,-psi_eta-delta);
+   // epsi = v(n);
+    //vt = v(from(0)-->n-1,0);
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> LinAlg::PCAf::linSolve(LinAlg::Matrix<Type> obj, LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> b, LinAlg::Matrix<Type> Aeq, LinAlg::Matrix<Type> beq)
+LinAlg::Matrix<double> LinAlg::PCAf::linSolve(LinAlg::Matrix<double> obj, LinAlg::Matrix<double> A, LinAlg::Matrix<double> b, LinAlg::Matrix<double> Aeq, LinAlg::Matrix<double> beq)
 {
-    GRBVar *X = new GRBVar[A.getNumberOfRows()];
+    GRBEnv* env=0;
+    GRBVar* x=0;
 
-    for(uint8_t i = 0; i < x.getNumberOfRows(); ++i)
-    {
-        std::stringstream ss; ss << 'x' << i;
-        GRBVar X[i] = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, ss.str().c_str());
-    }
+    try{
+        //iniciando ambiente e modelo
+        env = new GRBEnv();
+        GRBModel model(*env);
 
-    GRBLinExpr *expr = new GRBLinExpr();
-    for(uint8_t i = 0; i < x.getNumberOfRows(); ++i)
-    {
-          expr.addTerm(1.0, z);
-          model.setObjective(expr, GRB.MINIMIZE);
-    }
+        //Declarando variavel
+        x=model.addVars(A.getNumberOfRows(),GRB_INTEGER);
+        model.update();
 
+        for (int i=0;i<A.getNumberOfRows();i++){
+            std::stringstream ss;
+            ss << 'x' << i;
+            x[i].set(GRB_DoubleAttr_Obj,obj(0,i));
+            x[i].set(GRB_StringAttr_VarName, ss.str());
+        }
 
+        //minimizando função
+        model.set(GRB_IntAttr_ModelSense, 1); //"1" para minimizar e "2" para maximizar
+        model.update();
+
+        //Restrição 1: A.x<=b
+        for(int i=0; i<A.getNumberOfRows();i++){
+
+             GRBLinExpr f0=0;
+
+            for(int j=0; j<A.getNumberOfColumns();j++){
+               f0+=A(i,j)*x[j];
+            model.addConstr(f0 <= b(i,0),"f0");
+
+            }
+        }
+
+        //Restrição 2: Aeq.x=beq
+        for(int i=0; i<Aeq.getNumberOfRows();i++){
+
+             GRBLinExpr f1=0;
+
+            for(int j=0; j<A.getNumberOfColumns();j++){
+               f1+=Aeq(i,j)*x[j];
+            model.addConstr(f1 == beq(i,0),"f1");
+
+            }
+        }
+        //Resolução do modelo
+        model.update();
+        model.write("model.lp");
+        model.optimize();
+
+    //    std::cout << x[0].get(GRB.StringAttr_VarName) <<" "<< x[0].get(GRB.DoubleAttr_X) << std::endl;
+
+    //    std::cout << x[1].get(GRB.StringAttr_VarName) <<" "<< x[1].get(GRB.DoubleAttr_X) << std::endl;
+
+    //    std::cout << x[2].get(GRB.StringAttr_VarName) <<" "<< x[2].get(GRB.DoubleAttr_X) << std::endl;
+
+    //    std::cout << "Obj:"<< model.get(GRB.DoubleAttr_ObjVal) << std::endl;
+
+    //    model.dispose();
+    //    env->dispose();
+
+    }catch (GRBException e) {
+        std::cout<<"Error code: "<< e.getErrorCode()<<"."<<e.getMessage()<<endl;
+
+        }
+    delete[] x;
+    delete env;
+
+       /* GRBVar *X = new GRBVar[A.getNumberOfRows()];
+
+        for(uint8_t i = 0; i < x.getNumberOfRows(); ++i)
+        {
+            std::stringstream ss; ss << 'x' << i;
+            GRBVar X[i] = model.addVar(0.0, GRB.INFINITY, 0.0, GRB.CONTINUOUS, ss.str().c_str());
+        }
+
+        GRBLinExpr expr = new GRBLinExpr();
+        for(uint8_t i = 0; i < x.getNumberOfRows(); ++i)
+        {
+              expr.addTerm(1.0, z);
+              model.setObjective(expr, GRB.MINIMIZE);
+        }*/
 }

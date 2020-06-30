@@ -17,3 +17,6 @@ HEADERS += \
     ../../../src/primitiveLibs/LinAlg/linalg.hpp \
     ../../../src/primitiveLibs/LinAlg/matrix.hpp \
     ../../../src/primitiveLibs/polynom.hpp
+
+INCLUDEPATH += C:/gurobi901/win64/include
+LIBS += -L C:/gurobi901/win64/lib -lgurobi_c++mdd2019 -lgurobi_c++mtd2019 -lgurobi90 -lpthread

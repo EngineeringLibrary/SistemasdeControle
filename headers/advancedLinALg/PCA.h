@@ -1,5 +1,6 @@
 #ifndef __PCA_H_INCLUDED
 #define __PCA_H_INCLUDED
+
 #ifdef testPolynom
     #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
     #include "../../../headers/primitiveLibs/LinAlg/linalg.h"
@@ -9,6 +10,8 @@
     #include "SistemasdeControle/headers/primitiveLibs/LinAlg/linalg.h"
     #include "SistemasdeControle/headers/primitiveLibs/polynom.h"
 #endif
+
+#include "C:/gurobi901/win64/include/gurobi_c++.h"
 
 namespace LinAlg {
 
@@ -40,10 +43,10 @@ namespace LinAlg {
 
         template <typename Type>
         LinAlg::Matrix<Type> optimalSignalControlGenerator(LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> B, LinAlg::Matrix<Type> C,
-                                                           LinAlg::Matrix<Type> D, LinAlg::Matrix<Type> Gf, LinAlg::Matrix<Type> rhof,
+                                                           LinAlg::Matrix<Type> D, LinAlg::Matrix<Type> G, LinAlg::Matrix<Type> rho,
                                                            LinAlg::Matrix<Type> w, LinAlg::Matrix<Type> eta, LinAlg::Matrix<Type> x);
         template <typename Type>
-        LinAlg::Matrix<Type> linSolve(LinAlg::Matrix<Type> obj, LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> b, LinAlg::Matrix<Type> Aeq, LinAlg::Matrix<Type> beq);
+        LinAlg::Matrix<double> linSolve(LinAlg::Matrix<double> obj, LinAlg::Matrix<double> A, LinAlg::Matrix<double> b, LinAlg::Matrix<double> Aeq, LinAlg::Matrix<double> beq);
     }
 }
 

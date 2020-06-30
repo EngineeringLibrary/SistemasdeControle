@@ -792,6 +792,8 @@ tst_pca.moc: ../PCA/tst_pca.cpp \
 		../../../headers/primitiveLibs/polynom.h \
 		../../../src/primitiveLibs/polynom.hpp \
 		../../../src/advancedLinALg/PCA.hpp \
+		C:/gurobi901/win64/include/gurobi_c++.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
 		moc_predefs.h \
 		D:/Qt/5.14.1/mingw73_32/bin/moc.exe
 	D:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include D:/Projetos/git/SistemasdeControle/Testes/advancedLinALg/build-PCA-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -ID:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -ID:/Projetos/git/SistemasdeControle/Testes/advancedLinALg/PCA -ID:/Qt/5.14.1/mingw73_32/include -ID:/Qt/5.14.1/mingw73_32/include/QtTest -ID:/Qt/5.14.1/mingw73_32/include/QtCore -I. -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\PCA\tst_pca.cpp -o tst_pca.moc
@@ -1127,6 +1129,8 @@ tst_pca.o: ../PCA/tst_pca.cpp D:/Qt/5.14.1/mingw73_32/include/QtTest/QtTest \
 		../../../headers/primitiveLibs/polynom.h \
 		../../../src/primitiveLibs/polynom.hpp \
 		../../../src/advancedLinALg/PCA.hpp \
+		C:/gurobi901/win64/include/gurobi_c++.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
 		tst_pca.moc
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tst_pca.o ..\PCA\tst_pca.cpp
 
