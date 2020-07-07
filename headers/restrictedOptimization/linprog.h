@@ -7,6 +7,7 @@
     #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrixrestriction.h"
 #endif
 
+#include "gurobi_c++.h"
 
 namespace restrictedOptimizationHandler{
 

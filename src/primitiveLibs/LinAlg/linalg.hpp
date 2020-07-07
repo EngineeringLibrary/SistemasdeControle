@@ -128,8 +128,8 @@ LinAlg::Matrix<Type> LinAlg::inv_numeric(LinAlg::Matrix<Type> mat)
                     }
                 }
 
-            for(uint32_t i = mat.getNumberOfRows()-1; i >= 0; --i)
-                for(uint32_t j = i - 1; j >= 0; --j)
+            for(int32_t i = mat.getNumberOfRows()-1; i >= 0; --i)
+                for(int32_t j = i - 1; j >= 0; --j)
                 {
                     Type m = mat(j,i)/mat(i,i);
                     for(uint32_t k = 0; k < mat.getNumberOfRows(); ++k)

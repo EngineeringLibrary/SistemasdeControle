@@ -17,10 +17,10 @@ CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR="\"D:/Projetos/git/SistemasdeControle/Testes/advancedLinALg/build-PCA-Desktop_Qt_5_14_1_MinGW_32_bit-Debug\"" -DQT_QML_DEBUG
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -Wextra -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\PCA -I. -ID:\Qt\5.14.1\mingw73_32\include -ID:\Qt\5.14.1\mingw73_32\include\QtTest -ID:\Qt\5.14.1\mingw73_32\include\QtCore -I. -ID:\Qt\5.14.1\mingw73_32\mkspecs\win32-g++ 
+INCPATH       = -I..\PCA -I. -IC:\gurobi901 -IC:\gurobi901\win64 -IC:\gurobi901\win64\include -IC:\gurobi901\win64\src\cpp -IC:\gurobi901\win64\bin -ID:\Qt\5.14.1\mingw73_32\include -ID:\Qt\5.14.1\mingw73_32\include\QtTest -ID:\Qt\5.14.1\mingw73_32\include\QtCore -I. -ID:\Qt\5.14.1\mingw73_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,console -mthreads
-LIBS        =        D:\Qt\5.14.1\mingw73_32\lib\libQt5Test.a D:\Qt\5.14.1\mingw73_32\lib\libQt5Core.a   
+LIBS        =        -L C:\gurobi901\win64\lib -lgurobi_c++mdd2019 -lgurobi_c++mtd2019 -lgurobi90 D:\Qt\5.14.1\mingw73_32\lib\libQt5Test.a D:\Qt\5.14.1\mingw73_32\lib\libQt5Core.a   
 QMAKE         = D:\Qt\5.14.1\mingw73_32\bin\qmake.exe
 DEL_FILE      = del
 CHK_DIR_EXISTS= if not exist
@@ -51,17 +51,87 @@ OBJECTS_DIR   = .
 
 ####### Files
 
-SOURCES       = ..\PCA\tst_pca.cpp 
-OBJECTS       = tst_pca.o
+SOURCES       = ..\PCA\tst_pca.cpp \
+		C:\gurobi901\win64\src\cpp\Batch.cpp \
+		C:\gurobi901\win64\src\cpp\Callback.cpp \
+		C:\gurobi901\win64\src\cpp\Column.cpp \
+		C:\gurobi901\win64\src\cpp\Constr.cpp \
+		C:\gurobi901\win64\src\cpp\Env.cpp \
+		C:\gurobi901\win64\src\cpp\Exception.cpp \
+		C:\gurobi901\win64\src\cpp\GenConstr.cpp \
+		C:\gurobi901\win64\src\cpp\LinExpr.cpp \
+		C:\gurobi901\win64\src\cpp\Model.cpp \
+		C:\gurobi901\win64\src\cpp\QConstr.cpp \
+		C:\gurobi901\win64\src\cpp\QuadExpr.cpp \
+		C:\gurobi901\win64\src\cpp\SOS.cpp \
+		C:\gurobi901\win64\src\cpp\TempConstr.cpp \
+		C:\gurobi901\win64\src\cpp\Var.cpp \
+		C:\gurobi901\win64\src\cpp\attrprivate.cpp 
+OBJECTS       = tst_pca.o \
+		Batch.o \
+		Callback.o \
+		Column.o \
+		Constr.o \
+		Env.o \
+		Exception.o \
+		GenConstr.o \
+		LinExpr.o \
+		Model.o \
+		QConstr.o \
+		QuadExpr.o \
+		SOS.o \
+		TempConstr.o \
+		Var.o \
+		attrprivate.o
 
 DIST          =  ..\..\..\headers\advancedLinALg\PCA.h \
 		..\..\..\headers\primitiveLibs\LinAlg\linalg.h \
 		..\..\..\headers\primitiveLibs\LinAlg\matrix.h \
 		..\..\..\headers\primitiveLibs\polynom.h \
+		..\..\..\headers\restrictedOptimization\linprog.h \
+		..\..\..\headers\restrictedOptimization\simplex.h \
 		..\..\..\src\advancedLinALg\PCA.hpp \
 		..\..\..\src\primitiveLibs\LinAlg\linalg.hpp \
 		..\..\..\src\primitiveLibs\LinAlg\matrix.hpp \
-		..\..\..\src\primitiveLibs\polynom.hpp ..\PCA\tst_pca.cpp
+		..\..\..\src\primitiveLibs\polynom.hpp \
+		..\..\..\src\restrictedOptimization\linprog.hpp \
+		..\..\..\src\restrictedOptimization\simplex.hpp \
+		C:\gurobi901\win64\include\gurobi_c++.h \
+		C:\gurobi901\win64\include\gurobi_c.h \
+		C:\gurobi901\win64\src\cpp\Batch.h \
+		C:\gurobi901\win64\src\cpp\Callback.h \
+		C:\gurobi901\win64\src\cpp\Column.h \
+		C:\gurobi901\win64\src\cpp\Common.h \
+		C:\gurobi901\win64\src\cpp\Constr.h \
+		C:\gurobi901\win64\src\cpp\Env.h \
+		C:\gurobi901\win64\src\cpp\Exception.h \
+		C:\gurobi901\win64\src\cpp\Expr.h \
+		C:\gurobi901\win64\src\cpp\GenConstr.h \
+		C:\gurobi901\win64\src\cpp\LinExpr.h \
+		C:\gurobi901\win64\src\cpp\Model.h \
+		C:\gurobi901\win64\src\cpp\QConstr.h \
+		C:\gurobi901\win64\src\cpp\QuadExpr.h \
+		C:\gurobi901\win64\src\cpp\SOS.h \
+		C:\gurobi901\win64\src\cpp\TempConstr.h \
+		C:\gurobi901\win64\src\cpp\Var.h \
+		C:\gurobi901\win64\src\cpp\attrprivate.h \
+		C:\gurobi901\win64\src\cpp\parprivate.h \
+		C:\gurobi901\win64\src\cpp\public.h ..\PCA\tst_pca.cpp \
+		C:\gurobi901\win64\src\cpp\Batch.cpp \
+		C:\gurobi901\win64\src\cpp\Callback.cpp \
+		C:\gurobi901\win64\src\cpp\Column.cpp \
+		C:\gurobi901\win64\src\cpp\Constr.cpp \
+		C:\gurobi901\win64\src\cpp\Env.cpp \
+		C:\gurobi901\win64\src\cpp\Exception.cpp \
+		C:\gurobi901\win64\src\cpp\GenConstr.cpp \
+		C:\gurobi901\win64\src\cpp\LinExpr.cpp \
+		C:\gurobi901\win64\src\cpp\Model.cpp \
+		C:\gurobi901\win64\src\cpp\QConstr.cpp \
+		C:\gurobi901\win64\src\cpp\QuadExpr.cpp \
+		C:\gurobi901\win64\src\cpp\SOS.cpp \
+		C:\gurobi901\win64\src\cpp\TempConstr.cpp \
+		C:\gurobi901\win64\src\cpp\Var.cpp \
+		C:\gurobi901\win64\src\cpp\attrprivate.cpp
 QMAKE_TARGET  = PCA
 DESTDIR        =  #avoid trailing-slash linebreak
 TARGET         = PCA.exe
@@ -73,7 +143,7 @@ first: all
 all: Makefile  PCA.exe
 
 PCA.exe: D:/Qt/5.14.1/mingw73_32/lib/libQt5Test.a D:/Qt/5.14.1/mingw73_32/lib/libQt5Core.a $(OBJECTS) 
-	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) $(OBJECTS)  $(LIBS)
+	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) @object_script.PCA  $(LIBS)
 
 Makefile: ../PCA/PCA.pro D:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++/qmake.conf D:/Qt/5.14.1/mingw73_32/mkspecs/features/spec_pre.prf \
 		D:/Qt/5.14.1/mingw73_32/mkspecs/qdevice.pri \
@@ -440,10 +510,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) PCA.zip $(SOURCES) $(DIST) ..\PCA\PCA.pro D:\Qt\5.14.1\mingw73_32\mkspecs\features\spec_pre.prf D:\Qt\5.14.1\mingw73_32\mkspecs\qdevice.pri D:\Qt\5.14.1\mingw73_32\mkspecs\features\device_config.prf D:\Qt\5.14.1\mingw73_32\mkspecs\common\sanitize.conf D:\Qt\5.14.1\mingw73_32\mkspecs\common\gcc-base.conf D:\Qt\5.14.1\mingw73_32\mkspecs\common\g++-base.conf D:\Qt\5.14.1\mingw73_32\mkspecs\common\angle.conf D:\Qt\5.14.1\mingw73_32\mkspecs\features\win32\windows_vulkan_sdk.prf D:\Qt\5.14.1\mingw73_32\mkspecs\common\windows-vulkan.conf D:\Qt\5.14.1\mingw73_32\mkspecs\common\g++-win32.conf D:\Qt\5.14.1\mingw73_32\mkspecs\common\windows-desktop.conf D:\Qt\5.14.1\mingw73_32\mkspecs\qconfig.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3danimation.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3danimation_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dcore.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dcore_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dextras.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dextras_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dinput.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dinput_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dlogic.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dlogic_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquick.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquick_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickextras.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickextras_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickinput.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickinput_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickrender.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickrender_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3drender.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3drender_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_accessibility_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axbase.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axbase_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axcontainer.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axcontainer_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axserver.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axserver_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bluetooth.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bluetooth_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bootstrap_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_charts.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_charts_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_concurrent.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_concurrent_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_core.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_core_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_dbus.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_dbus_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designer.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designer_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designercomponents_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_edid_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_egl_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_fb_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gamepad.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gamepad_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gui.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gui_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_help.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_help_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_location.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_location_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimedia.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimedia_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_network.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_network_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_nfc.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_nfc_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_opengl.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_opengl_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_openglextensions.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_openglextensions_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_packetprotocol_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioning.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioning_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioningquick.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioningquick_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_printsupport.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_printsupport_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qml.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qml_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmldebug_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmldevtools_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlmodels.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlmodels_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmltest.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmltest_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlworkerscript.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlworkerscript_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickparticles_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickshapes_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickwidgets.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickwidgets_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_remoteobjects.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_remoteobjects_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_repparser.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_repparser_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scxml.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scxml_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sensors.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sensors_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialbus.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialbus_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialport.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialport_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sql.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sql_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_svg.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_svg_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_testlib.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_testlib_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_texttospeech.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_texttospeech_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_theme_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uiplugin.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uitools.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uitools_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_webchannel.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_webchannel_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_websockets.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_websockets_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_widgets.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_widgets_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_winextras.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_winextras_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xml.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xml_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\features\qt_functions.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\qt_config.prf D:\Qt\5.14.1\mingw73_32\mkspecs\win32-g++\qmake.conf D:\Qt\5.14.1\mingw73_32\mkspecs\features\spec_post.prf .qmake.stash D:\Qt\5.14.1\mingw73_32\mkspecs\features\exclusive_builds.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\toolchain.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\default_pre.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\win32\default_pre.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\resolve_config.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\default_post.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\testcase.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\warn_on.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\win32\console.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\qt.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\resources_functions.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\resources.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\moc.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\testlib_defines.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\qml_debug.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\precompile_header.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\qmake_use.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\file_copies.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\testcase_targets.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\exceptions.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\yacc.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\lex.prf ..\PCA\PCA.pro D:\Qt\5.14.1\mingw73_32\lib\Qt5Test.prl D:\Qt\5.14.1\mingw73_32\lib\Qt5Core.prl   D:\Qt\5.14.1\mingw73_32\mkspecs\features\data\dummy.cpp ..\..\..\headers\advancedLinALg\PCA.h ..\..\..\headers\primitiveLibs\LinAlg\linalg.h ..\..\..\headers\primitiveLibs\LinAlg\matrix.h ..\..\..\headers\primitiveLibs\polynom.h ..\..\..\src\advancedLinALg\PCA.hpp ..\..\..\src\primitiveLibs\LinAlg\linalg.hpp ..\..\..\src\primitiveLibs\LinAlg\matrix.hpp ..\..\..\src\primitiveLibs\polynom.hpp  ..\PCA\tst_pca.cpp     
+	$(ZIP) PCA.zip $(SOURCES) $(DIST) ..\PCA\PCA.pro D:\Qt\5.14.1\mingw73_32\mkspecs\features\spec_pre.prf D:\Qt\5.14.1\mingw73_32\mkspecs\qdevice.pri D:\Qt\5.14.1\mingw73_32\mkspecs\features\device_config.prf D:\Qt\5.14.1\mingw73_32\mkspecs\common\sanitize.conf D:\Qt\5.14.1\mingw73_32\mkspecs\common\gcc-base.conf D:\Qt\5.14.1\mingw73_32\mkspecs\common\g++-base.conf D:\Qt\5.14.1\mingw73_32\mkspecs\common\angle.conf D:\Qt\5.14.1\mingw73_32\mkspecs\features\win32\windows_vulkan_sdk.prf D:\Qt\5.14.1\mingw73_32\mkspecs\common\windows-vulkan.conf D:\Qt\5.14.1\mingw73_32\mkspecs\common\g++-win32.conf D:\Qt\5.14.1\mingw73_32\mkspecs\common\windows-desktop.conf D:\Qt\5.14.1\mingw73_32\mkspecs\qconfig.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3danimation.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3danimation_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dcore.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dcore_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dextras.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dextras_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dinput.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dinput_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dlogic.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dlogic_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquick.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquick_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickanimation_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickextras.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickextras_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickinput.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickinput_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickrender.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickrender_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3dquickscene2d_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3drender.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_3drender_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_accessibility_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axbase.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axbase_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axcontainer.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axcontainer_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axserver.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_axserver_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bluetooth.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bluetooth_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_bootstrap_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_charts.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_charts_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_concurrent.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_concurrent_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_core.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_core_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_dbus.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_dbus_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designer.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designer_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_designercomponents_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_devicediscovery_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_edid_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_egl_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_eventdispatcher_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_fb_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_fontdatabase_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gamepad.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gamepad_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gui.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_gui_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_help.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_help_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_location.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_location_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimedia.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimedia_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_network.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_network_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_nfc.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_nfc_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_opengl.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_opengl_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_openglextensions.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_openglextensions_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_packetprotocol_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_platformcompositor_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioning.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioning_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioningquick.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_positioningquick_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_printsupport.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_printsupport_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qml.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qml_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmldebug_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmldevtools_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlmodels.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlmodels_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmltest.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmltest_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlworkerscript.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qmlworkerscript_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quick_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickcontrols2_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickparticles_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickshapes_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quicktemplates2_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickwidgets.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_quickwidgets_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_remoteobjects.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_remoteobjects_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_repparser.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_repparser_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scxml.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_scxml_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sensors.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sensors_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialbus.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialbus_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialport.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_serialport_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sql.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_sql_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_svg.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_svg_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_testlib.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_testlib_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_texttospeech.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_texttospeech_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_theme_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uiplugin.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uitools.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_uitools_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_webchannel.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_webchannel_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_websockets.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_websockets_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_widgets.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_widgets_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_windowsuiautomation_support_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_winextras.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_winextras_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xml.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xml_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns.pri D:\Qt\5.14.1\mingw73_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri D:\Qt\5.14.1\mingw73_32\mkspecs\features\qt_functions.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\qt_config.prf D:\Qt\5.14.1\mingw73_32\mkspecs\win32-g++\qmake.conf D:\Qt\5.14.1\mingw73_32\mkspecs\features\spec_post.prf .qmake.stash D:\Qt\5.14.1\mingw73_32\mkspecs\features\exclusive_builds.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\toolchain.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\default_pre.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\win32\default_pre.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\resolve_config.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\default_post.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\testcase.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\warn_on.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\win32\console.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\qt.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\resources_functions.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\resources.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\moc.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\testlib_defines.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\qml_debug.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\precompile_header.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\qmake_use.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\file_copies.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\testcase_targets.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\exceptions.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\yacc.prf D:\Qt\5.14.1\mingw73_32\mkspecs\features\lex.prf ..\PCA\PCA.pro D:\Qt\5.14.1\mingw73_32\lib\Qt5Test.prl D:\Qt\5.14.1\mingw73_32\lib\Qt5Core.prl   D:\Qt\5.14.1\mingw73_32\mkspecs\features\data\dummy.cpp ..\..\..\headers\advancedLinALg\PCA.h ..\..\..\headers\primitiveLibs\LinAlg\linalg.h ..\..\..\headers\primitiveLibs\LinAlg\matrix.h ..\..\..\headers\primitiveLibs\polynom.h ..\..\..\headers\restrictedOptimization\linprog.h ..\..\..\headers\restrictedOptimization\simplex.h ..\..\..\src\advancedLinALg\PCA.hpp ..\..\..\src\primitiveLibs\LinAlg\linalg.hpp ..\..\..\src\primitiveLibs\LinAlg\matrix.hpp ..\..\..\src\primitiveLibs\polynom.hpp ..\..\..\src\restrictedOptimization\linprog.hpp ..\..\..\src\restrictedOptimization\simplex.hpp C:\gurobi901\win64\include\gurobi_c++.h C:\gurobi901\win64\include\gurobi_c.h C:\gurobi901\win64\src\cpp\Batch.h C:\gurobi901\win64\src\cpp\Callback.h C:\gurobi901\win64\src\cpp\Column.h C:\gurobi901\win64\src\cpp\Common.h C:\gurobi901\win64\src\cpp\Constr.h C:\gurobi901\win64\src\cpp\Env.h C:\gurobi901\win64\src\cpp\Exception.h C:\gurobi901\win64\src\cpp\Expr.h C:\gurobi901\win64\src\cpp\GenConstr.h C:\gurobi901\win64\src\cpp\LinExpr.h C:\gurobi901\win64\src\cpp\Model.h C:\gurobi901\win64\src\cpp\QConstr.h C:\gurobi901\win64\src\cpp\QuadExpr.h C:\gurobi901\win64\src\cpp\SOS.h C:\gurobi901\win64\src\cpp\TempConstr.h C:\gurobi901\win64\src\cpp\Var.h C:\gurobi901\win64\src\cpp\attrprivate.h C:\gurobi901\win64\src\cpp\parprivate.h C:\gurobi901\win64\src\cpp\public.h  ..\PCA\tst_pca.cpp C:\gurobi901\win64\src\cpp\Batch.cpp C:\gurobi901\win64\src\cpp\Callback.cpp C:\gurobi901\win64\src\cpp\Column.cpp C:\gurobi901\win64\src\cpp\Constr.cpp C:\gurobi901\win64\src\cpp\Env.cpp C:\gurobi901\win64\src\cpp\Exception.cpp C:\gurobi901\win64\src\cpp\GenConstr.cpp C:\gurobi901\win64\src\cpp\LinExpr.cpp C:\gurobi901\win64\src\cpp\Model.cpp C:\gurobi901\win64\src\cpp\QConstr.cpp C:\gurobi901\win64\src\cpp\QuadExpr.cpp C:\gurobi901\win64\src\cpp\SOS.cpp C:\gurobi901\win64\src\cpp\TempConstr.cpp C:\gurobi901\win64\src\cpp\Var.cpp C:\gurobi901\win64\src\cpp\attrprivate.cpp     
 
 clean: compiler_clean 
-	-$(DEL_FILE) tst_pca.o
+	-$(DEL_FILE) tst_pca.o Batch.o Callback.o Column.o Constr.o Env.o Exception.o GenConstr.o LinExpr.o Model.o QConstr.o QuadExpr.o SOS.o TempConstr.o Var.o attrprivate.o
 
 distclean: clean 
 	-$(DEL_FILE) D:\Projetos\git\SistemasdeControle\Testes\advancedLinALg\build-PCA-Desktop_Qt_5_14_1_MinGW_32_bit-Debug\target_wrapper.bat .qmake.stash
@@ -791,12 +861,18 @@ tst_pca.moc: ../PCA/tst_pca.cpp \
 		../../../headers/advancedLinALg/PCA.h \
 		../../../headers/primitiveLibs/polynom.h \
 		../../../src/primitiveLibs/polynom.hpp \
-		../../../src/advancedLinALg/PCA.hpp \
 		C:/gurobi901/win64/include/gurobi_c++.h \
 		C:/gurobi901/win64/include/gurobi_c.h \
+		../../../src/advancedLinALg/PCA.hpp \
+		../../../headers/restrictedOptimization/simplex.h \
+		../../../headers/restrictedOptimization/linprog.h \
+		../../../headers/primitiveLibs/LinAlg/matrixrestriction.h \
+		../../../src/primitiveLibs/LinAlg/matrixrestriction.hpp \
+		../../../src/restrictedOptimization/linprog.hpp \
+		../../../src/restrictedOptimization/simplex.hpp \
 		moc_predefs.h \
 		D:/Qt/5.14.1/mingw73_32/bin/moc.exe
-	D:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include D:/Projetos/git/SistemasdeControle/Testes/advancedLinALg/build-PCA-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -ID:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -ID:/Projetos/git/SistemasdeControle/Testes/advancedLinALg/PCA -ID:/Qt/5.14.1/mingw73_32/include -ID:/Qt/5.14.1/mingw73_32/include/QtTest -ID:/Qt/5.14.1/mingw73_32/include/QtCore -I. -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\PCA\tst_pca.cpp -o tst_pca.moc
+	D:\Qt\5.14.1\mingw73_32\bin\moc.exe $(DEFINES) --include D:/Projetos/git/SistemasdeControle/Testes/advancedLinALg/build-PCA-Desktop_Qt_5_14_1_MinGW_32_bit-Debug/moc_predefs.h -ID:/Qt/5.14.1/mingw73_32/mkspecs/win32-g++ -ID:/Projetos/git/SistemasdeControle/Testes/advancedLinALg/PCA -IC:/gurobi901 -IC:/gurobi901/win64 -IC:/gurobi901/win64/include -IC:/gurobi901/win64/src/cpp -IC:/gurobi901/win64/bin -ID:/Qt/5.14.1/mingw73_32/include -ID:/Qt/5.14.1/mingw73_32/include/QtTest -ID:/Qt/5.14.1/mingw73_32/include/QtCore -I. -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Tools/mingw730_32/i686-w64-mingw32/include ..\PCA\tst_pca.cpp -o tst_pca.moc
 
 compiler_no_pch_compiler_make_all:
 compiler_no_pch_compiler_clean:
@@ -1128,11 +1204,327 @@ tst_pca.o: ../PCA/tst_pca.cpp D:/Qt/5.14.1/mingw73_32/include/QtTest/QtTest \
 		../../../headers/advancedLinALg/PCA.h \
 		../../../headers/primitiveLibs/polynom.h \
 		../../../src/primitiveLibs/polynom.hpp \
-		../../../src/advancedLinALg/PCA.hpp \
 		C:/gurobi901/win64/include/gurobi_c++.h \
 		C:/gurobi901/win64/include/gurobi_c.h \
+		../../../src/advancedLinALg/PCA.hpp \
+		../../../headers/restrictedOptimization/simplex.h \
+		../../../headers/restrictedOptimization/linprog.h \
+		../../../headers/primitiveLibs/LinAlg/matrixrestriction.h \
+		../../../src/primitiveLibs/LinAlg/matrixrestriction.hpp \
+		../../../src/restrictedOptimization/linprog.hpp \
+		../../../src/restrictedOptimization/simplex.hpp \
 		tst_pca.moc
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tst_pca.o ..\PCA\tst_pca.cpp
+
+Batch.o: C:/gurobi901/win64/src/cpp/Batch.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h \
+		C:/gurobi901/win64/src/cpp/attrprivate.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Batch.o C:\gurobi901\win64\src\cpp\Batch.cpp
+
+Callback.o: C:/gurobi901/win64/src/cpp/Callback.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Callback.o C:\gurobi901\win64\src\cpp\Callback.cpp
+
+Column.o: C:/gurobi901/win64/src/cpp/Column.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Column.o C:\gurobi901\win64\src\cpp\Column.cpp
+
+Constr.o: C:/gurobi901/win64/src/cpp/Constr.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h \
+		C:/gurobi901/win64/src/cpp/attrprivate.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Constr.o C:\gurobi901\win64\src\cpp\Constr.cpp
+
+Env.o: C:/gurobi901/win64/src/cpp/Env.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h \
+		C:/gurobi901/win64/src/cpp/parprivate.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Env.o C:\gurobi901\win64\src\cpp\Env.cpp
+
+Exception.o: C:/gurobi901/win64/src/cpp/Exception.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Exception.o C:\gurobi901\win64\src\cpp\Exception.cpp
+
+GenConstr.o: C:/gurobi901/win64/src/cpp/GenConstr.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h \
+		C:/gurobi901/win64/src/cpp/attrprivate.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o GenConstr.o C:\gurobi901\win64\src\cpp\GenConstr.cpp
+
+LinExpr.o: C:/gurobi901/win64/src/cpp/LinExpr.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LinExpr.o C:\gurobi901\win64\src\cpp\LinExpr.cpp
+
+Model.o: C:/gurobi901/win64/src/cpp/Model.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h \
+		C:/gurobi901/win64/src/cpp/attrprivate.h \
+		C:/gurobi901/win64/src/cpp/parprivate.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Model.o C:\gurobi901\win64\src\cpp\Model.cpp
+
+QConstr.o: C:/gurobi901/win64/src/cpp/QConstr.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h \
+		C:/gurobi901/win64/src/cpp/attrprivate.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QConstr.o C:\gurobi901\win64\src\cpp\QConstr.cpp
+
+QuadExpr.o: C:/gurobi901/win64/src/cpp/QuadExpr.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QuadExpr.o C:\gurobi901\win64\src\cpp\QuadExpr.cpp
+
+SOS.o: C:/gurobi901/win64/src/cpp/SOS.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h \
+		C:/gurobi901/win64/src/cpp/attrprivate.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SOS.o C:\gurobi901\win64\src\cpp\SOS.cpp
+
+TempConstr.o: C:/gurobi901/win64/src/cpp/TempConstr.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TempConstr.o C:\gurobi901\win64\src\cpp\TempConstr.cpp
+
+Var.o: C:/gurobi901/win64/src/cpp/Var.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h \
+		C:/gurobi901/win64/src/cpp/attrprivate.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Var.o C:\gurobi901\win64\src\cpp\Var.cpp
+
+attrprivate.o: C:/gurobi901/win64/src/cpp/attrprivate.cpp C:/gurobi901/win64/src/cpp/Common.h \
+		C:/gurobi901/win64/src/cpp/public.h \
+		C:/gurobi901/win64/include/gurobi_c.h \
+		C:/gurobi901/win64/src/cpp/Var.h \
+		C:/gurobi901/win64/src/cpp/Constr.h \
+		C:/gurobi901/win64/src/cpp/SOS.h \
+		C:/gurobi901/win64/src/cpp/QConstr.h \
+		C:/gurobi901/win64/src/cpp/GenConstr.h \
+		C:/gurobi901/win64/src/cpp/Expr.h \
+		C:/gurobi901/win64/src/cpp/LinExpr.h \
+		C:/gurobi901/win64/src/cpp/QuadExpr.h \
+		C:/gurobi901/win64/src/cpp/TempConstr.h \
+		C:/gurobi901/win64/src/cpp/Model.h \
+		C:/gurobi901/win64/src/cpp/Env.h \
+		C:/gurobi901/win64/src/cpp/Exception.h \
+		C:/gurobi901/win64/src/cpp/Callback.h \
+		C:/gurobi901/win64/src/cpp/Column.h \
+		C:/gurobi901/win64/src/cpp/Batch.h \
+		C:/gurobi901/win64/src/cpp/attrprivate.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o attrprivate.o C:\gurobi901\win64\src\cpp\attrprivate.cpp
 
 ####### Install
 

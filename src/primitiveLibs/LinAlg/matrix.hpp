@@ -566,7 +566,7 @@ template<typename Type> template<typename MatrixLeftType>
 void LinAlg::Matrix<Type>::operator= (LinAlg::Matrix< LinAlg::Matrix<MatrixLeftType>* > *rhs)
 {
     for(uint32_t i = 0; i < this->getNumberOfColumns(); ++i )
-        *((*this)(0,i)) = *((*rhs)(0,i));
+        (*((*this)(0,i))) = (*((*rhs)(0,i)));
 }
 
 template<typename Type> template<typename OtherMatrixType>

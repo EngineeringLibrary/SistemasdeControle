@@ -11,8 +11,6 @@
     #include "SistemasdeControle/headers/primitiveLibs/polynom.h"
 #endif
 
-#include "C:/gurobi901/win64/include/gurobi_c++.h"
-
 namespace LinAlg {
 
     template <typename Type>
@@ -45,8 +43,7 @@ namespace LinAlg {
         LinAlg::Matrix<Type> optimalSignalControlGenerator(LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> B, LinAlg::Matrix<Type> C,
                                                            LinAlg::Matrix<Type> D, LinAlg::Matrix<Type> G, LinAlg::Matrix<Type> rho,
                                                            LinAlg::Matrix<Type> w, LinAlg::Matrix<Type> eta, LinAlg::Matrix<Type> x);
-        template <typename Type>
-        LinAlg::Matrix<double> linSolve(LinAlg::Matrix<double> obj, LinAlg::Matrix<double> A, LinAlg::Matrix<double> b, LinAlg::Matrix<double> Aeq, LinAlg::Matrix<double> beq);
+
     }
 }
 

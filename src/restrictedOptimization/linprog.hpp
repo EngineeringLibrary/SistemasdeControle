@@ -73,3 +73,5 @@ std::ostream& restrictedOptimizationHandler::operator<< (std::ostream& output,
 
     return output;
 }
+
+

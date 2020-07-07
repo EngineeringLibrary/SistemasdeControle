@@ -3,12 +3,12 @@
 // add necessary includes here
 
 #define testPolynom
+#define testModel
 #define coutPrecision 6
 #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
 #include "../../../headers/primitiveLibs/LinAlg/linalg.h"
 #include "../../../headers/advancedLinALg/PCA.h"
-
-
+#include "../../../headers/restrictedOptimization/gurobioptimization.h"
 
 
 
@@ -24,7 +24,8 @@ public:
 private slots:
     void test_case1();
     void clustering1();
-    void optimization();
+    void linprog1();
+    void linprog2();
 
 };
 
@@ -102,15 +103,22 @@ void pca::clustering1()
 
 }
 
-void pca::optimization()
+void pca::linprog1()
 {
-//    LinAlg::Matrix<double> Aeq = "1, 1, 1, 0"; LinAlg::Matrix<double> beq = "1";
-//    LinAlg::Matrix<double> A = "-15, 0, 0, -1; 0, -12, 0, -1; 0, 0, -12, -1;240, 0, 0, -1; 0, 27, 0, -1; 0, 0, 27, -1";
-//    LinAlg::Matrix<double> b = "-15;-12;-12;0;0;0";
-//    LinAlg::Matrix<double> obj = "0, 0, 0, 1";
-//    std::cout << LinAlg::PCAf::linSolve<double>(obj,A,b,Aeq,beq);
+    LinAlg::Matrix<double> Aeq = "1, 1, 1, 0"; LinAlg::Matrix<double> beq = "1";
+    LinAlg::Matrix<double> A = "-15, 0, 0, -1; 0, -12, 0, -1; 0, 0, -12, -1;240, 0, 0, -1; 0, 27, 0, -1; 0, 0, 27, -1";
+    LinAlg::Matrix<double> b = "-15;-12;-12;0;0;0";
+    LinAlg::Matrix<double> obj = "0, 0, 0, 1";
 
+    std::cout << OptimizationHandler::linprog<double>(obj,A,b,Aeq,beq);
+}
 
+void pca::linprog2()
+{
+    LinAlg::Matrix<double> obj ="40, 50";
+    LinAlg::Matrix<double> A = "1,2;4,3", b = "40;120";
+
+    std::cout << OptimizationHandler::linprog<double>(obj,A,b,true);
 }
 
 QTEST_APPLESS_MAIN(pca)
