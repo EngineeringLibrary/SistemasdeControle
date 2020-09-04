@@ -405,25 +405,48 @@ void ModelHandler::StateSpace<Type>::c2dConversion()
 
 //    Ad = ((Dpq^-1)*Npq)^factor;
 
-//Taylor
-    this->Ad = LinAlg::Zeros<Type>(this->A.getNumberOfRows(), this->A.getNumberOfColumns());
+///////Taylor
+//    this->Ad = LinAlg::Zeros<Type>(this->A.getNumberOfRows(), this->A.getNumberOfColumns());
 
-    LinAlg::Matrix<Type> max, maxInd;
-    *(max, maxInd) = LinAlg::max(LinAlg::abs(A));
+//    LinAlg::Matrix<Type> max, maxInd;
+//    *(max, maxInd) = LinAlg::max(LinAlg::abs(A));
+//    *(max, maxInd) = LinAlg::max(LinAlg::abs(max));
+//    unsigned factor =  (unsigned)ceil(max(0,0)*this->step);
+
+//    //taylor
+//    for(unsigned i = 0; i < nDiscretization; ++i)
+//        Ad += (1/(Type)factorial(i))*((A*this->step/factor)^i);
+
+//    Ad ^= factor;
+//    std::cout << A <<"\n"<< Ad;
+////    std::cout << (Ad - (Ad^0)) << std::endl;
+////    std::cout << (A^-1) << std::endl;
+////    std::cout << B << std::endl;
+////    A^-1;
+//    Bd = (A^-1)*(Ad - (Ad^0))*B;
+
+    LinAlg::Matrix<Type> max, maxInd,
+            eAB = (A|B)||(LinAlg::Zeros<Type>(B.getNumberOfColumns(),A.getNumberOfColumns()+B.getNumberOfColumns()));
+    LinAlg::Matrix<Type> AdBd = LinAlg::Zeros<Type>(eAB.getNumberOfRows(), eAB.getNumberOfColumns());
+    *(max, maxInd) = LinAlg::max(LinAlg::abs(eAB));
     *(max, maxInd) = LinAlg::max(LinAlg::abs(max));
     unsigned factor =  (unsigned)ceil(max(0,0)*this->step);
 
     //taylor
     for(unsigned i = 0; i < nDiscretization; ++i)
-        Ad += (1/(Type)factorial(i))*((A*this->step/factor)^i);
+        AdBd += (1/(Type)factorial(i))*((eAB*this->step/factor)^i);
 
-    Ad ^= factor;
-//    std::cout << A <<"\n"<< Ad;
+    AdBd ^= factor;
+//    std::cout << AdBd;
 //    std::cout << (Ad - (Ad^0)) << std::endl;
 //    std::cout << (A^-1) << std::endl;
 //    std::cout << B << std::endl;
 //    A^-1;
-    Bd = (A^-1)*(Ad - (Ad^0))*B;
+    Ad = AdBd(from(0)-->A.getNumberOfRows()-1,from(0)-->A.getNumberOfColumns()-1);
+    Bd = AdBd(from(0)-->A.getNumberOfRows()-1,from(A.getNumberOfColumns())-->AdBd.getNumberOfColumns()-1);
+//    std::cout << Ad<< std::endl;
+//    std::cout << Bd<< std::endl;
+//    std::cout << std::endl;
 }
 
 template <typename Type>

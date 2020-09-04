@@ -11,9 +11,21 @@
 #include <QtCharts/QSplineSeries>
 #include <QtWidgets/QGraphicsTextItem>
 #include <QValueAxis>
-#include "SistemasdeControle/headers/graphicLibs/callout.h"
 #include <QtGui/QMouseEvent>
-#include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+
+//#define testPolynom
+#ifdef testMatrix
+    #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
+    #include "../../../headers/graphicLibs/callout.h"
+#else
+    #ifdef testPolynom
+        #include "../../../headers/primitiveLibs/LinAlg/matrix.h"
+        #include "../../../headers/graphicLibs/callout.h"
+    #else
+        #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
+        #include "SistemasdeControle/headers/graphicLibs/callout.h"
+    #endif
+#endif
 
 QT_BEGIN_NAMESPACE
 class QGraphicsScene;

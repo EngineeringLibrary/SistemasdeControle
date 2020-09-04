@@ -1,4 +1,13 @@
-#include "SistemasdeControle/headers/graphicLibs/plot/plot.h"
+//#define testPolynom
+#ifdef testMatrix
+    #include "../../../headers/graphicLibs/plot/plot.h"
+#else
+    #ifdef testPolynom
+        #include "../../../headers/graphicLibs/plot/plot.h"
+    #else
+        #include "SistemasdeControle/headers/graphicLibs/plot/plot.h"
+    #endif
+#endif
 
 Plot::Plot(QWidget *parent):
     QGraphicsView(new QGraphicsScene, parent),

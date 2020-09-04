@@ -31,21 +31,30 @@ namespace LinAlg {
         LinAlg::Matrix<Type> data, dataMean, projectioMatrix,
                              eigenvalueOrder, originalData; //= PCAf(Dados, dim)
     };
-
-    namespace PCAf {
-        template <typename Type>
-        LinAlg::Matrix<Type> subspaceSimulation(LinAlg::Matrix<Type> dataIn, LinAlg::Matrix<Type> a, LinAlg::Matrix<Type> M);
-
-        template <typename Type>
-        LinAlg::Matrix<Type> grid(uint32_t dimension, Type lowerLimit, Type upperLimit, Type step);
-
-        template <typename Type>
-        LinAlg::Matrix<Type> optimalSignalControlGenerator(LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> B, LinAlg::Matrix<Type> C,
-                                                           LinAlg::Matrix<Type> D, LinAlg::Matrix<Type> G, LinAlg::Matrix<Type> rho,
-                                                           LinAlg::Matrix<Type> w, LinAlg::Matrix<Type> eta, LinAlg::Matrix<Type> x);
-
-    }
 }
+
+template <typename Type>
+struct PWAFunction
+{
+    LinAlg::Matrix<Type> correlatedClusterData, F, g, M, a;
+};
+
+namespace ClusteringHandler {
+    template <typename Type>
+    LinAlg::Matrix<Type> subspaceSimulation(LinAlg::Matrix<Type> dataIn, LinAlg::Matrix<Type> a, LinAlg::Matrix<Type> M);
+
+    template <typename Type>
+    LinAlg::Matrix<Type> grid(uint32_t dimension, Type lowerLimit, Type upperLimit, Type step);
+
+    template <typename Type>
+    LinAlg::Matrix<Type> optimalSignalControlGenerator(LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> B, LinAlg::Matrix<Type> C,
+                                                       LinAlg::Matrix<Type> D, LinAlg::Matrix<Type> G, LinAlg::Matrix<Type> rho,
+                                                       LinAlg::Matrix<Type> w, LinAlg::Matrix<Type> eta, LinAlg::Matrix<Type> x);
+    template <typename Type>
+    LinAlg::Matrix<PWAFunction<Type> > clustering(LinAlg::Matrix<Type> data, Type dist1, Type dist2, uint32_t dim);
+}
+
+
 
 #ifdef testMatrix
     #include "../../../../src/advancedLinALg/PCA.hpp"

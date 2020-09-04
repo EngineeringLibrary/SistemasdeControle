@@ -1,20 +1,23 @@
 QT += testlib
-QT -= gui
+QT += gui
+QT += widgets
+QT += printsupport
 
 CONFIG += qt console warn_on depend_includepath testcase
 CONFIG -= app_bundle
 
-INCLUDEPATH += C:/gurobi901
 INCLUDEPATH += C:/gurobi901/win64
 INCLUDEPATH += C:/gurobi901/win64/include
 INCLUDEPATH += C:/gurobi901/win64/src/cpp
 INCLUDEPATH += C:/gurobi901/win64/bin
+INCLUDEPATH += D:/Projetos/git/
 
 LIBS += -L C:/gurobi901/win64/lib -lgurobi_c++mdd2019 -lgurobi_c++mtd2019 -lgurobi90
 
 TEMPLATE = app
 
 SOURCES +=  tst_pca.cpp \
+    ../../../headers/graphicLibs/QCustomPlot/qcustomplot.cpp \
     C:/gurobi901/win64/src/cpp/Batch.cpp \
     C:/gurobi901/win64/src/cpp/Callback.cpp \
     C:/gurobi901/win64/src/cpp/Column.cpp \
@@ -34,11 +37,23 @@ SOURCES +=  tst_pca.cpp \
 
 HEADERS += \
     ../../../headers/advancedLinALg/PCA.h \
+    ../../../headers/graphicLibs/QCustomPlot/qcustomplot.h \
+    ../../../headers/graphicLibs/plot.h \
+    ../../../headers/modelLibs/arx.h \
+    ../../../headers/modelLibs/conversions.h \
+    ../../../headers/modelLibs/model.h \
+    ../../../headers/modelLibs/statespace.h \
+    ../../../headers/modelLibs/transferfunction.h \
     ../../../headers/primitiveLibs/LinAlg/linalg.h \
     ../../../headers/primitiveLibs/LinAlg/matrix.h \
     ../../../headers/primitiveLibs/polynom.h \
     ../../../headers/restrictedOptimization/gurobioptimization.h\
     ../../../src/advancedLinALg/PCA.hpp \
+    ../../../src/modelLibs/arx.hpp \
+    ../../../src/modelLibs/conversions.hpp \
+    ../../../src/modelLibs/model.hpp \
+    ../../../src/modelLibs/statespace.hpp \
+    ../../../src/modelLibs/transferfunction.hpp \
     ../../../src/primitiveLibs/LinAlg/linalg.hpp \
     ../../../src/primitiveLibs/LinAlg/matrix.hpp \
     ../../../src/primitiveLibs/polynom.hpp \

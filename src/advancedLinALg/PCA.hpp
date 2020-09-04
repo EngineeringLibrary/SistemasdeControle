@@ -30,7 +30,7 @@ LinAlg::PCA<Type>::PCA(LinAlg::Matrix<Type> data, const unsigned &reducedDimensi
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> LinAlg::PCAf::subspaceSimulation(LinAlg::Matrix<Type> dataIn, LinAlg::Matrix<Type> a, LinAlg::Matrix<Type> M)
+LinAlg::Matrix<Type> ClusteringHandler::subspaceSimulation(LinAlg::Matrix<Type> dataIn, LinAlg::Matrix<Type> a, LinAlg::Matrix<Type> M)
 {
     LinAlg::Matrix<Type> R, ret;
     for (unsigned i = 0; i < dataIn.getNumberOfRows(); ++i)
@@ -50,7 +50,7 @@ LinAlg::Matrix<Type> LinAlg::PCAf::subspaceSimulation(LinAlg::Matrix<Type> dataI
 }
 
 template <typename Type>
-LinAlg::Matrix<Type> LinAlg::PCAf::grid(uint32_t dimension, Type lowerLimit, Type upperLimit, Type step)
+LinAlg::Matrix<Type> ClusteringHandler::grid(uint32_t dimension, Type lowerLimit, Type upperLimit, Type step)
 {
     LinAlg::Matrix<Type> referenceState = LinAlg::LineVector<Type>(lowerLimit, upperLimit, step);
     uint32_t sizeState = referenceState.getNumberOfColumns(), totalDimension = pow(sizeState,dimension);
@@ -66,4 +66,94 @@ LinAlg::Matrix<Type> LinAlg::PCAf::grid(uint32_t dimension, Type lowerLimit, Typ
     return ret;
 }
 
+template <typename Type>
+LinAlg::Matrix<Type> ClusteringHandler::optimalSignalControlGenerator(LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> B, LinAlg::Matrix<Type> C,
+                                                                 LinAlg::Matrix<Type> D, LinAlg::Matrix<Type> G, LinAlg::Matrix<Type> rho,
+                                                                 LinAlg::Matrix<Type> w, LinAlg::Matrix<Type> eta, LinAlg::Matrix<Type> x)
+{
+    // given A,C,G,rho,y, find psi(i) for i=1:g such that
+    //      psi(i) = max G(i,:)*A*e
+    //                x
+    //	under  G*x <= rho
+    //	       |C*x - y| <= eta
+    LinAlg::Matrix<Type> GC = (G||C||-C), rhoEta = (rho||eta+x||eta-x), obj, psi;
+    uint32_t g = G.getNumberOfRows();
 
+//    for(uint8_t i = 0; i < g; ++i)
+//    {
+//        obj = (-G(i,from(0)-->G.getNumberOfColumns()-1)*A);
+//        psi = (psi||-linprog(obj, G, rhoEta));
+//    }
+
+//    LinAlg::Matrix<Type> delta;
+//    for(uint8_t i = 0; i < g; ++i)
+//        delta = (delta||G(i,from(0)-->G.getNumberOfColumns()-1)*B*linSolve(-G(i,from(0)-->G.getNumberOfColumns()-1)*B,D,w));
+
+//    uint32_t n = A.getNumberOfRows();
+//    LinAlg::Matrix<Type> v = linSolve(LinAlg::Zeros<Type>(n,0)||1.0,G|-rho ,-psi_eta-delta);
+//    epsi = v(n);
+//    vt = v(from(0)-->n-1,0);
+}
+
+template <typename Type>
+LinAlg::Matrix<PWAFunction<Type> > ClusteringHandler::clustering(LinAlg::Matrix<Type> data, Type dist1, Type dist2, uint32_t dim)
+{
+    srand(time(NULL));
+
+    uint32_t i = 0;
+    LinAlg::Matrix<uint32_t> indF;
+    LinAlg::Matrix<PWAFunction<Type> > Cluster_Parte;
+    LinAlg::Matrix<Type> ones = LinAlg::Ones<Type>(1,data.getNumberOfRows());
+
+    while(true)
+    {
+        LinAlg::Matrix<Type> Gt_P;
+        Type col = (data.getNumberOfColumns()-1)*LinAlg::Random<Type>(1,1)(0,0);
+        col = round(col);
+        LinAlg::Matrix<Type> dis = LinAlg::Zeros<Type>(1,data.getNumberOfColumns());
+        LinAlg::Matrix<Type> dist = LinAlg::Zeros<Type>(1,data.getNumberOfColumns());
+        for (uint32_t j = 0; j < data.getNumberOfColumns(); ++j)
+        {
+            LinAlg::Matrix<Type> norm = data(from(0)-->data.getNumberOfRows()-1,col) - data(from(0)-->data.getNumberOfRows()-1,j);
+            dis(0,j) = sqrt((((~norm)*norm))(0,0));
+//            std::cout << data(from(0)-->data.getNumberOfRows()-1,col) << std::endl;
+//            std::cout << dis(0,j)<<std::endl;
+            if (dis(0,j) < dist1)
+              Gt_P = Gt_P | data(from(0)--> data.getNumberOfRows()-1,j);
+        }
+
+        //std::cout << dis << std::endl << (~Gt_P) << std::endl;
+
+        LinAlg::PCA<Type> pca(Gt_P,dim);
+        PWAFunction<Type> P; P.M = pca.getProjectioMatrix(); P.a = pca.getDataMean();
+        //std::cout << P.M << std::endl << P.a << std::endl;
+        //uint32_t cont = 1;
+        LinAlg::Matrix<Type> dadosTemp;
+        LinAlg::Matrix<Type> indtTemp;
+        for (uint32_t j = 0; j < data.getNumberOfColumns(); ++j)
+        {
+            LinAlg::Matrix<Type> subspace =  data(from(0)-->data.getNumberOfRows()-1,j);
+            subspace = subspace - ClusteringHandler::subspaceSimulation(data(from(0)-->data.getNumberOfRows()-1,j),P.a,P.M);
+            dist(0,j) = sqrt((((~subspace)*subspace))(0,0));
+        }
+
+        for (uint32_t j = 0; j < data.getNumberOfColumns(); ++j)
+            if (dist(0,j) < dist2)
+            {
+                P.correlatedClusterData = P.correlatedClusterData|data(from(0)--> data.getNumberOfRows()-1,j);
+                indF = indF|i;
+            }
+
+            else
+                dadosTemp =  dadosTemp|data(from(0)--> data.getNumberOfRows()-1,j);
+
+        Cluster_Parte = Cluster_Parte|P;
+        if((dadosTemp.getNumberOfRows() == 0) && (dadosTemp.getNumberOfColumns() == 0) )
+            break;
+
+        if(Cluster_Parte(0,i).correlatedClusterData.getNumberOfColumns() != 0)
+             i = i + 1;
+        data = dadosTemp;
+    }
+    return Cluster_Parte;
+}

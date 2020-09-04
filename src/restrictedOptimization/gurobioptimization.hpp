@@ -5,37 +5,6 @@
 #endif
 
 template <typename Type>
-LinAlg::Matrix<Type> LinAlg::PCAf::optimalSignalControlGenerator(LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> B, LinAlg::Matrix<Type> C,
-                                                                 LinAlg::Matrix<Type> D, LinAlg::Matrix<Type> G, LinAlg::Matrix<Type> rho,
-                                                                 LinAlg::Matrix<Type> w, LinAlg::Matrix<Type> eta, LinAlg::Matrix<Type> x)
-{
-    // given A,C,G,rho,y, find psi(i) for i=1:g such that
-    //      psi(i) = max G(i,:)*A*e
-    //                x
-    //	under  G*x <= rho
-    //	       |C*x - y| <= eta
-    LinAlg::Matrix<Type> GC = (G||C||-C), rhoEta = (rho||eta+x||eta-x), obj, psi;
-    uint32_t g = G.getNumberOfRows();
-
-    for(uint8_t i = 0; i < g; ++i)
-    {
-        obj = (-G(i,from(0)-->G.getNumberOfColumns()-1)*A);
-        //psi = (psi||-linSolve(obj, Gc, rhoEta));
-    }
-
-    LinAlg::Matrix<Type> delta;
-    for(uint8_t i = 0; i < g; ++i)
-        delta = (delta||G(i,from(0)-->G.getNumberOfColumns()-1)*B*linSolve(-G(i,from(0)-->G.getNumberOfColumns()-1)*B,D,w));
-
-    uint32_t n = A.getNumberOfRows();
-   // LinAlg::Matrix<Type> v = linSolve(LinAlg::Zeros<Type>(n,0)||1.0,G|-rho ,-psi_eta-delta);
-   // epsi = v(n);
-    //vt = v(from(0)-->n-1,0);
-}
-
-
-
-template <typename Type>
 LinAlg::Matrix<Type> OptimizationHandler::linprog(LinAlg::Matrix<Type> obj, LinAlg::Matrix<Type> A, LinAlg::Matrix<Type> b, LinAlg::Matrix<Type> Aeq, LinAlg::Matrix<Type> beq, bool maximization)
 {
     GRBEnv* env=0;
