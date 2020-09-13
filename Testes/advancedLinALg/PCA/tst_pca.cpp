@@ -16,6 +16,37 @@
 #include <QTextStream>
 #include <QDate>
 
+void salvarDadosGrid(LinAlg::Matrix<long double> clusters)
+{
+    QString filename = "G:\\Meu Drive\\ISD\\orientacoes\\Maria\\Algoritmos base\\Controle_por_Realimentacao_Estados\\";
+    QString nome = "dadosGrid";
+    QFile file(filename+nome+".m");
+    file.open(QIODevice::WriteOnly | QIODevice::Truncate);
+    QTextStream stream(&file);
+
+    std::string str;
+    str <<= clusters;
+    str[str.size()-1] = ' ';
+    stream << "clear all; clc; \ndata = [" << str.c_str() << "];\n";
+
+    stream << "\n";
+    stream << "figure\n";
+    stream << "hold on\n";
+    stream << "color = 'ymcrgbkrymymcrggbkrcrggbkry';\n";
+    stream << "for i = 1: length(data)\n";
+    stream << "    if(~isempty(C.P{i}))\n";
+    stream << "        title('Clustering')\n";
+    stream << "        xlabel('x1');\n";
+    stream << "        ylabel('x2');\n";
+    stream << "        zlabel('x3');\n";
+    stream << "        plot3(data(1,:),data(2,:),data(3,:),[color(i),'*'])\n";
+    stream << "        grid on;\n";
+    stream << "    end";
+    stream << "end";
+
+    file.close();
+}
+
 void salvarDados(LinAlg::Matrix<PWAFunction<long double> > clusters)
 {
     QString filename = "G:\\Meu Drive\\ISD\\orientacoes\\Maria\\Algoritmos base\\Controle_por_Realimentacao_Estados\\";
@@ -24,7 +55,7 @@ void salvarDados(LinAlg::Matrix<PWAFunction<long double> > clusters)
     file.open(QIODevice::WriteOnly | QIODevice::Truncate);
 
     QTextStream stream(&file);
-    stream << "C.P = [];\n";
+    stream << "clear all; clc; \nC.P = [];\n";
 
     for(unsigned i = 0; i < clusters.getNumberOfColumns(); ++i){
         std::string str;
@@ -70,7 +101,7 @@ void controllerParameters()
     LinAlg::Matrix<long double> Bd = SSd.getB();
 
     LinAlg::Matrix<long double> G = LinAlg::Eye<long double>(A.getNumberOfRows())||-LinAlg::Eye<long double>(A.getNumberOfRows());
-    LinAlg::Matrix<long double> rho = "0.1; 0.1; 4.8; 0.1; 0.1; 4.8";
+    LinAlg::Matrix<long double> rho = ".1; 0.1; 4.8; .1; .1; 4.8";
     LinAlg::Matrix<long double> D = "1;-1";
     LinAlg::Matrix<long double> w = "1;1";
     LinAlg::Matrix<long double> phi = "1.3; 0";
@@ -83,27 +114,28 @@ void controllerParameters()
     uint32_t su = U.getNumberOfRows();
     uint32_t m  = U.getNumberOfColumns();
     LinAlg::Matrix<long double> fobj = LinAlg::Zeros<long double>(m,1)|| LinAlg::Matrix<long double>(1);
-//    for i = 1:length(xr)
+    std::cout << fobj << std::endl;
+    //    for i = 1:length(xr)
 
-    LinAlg::Matrix<double> xr = ClusteringHandler::grid<double>(3,-4.8,4.8,0.5);// deixar flexivel para colocar limites diferentes para cada dimensão
+    LinAlg::Matrix<double> xr = ClusteringHandler::grid<double>(3,-0.1,0.1,0.02);// deixar flexivel para colocar limites diferentes para cada dimensão
 
 //    std::cout << G*Ad*xk << std::endl;
 //    std::cout << phi << std::endl;
 
-    LinAlg::Matrix<long double> resultData = LinAlg::Zeros<long double>(3,xr.getNumberOfColumns());
+    LinAlg::Matrix<long double> resultData = LinAlg::Zeros<long double>(4,xr.getNumberOfColumns());
+    LinAlg::Matrix<long double> Aineq = (G*Bd|-rho)||(U|-LinAlg::Zeros<long double>(su,1));
     for(uint32_t i = 0; i < xr.getNumberOfColumns(); ++i)
     {
-        LinAlg::Matrix<long double> Aineq = (G*Bd|-rho)||(U|-LinAlg::Zeros<long double>(su,1));
         LinAlg::Matrix<long double> bineq = -G*Ad*xr.getColumn(i)||phi;
         //std::cout << Aineq << std::endl << bineq << std::endl;
-        LinAlg::Matrix<double> Ue = OptimizationHandler::linprog<double>(fobj, Aineq, bineq);
-        //std::cout << Ue << std::endl;
+        LinAlg::Matrix<long double> Ue = OptimizationHandler::linprog<long double>(~fobj, Aineq, bineq);
+//        std::cout << xr.getColumn(i)<<std::endl << Ue << std::endl;
         resultData(0,i) = xr(0,i); resultData(1,i) = xr(1,i); resultData(2,i) = xr(2,i);
-        resultData(0,i) = Ue(0,0);
+        resultData(3,i) = Ue(0,0);
     }
-
-
-    LinAlg::Matrix<PWAFunction<long double> > PWA = ClusteringHandler::clustering<long double>(resultData,0.1,0.1,3);
+    salvarDadosGrid(resultData);
+    LinAlg::Matrix<PWAFunction<long double> > PWA = ClusteringHandler::clustering<long double>(resultData,0.05,0.05,3);
+    //Falta gerar as leis de controle e as funções que mapeiam o sinal de controle nos estados e melhorar a forma como o grid é feito (determinar a quantidade de pontos e levar em consideração o espaço multidimensional)
     salvarDados(PWA);
 }
 
