@@ -81,6 +81,26 @@ void salvarDados(LinAlg::Matrix<PWAFunction<long double> > clusters)
     file.close();
 }
 
+void calculateControllerFromPWA(LinAlg::Matrix<PWAFunction<long double> > &PWA)
+{
+    for( uint16_t i = 0; i < PWA.getNumberOfColumns(); ++i)
+    {
+            LinAlg::Matrix<long double> M = PWA(0,i).M;
+            LinAlg::Matrix<long double> a = PWA(0,i).a;
+            uint32_t endR = M.getNumberOfRows()-1;
+            uint32_t endC = M.getNumberOfColumns()-1;
+
+            uint32_t endRa = a.getNumberOfRows()-1;
+            uint32_t endCa = a.getNumberOfColumns()-1;
+
+            LinAlg::Matrix<long double> Uu = M(endR,from(0)-->endC),   Ux1 = (M(from(0)-->endR-1,from(0)-->endC))^-1,
+                                        mu = a(endRa,from(0)-->endCa), mx = a(from(0)-->endRa-1,from(0)-->endCa);
+
+            PWA(0,i).F = Uu*Ux1;
+            PWA(0,i).g = mu - Uu*Ux1*mx;
+    }
+}
+
 void controllerParameters()
 {
     ModelHandler::TransferFunction<long double> TF("12.4780077954386","1,0.990366468244999,12.4769771866699");
@@ -136,6 +156,7 @@ void controllerParameters()
     salvarDadosGrid(resultData);
     LinAlg::Matrix<PWAFunction<long double> > PWA = ClusteringHandler::clustering<long double>(resultData,0.05,0.05,3);
     //Falta gerar as leis de controle e as funções que mapeiam o sinal de controle nos estados e melhorar a forma como o grid é feito (determinar a quantidade de pontos e levar em consideração o espaço multidimensional)
+    calculateControllerFromPWA(PWA);//Não testado
     salvarDados(PWA);
 }
 
