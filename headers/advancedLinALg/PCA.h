@@ -39,6 +39,14 @@ struct PWAFunction
     LinAlg::Matrix<Type> correlatedClusterData, F, g, M, a;
 };
 
+template<typename Type>
+inline std::ostream& operator<< (std::ostream& output, const PWAFunction<Type> pwa)
+{
+    output << "Lei afim: \nF: " << pwa.F << "\ng: " << pwa.g << "\n";
+    output << "parametros PCA: \nM: " << pwa.M << "\na: " << pwa.a << "\n";
+    return output;
+}
+
 namespace ClusteringHandler {
     template <typename Type>
     LinAlg::Matrix<Type> subspaceSimulation(LinAlg::Matrix<Type> dataIn, LinAlg::Matrix<Type> a, LinAlg::Matrix<Type> M);

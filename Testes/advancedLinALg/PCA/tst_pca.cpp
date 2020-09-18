@@ -85,19 +85,23 @@ void calculateControllerFromPWA(LinAlg::Matrix<PWAFunction<long double> > &PWA)
 {
     for( uint16_t i = 0; i < PWA.getNumberOfColumns(); ++i)
     {
-            LinAlg::Matrix<long double> M = PWA(0,i).M;
-            LinAlg::Matrix<long double> a = PWA(0,i).a;
-            uint32_t endR = M.getNumberOfRows()-1;
-            uint32_t endC = M.getNumberOfColumns()-1;
+        if(PWA(0,i).correlatedClusterData.getNumberOfColumns() == 0)
+            continue;
+        LinAlg::Matrix<long double> M = PWA(0,i).M;
+        LinAlg::Matrix<long double> a = PWA(0,i).a;
+        uint32_t endR = M.getNumberOfRows()-1;
+        uint32_t endC = M.getNumberOfColumns()-1;
 
-            uint32_t endRa = a.getNumberOfRows()-1;
-            uint32_t endCa = a.getNumberOfColumns()-1;
+        uint32_t endRa = a.getNumberOfRows()-1;
+//        uint32_t endCa = a.getNumberOfColumns()-1;
 
-            LinAlg::Matrix<long double> Uu = M(endR,from(0)-->endC),   Ux1 = (M(from(0)-->endR-1,from(0)-->endC))^-1,
-                                        mu = a(endRa,from(0)-->endCa), mx = a(from(0)-->endRa-1,from(0)-->endCa);
+        LinAlg::Matrix<long double> Ux = M(from(0)-->endR-1,from(0)-->endC);
+        LinAlg::Matrix<long double> Uu = M(endR,from(0)-->endC),   Ux1 = LinAlg::inv_numeric(M(from(0)-->endR-1,from(0)-->endC)),
+                                    mu = a(endRa,uint32_t(0)), mx = a(from(0)-->endRa-1,uint32_t(0)); // mu = a(endRa,from(0)-->endCa), mx = a(from(0)-->endRa-1,from(0)-->endCa);
 
-            PWA(0,i).F = Uu*Ux1;
-            PWA(0,i).g = mu - Uu*Ux1*mx;
+        PWA(0,i).F = Uu*Ux1;
+        PWA(0,i).g = mu - Uu*Ux1*mx;
+        std::cout << PWA(0,i);
     }
 }
 
@@ -149,7 +153,7 @@ void controllerParameters()
         LinAlg::Matrix<long double> bineq = -G*Ad*xr.getColumn(i)||phi;
         //std::cout << Aineq << std::endl << bineq << std::endl;
         LinAlg::Matrix<long double> Ue = OptimizationHandler::linprog<long double>(~fobj, Aineq, bineq);
-//        std::cout << xr.getColumn(i)<<std::endl << Ue << std::endl;
+        //std::cout << xr.getColumn(i)<<std::endl << Ue << std::endl;
         resultData(0,i) = xr(0,i); resultData(1,i) = xr(1,i); resultData(2,i) = xr(2,i);
         resultData(3,i) = Ue(0,0);
     }
@@ -275,7 +279,7 @@ void pca::amandasControllerTest()
 
     std::cout <<= (dados);
     std::cout << "\n\n\n"<< std::endl << std::endl<< std::endl<< std::endl<< std::endl<< u;
-    LinAlg::Matrix<PWAFunction<double> > PWA = ClusteringHandler::clustering(dados,0.1,0.1,2);
+    LinAlg::Matrix<PWAFunction<double> > PWA = ClusteringHandler::clustering(dados,0.15,0.12,2);
     std::cout << PWA(0,1).F;
 }
 QTEST_APPLESS_MAIN(pca)
