@@ -31,7 +31,8 @@ bool adxl345::init()
     // full resolution 16g
     i2c_master_write_slave(ADDR, REG_DATA_FORMAT, 0x0B);
     // start measurement
-    i2c_master_write_slave(ADDR, REG_POWER_CTL, 0x08);
+    i2c_master_write_slave(ADDR, REG_POWER_CTL, 0x08); 
+    
 
     // reset offset values
     _offset[0] = 0;
