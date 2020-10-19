@@ -27,16 +27,14 @@ namespace Devices{
         void stopLoop();
         void pauseLoop();
         // void resumeLoop();
-        bool startIterator;
-        volatile timer_group_t timer_group;
-        volatile timer_idx_t timer_idx;
+
         timer_config_t config;
-        volatile float TIMER_SCALE, TIMER_FINE_ADJ, TIMER_INTERVAL0_SEC;
-        uint_fast8_t counter; 
+        uint16_t counter; 
         uint_fast8_t activeChannel, channelQuantity;
         ElectroStimulation::bioSignalController fes[4];
         esp_timer_handle_t periodic_timer;
         esp_timer_create_args_t periodic_timer_args;
+        uint16_t time_on, period, counterMax, fesDivisionCounter[6];
     };
 
     static void fes4ChannelLoop(void *para);

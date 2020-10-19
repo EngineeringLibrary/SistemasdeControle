@@ -1,16 +1,16 @@
 #include "WifiSTA.h"
 
-bool Communication::WifiSTA::connect(void (*FunctionToCall)(std::string))
+bool Communication::WifiSTA::connect(void (*FunctionToCall)())
 {
   this->FunctionToCall = FunctionToCall;
-  ESP_ERROR_CHECK( nvs_flash_init() );
-  this->initialise_wifi();
+  initialise_wifi();
   
   return 1;
 }
 
-bool Communication::WifiSTA::initialise_wifi(void)
+bool Communication::initialise_wifi(void)
 {
+    ESP_ERROR_CHECK( nvs_flash_init() );
     tcpip_adapter_init();
     wifi_event_group = xEventGroupCreate();
     ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL) );
@@ -18,13 +18,14 @@ bool Communication::WifiSTA::initialise_wifi(void)
     ESP_ERROR_CHECK( esp_wifi_init(&initConfig) );
     ESP_ERROR_CHECK( esp_wifi_set_storage(WIFI_STORAGE_RAM) );
 
-    strcpy((char *)this->config.sta.ssid, EXAMPLE_WIFI_SSID);
-    strcpy((char *)this->config.sta.password, EXAMPLE_WIFI_PASS);
+    strcpy((char *)config.sta.ssid, EXAMPLE_WIFI_SSID);
+    strcpy((char *)config.sta.password, EXAMPLE_WIFI_PASS);
   
     ESP_LOGI(TAG, "Setting WiFi configuration SSID %s...", config.sta.ssid);
     ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_STA) );
     ESP_ERROR_CHECK( esp_wifi_set_config(ESP_IF_WIFI_STA, &config) );
     ESP_ERROR_CHECK( esp_wifi_start() );
+    std::cout << "Entrou3" << std::endl;
   return 1;
 }
 
@@ -35,56 +36,54 @@ void Communication::WifiSTA::communicationInit()
   netconn_listen(this->conn); //começa a escutar a conexão
 }
 
-void Communication::WifiSTA::callFunction(const std::string &data)
+void Communication::WifiSTA::callFunction()
 {
-  ((*this->FunctionToCall)(data));
+  ((*this->FunctionToCall)());
 }
 
-void Communication::WifiSTA::taskRead(void* param)
+void Communication::WifiSTA::initializeComunication()
 {
-  WifiSTA wifi = *((WifiSTA*)param);
-  wifi.communicationInit();
+  WifiSTA* wifi = Communication::WifiSTA::GetInstance();
+  // WifiSTA wifi = *((WifiSTA*)param);
+  wifi->communicationInit();
   while(1){
-    wifi.err = netconn_accept(wifi.conn, &wifi.newconn);
-    if(wifi.err == ERR_OK) {// processando a nova conexão
+    wifi->err = netconn_accept(wifi->conn, &wifi->newconn);
+    if(wifi->err == ERR_OK) {// processando a nova conexão
       struct netbuf *buf; // criando um buffer para armazenar os dados recebidos via wifi
       void *data;      std::string data_char;      u16_t len;
-      while((wifi.err = netconn_recv(wifi.newconn, &buf)) == ERR_OK){//entrando na rotina se algum dado for recebido
+      while((wifi->err = netconn_recv(wifi->newconn, &buf)) == ERR_OK){//entrando na rotina se algum dado for recebido
         // do{
           netbuf_data(buf,&data,&len);//lê os dados recebidos e coloca no buffer
-          data_char = (char*)data; //convertendo os dados recebidos para caracter
-          //wifi.setReadString(data_char);
-          // wifi.write(wifi.getData());
-          //std::cout << wifi.getData();
-          if(wifi.getFunctionPointer())
-            wifi.callFunction(data_char);
+          // data_char = (char*)data; //convertendo os dados recebidos para caracter
+          wifi->read((char*)data);
+          if(wifi->getFunctionPointer())
+            wifi->callFunction();
 	        netbuf_free(buf);
-        // }while(netbuf_next(buf) >= 0);//enquanto tiver dados recebidos, continua a executar
       }
-      netconn_close(wifi.newconn);      
-      netconn_delete(wifi.newconn);
+      netconn_close(wifi->newconn);      
+      netconn_delete(wifi->newconn);
     }
   }
 }
 
-void Communication::operator>> (Communication::WifiSTA &wifi, void (*FunctionToCall)(Communication::WifiSTA &wifi))
-{ 
-  wifi.communicationInit();
-  wifi.err = netconn_accept(wifi.conn, &wifi.newconn);
-  if(wifi.err == ERR_OK) {// processando a nova conexão
-    struct netbuf *buf; // criando um buffer para armazenar os dados recebidos via wifi
-    void *data;      std::string data_char;      u16_t len;
-    while((wifi.err = netconn_recv(wifi.newconn, &buf)) == ERR_OK){//entrando na rotina se algum dado for recebido
-        netbuf_data(buf, &data, &len);//lê os dados recebidos e coloca no buffer
-        data_char = (char*)data; //convertendo os dados recebidos para caracter
-        wifi.setReadString(data_char);
-        (*FunctionToCall)(wifi);
-        netbuf_free(buf);
-    }
-  }
-  netconn_close(wifi.newconn);      
-  netconn_delete(wifi.newconn);
-}
+// void Communication::operator>> (Communication::WifiSTA *wifi, void (*FunctionToCall)())
+// { 
+//   wifi->communicationInit();
+//   wifi->err = netconn_accept(wifi->conn, &wifi->newconn);
+//   if(wifi->err == ERR_OK) {// processando a nova conexão
+//     struct netbuf *buf; // criando um buffer para armazenar os dados recebidos via wifi
+//     void *data;      std::string data_char;      u16_t len;
+//     while((wifi->err = netconn_recv(wifi->newconn, &buf)) == ERR_OK){//entrando na rotina se algum dado for recebido
+//         netbuf_data(buf, &data, &len);//lê os dados recebidos e coloca no buffer
+//         data_char = (char*)data; //convertendo os dados recebidos para caracter
+//         wifi->setReadString(data_char);
+//         (*FunctionToCall)();
+//         netbuf_free(buf);
+//     }
+//   }
+//   netconn_close(wifi->newconn);      
+//   netconn_delete(wifi->newconn);
+// }
 
 static esp_err_t Communication::event_handler(void *ctx, system_event_t *event)
 {
@@ -105,4 +104,16 @@ static esp_err_t Communication::event_handler(void *ctx, system_event_t *event)
         break;
     }
     return ESP_OK;
+}
+
+Communication::WifiSTA* Communication::WifiSTA::GetInstance()
+{
+    /**
+     * This is a safer way to create an instance. instance = new Singleton is
+     * dangeruous in case two instance threads wants to access at the same time
+     */
+    if(WifiSTA_ == nullptr){
+        WifiSTA_ = new Communication::WifiSTA();
+    }
+    return WifiSTA_;
 }

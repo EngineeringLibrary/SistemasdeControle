@@ -2,10 +2,10 @@
 #define ADRONE_ADXL345_H
 
 #include <stdint.h>
-#include "i2cHandler.h"
+#include "SistemasdeControle/embeddedTools/communicationLibs/i2cHandler.h"
 #include "iostream"
 #include <math.h>
-#define PI 3.14159265359
+// #define PI 3.14159265359
 
 class adxl345
 {
@@ -45,5 +45,5 @@ private:
     int sign(double value){if(value > 0) return 1; else return -1;}
 };
 
-
+#include "SistemasdeControle/embeddedTools/sensors/adxl345.cpp"
 #endif // ADRONE_ADXL345_H

@@ -41,7 +41,7 @@ bool adxl345::init()
     _filtered_data[1] = 0;
     _filtered_data[2] = 0;
 
-    this->filter_constant = 0.2;
+    this->filter_constant = 0.1;
     return true;
 }
 

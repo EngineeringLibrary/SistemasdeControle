@@ -77,18 +77,18 @@ void ControlHandler::PID<Type>::errorLimitation()
     }
     else
         this->checkLowLim = false;
-    //std::cout << "UUL: " << this->upperLimit << " LLL:" << this->lowerLimit << "\n";
-    //std::cout << "LL: " << this->checkLowLim << " UL:" << this->checkUpLim << "\n";
+    // std::cout << "UUL: " << this->upperLimit << " LLL:" << this->lowerLimit << "\n";
+    // std::cout << "LL: " << this->checkLowLim << " UL:" << this->checkUpLim << "\n";
 }
 
 template<typename Type>
 void ControlHandler::PID<Type>::intError()
 {
-    this->errorLimitation();
+    // this->errorLimitation();
 
-    if(!this->checkUpLim && !this->checkLowLim)
+    // if(!this->checkUpLim && !this->checkLowLim)
         //this->integralError += this->Error*this->Step;
-        this->integralError += this->Error; // ajustei para que Ki seja multiplicado pelo step. Isso vai diminuir em 1 multiplicação.
+        this->integralError += 0.01*this->Error; // ajustei para que Ki seja multiplicado pelo step. Isso vai diminuir em 1 multiplicação.
 }
 
 template<typename Type>
@@ -144,10 +144,10 @@ template<typename Type>
 Type ControlHandler::PID<Type>::OutputControl(Type Reference, Type SignalInput)
 {
     this->Error = Reference - SignalInput;
-    //std::cout << "E: " << this->Error << " IE:" << this->integralError << "\n";
+    std::cout << "E: " << this->Error << " IE:" << this->integralError << "\n";
     //difError();
     intError();
-    //std::cout << "kp: " << this->kp << " ki:" << this->ki <<  "\n";
+    std::cout << "kp: " << this->kp << " ki:" << this->ki <<  "\n";
     this->PIDout = (this->kp*this->Error + this->ki*this->integralError); //+ this->kd*this->derivativeError);
     errorLimitation();
     

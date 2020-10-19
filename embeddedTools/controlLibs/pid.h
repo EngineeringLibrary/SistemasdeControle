@@ -28,7 +28,7 @@ namespace ControlHandler{
         LinAlg::Matrix<Type> getParams() const;
 
         void setSampleTime(Type Time);
-        void setLimits(Type upperLimit, Type lowerLimit);
+        void setLimits(Type lowerLimit, Type upperLimit);
         void setParams(Type kp, Type ki, Type kd);
         void setParams(const LinAlg::Matrix<Type> &PIDsParameters);
 
