@@ -12,11 +12,11 @@ Devices::fes4channels::fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t 
     time_on = 200;//microsseconds
     period = 20000;//microssenconds
     counterMax = period/time_on;
-    fesDivisionCounter[0] = counterMax/5+2;
-    fesDivisionCounter[1] = counterMax/5 + 3;
-    fesDivisionCounter[2] = 2*counterMax/5+2;
+    fesDivisionCounter[0] =   counterMax/5 + 2;
+    fesDivisionCounter[1] =   counterMax/5 + 3;
+    fesDivisionCounter[2] = 2*counterMax/5 + 2;
     fesDivisionCounter[3] = 2*counterMax/5 + 3;
-    fesDivisionCounter[4] = 3*counterMax/5+2;
+    fesDivisionCounter[4] = 3*counterMax/5 + 2;
     fesDivisionCounter[5] = 3*counterMax/5 + 3;
 }
 
@@ -25,23 +25,23 @@ static void Devices::fes4ChannelLoop(void *para){// timer group 0, ISR
     
     dispositivo->counter++;
     for(uint8_t i = 0; i < dispositivo->channelQuantity; ++i)
-        dispositivo->fes[i].setOutputDirectPin();
-    if(dispositivo->counter == 1)
-        dispositivo->fes[0].resetOutputDirectPin();
-    else if(dispositivo->counter == 2)
+        dispositivo->fes[i].resetOutputDirectPin();
+    if(dispositivo->counter == 2)
         dispositivo->fes[0].setOutputDirectPin();
+    else if(dispositivo->counter == 3)
+        dispositivo->fes[0].resetOutputDirectPin();
     else if(dispositivo->counter == dispositivo->fesDivisionCounter[0])
-        dispositivo->fes[1].resetOutputDirectPin();
-    else if(dispositivo->counter == dispositivo->fesDivisionCounter[1])
         dispositivo->fes[1].setOutputDirectPin();
+    else if(dispositivo->counter == dispositivo->fesDivisionCounter[1])
+        dispositivo->fes[1].resetOutputDirectPin();
     else if(dispositivo->counter == dispositivo->fesDivisionCounter[2])
-        dispositivo->fes[2].resetOutputDirectPin();
-    else if(dispositivo->counter == dispositivo->fesDivisionCounter[3])
         dispositivo->fes[2].setOutputDirectPin();
+    else if(dispositivo->counter == dispositivo->fesDivisionCounter[3])
+        dispositivo->fes[2].resetOutputDirectPin();
     else if(dispositivo->counter == dispositivo->fesDivisionCounter[4])
-        dispositivo->fes[3].resetOutputDirectPin();
-    else if(dispositivo->counter == dispositivo->fesDivisionCounter[5])
         dispositivo->fes[3].setOutputDirectPin();
+    else if(dispositivo->counter == dispositivo->fesDivisionCounter[5])
+        dispositivo->fes[3].resetOutputDirectPin();
     else if(dispositivo->counter == dispositivo->counterMax)
         dispositivo->counter = 0;
 }

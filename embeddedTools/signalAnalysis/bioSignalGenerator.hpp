@@ -5,9 +5,9 @@ void ElectroStimulation::bioSignalController::boostInit(const gpio_num_t &pin, c
     gpio_pad_select_gpio((gpio_num_t)pin);
     gpio_set_direction((gpio_num_t)pin, GPIO_MODE_OUTPUT); 
 
-    ledc_timer_boost.duty_resolution = LEDC_TIMER_13_BIT;
+    ledc_timer_boost.duty_resolution = LEDC_TIMER_12_BIT;
     ledc_timer_boost.freq_hz = freq;
-    ledc_timer_boost.speed_mode = LEDC_LOW_SPEED_MODE;
+    ledc_timer_boost.speed_mode = LEDC_HIGH_SPEED_MODE;
     ledc_timer_boost.timer_num = LEDC_TIMER_2;
     // Set configuration of timer0 for high speed channels
     ledc_timer_config(&ledc_timer_boost);
@@ -17,7 +17,7 @@ void ElectroStimulation::bioSignalController::boostInit(const gpio_num_t &pin, c
 	ledc_channel_boost.channel    = channel;
 	ledc_channel_boost.gpio_num   = pin;
 	ledc_channel_boost.timer_sel  = LEDC_TIMER_2;
-	ledc_channel_boost.speed_mode = LEDC_LOW_SPEED_MODE;
+	ledc_channel_boost.speed_mode = LEDC_HIGH_SPEED_MODE;
     ledc_channel_config(&ledc_channel_boost);
 }
 
@@ -45,7 +45,7 @@ void ElectroStimulation::bioSignalController::setOutputHandlerDirectPin(const gp
 
 void ElectroStimulation::bioSignalController::setPowerLevel(const double &powerLevel)
 {
-    ledc_channel_boost.duty       = (uint16_t)((powerLevel)*8192/100); 
+    ledc_channel_boost.duty       = (uint16_t)((powerLevel)*8192/200); 
     ledc_set_duty(ledc_channel_boost.speed_mode, ledc_channel_boost.channel, ledc_channel_boost.duty);
     ledc_update_duty(ledc_channel_boost.speed_mode, ledc_channel_boost.channel);
 }

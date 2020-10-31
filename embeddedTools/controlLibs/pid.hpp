@@ -84,10 +84,10 @@ void ControlHandler::PID<Type>::errorLimitation()
 template<typename Type>
 void ControlHandler::PID<Type>::intError()
 {
-    // this->errorLimitation();
+    this->errorLimitation();
 
-    // if(!this->checkUpLim && !this->checkLowLim)
-        //this->integralError += this->Error*this->Step;
+    if(!this->checkUpLim && !this->checkLowLim)
+        this->integralError += this->Error*this->Step;
         this->integralError += 0.01*this->Error; // ajustei para que Ki seja multiplicado pelo step. Isso vai diminuir em 1 multiplicação.
 }
 
@@ -147,7 +147,7 @@ Type ControlHandler::PID<Type>::OutputControl(Type Reference, Type SignalInput)
     std::cout << "E: " << this->Error << " IE:" << this->integralError << "\n";
     //difError();
     intError();
-    std::cout << "kp: " << this->kp << " ki:" << this->ki <<  "\n";
+    //std::cout << "kp: " << this->kp << " ki:" << this->ki <<  "\n";
     this->PIDout = (this->kp*this->Error + this->ki*this->integralError); //+ this->kd*this->derivativeError);
     errorLimitation();
     

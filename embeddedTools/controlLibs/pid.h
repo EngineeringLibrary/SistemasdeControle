@@ -31,6 +31,7 @@ namespace ControlHandler{
         void setLimits(Type lowerLimit, Type upperLimit);
         void setParams(Type kp, Type ki, Type kd);
         void setParams(const LinAlg::Matrix<Type> &PIDsParameters);
+        void resetIntegralValue(){ integralError = 0.0;}
 
         Type OutputControl(Type Reference, Type SignalInput);
     };
