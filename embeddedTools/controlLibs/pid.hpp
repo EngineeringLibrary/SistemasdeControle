@@ -17,6 +17,7 @@ ControlHandler::PID<Type>::PID()
     //this->lowerLimit = -200;
     this->upperLimit = 20 / this->Step;// ajustei para que Ki seja multiplicado pelo step. Isso vai diminuir em 1 multiplicação.;
     this->lowerLimit = -20/ this->Step;// ajustei para que Ki seja multiplicado pelo step. Isso vai diminuir em 1 multiplicação;
+    this->inputOperationalPoint = 0;
 }
 
 template<typename Type>
@@ -36,6 +37,7 @@ ControlHandler::PID<Type>::PID(Type kp, Type ki, Type kd, const Type &Step)
     this->integralError = 0;
     this->upperLimit = 20 / this->Step;// ajustei para que Ki seja multiplicado pelo step. Isso vai diminuir em 1 multiplicação.;
     this->lowerLimit = -20/ this->Step;// ajustei para que Ki seja multiplicado pelo step. Isso vai diminuir em 1 multiplicação;
+    this->inputOperationalPoint = 0;
 }
 
 template<typename Type>
@@ -55,6 +57,7 @@ ControlHandler::PID<Type>::PID(const LinAlg::Matrix<Type> &PIDsParameters, const
     this->integralError = 0;
     this->upperLimit = 20 / this->Step;// ajustei para que Ki seja multiplicado pelo step. Isso vai diminuir em 1 multiplicação.;
     this->lowerLimit = -20/ this->Step;// ajustei para que Ki seja multiplicado pelo step. Isso vai diminuir em 1 multiplicação;
+    this->inputOperationalPoint = 0;
 }
 
 template<typename Type>
@@ -87,7 +90,7 @@ void ControlHandler::PID<Type>::intError()
     this->errorLimitation();
 
     if(!this->checkUpLim && !this->checkLowLim)
-        this->integralError += this->Error*this->Step;
+        //this->integralError += this->Error*this->Step;
         this->integralError += 0.01*this->Error; // ajustei para que Ki seja multiplicado pelo step. Isso vai diminuir em 1 multiplicação.
 }
 

@@ -9,7 +9,7 @@ namespace ControlHandler{
     {
     private:
         bool checkUpLim, checkLowLim;
-        Type Error, pastError, integralError, derivativeError, Step, kp, ki, kd, upperLimit, lowerLimit, PIDout;
+        Type Error, pastError, integralError, derivativeError, Step, kp, ki, kd, upperLimit, lowerLimit, PIDout, inputOperationalPoint;
 
         inline void errorLimitation();
         inline void intError();
@@ -20,6 +20,7 @@ namespace ControlHandler{
         PID(const LinAlg::Matrix<Type> &PIDsParameters, const Type &Step = 1);
         PID(Type kp, Type ki, Type kd, const Type &Step = 1);
 
+        Type getInputOperationalPoint(){return this->inputOperationalPoint;}
         Type getSampleTime() const {return this->Step;}
         Type getErrorValue() const {return this->Error;}
         Type getDerivativeErrorValue() const {return this->derivativeError;}
@@ -27,6 +28,7 @@ namespace ControlHandler{
         LinAlg::Matrix<Type> getLimits() const;
         LinAlg::Matrix<Type> getParams() const;
 
+        void setInputOperationalPoint(Type inputOperationalPoint){this->inputOperationalPoint = inputOperationalPoint;}
         void setSampleTime(Type Time);
         void setLimits(Type lowerLimit, Type upperLimit);
         void setParams(Type kp, Type ki, Type kd);
