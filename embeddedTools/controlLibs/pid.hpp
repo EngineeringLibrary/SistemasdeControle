@@ -151,7 +151,7 @@ Type ControlHandler::PID<Type>::OutputControl(Type Reference, Type SignalInput)
     //difError();
     intError();
     //std::cout << "kp: " << this->kp << " ki:" << this->ki <<  "\n";
-    this->PIDout = (this->kp*this->Error + this->ki*this->integralError); //+ this->kd*this->derivativeError);
+    this->PIDout = (this->kp*this->Error + this->ki*this->integralError) + this->kd*this->derivativeError;
     errorLimitation();
     
     return this->PIDout;
