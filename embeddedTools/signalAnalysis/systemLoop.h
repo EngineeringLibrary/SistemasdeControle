@@ -16,6 +16,7 @@
 #include "sdkconfig.h"
 
 #include "bioSignalGenerator.h"
+#include "SistemasdeControle/embeddedTools/controlLibs/pid.h"
 
 namespace Devices{
     struct fes4channels{
@@ -26,12 +27,15 @@ namespace Devices{
         void startLoop(/*void (*loopFunction2Call)(void*)*/);
         void stopLoop();
         void pauseLoop();
+        LinAlg::Matrix<double> performOneControlStep(double ref1, double ref2, LinAlg::Matrix<double> sensorData);
+        ControlHandler::PID<long double> &getPID(const unsigned &indice) {return this->pid[indice];}
         // void resumeLoop();
 
         timer_config_t config;
         uint16_t counter; 
         uint_fast8_t activeChannel, channelQuantity;
         ElectroStimulation::bioSignalController fes[4];
+        ControlHandler::PID<long double> pid[2];
         esp_timer_handle_t periodic_timer;
         esp_timer_create_args_t periodic_timer_args;
         uint16_t time_on, period, counterMax, fesDivisionCounter[6];

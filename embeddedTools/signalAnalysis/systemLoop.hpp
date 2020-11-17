@@ -66,3 +66,34 @@ void Devices::fes4channels::pauseLoop(){
 //     // timer_start(timer_group, timer_idx);
 //     startIterator = true;
 // }
+
+LinAlg::Matrix<double> Devices::fes4channels::performOneControlStep(double ref1, double ref2, LinAlg::Matrix<double> sensorData){
+    double u1, u2; LinAlg::Matrix<double> ret(1,2);
+    u1 = this->pid[0].OutputControl(ref1, sensorData(0,0));
+    if (u1 > 0){
+        u1 += this->pid[0].getInputOperationalPoint();
+        this->fes[0].setPowerLevel(u1); 
+        this->fes[1].setPowerLevel(0); 
+    }
+    else{
+        u1 = -u1 + this->pid[0].getInputOperationalPoint();
+        this->fes[1].setPowerLevel(u1); 
+        this->fes[0].setPowerLevel(0); 
+        u1 = -u1;
+    }
+
+    u2 = this->pid[1].OutputControl(ref2, sensorData(1,0));
+    if (u2 > 0){
+        u2 += this->pid[1].getInputOperationalPoint();
+        this->fes[2].setPowerLevel(u2); 
+        this->fes[3].setPowerLevel(0); 
+    }
+    else{
+        u2 = -u2 + this->pid[1].getInputOperationalPoint();
+        this->fes[3].setPowerLevel(u2);
+        this->fes[2].setPowerLevel(0); 
+        u2 = -u2;
+    }
+    ret(0,0) = u1; ret(0,1) = u2;
+    return ret;
+}
