@@ -3,10 +3,16 @@
 
 void GY80::sensorfusion::init()
 {
+    #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    Wire.begin();
+    #elif I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE
+    Fastwire::setup(400, true);
+    #endif
 	// setup i2c
     //i2c_init(SCL_PIN, SDA_PIN);
     i2c_master_init();
     _angle_position = LinAlg::Matrix<double>(3,1);
+    rawData = LinAlg::Matrix<double>(9,1);
     // start sensors
     if (!_acce.init()) {
         printf("Oops, ADXL345 not detected ... Check your wiring.. Restart device!!!");
@@ -57,6 +63,17 @@ GY80::sensorfusion::~sensorfusion()
     // delete _Q;
     // delete _H;
     // delete _R;
+}
+LinAlg::Matrix<double> GY80::sensorfusion::updateRaw(){
+    _acce.read();
+
+    _gyro.read();
+  
+    _magn.read();
+    rawData(0,0) = _acce.get_x();  rawData(0,1) = _acce.get_y(); rawData(0,2) = _acce.get_z();
+    rawData(0,3) = _gyro.get_x();  rawData(0,4) = _gyro.get_y(); rawData(0,5) = _gyro.get_z();
+    rawData(0,6) = _magn.get_x();  rawData(0,7) = _magn.get_y(); rawData(0,8) = _magn.get_z();
+    return rawData;
 }
 
 LinAlg::Matrix<double> GY80::sensorfusion::update(){

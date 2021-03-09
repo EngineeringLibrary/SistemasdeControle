@@ -3,6 +3,7 @@
 Devices::fes4channels::fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint16_t &freq){
     
     // this->fes = new ElectroStimulation::bioSignalController[channelQuantity];
+    periodic_timer = nullptr;
     this->channelQuantity = channelQuantity;
     for(uint8_t i = 0; i < channelQuantity; ++i){
         this->fes[i].boostInit((gpio_num_t) levelPin[i], freq,(ledc_channel_t) i);
@@ -55,17 +56,12 @@ void Devices::fes4channels::startLoop(/*void (*loopFunction2Call)(void*)*/){
 }
 
 void Devices::fes4channels::stopLoop(){
-    ESP_ERROR_CHECK(esp_timer_stop(periodic_timer));
+    if(!periodic_timer){
+        ESP_ERROR_CHECK(esp_timer_stop(periodic_timer));
+        ESP_ERROR_CHECK(esp_timer_delete(periodic_timer)); //Timer delete
+        periodic_timer = nullptr;
+    }
 }
-
-void Devices::fes4channels::pauseLoop(){
-     //ESP_ERROR_CHECK(esp_timer_(periodic_timer));
-}
-
-// void Devices::fes4channels::resumeLoop(){
-//     // timer_start(timer_group, timer_idx);
-//     startIterator = true;
-// }
 
 LinAlg::Matrix<double> Devices::fes4channels::performOneControlStep(double ref1, double ref2, LinAlg::Matrix<double> sensorData){
     double u1, u2; LinAlg::Matrix<double> ret(1,2);

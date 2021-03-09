@@ -2,6 +2,7 @@
 
 #include "SistemasdeControle/embeddedTools/communicationLibs/i2cSoft.h"
 
+
 #define	SMPLRT_DIV		0x19	//陀螺仪采样率，典型值：0x07(125Hz)
 #define	CONFIG			0x1A	//低通滤波频率，典型值：0x06(5Hz)
 #define	GYRO_CONFIG		0x1B	//陀螺仪自检及测量范围，典型值：0x18(不自检，2000deg/s)

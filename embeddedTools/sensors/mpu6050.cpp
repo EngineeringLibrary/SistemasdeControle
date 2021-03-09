@@ -133,3 +133,7 @@ void MPU6050::SetOffsets(double ax, double ay, double az, double gx, double gy, 
     i2c.slave_write(MPU_ADDR, MPU6050_RA_YG_OFFS_USRH, gy);
     i2c.slave_write(MPU_ADDR, MPU6050_RA_ZG_OFFS_USRH, gz);
 }
+
+bool MPU6050::initDMP6(gpio_num_t interruptPin){
+    
+}

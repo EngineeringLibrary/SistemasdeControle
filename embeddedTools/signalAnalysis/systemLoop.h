@@ -26,7 +26,6 @@ namespace Devices{
         
         void startLoop(/*void (*loopFunction2Call)(void*)*/);
         void stopLoop();
-        void pauseLoop();
         LinAlg::Matrix<double> performOneControlStep(double ref1, double ref2, LinAlg::Matrix<double> sensorData);
         ControlHandler::PID<long double> &getPID(const unsigned &indice) {return this->pid[indice];}
         // void resumeLoop();

@@ -54,6 +54,7 @@ namespace GY80
          * @return [description]
          */
         LinAlg::Matrix<double> update();
+        LinAlg::Matrix<double> updateRaw();
         void init();
     private:
         // sensors
@@ -61,7 +62,7 @@ namespace GY80
         l3g4200d _gyro;
         hmc5883l _magn;
         // matrix result with position & angles
-        LinAlg::Matrix<double> _angle_position;
+        LinAlg::Matrix<double> _angle_position, rawData;
         // kalman filter parameters
         LinAlg::Matrix<double> _F, B, _Q, _H, _R;
         // kalman filters
@@ -78,4 +79,5 @@ namespace GY80
 }
 
 #include "SistemasdeControle/embeddedTools/sensors/sensorfusion.cpp"
+GY80::sensorfusion sensors;
 #endif
