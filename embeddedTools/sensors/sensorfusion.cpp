@@ -12,7 +12,7 @@ void GY80::sensorfusion::init()
     //i2c_init(SCL_PIN, SDA_PIN);
     i2c_master_init();
     _angle_position = LinAlg::Matrix<double>(3,1);
-    rawData = LinAlg::Matrix<double>(9,1);
+    rawData = LinAlg::Matrix<double>(1,9);
     // start sensors
     if (!_acce.init()) {
         printf("Oops, ADXL345 not detected ... Check your wiring.. Restart device!!!");
