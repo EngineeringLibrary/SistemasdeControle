@@ -33,6 +33,8 @@ bool l3g4200d::init()
     _offset[1] = 0;
     _offset[2] = 0;
 
+    calibrate();
+
     return true;
 }
 
