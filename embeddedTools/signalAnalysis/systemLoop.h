@@ -20,9 +20,9 @@
 
 namespace Devices{
     struct fes4channels{
-        fes4channels(){};
-        ~fes4channels(){ESP_ERROR_CHECK(esp_timer_stop(periodic_timer)); ESP_ERROR_CHECK(esp_timer_delete(periodic_timer));};
-        fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint16_t &freq = 5000);
+        fes4channels(){periodic_timer = nullptr;};
+        ~fes4channels(){if(!periodic_timer){ESP_ERROR_CHECK(esp_timer_stop(periodic_timer)); ESP_ERROR_CHECK(esp_timer_delete(periodic_timer)); periodic_timer = nullptr; } };
+        fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint16_t &freq = 5000); 
         
         void startLoop(/*void (*loopFunction2Call)(void*)*/);
         void stopLoop();

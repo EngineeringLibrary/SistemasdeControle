@@ -10,7 +10,7 @@
 #define GREG_4         0x23
 #define GREG_5         0x24
 #define GREG_TEMP      0x26
-#define GREG_DATA      0x28|(1<<7)
+#define GREG_DATA      (0x28|(1<<7))
 
 
 bool l3g4200d::init()
