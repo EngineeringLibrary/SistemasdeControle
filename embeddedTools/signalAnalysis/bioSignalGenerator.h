@@ -24,18 +24,20 @@ namespace ElectroStimulation{
     public:
         bioSignalController(){}
         void boostInit(const gpio_num_t &pin, const uint32_t &freq, const ledc_channel_t channel);
-        void setOutputHandlerDirectPin(const gpio_num_t &pin);
+        void setOutputHandlerPin(const gpio_num_t &pin);
+        void setOutputHandlerPins(const gpio_num_t &directPin, const gpio_num_t &reversePin);
         void setPowerLevel(const double &powerLevel);
         void setOutputDirectPin(){gpio_set_level(directPin, true);}
         void resetOutputDirectPin(){gpio_set_level(directPin, false);}
-        //void setModulationTimeOn(const double &dutyCicle);
-        //void setOutputHandlerDirectPin(const gpio_num_t &pin/*, uint8_t freq, ledc_channel_t channel*/);
-        //void setOutputHandlerReversePin(const gpio_num_t &outputHandlerReversePin);
+        void setOutputReversePin(){gpio_set_level(reversePin, true);}
+        void resetOutputReversePin(){gpio_set_level(reversePin, false);}
+        bool isDCElectrostimulator(){return CC_AC;}
 
     private:
         ledc_channel_config_t ledc_channel_boost,ledc_channel_modulation_Direct;
         ledc_timer_config_t ledc_timer_boost,ledc_timer_modulation_Direct;
-        gpio_num_t directPin; 
+        gpio_num_t directPin, reversePin; 
+        bool CC_AC;
     };
     
 }

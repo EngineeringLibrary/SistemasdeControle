@@ -20,22 +20,22 @@ void GY80::sensorfusion::init()
         // vTaskDelete(asystem.task.flight);
     }
 
-    if (!_gyro.init()) {
-        printf("Oops, L3G4200D not detected ... Check your wiring.. Restart device!!!");
-        // vTaskDelete(asystem.task.flight);
-    }
+    // if (!_gyro.init()) {
+    //     printf("Oops, L3G4200D not detected ... Check your wiring.. Restart device!!!");
+    //     // vTaskDelete(asystem.task.flight);
+    // }
 
-    if (!_magn.init()) {
-        printf("Oops, HMC5883L not detected ... Check your wiring.. Restart device!!!");
-        // vTaskDelete(asystem.task.flight);
-    }
+    // if (!_magn.init()) {
+    //     printf("Oops, HMC5883L not detected ... Check your wiring.. Restart device!!!");
+    //     // vTaskDelete(asystem.task.flight);
+    // }
 
     // delay time for sensor setup
     vTaskDelay(10 / portTICK_PERIOD_MS);
 
     // calibrate sensors
     // _acce.calibrate();
-    _gyro.calibrate();
+    // _gyro.calibrate();
 
     // kalman filter parameters
     // _F ="1.0 , 0.05; 0.0 , 1.0";
@@ -80,9 +80,9 @@ LinAlg::Matrix<double> GY80::sensorfusion::update(){
     // read data from sensors
     _acce.read();
 
-    _gyro.read();
+    ////////////// _gyro.read();
   
-    _magn.read();
+    ////////////// _magn.read();
    
 
     //printf("%f   %f   %f\n",_acce.get_x(),_acce.get_y(),_acce.get_z());
@@ -99,7 +99,7 @@ LinAlg::Matrix<double> GY80::sensorfusion::update(){
 
     // calculate yaw from magnetometer compensation
     // std::cout << "Entrou7" << std::endl;
-    double yaw = get_yaw(_magn.get_x(), _magn.get_y(), _magn.get_z(), pitch, roll);
+    ///////////////// double yaw = get_yaw(_magn.get_x(), _magn.get_y(), _magn.get_z(), pitch, roll);
 
     // calculate yaw from kalman filter
     // yaw = _kyaw.update(_gyro.get_z(), yaw);
@@ -119,7 +119,7 @@ LinAlg::Matrix<double> GY80::sensorfusion::update(){
      
     _angle_position(0,0) = (pitch)*180.0/M_PI;
     _angle_position(1,0) = (roll)*180.0/M_PI;
-    _angle_position(2,0) = (yaw)*180.0/M_PI;
+    _angle_position(2,0) = 0;////////////(yaw)*180.0/M_PI;
 
     return _angle_position;
 }

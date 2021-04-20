@@ -21,12 +21,15 @@
 namespace Devices{
     struct fes4channels{
         fes4channels(){periodic_timer = nullptr;};
-        ~fes4channels(){if(!periodic_timer){ESP_ERROR_CHECK(esp_timer_stop(periodic_timer)); ESP_ERROR_CHECK(esp_timer_delete(periodic_timer)); periodic_timer = nullptr; } };
-        fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint16_t &freq = 5000); 
+        ~fes4channels(){stopLoop();};
+        fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint16_t &freq = 5000, const uint16_t &time_on = 200, const uint16_t &period = 20000,  bool isCA = false); 
+        void initCC(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint16_t &freq = 5000); 
+        void initCA(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint16_t &freq = 5000); 
         
         void startLoop(/*void (*loopFunction2Call)(void*)*/);
         void stopLoop();
-        LinAlg::Matrix<double> performOneControlStep(double ref1, double ref2, LinAlg::Matrix<double> sensorData);
+        void resetTimeOnAndPeriod(const uint16_t &time_on, const uint16_t &period);
+        LinAlg::Matrix<double> TwoDOFLimbControl(double ref1, double ref2, LinAlg::Matrix<double> sensorData);
         ControlHandler::PID<long double> &getPID(const unsigned &indice) {return this->pid[indice];}
         // void resumeLoop();
 
@@ -37,7 +40,8 @@ namespace Devices{
         ControlHandler::PID<long double> pid[2];
         esp_timer_handle_t periodic_timer;
         esp_timer_create_args_t periodic_timer_args;
-        uint16_t time_on, period, counterMax, fesDivisionCounter[6];
+        uint16_t time_on, period, counterMax, fesDivisionCounter[16];
+        bool isCA;
     };
 
     static void fes4ChannelLoop(void *para);
