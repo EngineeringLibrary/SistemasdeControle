@@ -1,7 +1,7 @@
 #include "SistemasdeControle/embeddedTools/sensors/sensorfusion.h"
 
 
-void GY80::sensorfusion::init()
+bool GY80::sensorfusion::init()
 {
     #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
     Wire.begin();
@@ -14,21 +14,27 @@ void GY80::sensorfusion::init()
     _angle_position = LinAlg::Matrix<double>(3,1);
     rawData = LinAlg::Matrix<double>(1,9);
     // start sensors
-    if (!_acce.init()) {
+    bool flag = _acce.init();
+    if (!flag) {
         printf("Oops, ADXL345 not detected ... Check your wiring.. Restart device!!!");
+        return false;
         //while (true);
         // vTaskDelete(asystem.task.flight);
     }
 
-    // if (!_gyro.init()) {
-    //     printf("Oops, L3G4200D not detected ... Check your wiring.. Restart device!!!");
-    //     // vTaskDelete(asystem.task.flight);
-    // }
+    flag = flag && _gyro.init();
+    if (!flag) {
+        printf("Oops, L3G4200D not detected ... Check your wiring.. Restart device!!!");
+        return false;
+        // vTaskDelete(asystem.task.flight);
+    }
 
-    // if (!_magn.init()) {
-    //     printf("Oops, HMC5883L not detected ... Check your wiring.. Restart device!!!");
-    //     // vTaskDelete(asystem.task.flight);
-    // }
+    flag = flag && _magn.init();
+    if (!flag) {
+        printf("Oops, HMC5883L not detected ... Check your wiring.. Restart device!!!");
+        return false;
+        // vTaskDelete(asystem.task.flight);
+    }
 
     // delay time for sensor setup
     vTaskDelay(10 / portTICK_PERIOD_MS);
@@ -53,6 +59,7 @@ void GY80::sensorfusion::init()
     // _kpitch.init(_F, B, _Q, _H, _R);
     // _kroll.init (_F, B, _Q, _H, _R);
     // _kyaw.init  (_F, B, _Q, _H, _R);
+    return flag;
 }
 
 

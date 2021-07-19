@@ -55,7 +55,7 @@ namespace GY80
          */
         LinAlg::Matrix<double> update();
         LinAlg::Matrix<double> updateRaw();
-        void init();
+        bool init();
     private:
         // sensors
         adxl345  _acce;

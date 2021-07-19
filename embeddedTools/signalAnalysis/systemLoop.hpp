@@ -12,7 +12,8 @@
     else
         initCC(levelPin, modPin, channelQuantity, freq);
 
-    startLoop();// depois tirar
+    this->stopLoopFlag = true;
+    // startLoop();// depois tirar
  }
 
 void Devices::fes4channels::initCC(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint16_t &freq){
@@ -26,6 +27,7 @@ void Devices::fes4channels::initCC(uint8_t *levelPin, uint8_t *modPin, uint8_t c
     }
     
     counterMax = period/time_on;
+    // std::cout << counterMax << std::endl;
     fesDivisionCounter[0] =   2;
     fesDivisionCounter[1] =   3;
     fesDivisionCounter[2] =   counterMax/5 + 2;
@@ -100,22 +102,38 @@ static void Devices::fes4ChannelLoop(void *para){// timer group 0, ISR
     
     if(dispositivo->counter == dispositivo->counterMax)
         dispositivo->counter = 0;
+
+    if(dispositivo->stopLoopFlag){
+        // dispositivo->stopLoop();
+        for(uint8_t i = 0; i < 2*dispositivo->channelQuantity; ++i)
+            dispositivo->fes[i].setPowerLevel(0); 
+
+        if(dispositivo->isCA){
+        for(uint8_t i = 0; i < 2*dispositivo->channelQuantity; ++i)
+            dispositivo->fes[i].resetOutputDirectPin();
+        } else{
+            for(uint8_t i = 0; i < dispositivo->channelQuantity; ++i)
+                dispositivo->fes[i].resetOutputDirectPin();
+        }
+        
+        ESP_ERROR_CHECK(esp_timer_stop(dispositivo->periodic_timer));
+        ESP_ERROR_CHECK(esp_timer_delete(dispositivo->periodic_timer)); //Timer delete
+        dispositivo->periodic_timer = nullptr;
+        
+    }
 }
 
 void Devices::fes4channels::startLoop(/*void (*loopFunction2Call)(void*)*/){
-    periodic_timer_args.callback = &fes4ChannelLoop;
-    periodic_timer_args.arg = (void*) this;
-    periodic_timer_args.name = "periodic";
-    ESP_ERROR_CHECK(esp_timer_create(&periodic_timer_args, &periodic_timer));
-    ESP_ERROR_CHECK(esp_timer_start_periodic(periodic_timer, time_on));
+    if(!this->periodic_timer){
+        this->periodic_timer_args.callback = &fes4ChannelLoop;
+        this->periodic_timer_args.arg = (void*) this;
+        this->periodic_timer_args.name = "periodic";
+        ESP_ERROR_CHECK(esp_timer_create(&this->periodic_timer_args, &this->periodic_timer));
+        ESP_ERROR_CHECK(esp_timer_start_periodic(this->periodic_timer, this->time_on));
+    }
 }
 
 void Devices::fes4channels::stopLoop(){
-    if(!periodic_timer){
-        ESP_ERROR_CHECK(esp_timer_stop(periodic_timer));
-        ESP_ERROR_CHECK(esp_timer_delete(periodic_timer)); //Timer delete
-        periodic_timer = nullptr;
-    }
     if(this->isCA){
         for(uint8_t i = 0; i < 2*this->channelQuantity; ++i)
             this->fes[i].resetOutputDirectPin();
@@ -125,14 +143,49 @@ void Devices::fes4channels::stopLoop(){
     }
     for(uint8_t i = 0; i < 2*this->channelQuantity; ++i)
         this->fes[i].setPowerLevel(0); 
+    if(!this->periodic_timer){
+        ESP_ERROR_CHECK(esp_timer_stop(this->periodic_timer));
+        ESP_ERROR_CHECK(esp_timer_delete(this->periodic_timer)); //Timer delete
+        this->periodic_timer = nullptr;
+    }
 }
 
-void Devices::fes4channels::resetTimeOnAndPeriod(const uint16_t &time_on, const uint16_t &period){
+void Devices::fes4channels::timeOnAndPeriodUpdate(const uint16_t &time_on, const uint16_t &period){
     //  std::cout << "Entrou1" << time_on  << "   "<< period << std::endl;
-    stopLoop();
+    // stopLoop();
     
     this->period  = period;
     this->time_on = time_on;
+    counterMax = period/time_on;
+
+    if(!isCA){
+        fesDivisionCounter[0] =   2;
+        fesDivisionCounter[1] =   3;
+        fesDivisionCounter[2] =   counterMax/5 + 2;
+        fesDivisionCounter[3] =   counterMax/5 + 3;
+        fesDivisionCounter[4] = 2*counterMax/5 + 2;
+        fesDivisionCounter[5] = 2*counterMax/5 + 3;
+        fesDivisionCounter[6] = 3*counterMax/5 + 2;
+        fesDivisionCounter[7] = 3*counterMax/5 + 3;
+    }
+    else{
+        fesDivisionCounter[0]  =   2;
+        fesDivisionCounter[1]  =   3;
+        fesDivisionCounter[2]  =   counterMax/9 + 2;
+        fesDivisionCounter[3]  =   counterMax/9 + 3;
+        fesDivisionCounter[4]  = 2*counterMax/9 + 2;
+        fesDivisionCounter[5]  = 2*counterMax/9 + 3;
+        fesDivisionCounter[6]  = 3*counterMax/9 + 2;
+        fesDivisionCounter[7]  = 3*counterMax/9 + 3;
+        fesDivisionCounter[8]  = 4*counterMax/9 + 2;
+        fesDivisionCounter[9]  = 4*counterMax/9 + 3;
+        fesDivisionCounter[10] = 5*counterMax/9 + 2;
+        fesDivisionCounter[11] = 5*counterMax/9 + 3;
+        fesDivisionCounter[12] = 6*counterMax/9 + 2;
+        fesDivisionCounter[13] = 6*counterMax/9 + 3;
+        fesDivisionCounter[14] = 7*counterMax/9 + 2;
+        fesDivisionCounter[15] = 7*counterMax/9 + 3;
+    }
 }
 
 LinAlg::Matrix<double> Devices::fes4channels::TwoDOFLimbControl(double ref1, double ref2, LinAlg::Matrix<double> sensorData){

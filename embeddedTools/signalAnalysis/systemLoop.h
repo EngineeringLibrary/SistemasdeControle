@@ -28,7 +28,7 @@ namespace Devices{
         
         void startLoop(/*void (*loopFunction2Call)(void*)*/);
         void stopLoop();
-        void resetTimeOnAndPeriod(const uint16_t &time_on, const uint16_t &period);
+        void timeOnAndPeriodUpdate(const uint16_t &time_on, const uint16_t &period);
         LinAlg::Matrix<double> TwoDOFLimbControl(double ref1, double ref2, LinAlg::Matrix<double> sensorData);
         ControlHandler::PID<long double> &getPID(const unsigned &indice) {return this->pid[indice];}
         // void resumeLoop();
@@ -41,7 +41,7 @@ namespace Devices{
         esp_timer_handle_t periodic_timer;
         esp_timer_create_args_t periodic_timer_args;
         uint16_t time_on, period, counterMax, fesDivisionCounter[16];
-        bool isCA;
+        bool isCA, stopLoopFlag;
     };
 
     static void fes4ChannelLoop(void *para);
