@@ -1,8 +1,8 @@
 #ifndef __MPPI_H_INCLUDED
 #define __MPPI_H_INCLUDED
 
-#include "matrix.h"
-#include "mp_general_controller.h"
+#include "SistemasdeControle/embeddedTools/primitiveLibs/LinAlg/matrix.h"
+#include "SistemasdeControle/embeddedTools/controlLibs/mp_general_controller.h"
 
 namespace ControlHandler{
 	template <typename Type>

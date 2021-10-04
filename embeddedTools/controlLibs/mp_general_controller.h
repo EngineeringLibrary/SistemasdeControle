@@ -1,7 +1,7 @@
 #ifndef MPGENERALCONTROLLER_H_INCLUDED
 #define MPGENERALCONTROLLER_H_INCLUDED
 
-#include "matrix.h"
+#include "SistemasdeControle/embeddedTools/primitiveLibs/LinAlg/matrix.h"
 
 namespace ControlHandler{
 	template <typename Type>
