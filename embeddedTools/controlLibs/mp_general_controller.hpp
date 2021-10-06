@@ -5,13 +5,14 @@ bool ControlHandler::MP_General_Controller<Type>::isInside(const LinAlg::Matrix<
 {
 	this->inWitchRegion = -1; // Se o número não for alterado os estados não pertencem a nenhuma região.
 	LinAlg::Matrix<Type> point(_point.getNumberOfRows()+1,1);// Representa os estados estendidos. Point = [Point -1]; Esse comentário se aplica até a linha 12
+	uint32_t zero = uint32_t(0);
 
-	for(uint16_t i = 0; i < _point.getNumberOfRows(); ++i)
-		point(i,0) = _point(i,0);
+	for(uint32_t i = 0; i < _point.getNumberOfRows(); ++i)
+		point(i,zero) = _point(i,zero);
 
-	point(_point.getNumberOfRows(),0) = (Type)(-1);
+	point(_point.getNumberOfRows(),zero) = (Type)(-1);
 
-    for (uint16_t i = 0; i < quantityOfRegions; ++i) // Percorre todas as matrizes de restrições para  verificar em qual região os estados estão localizados.
+    for (uint32_t i = 0; i < quantityOfRegions; ++i) // Percorre todas as matrizes de restrições para  verificar em qual região os estados estão localizados.
     {
         // std::cout << "A matriz de restricoes: \n"<< this->Restrictions[i] << std::endl;
         // std::cout << "A matriz de pontos: \n"<< point << std::endl;
@@ -32,8 +33,9 @@ bool ControlHandler::MP_General_Controller<Type>::isInside(const LinAlg::Matrix<
 
 template<typename Type>
 bool ControlHandler::MP_General_Controller<Type>::any(const LinAlg::Matrix<Type> &H){
-    for(uint16_t j = 0; j < H.getNumberOfRows(); ++j) 
-        if(H(j,0) > (Type)(1e-8)) //Verifica se algum estado esta fora das restrições.
+	uint32_t zero = uint32_t(0);
+    for(uint32_t j = 0; j < H.getNumberOfRows(); ++j) 
+        if(H(j,zero) > (Type)(1e-8)) //Verifica se algum estado esta fora das restrições.
             return true; // retorna true se algum dos estados está fora
     return false; //retorna falso se todos os estados pertencem ao conjunto de restrições.
 }
@@ -41,15 +43,15 @@ bool ControlHandler::MP_General_Controller<Type>::any(const LinAlg::Matrix<Type>
 template<typename Type>
 std::string ControlHandler::MP_General_Controller<Type>::setRestrictions(std::string restrictions)
 {
-	uint16_t quantityOfRegions = 0, posOfNRestriction;
+	uint32_t quantityOfRegions = 0, posOfNRestriction;
 
-	for(uint16_t i = 0; i < restrictions.length(); ++i) // Verifica quantas regiões precisarão ser criadas na alocação dinâmica de memória.
+	for(uint32_t i = 0; i < restrictions.length(); ++i) // Verifica quantas regiões precisarão ser criadas na alocação dinâmica de memória.
 		if(restrictions[i] == 'R') // um R identifica final de restrição.
 			quantityOfRegions++;
 
 	this->Restrictions = new LinAlg::Matrix<Type>[quantityOfRegions];// inicializa o vetor de matrizes de restrições com a quantidade passada na string.
 
-	for(uint16_t i = 0; i < quantityOfRegions; ++i)// Para cada conjunto de restrições, faça.
+	for(uint32_t i = 0; i < quantityOfRegions; ++i)// Para cada conjunto de restrições, faça.
     {
         posOfNRestriction = restrictions.find("R"); // Encontre o final do conjunto (encontrando o primeiro R da string)
 		this->Restrictions[i] = restrictions.substr(0, posOfNRestriction - 1).c_str(); //Converta o trecho do início da string até uma posição antes do primeiro R em uma matriz.
