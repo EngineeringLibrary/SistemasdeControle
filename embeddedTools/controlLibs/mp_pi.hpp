@@ -16,8 +16,7 @@ Type ControlHandler::MP_PI<Type>::OutputControl(Type Reference, Type SignalInput
     LinAlg::Matrix<Type> state(2,1); state(0,0) = this->integralError; // Cria o vetor de estados que será utilizado para calcular qual PI será usado.
     state(1,0) = this->error;
 //    std::cout << "Estado interno: \n" << state(0,0) << ';' << state(1,0) << std::endl;
-    if(this->isInside(state)) // Verifica em qual poliedro os estados estão (inWhitchRegion).
-    {
+    if(this->isInside(state)){ // Verifica em qual poliedro os estados estão (inWhitchRegion)
         //Usa o PI apropriado para a região específica do conjunto.
     	this->ki   = this->controllerParameters[this->inWitchRegion](0,0);
     	this->kp   = this->controllerParameters[this->inWitchRegion](0,1);

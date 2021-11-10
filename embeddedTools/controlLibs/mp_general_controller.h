@@ -2,6 +2,7 @@
 #define MPGENERALCONTROLLER_H_INCLUDED
 
 #include "SistemasdeControle/embeddedTools/primitiveLibs/LinAlg/matrix.h"
+#include <vector>
 
 namespace ControlHandler{
 	template <typename Type>
@@ -9,14 +10,14 @@ namespace ControlHandler{
     {
     public:
     	MP_General_Controller(){}
-
-    	std::string setRestrictions(std::string restrictions); // Recebe uma string com R no final de cada conjunto de restrições. Converte cada trecho do início até encontrar o R em uma matriz e deleta o trecho da string.
-        std::string setControllerParameters(std::string controllers);// Recebe uma string com C no final de cada conjunto parâmetros do controlador afim por partes. Converte cada trecho do início até encontrar o C em uma matriz e deleta o trecho da string.
+		void insertRegion(uint16_t index, std::string set, std::string pwa_function);
+    	// std::string setRestrictions(std::string restrictions); // Recebe uma string com R no final de cada conjunto de restrições. Converte cada trecho do início até encontrar o R em uma matriz e deleta o trecho da string.
+        // std::string setControllerParameters(std::string controllers);// Recebe uma string com C no final de cada conjunto parâmetros do controlador afim por partes. Converte cada trecho do início até encontrar o C em uma matriz e deleta o trecho da string.
     	virtual Type OutputControl(Type Reference, Type SignalInput) = 0; // Obriga as classes filhas a implementar essa função.
 
     protected://significa que todas as classes filhas podem acessar os atributos abaixo.
-    	LinAlg::Matrix<Type> *Restrictions; // Vetor de Matrizes contendo todas as restrições para cada conjunto.
-    	LinAlg::Matrix<Type> *controllerParameters; // Vetor de Matrizes contendo todos os parâmetros de controlador para cada conjunto.
+    	std::map< uint16_t, LinAlg::Matrix<Type> > constraints; // Vetor de Matrizes contendo todas as restrições para cada conjunto.
+    	std::map< uint16_t, LinAlg::Matrix<Type> > controllerParameters; // Vetor de Matrizes contendo todos os parâmetros de controlador para cada conjunto.
     	uint16_t quantityOfRegions; // Quantidade de regiões em que o conjunto foi subdividido.
     	int inWitchRegion; // Sinalisa em qual região pertence o estado calculado.
 
