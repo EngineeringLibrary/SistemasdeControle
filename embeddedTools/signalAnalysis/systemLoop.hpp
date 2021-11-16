@@ -77,13 +77,21 @@ static void Devices::fes4ChannelLoop(void *para){// timer group 0, ISR
         for(uint8_t i = 0; i < dispositivo->channelQuantity; ++i)
             dispositivo->fes[i].resetOutputDirectPin();
         int8_t j = -1; 
-        for(uint8_t i = 0; i < 4*dispositivo->channelQuantity; i+=2){
-            if(i%4 == 0)
+        for(uint8_t i = 0; i < 4*dispositivo->channelQuantity; i+=3){
+            if(i%3 == 0)
                 j++;
-            if(dispositivo->counter == dispositivo->fesDivisionCounter[i])
+            if(dispositivo->counter == dispositivo->fesDivisionCounter[i]){
                 dispositivo->fes[j].setOutputDirectPin();
-            else if(dispositivo->counter == dispositivo->fesDivisionCounter[i+1])
+                dispositivo->fes[j].resetOutputReversePin();
+            }
+            else if(dispositivo->counter == dispositivo->fesDivisionCounter[i+1]){
                 dispositivo->fes[j].resetOutputDirectPin();
+                dispositivo->fes[j].setOutputReversePin();
+            }
+            else if(dispositivo->counter == dispositivo->fesDivisionCounter[i+3]){
+                dispositivo->fes[j].resetOutputDirectPin();
+                dispositivo->fes[j].resetOutputReversePin();
+            }
         }
     } else {
         for(uint8_t i = 0; i < dispositivo->channelQuantity; ++i)
