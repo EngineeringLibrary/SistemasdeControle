@@ -26,4 +26,5 @@ private:
 };
 
 #include "SistemasdeControle/embeddedTools/sensors/hmc5883l.cpp"
+
 #endif

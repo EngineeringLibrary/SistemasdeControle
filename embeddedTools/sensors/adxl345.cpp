@@ -15,10 +15,10 @@
 
 bool adxl345::init()
 {
-    i2c_master_init();
+    // i2c_master_init();
     if (!connected()) return false;
     
-    std::cout<<"Connected!!!";
+    // std::cout<<"Connected!!!";
     
     // stop measurement
     i2c_master_write_slave(ADDR, REG_POWER_CTL, 0x00);

@@ -1,6 +1,7 @@
 #include "SistemasdeControle/embeddedTools/sensors/hmc5883l.h"
 
-#define MADDR          0x1E   // i2c MADDRess
+// #define MAGN_ADDRESS  (0x3C)
+#define MADDR          0x3C  // i2c MADDRess
 #define MID_A          0x48   // device id
 #define MID_B          0x34
 #define MID_C          0x33
@@ -14,7 +15,8 @@
 
 bool hmc5883l::init()
 {
-    if (!connected()) return false;
+
+    // if (!connected()) return false;
 
     // 2 samples averaged - 75Hz
     i2c_master_write_slave(MADDR, MREG_A, 0b00111000);
