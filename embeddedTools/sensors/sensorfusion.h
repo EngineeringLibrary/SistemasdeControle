@@ -31,7 +31,7 @@ namespace GY80
          * 
          * @param other sensorfusion object
          */
-        sensorfusion(){};
+        sensorfusion(){initialized = false;}
         sensorfusion(const sensorfusion &other)  = delete;
         sensorfusion(const sensorfusion &&other) = delete;
 
@@ -58,6 +58,7 @@ namespace GY80
         bool init();
     private:
         // sensors
+        bool initialized;
         adxl345  _acce;
         l3g4200d _gyro;
         hmc5883l _magn;

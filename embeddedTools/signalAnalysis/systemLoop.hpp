@@ -1,6 +1,6 @@
 #include "systemLoop.h"
 
- Devices::fes4channels::fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint16_t &freq, const uint16_t &time_on, const uint16_t &period,  bool isCA)
+ Devices::fes4channels::fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint32_t &freq, const uint16_t &time_on, const uint16_t &period,  bool isCA)
  {
     periodic_timer = nullptr;
     counter = 0; activeChannel = 0;
@@ -16,7 +16,7 @@
     // startLoop();// depois tirar
  }
 
-void Devices::fes4channels::initCC(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint16_t &freq){
+void Devices::fes4channels::initCC(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint32_t &freq){
     this->isCA = false;
     // this->fes = new ElectroStimulation::bioSignalController[channelQuantity];
     
@@ -38,12 +38,13 @@ void Devices::fes4channels::initCC(uint8_t *levelPin, uint8_t *modPin, uint8_t c
     fesDivisionCounter[7] = 3*counterMax/5 + 3;
 }
 
-void Devices::fes4channels::initCA(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint16_t &freq){
+void Devices::fes4channels::initCA(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint32_t &freq){
     this->isCA = true;
     
     this->channelQuantity = channelQuantity;
     uint8_t j = 0;
     for(uint8_t i = 0; i < channelQuantity; ++i){
+        std::cout << (int) levelPin[i] << ' ' << (int)modPin[j] << ' ' << (int)modPin[j+1]  << '\n';
         this->fes[i].boostInit((gpio_num_t) levelPin[i], freq,(ledc_channel_t) i);
         this->fes[i].setOutputHandlerPins((gpio_num_t) modPin[j],(gpio_num_t) modPin[j+1]);
         j += 2;
@@ -74,12 +75,16 @@ static void Devices::fes4ChannelLoop(void *para){// timer group 0, ISR
     dispositivo->counter++;
     
     if(dispositivo->isCA){
-        for(uint8_t i = 0; i < dispositivo->channelQuantity; ++i)
+        for(uint8_t i = 0; i < dispositivo->channelQuantity; ++i){
             dispositivo->fes[i].resetOutputDirectPin();
+            dispositivo->fes[i].resetOutputReversePin();
+        }
         int8_t j = -1; 
         for(uint8_t i = 0; i < 4*dispositivo->channelQuantity; i+=3){
-            if(i%3 == 0)
-                j++;
+            // if(i%3 == 0)
+            j++;
+            if (j >= dispositivo->channelQuantity)
+                break;
             if(dispositivo->counter == dispositivo->fesDivisionCounter[i]){
                 dispositivo->fes[j].setOutputDirectPin();
                 dispositivo->fes[j].resetOutputReversePin();
@@ -143,13 +148,15 @@ void Devices::fes4channels::startLoop(/*void (*loopFunction2Call)(void*)*/){
 
 void Devices::fes4channels::stopLoop(){
     if(this->isCA){
-        for(uint8_t i = 0; i < 2*this->channelQuantity; ++i)
+        for(uint8_t i = 0; i <this->channelQuantity; ++i){
             this->fes[i].resetOutputDirectPin();
+            this->fes[i].resetOutputReversePin();
+        }
     } else{
         for(uint8_t i = 0; i < this->channelQuantity; ++i)
             this->fes[i].resetOutputDirectPin();
     }
-    for(uint8_t i = 0; i < 2*this->channelQuantity; ++i)
+    for(uint8_t i = 0; i < this->channelQuantity; ++i)
         this->fes[i].setPowerLevel(0); 
     if(!this->periodic_timer){
         ESP_ERROR_CHECK(esp_timer_stop(this->periodic_timer));
@@ -158,7 +165,7 @@ void Devices::fes4channels::stopLoop(){
     }
 }
 
-void Devices::fes4channels::timeOnAndPeriodUpdate(const uint16_t &time_on, const uint16_t &period){
+void Devices::fes4channels::timeOnAndPeriodUpdate(const uint16_t &time_on, const uint32_t &period){
     //  std::cout << "Entrou1" << time_on  << "   "<< period << std::endl;
     // stopLoop();
     

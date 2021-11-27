@@ -3,13 +3,16 @@
 
 bool GY80::sensorfusion::init()
 {
-    #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
-    Wire.begin();
-    #elif I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE
-    Fastwire::setup(400, true);
-    #endif
+    if (initialized)
+        return true;
+        
+    // #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+    // Wire.begin();
+    // #elif I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE
+    // Fastwire::setup(400, true);
+    // #endif
 	// setup i2c
-    //i2c_init(SCL_PIN, SDA_PIN);
+    // i2c_init(SCL_PIN, SDA_PIN);
     i2c_master_init();
     _angle_position = LinAlg::Matrix<double>(3,1);
     rawData = LinAlg::Matrix<double>(1,9);
@@ -17,6 +20,7 @@ bool GY80::sensorfusion::init()
     bool flag = _acce.init();
     if (!flag) {
         printf("Oops, ADXL345 not detected ... Check your wiring.. Restart device!!!");
+        initialized = false;
         return false;
         //while (true);
         // vTaskDelete(asystem.task.flight);
@@ -25,6 +29,7 @@ bool GY80::sensorfusion::init()
     flag = flag && _gyro.init();
     if (!flag) {
         printf("Oops, L3G4200D not detected ... Check your wiring.. Restart device!!!");
+        initialized = false;
         return false;
         // vTaskDelete(asystem.task.flight);
     }
@@ -32,6 +37,7 @@ bool GY80::sensorfusion::init()
     flag = flag && _magn.init();
     if (!flag) {
         printf("Oops, HMC5883L not detected ... Check your wiring.. Restart device!!!");
+        initialized = false;
         return false;
         // vTaskDelete(asystem.task.flight);
     }
@@ -59,6 +65,7 @@ bool GY80::sensorfusion::init()
     // _kpitch.init(_F, B, _Q, _H, _R);
     // _kroll.init (_F, B, _Q, _H, _R);
     // _kyaw.init  (_F, B, _Q, _H, _R);
+    initialized = true;
     return flag;
 }
 
