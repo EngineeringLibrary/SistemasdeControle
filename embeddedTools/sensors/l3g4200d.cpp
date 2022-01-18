@@ -29,11 +29,13 @@ bool l3g4200d::init()
     i2c_master_write_slave(GADDR, GREG_1, 0b01111111);
 
     // reset offset values
-    _offset[0] = 0;
-    _offset[1] = 0;
-    _offset[2] = 0;
+    gyr_offset.begin(gyr_offset.length());
+    _offset[0] = gyr_offset.readShort(0);
+    _offset[1] = gyr_offset.readShort(2);
+    _offset[2] = gyr_offset.readShort(4);
+    std::cout << "Giroscope offsetValues: " << _offset[0] << ',' << _offset[1] << ',' << _offset[2] << std::endl;
 
-    calibrate();
+    // calibrate();
 
     return true;
 }
@@ -68,25 +70,34 @@ void l3g4200d::read()
     _data[0] = (_raw[0] - _offset[0]) * 0.00875; // + factor);
     _data[1] = (_raw[1] - _offset[1]) * 0.00875; // + factor);
     _data[2] = (_raw[2] - _offset[2]) * 0.00875; // + factor);
+    //  _data[0] = (_raw[0]) * 0.00875; // + factor);
+    // _data[1] = (_raw[1]) * 0.00875; // + factor);
+    // _data[2] = (_raw[2]) * 0.00875; // + factor);
 }
 
 
 void l3g4200d::calibrate()
 {
-    for (unsigned i = 0; i < 100; ++i)
+    int32_t offset[3] = {0,0,0};
+    for (unsigned i = 0; i < 200; ++i)
     {
         read();
 
-        _offset[0] += _raw[0];
-        _offset[1] += _raw[1];
-        _offset[2] += _raw[2];
+        offset[0] += _raw[0];
+        offset[1] += _raw[1];
+        offset[2] += _raw[2];
 
-        vTaskDelay(5 / portTICK_PERIOD_MS);
+        vTaskDelay(14 / portTICK_PERIOD_MS);
     }
 
-    _offset[0] /= 100;
-    _offset[1] /= 100;
-    _offset[2] /= 100;
+    _offset[0] = offset[0]/100;
+    _offset[1] = offset[1]/100;
+    _offset[2] = offset[2]/100;
+
+    gyr_offset.writeShort(0,_offset[0]);
+    gyr_offset.writeShort(2,_offset[1]);
+    gyr_offset.writeShort(4,_offset[2]);
+    gyr_offset.commit();
 }
 
 

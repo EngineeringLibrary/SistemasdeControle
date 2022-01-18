@@ -35,14 +35,17 @@ bool adxl345::init()
     
 
     // reset offset values
-    _offset[0] = 0;
-    _offset[1] = 0;
-    _offset[2] = 0;
+    accel_offset.begin(accel_offset.length());
+    _offset[0] = accel_offset.readShort(0);
+    _offset[1] = accel_offset.readShort(2);
+    _offset[2] = accel_offset.readShort(4);
+    std::cout << "Accelerometer offsetValues: " << _offset[0] << ',' << _offset[1] << ',' << _offset[2] << std::endl;
     _filtered_data[0] = 0;
     _filtered_data[1] = 0;
     _filtered_data[2] = 0;
 
     this->filter_constant = 0.1;
+    calibratedData = LinAlg::Matrix<double>(1,3);
     return true;
 }
 
@@ -72,30 +75,40 @@ void adxl345::read()
     _raw[2] = ((int16_t)reg[5] << 8) | reg[4];
 
     _data[0] = (_raw[0] - _offset[0]) * 0.00390625;
+    // _data[0] = (_raw[0]) * 0.00390625;
     _filtered_data[0] = _data[0] * filter_constant + (_filtered_data[0] * (1.0-filter_constant));
+    // _data[1] = (_raw[1]) * 0.00390625;
     _data[1] = (_raw[1] - _offset[1]) * 0.00390625;
     _filtered_data[1] = _data[1] * filter_constant + (_filtered_data[1] * (1.0-filter_constant));
     _data[2] = (_raw[2] - _offset[2]) * 0.00390625;
+    // _data[2] = (_raw[2]) * 0.00390625;
     _filtered_data[2] = _data[2] * filter_constant + (_filtered_data[2] * (1.0-filter_constant));
 }
 
 
 void adxl345::calibrate()
 {
-    for (unsigned i = 0; i < 100; ++i)
+     int32_t offset[3] = {0,0,0};
+    for (unsigned i = 0; i < 200; ++i)
     {
         read();
 
-        _offset[0] += _raw[0];
-        _offset[1] += _raw[1];
-        _offset[2] += _raw[2];
+        offset[0] += _raw[0];
+        offset[1] += _raw[1];
+        offset[2] += _raw[2];
 
-        vTaskDelay(5 / portTICK_PERIOD_MS);
+        vTaskDelay(14 / portTICK_PERIOD_MS);
     }
 
-    _offset[0] /= 100;
-    _offset[1] /= 100;
-    _offset[2]  = (_offset[2] / 100) - 256;
+    _offset[0] = offset[0]/100;
+    _offset[1] = offset[1]/100;
+    _offset[2] = (offset[2] / 100) - 256;
+    std::cout << "Finalizou a calibração do acelerometro\n";
+    accel_offset.writeShort(0,_offset[0]);
+    accel_offset.writeShort(2,_offset[1]);
+    accel_offset.writeShort(4,_offset[2]);
+    accel_offset.commit();
+    // return calibratedData;
 }
 
 

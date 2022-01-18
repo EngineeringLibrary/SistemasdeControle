@@ -12,7 +12,7 @@
 #include "driver/ledc.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-
+#include <EEPROM.h>
 #include "SistemasdeControle/headers/primitiveLibs/LinAlg/matrix.h"
 #include "SistemasdeControle/embeddedTools/communicationLibs/i2cHandler.h"
 #include "SistemasdeControle/embeddedTools/sensors/kalman.h"
@@ -56,6 +56,21 @@ namespace GY80
         LinAlg::Matrix<double> update();
         LinAlg::Matrix<double> updateRaw();
         bool init();
+        void calibrateAccel(){_acce.calibrate();}
+        void calibrateGyro(){_gyro.calibrate();}
+        void calibrateMag(){_magn.calibrate();}
+        LinAlg::Matrix<int16_t> readMag(){_magn.read(); return _magn.getRawData();}
+        void setMagOffset(LinAlg::Matrix<int16_t> offset){_magn.setOffset(offset);}
+        void saveMagOffset(){_magn.saveOffset();}
+
+        LinAlg::Matrix<int16_t> readGyr(){_gyro.read(); return _gyro.getRawData();}
+        void setGyrOffset(LinAlg::Matrix<int16_t> offset){_gyro.setOffset(offset);}
+        void saveGyrOffset(){_gyro.saveOffset();}
+
+        LinAlg::Matrix<int16_t> readAcc(){_acce.read(); return _acce.getRawData();}
+        void setAccOffset(LinAlg::Matrix<int16_t> offset){_acce.setOffset(offset);}
+        void saveAccOffset(){_acce.saveOffset();}
+
     private:
         // sensors
         bool initialized;
@@ -74,6 +89,8 @@ namespace GY80
         double get_roll(const double &x, const double &y, const double &z);
         // to compensate and correct the yaw in radians
         double get_yaw(const double &x, const double &y, const double &z, const double &pitch, const double &roll);
+
+        
         // remove gravity from accelerometer axis
         // matrix remove_gravity(matrix position, const double &alpha, const double &beta, const double &gama);
     };
