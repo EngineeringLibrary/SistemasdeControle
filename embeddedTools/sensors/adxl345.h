@@ -9,7 +9,7 @@
 #include <EEPROM.h>
 // #define PI 3.14159265359
 
-EEPROMClass  accel_offset("eeprom0",6);
+EEPROMClass  accel_offset("eeprom0");
 class adxl345
 {
 public:

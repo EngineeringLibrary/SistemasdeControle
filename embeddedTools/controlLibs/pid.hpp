@@ -147,7 +147,7 @@ template<typename Type>
 Type ControlHandler::PID<Type>::OutputControl(Type Reference, Type SignalInput)
 {
     this->Error = Reference - SignalInput;
-    std::cout << "E: " << this->Error << " IE:" << this->integralError << "\n";
+    // std::cout << "E: " << this->Error << " IE:" << this->integralError << "\n";
     //difError();
     intError();
     //std::cout << "kp: " << this->kp << " ki:" << this->ki <<  "\n";

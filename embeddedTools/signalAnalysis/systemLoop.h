@@ -22,13 +22,13 @@ namespace Devices{
     struct fes4channels{
         fes4channels(){periodic_timer = nullptr;};
         ~fes4channels(){stopLoop();};
-        fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint32_t &freq = 5000, const uint16_t &time_on = 200, const uint16_t &period = 20000,  bool isCA = false); 
+        fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint32_t &freq = 5000, const uint32_t &time_on = 200, const uint32_t &period = 20000,  bool isCA = false); 
         void initCC(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint32_t &freq = 5000); 
         void initCA(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint32_t &freq = 5000); 
         
         void startLoop(/*void (*loopFunction2Call)(void*)*/);
         void stopLoop();
-        void timeOnAndPeriodUpdate(const uint16_t &time_on, const uint32_t &period);
+        void timeOnAndPeriodUpdate(const uint32_t &time_on, const uint32_t &period);
         LinAlg::Matrix<double> TwoDOFLimbControl(double ref1, double ref2, LinAlg::Matrix<double> sensorData);
         ControlHandler::PID<long double> &getPID(const unsigned &indice) {return this->pid[indice];}
         // void resumeLoop();
@@ -40,7 +40,7 @@ namespace Devices{
         ControlHandler::PID<long double> pid[2];
         esp_timer_handle_t periodic_timer;
         esp_timer_create_args_t periodic_timer_args;
-        uint16_t time_on, fesDivisionCounter[16];
+        uint32_t time_on, fesDivisionCounter[16];
         uint32_t period;
         bool isCA, stopLoopFlag;
     };

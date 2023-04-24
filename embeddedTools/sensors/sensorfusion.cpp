@@ -34,13 +34,13 @@ bool GY80::sensorfusion::init()
         // vTaskDelete(asystem.task.flight);
     }
 
-    flag = flag && _magn.init();
-    if (!flag) {
-        printf("Oops, HMC5883L not detected ... Check your wiring.. Restart device!!!");
-        initialized = false;
-        return false;
-        // vTaskDelete(asystem.task.flight);
-    }
+    // flag = flag && _magn.init();
+    // if (!flag) {
+    //     printf("Oops, HMC5883L not detected ... Check your wiring.. Restart device!!!");
+    //     initialized = false;
+    //     return false;
+    //     // vTaskDelete(asystem.task.flight);
+    // }
 
     // delay time for sensor setup
     vTaskDelay(10 / portTICK_PERIOD_MS);
@@ -83,10 +83,10 @@ LinAlg::Matrix<double> GY80::sensorfusion::updateRaw(){
 
     _gyro.read();
   
-    _magn.read();
+    // _magn.read();
     rawData(0,0) = _acce.get_x();  rawData(0,1) = _acce.get_y(); rawData(0,2) = _acce.get_z();
     rawData(0,3) = _gyro.get_x();  rawData(0,4) = _gyro.get_y(); rawData(0,5) = _gyro.get_z();
-    rawData(0,6) = _magn.get_x();  rawData(0,7) = _magn.get_y(); rawData(0,8) = _magn.get_z();
+    // rawData(0,6) = _magn.get_x();  rawData(0,7) = _magn.get_y(); rawData(0,8) = _magn.get_z();
     return rawData;
 }
 

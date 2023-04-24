@@ -1,6 +1,7 @@
 #include "systemLoop.h"
+#include <thread>
 
- Devices::fes4channels::fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint32_t &freq, const uint16_t &time_on, const uint16_t &period,  bool isCA)
+ Devices::fes4channels::fes4channels(uint8_t *levelPin, uint8_t *modPin, uint8_t channelQuantity, const uint32_t &freq, const uint32_t &time_on, const uint32_t &period,  bool isCA)
  {
     periodic_timer = nullptr;
     counter = 0; activeChannel = 0;
@@ -165,7 +166,7 @@ void Devices::fes4channels::stopLoop(){
     }
 }
 
-void Devices::fes4channels::timeOnAndPeriodUpdate(const uint16_t &time_on, const uint32_t &period){
+void Devices::fes4channels::timeOnAndPeriodUpdate(const uint32_t &time_on, const uint32_t &period){
     //  std::cout << "Entrou1" << time_on  << "   "<< period << std::endl;
     // stopLoop();
     
@@ -204,7 +205,7 @@ void Devices::fes4channels::timeOnAndPeriodUpdate(const uint16_t &time_on, const
 }
 
 LinAlg::Matrix<double> Devices::fes4channels::TwoDOFLimbControl(double ref1, double ref2, LinAlg::Matrix<double> sensorData){
-    double u1, u2; LinAlg::Matrix<double> ret(1,2);
+    double u1, u2; LinAlg::Matrix<double> ret(1,6);
     u1 = this->pid[0].OutputControl(ref1, sensorData(0,0));
     if (u1 > 0){
         u1 += this->pid[0].getInputOperationalPoint();
@@ -230,6 +231,7 @@ LinAlg::Matrix<double> Devices::fes4channels::TwoDOFLimbControl(double ref1, dou
         this->fes[2].setPowerLevel(0); 
         u2 = -u2;
     }
-    ret(0,0) = u1; ret(0,1) = u2;
+    ret(0,0) = u1; ret(0,1) = u2; ret(0,2) = this->pid[0].getErrorValue(); ret(0,3) = this->pid[1].getErrorValue();
+    ret(0,4) = this->pid[0].getIntegralErrorValue(); ret(0,5) = this->pid[1].getIntegralErrorValue();
     return ret;
 }

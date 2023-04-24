@@ -19,6 +19,9 @@ void ElectroStimulation::bioSignalController::boostInit(const gpio_num_t &pin, c
 	ledc_channel_boost.timer_sel  = LEDC_TIMER_0;
 	ledc_channel_boost.speed_mode = LEDC_HIGH_SPEED_MODE;
     ledc_channel_config(&ledc_channel_boost);
+    
+    ledc_fade_func_install(0);
+    this->fadeTime = 0;
 }
 
 void ElectroStimulation::bioSignalController::setOutputHandlerPin(const gpio_num_t &pin){
@@ -41,6 +44,15 @@ void ElectroStimulation::bioSignalController::setOutputHandlerPins(const gpio_nu
 
 void ElectroStimulation::bioSignalController::setPowerLevel(const double &powerLevel){
     ledc_channel_boost.duty       = (uint16_t)((powerLevel)*8192/200); 
-    ledc_set_duty(ledc_channel_boost.speed_mode, ledc_channel_boost.channel, ledc_channel_boost.duty);
-    ledc_update_duty(ledc_channel_boost.speed_mode, ledc_channel_boost.channel);
+    if(this->fadeTime == 0){
+        ledc_set_duty(ledc_channel_boost.speed_mode, ledc_channel_boost.channel, ledc_channel_boost.duty);
+        ledc_update_duty(ledc_channel_boost.speed_mode, ledc_channel_boost.channel);
+    }
+    else{
+        ledc_set_fade_time_and_start( ledc_channel_boost.speed_mode , 
+                                         ledc_channel_boost.channel , 
+                                         ledc_channel_boost.duty , 
+                                         fadeTime , 
+                                         LEDC_FADE_NO_WAIT);
+    }
 }

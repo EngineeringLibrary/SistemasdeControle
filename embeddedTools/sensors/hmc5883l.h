@@ -5,7 +5,7 @@
 #include "SistemasdeControle/embeddedTools/communicationLibs/i2cHandler.h"
 #include <EEPROM.h>
 
-EEPROMClass  mag_offset("eeprom2",6);
+EEPROMClass  mag_offset("eeprom2");
 class hmc5883l
 {
 public:

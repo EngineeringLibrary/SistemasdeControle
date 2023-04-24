@@ -6,7 +6,7 @@
 #include "SistemasdeControle/embeddedTools/communicationLibs/i2cHandler.h"
 #include <EEPROM.h>
 
-EEPROMClass  gyr_offset("eeprom1",6);
+EEPROMClass  gyr_offset("eeprom1");
 class l3g4200d
 {
 public:

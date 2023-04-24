@@ -11,7 +11,7 @@
 #define I2C_MASTER_NUM I2C_NUM_0      /*!< I2C port number for master dev */
 #define I2C_MASTER_TX_BUF_DISABLE 0   /*!< I2C master do not need buffer */
 #define I2C_MASTER_RX_BUF_DISABLE 0   /*!< I2C master do not need buffer */
-#define I2C_MASTER_FREQ_HZ 100000     /*!< I2C master clock frequency */
+#define I2C_MASTER_FREQ_HZ 400000     /*!< I2C master clock frequency */
 
 #define WRITE_BIT I2C_MASTER_WRITE /*!< I2C master write */
 #define READ_BIT I2C_MASTER_READ   /*!< I2C master read */
@@ -29,6 +29,7 @@ static esp_err_t i2c_master_init(void)
     conf.scl_io_num = I2C_MASTER_SCL_IO;
     conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
     conf.master.clk_speed = I2C_MASTER_FREQ_HZ;
+    conf.clk_flags = 0;
     i2c_param_config(I2C_MASTER_NUM, &conf);
     return i2c_driver_install(I2C_MASTER_NUM, conf.mode,
                               I2C_MASTER_RX_BUF_DISABLE,
