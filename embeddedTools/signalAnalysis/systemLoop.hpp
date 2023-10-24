@@ -81,7 +81,7 @@ static void Devices::fes4ChannelLoop(void *para){// timer group 0, ISR
             dispositivo->fes[i].resetOutputReversePin();
         }
         int8_t j = -1; 
-        for(uint8_t i = 0; i < 4*dispositivo->channelQuantity; i+=3){
+        for(uint8_t i = 0; i < 4*dispositivo->channelQuantity; i+=4){
             // if(i%3 == 0)
             j++;
             if (j >= dispositivo->channelQuantity)
@@ -191,16 +191,16 @@ void Devices::fes4channels::timeOnAndPeriodUpdate(const uint32_t &time_on, const
         fesDivisionCounter[3]  =   counterMax/9 + 3;
         fesDivisionCounter[4]  = 2*counterMax/9 + 2;
         fesDivisionCounter[5]  = 2*counterMax/9 + 3;
-        fesDivisionCounter[6]  = 3*counterMax/9 + 2;
-        fesDivisionCounter[7]  = 3*counterMax/9 + 3;
-        fesDivisionCounter[8]  = 4*counterMax/9 + 2;
-        fesDivisionCounter[9]  = 4*counterMax/9 + 3;
+        fesDivisionCounter[6]  = 3*counterMax/9 + 1;
+        fesDivisionCounter[7]  = 3*counterMax/9 + 2;
+        fesDivisionCounter[8]  = 4*counterMax/9 + 1;
+        fesDivisionCounter[9]  = 4*counterMax/9 + 2;
         fesDivisionCounter[10] = 5*counterMax/9 + 2;
         fesDivisionCounter[11] = 5*counterMax/9 + 3;
-        fesDivisionCounter[12] = 6*counterMax/9 + 2;
-        fesDivisionCounter[13] = 6*counterMax/9 + 3;
-        fesDivisionCounter[14] = 7*counterMax/9 + 2;
-        fesDivisionCounter[15] = 7*counterMax/9 + 3;
+        fesDivisionCounter[12] = 6*counterMax/9 + 1;
+        fesDivisionCounter[13] = 6*counterMax/9 + 2;
+        fesDivisionCounter[14] = 7*counterMax/9 + 1;
+        fesDivisionCounter[15] = 7*counterMax/9 + 2;
     }
 }
 
