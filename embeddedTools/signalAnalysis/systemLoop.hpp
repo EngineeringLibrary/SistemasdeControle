@@ -81,18 +81,26 @@ static void Devices::fes4ChannelLoop(void *para){// timer group 0, ISR
             dispositivo->fes[i].resetOutputReversePin();
         }
         int8_t j = -1; 
-        for(uint8_t i = 0; i < 4*dispositivo->channelQuantity; i+=3){
+        for(uint8_t i = 0; i < 4*dispositivo->channelQuantity; i+=4){
             // if(i%3 == 0)
             j++;
             if (j >= dispositivo->channelQuantity)
                 break;
+            //Adicionando para zerar os pulsos quando o ciclo de trabalho for zero
+            // if(dispositivo->fes[j].get_ledc_channel_boost().duty == 0){
+            //     dispositivo->fes[j].resetOutputDirectPin();
+            //     dispositivo->fes[j].resetOutputReversePin();
+            //     break;
+            // }
             if(dispositivo->counter == dispositivo->fesDivisionCounter[i]){
-                dispositivo->fes[j].setOutputDirectPin();
+                if(dispositivo->fes[j].get_ledc_channel_boost().duty != 0)
+                    dispositivo->fes[j].setOutputDirectPin();
                 dispositivo->fes[j].resetOutputReversePin();
             }
             else if(dispositivo->counter == dispositivo->fesDivisionCounter[i+1]){
                 dispositivo->fes[j].resetOutputDirectPin();
-                dispositivo->fes[j].setOutputReversePin();
+                if(dispositivo->fes[j].get_ledc_channel_boost().duty != 0)
+                    dispositivo->fes[j].setOutputReversePin();
             }
             else if(dispositivo->counter == dispositivo->fesDivisionCounter[i+3]){
                 dispositivo->fes[j].resetOutputDirectPin();
@@ -107,8 +115,14 @@ static void Devices::fes4ChannelLoop(void *para){// timer group 0, ISR
         for(uint8_t i = 0; i < 2*dispositivo->channelQuantity; i+=2){
             if(i%2 == 0)
                 j++;
+            // //Adicionando para zerar os pulsos quando o ciclo de trabalho for zero
+            // if(dispositivo->fes[j].get_ledc_channel_boost().duty == 0){
+            //     dispositivo->fes[j].resetOutputDirectPin();
+            //     break;
+            // }
             if(dispositivo->counter == dispositivo->fesDivisionCounter[i])
-                dispositivo->fes[j].setOutputDirectPin();
+                if(dispositivo->fes[j].get_ledc_channel_boost().duty != 0)
+                    dispositivo->fes[j].setOutputDirectPin();
             else if(dispositivo->counter == dispositivo->fesDivisionCounter[i+1])
                 dispositivo->fes[j].resetOutputDirectPin();
         }

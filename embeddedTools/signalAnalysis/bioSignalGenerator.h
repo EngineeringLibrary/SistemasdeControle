@@ -33,7 +33,7 @@ namespace ElectroStimulation{
         void resetOutputReversePin(){gpio_set_level(reversePin, false);}
         void setFadeTime(uint32_t fadeTime){this->fadeTime = fadeTime;}
         bool isDCElectrostimulator(){return CC_AC;}
-        
+        ledc_channel_config_t get_ledc_channel_boost(){return ledc_channel_boost;}
 
     private:
         ledc_channel_config_t ledc_channel_boost,ledc_channel_modulation_Direct;
