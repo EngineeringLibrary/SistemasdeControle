@@ -2,12 +2,23 @@
 
 void ElectroStimulation::bioSignalController::boostInit(const gpio_num_t &pin, const uint32_t &freq, const ledc_channel_t channel)
 {
+    // #if SOC_LEDC_SUPPORT_HS_MODE
     gpio_pad_select_gpio((gpio_num_t)pin);
+    // #else
+    // esp_rom_gpio_pad_select_gpio((gpio_num_t)pin);
+    // #endif
+     
     gpio_set_direction((gpio_num_t)pin, GPIO_MODE_OUTPUT); 
 
     ledc_timer_boost.duty_resolution = LEDC_TIMER_12_BIT;
     ledc_timer_boost.freq_hz = freq;
+
+    #if SOC_LEDC_SUPPORT_HS_MODE
     ledc_timer_boost.speed_mode = LEDC_HIGH_SPEED_MODE;
+    #else
+    ledc_timer_boost.speed_mode = LEDC_LOW_SPEED_MODE;
+    #endif
+
     ledc_timer_boost.timer_num = LEDC_TIMER_0;
     // Set configuration of timer0 for high speed channels
     ledc_timer_config(&ledc_timer_boost);
@@ -17,7 +28,11 @@ void ElectroStimulation::bioSignalController::boostInit(const gpio_num_t &pin, c
 	ledc_channel_boost.channel    = channel;
 	ledc_channel_boost.gpio_num   = pin;
 	ledc_channel_boost.timer_sel  = LEDC_TIMER_0;
-	ledc_channel_boost.speed_mode = LEDC_HIGH_SPEED_MODE;
+    #if SOC_LEDC_SUPPORT_HS_MODE
+    ledc_channel_boost.speed_mode = LEDC_HIGH_SPEED_MODE;
+    #else
+    ledc_channel_boost.speed_mode = LEDC_LOW_SPEED_MODE;
+    #endif
     ledc_channel_config(&ledc_channel_boost);
     
     ledc_fade_func_install(0);
@@ -25,18 +40,30 @@ void ElectroStimulation::bioSignalController::boostInit(const gpio_num_t &pin, c
 }
 
 void ElectroStimulation::bioSignalController::setOutputHandlerPin(const gpio_num_t &pin){
+    // #if SOC_LEDC_SUPPORT_HS_MODE
     gpio_pad_select_gpio((gpio_num_t)pin);
+    // #else
+    // esp_rom_gpio_pad_select_gpio((gpio_num_t)pin);
+    // #endif
     gpio_set_direction((gpio_num_t)pin, GPIO_MODE_OUTPUT); 
     directPin = pin;
     this->CC_AC = false;
 }
 
 void ElectroStimulation::bioSignalController::setOutputHandlerPins(const gpio_num_t &directPin, const gpio_num_t &reversePin){
+    // #if SOC_LEDC_SUPPORT_HS_MODE
     gpio_pad_select_gpio((gpio_num_t)directPin);
+    // #else
+    // esp_rom_gpio_pad_select_gpio((gpio_num_t)directPin);
+    // #endif
     gpio_set_direction((gpio_num_t)directPin, GPIO_MODE_OUTPUT); 
     this->directPin = directPin;
 
+    // #if SOC_LEDC_SUPPORT_HS_MODE
     gpio_pad_select_gpio((gpio_num_t)reversePin);
+    // #else
+    // esp_rom_gpio_pad_select_gpio((gpio_num_t)reversePin);
+    // #endif
     gpio_set_direction((gpio_num_t)reversePin, GPIO_MODE_OUTPUT); 
     this->reversePin = reversePin;
     this->CC_AC = true;

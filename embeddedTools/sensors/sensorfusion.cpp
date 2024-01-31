@@ -19,7 +19,7 @@ bool GY80::sensorfusion::init()
     // start sensors
     bool flag = _acce.init();
     if (!flag) {
-        printf("Oops, ADXL345 not detected ... Check your wiring.. Restart device!!!");
+        // printf("Oops, ADXL345 not detected ... Check your wiring.. Restart device!!!");
         initialized = false;
         return false;
         //while (true);
@@ -28,7 +28,7 @@ bool GY80::sensorfusion::init()
 
     flag = flag && _gyro.init();
     if (!flag) {
-        printf("Oops, L3G4200D not detected ... Check your wiring.. Restart device!!!");
+        // printf("Oops, L3G4200D not detected ... Check your wiring.. Restart device!!!");
         initialized = false;
         return false;
         // vTaskDelete(asystem.task.flight);

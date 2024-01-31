@@ -6,8 +6,20 @@
 #include "driver/i2c.h"
 #include "sdkconfig.h"
 
-#define I2C_MASTER_SCL_IO GPIO_NUM_22 /*!< gpio number for I2C master clock */
-#define I2C_MASTER_SDA_IO GPIO_NUM_21 /*!< gpio number for I2C master data  */
+
+  #ifdef ESP32DEV
+    #define I2C_MASTER_SCL_IO GPIO_NUM_22 /*!< gpio number for I2C master clock */
+    #define I2C_MASTER_SDA_IO GPIO_NUM_21 /*!< gpio number for I2C master data  */
+  #elif ESP32C3DEV
+    #define I2C_MASTER_SCL_IO GPIO_NUM_7 /*!< gpio number for I2C master clock */
+    #define I2C_MASTER_SDA_IO GPIO_NUM_6 /*!< gpio number for I2C master data  */
+  #elif ESP32S2DEV
+    #define I2C_MASTER_SCL_IO GPIO_NUM_9 /*!< gpio number for I2C master clock */
+    #define I2C_MASTER_SDA_IO GPIO_NUM_8 /*!< gpio number for I2C master data  */
+  #endif
+
+
+
 #define I2C_MASTER_NUM I2C_NUM_0      /*!< I2C port number for master dev */
 #define I2C_MASTER_TX_BUF_DISABLE 0   /*!< I2C master do not need buffer */
 #define I2C_MASTER_RX_BUF_DISABLE 0   /*!< I2C master do not need buffer */
@@ -44,7 +56,14 @@ static esp_err_t i2c_master_read_slave(uint8_t ESP_SLAVE_ADDR, uint8_t AccessedR
     i2c_master_write_byte(cmd,(ESP_SLAVE_ADDR << 1) | WRITE_BIT ,ACK_CHECK_EN);
     i2c_master_write_byte(cmd,AccessedRegister,ACK_CHECK_EN);
     i2c_master_stop(cmd);
-    i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_RATE_MS);
+    #ifdef ARDUINO_ARCH_ESP32
+      #if defined(ESP32) && defined(ARDUINO_ESP32_DEV)
+        i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_RATE_MS);
+      #else
+        i2c_master_cmd_begin(I2C_MASTER_NUM,cmd,1000 / portTICK_PERIOD_MS);
+      #endif
+    #endif
+    
     i2c_cmd_link_delete(cmd);
 
     cmd = i2c_cmd_link_create();
@@ -52,7 +71,14 @@ static esp_err_t i2c_master_read_slave(uint8_t ESP_SLAVE_ADDR, uint8_t AccessedR
     i2c_master_write_byte(cmd, (ESP_SLAVE_ADDR << 1) | I2C_MASTER_READ, true);
     i2c_master_read_byte(cmd, data_rd, NACK_VAL);
     i2c_master_stop(cmd);
-    esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM, cmd, 1000 / portTICK_RATE_MS);
+    #ifdef ARDUINO_ARCH_ESP32
+      #if defined(ESP32) && defined(ARDUINO_ESP32_DEV)
+        esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM, cmd, 1000 / portTICK_RATE_MS);
+      #else
+        esp_err_t ret = i2c_master_cmd_begin(I2C_MASTER_NUM, cmd, 1000 / portTICK_PERIOD_MS);
+      #endif
+    #endif
+    
     i2c_cmd_link_delete(cmd);
     return ret;
 }
@@ -67,7 +93,14 @@ static esp_err_t i2c_master_write_slave(uint8_t ESP_SLAVE_ADDR, uint8_t Accessed
 
     i2c_master_write(cmd, &data_wr, 1, ACK_CHECK_EN);
     i2c_master_stop(cmd);
-    esp_err_t ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+    #ifdef ARDUINO_ARCH_ESP32
+      #if defined(ESP32) && defined(ARDUINO_ESP32_DEV)
+        esp_err_t ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+      #else
+        esp_err_t ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_PERIOD_MS);
+      #endif
+    #endif
+    
     i2c_cmd_link_delete(cmd);
     return ret;
 }

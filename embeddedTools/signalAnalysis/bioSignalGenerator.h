@@ -14,8 +14,8 @@
 #include "driver/i2s.h"
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
-#include "soc/sens_reg.h"
-#include <soc/sens_struct.h>
+// #include "soc/sens_reg.h"
+// #include <soc/sens_struct.h>
 #include "soc/rtc.h"
 #include "soc/syscon_struct.h"
 
